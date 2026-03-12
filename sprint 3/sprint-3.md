@@ -42,7 +42,14 @@
 - Proponen un framework llamado **AgileGen**
 - Los agentes se dividen en **cuatro categorías**, una de ellas es:
   - **Questioning Agent** (e.g., GPT-Engineer, GPT-Pilot): generan preguntas relacionadas con los requerimientos del usuario, expanden los requerimientos y generan código automáticamente
+- Luego los clasifican según si caen en **waterfall** o **agile**
 - Probaron AgileGen con **40 proyectos**
+
+#### Claimean innovar en:
+
+1. **Metodología de colaboración humano-agente**: el usuario participa al inicio (decisión de escenarios) y al final (aceptación) de cada iteración, el agente hace los pasos intermedios. A diferencia de métodos fully automated (ChatDev, MetaGPT) que acumulan errores, y de los que piden mucho input técnico (GPT-Engineer, GPT-Pilot).
+2. **Introducción de BDD en agentes generativos**: son los primeros en usar Gherkin para generar escenarios de usuario y criterios de aceptación, cerrando la brecha entre requerimientos incompletos y funcionalidades precisas. Iteración incremental tipo agile en vez de end-to-end donde los errores se propagan.
+3. **Agent graph con memory pool**: extienden AI-Chain a un grafo dirigido cíclico con puntos de decisión humana. Incluyen un memory pool que recolecta decisiones de usuarios y las recomienda a futuros usuarios con requerimientos similares.
 
 ---
 
