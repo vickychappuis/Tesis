@@ -22,21 +22,27 @@
 
 #### Citas
 
-"However, users, constrained by their domain knowledge, result in a lack of effective acceptance criteria during the requirement completion, failing to fully capture the implicit needs of the user." - importancia 3
+**Importancia 1**
 
-"Finally, to improve the reliability of user scenarios, we also introduce a memory pool mechanism, collecting user decision-making scenarios and recommending them to new users with similar requirements." - importancia 2
+"According to a survey on the popularity of requirement specification symbols conducted by Kassab and Laplante in 2022, 69% of respondents in RE surveys indicated that requirements are expressed in NL, i.e., informally. Therefore, problems exist in the raw requirements collected from users, including incomplete. The issues in these raw requirements can lead to the developed software failing to meet the user’s acceptance criteria."
 
-"AgileGen, as a user-friendly interactive system, significantly outperformed existing best methods by 16.4% and garnered higher user satisfaction." - importancia 2
+**Importancia 2**
 
-"Users are unsure how to drive the Agent to generate desired software, and the Agent does not know how to fulfill user requirements. We have built a bridge between users and the Agent, facilitating collaboration between human decision-making skills and the Agent's coding capabilities. This collaboration has created a generative software development Agent with lightweight iterative feedback." - importancia 3
+"Finally, to improve the reliability of user scenarios, we also introduce a memory pool mechanism, collecting user decision-making scenarios and recommending them to new users with similar requirements."
 
-"Moreover, these agents follow the waterfall model, characterized by a top-down, sequentially linked order, which easily allows the propagation of biases from earlier to later stages. Especially for software development agents based on large language models, the inevitable hallucination issues of large language models can spread and accumulate within the waterfall model, leading to the generation of code that does not align with user requirements." - importancia 3
+"AgileGen, as a user-friendly interactive system, significantly outperformed existing best methods by 16.4% and garnered higher user satisfaction."
 
-"AgileGen has designed three key decision-making processes: requirement proposal, clarification, and iterative acceptance with recommendations, focusing on the skills where end users excel." importancia - 3
+"Typically, software companies overcome this problem by hiring product managers"
 
-"According to a survey on the popularity of requirement specification symbols conducted by Kassab and Laplante in 2022 [18], as shown in Figure 2(a), 69% of respondents in requirements engineering (RE) surveys indicated that requirements are expressed in NL, i.e., informally. Therefore, problems exist in the raw requirements collected from users, including incomplete, as noted by Laplante and Kassab in 2022 [19]. The issues in these raw requirements can lead to the developed software failing to meet the user’s acceptance criteria." - importancia 1
+**Importancia 3**
 
-"Typically, software companies overcome this problem by hiring product managers" - importancia 2
+"However, users, constrained by their domain knowledge, result in a lack of effective acceptance criteria during the requirement completion, failing to fully capture the implicit needs of the user."
+
+"Users are unsure how to drive the Agent to generate desired software, and the Agent does not know how to fulfill user requirements. We have built a bridge between users and the Agent, facilitating collaboration between human decision-making skills and the Agent’s coding capabilities. This collaboration has created a generative software development Agent with lightweight iterative feedback."
+
+"Moreover, these agents follow the waterfall model, characterized by a top-down, sequentially linked order, which easily allows the propagation of biases from earlier to later stages. Especially for software development agents based on large language models, the inevitable hallucination issues of large language models can spread and accumulate within the waterfall model, leading to the generation of code that does not align with user requirements."
+
+"AgileGen has designed three key decision-making processes: requirement proposal, clarification, and iterative acceptance with recommendations, focusing on the skills where end users excel."
 
 "the end-users are involved in (1) End-User Requirement Decision-Making, (2) Scenarios Decision-Making, and (3) Acceptance and Recommendation Decision-Making." - importancia 3
 
