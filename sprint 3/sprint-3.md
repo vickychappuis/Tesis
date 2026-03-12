@@ -10,6 +10,8 @@
   - IAG puede potenciar ese ciclo: generar, refinar o validar especificaciones automáticamente
   - El paper de AgileGen refuerza esto: propone Gherkin (Given/When/Then) como intermediario principal con el usuario
 
+- Explorar también **MDD (Model-Driven Development)** como enfoque relacionado
+
 ---
 
 ## Papers leídos
@@ -36,6 +38,8 @@
 
 "Typically, software companies overcome this problem by hiring product managers" - importancia 2
 
+"the end-users are involved in (1) End-User Requirement Decision-Making, (2) Scenarios Decision-Making, and (3) Acceptance and Recommendation Decision-Making." - importancia 3
+
 #### Notas
 
 - Proponen **Gherkin** como principal intermediario con el usuario
@@ -44,6 +48,8 @@
   - **Questioning Agent** (e.g., GPT-Engineer, GPT-Pilot): generan preguntas relacionadas con los requerimientos del usuario, expanden los requerimientos y generan código automáticamente
 - Luego los clasifican según si caen en **waterfall** o **agile**
 - Probaron AgileGen con **40 proyectos**
+- **Aprendizaje mediante experiencia humana**: las decisiones del usuario se guardan como nuevo conocimiento en la memoria, creando una base de experiencias que mejora futuras generaciones de requisitos y escenarios
+- **Ver después**: sección 5.1.1 RQ1.1 (métricas automáticas de calidad de código) — útil si creamos un artefacto y queremos medirlo
 
 #### Claimean innovar en:
 
