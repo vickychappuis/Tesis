@@ -16,7 +16,7 @@
 
 ### Empowering Agile-Based Generative Software Development through Human-AI Teamwork
 
-[Fuente](https://dl.acm.org/doi/full/10.1145/3702987) — Publicado: 03 July 2025
+[Fuente](https://dl.acm.org/doi/full/10.1145/3702987) — Publicado: 03 de julio de 2025
 
 #### Citas
 
