@@ -77,7 +77,9 @@
 
 ChatDev es un sistema multi-agente impulsado por chat que organiza el desarrollo de software en subtareas coordinadas mediante una "chat chain", donde agentes con roles específicos colaboran y validan soluciones iterativamente para reducir errores y alucinaciones.
 
-![ChatDev roles](chatdev-roles.png)
+![ChatDev roles](chatdev_roles.png)
+
+![Cant. charlas](chatdev_charlas.png)
 
 #### Ojo
 
@@ -87,27 +89,19 @@ ChatDev sigue una lógica bastante cercana al modelo waterfall, ya que, como dic
 
 **Importancia 1**
 
-
-
 **Importancia 2**
 
 "In this paper, we introduce ChatDev, a chat-powered software development framework in which specialized agents driven by large language models (LLMs) are guided in what to communicate (via chat chain) and how to communicate (via communicative dehallucination)."
 
 "Large language models (LLMs) (...) combined with their strong capacity for roleplaying within designated roles (Park et al., 2023; Hua et al., 2023; Chen et al., 2023b)."
 
-
-
 **Importancia 3**
 
-
+"Datasets Note that, as of now, there isn't a publicly accessible dataset containing textual descriptions of software requirements in the context of agent-driven software development. To this end, we are actively working towards developing a comprehensive dataset for software requirement descriptions, which we refer to as SRDD (Software Requirement Description Dataset)."
 
 #### Notas
 
-
-
-#### Claimean innovar en:
-
-
+- Miden la calidad del código evaluando si funciona correctamente (ejecutabilidad), cumple todos los requisitos (completitud) y es coherente con el diseño (consistencia)
 
 ---
 
