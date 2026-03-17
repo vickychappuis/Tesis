@@ -65,12 +65,50 @@
 
 ---
 
-## Papers pendientes
-
 ### ChatDev — Communicative Agents for Software Development
 
-Referenciado en el paper de AgileGen (Empowering Agile-Based Generative Software Development through Human-AI Teamwork).
+[Fuente](https://arxiv.org/abs/2307.07924) — Referenciado en el paper de AgileGen
 
 - **PDF guardado**: `Communicative Agents for Software Development chatDev.pdf`
 - **Repo**: https://github.com/OpenBMB/ChatDev/tree/main (31k+ estrellas — es un producto similar a lo que pienso!)
 - **Review del paper**: https://medium.com/data-science/paper-review-communicative-agents-for-software-development-103d4d816fae
+
+#### Qué hace
+
+ChatDev es un sistema multi-agente impulsado por chat que organiza el desarrollo de software en subtareas coordinadas mediante una "chat chain", donde agentes con roles específicos colaboran y validan soluciones iterativamente para reducir errores y alucinaciones.
+
+![ChatDev roles](chatdev-roles.png)
+
+#### Ojo
+
+ChatDev sigue una lógica bastante cercana al modelo waterfall, ya que, como dicen los autores, "mirrors the established waterfall model, meticulously dividing the development process into [...] designing, coding, testing, and documenting". Es decir, organiza el desarrollo en fases secuenciales bien definidas, algo que contrasta con enfoques más iterativos como Agile, pero que en este caso facilita la coordinación entre múltiples agentes.
+
+#### Citas
+
+**Importancia 1**
+
+
+
+**Importancia 2**
+
+"In this paper, we introduce ChatDev, a chat-powered software development framework in which specialized agents driven by large language models (LLMs) are guided in what to communicate (via chat chain) and how to communicate (via communicative dehallucination)."
+
+"Large language models (LLMs) (...) combined with their strong capacity for roleplaying within designated roles (Park et al., 2023; Hua et al., 2023; Chen et al., 2023b)."
+
+
+
+**Importancia 3**
+
+
+
+#### Notas
+
+
+
+#### Claimean innovar en:
+
+
+
+---
+
+## Papers pendientes
