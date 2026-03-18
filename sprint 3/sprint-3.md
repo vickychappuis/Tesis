@@ -10,6 +10,10 @@
   - IAG puede potenciar ese ciclo: generar, refinar o validar especificaciones automáticamente
   - El paper de AgileGen refuerza esto: propone Gherkin (Given/When/Then) como intermediario principal con el usuario
 
+- La IAG permite construir una memoria reutilizable de decisiones de negocio (escenarios, criterios) que se aprovecha en proyectos futuros, generando aprendizaje inter-proyecto. — Empowering Agile-Based Generative Software Development through Human-AI Teamwork
+
+- La IAG se configura como un stakeholder con poder estructural: no tiene intereses propios, pero influye en decisiones, opciones y dinámicas del proceso mediante su capacidad analítica y acceso a datos. — The Stakeholder Perspective in the Generative AI Scenario and the AI-Stakeholders
+
 - Explorar también **MDD (Model-Driven Development)** como enfoque relacionado
 
 ---

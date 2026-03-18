@@ -17,9 +17,8 @@
 
 ---
 
-## Sprint 3 — 5 mar → 18 mar 2026 *(en curso)*
+## Sprint 3 — 5 mar → 18 mar 2026
 
 - Lectura a fondo de artículos encontrados en Google Scholar
-- Búsqueda en otros buscadores
 
 ---
