@@ -105,4 +105,45 @@ ChatDev sigue una lógica bastante cercana al modelo waterfall, ya que, como dic
 
 ---
 
+### The Stakeholder Perspective in the Generative Artificial Intelligence Scenario and the AI-Stakeholders
+
+[Fuente](https://pmworldlibrary.net/wp-content/uploads/2024/08/pmwj144-Aug2024-Pirozzi-Stakeholder-Perspective-in-Generative-AI-Scenario-and-AI-Stakeholders.pdf) — Publicado: agosto 2024
+
+#### Citas
+
+**Importancia 1**
+
+"AI's ability to provide data-driven insights can help project managers make more informed decisions that align with stakeholders' expectations." — El feedback no es solo del stakeholder hacia los desarrolladores; la IA habilita un flujo inverso donde el equipo técnico puede anticipar y alinearse con las expectativas del negocio.
+
+**Importancia 2**
+
+"Stakeholders are increasingly expecting transparency and accountability in project management. AI can help meet these expectations by providing real-time access to project data and performance metrics."
+
+**Importancia 3**
+
+"Project managers and teams are now able to delegate routine and repetitive tasks to AI systems, freeing up time for more complex and strategic activities. This transition requires a rethinking of how tasks are assigned and the roles each team member plays."
+
+"In each project, there are, indeed, four main communities of stakeholders, which can be defined, respectively, as the Providers, the Clients, the Sponsors, and the Influencers."
+
+#### Notas
+
+- El mayor cambio es conceptual: la IA ya no es solo una herramienta, sino un participante activo en los ecosistemas de stakeholders. El project management debe evolucionar de gestionar solo personas a gestionar personas + sistemas inteligentes.
+- Se hace referencia al concepto de **Optimal Timing** en el engagement de stakeholders, algo que no habíamos considerado antes como dimensión de análisis.
+- La IA ocupa un lugar único: no es un stakeholder tradicional (no tiene intereses propios ni stakes en los resultados), pero influye directamente en las decisiones, la trayectoria y el éxito de los proyectos. Es un actor sin agencia propia que igual reconfigura el ecosistema.
+
+![AI Stakeholder](ai_stakeholder.png)
+
+"Traditionally, power within stakeholder networks was often distributed based on factors such as financial investment, strategic importance, or regulatory authority. The advent of AI has introduced a new power center - one based on data control and analytical capability.
+
+Key aspects of this power shift include:
+
+- **Data as Currency**
+- **Algorithmic Decision-Making**
+- **Speed of Analysis**
+- **Democratization of Expertise**
+- **Reduced Human Bias**
+  "
+
+---
+
 ## Papers pendientes
