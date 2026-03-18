@@ -109,22 +109,6 @@ ChatDev sigue una lógica bastante cercana al modelo waterfall, ya que, como dic
 
 [Fuente](https://pmworldlibrary.net/wp-content/uploads/2024/08/pmwj144-Aug2024-Pirozzi-Stakeholder-Perspective-in-Generative-AI-Scenario-and-AI-Stakeholders.pdf) — Publicado: agosto 2024
 
-#### Citas
-
-**Importancia 1**
-
-"AI's ability to provide data-driven insights can help project managers make more informed decisions that align with stakeholders' expectations." — El feedback no es solo del stakeholder hacia los desarrolladores; la IA habilita un flujo inverso donde el equipo técnico puede anticipar y alinearse con las expectativas del negocio.
-
-**Importancia 2**
-
-"Stakeholders are increasingly expecting transparency and accountability in project management. AI can help meet these expectations by providing real-time access to project data and performance metrics."
-
-**Importancia 3**
-
-"Project managers and teams are now able to delegate routine and repetitive tasks to AI systems, freeing up time for more complex and strategic activities. This transition requires a rethinking of how tasks are assigned and the roles each team member plays."
-
-"In each project, there are, indeed, four main communities of stakeholders, which can be defined, respectively, as the Providers, the Clients, the Sponsors, and the Influencers."
-
 #### Notas
 
 - El mayor cambio es conceptual: la IA ya no es solo una herramienta, sino un participante activo en los ecosistemas de stakeholders. El project management debe evolucionar de gestionar solo personas a gestionar personas + sistemas inteligentes.
@@ -144,6 +128,22 @@ Key aspects of this power shift include:
 - **Reduced Human Bias**
   "
 
+#### Citas
+
+**Importancia 1**
+
+"AI's ability to provide data-driven insights can help project managers make more informed decisions that align with stakeholders' expectations." — El feedback no es solo del stakeholder hacia los desarrolladores; la IA habilita un flujo inverso donde el equipo técnico puede anticipar y alinearse con las expectativas del negocio.
+
+**Importancia 2**
+
+"Stakeholders are increasingly expecting transparency and accountability in project management. AI can help meet these expectations by providing real-time access to project data and performance metrics."
+
+**Importancia 3**
+
+"Project managers and teams are now able to delegate routine and repetitive tasks to AI systems, freeing up time for more complex and strategic activities. This transition requires a rethinking of how tasks are assigned and the roles each team member plays."
+
+"In each project, there are, indeed, four main communities of stakeholders, which can be defined, respectively, as the Providers, the Clients, the Sponsors, and the Influencers."
+
 ---
 
 ### Integrating Generative AI for Advancing Agile Software Development and Mitigating Project Management Challenges
@@ -155,6 +155,30 @@ Key aspects of this power shift include:
 #### Notas
 
 - Paper poco profundo en sus conclusiones. Se limita a señalar que la IAG puede ayudar en desarrollo ágil a través de herramientas que van desde chatbots hasta autocompletado de código, sin aportar evidencia sólida ni análisis novedoso.
+
+---
+
+### Impact of Generative Artificial Intelligence in Software Development Life Cycle
+
+#### Vista general
+
+- Su análisis fue solo a través de encuestas, muy bajo, solo 25 encuestados.
+
+**IMPORTANTE**: Encuestas de developer survey de https://survey.stackoverflow.co/2025/ai/ y buscar roundtables famosas.
+
+#### Citas
+
+**Importancia 1**
+
+"5.4 Recommendation for Future Research: A future study could focus on Improving AI understanding of human context and its ability to interact with stakeholders effectively."
+
+**Importancia 2**
+
+"Both sources also agree that AI will allow developers to focus on more creative tasks and innovation, rather than just repetitive work."
+
+**Importancia 3**
+
+"The Diffusion of Innovation (DOI) theory, first introduced by Gabriel Tarde in 1903 and later developed by Everett Rogers, explains how new ideas, technologies, or practices are accepted over time by people in a group or society."
 
 ---
 
