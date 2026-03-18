@@ -65,7 +65,7 @@
 
 "AgileGen has designed three key decision-making processes: requirement proposal, clarification, and iterative acceptance with recommendations, focusing on the skills where end users excel."
 
-## "the end-users are involved in (1) End-User Requirement Decision-Making, (2) Scenarios Decision-Making, and (3) Acceptance and Recommendation Decision-Making." - importancia 3
+"the end-users are involved in (1) End-User Requirement Decision-Making, (2) Scenarios Decision-Making, and (3) Acceptance and Recommendation Decision-Making." - importancia 3
 
 ### ChatDev — Communicative Agents for Software Development
 
