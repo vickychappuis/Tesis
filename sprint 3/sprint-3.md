@@ -146,4 +146,16 @@ Key aspects of this power shift include:
 
 ---
 
+### Integrating Generative AI for Advancing Agile Software Development and Mitigating Project Management Challenges
+
+[Fuente](https://www.researchgate.net/profile/Jihane-Gharib/publication/379523708_Integrating_Generative_AI_for_Advancing_Agile_Software_Development_and_Mitigating_Project_Management_Challenges/links/678638d22be36743a5d57115/Integrating-Generative-AI-for-Advancing-Agile-Software-Development-and-Mitigating-Project-Management-Challenges.pdf)
+
+![Pain points arising from agile difficulties](agile_pain_points.png)
+
+#### Notas
+
+- Paper poco profundo en sus conclusiones. Se limita a señalar que la IAG puede ayudar en desarrollo ágil a través de herramientas que van desde chatbots hasta autocompletado de código, sin aportar evidencia sólida ni análisis novedoso.
+
+---
+
 ## Papers pendientes
