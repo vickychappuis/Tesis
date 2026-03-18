@@ -43,11 +43,11 @@ Desarrollo en curso
 1.
 2. hasta pag 4
 
-- [Empowering Agile-Based Generative Software Development through Human-AI Teamwork](https://dl.acm.org/doi/full/10.1145/3702987)
-- [The Stakeholder Perspective in the Generative Artificial
+- ✅ [Empowering Agile-Based Generative Software Development through Human-AI Teamwork](https://dl.acm.org/doi/full/10.1145/3702987)
+- ✅ [The Stakeholder Perspective in the Generative Artificial
   Intelligence Scenario and the AI-Stakeholders](https://pmworldlibrary.net/wp-content/uploads/2024/08/pmwj144-Aug2024-Pirozzi-Stakeholder-Perspective-in-Generative-AI-Scenario-and-AI-Stakeholders.pdf)
-- [Integrating Generative AI for Advancing Agile Software Development and Mitigating Project Management Challenges.](https://www.researchgate.net/profile/Jihane-Gharib/publication/379523708_Integrating_Generative_AI_for_Advancing_Agile_Software_Development_and_Mitigating_Project_Management_Challenges/links/678638d22be36743a5d57115/Integrating-Generative-AI-for-Advancing-Agile-Software-Development-and-Mitigating-Project-Management-Challenges.pdf)
-- [Impact of Generative Artificial Intelligence in Software Development Life Cycle : A Mixed-Methods Study in Finland and Abroad Using Concurrent Triangulation Design Approach](https://www.theseus.fi/bitstream/handle/10024/886344/Mohamed_Fahad.pdf?sequence=2&isAllowed=y)
+- ✅ [Integrating Generative AI for Advancing Agile Software Development and Mitigating Project Management Challenges.](https://www.researchgate.net/profile/Jihane-Gharib/publication/379523708_Integrating_Generative_AI_for_Advancing_Agile_Software_Development_and_Mitigating_Project_Management_Challenges/links/678638d22be36743a5d57115/Integrating-Generative-AI-for-Advancing-Agile-Software-Development-and-Mitigating-Project-Management-Challenges.pdf)
+- ✅ [Impact of Generative Artificial Intelligence in Software Development Life Cycle : A Mixed-Methods Study in Finland and Abroad Using Concurrent Triangulation Design Approach](https://www.theseus.fi/bitstream/handle/10024/886344/Mohamed_Fahad.pdf?sequence=2&isAllowed=y)
 - [A Case Study Investigating the Role of Generative AI in Quality Evaluations of Epics in Agile Software Development](https://dl.acm.org/doi/full/10.1145/3729176.3729200)
 - [All Work and No Flow: Experiences on Automating Product Owners' Workflow using Generative AI](https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1977589&dswid=-328)
 
