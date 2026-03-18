@@ -24,6 +24,23 @@
 
 [Fuente](https://dl.acm.org/doi/full/10.1145/3702987) — Publicado: 03 de julio de 2025
 
+#### Notas
+
+- Proponen **Gherkin** como principal intermediario con el usuario
+- Proponen un framework llamado **AgileGen**
+- Los agentes se dividen en **cuatro categorías**, una de ellas es:
+  - **Questioning Agent** (e.g., GPT-Engineer, GPT-Pilot): generan preguntas relacionadas con los requerimientos del usuario, expanden los requerimientos y generan código automáticamente
+- Luego los clasifican según si caen en **waterfall** o **agile**
+- Probaron AgileGen con **40 proyectos**
+- **Aprendizaje mediante experiencia humana**: las decisiones del usuario se guardan como nuevo conocimiento en la memoria, creando una base de experiencias que mejora futuras generaciones de requisitos y escenarios
+- **Ver después**: sección 5.1.1 RQ1.1 (métricas automáticas de calidad de código) — útil si creamos un artefacto y queremos medirlo
+
+#### Claimean innovar en:
+
+1. **Metodología de colaboración humano-agente**: el usuario participa al inicio (decisión de escenarios) y al final (aceptación) de cada iteración, el agente hace los pasos intermedios. A diferencia de métodos fully automated (ChatDev, MetaGPT) que acumulan errores, y de los que piden mucho input técnico (GPT-Engineer, GPT-Pilot).
+2. **Introducción de BDD en agentes generativos**: son los primeros en usar Gherkin para generar escenarios de usuario y criterios de aceptación, cerrando la brecha entre requerimientos incompletos y funcionalidades precisas. Iteración incremental tipo agile en vez de end-to-end donde los errores se propagan.
+3. **Agent graph con memory pool**: extienden AI-Chain a un grafo dirigido cíclico con puntos de decisión humana. Incluyen un memory pool que recolecta decisiones de usuarios y las recomienda a futuros usuarios con requerimientos similares.
+
 #### Citas
 
 **Importancia 1**
@@ -48,26 +65,7 @@
 
 "AgileGen has designed three key decision-making processes: requirement proposal, clarification, and iterative acceptance with recommendations, focusing on the skills where end users excel."
 
-"the end-users are involved in (1) End-User Requirement Decision-Making, (2) Scenarios Decision-Making, and (3) Acceptance and Recommendation Decision-Making." - importancia 3
-
-#### Notas
-
-- Proponen **Gherkin** como principal intermediario con el usuario
-- Proponen un framework llamado **AgileGen**
-- Los agentes se dividen en **cuatro categorías**, una de ellas es:
-  - **Questioning Agent** (e.g., GPT-Engineer, GPT-Pilot): generan preguntas relacionadas con los requerimientos del usuario, expanden los requerimientos y generan código automáticamente
-- Luego los clasifican según si caen en **waterfall** o **agile**
-- Probaron AgileGen con **40 proyectos**
-- **Aprendizaje mediante experiencia humana**: las decisiones del usuario se guardan como nuevo conocimiento en la memoria, creando una base de experiencias que mejora futuras generaciones de requisitos y escenarios
-- **Ver después**: sección 5.1.1 RQ1.1 (métricas automáticas de calidad de código) — útil si creamos un artefacto y queremos medirlo
-
-#### Claimean innovar en:
-
-1. **Metodología de colaboración humano-agente**: el usuario participa al inicio (decisión de escenarios) y al final (aceptación) de cada iteración, el agente hace los pasos intermedios. A diferencia de métodos fully automated (ChatDev, MetaGPT) que acumulan errores, y de los que piden mucho input técnico (GPT-Engineer, GPT-Pilot).
-2. **Introducción de BDD en agentes generativos**: son los primeros en usar Gherkin para generar escenarios de usuario y criterios de aceptación, cerrando la brecha entre requerimientos incompletos y funcionalidades precisas. Iteración incremental tipo agile en vez de end-to-end donde los errores se propagan.
-3. **Agent graph con memory pool**: extienden AI-Chain a un grafo dirigido cíclico con puntos de decisión humana. Incluyen un memory pool que recolecta decisiones de usuarios y las recomienda a futuros usuarios con requerimientos similares.
-
----
+## "the end-users are involved in (1) End-User Requirement Decision-Making, (2) Scenarios Decision-Making, and (3) Acceptance and Recommendation Decision-Making." - importancia 3
 
 ### ChatDev — Communicative Agents for Software Development
 
