@@ -22,3 +22,10 @@
 - Lectura a fondo de artículos encontrados en Google Scholar
 
 ---
+
+## Sprint 4 — 19 mar → 25 mar 2026
+
+- Refinar el string de búsqueda
+- Buscar en otros buscadores académicos (ANII, ACM, IEEE, Springer)
+
+---
