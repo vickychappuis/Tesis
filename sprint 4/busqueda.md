@@ -95,9 +95,7 @@
 
 ## ACM Digital Library
 
-| String | Campo | Resultados | Nota |
-|---|---|---|---|
-| | | | |
+Requiere cuenta premium para aplicar filtros avanzados (peer review, rango de fechas, tipo de contenido) — no se realizaron búsquedas.
 
 ---
 
