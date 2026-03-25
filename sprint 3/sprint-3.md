@@ -43,11 +43,15 @@
 
 #### Citas
 
-**Importancia 1**
+<details>
+<summary>Importancia 1</summary>
 
 "According to a survey on the popularity of requirement specification symbols conducted by Kassab and Laplante in 2022, 69% of respondents in RE surveys indicated that requirements are expressed in NL, i.e., informally. Therefore, problems exist in the raw requirements collected from users, including incomplete. The issues in these raw requirements can lead to the developed software failing to meet the user’s acceptance criteria."
 
-**Importancia 2**
+</details>
+
+<details>
+<summary>Importancia 2</summary>
 
 "Finally, to improve the reliability of user scenarios, we also introduce a memory pool mechanism, collecting user decision-making scenarios and recommending them to new users with similar requirements."
 
@@ -55,7 +59,10 @@
 
 "Typically, software companies overcome this problem by hiring product managers"
 
-**Importancia 3**
+</details>
+
+<details>
+<summary>Importancia 3</summary>
 
 "However, users, constrained by their domain knowledge, result in a lack of effective acceptance criteria during the requirement completion, failing to fully capture the implicit needs of the user."
 
@@ -66,6 +73,8 @@
 "AgileGen has designed three key decision-making processes: requirement proposal, clarification, and iterative acceptance with recommendations, focusing on the skills where end users excel."
 
 "the end-users are involved in (1) End-User Requirement Decision-Making, (2) Scenarios Decision-Making, and (3) Acceptance and Recommendation Decision-Making." - importancia 3
+
+</details>
 
 ### ChatDev — Communicative Agents for Software Development
 
@@ -89,17 +98,26 @@ ChatDev sigue una lógica bastante cercana al modelo waterfall, ya que, como dic
 
 #### Citas
 
-**Importancia 1**
+<details>
+<summary>Importancia 1</summary>
 
-**Importancia 2**
+</details>
+
+<details>
+<summary>Importancia 2</summary>
 
 "In this paper, we introduce ChatDev, a chat-powered software development framework in which specialized agents driven by large language models (LLMs) are guided in what to communicate (via chat chain) and how to communicate (via communicative dehallucination)."
 
 "Large language models (LLMs) (...) combined with their strong capacity for roleplaying within designated roles (Park et al., 2023; Hua et al., 2023; Chen et al., 2023b)."
 
-**Importancia 3**
+</details>
+
+<details>
+<summary>Importancia 3</summary>
 
 "Datasets Note that, as of now, there isn't a publicly accessible dataset containing textual descriptions of software requirements in the context of agent-driven software development. To this end, we are actively working towards developing a comprehensive dataset for software requirement descriptions, which we refer to as SRDD (Software Requirement Description Dataset)."
+
+</details>
 
 #### Notas
 
@@ -132,19 +150,28 @@ Key aspects of this power shift include:
 
 #### Citas
 
-**Importancia 1**
+<details>
+<summary>Importancia 1</summary>
 
 "AI's ability to provide data-driven insights can help project managers make more informed decisions that align with stakeholders' expectations." — El feedback no es solo del stakeholder hacia los desarrolladores; la IA habilita un flujo inverso donde el equipo técnico puede anticipar y alinearse con las expectativas del negocio.
 
-**Importancia 2**
+</details>
+
+<details>
+<summary>Importancia 2</summary>
 
 "Stakeholders are increasingly expecting transparency and accountability in project management. AI can help meet these expectations by providing real-time access to project data and performance metrics."
 
-**Importancia 3**
+</details>
+
+<details>
+<summary>Importancia 3</summary>
 
 "Project managers and teams are now able to delegate routine and repetitive tasks to AI systems, freeing up time for more complex and strategic activities. This transition requires a rethinking of how tasks are assigned and the roles each team member plays."
 
 "In each project, there are, indeed, four main communities of stakeholders, which can be defined, respectively, as the Providers, the Clients, the Sponsors, and the Influencers."
+
+</details>
 
 ---
 
@@ -170,17 +197,26 @@ Key aspects of this power shift include:
 
 #### Citas
 
-**Importancia 1**
+<details>
+<summary>Importancia 1</summary>
 
 "5.4 Recommendation for Future Research: A future study could focus on Improving AI understanding of human context and its ability to interact with stakeholders effectively."
 
-**Importancia 2**
+</details>
+
+<details>
+<summary>Importancia 2</summary>
 
 "Both sources also agree that AI will allow developers to focus on more creative tasks and innovation, rather than just repetitive work."
 
-**Importancia 3**
+</details>
+
+<details>
+<summary>Importancia 3</summary>
 
 "The Diffusion of Innovation (DOI) theory, first introduced by Gabriel Tarde in 1903 and later developed by Everett Rogers, explains how new ideas, technologies, or practices are accepted over time by people in a group or society."
+
+</details>
 
 ---
 
