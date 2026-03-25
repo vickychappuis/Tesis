@@ -6,6 +6,14 @@
 
 ## Timbó (ANII) — EBSCO
 
+### String 1 _(del set inicial — Sprint 2)_
+
+| String | Campo | Resultados | Nota |
+|---|---|---|---|
+| `"generative AI" AND validation` | All Text | 99,867 | inutilizable — descartado |
+
+---
+
 ### String base (Sprint 2)
 
 `"generative AI" AND ("business users" OR clients OR stakeholders) AND "software development"`
@@ -64,6 +72,24 @@
 - Self-Collaboration Code Generation via ChatGPT — agentes LLM en roles (analista, coder, tester). Dinámicas de equipo y colaboración.
 - Generative language models potential for requirement engineering applications — ChatGPT y Gemini en tareas de RE. Objetivos C y D.
 - Aligning Software Product Management with Software Engineering Concepts — rol del product manager en SE + AI para toma de decisiones. Objetivos B y C.
+
+</details>
+
+---
+
+### String 6 _(nuevo)_
+
+| String | Campo | Resultados | Nota |
+|---|---|---|---|
+| `"generative AI" AND "team dynamics" AND "software development"` | All Text | 70 | manejable — varios relevantes nuevos |
+
+<details>
+<summary>Artículos relevantes</summary>
+
+- From Backlogs to Bots: Generative AI's Impact on Agile Role Evolution — GenAI redefine roles ágiles (product owner, developer, scrum master). Objetivos A, B, C.
+- From Today's Code to Tomorrow's Symphony: The AI Transformation of Developer's Routine by 2030 — desarrolladores como orquestadores de AI. Objetivos A y C.
+- The Purposeful Presentation of AI Teammates — adopción de AI como teammate, seguridad laboral, responsabilidad. Objetivos C y E.
+- Beyond Anthropomorphism: Social Presence in Human–AI Collaboration — colaboración humano-AI. Objetivo C.
 
 </details>
 
