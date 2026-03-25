@@ -1,5 +1,16 @@
 # Búsqueda en buscadores académicos
 
+## Referencia de objetivos específicos
+
+- **(A)** Caracterizar las dinámicas tradicionales de feedback técnico y de validación de procesos de negocio en equipos que adoptan IAG.
+- **(B)** Identificar cambios en la frecuencia, secuencia, granularidad y temporalidad de los intercambios de validación.
+- **(C)** Examinar la transformación del rol del cliente, analista funcional y del equipo técnico en contextos donde actores del negocio interactúan directamente con herramientas generativas.
+- **(D)** Analizar el impacto de la IAG en la validación temprana de reglas de negocio, flujos operativos y criterios de aceptación.
+- **(E)** Describir efectos percibidos en tiempos de ajuste, claridad de requerimientos, alineación negocio-tecnología y coordinación del trabajo.
+- **(F)** Desarrollar una prueba de concepto (PoC) exploratoria de un prototipo basado en IAG orientado a usuarios no técnicos, que permita observar dinámicas de validación temprana de procesos.
+
+---
+
 **Filtros generales:** Peer Reviewed, 01/2023 – 03/2026, Academic Journals + Conference Materials + Literature Reviews
 
 ---
