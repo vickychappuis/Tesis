@@ -30,9 +30,10 @@
 
 ---
 
-## Sprint 5 — 26 mar → 1 abr 2026
+## Sprint 5 — 26 mar → 8 abr 2026
 
 - Búsqueda con String 2 (string elegido para continuar) en ACM, IEEE, Science Direct, Springer, Web of Science y Wiley
+  - Prioridades: Springer, IEEE, ACM, Science Direct (problemas de login), WoS, Wiley
 - Revisar si "team dynamics" debe mantenerse como palabra clave o ajustarse
 
 ---
