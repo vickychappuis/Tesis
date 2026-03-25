@@ -111,8 +111,34 @@
 
 ## Springer
 
-| String | Campo | Resultados | Nota |
-|---|---|---|---|
-| | | | |
+### String 2: `"generative AI" AND ("business users" OR clients OR stakeholders) AND "software development"`
+
+**Filtros aplicados:** Article, Conference paper, Research article, 2023–2026, English
+
+| Campo | Resultados | Nota |
+|---|---|---|
+| All Text | 330 | amplio — varios relevantes nuevos |
+
+<details>
+<summary>Artículos relevantes</summary>
+
+- [Design Principles for Collaborative Generative AI Systems in Software Development](https://link.springer.com/chapter/10.1007/978-3-031-99062-9_4) — principios de diseño para sistemas GenAI colaborativos. Objetivos A, B, C.
+- [Reconsidering Requirements Engineering: Human-AI Collaboration in AI-Native Software Development](https://link.springer.com/chapter/10.1007/978-3-031-99062-9_3) — RE + colaboración humano-AI en desarrollo AI-native. Objetivos C, D.
+- [The AI Scrum Master: Using LLMs to Automate Agile Project Management Tasks](https://link.springer.com/chapter/10.1007/978-3-031-99062-9_8) — LLMs automatizando rol de scrum master. Objetivos A, B, C.
+- [Exploring Human-AI Collaboration in Agile: Customised LLM Meeting Assistants](https://link.springer.com/chapter/10.1007/978-3-031-99062-9_9) — asistentes LLM en reuniones ágiles. Objetivos A, B.
+- [Generative AI and Changing Work: Systematic Review of Practitioner-Led Work Transformations Through Job Crafting](https://link.springer.com/article/10.1007/s10664-025-10639-z) — revisión sistemática sobre transformaciones del trabajo. Objetivos A, C, E.
+- [Trust, Artificial Intelligence and Software Practitioners: An Interdisciplinary Agenda](https://link.springer.com/article/10.1007/s10664-024-10584-9) — confianza + IA + practicantes de software. Objetivo E.
+- [Analysing the Role of Generative AI in Software Engineering - Results from an MLR](https://link.springer.com/article/10.1007/s10664-025-10644-2) — MLR sobre el rol de GenAI en SE. Todos los objetivos.
+- [Managing Expectations Towards AI Tools for Software Development: A Multiple-Case Study](https://link.springer.com/article/10.1007/s10664-024-10607-5) — case study sobre gestión de expectativas. Objetivos A, E.
+- [Cautious Optimism: The Influence of Generative AI Tools in Software Development Projects](https://link.springer.com/article/10.1007/s10664-025-10633-5) — estudio empírico en proyectos de SD. Objetivos A, B.
+- [NLP and GenAI in Agile Project Management: A Systematic Mapping Study](https://link.springer.com/article/10.1007/s10664-024-10572-z) — mapeo sistemático de GenAI en PM ágil. Objetivos A, B.
+- [Responsible AI in Agile Software Engineering - An Industry Perspective](https://link.springer.com/chapter/10.1007/978-3-031-99062-9_6) — perspectiva industrial sobre IA responsable en ágil. Objetivos A, C.
+- [Generative Artificial Intelligence for Requirements Engineering in Software Development](https://link.springer.com/article/10.1007/s13369-024-09819-2) — análisis del estado del arte de GenAI para RE. Objetivos C, D.
+- [Prompt Patterns for Agile Software Project Managers](https://link.springer.com/chapter/10.1007/978-3-031-99062-9_7) — patrones de prompts para PMs ágiles. Objetivos A, B.
+- [Enhancing Agile Workflows with AI-Driven Requirements Engineering](https://link.springer.com/chapter/10.1007/978-3-031-99062-9_5) — design science para RE con AI en flujos ágiles. Objetivos B, D.
+- [Process Mindlessness: When We Lose Sight of What AI is Supposed to Improve](https://link.springer.com/article/10.1007/s10664-025-10638-0) — mirada crítica sobre adopción sin reflexión. Relevante para encuadre.
+- [Business Process Discovery Through Agentic Generative AI](https://link.springer.com/article/10.1007/s10270-024-01248-9) — BPM + agentes GenAI para descubrimiento de procesos. Objetivo D.
+
+</details>
 
 ---
