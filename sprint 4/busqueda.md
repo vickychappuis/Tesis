@@ -111,6 +111,27 @@
 
 ## Springer
 
+### String 1b: `"generative AI" AND "team dynamics" AND "software development"`
+
+**Filtros aplicados:** Article, Conference paper, Research article, 2023–2026, English
+
+| Campo | Resultados | Nota |
+|---|---|---|
+| All Text | 12 | manejable — varios relevantes nuevos |
+
+<details>
+<summary>Artículos relevantes</summary>
+
+- [Generative AI for Software Development: A Survey](https://link.springer.com/chapter/10.1007/978-981-96-7238-7_17) — survey sobre impacto transformativo de GenAI en prácticas de SD. Todos los objetivos.
+- [Generative AI in Agile, Project, and Delivery Management](https://link.springer.com/chapter/10.1007/978-3-031-61797-3_9) — GenAI en gestión ágil y de entrega. Objetivos A, B.
+- [Generative Artificial Intelligence in Agile Software Development Processes: A Literature Review Focused on User eXperience](https://link.springer.com/chapter/10.1007/978-3-031-93536-7_16) — revisión de GenAI en ágil con foco en UX. Objetivos A, B, C.
+- [AI and Work Engagement: A Study of IT Professionals Through the Lens of Self-Determination Theory](https://link.springer.com/chapter/10.1007/978-3-031-95334-7_9) — compromiso laboral + AI en profesionales IT. Objetivo E.
+- [A Survey on Large Language Models for Software Engineering](https://link.springer.com/article/10.1007/s11432-025-4670-0) — survey amplio de LLMs en SE. Relevante como referencia general.
+
+</details>
+
+---
+
 ### String 2: `"generative AI" AND ("business users" OR clients OR stakeholders) AND "software development"`
 
 **Filtros aplicados:** Article, Conference paper, Research article, 2023–2026, English
