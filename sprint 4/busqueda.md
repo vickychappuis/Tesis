@@ -38,6 +38,34 @@
 
 ---
 
+### String 3 _(del set inicial — Sprint 2)_
+
+| String | Campo | Resultados | Nota |
+|---|---|---|---|
+| `"AI-assisted development" AND "development cycle"` | All Text | 9 | sin resultados relevantes — ruido de otros dominios (medicina, cardiología, telecomunicaciones) |
+
+---
+
+### String 5 _(del set inicial — Sprint 2)_
+
+| String | Campo | Resultados | Nota |
+|---|---|---|---|
+| `"generative AI" AND "software process"` | All Text | 133 | demasiado amplio — ruido de medicina, robótica, derecho, agronomía |
+
+<details>
+<summary>Artículos relevantes</summary>
+
+- Toward Process Improvement Framework for Software Development Using Generative AI — framework de proceso para desarrollo con GenAI basado en PSP. Directo al tema.
+- Generative AI in the Software Development Process: A Practical Approach — aplicación práctica de GenAI en el SDLC (requirements, prototyping, coding, testing).
+- Enhancing declarative business process management availability through generative AI — GenAI + BPM, generación de modelos de proceso. Objetivo D.
+- Low-Code and No-Code Development in the Era of Artificial Intelligence — AI habilitando usuarios no técnicos a construir software. Objetivos C y F.
+- How mature is requirements engineering for AI-based systems? — systematic mapping de RE4AI, gap entre ML engineers y end-users. Objetivos C y D.
+- Self-Collaboration Code Generation via ChatGPT — agentes LLM en roles (analista, coder, tester). Dinámicas de equipo y colaboración.
+
+</details>
+
+---
+
 ## ACM Digital Library
 
 | String | Campo | Resultados | Nota |
