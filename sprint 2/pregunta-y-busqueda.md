@@ -35,7 +35,7 @@ Desarrollo en curso
 1. "generative AI" AND validation - no muchas respuestas de este tema
 2. "generative AI" AND ("business users" OR clients OR stakeholders) AND "software development"
 3. "AI-assisted development" AND "development cycle"
-4. "generative AI" AND "software teams" AND roles
+4. 🔄 "generative AI" AND "software teams" AND roles
 5. "generative AI" AND "software process"
 
 ### Encuentros
