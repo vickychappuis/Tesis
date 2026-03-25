@@ -101,6 +101,8 @@ Requiere cuenta premium para aplicar filtros avanzados (peer review, rango de fe
 
 ## IEEE Xplore
 
+**Nota:** el filtro de rango de fechas presentó un bug — no permitía seleccionar años anteriores a 2025. Las búsquedas se realizaron sin filtro de fecha.
+
 | String | Campo | Resultados | Nota |
 |---|---|---|---|
 | `"AI-assisted development" AND "development cycle"` | All Text | 1 | sin resultados relevantes |
