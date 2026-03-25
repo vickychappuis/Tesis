@@ -132,6 +132,35 @@
 
 ---
 
+### String 5: `"generative AI" AND "software process"`
+
+**Filtros aplicados:** Article, Conference paper, 2023–2026, English
+
+| Campo | Resultados | Nota |
+|---|---|---|
+| All Text | 20 | ruido alto — pocos relevantes nuevos |
+
+<details>
+<summary>Artículos relevantes</summary>
+
+- [Hype to Quality: Assessing Generative AI Products Before Use](https://link.springer.com/chapter/10.1007/978-3-032-04288-0_4) — evaluación de herramientas GenAI antes del uso. Objetivos A, E.
+- [Towards Augmenting Human-Centred Design: Generative AI Tools for Interaction Research and Design](https://link.springer.com/chapter/10.1007/978-3-031-82633-7_2) — GenAI en diseño centrado en humano. Objetivo F.
+- [Explainable AI for SW Development and Testing](https://link.springer.com/chapter/10.1007/978-3-032-04288-0_2) — XAI en desarrollo y testing. Objetivos A, B.
+
+</details>
+
+---
+
+### String 4: `"generative AI" AND "software teams" AND roles AND ("software development" OR "software engineering")`
+
+**Filtros aplicados:** Article, Conference paper, Research article, 2023–2026, English
+
+| Campo | Resultados | Nota |
+|---|---|---|
+| All Text | 5 | sin resultados relevantes |
+
+---
+
 ### String 2: `"generative AI" AND ("business users" OR clients OR stakeholders) AND "software development"`
 
 **Filtros aplicados:** Article, Conference paper, Research article, 2023–2026, English
