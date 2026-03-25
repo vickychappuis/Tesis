@@ -50,7 +50,8 @@
 
 | String | Campo | Resultados | Nota |
 |---|---|---|---|
-| `"generative AI" AND "software process"` | All Text | 133 | demasiado amplio — ruido de medicina, robótica, derecho, agronomía |
+| `"generative AI" AND "software process"` | All Text | 133 | manejable — ruido presente pero varios relevantes |
+| `"generative AI" AND "software process" AND (feedback OR stakeholders OR requirements OR validation)` | All Text | 128 | casi sin reducción respecto al anterior — refinamiento no efectivo |
 
 <details>
 <summary>Artículos relevantes</summary>
@@ -61,6 +62,8 @@
 - Low-Code and No-Code Development in the Era of Artificial Intelligence — AI habilitando usuarios no técnicos a construir software. Objetivos C y F.
 - How mature is requirements engineering for AI-based systems? — systematic mapping de RE4AI, gap entre ML engineers y end-users. Objetivos C y D.
 - Self-Collaboration Code Generation via ChatGPT — agentes LLM en roles (analista, coder, tester). Dinámicas de equipo y colaboración.
+- Generative language models potential for requirement engineering applications — ChatGPT y Gemini en tareas de RE. Objetivos C y D.
+- Aligning Software Product Management with Software Engineering Concepts — rol del product manager en SE + AI para toma de decisiones. Objetivos B y C.
 
 </details>
 
@@ -78,7 +81,7 @@
 
 | String | Campo | Resultados | Nota |
 |---|---|---|---|
-| | | | |
+| `"AI-assisted development" AND "development cycle"` | All Text | 1 | sin resultados relevantes |
 
 ---
 
