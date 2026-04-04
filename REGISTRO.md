@@ -34,6 +34,6 @@
 
 - Búsqueda con String 2 (string elegido para continuar) en ACM, IEEE, Science Direct, Springer, Web of Science y Wiley
   - Prioridades: Springer, IEEE, ACM, Science Direct (problemas de login), WoS, Wiley
-- Revisar si "team dynamics" debe mantenerse como palabra clave o ajustarse
+- Revisar si "team dynamics" debe mantenerse o ajustarse como palabra clave general definida al inicio del trabajo; no corresponde al String 2
 
 ---
