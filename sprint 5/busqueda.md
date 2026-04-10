@@ -47,19 +47,19 @@
 
 ## ACM Digital Library
 
-| Campo | Resultados | Nota |
-|---|---|---|
-| | | |
+- Base de datos: `ACM Digital Library`
+- String utilizado: `"generative AI" AND ("business users" OR clients OR stakeholders) AND ("software development")`
+- Resultados totales: `0`
+- Nota: no se obtuvieron resultados con el string 2
 
 ---
 
 ## IEEE Xplore
 
-| Campo | Resultados | Nota |
-|---|---|---|
-| Base de datos | IEEE Xplore | |
-| String utilizado | `"generative AI" AND ("business users" OR clients OR stakeholders) AND ("software development")` | |
-| Resultados totales | 21 | Búsqueda realizada en Sprint 5 |
+- Base de datos: `IEEE Xplore`
+- String utilizado: `"generative AI" AND ("business users" OR clients OR stakeholders) AND ("software development")`
+- Resultados totales: `21`
+- Nota: búsqueda realizada en Sprint 5
 
 ### Papers más útiles de IEEE Xplore
 
