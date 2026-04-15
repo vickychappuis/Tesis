@@ -81,15 +81,7 @@ Se priorizaron los trabajos que parecen aportar a uno o más de estos ejes de la
 - artefactos que median entre negocio y tecnología (user stories, domain models, acceptance tests, scope documents)
 
 <details>
-<summary>Resultado de búsqueda ordenado por utilidad</summary>
-
-# Utiles
-
-- PMAssist: Scaling Product Efficiency using GenAI
-- Comprehensive Evaluation and Insights Into the Use of Large Language Models in the Automation of Behavior-Driven Development Acceptance Test Formulation
-- Towards Human-AI Synergy in Requirements Engineering: A Framework and Preliminary Study
-- Deriving Domain Models From User Stories: Human vs. Machines
-- A Framework for Model-Driven AI-Assisted Generation of IT Project Management Plan and Scope Documents
+<summary>Resto de resultados (secundarios y off topic)</summary>
 
 ## Secundarios
 
@@ -119,9 +111,10 @@ Se priorizaron los trabajos que parecen aportar a uno o más de estos ejes de la
 
 ## Science Direct
 
-| Campo | Resultados | Nota |
-|---|---|---|
-| | | |
+- Base de datos: `ScienceDirect`
+- String utilizado: `"generative AI" AND ("business users" OR clients OR stakeholders) AND "software development"`
+- Resultados totales: `313`
+- URL de la búsqueda: https://www.sciencedirect.com/search?qs=%22generative+AI%22+AND+%28%22business+users%22+OR+clients+OR+stakeholders%29+AND+%22software+development%22&articleTypes=FLA&lastSelectedFacet=subjectAreas&subjectAreas=1700%2C1400%2C2200
 
 ---
 
