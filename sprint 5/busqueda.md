@@ -126,6 +126,8 @@ Se priorizaron los trabajos que parecen aportar a uno o más de estos ejes de la
 
 ## Web of Science
 
+No me da acceso a busqueda por documents
+
 | Campo | Resultados | Nota |
 |---|---|---|
 | | | |
@@ -134,8 +136,11 @@ Se priorizaron los trabajos que parecen aportar a uno o más de estos ejes de la
 
 ## Wiley Online Library
 
-| Campo | Resultados | Nota |
-|---|---|---|
-| | | |
+- Base de datos: `Wiley Online Library`
+- String utilizado: `"generative AI" AND ("business users" OR clients OR stakeholders) AND "software development"`
+- Resultados totales: `136`
+- Resultados cargados en tabla: `100`
+- Archivo de resultados: [resultados-wiley.md](/Users/vchappuis/studies/Tesis/sprint%205/resultados-wiley.md)
+- Nota: carga parcial; faltan incorporar los resultados `101–136`
 
 ---
