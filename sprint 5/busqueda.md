@@ -7,6 +7,14 @@
 **Filtros generales:** Peer Reviewed, 01/2023 – 03/2026, Academic Journals + Conference Materials + Literature Reviews
 > _Se filtra desde 2023 en adelante dado que ChatGPT fue lanzado a fines de 2022, por lo que la literatura relevante sobre adopción de IAG generativa en contextos reales comienza a aparecer a partir de ese año._
 
+### Relevancia
+
+| Valor | Uso |
+| --- | --- |
+| `verde` | Alta pertinencia o inclusión probable tras cribado superficial. |
+| `amarillo` | Revisar: duda, alineación parcial o pendiente de lectura. |
+| `rojo` | Baja pertinencia, exclusión clara o fuera de tipo/tema. |
+
 ---
 
 ## Criterios de inclusión y exclusión
