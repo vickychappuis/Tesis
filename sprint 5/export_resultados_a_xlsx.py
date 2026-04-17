@@ -8,9 +8,16 @@ from pathlib import Path
 
 try:
     from openpyxl import Workbook
+    from openpyxl.styles import PatternFill
     from openpyxl.utils import get_column_letter
 except ImportError as e:
     raise SystemExit("Instalá openpyxl: pip install openpyxl") from e
+
+FILLS = {
+    "verde": PatternFill(fill_type="solid", fgColor="C6EFCE"),
+    "amarillo": PatternFill(fill_type="solid", fgColor="FFEB9C"),
+    "rojo": PatternFill(fill_type="solid", fgColor="FFC7CE"),
+}
 
 ROOT = Path(__file__).resolve().parent
 
@@ -67,6 +74,27 @@ def pick_main_table(tables: list[list[list[str]]]) -> list[list[str]]:
     return max(tables, key=lambda t: len(t))
 
 
+def apply_relevancia_colors(ws) -> None:
+    header_row = 1
+    relev_col = None
+    for c in range(1, ws.max_column + 1):
+        v = ws.cell(row=header_row, column=c).value
+        if v and str(v).strip().lower() == "relevancia":
+            relev_col = c
+            break
+    if relev_col is None:
+        return
+    for r in range(2, ws.max_row + 1):
+        cell = ws.cell(row=r, column=relev_col)
+        raw = cell.value
+        if raw is None:
+            continue
+        key = str(raw).strip().lower()
+        if key in FILLS:
+            cell.fill = FILLS[key]
+            cell.value = None
+
+
 def autosize_columns(ws) -> None:
     for col_idx, col in enumerate(ws.iter_cols(min_row=1, max_row=min(ws.max_row, 500), values_only=True), start=1):
         max_len = 0
@@ -95,6 +123,7 @@ def main() -> None:
         for r, row in enumerate(rows, start=1):
             for c, val in enumerate(row, start=1):
                 ws.cell(row=r, column=c, value=val)
+        apply_relevancia_colors(ws)
         autosize_columns(ws)
 
     out = ROOT / "resultados.xlsx"
