@@ -114,7 +114,10 @@ Se priorizaron los trabajos que parecen aportar a uno o más de estos ejes de la
 - Base de datos: `ScienceDirect`
 - String utilizado: `"generative AI" AND ("business users" OR clients OR stakeholders) AND "software development"`
 - Resultados totales: `313`
+- Resultados cargados en tabla: `192`
 - URL de la búsqueda: https://www.sciencedirect.com/search?qs=%22generative+AI%22+AND+%28%22business+users%22+OR+clients+OR+stakeholders%29+AND+%22software+development%22&articleTypes=FLA&lastSelectedFacet=subjectAreas&subjectAreas=1700%2C1400%2C2200
+- Archivo de resultados: [resultados-sciencedirect.md](/Users/vchappuis/studies/Tesis/sprint%205/resultados-sciencedirect.md)
+- Nota: tabla generada desde `tabla_con_relevancia.xlsx`
 
 ---
 
