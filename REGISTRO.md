@@ -40,6 +40,7 @@
 
 ## Sprint 6 — 9 abr → 7 may 2026
 
+- Cargar los resultados de ACM al Excel
 - Revisar en el Excel los títulos marcados en amarillo y leer sus abstracts
 - Definir la lista final de referencias (armar el Excel solo con los verdes)
 
