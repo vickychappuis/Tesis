@@ -45,3 +45,11 @@
 - Definir la lista final de referencias (armar el Excel solo con los verdes)
 
 ---
+
+## Sprint 7 — 7 may → 14 may 2026
+
+- Búsqueda de literatura gris (blogs, publicaciones de LinkedIn, etc.) via Google Scholar, Google Search y arXiv
+- Backward snowballing
+- Forward snowballing
+
+---
