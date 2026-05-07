@@ -37,3 +37,10 @@
 - Revisar si "team dynamics" debe mantenerse o ajustarse como palabra clave general definida al inicio del trabajo; no corresponde al String 2
 
 ---
+
+## Sprint 6 — 9 abr → 7 may 2026
+
+- Revisar en el Excel los títulos marcados en amarillo y leer sus abstracts
+- Definir la lista final de referencias (armar el Excel solo con los verdes)
+
+---
