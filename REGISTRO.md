@@ -54,10 +54,16 @@
 
 ---
 
-## Sprint 8 — 20 may → ? 2026
+## Sprint 8 — 20 may → 21 may 2026
 
 - Terminar de clasificar los amarillos (93 pendientes) en verde/rojo
 - Con los verdes finales: obtener referencias completas en formato .bib y guardarlas en un archivo `.bib`
 - Obtener la lista de referencias citadas por cada artículo verde
+
+---
+
+## Sprint 9 — 21 may → ? 2026
+
+- Paper encontrado para leer: "User-Centered Design with AI in the Loop: A Case Study of Rapid User Interface Prototyping with 'Vibe Coding'"
 
 ---
