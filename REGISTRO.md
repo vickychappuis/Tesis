@@ -53,3 +53,11 @@
 - Forward snowballing
 
 ---
+
+## Sprint 8 — 20 may → ? 2026
+
+- Terminar de clasificar los amarillos (93 pendientes) en verde/rojo
+- Con los verdes finales: obtener referencias completas en formato .bib y guardarlas en un archivo `.bib`
+- Obtener la lista de referencias citadas por cada artículo verde
+
+---
