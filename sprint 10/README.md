@@ -26,12 +26,36 @@ Filtro:
 
 ## arXiv
 
-Usar el string original como base y ajustar solo si la sintaxis del buscador lo exige.
+String a usar:
+
+`"generative AI" AND ("business users" OR clients OR stakeholders) AND "software development"`
+
+Por que:
+
+- arXiv tolera mejor una formulacion mas cercana al string academico original.
+- Mantiene intactos los tres bloques conceptuales ya definidos.
+- El ajuste principal en arXiv deberia venir por el filtro de fecha, no por reescribir demasiado la consulta.
 
 ## SSRN
 
-Usar el string original como base y ajustar solo si la sintaxis del buscador lo exige.
+String a usar:
+
+`"generative AI" AND ("business users" OR clients OR stakeholders) AND "software development"`
+
+Por que:
+
+- SSRN admite una busqueda mas cercana al formato academico original.
+- Mantiene el foco en GenAI, actores de negocio y desarrollo de software sin introducir terminos nuevos.
+- Conviene cambiar lo minimo para conservar comparabilidad con las busquedas anteriores.
 
 ## Zenodo
 
-Usar el string original como base y ajustar solo si la sintaxis del buscador lo exige.
+String a usar:
+
+`"generative AI" ("business users" OR clients OR stakeholders) "software development"`
+
+Por que:
+
+- Mantiene los mismos tres bloques conceptuales del string original.
+- Se simplifica levemente la sintaxis para una busqueda mas robusta en un repositorio generalista.
+- El cambio es minimo: se elimina `AND`, pero se conserva `OR`.
