@@ -68,3 +68,11 @@
 - Paper encontrado para leer: "User-Centered Design with AI in the Loop: A Case Study of Rapid User Interface Prototyping with 'Vibe Coding'"
 
 ---
+
+## Sprint 10 — 29 may → 4 jun 2026
+
+- Hacer una búsqueda de literatura gris con el mismo string usado hasta ahora, considerando solo resultados de 2023 en adelante
+- Realizar la búsqueda en Google Search, arXiv, SSRN y Zenodo, intentando descargar los primeros 150 resultados de cada fuente
+- Armar la planilla como antes y clasificar cada fuente por tipo: white paper, documentación técnica, blog profesional, reporte industrial, preprint, presentación, repositorio, estudio de caso empresarial, etc.
+
+---
