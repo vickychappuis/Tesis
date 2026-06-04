@@ -28,13 +28,16 @@ Filtro:
 
 String a usar:
 
-`"generative AI" AND ("business users" OR clients OR stakeholders) AND "software development"`
+`generative AI stakeholders software development`
 
 Por que:
 
-- arXiv tolera mejor una formulacion mas cercana al string academico original.
-- Mantiene intactos los tres bloques conceptuales ya definidos.
-- El ajuste principal en arXiv deberia venir por el filtro de fecha, no por reescribir demasiado la consulta.
+- Mantiene los conceptos centrales de GenAI, stakeholders y desarrollo de software.
+- En la practica, arXiv devolvio resultados con una consulta mas simple y sin logica booleana estricta.
+
+Observacion:
+
+- Con comillas no estaba tomando bien la consulta y no devolvia resultados.
 
 ## SSRN
 
@@ -48,6 +51,15 @@ Por que:
 - Mantiene el foco en GenAI, actores de negocio y desarrollo de software sin introducir terminos nuevos.
 - Conviene cambiar lo minimo para conservar comparabilidad con las busquedas anteriores.
 
+Configuracion de busqueda:
+
+- Buscar en `Title, Abstract & Keywords`.
+
+Observacion:
+
+- La opcion `Title, Abstract, Keywords & Full Text` devuelve demasiados resultados para procesar de forma razonable.
+- Se mantiene el mismo string, pero se acota el campo de busqueda para mejorar la precision y la manejabilidad de los resultados.
+
 ## Zenodo
 
 String a usar:
@@ -59,3 +71,15 @@ Por que:
 - Mantiene los mismos tres bloques conceptuales del string original.
 - Se simplifica levemente la sintaxis para una busqueda mas robusta en un repositorio generalista.
 - El cambio es minimo: se elimina `AND`, pero se conserva `OR`.
+
+Resultado observado:
+
+- Zenodo devolvio 761 resultados con esta configuracion.
+
+Filtros aplicados:
+
+- Publication date: 2023 a 2026.
+- Access status: Open.
+- Resource types: Publication, Software e Image.
+- Subjects: Generative AI y generative AI.
+- File type: PDF.
