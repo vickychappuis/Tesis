@@ -76,3 +76,11 @@
 - Armar la planilla como antes y clasificar cada fuente por tipo: white paper, documentación técnica, blog profesional, reporte industrial, preprint, presentación, repositorio, estudio de caso empresarial, etc.
 
 ---
+
+## Sprint 11 — 4 jun → 11 jun 2026
+
+- Realizar búsquedas más específicas en Google, ajustando los términos según dimensiones concretas del problema de investigación
+- Relevar productos SaaS que cubran alguna parte de lo que se está buscando
+- Registrar para cada SaaS identificado qué funcionalidad cubre, qué evidencia pública existe y cómo se relaciona con la pregunta de investigación
+
+---
