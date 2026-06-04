@@ -53,6 +53,18 @@ Por que:
 
 Configuracion de busqueda:
 
+- Prueba inicial: `Title, Abstract, Keywords & Full Text`.
+- Date: `Last 3 Years`.
+- Sort by: `Relevancy`.
+
+Resultado observado en la prueba inicial:
+
+- SSRN muestra `10000` resultados con `Title, Abstract, Keywords & Full Text`.
+
+![Captura de SSRN con busqueda en Full Text y 10000 resultados](./assets/ssrn_fulltext_10000_results.png)
+
+Configuracion final usada para relevar resultados:
+
 - Buscar en `Title, Abstract & Keywords`.
 - Date: `Last 3 Years`.
 - Sort by: `Relevancy`.
@@ -64,7 +76,7 @@ Observacion:
 
 Resultado observado:
 
-- SSRN muestra `10000` resultados.
+- SSRN muestra `4` resultados con esta configuracion.
 
 ## Zenodo
 
@@ -80,7 +92,7 @@ Por que:
 
 Resultado observado:
 
-- Zenodo devolvio 761 resultados con esta configuracion.
+- Zenodo mostro 737 resultados con esta configuracion en el relevamiento usado para armar `zenodo_resultados.md`.
 
 Filtros aplicados:
 
