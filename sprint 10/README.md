@@ -54,11 +54,17 @@ Por que:
 Configuracion de busqueda:
 
 - Buscar en `Title, Abstract & Keywords`.
+- Date: `Last 3 Years`.
+- Sort by: `Relevancy`.
 
 Observacion:
 
 - La opcion `Title, Abstract, Keywords & Full Text` devuelve demasiados resultados para procesar de forma razonable.
 - Se mantiene el mismo string, pero se acota el campo de busqueda para mejorar la precision y la manejabilidad de los resultados.
+
+Resultado observado:
+
+- SSRN muestra `10000` resultados.
 
 ## Zenodo
 
