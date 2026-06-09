@@ -18,11 +18,17 @@
 
 ---
 
-## Referencia no-YC (no incluir como YC)
+## Startups no-YC (similares)
 
-| Empresa | Por qué interesa | Estado |
-|---|---|---|
-| **Codegen** | Flujo "Ticket to Pull Request" para codebases enterprise (el match perfecto de descripción) | Thrive Capital ($16M); **adquirida por ClickUp** (dic-2025); producto standalone discontinuado el 9-ene-2026. NO es YC — https://codegen.com |
+Filtro medio: adyacentes marcadas. Etiquetadas por tramo del loop.
+
+| Startup | Tramo | Qué hace (verificado) | Qué le falta / nota | Estado | Link |
+|---|---|---|---|---|---|
+| **Devin** (Cognition AI) | Técnico: ticket → PR | Le asignás un ticket desde Linear, GitHub, Jira o Slack; levanta sandbox, lee el codebase, planifica, corre tests y abre un PR para review humano. Corre en paralelo en la nube | Solo lado técnico; humano en aprobación, no en ejecución (mismo patrón que ClickUp/Codegen). Caso Nubank lo confirma | Activa | https://devin.ai |
+| **PM Agent** (Heizen, ex-OpenGig) | Casi loop completo: call → spec → tickets | Convierte transcripts de reuniones en PRDs estructurados, criterios de aceptación "policy-aware" y work items; exporta a Jira/Azure DevOps, valida PRs en GitHub/GitLab y baja prompts al IDE. Es parte de una suite (PM/Coding/DevOps/QA Agent) | Lo más cercano al loop completo. Falta la vuelta de validación *negociada* con el stakeholder (no solo criterios generados) | Activa | https://www.heizen.work |
+| **Codegen** (Jay Hack) | Técnico: ticket → PR | Flujo "Ticket to Pull Request" para codebases enterprise | Detalle de su integración en ClickUp abajo | Thrive Capital ($16M); adquirida por ClickUp (dic-2025); standalone discontinuado 9-ene-2026 | https://codegen.com |
+
+> **Nota (no-startups):** en ticket → PR también hay equivalentes de big-cos — Jules (Google), Copilot agent mode (GitHub), Codex (OpenAI) — que no cuentan como startups pero marcan que el tramo técnico está saturado.
 
 ### Codegen dentro de ClickUp — estado actual
 
