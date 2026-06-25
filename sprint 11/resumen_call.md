@@ -76,5 +76,5 @@ Revisión de la lista final de referencias ("finales fontes") y discusión sobre
 | 2 | Decidir e incorporar artículos de **impersonación/personas virtuales** y **user feedback mediado por IA**, aunque hablen de otras fases | 📅 Con Daniel |
 | 3 | Buscar **literatura gris** (blogs, LinkedIn, Twitter/X) con términos como "AI persona", feedback, etc. — identificarla explícitamente como no académica | ⏸ No llegué |
 | 4 | Mejorar organización de referencias: armar un compilado único además del registro por sprint | ✅ Hecho |
-| 5 | Delimitar y documentar los dos escenarios: (a) desarrollo tradicional/con copilot vs (b) herramienta tipo Figma sin tocar código | 🔄 Haciendo diagrama ciclo de vida |
-| 6 | Definir la diferencia entre feedback sobre **prototipo** vs **producto ya construido** y ubicarla en el ciclo de vida | ⏳ Pendiente |
+| 5 | Delimitar y documentar los dos escenarios: (a) desarrollo tradicional/con copilot vs (b) herramienta tipo Figma sin tocar código | HECHO: diagrama ciclo de vida. VER: qué mas se esperaba de esta seccion |
+| 6 | Definir la diferencia entre feedback sobre **prototipo** vs **producto ya construido** y ubicarla en el ciclo de vida | ✅ Hecho L3 y L4 de ciclo de vida |
