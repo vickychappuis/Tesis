@@ -8,7 +8,7 @@
 - [x] Lote 1 — Corpus SLR (sprint 8, hoja `Finales_fuentes`) — 10 papers
 - [x] Lote 2 — Verdes del snowballing backward/forward (sprint 9) — 2 verdes (8 descartadas útiles para la PoC en `IDEAS_POC.md`; clasificación completa en los Excel de `sprint 9/`)
 - [x] Lote 3 — Verdes de literatura gris (sprint 10) — 6 fuentes (literatura gris, no peer-reviewed)
-- [ ] Lote 4 — Verdes de búsquedas por dimensión y startups (sprint 11)
+- [x] Lote 4 — Empresas / productos relevados (sprint 11) — 8 empresas (state of practice, no académico)
 
 ---
 
@@ -84,4 +84,22 @@
 
 ---
 
-_Última actualización: 2026-06-25 — Lote 3 (literatura gris sprint 10): 6 fuentes._
+## Lote 4 — Empresas / productos (sprint 11)
+
+> ⚠️ **Son empresas / productos, no publicaciones.** Relevamiento de *state of practice*: startups y herramientas que cubren parte del ciclo cliente↔equipo con IAG. No son fuentes académicas ni literatura gris; se incluyen como evidencia de mercado.
+> Detalle (qué hace cada una, qué le falta vs. el enfoque de la tesis) en `sprint 11/startups_relacionadas.md`.
+
+| # | Empresa | Origen / estado | Tramo del loop | Link |
+|---|---------|-----------------|----------------|------|
+| 19 | Tusk | YC W24 · pivoteó | Técnico: ticket → PR (pivoteó a generación de tests) | https://www.ycombinator.com/launches/KUe-tusk-ai-coding-agent-that-completes-your-chores |
+| 20 | Sweep | YC S23 · pivoteó | Técnico: issue → PR (pivoteó a asistente JetBrains) | https://www.ycombinator.com/companies/sweep |
+| 21 | Emergent | YC · activa | Técnico: intención → app (usuarios no técnicos) | https://www.ycombinator.com/companies/industry/generative-ai/san-francisco |
+| 22 | Kraftful | YC S19 · adquirida | Validación: feedback → tickets | https://www.ycombinator.com/companies/kraftful |
+| 23 | Versive | YC · activa | Validación: entrevistas → reportes | https://www.ycombinator.com/companies/versive |
+| 24 | Devin (Cognition AI) | no-YC · activa | Técnico: ticket → PR | https://devin.ai |
+| 25 | PM Agent (Heizen) | no-YC · activa | Casi loop completo: call → spec → tickets | https://www.heizen.work |
+| 26 | Codegen | no-YC · adquirida por ClickUp (dic 2025) | Técnico: ticket → PR | https://codegen.com |
+
+---
+
+_Última actualización: 2026-06-25 — Lote 4 (empresas/productos sprint 11): 8 empresas._
