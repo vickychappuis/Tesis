@@ -78,4 +78,3 @@ Revisión de la lista final de referencias ("finales fontes") y discusión sobre
 | 4 | Mejorar organización de referencias: armar un compilado único además del registro por sprint | [ ] |
 | 5 | Delimitar y documentar los dos escenarios: (a) desarrollo tradicional/con copilot vs (b) herramienta tipo Figma sin tocar código | [ ] |
 | 6 | Definir la diferencia entre feedback sobre **prototipo** vs **producto ya construido** y ubicarla en el ciclo de vida | [ ] |
-| 7 | Analizar en la próxima reunión los artículos que queden tras el filtrado | [ ] |

@@ -56,10 +56,38 @@
 
 ## Sprint 8 — 20 may → 21 may 2026
 
-- Terminar de clasificar los amarillos (93 pendientes) en verde/rojo
-- Con los verdes finales: obtener referencias completas en formato .bib y guardarlas en un archivo `.bib`
-- Obtener la lista de referencias citadas por cada artículo verde
-- Papers finales: 9/10 descargados en `sprint 8/papers seleccionados/`; sin acceso público: *Business Process Discovery Through Agentic Generative AI* (ver `sprint 8/notas.md`)
+### 1. Resolución de amarillos pendientes del sprint 6
+
+- Se reabrió `01_clasificacion_final_y_corpus.xlsx` (mismo archivo que sprint 6, con columnas nuevas agregadas: "Nueva clasificación", "Definición final amarillos", "Justificación")
+- Se releyeron los abstracts completos de los ~93 papers que habían quedado en amarillo (y se revisaron también algunos verdes que generaban dudas)
+- Resultado: la gran mayoría pasaron a rojo (descartados); muy pocos confirmados verde
+- Fuentes con mayor volumen de amarillos resueltos: ScienceDirect (~29), ACM (~25), Wiley (~13)
+
+### 2. Definición del corpus SLR final
+
+- Con los verdes confirmados de todas las fuentes (IEEE, ACM, ScienceDirect, Springer, Wiley) se armó la hoja `Finales_fuentes` en `01_clasificacion_final_y_corpus.xlsx`
+- Corpus final: **10 papers**, cada uno con nombre, tipo, año, DOI y entrada BibTeX completa
+- El BibTeX quedó guardado dentro de la propia planilla (columna `bibtex`), no en un `.bib` aparte
+
+### 3. Backward snowballing
+
+- Para cada paper del corpus se listaron todas sus referencias → `03_backward_snowballing.xlsx`
+- Cubiertos: 8 de 10 papers (no incluidos: Fischer & Lang y Generative AI for RE / Cheng et al.)
+- Total: ~497 referencias listadas entre las 8 hojas
+- La clasificación de esas referencias (verde/rojo) se hizo en sprint 9
+
+### 4. Forward snowballing
+
+- Para cada paper se buscaron los trabajos que lo citaron → `02_forward_snowballing.xlsx`
+- Cubiertos: 7 de 10 papers
+- Total: ~158 papers citantes relevados
+- La clasificación también se hizo en sprint 9
+
+### 5. Descarga de PDFs
+
+- 9/10 papers descargados en `sprint 8/papers seleccionados/`
+- Sin acceso abierto: *Business Process Discovery Through Agentic Generative AI* (Lindenberg et al., 2025) — ver `sprint 8/notas.md`
+- *Generative Artificial Intelligence for Requirements Engineering in Software Development* (Fischer & Lang, 2026): inicialmente no disponible, obtenido antes del cierre del sprint
 
 ---
 

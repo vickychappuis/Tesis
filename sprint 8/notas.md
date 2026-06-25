@@ -9,7 +9,7 @@
 - **Año:** 2025
 - **DOI:** https://doi.org/10.1007/978-981-95-5015-9_19
 - **Fuente:** capítulo en *International Conference on Service-Oriented Computing* (Springer)
-- **Lista:** hoja `Finales_fuentes` de `abstracts_clasificados (2).xlsx` (9/10 en `papers seleccionados/`)
+- **Lista:** hoja `Finales_fuentes` de `01_clasificacion_final_y_corpus.xlsx` (9/10 en `papers seleccionados/`)
 - **Búsqueda:** Springer Link vía DOI; sin PDF libre en repositorios ni preprint identificado al 25 may 2026.
 
 ## Resuelto en este sprint
