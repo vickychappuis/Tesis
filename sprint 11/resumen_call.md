@@ -72,9 +72,9 @@ Revisión de la lista final de referencias ("finales fontes") y discusión sobre
 
 | # | Tarea | Estado |
 |---|-------|--------|
-| 1 | Lista "final final" de referencias: pasar artículo por artículo confirmando que cubren desarrollo iterativo / validación (snowballing backward y forward) | [ ] |
-| 2 | Decidir e incorporar artículos de **impersonación/personas virtuales** y **user feedback mediado por IA**, aunque hablen de otras fases | [ ] |
-| 3 | Buscar **literatura gris** (blogs, LinkedIn, Twitter/X) con términos como "AI persona", feedback, etc. — identificarla explícitamente como no académica | [ ] |
-| 4 | Mejorar organización de referencias: armar un compilado único además del registro por sprint | [ ] |
-| 5 | Delimitar y documentar los dos escenarios: (a) desarrollo tradicional/con copilot vs (b) herramienta tipo Figma sin tocar código | [ ] |
-| 6 | Definir la diferencia entre feedback sobre **prototipo** vs **producto ya construido** y ubicarla en el ciclo de vida | [ ] |
+| 1 | Lista "final final" de referencias: pasar artículo por artículo confirmando que cubren desarrollo iterativo / validación (snowballing backward y forward) | ✅ Hecho |
+| 2 | Decidir e incorporar artículos de **impersonación/personas virtuales** y **user feedback mediado por IA**, aunque hablen de otras fases | 📅 Con Daniel |
+| 3 | Buscar **literatura gris** (blogs, LinkedIn, Twitter/X) con términos como "AI persona", feedback, etc. — identificarla explícitamente como no académica | ⏸ No llegué |
+| 4 | Mejorar organización de referencias: armar un compilado único además del registro por sprint | ✅ Hecho |
+| 5 | Delimitar y documentar los dos escenarios: (a) desarrollo tradicional/con copilot vs (b) herramienta tipo Figma sin tocar código | 🔄 Haciendo diagrama ciclo de vida |
+| 6 | Definir la diferencia entre feedback sobre **prototipo** vs **producto ya construido** y ubicarla en el ciclo de vida | ⏳ Pendiente |

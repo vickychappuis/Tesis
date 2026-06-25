@@ -162,3 +162,9 @@
 - Se definieron tareas para el sprint 12
 
 ---
+
+## Sprint 12 — 11 jun → 25 jun 2026
+
+- A partir de la reunión con el tutor, se armó en `sprint 11/resumen_call.md` (sección "Próximos pasos — Sprint 12") la lista de tareas pendientes a encarar en este sprint, cada una con su estado (hecho / en curso / pendiente / con Daniel / no llegué)
+
+---
