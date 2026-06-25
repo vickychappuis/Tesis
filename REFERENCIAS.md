@@ -6,7 +6,7 @@
 **Lotes incorporados:**
 
 - [x] Lote 1 — Corpus SLR (sprint 8, hoja `Finales_fuentes`) — 10 papers
-- [ ] Lote 2 — Verdes del snowballing backward/forward (sprint 9)
+- [x] Lote 2 — Verdes del snowballing backward/forward (sprint 9) — 2 verdes (el resto quedó descartado; registro en `A_REVISAR.md`)
 - [ ] Lote 3 — Verdes de literatura gris (sprint 10)
 - [ ] Lote 4 — Verdes de búsquedas por dimensión y startups (sprint 11)
 
@@ -55,4 +55,17 @@
 
 ---
 
-_Última actualización: 2026-06-25 — Lote 1 (corpus SLR)._
+## Lote 2 — Snowballing (sprint 9)
+
+> Verdes confirmados del backward + forward snowballing (tras revisar azules y amarillos).
+> Fuente: `sprint 9/01_backward_snowballing_clasificado.xlsx` y `sprint 9/02_forward_snowballing_clasificado.xlsx`.
+> El resto (9 azules + 1 amarillo) quedó en rojo; registro en `A_REVISAR.md`.
+
+| # | Título | Autores | Año | Publicación | DOI / Link | PDF |
+|---|--------|---------|-----|-------------|------------|-----|
+| 11 | An empirical evaluation of LLM-assisted sketch-based requirements elicitation and prototyping | Alabsi, Srinivasan, Obeidat, Lakew, Andrew et al. | 2026 | Research Square (preprint) | — | no descargado |
+| 12 | Supporting stakeholder requirements expression with LLM revisions: An empirical evaluation | Mircea, Gevrek, Schmid, Schneider | 2026 | Working Conference on Requirements Engineering (Springer) | — | no descargado |
+
+---
+
+_Última actualización: 2026-06-25 — Lote 2 (snowballing sprint 9): 2 verdes._
