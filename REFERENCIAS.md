@@ -6,7 +6,7 @@
 **Lotes incorporados:**
 
 - [x] Lote 1 — Corpus SLR (sprint 8, hoja `Finales_fuentes`) — 10 papers
-- [x] Lote 2 — Verdes del snowballing backward/forward (sprint 9) — 2 verdes (el resto quedó descartado; registro en `A_REVISAR.md`)
+- [x] Lote 2 — Verdes del snowballing backward/forward (sprint 9) — 2 verdes (8 descartadas útiles para la PoC en `IDEAS_POC.md`; clasificación completa en los Excel de `sprint 9/`)
 - [ ] Lote 3 — Verdes de literatura gris (sprint 10)
 - [ ] Lote 4 — Verdes de búsquedas por dimensión y startups (sprint 11)
 
@@ -59,7 +59,7 @@
 
 > Verdes confirmados del backward + forward snowballing (tras revisar azules y amarillos).
 > Fuente: `sprint 9/01_backward_snowballing_clasificado.xlsx` y `sprint 9/02_forward_snowballing_clasificado.xlsx`.
-> El resto (9 azules + 1 amarillo) quedó en rojo; registro en `A_REVISAR.md`.
+> El resto (9 azules + 1 amarillo) quedó en rojo; 8 de ellas, útiles para la PoC, en `IDEAS_POC.md`. Clasificación completa con justificaciones en los Excel de `sprint 9/`.
 
 | # | Título | Autores | Año | Publicación | DOI / Link | PDF |
 |---|--------|---------|-----|-------------|------------|-----|
