@@ -7,7 +7,7 @@
 
 - [x] Lote 1 — Corpus SLR (sprint 8, hoja `Finales_fuentes`) — 10 papers
 - [x] Lote 2 — Verdes del snowballing backward/forward (sprint 9) — 2 verdes (8 descartadas útiles para la PoC en `IDEAS_POC.md`; clasificación completa en los Excel de `sprint 9/`)
-- [ ] Lote 3 — Verdes de literatura gris (sprint 10)
+- [x] Lote 3 — Verdes de literatura gris (sprint 10) — 6 fuentes (literatura gris, no peer-reviewed)
 - [ ] Lote 4 — Verdes de búsquedas por dimensión y startups (sprint 11)
 
 ---
@@ -68,4 +68,20 @@
 
 ---
 
-_Última actualización: 2026-06-25 — Lote 2 (snowballing sprint 9): 2 verdes._
+## Lote 3 — Literatura gris (sprint 10)
+
+> ⚠️ **Literatura gris — NO peer-reviewed.** Son preprints (arXiv) y prensa/blog profesional, hallados en la búsqueda de literatura gris del sprint 10. Citar como tal; tratar con cautela frente al corpus académico (lotes 1–2).
+> Fuente: `sprint 10/01_resultados_compilados.xlsx` (verde en la 2ª pasada de relevancia).
+
+| # | Título | Autores | Año | Tipo / Fuente | Link |
+|---|--------|---------|-----|---------------|------|
+| 13 | How Do Software Engineering Students Use Generative AI in Real-World Capstone Projects? An Empirical Baseline Study | Mircea, Schmid, Droste, Schneider | 2026 | Preprint (arXiv) | https://arxiv.org/abs/2604.24521 |
+| 14 | Past, Present, and Future of Bug Tracking in the Generative AI Era | Torun, Demircan, Gön, Tüzün | 2025 | Preprint (arXiv) | https://arxiv.org/abs/2510.08005 |
+| 15 | REConnect: Participatory RE that Matters | Damian, Ghimire, Li | 2025 | Preprint (arXiv) | https://arxiv.org/abs/2509.01006 |
+| 16 | A Case Study Investigating the Role of Generative AI in Quality Evaluations of Epics in Agile Software Development | Geyer, He, Sarkar et al. | 2025 | Preprint (arXiv) — también publicado en ACM DL (jun 2025) | https://arxiv.org/abs/2505.07664 |
+| 17 | Automating Business Intelligence Requirements with Generative AI and Semantic Search | Busany, Hadar, Hadad et al. | 2024 | Preprint (arXiv) | https://arxiv.org/abs/2412.07668 |
+| 18 | CIOs are enlisting business users to vibe code their own apps | — | 2026 | Prensa / blog profesional (cio.com) | (sin link capturado) |
+
+---
+
+_Última actualización: 2026-06-25 — Lote 3 (literatura gris sprint 10): 6 fuentes._
