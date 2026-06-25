@@ -1,7 +1,7 @@
 # Registro de avance - Tesis
 
 > Flujo de trabajo sprint por sprint. Los nombres de archivo corresponden a los del repositorio.
-> Compilado único de referencias (transversal a los sprints): `REFERENCIAS.md` y `REFERENCIAS.bib`.
+> Compilado único de referencias (transversal a los sprints): `sprint 12/REFERENCIAS.md` y `sprint 12/REFERENCIAS.bib`.
 
 ---
 
