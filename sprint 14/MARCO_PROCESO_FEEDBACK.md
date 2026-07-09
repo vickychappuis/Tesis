@@ -107,7 +107,6 @@ Por cada actividad (tomada del diagrama del §3), las soluciones con IAG que pod
 #### A1 — Construcción y entrega del incremento
 
 - Agentes que generan o ajustan el incremento a partir del ticket *(productos: Devin, Codegen)*.
-- Generación automática de tests del PR y detección de regresiones *(producto: Tusk)*.
 
 #### A2 — Sprint Review / demo
 
@@ -134,17 +133,4 @@ Por cada actividad (tomada del diagrama del §3), las soluciones con IAG que pod
 
 ---
 
-## 5. Fuentes
-
-> No van a `REFERENCIAS.bib` (corpus sistemático); citas clásicas gestionadas por fuera.
-
-| Cita | Para qué | Link |
-|---|---|---|
-| Pressman & Maxim (2020), *Software Engineering: A Practitioner's Approach*, 9.ª ed., McGraw-Hill. ISBN 9781259872976 | Marco de proceso genérico | [mheducation.com](https://www.mheducation.com/highered/product/software-engineering-a-practitioners-approach-pressman.html) |
-| Sommerville (2016), *Software Engineering*, 10.ª ed., Pearson. ISBN 9780133943030 | Actividades fundamentales; validación y evolución | [pearson.com](https://www.pearson.com/en-us/subject-catalog/p/software-engineering/P200000003258/9780137503148) |
-| Schwaber & Sutherland (2020), *The Scrum Guide* | Sprint, review, backlog, roles | [scrumguides.org (PDF)](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf) · [ES](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-Latin-South-American.pdf) |
-| Dumas et al. (2018), *Fundamentals of Business Process Management*, 2.ª ed., Springer | Validación de reglas / flujos de negocio | [doi.org/10.1007/978-3-662-56509-4](https://doi.org/10.1007/978-3-662-56509-4) |
-
----
-
-_Primera versión — sprint 14._
+_Primera versión — sprint 14. Fundamento bibliográfico del proceso "hoy" (referencias clásicas) pendiente de definir con el tutor — ver `PARA_VER_CON_DANIEL.md`._
