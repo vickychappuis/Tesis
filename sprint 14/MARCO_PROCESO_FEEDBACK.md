@@ -8,7 +8,7 @@ Zoom sobre la etapa de feedback del ciclo de vida (`sprint 12/CICLO_DE_VIDA.md`)
 
 **Entra:** desde que hay un incremento (v ≥ 0.1 **con código**) frente al negocio, y el feedback externo que desencadena hasta el siguiente entregable.
 
-**Queda fuera:** discovery/elicitación inicial, validación de prototipo, diseño UX temprano, mantenimiento de largo plazo.
+**Queda fuera:** discovery/elicitación inicial, validación de prototipo, diseño UX temprano, y el uso en producción / evolución (feedback posterior a la aceptación).
 
 ---
 
@@ -25,9 +25,7 @@ Zoom sobre la etapa de feedback del ciclo de vida (`sprint 12/CICLO_DE_VIDA.md`)
 | A4 | Registro y traducción del feedback | 🟨 AF, 🟧 PO | Feedback crudo (call, mail, bugs) | Tickets / ítems de backlog refinados | Convertir feedback disperso en trabajo accionable |
 | A5 | Refinamiento y repriorización del backlog | 🟧 PO (+ 🟩 DEV) | Tickets nuevos + backlog | Backlog priorizado | Decidir qué entra en la próxima iteración → reabre A1 |
 
-**Frontera de evolución:** con el incremento en uso, ⬜ USR (usuarios finales) genera nuevos requisitos que también alimentan A4/A5. Se señala como frontera, no se desarrolla acá.
-
-> Correspondencia con el ciclo de vida (sprint 12): A1 pliega los loops técnicos internos (inner loop del dev y revisión de PR); A2 es el loop de incremento; A3a es la validación de reglas de negocio; la frontera de evolución es el loop de uso/nuevos requisitos.
+> Correspondencia con el ciclo de vida (sprint 12): A1 pliega los loops técnicos internos (inner loop del dev y revisión de PR); A2 es el loop de incremento; A3a es la validación de reglas de negocio. El uso en producción (evolución) queda **fuera** del zoom.
 
 ---
 
@@ -58,7 +56,6 @@ flowchart TD
     FBK --> A3b --> FAC --> A4
     A4 --> TIC --> A5
     A5 -->|"reabre la iteracion"| BL
-    A2 -.->|"uso / nuevos requisitos (frontera de evolucion)"| A4
 ```
 
 ### 3.1. Vista secundaria: por carriles (roles)
@@ -101,10 +98,10 @@ flowchart LR
 
 ---
 
-## 4. Decisiones abiertas
+## 4. Decisiones tomadas
 
-- [ ] ¿La frontera de evolución (uso en producción) entra en el zoom o se deja afuera?
-- [ ] Granularidad de A4 (registro/traducción): probable punto de mayor entrada de IAG en el ticket 2.
+- [x] El uso en producción / evolución queda **fuera** del zoom: el foco es solo el feedback de la Sprint Review / aceptación.
+- [x] A4 (registro/traducción) se modela como **una sola actividad**; su desglose fino se hará en el ticket 2 (donde entra la IAG).
 - [x] Vista por carriles por rol: **hecha** (§3.1), como vista **secundaria** (base para el objetivo C).
 
 ---
