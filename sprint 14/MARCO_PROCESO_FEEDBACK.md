@@ -98,15 +98,7 @@ flowchart LR
 
 ---
 
-## 4. Decisiones tomadas
-
-- [x] El uso en producción / evolución queda **fuera** del zoom: el foco es solo el feedback de la Sprint Review / aceptación.
-- [x] A4 (registro/traducción) se modela como **una sola actividad**; su desglose fino se hará en el ticket 2 (donde entra la IAG).
-- [x] Vista por carriles por rol: **hecha** (§3.1), como vista **secundaria** (base para el objetivo C).
-
----
-
-## 5. Fuentes
+## 4. Fuentes
 
 > No van a `REFERENCIAS.bib` (corpus sistemático); citas clásicas gestionadas por fuera.
 
