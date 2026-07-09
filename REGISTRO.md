@@ -166,5 +166,19 @@
 ## Sprint 12 — 11 jun → 25 jun 2026
 
 - A partir de la reunión con el tutor, se armó en `sprint 11/resumen_call.md` (sección "Próximos pasos — Sprint 12") la lista de tareas pendientes a encarar en este sprint, cada una con su estado (hecho / en curso / pendiente / con Daniel / no llegué)
+- Resultado: se logró avanzar sobre las tareas definidas para el sprint y dejar consolidado el trabajo pendiente para el siguiente ciclo
+
+---
+
+## Sprint 13 — 25 jun → 2 jul 2026
+
+- Sprint de 1 semana para repensar el valor del feedback del stakeholder y analizar si cambia entre la etapa de prototipo y la etapa iterativa del desarrollo en metodología ágil
+- Se cumplió con lo planificado y se cerró con una reunión con el tutor (`sprint 13/resumen_call.md`): reencuadre como mapeo de literatura y definición de las tareas para el sprint 14
+
+---
+
+## Sprint 14 — 2 jul → 9 jul 2026
+
+- Construcción de la primera versión del marco del proceso de desarrollo con zoom en la etapa de feedback (ver "Próximos pasos — Sprint 14" en `sprint 13/resumen_call.md`)
 
 ---
