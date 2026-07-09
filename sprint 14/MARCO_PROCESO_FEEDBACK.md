@@ -133,4 +133,43 @@ Por cada actividad (tomada del diagrama del §3), las soluciones con IAG que pod
 
 ---
 
-_Primera versión — sprint 14. Fundamento bibliográfico del proceso "hoy" (referencias clásicas) pendiente de definir con el tutor — ver `PARA_VER_CON_DANIEL.md`._
+## 5. Grandes áreas con IAG (mapa conceptual — ticket 3)
+
+Las ideas por actividad (§4) se agrupan en cuatro áreas transversales que atraviesan varias actividades del loop. Cada una se describe por: **qué es**, **evidencia** (papers del sprint 13 y productos relevados) y **cómo cambia el rol** (quién lo hacía antes → quién lo hace con IA).
+
+### 5.1. Impersonación de stakeholders (stakeholder-IA)
+
+- **Qué es:** una IA configurada para representar a un stakeholder (cliente, usuario, PM) y emitir feedback como si fuera él, de forma continua y sin depender de su disponibilidad.
+- **Evidencia:** *(paper: "Designing Tiny Robots"* — dinámicas participativas con stakeholders*)*; concepto de *AI-Stakeholder* (Pirozzi, corpus sprint 3); impersonación / personas virtuales del sprint 11.
+- **Cómo cambia el rol:** el rol del cliente (🟦 CLI) como emisor de feedback pasa parcialmente a una IA; el humano queda como validador.
+- **Límite (obj. D / ética):** *(paper: "REConnect")* advierte que la IA no debe sustituir la conexión humana ni descontextualizar; el stakeholder real sigue como curador y guardián de valores.
+
+### 5.2. Oralidad / entrevistas → artefacto procesable
+
+- **Qué es:** convertir feedback oral o conversacional (calls, entrevistas, demos) en artefactos estructurados y accionables (tickets, user stories con criterios, especificaciones, modelos de proceso).
+- **Evidencia:** *(productos: PM Agent, Versive, Kraftful)*; *(papers: "Towards Human-AI Synergy in RE", "Automating BI Requirements", "Business Process Discovery through Agentic GenAI", "LLM-Assisted Sketch-Based Elicitation")*. Es el patrón central del sprint 13: *feedback humano → estructuración con IA → artefacto usable*.
+- **Cómo cambia el rol:** la traducción que hacía el analista funcional (🟨 AF, actividad A4) pasa a ser asistida o realizada por IA; el AF cura y valida.
+- **Límite:** precisión en extracción, jerarquías y modelado estructurado; riesgo de alucinaciones (varios SLR del sprint 13).
+
+### 5.3. Chequeo de consistencia feedback ↔ requisitos (el "firewall")
+
+- **Qué es:** validar automáticamente el pedido/feedback contra los requisitos, reglas y artefactos ya existentes; detectar conflictos, contradicciones, duplicados o cosas ya cubiertas, antes de que entre al backlog.
+- **Evidencia:** *(papers: "Epic Evaluator"* — rúbrica de calidad de epics*; "Closing the Loop US↔GUI"* — detecta si ya está implementado y vincula requisito↔componente*; "Integrating LLMs into RE"* — inconsistencias y jerarquías*)*.
+- **Cómo cambia el rol:** la validación de reglas de negocio (🟨 AF ↔ 🟦 CLI, actividad A3a) se apoya en una IA que pre-chequea consistencia; el AF resuelve lo que la IA marca.
+
+### 5.4. Generación → desarrollo automático de tickets
+
+- **Qué es:** del ticket —o incluso del requisito en lenguaje natural— al código integrado, de forma automática; agentes que toman trabajo planificado y lo implementan.
+- **Evidencia:** *(productos: Devin, Codegen)*; *(paper: "Requirements are All You Need"* — requisitos → software + tests + mantenimiento*)*. **Contra-evidencia útil:** el pivote de Tusk y Sweep (abandonaron el ticket→PR autónomo) muestra que el modo totalmente autónomo todavía no cierra.
+- **Cómo cambia el rol:** la construcción (🟩 DEV, actividad A1) pasa a agentes; el DEV supervisa, aunque la contra-evidencia (pivote de Tusk/Sweep) sugiere que hoy sigue requiriendo humano en el loop.
+
+### 5.5. Transformación de roles: los 4 escenarios (marco de Daniel — a validar)
+
+Las cuatro áreas de arriba muestran un mismo movimiento de fondo: actividades que hoy hace una persona empiezan a ser **suplantadas** por la IA. El paper que recomendó Daniel, *Future of software development with GenAI* (ver `PROPUESTA_DANIEL.md`), da una escala para graduar ese movimiento:
+
+- **S1 — Tradicional:** humanos en todos los roles (= el proceso "hoy", §2).
+- **S2 — AI in loop:** la IA automatiza tareas puntuales; el humano domina.
+- **S3 — AI assumes roles:** la IA asume roles seleccionados; el humano supervisa.
+- **S4 — Human-in-the-loop:** la IA en la mayoría de los roles; el humano vigila.
+
+Leídas con esta escala, las áreas se ubican así: la **impersonación** (5.1) implica que la IA *asume* el rol del cliente (S3); la **oralidad→artefacto** (5.2) y el **firewall** (5.3) hoy son asistencia con supervisión humana (S2 tendiendo a S3); la **generación→desarrollo** (5.4) apunta a S3–S4.
