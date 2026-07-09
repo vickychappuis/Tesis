@@ -1,6 +1,8 @@
-# Marco del proceso de desarrollo (sin IAG) — zoom en la etapa de feedback
+# Marco del proceso de desarrollo — zoom en la etapa de feedback
 
 Zoom sobre la etapa de feedback del ciclo de vida (`sprint 12/CICLO_DE_VIDA.md`), la que ya habíamos acordado enfocar: la que ocurre una vez que existe una versión ≥ 0.1 con código entregada al cliente.
+
+> El proceso **hoy** (§1–§3) y la **capa con IAG** (§4): ideas por actividad y grandes áreas, apoyadas en los papers relevados en el sprint 13.
 
 ---
 
@@ -98,7 +100,41 @@ flowchart LR
 
 ---
 
-## 4. Fuentes
+## 4. Capa con IAG (ticket 2)
+
+Por cada actividad (tomada del diagrama del §3), las soluciones con IAG que podríamos aplicar. Algunas etapas agrupan más de una actividad (p. ej. la validación). Referencias del sprint 13 entre paréntesis. Lo que **no** cambia es el proceso ni los roles; cambia **quién** ejecuta la tarea y **cómo**.
+
+#### A1 — Construcción y entrega del incremento
+
+- Agentes que generan o ajustan el incremento a partir del ticket *(Devin, Codegen)*.
+- Generación automática de tests del PR y detección de regresiones *(Tusk)*.
+
+#### A2 — Sprint Review / demo
+
+- Stakeholder-IA impersonado que da feedback continuo sin esperar la ceremonia *("Designing Tiny Robots"; sprint 11)*.
+- Asistente que resume la demo y detecta riesgos e impedimentos *("Meeting Assistants")*.
+
+#### A3 — Validación del feedback *(cubre A3a reglas de negocio + A3b factibilidad técnica)*
+
+- Chequear el pedido contra los requisitos/reglas ya definidos y detectar conflictos — *reglas de negocio* *("Integrating LLMs into RE")*.
+- Detectar si el pedido ya está cubierto o implementado — *reglas de negocio* *("Closing the Loop US↔GUI")*.
+- Estimar impacto y esfuerzo del pedido — *factibilidad técnica* *(poco cubierto → gap y foco de PoC)*.
+- Detectar desalineación entre la intención y el sistema — *factibilidad técnica* *("Requirements are All You Need")*.
+
+#### A4 — Registro y traducción del feedback *(mayor entrada de IAG)*
+
+- Voz o call → tickets / user stories con criterios de aceptación *(PM Agent, Versive, Kraftful; "Towards Human-AI Synergy")*.
+- Reportes de bug en lenguaje natural → bug completo con pasos de reproducción *("Bug Tracking GenAI")*.
+- Reformular o mejorar la expresión del feedback del stakeholder *("Supporting Stakeholder Requirements Expression")*.
+
+#### A5 — Refinamiento y repriorización del backlog
+
+- Evaluar la calidad de los ítems del backlog y recomendar mejoras *("Epic Evaluator")*.
+- Detectar riesgos de sobrecompromiso / readiness al priorizar *("Meeting Assistants")*.
+
+---
+
+## 5. Fuentes
 
 > No van a `REFERENCIAS.bib` (corpus sistemático); citas clásicas gestionadas por fuera.
 
