@@ -61,13 +61,51 @@ flowchart TD
     A2 -.->|"uso / nuevos requisitos (frontera de evolucion)"| A4
 ```
 
+### 3.1. Vista secundaria: por carriles (roles)
+
+Misma etapa, organizada en un carril por rol para ver de un vistazo quién es dueño de cada actividad y cómo el trabajo salta entre roles (útil para el objetivo C). Vista **secundaria** (la principal es el flujo de artefactos del §3). Render en `MARCO_PROCESO_FEEDBACK_carriles.png`.
+
+```mermaid
+flowchart LR
+    classDef cli fill:#cfe2ff,stroke:#3d6db3,color:#000;
+    classDef af  fill:#fff3cd,stroke:#b38f00,color:#000;
+    classDef po  fill:#ffe5d0,stroke:#c1651f,color:#000;
+    classDef dev fill:#d1e7dd,stroke:#2f7d5b,color:#000;
+
+    subgraph LCLI["Cliente / stakeholder (CLI)"]
+        FBK["Feedback:<br/>observaciones,<br/>cambios, bugs"]:::cli
+    end
+    subgraph LAF["Analista funcional (AF)"]
+        A3a["A3a - Validacion de<br/>reglas de negocio"]:::af
+        A4["A4 - Registro y<br/>traduccion del feedback"]:::af
+    end
+    subgraph LPO["Product Owner (PO)"]
+        A2["A2 - Sprint Review / demo"]:::po
+        A5["A5 - Refinamiento y<br/>repriorizacion del backlog"]:::po
+    end
+    subgraph LDEV["Equipo tecnico (DEV)"]
+        A1["A1 - Construccion y<br/>entrega del incremento"]:::dev
+        A3b["A3b - Validacion de<br/>factibilidad tecnica"]:::dev
+    end
+
+    A1 --> A2 --> FBK
+    FBK --> A3a
+    FBK --> A3b
+    A3a --> A4
+    A3b --> A4
+    A4 --> A5
+    A5 -->|"reabre la iteracion"| A1
+```
+
+> Mermaid no dibuja carriles perfectos (AF y PO pueden compartir banda). Para la tesis conviene rehacerlo en draw.io usando este esquema como guion.
+
 ---
 
 ## 4. Decisiones abiertas
 
 - [ ] ¿La frontera de evolución (uso en producción) entra en el zoom o se deja afuera?
 - [ ] Granularidad de A4 (registro/traducción): probable punto de mayor entrada de IAG en el ticket 2.
-- [ ] ¿El diagrama se organiza en **carriles por rol** (un carril para CLI, otro para AF, otro para DEV…) para ver de un vistazo quién hace cada actividad? Útil para el objetivo C (transformación de roles con IAG).
+- [x] Vista por carriles por rol: **hecha** (§3.1), como vista **secundaria** (base para el objetivo C).
 
 ---
 
