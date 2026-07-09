@@ -102,35 +102,35 @@ flowchart LR
 
 ## 4. Capa con IAG (ticket 2)
 
-Por cada actividad (tomada del diagrama del §3), las soluciones con IAG que podríamos aplicar. Algunas etapas agrupan más de una actividad (p. ej. la validación). Referencias del sprint 13 entre paréntesis. Lo que **no** cambia es el proceso ni los roles; cambia **quién** ejecuta la tarea y **cómo**.
+Por cada actividad (tomada del diagrama del §3), las soluciones con IAG que podríamos aplicar. Algunas etapas agrupan más de una actividad (p. ej. la validación). Entre paréntesis se indica la fuente: **producto** (relevado en los sprints 11/13) o **paper** (sprint 13). Lo que **no** cambia es el proceso ni los roles; cambia **quién** ejecuta la tarea y **cómo**.
 
 #### A1 — Construcción y entrega del incremento
 
-- Agentes que generan o ajustan el incremento a partir del ticket *(Devin, Codegen)*.
-- Generación automática de tests del PR y detección de regresiones *(Tusk)*.
+- Agentes que generan o ajustan el incremento a partir del ticket *(productos: Devin, Codegen)*.
+- Generación automática de tests del PR y detección de regresiones *(producto: Tusk)*.
 
 #### A2 — Sprint Review / demo
 
-- Stakeholder-IA impersonado que da feedback continuo sin esperar la ceremonia *("Designing Tiny Robots"; sprint 11)*.
-- Asistente que resume la demo y detecta riesgos e impedimentos *("Meeting Assistants")*.
+- Stakeholder-IA impersonado que da feedback continuo sin esperar la ceremonia *(paper: "Designing Tiny Robots"; concepto del sprint 11)*.
+- Asistente que resume la demo y detecta riesgos e impedimentos *(paper: "Meeting Assistants")*.
 
 #### A3 — Validación del feedback *(cubre A3a reglas de negocio + A3b factibilidad técnica)*
 
-- Chequear el pedido contra los requisitos/reglas ya definidos y detectar conflictos — *reglas de negocio* *("Integrating LLMs into RE")*.
-- Detectar si el pedido ya está cubierto o implementado — *reglas de negocio* *("Closing the Loop US↔GUI")*.
+- Chequear el pedido contra los requisitos/reglas ya definidos y detectar conflictos — *reglas de negocio* *(paper: "Integrating LLMs into RE")*.
+- Detectar si el pedido ya está cubierto o implementado — *reglas de negocio* *(paper: "Closing the Loop US↔GUI")*.
 - Estimar impacto y esfuerzo del pedido — *factibilidad técnica* *(poco cubierto → gap y foco de PoC)*.
-- Detectar desalineación entre la intención y el sistema — *factibilidad técnica* *("Requirements are All You Need")*.
+- Detectar desalineación entre la intención y el sistema — *factibilidad técnica* *(paper: "Requirements are All You Need")*.
 
 #### A4 — Registro y traducción del feedback *(mayor entrada de IAG)*
 
-- Voz o call → tickets / user stories con criterios de aceptación *(PM Agent, Versive, Kraftful; "Towards Human-AI Synergy")*.
-- Reportes de bug en lenguaje natural → bug completo con pasos de reproducción *("Bug Tracking GenAI")*.
-- Reformular o mejorar la expresión del feedback del stakeholder *("Supporting Stakeholder Requirements Expression")*.
+- Voz o call → tickets / user stories con criterios de aceptación *(productos: PM Agent, Versive, Kraftful; paper: "Towards Human-AI Synergy")*.
+- Reportes de bug en lenguaje natural → bug completo con pasos de reproducción *(paper: "Bug Tracking GenAI")*.
+- Reformular o mejorar la expresión del feedback del stakeholder *(paper: "Supporting Stakeholder Requirements Expression")*.
 
 #### A5 — Refinamiento y repriorización del backlog
 
-- Evaluar la calidad de los ítems del backlog y recomendar mejoras *("Epic Evaluator")*.
-- Detectar riesgos de sobrecompromiso / readiness al priorizar *("Meeting Assistants")*.
+- Evaluar la calidad de los ítems del backlog y recomendar mejoras *(paper: "Epic Evaluator")*.
+- Detectar riesgos de sobrecompromiso / readiness al priorizar *(paper: "Meeting Assistants")*.
 
 ---
 
