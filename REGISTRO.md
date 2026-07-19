@@ -180,5 +180,6 @@
 ## Sprint 14 — 2 jul → 9 jul 2026
 
 - Construcción de la primera versión del marco del proceso de desarrollo con zoom en la etapa de feedback (ver "Próximos pasos — Sprint 14" en `sprint 13/resumen_call.md`)
+- Call con Daniel (9 jul): validación del marco y comentarios para profundizarlo (anclar en bibliografía de Scrum, uniformar notación, reforzar la capa IAG con los 4 artículos del tutor, rascar la Sprint Review). Resumen en `sprint 14/resumen_call.md`
 
 ---
