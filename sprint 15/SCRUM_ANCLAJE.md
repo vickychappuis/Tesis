@@ -142,16 +142,21 @@ está fuera por diseño: es el *"container for other techniques"*.
 | **Liberación / despliegue al entorno donde el negocio lo usa** | ❌ desacoplada por diseño (*"never a gate to releasing value"*) | Humble & Farley (2010), *Continuous Delivery*; Sommerville (2016), *release testing* |
 | **Testing de aceptación / uso real por el usuario** | ❌ (`acceptance` y `test`: 0 ocurrencias) | Sommerville (2016), *user testing* / *acceptance testing*; ISO/IEC/IEEE 29119 (estándar de testing de software) |
 | Presentación e inspección del incremento con stakeholders | ✅ **Sprint Review** | Scrum Guide (2020), p. 9 |
-| Validación de reglas y flujos de negocio | ❌ | Dumas et al. (2018), ciclo BPM; Sommerville (2016), validación de requisitos |
+| Validación de reglas y flujos de negocio | ❌ | **Dumas et al. (2018) §4.4** (reglas de negocio en el modelo de proceso) y **§5.4.2** (validar *"can only be done by talking to the process participants and by consulting the available documentation"*); Sommerville (2016), validación de requisitos |
 | Validación de factibilidad técnica / impacto | ❌ parcial (Developers *"creating a plan"*, PO *trade-offs*) | Sommerville (2016), gestión de cambios / análisis de impacto |
 | Registro del pedido y entrada al backlog | ✅ parcial (*"convince the Product Owner"*) | Scrum Guide (2020), p. 6 |
 | Refinamiento y ordenamiento del backlog | ✅ **Product Backlog refinement** + PO *ordering* | Scrum Guide (2020), pp. 5, 10 |
 | Rol de intermediario negocio↔técnica (AF) | ❌ no existe la accountability | Scrum Guide (2020), delegación del PO (p. 6) + BABOK v3 (IIBA, 2015) / Sommerville (2016), ingeniería de requisitos |
 
-> ⚠️ **Verificación pendiente:** las referencias a libros (Sommerville, Pressman & Maxim, Dumas, Humble &
-> Farley, BABOK) están a nivel de capítulo/concepto. Antes de citarlas en la tesis hay que confirmar
-> edición, capítulo y sección exactos contra el ejemplar. Las citas de la Scrum Guide sí están verificadas
-> literalmente.
+> **Estado de verificación de las fuentes secundarias:**
+> - ✅ **Dumas et al. (2018)** — verificado contra el ejemplar (2ª ed.): §1.4 ciclo BPM · §3.3 objetos de datos ·
+>   §3.4 pools y carriles · §4.4 reglas de negocio · §5.2.2 entrevistas · §5.4.2 validación semántica.
+>   Detalle en `FUENTES_MARCO.md` §a.1.
+> - ⚠️ **Sommerville (2016)** y las demás (Pressman & Maxim, Humble & Farley, BABOK) siguen a nivel de
+>   capítulo/concepto: hay que confirmar sección exacta contra el ejemplar antes de citarlas en la tesis.
+>   Sommerville es la que más carga: sostiene *release testing*, *user/acceptance testing*, validación de
+>   requisitos y gestión de cambios.
+> - ✅ Las citas de la **Scrum Guide 2020** están verificadas literalmente.
 
 ---
 

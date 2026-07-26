@@ -224,7 +224,13 @@ Se ordenó por dependencia y no por el orden de los tickets (`sprint 15/PLAN_SPR
 
 ### Pendientes
 
-- Confirmar sección exacta de las citas a libros (Sommerville, Dumas) contra el ejemplar.
+- ✅ **Dumas et al. (2018)** conseguido y verificado contra el ejemplar (2ª ed.): §1.4, §3.3, §3.4, §4.4, §5.2.2 y
+  §5.4.2 — detalle en `sprint 15/FUENTES_MARCO.md` §a.1. El PDF queda como copia local excluida del repositorio
+  (libro completo de Springer, repositorio público).
+- ⏭ **Para el sprint 16 (si se consigue): Sommerville (2016), 10ª ed.** Es la fuente que sostiene *release testing*,
+  *user / acceptance testing*, validación de requisitos y gestión de cambios (actividades A2a, A2b, A3a y A3b). Hoy
+  esas citas están a nivel de capítulo/concepto. Alternativa si no se consigue: reemplazarlas por fuentes revisadas
+  por pares del propio corpus.
 - Unificar `sprint 15/FUENTES_MARCO.bib` con `sprint 12/REFERENCIAS.bib` al arrancar la redacción.
 - Segunda pasada con Daniel: 5 decisiones abiertas listadas en `sprint 15/CAMBIOS_DESDE_V1.md`.
 

@@ -49,7 +49,7 @@ se anclan en literatura de ingeniería de software. Ver `SCRUM_ANCLAJE.md` §4 y
 | A2a | **Liberación del incremento** ⚠ | Developers | Increment | Incremento liberado, accesible al negocio | Poner el incremento en manos del negocio | Fuera de Scrum (*"never a gate to releasing value"*) → Humble & Farley (2010); Sommerville (2016), *release testing* |
 | A2b | **Uso y testing de aceptación** ⚠ | Stakeholder (+ AF) | Incremento liberado, criterios de aceptación | Observaciones, cambios, bugs detectados en el uso | Que el negocio use el producto y detecte desvíos | Fuera de Scrum (`acceptance`: 0 ocurrencias) → Sommerville (2016), *user/acceptance testing*; ISO/IEC/IEEE 29119 |
 | A2c | **Sprint Review** | PO, Developers, Stakeholders, AF | Suma de incrementos, Product Goal | Feedback del negocio; Product Backlog ajustado | Inspeccionar el resultado del Sprint y determinar adaptaciones | Scrum Guide (2020), p. 9 — *working session*, ≤ 4 h para un Sprint de un mes |
-| A3a | Validación de reglas de negocio ⚠ | AF ↔ Stakeholder | Feedback, reglas y flujos definidos | Discrepancias, ajustes, aceptación/rechazo | Confirmar que el pedido respeta la regla de negocio real | Fuera de Scrum → Dumas et al. (2018); Sommerville (2016), validación de requisitos |
+| A3a | Validación de reglas de negocio ⚠ | AF ↔ Stakeholder | Feedback, reglas y flujos definidos | Discrepancias, ajustes, aceptación/rechazo | Confirmar que el pedido respeta la regla de negocio real | Fuera de Scrum → Dumas et al. (2018) §4.4 (reglas de negocio en el modelo) y §5.4.2 (la validación *"can only be done by talking to the process participants"*); Sommerville (2016), validación de requisitos |
 | A3b | Validación de factibilidad técnica ⚠ *(parcial)* | Developers (+ PO) | Feedback, código/arquitectura, requisitos no funcionales | Evaluación de viabilidad, impacto y esfuerzo; alternativas | Confirmar que lo pedido es viable y a qué costo | Parcial en Scrum (Developers *"creating a plan"*; PO y *trade-offs*) → Sommerville (2016), gestión de cambios |
 | A4 | **Incorporación del feedback al Product Backlog** | AF, PO | Feedback crudo (call, mail, bugs) | Ítems de Product Backlog | Convertir feedback disperso en trabajo accionable | Scrum Guide (2020), p. 6: *"Those wanting to change the Product Backlog can do so by trying to convince the Product Owner"* |
 | A5 | **Product Backlog refinement** ↻ | PO (+ Developers) | Ítems nuevos + Product Backlog | Product Backlog ordenado y refinado | Decidir qué entra en la próxima iteración → reabre A1 | Scrum Guide (2020), p. 10 — término textual; *ordering* del PO, p. 5. **Actividad continua, no evento** |
@@ -83,8 +83,10 @@ El uso en producción / evolución (L5) queda **fuera** del zoom.
 ## 3. Diagrama
 
 **Fuente autoritativa:** `diagramas/marco_feedback_bpmn.drawio` (abrir en draw.io / app.diagrams.net y exportar PNG).
-**Notación:** BPMN (subconjunto), anclada en Dumas et al. (2018). El vocabulario de actividades y artefactos viene de
-la Scrum Guide 2020.
+**Notación:** BPMN (subconjunto), anclada en Dumas et al. (2018) — **§3.4 Resources** para pools y carriles
+(*"BPMN provides two constructs to model resource aspects: pools and lanes"*) y **§3.3 Business Objects** para los
+objetos de datos (qué artefactos requiere y produce cada actividad). El vocabulario de actividades y artefactos
+viene de la Scrum Guide 2020.
 
 ### 3.1. Leyenda (una sola semántica para todo el diagrama)
 
