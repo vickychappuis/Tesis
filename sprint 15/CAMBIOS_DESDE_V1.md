@@ -20,9 +20,15 @@ El documento de trabajo del marco pasa a ser el **v2**. La v1 no se editó: qued
 Se trabajó sobre la **Scrum Guide 2020** (Schwaber & Sutherland, licencia CC BY-SA). El PDF y su texto plano quedan
 en el repositorio, y todas las citas del marco están **verificadas literalmente** contra ese archivo.
 
-El reparo sobre la Sprint Review quedó resuelto a favor tuyo, y conviene precisar contra qué: la descripción
-reducida de la ceremonia —presentar el incremento y obtener la aprobación de los stakeholders— proviene del
-**material divulgativo de scrum.org**, no de la Guía. La Guía dice tres cosas que la contradicen:
+El reparo sobre la Sprint Review quedó resuelto, y conviene precisar quién dice qué. Existen **dos descripciones
+distintas** de la ceremonia:
+
+- La del **material divulgativo de scrum.org**, que la presenta de forma reducida: mostrar el incremento a los
+  stakeholders y obtener su aprobación. Es la que generaba el reparo.
+- La de la **Guía oficial**, que es más amplia y no coincide con la anterior.
+
+O sea: la Guía **no** se contradice a sí misma, y tampoco contradice el marco que armaste. Lo que queda desmentido
+es la lectura divulgativa. Tres pasajes de la Guía la desmienten:
 
 1. *"The Sprint Review is a working session and the Scrum Team should avoid limiting it to a presentation."*
    La ceremonia es una sesión de trabajo, no una presentación con aprobación.
@@ -30,7 +36,9 @@ reducida de la ceremonia —presentar el incremento y obtener la aprobación de 
    considered a gate to releasing value."* La liberación del incremento **no depende** de la ceremonia ni la
    ceremonia la autoriza: son cosas separadas.
 3. *"The Scrum framework is purposefully incomplete, only defining the parts required to implement Scrum theory"*, y
-   en el End Note se define como *"container for other techniques, methodologies, and practices"*.
+   en el End Note se define como *"container for other techniques, methodologies, and practices"*. Es decir: la
+   Guía misma admite que hay partes del proceso que no define, y ahí es donde entran la liberación y el testing de
+   aceptación.
 
 A eso se suma un hallazgo léxico sobre las 14 páginas de la Guía: **`feedback` aparece 0 veces**, igual que `test` y
 `acceptance` (`inspect` 23, `adapt` 18, `stakeholder` 13). El objeto de estudio de la tesis no es un término del
