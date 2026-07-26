@@ -183,3 +183,15 @@
 - Call con Daniel (9 jul): validación del marco y comentarios para profundizarlo (anclar en bibliografía de Scrum, uniformar notación, reforzar la capa IAG con los 4 artículos del tutor, rascar la Sprint Review). Resumen en `sprint 14/resumen_call.md`
 
 ---
+
+## Sprint 15 — 10 jul → 29 jul 2026
+
+- Profundizar el marco del proceso de feedback según los comentarios del sprint 14 (ver "Próximos pasos — Sprint 15" en `sprint 14/resumen_call.md`):
+  - Anclar el diagrama de etapas en bibliografía de Scrum y formalizarlo
+  - Uniformar la notación entre la vista principal y la vista por carriles
+  - Reforzar la capa IAG con los 4 artículos de Daniel, además del corpus de la revisión
+  - Rascar y armonizar Scrum: ubicar el zoom del feedback en la Sprint Review (liberación + testing de aceptación)
+  - Agregar la imagen de los 4 escenarios del paper *Future of software development with generative AI* (S1–S4)
+- Segunda pasada del marco junto con Daniel (revisión de los 4 artículos)
+
+---
