@@ -79,9 +79,11 @@ El uso en producción / evolución (L5) queda **fuera** del zoom.
 
 ## 3. Diagrama
 
-`diagramas/marco_feedback_bpmn.drawio` (fuente editable) y su PNG. **Notación:** BPMN, anclada en Dumas et al.
-(2018) §3.4 para pools y carriles y §3.3 para objetos de datos. El vocabulario de actividades y artefactos viene de
-la Scrum Guide 2020.
+![Etapa de revisión y feedback — vista BPMN](diagramas/marco_feedback_bpmn.png)
+
+**Notación:** BPMN, anclada en Dumas et al. (2018) §3.4 para pools y carriles y §3.3 para objetos de datos. El
+vocabulario de actividades y artefactos viene de la Scrum Guide 2020.
+**Fuente editable:** `diagramas/marco_feedback_bpmn.drawio` (draw.io); el PNG se re-exporta desde ahí.
 
 ### 3.1. Leyenda (una sola semántica para todo el diagrama)
 
@@ -262,8 +264,10 @@ Las ideas por actividad (§4) se agrupan en cuatro áreas transversales.
 Las cuatro áreas muestran un mismo movimiento de fondo: actividades que hoy hace una persona empiezan a ser
 asumidas por la IA. Sauvola et al. (2024) dan una escala para graduar ese movimiento.
 
-**Figura:** `diagramas/escenarios_s1_s4.drawio` — figura **propia** elaborada a partir de las Tablas 1 y 2 del
-paper (se redibuja en vez de reproducir la imagen original, y se cita la fuente).
+![Cuatro escenarios de uso de IAG en el desarrollo de software (S1–S4)](diagramas/escenarios_s1_s4.png)
+
+Figura **propia** elaborada a partir de las Tablas 1 y 2 del paper: se redibuja en vez de reproducir la imagen
+original, y se cita la fuente. Editable en `diagramas/escenarios_s1_s4.drawio`.
 
 | Escenario | Nombre | En una línea | Dónde caen nuestras áreas |
 |---|---|---|---|
