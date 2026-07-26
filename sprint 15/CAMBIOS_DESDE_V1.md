@@ -20,12 +20,11 @@ El marco de trabajo pasa a ser el **v2**. La v1 no se editó: queda como registr
 
 Se trabajó sobre la **Scrum Guide 2020**, con todas las citas verificadas literalmente contra el PDF oficial.
 
-El reparo sobre la Sprint Review quedó resuelto, y conviene precisar quién dice qué, porque son **dos documentos
-distintos** y no una fuente que se desdiga: la **página introductoria de scrum.org** resume el framework y al
-resumir omite matices —de ahí la impresión de una reunión de aprobación—, mientras que la **Guía** es explícita en
-que la review es una *working session* que no debe limitarse a una presentación, y en que **nunca** debe considerarse
-una puerta para liberar valor. Además la Guía declara su propia incompletitud (*"purposefully incomplete"*) y las
-palabras `feedback`, `test` y `acceptance` no aparecen ni una vez en sus 14 páginas.
+Son **dos documentos distintos**, no una fuente que se desdiga: la **página introductoria de scrum.org** resume el
+framework y al resumir omite matices —de ahí la impresión de una reunión de aprobación—, mientras que la **Guía** es
+explícita en que la review es una *working session* que no debe limitarse a una presentación y en que **nunca** debe
+considerarse una puerta para liberar valor. La Guía además declara su propia incompletitud
+(*"purposefully incomplete"*), y `feedback`, `test` y `acceptance` no aparecen ni una vez en sus 14 páginas.
 
 → Citas textuales, conteo léxico completo y alcance de lo verificado: **`SCRUM_ANCLAJE.md` §3 y §4**.
 
@@ -47,23 +46,20 @@ por Scrum.
 También se renombraron **A4** (*Incorporación del feedback al Product Backlog*) y **A5** (*Product Backlog
 refinement*, término textual de la Guía, que además es una actividad **continua** y no un evento).
 
-**Efecto teórico, no cosmético:** el feedback pasa a tener **dos canales y dos momentos** — el uso real del producto,
-que puede llegar antes de la ceremonia, y la ceremonia misma. Es materia directa del objetivo B (frecuencia,
-secuencia, temporalidad). En el diagrama se ve en que la entrega al negocio cruza al otro *pool* como flujo de
-mensaje sin pasar por la review, y en que del uso real sale un segundo flujo rotulado *"puede llegar antes de la
-ceremonia"*.
+**Efecto teórico, no cosmético:** el feedback pasa a tener **dos canales y dos momentos** —el uso real del producto,
+que puede llegar antes de la ceremonia, y la ceremonia misma—, materia directa del objetivo B. En el diagrama, la
+entrega al negocio cruza al otro *pool* como flujo de mensaje sin pasar por la review, y del uso real sale un segundo
+flujo rotulado *"puede llegar antes de la ceremonia"*.
 
-**El desdoblamiento no se apoya solo en la lectura de Scrum:** Sommerville (2016) describe el par liberación + uso
-(§2.3.2), el *release testing* y el *acceptance testing* con sus seis etapas (§8.3 y §8.4), y sostiene que en ágil la
-aceptación no depende de una especificación completa sino de stakeholders involucrados **con autoridad para decidir**
-(§20.5) — que es justamente la relación que la tesis pone en cuestión cuando entra IAG. Citas textuales en
-`FUENTES_MARCO.md` §a.2.
+**No se apoya solo en la lectura de Scrum:** Sommerville (2016) describe el par liberación + uso (§2.3.2), el
+*release* y el *acceptance testing* (§8.3 y §8.4), y sostiene que en ágil la aceptación no depende de una
+especificación completa sino de stakeholders involucrados **con autoridad para decidir** (§20.5) — la relación misma
+que la tesis pone en cuestión cuando entra IAG. Citas en `FUENTES_MARCO.md` §a.2.
 
 ## 3. Notación uniforme *(pedido: "cajitas y globitos, marea un poquito")*
 
-Se pasó a **BPMN**: como los roles son carriles del mismo diagrama, la vista principal y la vista por carriles se
-unifican en **una sola** y no quedan dos notaciones que reconciliar. El feedback, que antes era una caja de
-actividad, ahora es un objeto de datos. La leyenda está declarada en el propio diagrama.
+Se pasó a **BPMN**: como los roles son carriles del mismo diagrama, las dos vistas se unifican en **una sola** y no
+quedan notaciones que reconciliar. El feedback, que antes era una caja de actividad, ahora es un objeto de datos.
 
 ## 4. Capa IAG reforzada *(pedido: "reforzar con los 4 artículos")*
 
@@ -92,9 +88,9 @@ Dos cosas para decir de frente:
 
 ## 5. Los cuatro escenarios S1–S4 *(pedido: "la imagen de los cuatro escenarios")*
 
-**Qué son.** Sauvola et al. (2024) proponen cuatro escenarios de cómo se reorganiza el desarrollo según cuánto asume
-la IA. No son etapas ni una predicción temporal: son una **escala de suplantación de roles humanos**, y el paper
-modela en cada escenario quién ocupa cuatro funciones (gestión, trabajo, herramientas, entrega y mantenimiento).
+**Qué son.** Cuatro escenarios de cómo se reorganiza el desarrollo según cuánto asume la IA (Sauvola et al., 2024).
+No son etapas ni una predicción temporal: son una **escala de suplantación de roles humanos**, y el paper modela en
+cada uno quién ocupa cuatro funciones (gestión, trabajo, herramientas, entrega y mantenimiento).
 
 | | Escenario | Quién hace qué | Áreas del marco |
 |---|---|---|---|
@@ -103,11 +99,9 @@ modela en cada escenario quién ocupa cuatro funciones (gestión, trabajo, herra
 | **S3** | *AI assumes role(s)* | La IA **asume roles** seleccionados; el humano controla la operación | Impersonación de stakeholders |
 | **S4** | *Human-in-the-loop* | La IA gestiona varios roles; el humano pasa a vigilancia | Generación → desarrollo automático (con el pivote de Tusk/Sweep como contra-evidencia) |
 
-**Para qué sirve:** es la escala que le faltaba al **objetivo C**, porque permite decir *cuánto* asume la IA en cada
-área en lugar de solo afirmar que "cambia el rol".
-
-La figura (`diagramas/escenarios_s1_s4.*`) es **propia**, redibujada a partir de las Tablas 1 y 2 del paper en lugar
-de reproducir la imagen original.
+**Para qué sirve:** es la escala que le faltaba al **objetivo C** — permite decir *cuánto* asume la IA en cada área
+en lugar de solo afirmar que "cambia el rol". La figura (`diagramas/escenarios_s1_s4.*`) es **propia**, redibujada a
+partir de las Tablas 1 y 2 del paper.
 
 ## 6. Lo que no se tocó
 

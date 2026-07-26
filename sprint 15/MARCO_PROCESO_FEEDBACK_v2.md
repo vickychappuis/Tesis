@@ -97,9 +97,8 @@ la Scrum Guide 2020.
 | Flecha **punteada fina amarilla** | Asociación de datos (lectura o escritura de un artefacto) |
 | ↻ | Actividad continua, no un evento |
 
-> Esto resuelve el reproche del sprint 14: en la v1 la vista principal usaba cajas **y** globos y la vista por
-> carriles usaba solo cajas, con una de ellas (el feedback) que en realidad era un artefacto. Ahora **hay un solo
-> diagrama**: los roles son carriles y el flujo es el mismo, así que no hay dos notaciones que reconciliar.
+> Resuelve el reproche del sprint 14: la v1 tenía dos vistas con semánticas distintas y una caja de actividad (el
+> feedback) que era en realidad un artefacto. Ahora hay **un solo diagrama** y el feedback es un objeto de datos.
 
 ## 4. Capa con IAG
 
@@ -197,20 +196,14 @@ Cada ítem lleva su fuente y, cuando aplica, la sección exacta: eso hace de est
 
 ### 4.2. Qué aportan los 4 artículos del tutor (y qué no)
 
-**Aportan:**
+**Aportan** la capa general que faltaba —la v1 solo citaba el corpus—, **dos gaps declarados** útiles para elegir el
+foco de la PoC (testing de aceptación y automatización de build/deployment, ambos de Nguyen-Duc et al.), **una
+corrección** a la v1 (la estimación de esfuerzo ya está cubierta, §4.1 A3b) y dos marcos de encuadre: los escenarios
+S1–S4 (§5.5) y las **11 áreas** de Nguyen-Duc et al., que ubican nuestro zoom en *Requirements Engineering*,
+*Quality Assurance* y *Engineering Management*.
 
-1. **La capa general que faltaba.** La v1 solo citaba el corpus del mapeo; ahora cada actividad tiene además
-   respaldo a nivel de etapa del SDLC, que es lo que el tutor pidió para hacerlo trazable.
-2. **Dos gaps declarados** que sirven para elegir el foco de la PoC: el testing de aceptación (poco estudiado) y la
-   automatización de build/deployment (RQ abierta) — ambos de Nguyen-Duc et al. (2025).
-3. **Una corrección** a la v1: la estimación de esfuerzo ya está cubierta, no es gap (§4.1, A3b).
-4. **Dos marcos de encuadre:** los escenarios S1–S4 de Sauvola et al. (2024) para graduar la suplantación de roles
-   (§5.5), y las **11 áreas** de Nguyen-Duc et al. (2025) para ubicar el zoom: nuestro zoom cae principalmente en
-   *Requirements Engineering*, *Quality Assurance* y *Engineering Management*.
-
-**No aportan:** nada sobre la **Sprint Review** ni sobre las ceremonias en particular (0 ocurrencias en los cuatro).
-El zoom fino en el momento del feedback sigue sostenido por el corpus del mapeo. Es una división de trabajo
-razonable entre las dos capas, pero conviene decirlo explícitamente para no sobrevender el anclaje.
+**No aportan** nada sobre la Sprint Review ni las ceremonias (0 ocurrencias en los cuatro): el zoom fino sigue
+sostenido por el corpus. Conviene decirlo para no sobrevender el anclaje.
 
 ---
 
@@ -220,8 +213,7 @@ razonable entre las dos capas, pero conviene decirlo explícitamente para no sob
 > conserva el contenido de la v1 (`sprint 14/MARCO_PROCESO_FEEDBACK.md` §5), con los nombres de actividades
 > actualizados al §2 de este documento y la figura propia de los escenarios.
 
-Las ideas por actividad (§4) se agrupan en cuatro áreas transversales. Cada una se describe por **qué es**,
-**evidencia** y **cómo cambia el rol**.
+Las ideas por actividad (§4) se agrupan en cuatro áreas transversales.
 
 ### 5.1. Impersonación de stakeholders (stakeholder-IA)
 

@@ -11,13 +11,9 @@
 
 ## 1. Para qué sirve este documento
 
-El marco del sprint 14 (`sprint 14/MARCO_PROCESO_FEEDBACK.md`) describía la etapa de feedback con
-nombres propios (A1–A5) y sin fuente. Este documento hace tres cosas, en este orden:
-
-1. Establece **qué dice Scrum** sobre las actividades del proceso (para poder citar en vez de asumir).
-2. Establece **qué Scrum NO dice** — y muestra que esa ausencia está **declarada por la propia Guía**,
-   lo que convierte el reparo del tutor en un argumento citable del marco en lugar de un parche.
-3. Propone el **mapeo A1–A5 → vocabulario Scrum**, con los renombres que hay que llevar al diagrama.
+El marco del sprint 14 describía la etapa de feedback con nombres propios (A1–A5) y sin fuente. Acá se establece
+**qué dice Scrum**, **qué no dice** —una ausencia que la propia Guía declara— y el **mapeo A1–A5 → vocabulario
+Scrum** que se lleva al diagrama.
 
 ---
 
@@ -26,7 +22,7 @@ nombres propios (A1–A5) y sin fuente. Este documento hace tres cosas, en este 
 > *"Scrum is a lightweight framework that helps people, teams and organizations generate value through
 > adaptive solutions for complex problems."*
 
-Estructura completa del framework (esto es lo que se puede citar como "las actividades del proceso"):
+Estructura del framework:
 
 | Categoría | Elementos |
 |---|---|
@@ -75,14 +71,10 @@ Y en la sección del Increment (p. 12):
 
 ### 3.1. Las tres consecuencias que esto tiene para la tesis
 
-**(a) El reparo del tutor tiene respaldo en la fuente oficial.** En la call, Daniel objetó que el esquema
-introductorio de scrum.org deja la review como una reunión breve en la que se muestra el incremento y los
-stakeholders dan el visto bueno. La Guía es explícita en lo contrario: es una *working session* y **no debe
-limitarse a una presentación**.
-
-Conviene ser preciso sobre la relación entre las dos fuentes: no se contradicen. El material divulgativo de
-scrum.org **resume** el framework y, al resumir, omite los matices; la Guía —que es el documento normativo— los
-enuncia. La lectura de "reunión de demo" viene del resumen, no del estándar.
+**(a) El reparo del tutor tiene respaldo en la fuente oficial.** El esquema introductorio de scrum.org deja la
+review como una reunión breve donde se muestra el incremento y los stakeholders dan el visto bueno; la Guía es
+explícita en que es una *working session* que **no debe limitarse a una presentación**. Las dos fuentes no se
+contradicen: el material divulgativo resume y al resumir omite los matices que el documento normativo enuncia.
 
 > ⚠️ **Alcance de lo verificado:** la Guía 2020 se leyó completa y todas sus citas están verificadas contra el PDF.
 > La página divulgativa de scrum.org **no** se pudo recuperar de forma automática (está renderizada con JavaScript);
@@ -91,9 +83,9 @@ enuncia. La lectura de "reunión de demo" viene del resumen, no del estándar.
 
 **(b) La liberación está explícitamente desacoplada de la ceremonia.** La review *"should never be
 considered a gate to releasing value"* y el incremento *puede entregarse antes del fin del Sprint*.
-Es decir: **el feedback del cliente puede llegar antes de la ceremonia y por fuera de ella** — que es
-justo lo que hipotetiza la tesis sobre frecuencia, secuencia y temporalidad (objetivo B). No es una
-licencia nuestra: es lo que habilita el propio framework.
+Es decir: **el feedback del cliente puede llegar antes de la ceremonia y por fuera de ella**, que es justo lo que
+hipotetiza la tesis sobre frecuencia, secuencia y temporalidad (objetivo B). No es una licencia nuestra: lo habilita
+el framework.
 
 **(c) La ceremonia no alcanza para contener lo que estudiamos.** La review es un evento *timeboxed* de
 ≤ 4 h. La liberación, el uso del producto por el negocio y la detección de errores no caben ahí ni están
@@ -103,12 +95,10 @@ definidos ahí. Eso lleva directo a §4.
 
 ## 4. El hueco: lo que Scrum NO cubre (y lo dice la Guía)
 
-Esta es la pieza que faltaba para armonizar. La Guía **declara su propia incompletitud**:
+La Guía **declara su propia incompletitud**:
 
-> *"Scrum is simple. Try it as is and determine if its philosophy, theory, and structure help to achieve
-> goals and create value. **The Scrum framework is purposefully incomplete, only defining the parts required
-> to implement Scrum theory.** Scrum is built upon by the collective intelligence of the people using it.
-> Rather than provide people with detailed instructions, the rules of Scrum guide their relationships and
+> *"The Scrum framework is purposefully incomplete, only defining the parts required to implement Scrum theory.
+> [...] Rather than provide people with detailed instructions, the rules of Scrum guide their relationships and
 > interactions."*
 
 > *"Scrum exists only in its entirety and functions well as a **container for other techniques,
@@ -133,10 +123,9 @@ Esta es la pieza que faltaba para armonizar. La Guía **declara su propia incomp
 
 > Reproducible: `grep -o -i "<término>" fuentes_marco/scrumguide2020.txt | wc -l`.
 
-**Esto es un hallazgo fuerte y citable:** el objeto de estudio de la tesis —el *feedback*— **no es un
-término del framework**. Scrum lo cubre indirectamente vía *inspection* / *adaptation* y vía la
-participación de *stakeholders* en la review. Y la parte de ingeniería (testing, aceptación, liberación)
-está fuera por diseño: es el *"container for other techniques"*.
+El objeto de estudio de la tesis —el *feedback*— **no es un término del framework**: Scrum lo cubre indirectamente
+vía *inspection* / *adaptation* y vía la participación de *stakeholders* en la review. La parte de ingeniería
+(testing, aceptación, liberación) está fuera por diseño: es el *"container for other techniques"*.
 
 ### 4.2. De dónde sale, entonces, cada pieza que Scrum no define
 
@@ -178,14 +167,11 @@ feedback, que pasa por validación de reglas y de factibilidad, entra al Product
 
 → Dibujado en `diagramas/marco_feedback_bpmn.*`; actividades y anclajes en `MARCO_PROCESO_FEEDBACK_v2.md` §2.
 
-Dos precisiones importantes:
+Dos precisiones:
 
-- **El feedback entra por más de un canal y en más de un momento.** No solo en la ceremonia: como el
-  incremento puede entregarse antes del fin del Sprint, el uso real del producto genera feedback
-  *asincrónico*. Distinguir estos canales es material directo para el objetivo B (frecuencia, secuencia,
-  granularidad, temporalidad).
-- **Lo que está fuera de Scrum se marca como fuera de Scrum en el diagrama.** No se disfraza de Scrum:
-  se declara que el framework es *purposefully incomplete* y se cita el anclaje de cada pieza. Eso es más
+- **El feedback entra por más de un canal y en más de un momento:** como el incremento puede entregarse antes del fin
+  del Sprint, el uso real genera feedback *asincrónico*. Distinguir esos canales es material del objetivo B.
+- **Lo que está fuera de Scrum se marca como tal en el diagrama**, con el anclaje de cada pieza citado. Es más
   defendible que forzar todo dentro de las ceremonias.
 
 ---
