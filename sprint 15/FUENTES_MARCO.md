@@ -11,12 +11,11 @@
 | # | Fuente | Estado | Para qué se usa |
 |---|--------|--------|-----------------|
 | 1 | **Schwaber & Sutherland (2020)**, *The 2020 Scrum Guide* | ✅ PDF en `fuentes_marco/`; **citas verificadas literalmente** | Eventos, artefactos y accountabilities; Sprint Review; Product Backlog refinement; la declaración de incompletitud del framework |
-| 2 | Sommerville (2016), *Software Engineering*, 10ª ed. | ⚠️ verificar capítulo/sección | Implementación; *release testing*; *user / acceptance testing*; validación de requisitos; gestión de cambios |
+| 2 | Sommerville (2016), *Software Engineering*, 10ª ed. (Global Edition) | ✅ **secciones verificadas** contra el ejemplar (copia local, no publicada) | §2.3.2 entrega incremental · §4.5 validación de requisitos · §4.6 cambio de requisitos · §7.3 implementación · §8.3 *release testing* · §8.4 *user / acceptance testing* · §20.5 aceptación en ágil · §25.3 gestión de cambios (ver §a.2) |
 | 3 | Pressman & Maxim (2020), *Software Engineering: A Practitioner's Approach*, 9ª ed. | ⚠️ verificar capítulo/sección | Marco de proceso genérico (construcción, despliegue) |
 | 4 | Dumas et al. (2018), *Fundamentals of BPM*, 2ª ed. | ✅ **secciones verificadas** contra el ejemplar (copia local, no publicada) | §1.4 ciclo BPM · §3.3 objetos de datos · §3.4 pools y carriles · §4.4 reglas de negocio · §5.2.2 descubrimiento por entrevistas · §5.4.2 validación semántica (ver §a.1) |
 | 5 | Humble & Farley (2010), *Continuous Delivery* | ⚠️ verificar capítulo/sección | Liberación / despliegue — la pieza que Scrum deja fuera por diseño |
 | 6 | IIBA (2015), *BABOK Guide*, v3 | ⚠️ verificar sección | Anclar el rol de analista funcional, que **no existe** en Scrum |
-| 7 | ISO/IEC/IEEE 29119, *Software testing* | ⚠️ verificar parte y año | Testing de aceptación |
 
 ### a.1. Dumas et al. (2018) — citas verificadas
 
@@ -32,8 +31,29 @@ Secciones localizadas y leídas en el ejemplar (2ª edición). Sostienen tanto l
 | §5.2.2 Interview-Based Discovery | 168 | Descubrimiento entrevistando a expertos de dominio; el conocimiento del proceso está fragmentado por la división del trabajo | Área **§5.2** del marco (oralidad → artefacto) |
 | §5.4.2 Semantic Quality and Validation | 187–188 | *"Validation is the activity of checking the semantic quality of a model by comparing it with its real-world business process"*, y solo puede hacerse *"by talking to the process participants and by consulting the available documentation"* | Actividad **A3a**: fundamenta que validar la regla **exige** hablar con el negocio |
 
-> El PDF del libro queda como copia local en `fuentes_marco/` pero **excluido del repositorio** (`.gitignore`):
-> es un libro completo de Springer y el repositorio es público.
+### a.2. Sommerville (2016) — citas verificadas
+
+Es la fuente que sostiene todo lo que Scrum deja fuera. Secciones localizadas y leídas en el ejemplar
+(10ª ed., Global Edition):
+
+| Sección | Qué dice (verificado) | Dónde se usa |
+|---|---|---|
+| §2.3.2 Entrega incremental | *"some of the developed increments are delivered to the customer and deployed for use in their working environment"*; una vez entregado, *"it is installed in the customer's normal working environment. They can experiment with the system"* | **A2a + A2b**: es exactamente la secuencia liberación → uso real por el negocio |
+| §4.5 Validación de requisitos | Validación = *"checking that requirements define the system that the customer really wants"*, con cuatro chequeos: **validez, consistencia, completitud y realismo** | **A3a** y el área del **"firewall"** (§5.3): los cuatro chequeos son justamente lo que se propone automatizar con IAG |
+| §4.6 Cambio de requisitos | Gestión del cambio de requisitos y su planificación | **A4** y **A5** |
+| §7.3 Implementation issues | Cuestiones de construcción (reuso, gestión de configuración, host-target) | **A1** (contexto) |
+| §8.3 Release testing (p. 245) | *"the process of testing a particular release of a system that is intended for use outside of the development team"*, y el equipo de desarrollo **no** debería ser responsable de él | **A2a** |
+| §8.4 User testing (p. 249) | Tres tipos: alpha, beta y **acceptance testing**. *"Acceptance testing is one type of user testing where the customer formally tests a system to decide if it should be accepted from the system supplier or if further development is required."* Seis etapas, la primera: **definir criterios de aceptación** | **A2b** |
+| §20.5 (p. 599) | *"Agile methods do not rely on having a complete system specification for system acceptance testing. Rather, stakeholders are closely engaged with the testing process and have the authority to decide when the overall system is acceptable."* | **A2b en contexto ágil**: la aceptación no es una fase contractual separada sino participación continua del stakeholder |
+| §25.3 Gestión de cambios (p. 745) | Flujo de *change request*: submit → check → register → **análisis de costo/impacto** → decisión | **A3b** (viabilidad, impacto y esfuerzo) |
+
+> **Los dos hallazgos que más aportan:** §2.3.2 describe literalmente el par liberación + uso en el entorno real
+> del cliente, que era la pieza que faltaba en el marco; y §20.5 dice que en ágil la aceptación **no** depende de
+> una especificación completa sino de stakeholders involucrados con autoridad para decidir — que es precisamente
+> la relación que la tesis pone en cuestión cuando entra IAG de por medio.
+
+> Los PDF de los dos libros quedan como copia local en `fuentes_marco/` pero **excluidos del repositorio**
+> (`.gitignore`): son libros completos (Springer y Pearson) y el repositorio es público.
 
 ## (b) Los 4 artículos sugeridos por el tutor
 

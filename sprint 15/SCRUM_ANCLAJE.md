@@ -138,25 +138,30 @@ está fuera por diseño: es el *"container for other techniques"*.
 
 | Pieza de nuestra etapa de feedback | ¿Está en Scrum? | Anclaje propuesto |
 |---|---|---|
-| Construcción del incremento (inner loop, PR) | ❌ solo el *qué* (Increment + DoD), no el *cómo* | Pressman & Maxim (2020), actividades del marco de proceso genérico (construcción); Sommerville (2016), implementación |
-| **Liberación / despliegue al entorno donde el negocio lo usa** | ❌ desacoplada por diseño (*"never a gate to releasing value"*) | Humble & Farley (2010), *Continuous Delivery*; Sommerville (2016), *release testing* |
-| **Testing de aceptación / uso real por el usuario** | ❌ (`acceptance` y `test`: 0 ocurrencias) | Sommerville (2016), *user testing* / *acceptance testing*; ISO/IEC/IEEE 29119 (estándar de testing de software) |
+| Construcción del incremento (inner loop, PR) | ❌ solo el *qué* (Increment + DoD), no el *cómo* | **Sommerville (2016) §7.3** *implementation issues*; Pressman & Maxim (2020), marco de proceso genérico |
+| **Liberación / despliegue al entorno donde el negocio lo usa** | ❌ desacoplada por diseño (*"never a gate to releasing value"*) | **Sommerville (2016) §2.3.2** — el incremento *"is installed in the customer's normal working environment"* — y **§8.3** *release testing*; Humble & Farley (2010) |
+| **Testing de aceptación / uso real por el usuario** | ❌ (`acceptance` y `test`: 0 ocurrencias) | **Sommerville (2016) §8.4** *user testing* (alpha, beta y acceptance; seis etapas, la primera define los criterios) y **§20.5** — en ágil *"stakeholders are closely engaged with the testing process and have the authority to decide when the overall system is acceptable"* |
 | Presentación e inspección del incremento con stakeholders | ✅ **Sprint Review** | Scrum Guide (2020), p. 9 |
 | Validación de reglas y flujos de negocio | ❌ | **Dumas et al. (2018) §4.4** (reglas de negocio en el modelo de proceso) y **§5.4.2** (validar *"can only be done by talking to the process participants and by consulting the available documentation"*); Sommerville (2016), validación de requisitos |
-| Validación de factibilidad técnica / impacto | ❌ parcial (Developers *"creating a plan"*, PO *trade-offs*) | Sommerville (2016), gestión de cambios / análisis de impacto |
+| Validación de factibilidad técnica / impacto | ❌ parcial (Developers *"creating a plan"*, PO *trade-offs*) | **Sommerville (2016) §25.3** — flujo de *change request* con análisis de costo/impacto |
 | Registro del pedido y entrada al backlog | ✅ parcial (*"convince the Product Owner"*) | Scrum Guide (2020), p. 6 |
 | Refinamiento y ordenamiento del backlog | ✅ **Product Backlog refinement** + PO *ordering* | Scrum Guide (2020), pp. 5, 10 |
 | Rol de intermediario negocio↔técnica (AF) | ❌ no existe la accountability | Scrum Guide (2020), delegación del PO (p. 6) + BABOK v3 (IIBA, 2015) / Sommerville (2016), ingeniería de requisitos |
 
 > **Estado de verificación de las fuentes secundarias:**
+> - ✅ **Scrum Guide 2020** — citas verificadas literalmente contra el PDF oficial.
+> - ✅ **Sommerville (2016)** — verificado contra el ejemplar (10ª ed., Global Edition): §2.3.2 entrega
+>   incremental · §4.5 validación de requisitos · §4.6 cambio de requisitos · §7.3 implementación ·
+>   §8.3 *release testing* · §8.4 *user / acceptance testing* · §20.5 aceptación en ágil · §25.3 gestión de
+>   cambios. Detalle con citas textuales en `FUENTES_MARCO.md` §a.2.
 > - ✅ **Dumas et al. (2018)** — verificado contra el ejemplar (2ª ed.): §1.4 ciclo BPM · §3.3 objetos de datos ·
 >   §3.4 pools y carriles · §4.4 reglas de negocio · §5.2.2 entrevistas · §5.4.2 validación semántica.
 >   Detalle en `FUENTES_MARCO.md` §a.1.
-> - ⚠️ **Sommerville (2016)** y las demás (Pressman & Maxim, Humble & Farley, BABOK) siguen a nivel de
->   capítulo/concepto: hay que confirmar sección exacta contra el ejemplar antes de citarlas en la tesis.
->   Sommerville es la que más carga: sostiene *release testing*, *user/acceptance testing*, validación de
->   requisitos y gestión de cambios.
-> - ✅ Las citas de la **Scrum Guide 2020** están verificadas literalmente.
+> - ⚠️ Quedan a nivel de concepto solo las fuentes **de refuerzo**, que no sostienen ninguna afirmación por sí
+>   solas: Pressman & Maxim (2020), Humble & Farley (2010) y BABOK v3. Cada pieza del marco tiene ya un anclaje
+>   verificado, así que estas son prescindibles.
+>
+> Se descartó **ISO/IEC/IEEE 29119**: es un estándar pago y §8.4 de Sommerville cubre el testing de aceptación.
 
 ---
 
@@ -213,7 +218,7 @@ Las **ideas se mantienen**; cambian los nombres para que sean citables. Esto es 
 |---|---|---|---|
 | A1 — Construcción y entrega del incremento | **A1 — Desarrollo del incremento** | *Sprint*, *Increment*, *Definition of Done* (Scrum) + construcción (Pressman) | Sigue siendo contexto. La entrega se separa y pasa a A2a |
 | A2 — Sprint Review / demo | **A2a — Liberación del incremento** ⚠️ *fuera de Scrum* | *release* (Humble & Farley) | Se desdobla. Fundamento: *"never a gate to releasing value"* |
-| " | **A2b — Uso y testing de aceptación** ⚠️ *fuera de Scrum* | *acceptance / user testing* (Sommerville; ISO/IEC/IEEE 29119) | Es la parte que el tutor extrañaba |
+| " | **A2b — Uso y testing de aceptación** ⚠️ *fuera de Scrum* | *acceptance / user testing* (Sommerville §8.4 y §20.5) | Es la parte que el tutor extrañaba |
 | " | **A2c — Sprint Review** | Scrum Guide, p. 9 | Sacar la palabra "demo": la Guía dice que **no** debe limitarse a una presentación |
 | A3a — Validación de reglas de negocio | **A3a — Validación de reglas de negocio** ⚠️ *fuera de Scrum* | Ciclo BPM (Dumas et al.) | Nombre se mantiene; se explicita que no es Scrum |
 | A3b — Validación de factibilidad técnica | **A3b — Validación de factibilidad técnica** ⚠️ *parcial* | Developers *"creating a plan"*; PO *trade-offs* | Ídem |
