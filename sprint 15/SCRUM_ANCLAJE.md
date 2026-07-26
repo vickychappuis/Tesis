@@ -80,10 +80,19 @@ Y en la sección del Increment (p. 12):
 
 ### 3.1. Las tres consecuencias que esto tiene para la tesis
 
-**(a) El reparo del tutor tiene respaldo en la fuente oficial.** Daniel objetó que scrum.org plantea la
-review como *"una reunioncita donde invitamos a nuestros stakeholders... y ellos nos dicen bárbaro,
-sigamos"*. La Guía dice exactamente lo contrario: es una *working session* y no debe limitarse a una
-presentación. La lectura "reunión de demo" es de los materiales divulgativos, no del estándar.
+**(a) El reparo del tutor tiene respaldo en la fuente oficial.** En la call, Daniel objetó que el esquema
+introductorio de scrum.org deja la review como una reunión breve en la que se muestra el incremento y los
+stakeholders dan el visto bueno. La Guía es explícita en lo contrario: es una *working session* y **no debe
+limitarse a una presentación**.
+
+Conviene ser preciso sobre la relación entre las dos fuentes: no se contradicen. El material divulgativo de
+scrum.org **resume** el framework y, al resumir, omite los matices; la Guía —que es el documento normativo— los
+enuncia. La lectura de "reunión de demo" viene del resumen, no del estándar.
+
+> ⚠️ **Alcance de lo verificado:** la Guía 2020 se leyó completa y todas sus citas están verificadas contra el PDF.
+> La página divulgativa de scrum.org **no** se pudo recuperar de forma automática (está renderizada con JavaScript);
+> lo que se sabe de su contenido proviene de la transcripción de la call del 9 de julio, donde el tutor la compartía
+> en pantalla. Si se va a citar en la tesis, hay que abrirla y citarla directamente.
 
 **(b) La liberación está explícitamente desacoplada de la ceremonia.** La review *"should never be
 considered a gate to releasing value"* y el incremento *puede entregarse antes del fin del Sprint*.

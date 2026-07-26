@@ -20,15 +20,18 @@ El documento de trabajo del marco pasa a ser el **v2**. La v1 no se editó: qued
 Se trabajó sobre la **Scrum Guide 2020** (Schwaber & Sutherland, licencia CC BY-SA). El PDF y su texto plano quedan
 en el repositorio, y todas las citas del marco están **verificadas literalmente** contra ese archivo.
 
-El reparo sobre la Sprint Review quedó resuelto, y conviene precisar quién dice qué. Existen **dos descripciones
-distintas** de la ceremonia:
+El reparo sobre la Sprint Review quedó resuelto, y conviene precisar quién dice qué, porque son **dos documentos
+distintos** y no una fuente que se desdiga:
 
-- La del **material divulgativo de scrum.org**, que la presenta de forma reducida: mostrar el incremento a los
-  stakeholders y obtener su aprobación. Es la que generaba el reparo.
-- La de la **Guía oficial**, que es más amplia y no coincide con la anterior.
+- La **página divulgativa de scrum.org** (la del *learning series* que Daniel compartió en la call): material
+  introductorio que **resume** el framework en un esquema. Describe la review como presentar el incremento a los
+  interesados, recopilar retroalimentación y actualizar el backlog. No dice nada falso: dice **menos**, y leída sola
+  deja la impresión de una reunión de aprobación. Es la que generaba el reparo.
+- La **Scrum Guide 2020**: el documento normativo, la fuente primaria. Es explícita en dos puntos que el resumen
+  omite y que cambian la lectura.
 
-O sea: la Guía **no** se contradice a sí misma, y tampoco contradice el marco que armaste. Lo que queda desmentido
-es la lectura divulgativa. Tres pasajes de la Guía la desmienten:
+Es decir: no hay contradicción entre ambas, hay un **resumen que aplana** frente a una fuente primaria que es
+explícita. Los pasajes de la Guía que hacen la diferencia:
 
 1. *"The Sprint Review is a working session and the Scrum Team should avoid limiting it to a presentation."*
    La ceremonia es una sesión de trabajo, no una presentación con aprobación.
