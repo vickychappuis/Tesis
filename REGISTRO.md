@@ -194,4 +194,38 @@
   - Agregar la imagen de los 4 escenarios del paper *Future of software development with generative AI* (S1–S4)
 - Segunda pasada del marco junto con Daniel (revisión de los 4 artículos)
 
+### Cómo se organizó
+
+Se ordenó por dependencia y no por el orden de los tickets (`sprint 15/PLAN_SPRINT.md`): primero anclar Scrum
+—porque fija el vocabulario de las actividades—, después el diagrama, después la capa IAG.
+
+| Fase | Entregable |
+|---|---|
+| 0 | Los 4 artículos del tutor con identidad verificada (Crossref/OpenAlex/PDF) → `sprint 15/papers_daniel/` |
+| 1 | `sprint 15/SCRUM_ANCLAJE.md` — Scrum Guide 2020 con citas verificadas literalmente; qué cubre y qué no; mapeo A1–A5 → vocabulario Scrum. Fuentes en `FUENTES_MARCO.md` / `.bib` |
+| 2 | `sprint 15/MARCO_PROCESO_FEEDBACK_v2.md` §1–§3 y `sprint 15/diagramas/marco_feedback_bpmn.drawio` — diagrama formalizado en BPMN, una sola notación para flujo y roles |
+| 3 | Marco v2 §4–§5: capa IAG cruzando corpus + los 4 artículos, con tabla de trazabilidad; figura propia de los escenarios S1–S4 |
+| 4 | `sprint 15/CAMBIOS_DESDE_V1.md` — resumen de una página para la segunda pasada con Daniel |
+
+### Resultados destacados
+
+- La Scrum Guide 2020 **respalda el reparo del tutor**: la Sprint Review es una *working session* que no debe
+  limitarse a una presentación, y la liberación está desacoplada de la ceremonia (*"never a gate to releasing value"*).
+- El framework **declara su propia incompletitud** (*"purposefully incomplete"*, *"container for other techniques"*),
+  y las palabras `feedback`, `test` y `acceptance` tienen **0 ocurrencias** en las 14 páginas de la Guía → el objeto
+  de estudio de la tesis vive en el hueco declarado del framework.
+- A2 se desdobló en liberación / uso y testing de aceptación / Sprint Review: el feedback pasa a tener **dos canales
+  y dos momentos** (objetivo B).
+- Al pasar a BPMN, la vista principal y la vista por carriles **se unifican**: desaparece la inconsistencia de
+  notación en lugar de parchearse.
+- Los 4 artículos del tutor **no mencionan la Sprint Review**: refuerzan la capa general por etapa del SDLC, no la
+  ceremonia. Aportaron además dos gaps declarados (testing de aceptación; automatización de build/deploy) y
+  corrigieron una afirmación de la v1 (la estimación de esfuerzo ya está cubierta).
+
+### Pendientes
+
+- Confirmar sección exacta de las citas a libros (Sommerville, Dumas) contra el ejemplar.
+- Unificar `sprint 15/FUENTES_MARCO.bib` con `sprint 12/REFERENCIAS.bib` al arrancar la redacción.
+- Segunda pasada con Daniel: 5 decisiones abiertas listadas en `sprint 15/CAMBIOS_DESDE_V1.md`.
+
 ---

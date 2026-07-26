@@ -1,0 +1,907 @@
+       Generative Artificial Intelligence in Agile
+          Software Development Processes:
+            A Literature Review Focused
+                 on User eXperience
+
+     Héctor Cornide-Reyes1(B) , Diego Monsalves3 , Eduardo Durán1 ,
+                Fabián Silva-Aravena2 , and Jenny Morales2
+ 1
+    Facultad de Ingenierı́a, Departamento de Ingenierı́a Informática y Ciencias de la
+               Computación, Universidad de Atacama, Copiapó, Chile
+                     {hector.cornide,eduardo.duran}@uda.cl
+    2
+      Facultad de Ciencias Sociales y Económicas, Departamento de Economı́a y
+            Administración, Universidad Católica del Maule, Talca, Chile
+                             {fasilva,jmoralesb}@ucm.cl
+  3
+    Escuela de Ingenierı́a Informática, Universidad de Valparaı́so, Valparaı́so, Chile
+                                diego.monsalves@uv.cl
+
+
+
+       Abstract. The integration of Generative Artiﬁcial Intelligence (GenAI)
+       into Agile Software Development (ASD) is reshaping the way develop-
+       ment teams automate tasks, optimize processes, and enhance user experi-
+       ence (UX). This study presents a systematic literature review to analyze
+       the impact of GenAI on ASD, focusing on three research questions: (1)
+       How can GenAI tools optimize user experience in agile software devel-
+       opment projects? (2) What are agile teams’ main challenges when inte-
+       grating GenAI tools into software development projects? and (3) What
+       stages of the agile software development cycle beneﬁt from implement-
+       ing GenAI tools? A total of 21 relevant studies published between 2020
+       and 2024 were selected and analyzed. Findings indicate that GenAI
+       improves UX by facilitating automated test generation, personalized user
+       interfaces, and enhanced documentation processes. However, challenges
+       such as data quality, model transparency, security vulnerabilities, and
+       team resistance hinder its adoption. Moreover, the research highlights
+       that GenAI contributes across multiple ASD phases, including plan-
+       ning (requirement analysis and user story generation), implementation
+       (automated code generation and debugging), testing (self-generated test
+       cases), maintenance (documentation and refactoring), and retrospectives
+       (data-driven team performance analysis). Despite its growing adoption,
+       the study reveals a gap in empirical evaluations of GenAI’s long-term
+       impact on Agile methodologies. Future research should explore hybrid
+       frameworks that balance automation and human oversight, longitudi-
+       nal studies on GenAI’s adoption trends, and strategies to ensure ethical
+       and bias-free AI implementation in Agile environments. The ﬁndings
+       contribute to a deeper understanding of GenAI’s transformative role in
+       software development and provide practical insights for industry profes-
+       sionals and researchers.
+ The Author(s), under exclusive license to Springer Nature Switzerland AG 2025
+ c
+A. Coman and S. Vasilache (Eds.): HCII 2025, LNCS 15787, pp. 228–246, 2025.
+https://doi.org/10.1007/978-3-031-93536-7_16
+    GenAI in ASD Processes: A Literature Review Focused on User eXperience      229
+
+        Keywords: Generative AI · Agile Software Development · User
+        Experience · Scrum · Software Engineering · Artiﬁcial Intelligence
+
+
+1     Introduction
+
+The integration of GenAI, ASD, and UX represents a key area in modern soft-
+ware engineering. GenAI is revolutionizing various aspects of software develop-
+ment, from code generation to interface design, by producing new and original
+content based on existing data [15]. Meanwhile, Agile Software Development is
+a methodology that emphasizes rapid iteration, adaptability, and close collabo-
+ration with end users [5,13], making it particularly eﬀective for creating prod-
+ucts aligned with user needs. ASD has demonstrated a positive impact on the
+industry due to its ability to quickly adapt to changes and continuously deliver
+value. However, it also presents signiﬁcant challenges, such as maintaining con-
+sistency in user experience across multiple iterations and ensuring a cohesive
+product vision throughout sprints. Other challenges include accurately inter-
+preting user expectations and behaviors, communication overload in multidisci-
+plinary teams, and the limited ability to generate highly personalized solutions in
+real time. As a result, software products developed under this approach do not
+always fully meet user demands or require multiple iterations before reaching an
+acceptable level of functionality and usability [57].
+    The literature suggests that GenAI models and tools can oﬀer promising solu-
+tions to address these challenges by processing complex information and generat-
+ing structured content. Among the most relevant applications are the automation
+of user interface prototyping, ensuring consistency with established design prin-
+ciples. Additionally, GenAI can facilitate the translation of user requirements
+into precise technical speciﬁcations, as well as generate design variations that
+adhere to predeﬁned UX guidelines, thus optimizing the development process.
+    Despite its potential beneﬁts, Agile teams face critical obstacles that directly
+impact UX. One of the most signiﬁcant is ASD’s inherent speed, which can lead
+to inconsistencies in the user interface and overall product experience. As noted
+by Curcio et al. [8], Agile projects frequently encounter UX design consistency
+issues during the early development phases. Moreover, eﬀectively capturing and
+translating user requirements into implementable features remains a persistent
+challenge [14]. Using GenAI for rapid prototyping and validation of design solu-
+tions might compromise UX quality in favor of delivery speed [63]. However, its
+integration into ASD represents a signiﬁcant opportunity to enhance UX, as sug-
+gested by Li et al. [15]. GenAI tools can signiﬁcantly optimize development and
+design processes, allowing teams to focus on more strategic UX design aspects.
+    Driven by the need to understand how GenAI can impact ASD from a
+UX-focused perspective, this study addresses the following research questions:
+(RQ1) How can GenAI tools optimize user experience in Agile software projects?
+(RQ2) What are the main challenges Agile teams face when integrating GenAI
+into software development projects? (RQ3) Which speciﬁc stages of the Agile
+software development cycle beneﬁt the most from GenAI implementation? To
+230    H. Cornide-Reyes et al.
+
+answer these questions, a systematic literature review was conducted using the
+PICOC methodology, considering studies indexed in Web of Science, Scopus,
+IEEE Xplore, and ACM Digital Library. A total of 21 primary studies were
+selected and analyzed, providing an encouraging perspective on GenAI’s role in
+the evolution of Agile software development.
+    This paper is organized as follows: Sect. 2 provides the necessary context for
+the reader to understand the importance, relevance and conceptual bases of the
+work presented. Section 3 describes the research method used. Section 4 shows
+the results obtained in the literature review and the evidence found to answer
+the research questions, and ﬁnally, in Sect. 5, the conclusions and future work.
+
+
+2     Background
+
+In the continuous evolution of software engineering, the integration of genera-
+tive artiﬁcial intelligence with agile development methodologies is oﬀering a new
+way in which products are conceived and delivered. The capability of GenAI to
+generate creative content and personalize user interactions, combined with the
+iterative and collaborative approach of agile practices, lays the foundation for
+digital solutions more aligned with user expectations and with faster, more eﬀec-
+tive feedback loops. Along these lines, agile software development has established
+itself as a ﬂexible and collaborative approach, supported by rapid iterations and
+constant feedback for the continuous delivery of customer value [17]. Based on
+the principles of the Agile Manifesto and various methodologies such as Scrum,
+XP, and Kanban, ASD has demonstrated its eﬀectiveness in the industry by
+reducing delivery times and increasing adaptability to requirement changes [18].
+Nevertheless, the high dynamism of agile teams can pose challenges in maintain-
+ing design coherence and user experience in each iteration [19]. The use of agile
+methodologies has transcended the boundaries of software development, where
+current literature highlights success stories and applications in ﬁelds such as
+healthcare [21], law [20], and even the fashion industry [22].
+    UX is a term coined by Norman in 1998 to represent the broader range of
+human experience quality that extends beyond the traditional concept of usabil-
+ity. While usability focuses on the success of a user’s interaction with a product
+or service, UX encompasses the overall satisfaction and meaning of that interac-
+tion [23]. A user-centered approach not only meets functional objectives but also
+promotes satisfaction and engagement with the product. To this end, the disci-
+pline integrates knowledge from psychology, design, and technology, emphasizing
+cognitive [24,25], emotional [26], and physical interactions, as well as the impor-
+tance of iterative feedback processes. These principles are applied in domains
+such as healthcare, e-commerce, and mobile technology [27], highlighting the
+need for collaboration between academia and industry to close implementation
+gaps [28]. However, given the complexity and diversity of user experiences, chal-
+lenges persist in standardizing practices and deﬁnitions. At the same time, the
+growing demand for UX professionals has driven specialized training and the
+inclusion of courses in curricula, reinforcing an interdisciplinary approach and
+ GenAI in ASD Processes: A Literature Review Focused on User eXperience          231
+
+promoting the eﬀective adoption of UX in practice. Integrating UX into ASD
+remains a challenge, mainly due to the need to balance the speed of sprints with
+the consistency and depth of user research.
+    Generative artiﬁcial intelligence refers to systems capable of producing orig-
+inal content (text, images, code, prototypes, etc.) based on patterns learned
+from large datasets [29,30]. This type of AI diﬀers from deterministic rule-based
+models. It opens the door to more ﬂexible and personalized interactions and
+solutions, with applications ranging from healthcare—through the generation of
+virtual medical images and diagnostic support [31]—to education, commerce,
+and the preservation of cultural heritage [32,33]. In software engineering, GenAI
+supports multiple tasks, from code and documentation generation to interface
+prototyping and user feedback analysis. However, its growing reach raises impor-
+tant ethical and practical considerations, such as bias, the need for explainability,
+and the implications for strategic decision-making [34,35], requiring careful and
+responsible integration across diverse domains.
+    Likewise, the adoption of GenAI in agile frameworks contributes to project
+management, as its ability to process large volumes of data and provide recom-
+mendations based on predictive analysis facilitates decision-making and enhances
+eﬃciency in sprint planning, progress monitoring, and team communication [36].
+This is particularly relevant for companies immersed in agile transformations
+since GenAI strengthens creativity and the automation of repetitive tasks,
+enabling more agile and eﬃcient development cycles [37,38]. By automating
+routine tasks and analyzing real-time data, organizations can align their agile
+transformations with the evolution of AI, reinforcing collaboration and keeping
+the team in a “build-inspect-adapt” cycle [39]. GenAI with non-deterministic
+models makes UX experiences more dynamic and adaptive, requiring UX pro-
+fessionals to adjust their design strategies to address the opportunities and the
+challenges arising from greater complexity and personalization in interactions.
+In UX design processes, there has been an observed improvement in produc-
+tivity and innovation [36,40]. By automating tasks related to user research
+and the creation of wireframes, prototype generation, and interface design are
+optimized, enabling rapid iteration scenarios and the exploration of diﬀerent
+design concepts [41]. This user-centered approach, combined with GenAI’s abil-
+ity to respond to user inputs in real-time, drives conversational journeys and
+more engaging experiences. Generative AI has made a strong entrance into soft-
+ware development by oﬀering advantages in productivity and creativity. In [42],
+it is reported that tools such as GitHub Copilot and ChatGPT signiﬁcantly
+improve programming speed by generating code from natural language. Mean-
+while, in [43], the automation of code generation from software requirements
+is highlighted, alleviating repetitive work and allowing developers to focus on
+more complex activities. Furthermore, in [44], it is emphasized that large lan-
+guage models (LLM) can directly translate informal descriptions into executable
+code, streamlining the development process. The “model-based development”
+approach is also strengthened; as early as 2010 in [45], it is described how
+232     H. Cornide-Reyes et al.
+
+this approach facilitates the generation of test cases and models from domain-
+speciﬁc languages (DSL) and UML, contributing to improved software quality
+and has now been enhanced thanks to generative artiﬁcial intelligence, as pre-
+sented in [46], with applied use in web-based developments [47]. At the applica-
+tion level, it has positioned itself as a transversal technology whose applications
+span multiple areas and domains. In the medical ﬁeld, image translation (for
+example, converting T1 to T2 scans) improves diagnostic accuracy and obtain
+sharper images, even in unpaired translation scenarios [48]. Also, models have
+been developed to transform SAR images into high-resolution optical images,
+which is valuable for satellite observation and remote sensing [48]. In editing
+and style, generative networks allow for modiﬁcations of facial features or the
+transfer of artistic styles. At the same time, in education, they facilitate the
+production of synthetic material and multilingual support [48]. Moreover, meth-
+ods such as BERT and ELMo have proven eﬀective for classiﬁcation and text-
+mining tasks, encompassing even malware detection and summary synthesis [48].
+Finally, video generation and editing techniques add a dynamic layer to these
+capabilities, broadening the range of content that can be created or transformed
+automatically [48].
+    Generative AI increases the accuracy and quality of results in specialized
+applications and drives innovation and eﬃciency across numerous processes.
+Nevertheless, certain limitations persist, such as the need for more excellent
+reliability in the models, the interpretability of their results, and the considera-
+tion of ethical implications. Despite these challenges, its transformative capacity
+positions it as a research area still far from reaching its ceiling, with a potential
+that promises to continue expanding the frontiers of software engineering and
+other technological ﬁelds.
+
+3     Methodology
+The main goal of this work is to analyze, through a comprehensive literature
+review, how GenAI tools can optimize UX in agile software development projects.
+To achieve this objective, a literature review was conducted based on the guide-
+lines proposed by [52,60]. The process was conducted through the following steps:
+1) statement of research questions, 2) search process, 3) selection of studies, and
+4) analysis of results. All these steps are described below.
+
+3.1   Research Questions
+We have deﬁned three speciﬁc research questions for more detailed knowledge
+and a comprehensive view of the subject. The research questions to be answered
+in this study are as follows:
+– RQ1. How can GenAI tools optimize user experience in agile software devel-
+  opment projects?
+– RQ2. What are agile teams’ main challenges when integrating GenAI tools
+  into software development projects?
+ GenAI in ASD Processes: A Literature Review Focused on User eXperience     233
+
+– RQ3. What stages of the agile software development cycle beneﬁt from imple-
+  menting GenAI tools?
+
+
+3.2   Search Process
+The citation databases used were SCOPUS and Web of Science (WoS), while
+the scientiﬁc publication databases used were ACM Digital Library and IEEE
+Xplore. This selection is mainly due to the reputation of these databases in
+the discipline and the fact that we have full access to the published material.
+To construct the search string, we use the method PICOC [12,52,59] whose
+acronyms represent the criteria that drive the process. The PICOC method is
+structured to formulate research questions and construct eﬃcient search chains.
+PICOC is an acronym that stands for ﬁve key elements: P de Population; I
+de Intervention; C de Comparison; O de Outcomes y C de Context. Based on
+the PICOC method, the following search string was developed: (organization
+OR universities OR educational OR company OR Institution) AND (GenAI OR
+GAI OR “Generative Artificial Intelligence” OR AI OR “artificial intelligence”)
+AND (agile OR scrum OR agileRE OR “agile requirements engineering”) AND
+(tools OR software OR program OR application) AND (limitations OR guidelines
+OR implementation OR challenge). This search string was validated with a set of
+papers we identiﬁed and used as a control group. The investigation was initially
+carried out in November; its last update was mid-December 2024.
+    The inclusion/exclusion criteria were as follows:
+– Published between 2020 and 2024.
+– Contain information on GenAI and Agile Software Development.
+– Only written in English.
+
+
+3.3   Selection of Primary Studies
+The data extraction form was developed with the following ﬁelds: paper Title,
+Year, DOI; Published in (Journal, Conference); Study Type (Quantitative,
+Qualitative, Mixed); Research Method (Literature Review, Case Study, Inter-
+views, Questionnaires, Observation); Objective; Main Findings; Main Conclu-
+sions; Future Work; Tributes to RQ1 (Yes/No); Evidence RQ1; Tributes to RQ2
+(Yes/No); Evidence RQ2; Tributes to RQ3 (Yes/No); Evidence RQ3; Number
+of people; Number of Women; Number of Men.
+    The methodology for searching and selecting papers was structured into three
+successive stages:
+– First Stage (1F): We began by reviewing all titles and keywords of the
+  papers obtained from each database. Subsequently, duplicates were removed
+  to ensure the uniqueness of the documents.
+– Second Stage (2F): Next, we conducted a detailed reading of the abstracts
+  of those papers that passed the ﬁrst ﬁlter. This step allowed a preliminary
+  assessment of the relevance and pertinence of each paper.
+234    H. Cornide-Reyes et al.
+
+– Third Stage: Finally, the papers selected after the second ﬁlter were down-
+  loaded, read in their entirety, and recorded in a form designed in Microsoft
+  Excel, following the established protocol. This stage involved an exhaustive
+  review to determine their ﬁnal inclusion in the study.
+
+    After executing the search string in each consulted database, we obtained the
+following initial results: 92 papers from Web of Science (WoS), 26 from SCOPUS,
+41 from IEEE Xplore, and 261 from ACM Digital Library. Subsequently, we
+applied the previously described ﬁlters (1F and 2F), which resulted in a more
+reﬁned selection: 3 papers from WoS, 2 from SCOPUS, 5 from IEEE Xplore,
+and 11 from ACM Digital Library. Finally, we selected 21 primary studies for
+detailed analysis and discussion.(see Table 1).
+
+
+3.4   Analysis of Results
+The analysis of the selected primary studies reveals several key trends in GenAI
+research within Agile Software Development. In terms of publication years, there
+is a notable concentration of studies in 2024, highlighting the growing interest of
+the scientiﬁc community in the intersection of GenAI, Agile methodologies, and
+software development. This trend suggests that research in this ﬁeld is experi-
+encing a phase of rapid expansion, driven by recent advancements in technologies
+such as large language models (LLMs) and their integration into development
+workﬂows. Additionally, this surge in interest aligns with the accelerated digital
+transformation in key industries, which has increased the demand for innovative
+solutions to optimize development processes and enhance user experience.
+    The analyzed studies were published in highly recognized academic and pro-
+fessional sources, including IEEE Access, ACM Transactions, and MDPI Infor-
+mation, as well as high-impact specialized conferences. The presence of these
+works in prestigious journals and conferences not only validates their method-
+ological quality and scientiﬁc relevance but also reﬂects a multidisciplinary app-
+roach, combining theoretical, empirical, and applied contributions. This bal-
+ance ensures that the ﬁndings are valuable for both the academic community
+and industry professionals, facilitating knowledge transfer between research and
+practice.
+    Regarding the application context, most studies focus on business and aca-
+demic environments, particularly in medium and large enterprises, as well as
+in educational and technological institutions. This highlights the dual nature
+of research, bridging real-world application and conceptual development within
+academia, demonstrating a growing interest in exploring the applicability of
+GenAI in Agile projects across diﬀerent domains. Finally, the results identify key
+challenges that warrant further investigation, such as organizational resistance
+to change, lack of transparency in AI models, and technological interoperability
+in heterogeneous development environments. These ﬁndings open new research
+avenues, including the customization of GenAI tools for speciﬁc contexts and
+the improvement of data quality to enhance the integration of these technologies
+into Agile software development.
+ GenAI in ASD Processes: A Literature Review Focused on User eXperience                    235
+
+                    Table 1. Selected primary studies (PS) and DOI
+
+ID     Title                                                     DOI
+[PS 1] The Potential of AI-Driven Assistants in Scaled Agile     10.3390/app14010319
+       Software Development [62]
+[PS 2] A Roadmap for Software Testing in Open-Collaborative      10.1145/3709355
+       and AI-Powered Era [54]
+[PS 3] An Agile New Research Framework for Hybrid Human-AI 10.1145/3514257
+       Teaming: Trust, Transparency, and Transferability [56]
+[PS 4] Applying Machine Learning to Estimate the Eﬀort and       10.1109/ACCESS.2023.3307310
+       Duration of Individual Tasks in Software Projects [4]
+[PS 5] Artiﬁcial Intelligence and Agility-Based Model for        10.3390/info14060337
+       Successful Project Implementation and Company
+       Competitiveness [53]
+[PS 6] Beyond Code Generation: An Observational Study of         10.1145/3660788
+       ChatGPT Usage in Software Engineering Practice [55]
+[PS 7] GenAI and Software Engineering: Strategies for Shaping 10.14742/ajet.8922
+       the Core of Tomorrow’s Software Engineering Practice [6]
+[PS 8] FRAMUX-EV: A Framework for Evaluating User                10.3390/app14198991
+       Experience in Agile Software Development [16]
+[PS 9] Comprehensive Evaluation and Insights Into the Use of     10.1109/ACCESS.2024.3391815
+       Large Language Models in the Automation of
+       Behavior-Driven Development Acceptance Test
+       Formulation [58]
+[PS 10] Cypress Copilot: Development of an AI Assistant for      10.1109/ACCESS.2024.3521407
+        Boosting Productivity and Transforming Web
+        Application Testing [61]
+[PS 11] Development in Times of Hype: How Freelancers Explore 10.1145/3597503.3639111
+        Generative AI? [50]
+[PS 12] Enhancing educational eﬃciency: Generative AI chatbots 10.1002/cae.22804
+        and DevOps in Education 4.0 [10]
+[PS 13] Estimating Software Functional Size via Machine          10.1145/3582575
+        Learning [49]
+[PS 14] From Today’s Code to Tomorrow’s Symphony: The AI         10.1145/3709353
+        Transformation of Developer’s Routine by 2030 [7]
+[PS 15] From Triumph to Uncertainty: The Journey of Software     10.1145/3709360
+        Engineering in the AI Era [3]
+[PS 16] How to Write Ethical User Stories? Impacts of the        10.1007/978-3-030-78098-2 3
+        ECCOLA Method [11]
+[PS 17] Human-AI Collaboration in Software Engineering:          10.1145/3643690.3648236
+        Lessons Learned from a Hands-On Workshop [51]
+[PS 18] Integrating Generative AI for Advancing Agile Software   10.14569/IJACSA.2024.0150306
+        Development and Mitigating Project Management
+        Challenges [2]
+[PS 19] Large Language Models for Software Engineering: A        10.1145/3695988
+        Systematic Literature Review [64]
+[PS 20] Requirements are All You Need: The Final Frontier for    10.1145/3708524
+        End-User Software Engineering [9]
+[PS 21] Using Voice and Biofeedback to Predict User Engagement 10.1145/3635712
+        during Product Feedback Interviews [1]
+236      H. Cornide-Reyes et al.
+
+    On the other hand, Table 2 oﬀers an integrated and organized view of how
+the selected primary studies align with the previously deﬁned research questions.
+This table shows the correspondence between the questions and the studies and
+facilitates a deeper understanding of the focus areas and speciﬁc aspects that
+each study addresses in relation to the posed questions. This provides a valuable
+tool for quickly identifying the key contributions of each study in the broader
+context of the research.
+
+                Table 2. Matching research questions and primary studies
+
+Research Questions                                      References to primary studies
+RQ1. How can GenAI tools optimize user experience in    PS 5, PS 7, PS 10, PS 14, PS 17, PS 18, PS 19,
+agile software development projects?                    PS 20
+RQ2. What are agile teams’ main challenges when         PS 1, PS 2, PS 3, PS 4, PS 5, PS 6, PS 7, PS 8,
+integrating GenAI tools into software development       PS 9, PS 10, PS 11, PS 12, PS 13, PS 14, PS 15,
+projects?                                               PS 16, PS 17, PS 18, PS 19, PS 20, PS 21
+RQ3. What stages of the agile software development cycle PS 1, PS 2, PS 3, PS 4, PS 5, PS 6, PS 7, PS 8,
+beneﬁt from implementing GenAI tools?                    PS 9, PS 10, PS 11, PS 12, PS 13, PS 14, PS 15,
+                                                         PS 16, PS 17, PS 18, PS 19, PS 20, PS 21
+
+
+
+
+3.5    Limitations
+
+While this systematic literature review provides a detailed perspective on the
+impact of GenAI in ASD and its relationship with UX, several limitations must
+be considered when interpreting the ﬁndings.
+    First, the selection of studies was restricted to publications indexed in Web of
+Science, Scopus, IEEE Xplore, and ACM Digital Library, which, while ensuring
+high academic rigor and quality, excluded gray literature and industry sources,
+such as technical reports, case studies in private companies, and documenta-
+tion of commercial tools. This may have limited the representation of practical,
+industry-driven approaches, particularly regarding the real-world application of
+GenAI in software development environments.
+    Second, the study focused on publications from 2020 to 2024, reﬂecting the
+early stage of GenAI adoption in ASD. As a result, many analyzed studies present
+preliminary or short-term evaluations, making it diﬃcult to assess long-term
+trends and the sustained impact of these technologies on team productivity, UX
+evolution, and organizational readiness for GenAI integration.
+    Another critical limitation is the lack of uniformity in the evaluation meth-
+ods for GenAI in ASD. The reviewed studies employ diverse methodological
+approaches, including controlled experiments, qualitative analyses, and litera-
+ture reviews, but few use standardized metrics to assess the impact of GenAI on
+the software lifecycle. This variability complicates direct comparisons between
+ﬁndings and highlights the need for more robust and replicable methodological
+frameworks in future research.
+    Lastly, this review focused on studies discussing GenAI in a general Agile
+development context, without distinguishing diﬀerences between speciﬁc Agile
+    GenAI in ASD Processes: A Literature Review Focused on User eXperience      237
+
+methodologies (Scrum, Kanban, XP, SAFe). This raises the possibility that the
+applicability and eﬀectiveness of GenAI may vary depending on the Agile frame-
+work used. Future research should explore the integration of GenAI within spe-
+ciﬁc Agile methodologies, assessing tailored implementation strategies.
+    Despite these limitations, the ﬁndings provide a solid and up-to-date perspec-
+tive on the intersection of GenAI, ASD, and UX, serving as a relevant foundation
+for further exploration. Future studies are encouraged to expand the range of
+considered sources, incorporate longitudinal analyses, and develop standardized
+methodologies to objectively evaluate the impact of GenAI on Agile software
+development.
+
+
+4     Discussion of Results
+
+As described in Sect. 4, a total of 21 articles were selected as primary studies and
+subsequently analyzed and classiﬁed based on their alignment with the research
+questions that guided this study. This process allowed us to identify key infor-
+mation and extract relevant evidence to address each of the formulated research
+questions. The following section presents a synthesis of the ﬁndings and their
+relationship with the research questions.
+
+
+4.1     RQ1: How Can GenAI Tools Optimize User Experience in Agile
+        Software Development Projects?
+
+GenAI tools, such as ChatGPT, GitHub Copilot, and other advanced language
+models, have proven to be a key resource for optimizing user experience in Agile
+projects. Their impact is evident in both the improvement of internal develop-
+ment processes and the quality of the ﬁnal products delivered to users. These
+tools enable automation of repetitive tasks, technical documentation genera-
+tion, and tailored solutions for complex problems, resulting in greater eﬃciency
+in software development and an enhanced user experience.
+    Studies [2, 6, 7, 9,51,53,61,64] highlight that the automation of tasks such as
+code generation, testing, and documentation allows development teams to focus
+on higher-value activities, leading to more robust software that aligns with cus-
+tomer needs. Additionally, tools like ChatGPT enhance team collaboration and
+data-driven decision-making, promoting a more personalized user experience.
+    In particular, studies [9,51] emphasize how GenAI is transforming tradi-
+tional workﬂows in Agile environments. Its ability to automatically generate
+prototypes and functionalities from natural language requirements reduces bar-
+riers between users and development teams, fostering greater client participation
+in the product creation process.
+    A notable study by [53] evaluated the impact of ChatGPT on developer eﬃ-
+ciency in prototype creation. Through an experimental setup, it was observed
+that developers using ChatGPT reduced development time by 40% and deliv-
+ered prototypes more closely aligned with customer requirements, ultimately
+improving the user experience. Similarly, the study by [6] examines how GitHub
+238     H. Cornide-Reyes et al.
+
+Copilot optimizes workﬂows, highlighting that developers were able to generate
+code faster and reduce common errors, allowing them to focus on enhancing the
+user experience.
+    Furthermore, the study by [61] explores how generative language models can
+personalize interactions and functionalities from the early stages of development.
+Through mixed experiments and surveys, it was found that 85% of end users
+reported signiﬁcant improvements in their experience, mainly due to the creation
+of more intuitive and user-friendly interfaces.
+    Additionally, the study by [7] highlights the impact of tools like Tabnine
+in automating real-time technical documentation generation, which reduced
+user training time and improved comprehension of the ﬁnal product. Finally,
+the study by [51] describes how GenAI facilitates active customer participation
+in the development process, enabling them to translate their requirements into
+functional prototypes via natural language interfaces, ensuring products that
+better align with their expectations.
+
+4.2   RQ2: What Are Agile Teams’ Main Challenges When
+      Integrating GenAI Tools Into Software Development Projects?
+The integration of GenAI tools in Agile projects presents a series of technical,
+organizational, and ethical challenges that require signiﬁcant adaptation within
+development teams. The use of GenAI tools in software implementation has sig-
+niﬁcantly optimized code generation, reducing development time and minimizing
+common errors. However, since AI models can produce code with bugs or vulner-
+abilities, it is crucial to integrate automated validation processes. The analyzed
+studies consistently identify issues related to data quality, trust in AI tools, and
+the need for cultural adaptation within Agile teams.
+    One of the most recurrent challenges, identiﬁed in studies [7, 9,51,53,61],
+is data quality. GenAI tools, such as large language models (LLMs), rely on
+well-structured and representative datasets to generate accurate results. How-
+ever, inadequate or biased training data can introduce errors that negatively
+impact development processes. According to [55], biases in training data aﬀect
+the accuracy and fairness of GenAI outputs, leading to software implementation
+failures and ultimately compromising product quality.
+    Another signiﬁcant challenge, highlighted in [16], is the technical limitations
+of GenAI models, such as generating hallucinations or incorrect responses, which
+necessitate an intensive manual validation process. This increases the work-
+load for Agile teams, reducing the expected beneﬁts of automation. Additionally,
+studies [50] address the security risks associated with tools like GitHub Copilot,
+which may generate code with vulnerabilities. To mitigate these risks, teams
+must implement additional review and quality control processes, adding com-
+plexity and costs to software projects.
+    Another notable obstacle, discussed in [49], is the lack of explainability in
+GenAI models. These models often function as black boxes, making it diﬃcult
+to adopt them in environments where transparency is crucial, particularly in
+regulated industries or projects requiring decision traceability. This limitation
+  GenAI in ASD Processes: A Literature Review Focused on User eXperience                                      239
+
+restricts their implementation in contexts that demand clear justiﬁcations for
+AI-driven decisions.
+    On an organizational level, resistance to change and lack of technical training
+within Agile teams pose a critical challenge, as described in [11]. Many devel-
+opers remain skeptical about the impact of GenAI on their work, fearing a loss
+of control or relevance in the development process [51,61]. This resistance can
+slow down the adoption of these tools, reducing their eﬀectiveness and creating
+additional barriers to their integration into workﬂows. To address this issue, it
+is essential to develop strategies that promote training, controlled experimenta-
+tion, and human-AI collaboration within development teams.
+    Finally, Table 3 groups the main challenges identiﬁed in the primary studies,
+providing a structured summary of the barriers to GenAI integration in Agile
+projects.
+
+                 Table 3. Challenges of Integrating GenAI in Agile Teams
+
+Identiﬁed Challenge      Description                                                  Primary Studies
+Data Quality             GenAI models rely on well-structured and representative data PS 6, PS 8, PS 9,
+                         to generate accurate results. If the data is biased or of low PS 11, PS 13, PS 16
+                         quality, it may lead to incorrect or skewed information.
+                         Example: Language models generating code with
+                         accessibility biases.
+Technical Limitations    GenAI struggles with solving complex problems, often          PS 8, PS 10, PS 11,
+                         generating incorrect answers or hallucinations. This requires PS 13, PS 14
+                         developers to manually verify the results. Example: Models
+                         unable to handle advanced logic in code.
+Security Risks           Tools like GitHub Copilot may generate code with               PS 7, PS 10, PS 11,
+                         vulnerabilities, increasing the risk of cyberattacks. Example: PS 19, PS 20
+                         Generated code with authentication ﬂaws or exposure of
+                         sensitive data.
+Lack of Explainability   GenAI models function as “black boxes,” making it diﬃcult PS 13, PS 14, PS 16,
+                         to understand how they generate results. This can be       PS 19
+                         problematic in environments where traceability is crucial.
+                         Example: Models recommending code changes without
+                         justifying the underlying logic.
+Resistance to Change     Developers may be reluctant to adopt GenAI due to a lack of PS 10, PS 11, PS 16,
+                         trust in its capabilities or fear of losing control over the code. PS 17
+                         Example: Teams preferring to write code manually rather
+                         than accepting AI-generated suggestions.
+Excessive Dependence     Overreliance on GenAI may lead to dependency, reducing the PS 7, PS 12, PS 15,
+on GenAI                 development of technical skills within teams. Example:     PS 18
+                         Developers relying on GenAI to write code without
+                         understanding the underlying logic.
+
+
+
+
+4.3     RQ3: What Stages of the Agile Software Development Cycle
+        Benefit from Implementing GenAI Tools?
+GenAI tools play a signiﬁcant role across multiple stages of the Agile develop-
+ment cycle, from planning to maintenance. Their integration into development
+processes enhances eﬃciency through task automation, predictive analytics, and
+real-time documentation, ultimately improving team performance and software
+quality.
+240       H. Cornide-Reyes et al.
+
+    According to [62], in the planning stage, tools like ChatGPT assist in gener-
+ating user stories and prioritizing tasks based on natural language requirements.
+This improves the accuracy of sprint goal deﬁnition, ensuring better alignment
+between user needs and the developed functionalities.
+    During the implementation phase, the study by [54] explains how GenAI
+automates the generation of optimized and real-time reviewed code, signiﬁcantly
+reducing developers’ manual workload and minimizing errors in the coding pro-
+cess.
+    In the testing phase, [10] describe how these tools enable automated test
+case generation and early error detection, thereby increasing the reliability and
+stability of the ﬁnal product.
+    For maintenance, the study by [3] highlights the role of tools like Tabnine in
+continuously updating technical documentation, which not only ensures software
+scalability but also facilitates the onboarding of new developers into projects.
+    Finally, in the retrospective phase, [1] explain how GenAI helps analyze team
+performance metrics and generate data-driven recommendations to enhance
+future Agile iterations, optimizing team dynamics and overall development eﬃ-
+ciency.
+    Table 4 presents the Agile development stages identiﬁed in the primary stud-
+ies, along with the corresponding GenAI tools applied in each phase.
+
+
+            Table 4. Agile Development Stages and Identiﬁed GenAI Tools
+
+Agile Development Identiﬁed GenAI Tools                               Primary Studies
+Stage
+Planning            ChatGPT for user story generation and             PS 1, PS 2, PS 4,
+                    requirement analysis; LLM models for eﬀort        PS 12, PS 15
+                    estimation and sprint planning.
+Implementation      GitHub Copilot and Tabnine for code generation, PS 2, PS 5, PS 10,
+                    real-time error detection, and code optimization. PS 15, PS 19
+Testing             ChatGPT and specialized testing models for        PS 3, PS 10,
+                    automated test case generation, error analysis,   PS 14, PS 18,
+                    and code coverage.                                PS 20
+Maintenance         Tabnine and automatic documentation models PS 6, PS 11,
+                    for continuous technical documentation updates PS 16, PS 17,
+                    and code refactoring.                          PS 21
+Retrospectives      Predictive analysis models and ChatGPT for        PS 7, PS 9, PS 13,
+                    team performance metric analysis and              PS 17, PS 20
+                    improvement recommendations.
+
+
+
+    The increasing use of GenAI tools in Agile software development presents
+both a strategic opportunity and a technical and organizational challenge that
+must be addressed holistically. While previous studies have highlighted produc-
+tivity improvements and task automation, the ﬁndings of this research suggest
+    GenAI in ASD Processes: A Literature Review Focused on User eXperience     241
+
+that eﬀectively integrating GenAI into Agile teams requires speciﬁc strategies to
+mitigate risks related to data quality, code security, and model transparency.
+    Furthermore, existing literature has primarily focused on the beneﬁts of
+GenAI during the implementation phase, leaving a gap in understanding its
+impact on other critical Agile stages, such as planning, maintenance, and retro-
+spectives. This study helps bridge that gap by demonstrating that GenAI also
+facilitates continuous software improvement through predictive analysis of per-
+formance metrics and technical documentation optimization, enabling a more
+seamless integration of these technologies into Agile development.
+    For a sustainable adoption of GenAI in Agile environments, it is essential to
+develop hybrid frameworks that combine the automation capabilities of GenAI
+with human oversight practices, ensuring both operational eﬃciency and decision
+traceability within development processes. This approach will not only maximize
+the beneﬁts of GenAI but also mitigate associated risks, ensuring its ethical and
+eﬀective implementation in Agile teams.
+
+
+5     Conclusions and Future Work
+The ﬁndings of this research have demonstrated that the integration of GenAI
+tools into ASD provides signiﬁcant beneﬁts in terms of optimizing user expe-
+rience, reducing development errors, and automating repetitive tasks. However,
+several critical challenges have also been identiﬁed, including data quality, model
+opacity, resistance to change within teams, and code security.
+    Regarding RQ1, the analyzed studies suggest that GenAI enhances user
+experience by enabling interface personalization, usability test automation, and
+prototype development optimization. Additionally, it facilitates more eﬃcient
+interactions between development teams and end users, reducing barriers in
+requirement capture and translation, ultimately leading to products that better
+align with user expectations.
+    With respect to RQ2, the main challenges identiﬁed include the need to
+ensure data quality and representativeness, avoid defective or vulnerable code
+generation, and ensure transparency in AI-driven decisions. Additionally, some
+development teams have shown resistance to adopting these tools, highlighting
+the importance of training strategies and progressive adaptation to foster eﬀec-
+tive integration.
+    Regarding RQ3, the reviewed studies indicate that GenAI positively impacts
+multiple stages of Agile development. During the planning phase, it facilitates
+user story creation and task prioritization. In the implementation phase, it opti-
+mizes code generation and reduces real-time errors. During testing, it auto-
+mates the generation and execution of test cases, while in the maintenance stage,
+it improves technical documentation and code refactoring. Finally, in the retro-
+spective phase, it enables a more precise analysis of performance metrics, gen-
+erating data-driven recommendations that support continuous process improve-
+ment.
+242     H. Cornide-Reyes et al.
+
+    Despite these advancements, research in this ﬁeld remains in an early stage,
+and several opportunities for future studies have been identiﬁed. First, a more in-
+depth empirical evaluation is needed to assess GenAI’s impact on Agile team pro-
+ductivity and software quality. Additionally, it is important to analyze how Agile
+methodologies can be adapted to maximize GenAI’s beneﬁts, considering factors
+such as organizational culture and team technological maturity. Another promis-
+ing research avenue involves developing hybrid frameworks that combine GenAI
+with tailored Agile approaches based on the type of software being developed.
+Furthermore, future studies could explore methodologies to ensure ethical and
+transparent use of GenAI in Agile processes, as well as strategies to mitigate
+inherent biases in generative language models, ensuring a more inclusive and
+reliable software development process.
+
+Acknowledgments. This work was partially funded by DIUDA (Dirección de Investi-
+gación de la Universidad de Atacama) Regular Project of the Universidad de Atacama,
+No. 22386.
+
+
+
+References
+ 1. Alessio, F., Thaide, H., Paola, S., Nicole, N., Davide, F., Daniela, G.: Using Voice
+    and Biofeedback to Predict User Engagement during Product Feedback Interviews
+    (2023). https://doi.org/10.1145/3635712
+ 2. Anas, B., Jihane, G., Youssef, G.: Integrating Generative AI for Advancing Agile
+    Software Development and Mitigating Project Management Challenges (2024).
+    https://doi.org/10.14569/ijacsa.2024.0150306
+ 3. Antonio, M., Camilo, E.-V., Mario, L.-V.: From Triumph to Uncertainty: The
+    Journey of Software Engineering in the AI Era (2024). https://doi.org/10.1145/
+    3709360
+ 4. Sousa, A.O., et al.: Applying Machine Learning to Estimate the Eﬀort and Dura-
+    tion of Individual Tasks in Software Projects (2023). https://doi.org/10.1109/
+    access.2023.3307310
+ 5. Beck, K., Beedle, M., van Bennekum, A., et al.: Manifesto for Agile Software
+    Development (2001). https://agilemanifesto.org/
+ 6. Bruhin, O., Ebel, P., Müller, L., Li, M.M.: GenAI and Software Engineering: Strate-
+    gies for Shaping the Core of Tomorrow’s Software Engineering Practice (2024)
+ 7. Ciniselli, M., Puccinelli, N., Qiu, K., Di Grazia, L.: From Today’s Code to Tomor-
+    row’s Symphony: The AI Transformation of Developer’s Routine by 2030 (2024).
+    https://doi.org/10.48550/arxiv.2405.12731
+ 8. Curcio, K., Navarro, T., Malucelli, A., Reinehr, S.: Requirements engineering: a
+    systematic mapping study in agile software development. J. Syst. Softw. 150, 144–
+    161 (2019). https://doi.org/10.1016/j.jss.2019.01.036
+ 9. Robinson, D., Cabrera, C., Gordon, A.D., Lawrence, N.D., Mennen, L.: Require-
+    ments are All You Need: The Final Frontier for End-User Software Engineering
+    (2024). https://doi.org/10.1145/3708524
+10. Mekić, E.S., Jovanović, M.N., Kuk, K.V., Prlinčević, B.P., Savić, A.M.: Enhanc-
+    ing educational eﬃciency: Generative AI chatbots and DevOps in Education 4.0
+    (2024). https://doi.org/10.1002/cae.22804
+ GenAI in ASD Processes: A Literature Review Focused on User eXperience            243
+
+11. Erika, H., Ville, V., Joni, K., Marianna, J., Kai-Kristian, K., Rebekah, R.: How to
+    Write Ethical User Stories? Impacts of the ECCOLA Method (2021). https://doi.
+    org/10.1007/978-3-030-78098-2 3
+12. Garcı́a-Pérez, M.A., Pérez-López, R.: PICOC strategy for the research question
+    construction in systematic reviews. Evidence-Based Med. Pract. 5(2) (2021)
+13. Hoda, R., Salleh, N., Grundy, J.: The rise and evolution of agile software
+    development. IEEE Softw. 35(5), 58–63 (2022). https://doi.org/10.1109/MS.2018.
+    290111318
+14. Inayat, I., Salim, S.S., Marczak, S., Daneva, M., Shamshirband, S.: A systematic
+    literature review on agile requirements engineering practices and challenges. Com-
+    put. Hum. Behav. 51, 915–929 (2015). https://doi.org/10.1016/j.chb.2014.10.046
+15. Li, H., Zhang, J., Liu, Y.: The impact of generative AI on software development: a
+    systematic literature review. IEEE Access 11, 142455–142471 (2023). https://doi.
+    org/10.1109/ACCESS.2023.3342475
+16. Luis Felipe, R., Daniela, Q., Claudio, C.: FRAMUX-EV: A Framework for Evalu-
+    ating User Experience in Agile Software Development (2024). https://doi.org/10.
+    3390/app14198991
+17. Kuhrmann, M., et al.: What makes agile software development agile? IEEE Trans.
+    Softw. Eng. 48(9), 3523–3539 (2022). https://doi.org/10.1109/tse.2021.3099532
+18. Lagerberg, L., Skude, T., Emanuelsson, P., Sandahl, K., Stahl, D.: The impact
+    of agile principles and practices on large-scale software development projects: a
+    multiple-case study of two projects at ericsson. In: 2013 ACM / IEEE International
+    Symposium on Empirical Software Engineering and Measurement (ESEM), pp.
+    348–356. IEEE (2013). https://doi.org/10.1109/esem.2013.53
+19. Sahu, S. K., Ranganathan, S.: Navigating usability and user experience in a multi-
+    platform world with agile methodology. In: Advances in Social Networking and
+    Online Communities, pp. 49–84. IGI Global (2024). https://doi.org/10.4018/979-
+    8-3693-2337-3.ch003
+20. Broda, T., et al.: The agile working method for legal departments. Jusletter-
+    IT (Issues 20-Dezember-2022) Weblaw (2022). https://doi.org/10.38023/fc0c658d-
+    1230-45ca-bf08-bf3113e2d678
+21. Bylund, P., et al.: Using agile methodology and nudge strategies to improve enroll-
+    ment in clinical trials. Innov. Aging 6(Supplement), 652 (2022). https://doi.org/
+    10.1093/geroni/igac059.2409
+22. Tenemaza, M., Sarzosa, C.: Agile methodologies in the fashion industry. In: Intel-
+    ligent Human Systems Integration (IHSI 2022) Integrating People and Intelligent
+    Systems. AHFE International (2022). https://doi.org/10.54941/ahfe1001050
+23. Kurosu, M., Hashizume, A.: Usability and user experience (UX) of human-
+    automation interaction: concept and measurement method. In: Automation, Col-
+    laboration, & E-Services, pp. 311–325. Springer (2022). https://doi.org/10.1007/
+    978-3-031-10780-1 16
+24. Kompaniets, A., Chemerys, H.: Generalization of the experience of using research
+    on psychology of behavior for designing UX design software products. Ukr. J. Educ.
+    Stud. Inf. Technol. 7(3), 1–10 (2019). https://doi.org/10.32919/uesit.2019.03.01
+25. Bisset Delgado, C.: User experience (UX) in metaverse: realities and challenges.
+    Metaverse Basic Appl. Res. 1, 9 (2022). https://doi.org/10.56294/mr20229
+26. Chung, W., Fortier, S.: Context as a system, product as a component, and the rela-
+    tionship as experience. In: Lecture Notes in Computer Science, pp. 29–37. Springer,
+    Heidelberg (2013). https://doi.org/10.1007/978-3-642-39229-0 4
+244     H. Cornide-Reyes et al.
+
+27. Zhang, X.: Research hotspots and trend analysis of user experience design for
+    healthcare service system. In: AHFE International. 14th International Conference
+    on Applied Human Factors and Ergonomics (AHFE 2023). AHFE International
+    (2023). https://doi.org/10.54941/ahfe1003216
+28. Ardito, C., Buono, P., Caivano, D., Costabile, M.F., Lanzilotti, R.: Investigating
+    and promoting UX practice in industry: an experimental study. Int. J. Hum.-
+    Comput. Stud. 72(6), 542–551 (2014). https://doi.org/10.1016/j.ijhcs.2013.10.004
+29. Giannakos, M., et al.: The promise and challenges of generative AI in education.
+    Behav. Inf. Technol., 1–27 (2024). https://doi.org/10.1080/0144929x.2024.2394886
+30. Bansal, G., Nawal, A., Chamola, V., Herencsar, N.: Revolutionizing visuals: the role
+    of generative AI in modern image generation. ACM Trans. Multimedia Comput.
+    Commun. Appl. 20(11), 1–22 (2024). https://doi.org/10.1145/3689641
+31. Yamaguchi, H., Sugihara, G., Shimizu, M., Yamashita, Y.: Generative artiﬁcial
+    intelligence model for simulating structural brain changes in schizophrenia. Front.
+    Psychiat. 15 (2024). https://doi.org/10.3389/fpsyt.2024.1437075
+32. Stefaniak, J., Moore, S.: The use of generative AI to support inclusivity and design
+    deliberation for online instruction. Online Learn. 28(3) (2024). https://doi.org/10.
+    24059/olj.v28i3.4458
+33. Liu, J., Ma, X., Wang, L., Pei, L.: How can generative artiﬁcial intelligence tech-
+    niques facilitate intelligent research into ancient books? J. Comput. Cult. Herit.
+    17(4), 1–20 (2024). https://doi.org/10.1145/3690391
+34. Doshi, A.R., Bell, J.J., Mirzayev, E., Vanneste, B.S.: Generative artiﬁcial intelli-
+    gence and evaluating strategic decisions. Strateg. Manag. J. (2024). https://doi.
+    org/10.1002/smj.3677
+35. Schneider, J.: Explainable Generative AI (GenXAI): a survey, conceptualization,
+    and research agenda. Artif. Intell. Rev. 57(11) (2024). https://doi.org/10.1007/
+    s10462-024-10916-x
+36. Modi, M.D.B.: Transforming software development through generative AI: a sys-
+    tematic analysis of automated development practices. Int. J. Sci. Res. Comput. Sci.
+    Eng. Inf. Technol. 10(6), 536–547 (2024). https://doi.org/10.32628/cseit24106197
+37. Cimino, A., Felicetti, A.M., Corvello, V., Ndou, V., Longo, F.: Generative artiﬁcial
+    intelligence (AI) tools in innovation management: a study on the appropriation
+    of ChatGPT by innovation managers. Manage. Decis. (2024). https://doi.org/10.
+    1108/md-10-2023-1968
+38. Carayannis, E.G., Dumitrescu, R., Falkowski, T., Zota, N.-R.: Empowering SMEs
+    “harnessing the potential of gen AI for resilience and competitiveness”. IEEE
+    Trans. Eng. Manag. 71, 14754–14774 (2024). https://doi.org/10.1109/tem.2024.
+    3456820
+39. Aldoseri, A., Al-Khalifa, K., Hamouda, A.: A Roadmap for Integrating Automa-
+    tion with Process Optimization for AI-powered Digital Transformation. MDPI AG
+    (2023). https://doi.org/10.20944/preprints202310.1055.v1
+40. Choudhury, N.: Can artiﬁcial intelligence be used to improve productivity by
+    automating elements of the user experience design processes? MDPI AG (2023).
+    https://doi.org/10.20944/preprints202202.0057.v2
+41. Zhang, H., Chen, P., Xie, X., Jiang, Z., Zhou, Z., Sun, L.: A hybrid prototype
+    method combining physical models and generative artiﬁcial intelligence to support
+    creativity in conceptual design. ACM Trans. Comput.-Hum. Interact. 31(5), 1–34
+    (2024). https://doi.org/10.1145/3689433
+42. Weber, T., Brandmaier, M., Schmidt, A., Mayer, S.: Signiﬁcant productivity gains
+    through programming with large language models. Proc. ACM Hum.-Comput.
+    Interact. 8(EICS), 1–29 (2024). https://doi.org/10.1145/3661145
+ GenAI in ASD Processes: A Literature Review Focused on User eXperience              245
+
+43. Liu, H., Shen, M., Zhu, J., Niu, N., Li, G., Zhang, L.: Deep learning based program
+    generation from requirements text: are we there yet? IEEE Trans. Softw. Eng.
+    48(4), 1268–1289 (2022). https://doi.org/10.1109/tse.2020.3018481
+44. France, S.L.: Navigating software development in the ChatGPT and GitHub Copi-
+    lot era. Bus. Horiz. (2024). https://doi.org/10.1016/j.bushor.2024.05.009
+45. Rumpe, B., Schindler, M., Völkel, S., Weisemöller, I.: Generative software devel-
+    opment. In: Proceedings of the 32nd ACM/IEEE International Conference on
+    Software Engineering, ICSE 2010, vol. 2. ACM (2010). https://doi.org/10.1145/
+    1810295.1810436
+46. Marchezan, L., Assunção, W.K.G., Herac, E., Egyed, A.: Model-based Mainte-
+    nance and Evolution with GenAI: a Look into the Future (Version 1) (2024). arXiv
+    https://doi.org/10.48550/ARXIV.2407.07269
+47. Naimi, L., Abdelmalek, H., Jakimi, A.: A DSL-based approach for code generation
+    and navigation process management in a single page application. Procedia Comput.
+    Sci. 231, 299–304 (2024). https://doi.org/10.1016/j.procs.2023.12.207
+48. Sengar, S.S., Hasan, A.B., Kumar, S., Carroll, F.: Generative artiﬁcial intelligence:
+    a systematic review and applications. Multimedia Tools Appl. (2024). https://doi.
+    org/10.1007/s11042-024-20016-1
+49. Luigi, L., Angela, L., Geng, L., Roberto, M.: Estimating Software Functional Size
+    via Machine Learning (2023). https://doi.org/10.1145/3582575
+50. Mateusz, D., Norbert, L., Gerhard, S.: Development in times of hype: How free-
+    lancers explore Generative AI? (2024). https://doi.org/10.1145/3597503.3639111
+51. Muhammad, H., Dominik, S., Muhammad Azeem, A., Tahsinur, R.: Human-AI
+    Collaboration in Software Engineering: Lessons Learned from a Hands-On Work-
+    shop (2024). https://doi.org/10.1145/3643690.3648236
+52. Petersen, K., Vakkalanka, S., Kuzniarz, L.: Guidelines for conducting systematic
+    mapping studies in software engineering: an update. Inf. Softw. Technol. 64, 1–18
+    (2015). https://doi.org/10.1016/j.infsof.2015.03.007
+53. Polona, T., Dijana, O., Maja, R.: Artiﬁcial Intelligence and Agility-Based Model for
+    Successful Project Implementation and Company Competitiveness (2023). https://
+    doi.org/10.3390/info14060337
+54. Qing, W., Junjie, W., Mingyang, L., Yawen, W., Zhe, L.: A Roadmap for Software
+    Testing in Open-Collaborative and AI-Powered Era (2024). https://doi.org/10.
+    1145/3709355
+55. Ranim, K., Mazen, M., Philipp, L., Francisco Gomes de Oliveira, N.: Beyond Code
+    Generation: An Observational Study of ChatGPT Usage in Software Engineering
+    Practice (2024). https://doi.org/10.1145/3660788
+56. Sabrina, C., Penny, S., Nicholas, O., Matthew, J.K., Matthew, A., Tom, G.: An
+    Agile New Research Framework for Hybrid Human-AI Teaming: Trust. Trans-
+    parency, and Transferability (2022). https://doi.org/10.1145/3514257
+57. Sahu, S.K., Ranganathan, S.: Navigating Usability and User Experience in a
+    Multi-Platform World With Agile Methodology. Advances in Social Networking
+    and Online Communities Book Series (2024). https://doi.org/10.4018/979-8-3693-
+    2337-3.ch003
+58. Shanthi, K., Sravanthy, M., Unnati, N., Likhit Sagar, G., Dave, B., Tom, S.: Com-
+    prehensive Evaluation and Insights Into the Use of Large Language Models in the
+    Automation of Behavior-Driven Development Acceptance Test Formulation (2024).
+    https://doi.org/10.1109/access.2024.3391815
+59. Smith, A.B., Jones, C.D.: Enhancing literature search strategies in systematic
+    reviews: the application of the PICOC method. J. Med. Libr. Assoc. 110(1), 20–27
+    (2022)
+246     H. Cornide-Reyes et al.
+
+60. Snyder, H.: Literature review as a research methodology: an overview and guide-
+    lines. J. Bus. Res. 104, 333–339 (2019)
+61. Suresh Babu, N., Shanthi, K., Unnati, N., Likhit Sagar, G.: Cypress Copilot: Devel-
+    opment of an AI Assistant for Boosting Productivity and Transforming Web Appli-
+    cation Testing (2024). https://doi.org/10.1109/access.2024.3521407
+62. Vasilka, S., Luka, P.: The Potential of AI-Driven Assistants in Scaled Agile Software
+    Development (2023). https://doi.org/10.3390/app14010319
+63. Werder, K., Zobel, B., Maedche, A.: PDISC - a method for software product dis-
+    covery. Bus. Inf. Syst. Eng. 64, 201–216 (2022). https://doi.org/10.1007/s12599-
+    021-00733-9
+64. Xinyi, H., Yanjie, Z., Yue, L., Zhou, Y., Kailong, W., Li, L.: Large Language Models
+    for Software Engineering: A Systematic Literature Review (2024). https://doi.org/
+    10.1145/3695988
+
