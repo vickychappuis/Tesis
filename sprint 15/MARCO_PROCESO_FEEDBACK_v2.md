@@ -36,6 +36,11 @@ Conclusión para el marco: la etapa que estudiamos es una **etapa de revisión**
 testing de aceptación → Sprint Review, de la cual **solo el último momento está definido por Scrum**. Los otros dos
 se anclan en literatura de ingeniería de software. Ver `SCRUM_ANCLAJE.md` §4 y §5.
 
+> **Precisión sobre las fuentes de Scrum.** Todo lo anterior sale de la **Scrum Guide 2020**, el documento
+> normativo. No debe confundirse con el **material introductorio de scrum.org**, que resume el framework y, al
+> resumir, omite estos matices: de ahí la lectura habitual de la Sprint Review como una reunión de aprobación.
+> No son fuentes que se contradigan — una resume a la otra. Alcance de lo verificado en `SCRUM_ANCLAJE.md` §3.1.
+
 ---
 
 ## 2. La etapa de feedback como modelo de proceso
