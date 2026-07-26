@@ -46,6 +46,19 @@ Se cayó la palabra "demo". Además: **A4** pasó a *Incorporación del feedback
 real (que puede llegar antes de la ceremonia) y la ceremonia. Eso es materia directa del objetivo B
 (frecuencia, secuencia, temporalidad).
 
+**El desdoblamiento no queda apoyado solo en Scrum:** Sommerville (2016) lo describe literalmente.
+
+- **§2.3.2 (entrega incremental):** los incrementos *"are delivered to the customer and deployed for use in their
+  working environment"* y, una vez entregados, *"it is installed in the customer's normal working environment. They
+  can experiment with the system"* → es exactamente el par **A2a + A2b**.
+- **§8.4 (user testing):** el *acceptance testing* tiene seis etapas y la primera es **definir los criterios de
+  aceptación**; el equipo de desarrollo, según **§8.3**, no debería ser responsable del *release testing*.
+- **§20.5:** *"Agile methods do not rely on having a complete system specification for system acceptance testing.
+  Rather, stakeholders are closely engaged with the testing process and have the authority to decide when the
+  overall system is acceptable."* → en ágil la aceptación **no** es una fase contractual separada sino
+  participación continua del stakeholder con autoridad para decidir. **Es justamente la relación que la tesis pone
+  en cuestión cuando entra IAG de por medio.**
+
 ## 3. Notación uniforme *(pedido: "cajitas y globitos, marea un poquito")*
 
 Se pasó a **BPMN** (estándar OMG, anclado en Dumas et al., 2018), dibujado en draw.io.
@@ -98,8 +111,11 @@ El marco v1 del sprint 14 tampoco se tocó: queda como registro, con tabla de co
    ninguna actividad del loop.)
 4. **¿Cuánto peso darle al hallazgo léxico** (`feedback` = 0 en la Guía)? Da un argumento fuerte para justificar el
    marco como aporte propio; podría ir en el cuerpo de la tesis y no solo como nota.
-5. **Pendiente de verificación:** las citas a libros (Sommerville, Dumas) están a nivel de capítulo. Hay que
-   confirmar sección exacta contra el ejemplar, o reemplazarlas por fuentes revisadas por pares.
+5. **Bibliografía: ya no queda nada pendiente.** Las tres fuentes que sostienen el marco están verificadas contra
+   el ejemplar, sección por sección: **Scrum Guide 2020** (citas literales), **Sommerville (2016)** §2.3.2, §4.5,
+   §4.6, §7.3, §8.3, §8.4, §20.5, §25.3 y **Dumas et al. (2018)** §1.4, §3.3, §3.4, §4.4, §5.2.2, §5.4.2 — detalle
+   en `FUENTES_MARCO.md` §a.1 y §a.2. Las de refuerzo (Pressman & Maxim, Humble & Farley, BABOK) quedaron como
+   prescindibles y se descartó ISO/IEC/IEEE 29119.
 
 ## Siguiente paso propuesto
 
