@@ -194,45 +194,36 @@
   - Agregar la imagen de los 4 escenarios del paper *Future of software development with generative AI* (S1–S4)
 - Segunda pasada del marco junto con Daniel (revisión de los 4 artículos)
 
-### Cómo se organizó
+### Cómo se resolvió
 
-Se ordenó por dependencia y no por el orden de los tickets (`sprint 15/PLAN_SPRINT.md`): primero anclar Scrum
+Se ordenó por **dependencia** y no por el orden de los tickets (`sprint 15/PLAN_SPRINT.md`): primero anclar Scrum
 —porque fija el vocabulario de las actividades—, después el diagrama, después la capa IAG.
 
-| Fase | Entregable |
+| Entregable | Qué es |
 |---|---|
-| 0 | Los 4 artículos del tutor con identidad verificada (Crossref/OpenAlex/PDF) → `sprint 15/papers_daniel/` |
-| 1 | `sprint 15/SCRUM_ANCLAJE.md` — Scrum Guide 2020 con citas verificadas literalmente; qué cubre y qué no; mapeo A1–A5 → vocabulario Scrum. Fuentes en `FUENTES_MARCO.md` / `.bib` |
-| 2 | `sprint 15/MARCO_PROCESO_FEEDBACK_v2.md` §1–§3 y `sprint 15/diagramas/marco_feedback_bpmn.drawio` — diagrama formalizado en BPMN, una sola notación para flujo y roles |
-| 3 | Marco v2 §4–§5: capa IAG cruzando corpus + los 4 artículos, con tabla de trazabilidad; figura propia de los escenarios S1–S4 |
-| 4 | `sprint 15/CAMBIOS_DESDE_V1.md` — resumen de una página para la segunda pasada con Daniel |
+| `sprint 15/SCRUM_ANCLAJE.md` | La evidencia: Scrum Guide 2020 con citas verificadas literalmente, qué cubre y qué no, y el mapeo A1–A5 → vocabulario Scrum |
+| `sprint 15/MARCO_PROCESO_FEEDBACK_v2.md` | El marco corregido; **reemplaza** al del sprint 14, que queda como registro |
+| `sprint 15/diagramas/` | El marco en BPMN (una sola notación para flujo y roles) y la figura propia de los escenarios S1–S4 |
+| `sprint 15/FUENTES_MARCO.md` / `.bib` | Las fuentes del marco con sus secciones verificadas contra los ejemplares |
+| `sprint 15/CAMBIOS_DESDE_V1.md` | Resumen para la segunda pasada con Daniel, con las decisiones abiertas |
+| `sprint 15/papers_daniel/` | Los 4 artículos del tutor, con identidad verificada uno por uno |
 
 ### Resultados destacados
 
-- La Scrum Guide 2020 **respalda el reparo del tutor**: la Sprint Review es una *working session* que no debe
-  limitarse a una presentación, y la liberación está desacoplada de la ceremonia (*"never a gate to releasing value"*).
-- El framework **declara su propia incompletitud** (*"purposefully incomplete"*, *"container for other techniques"*),
-  y las palabras `feedback`, `test` y `acceptance` tienen **0 ocurrencias** en las 14 páginas de la Guía → el objeto
-  de estudio de la tesis vive en el hueco declarado del framework.
-- A2 se desdobló en liberación / uso y testing de aceptación / Sprint Review: el feedback pasa a tener **dos canales
-  y dos momentos** (objetivo B).
-- Al pasar a BPMN, la vista principal y la vista por carriles **se unifican**: desaparece la inconsistencia de
-  notación en lugar de parchearse.
-- Los 4 artículos del tutor **no mencionan la Sprint Review**: refuerzan la capa general por etapa del SDLC, no la
-  ceremonia. Aportaron además dos gaps declarados (testing de aceptación; automatización de build/deploy) y
-  corrigieron una afirmación de la v1 (la estimación de esfuerzo ya está cubierta).
+- La **Scrum Guide 2020 respalda el reparo del tutor** sobre la Sprint Review, y el framework **declara su propia
+  incompletitud**: las palabras `feedback`, `test` y `acceptance` tienen **0 ocurrencias** en sus 14 páginas. El
+  objeto de estudio de la tesis vive en el hueco declarado del framework.
+- **A2 se desdobló** en liberación / uso y testing de aceptación / Sprint Review, con anclaje en Sommerville: el
+  feedback pasa a tener **dos canales y dos momentos** (objetivo B).
+- Los 4 artículos del tutor **no mencionan la Sprint Review**: refuerzan la capa general por etapa del SDLC. Aportaron
+  dos gaps declarados y corrigieron una afirmación de la v1 (la estimación de esfuerzo ya está cubierta; el gap se
+  corrió al testing de aceptación).
+- Bibliografía cerrada: **Sommerville y Dumas conseguidos y verificados sección por sección**. Los PDF quedan como
+  copia local excluida del repositorio (libros completos; el repositorio es público).
 
 ### Pendientes
 
-- ✅ **Dumas et al. (2018)** conseguido y verificado contra el ejemplar (2ª ed.): §1.4, §3.3, §3.4, §4.4, §5.2.2 y
-  §5.4.2 — detalle en `sprint 15/FUENTES_MARCO.md` §a.1.
-- ✅ **Sommerville (2016), 10ª ed. (Global Edition)** conseguido y verificado: §2.3.2, §4.5, §4.6, §7.3, §8.3, §8.4,
-  §20.5 y §25.3 — detalle en `sprint 15/FUENTES_MARCO.md` §a.2. Con esto **cada pieza del marco que Scrum no cubre
-  tiene anclaje verificado**; las fuentes de refuerzo (Pressman & Maxim, Humble & Farley, BABOK) quedan como
-  prescindibles y se descartó ISO/IEC/IEEE 29119 (estándar pago, ya cubierto por §8.4 de Sommerville).
-- Los PDF de ambos libros quedan como copia local en `sprint 15/fuentes_marco/` **excluida del repositorio**
-  (libros completos de Springer y Pearson; el repositorio es público).
 - Unificar `sprint 15/FUENTES_MARCO.bib` con `sprint 12/REFERENCIAS.bib` al arrancar la redacción.
-- Segunda pasada con Daniel: 5 decisiones abiertas listadas en `sprint 15/CAMBIOS_DESDE_V1.md`.
+- Segunda pasada con Daniel: 4 decisiones abiertas listadas en `sprint 15/CAMBIOS_DESDE_V1.md`.
 
 ---

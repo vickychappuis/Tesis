@@ -38,12 +38,7 @@ Estructura completa del framework (esto es lo que se puede citar como "las activ
 Detalles que importan para nuestro marco:
 
 - **El Sprint es el contenedor:** *"All the work necessary to achieve the Product Goal, including Sprint
-  Planning, Daily Scrums, Sprint Review, and Sprint Retrospective, happen within Sprints."* Y además:
-  *"Each Sprint may be considered a short project."*
-- **El equipo es cross-funcional y sin sub-equipos:** *"Within a Scrum Team, there are no sub-teams or
-  hierarchies"*, y es *"responsible for all product-related activities from stakeholder collaboration,
-  verification, maintenance, operation, experimentation, research and development, and anything else that
-  might be required."*
+  Planning, Daily Scrums, Sprint Review, and Sprint Retrospective, happen within Sprints."*
 - **El PO puede delegar, pero sigue siendo el responsable:** *"The Product Owner may do the above work or
   may delegate the responsibility to others. Regardless, the Product Owner remains accountable."*
   → **Este es el anclaje del rol 🟨 AF**: la Guía habilita que otra persona haga el trabajo de backlog
@@ -176,24 +171,12 @@ está fuera por diseño: es el *"container for other techniques"*.
 
 ## 5. Propuesta de armonización: la "etapa de revisión ampliada"
 
-Consecuencia de §3 y §4: el zoom **no** es la Sprint Review sola. Es una **etapa de revisión** de la que
-la Sprint Review es *un* momento — el único que Scrum define. Composición propuesta:
+Consecuencia de §3 y §4: el zoom **no** es la Sprint Review sola. Es una **etapa de revisión** de la que la Sprint
+Review es *un* momento —el único que Scrum define— compuesta por: **liberación del incremento** (fuera de Scrum) →
+**uso y testing de aceptación** por el negocio (fuera de Scrum) → **Sprint Review** (evento Scrum). De ahí sale el
+feedback, que pasa por validación de reglas y de factibilidad, entra al Product Backlog y reabre el ciclo.
 
-```
- ┌─────────────────────── ETAPA DE REVISIÓN (zoom de la tesis) ───────────────────────┐
- │                                                                                    │
- │   Liberación del          Uso y testing de            Sprint Review                │
- │   incremento         →    aceptación por el      →    (evento Scrum,               │
- │   (fuera de Scrum)        negocio (fuera de Scrum)     working session)            │
- │        │                        │                          │                       │
- │        └────────────────────────┴──────────────────────────┘                       │
- │                          feedback del negocio                                      │
- └────────────────────────────────────────────────────────────────────────────────────┘
-                                      ↓
-              validación (reglas de negocio · factibilidad técnica)
-                                      ↓
-                  entrada al Product Backlog → refinement → próximo Sprint
-```
+→ Dibujado en `diagramas/marco_feedback_bpmn.*`; actividades y anclajes en `MARCO_PROCESO_FEEDBACK_v2.md` §2.
 
 Dos precisiones importantes:
 
@@ -236,17 +219,9 @@ Las **ideas se mantienen**; cambian los nombres para que sean citables. Esto es 
 
 ---
 
-## 8. Decisiones abiertas para consultar con Daniel
-
-1. **¿Se adopta el desdoblamiento de A2** en liberación / uso y aceptación / Sprint Review? Es la
-   traducción directa de su reparo, pero agrega tres cajas al diagrama.
-2. **¿Se mantiene el AF** como rol, sabiendo que no existe en Scrum? (Recomendación: sí — es el
-   intermediario del objetivo C. Se declara como rol de la práctica.)
-3. **¿Se incluye el Scrum Master** en el diagrama aunque no sea dueño de actividades del loop?
-   (Recomendación: no, con la ausencia declarada.)
-4. **¿Cuánto peso darle al hallazgo léxico** (`feedback` = 0 ocurrencias en la Guía)? Da un argumento
-   fuerte para justificar por qué el marco es un aporte propio y no una copia de Scrum. Podría ir en el
-   cuerpo de la tesis, no solo como nota.
+> Las **decisiones abiertas** que surgen de este documento (desdoblamiento de A2, si se mantiene el AF, si el Scrum
+> Master queda afuera, cuánto peso darle al hallazgo léxico) están listadas en `CAMBIOS_DESDE_V1.md`, que es el
+> documento que se lleva a la reunión.
 
 ---
 

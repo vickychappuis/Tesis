@@ -6,8 +6,6 @@
 > 2. **A2 se desdobla** en liberación / uso y testing de aceptación / Sprint Review.
 > 3. Diagrama **formalizado en BPMN**, con una sola semántica y leyenda explícita, en `diagramas/marco_feedback_bpmn.drawio`.
 > 4. Lo que **no** está definido en Scrum queda marcado como tal (⚠), con su anclaje propio.
->
-> §4 y §5 (capa IAG y grandes áreas) se reescriben en la **Fase 3** del sprint, incorporando los 4 artículos del tutor.
 
 ---
 
@@ -21,25 +19,17 @@ producción / evolución (feedback posterior a la aceptación).
 
 ### 1.1. Por qué el zoom no es solo la Sprint Review
 
-Es la corrección central de esta versión. La Sprint Review **es** el momento que Scrum define para inspeccionar
-el incremento con los stakeholders, pero la Guía 2020:
-
-- la define como *working session* y advierte que **no debe limitarse a una presentación**;
-- **desacopla la liberación de la ceremonia**: *"an Increment may be delivered to stakeholders prior to the end
-  of the Sprint. The Sprint Review should never be considered a gate to releasing value"*;
-- **declara su propia incompletitud**: *"The Scrum framework is purposefully incomplete, only defining the parts
-  required to implement Scrum theory"*, y se define como *"container for other techniques, methodologies, and practices"*.
-
-Y no menciona nunca las palabras `feedback`, `test` ni `acceptance` (0 ocurrencias en el texto completo).
+Es la corrección central de esta versión. La Sprint Review **es** el momento que Scrum define para inspeccionar el
+incremento con los stakeholders, pero la Guía 2020 la define como *working session* que no debe limitarse a una
+presentación, **desacopla la liberación de la ceremonia** (*"never a gate to releasing value"*) y **declara su propia
+incompletitud** (*"purposefully incomplete"*). Tampoco menciona nunca `feedback`, `test` ni `acceptance`.
 
 Conclusión para el marco: la etapa que estudiamos es una **etapa de revisión** compuesta por liberación → uso y
-testing de aceptación → Sprint Review, de la cual **solo el último momento está definido por Scrum**. Los otros dos
-se anclan en literatura de ingeniería de software. Ver `SCRUM_ANCLAJE.md` §4 y §5.
+testing de aceptación → Sprint Review, de la cual **solo el último momento está definido por Scrum**. Los otros dos se
+anclan en literatura de ingeniería de software.
 
-> **Precisión sobre las fuentes de Scrum.** Todo lo anterior sale de la **Scrum Guide 2020**, el documento
-> normativo. No debe confundirse con el **material introductorio de scrum.org**, que resume el framework y, al
-> resumir, omite estos matices: de ahí la lectura habitual de la Sprint Review como una reunión de aprobación.
-> No son fuentes que se contradigan — una resume a la otra. Alcance de lo verificado en `SCRUM_ANCLAJE.md` §3.1.
+> Citas textuales, conteo léxico, la distinción entre la Guía y el material introductorio de scrum.org, y el alcance
+> de lo verificado: **`SCRUM_ANCLAJE.md` §3 y §4**.
 
 ---
 
@@ -50,14 +40,16 @@ se anclan en literatura de ingeniería de software. Ver `SCRUM_ANCLAJE.md` §4 y
 
 | # | Actividad | Roles | Entradas | Salidas | Objetivo | Anclaje |
 |---|---|---|---|---|---|---|
-| A1 | Desarrollo del incremento *(contexto; incluye inner loop y revisión de PR)* | Developers, PO | Sprint Backlog, Definition of Done | *Increment* que cumple la DoD | Producir el incremento | Scrum: *Sprint*, *Increment*, *DoD* · el **cómo** no lo define Scrum → Sommerville (2016) §7.3; Pressman & Maxim (2020) |
-| A2a | **Liberación del incremento** ⚠ | Developers | Increment | Incremento liberado, accesible al negocio | Poner el incremento en manos del negocio | Fuera de Scrum (*"never a gate to releasing value"*) → Sommerville (2016) §2.3.2 (el incremento se *instala en el entorno de trabajo del cliente*) y §8.3 *release testing*; Humble & Farley (2010) |
-| A2b | **Uso y testing de aceptación** ⚠ | Stakeholder (+ AF) | Incremento liberado, criterios de aceptación | Observaciones, cambios, bugs detectados en el uso | Que el negocio use el producto y detecte desvíos | Fuera de Scrum (`acceptance`: 0 ocurrencias) → Sommerville (2016) §8.4 *user / acceptance testing* (seis etapas, la primera define los criterios) y §20.5 (en ágil la aceptación la deciden stakeholders involucrados, sin especificación completa) |
-| A2c | **Sprint Review** | PO, Developers, Stakeholders, AF | Suma de incrementos, Product Goal | Feedback del negocio; Product Backlog ajustado | Inspeccionar el resultado del Sprint y determinar adaptaciones | Scrum Guide (2020), p. 9 — *working session*, ≤ 4 h para un Sprint de un mes |
-| A3a | Validación de reglas de negocio ⚠ | AF ↔ Stakeholder | Feedback, reglas y flujos definidos | Discrepancias, ajustes, aceptación/rechazo | Confirmar que el pedido respeta la regla de negocio real | Fuera de Scrum → Dumas et al. (2018) §4.4 (reglas de negocio en el modelo) y §5.4.2 (la validación *"can only be done by talking to the process participants"*); Sommerville (2016) §4.5, chequeos de validez, consistencia, completitud y realismo |
-| A3b | Validación de factibilidad técnica ⚠ *(parcial)* | Developers (+ PO) | Feedback, código/arquitectura, requisitos no funcionales | Evaluación de viabilidad, impacto y esfuerzo; alternativas | Confirmar que lo pedido es viable y a qué costo | Parcial en Scrum (Developers *"creating a plan"*; PO y *trade-offs*) → Sommerville (2016) §25.3, flujo de *change request* con análisis de costo/impacto |
-| A4 | **Incorporación del feedback al Product Backlog** | AF, PO | Feedback crudo (call, mail, bugs) | Ítems de Product Backlog | Convertir feedback disperso en trabajo accionable | Scrum Guide (2020), p. 6: *"Those wanting to change the Product Backlog can do so by trying to convince the Product Owner"* |
-| A5 | **Product Backlog refinement** ↻ | PO (+ Developers) | Ítems nuevos + Product Backlog | Product Backlog ordenado y refinado | Decidir qué entra en la próxima iteración → reabre A1 | Scrum Guide (2020), p. 10 — término textual; *ordering* del PO, p. 5. **Actividad continua, no evento** |
+| A1 | Desarrollo del incremento *(contexto; incluye inner loop y revisión de PR)* | Developers, PO | Sprint Backlog, Definition of Done | *Increment* que cumple la DoD | Producir el incremento | Scrum: *Sprint*, *Increment*, *DoD*; el **cómo** no lo define → Sommerville §7.3 |
+| A2a | **Liberación del incremento** ⚠ | Developers | Increment | Incremento liberado, accesible al negocio | Poner el incremento en manos del negocio | ⚠ fuera de Scrum → Sommerville §2.3.2 y §8.3 |
+| A2b | **Uso y testing de aceptación** ⚠ | Stakeholder (+ AF) | Incremento liberado, criterios de aceptación | Observaciones, cambios, bugs detectados en el uso | Que el negocio use el producto y detecte desvíos | ⚠ fuera de Scrum → Sommerville §8.4 y §20.5 |
+| A2c | **Sprint Review** | PO, Developers, Stakeholders, AF | Suma de incrementos, Product Goal | Feedback del negocio; Product Backlog ajustado | Inspeccionar el resultado del Sprint y determinar adaptaciones | Scrum Guide p. 9 — *working session*, ≤ 4 h |
+| A3a | Validación de reglas de negocio ⚠ | AF ↔ Stakeholder | Feedback, reglas y flujos definidos | Discrepancias, ajustes, aceptación/rechazo | Confirmar que el pedido respeta la regla de negocio real | ⚠ fuera de Scrum → Dumas §4.4 y §5.4.2; Sommerville §4.5 |
+| A3b | Validación de factibilidad técnica ⚠ *(parcial)* | Developers (+ PO) | Feedback, código/arquitectura, requisitos no funcionales | Evaluación de viabilidad, impacto y esfuerzo; alternativas | Confirmar que lo pedido es viable y a qué costo | ⚠ parcial en Scrum → Sommerville §25.3 (análisis de costo/impacto) |
+| A4 | **Incorporación del feedback al Product Backlog** | AF, PO | Feedback crudo (call, mail, bugs) | Ítems de Product Backlog | Convertir feedback disperso en trabajo accionable | Scrum Guide p. 6 — *convince the Product Owner* |
+| A5 | **Product Backlog refinement** ↻ | PO (+ Developers) | Ítems nuevos + Product Backlog | Product Backlog ordenado y refinado | Decidir qué entra en la próxima iteración → reabre A1 | Scrum Guide p. 10 — término textual. **Continua, no evento** |
+
+> Citas textuales de cada anclaje: `FUENTES_MARCO.md` §a.1 (Dumas) y §a.2 (Sommerville).
 
 ### 2.1. Correspondencia con la v1 y con el ciclo de vida
 
@@ -87,11 +79,9 @@ El uso en producción / evolución (L5) queda **fuera** del zoom.
 
 ## 3. Diagrama
 
-**Fuente autoritativa:** `diagramas/marco_feedback_bpmn.drawio` (abrir en draw.io / app.diagrams.net y exportar PNG).
-**Notación:** BPMN (subconjunto), anclada en Dumas et al. (2018) — **§3.4 Resources** para pools y carriles
-(*"BPMN provides two constructs to model resource aspects: pools and lanes"*) y **§3.3 Business Objects** para los
-objetos de datos (qué artefactos requiere y produce cada actividad). El vocabulario de actividades y artefactos
-viene de la Scrum Guide 2020.
+`diagramas/marco_feedback_bpmn.drawio` (fuente editable) y su PNG. **Notación:** BPMN, anclada en Dumas et al.
+(2018) §3.4 para pools y carriles y §3.3 para objetos de datos. El vocabulario de actividades y artefactos viene de
+la Scrum Guide 2020.
 
 ### 3.1. Leyenda (una sola semántica para todo el diagrama)
 
@@ -111,71 +101,6 @@ viene de la Scrum Guide 2020.
 > carriles usaba solo cajas, con una de ellas (el feedback) que en realidad era un artefacto. Ahora **hay un solo
 > diagrama**: los roles son carriles y el flujo es el mismo, así que no hay dos notaciones que reconciliar.
 
-### 3.2. Vista de trabajo (Mermaid)
-
-Réplica del BPMN para iterar rápido y para que se vea renderizada en GitHub. **No es la versión final**: la
-autoritativa es el `.drawio`.
-
-```mermaid
-flowchart LR
-    classDef scrum fill:#dae8fc,stroke:#6c8ebf,color:#000;
-    classDef fuera fill:#f5f5f5,stroke:#666,stroke-dasharray:6 3,color:#000;
-    classDef dato  fill:#fff2cc,stroke:#d6b656,color:#000;
-    classDef store fill:#e1d5e7,stroke:#9673a6,color:#000;
-
-    subgraph NEG["Negocio - participante externo: stakeholder / cliente"]
-        A2b["A2b - Uso y testing de aceptacion<br/>⚠ fuera de Scrum"]:::fuera
-    end
-
-    subgraph PO["Product Owner"]
-        A2c["A2c - Sprint Review<br/>working session"]:::scrum
-        A5["A5 - Product Backlog refinement ↻<br/>actividad continua"]:::scrum
-        PB[("Product Backlog")]:::store
-    end
-
-    subgraph AF["Analista funcional - ⚠ no es rol de Scrum"]
-        A3a["A3a - Validacion de reglas de negocio<br/>⚠ fuera de Scrum"]:::fuera
-        A4["A4 - Incorporacion del feedback al Product Backlog"]:::scrum
-    end
-
-    subgraph DEV["Developers"]
-        A1["A1 - Desarrollo del incremento<br/>contexto"]:::scrum
-        A2a["A2a - Liberacion del incremento<br/>⚠ fuera de Scrum"]:::fuera
-        A3b["A3b - Validacion de factibilidad tecnica<br/>⚠ parcial en Scrum"]:::fuera
-    end
-
-    INC[/"Increment - cumple Definition of Done"/]:::dato
-    LIB[/"Incremento liberado, accesible al negocio"/]:::dato
-    FBK[/"Feedback del negocio: observaciones, cambios, bugs"/]:::dato
-    FAC[/"Evaluacion de viabilidad, impacto y esfuerzo"/]:::dato
-
-    A1 --> A2a
-    A1 -. produce .-> INC
-    INC -. consume .-> A2a
-    A2a -.->|"entrega del incremento - mensaje"| A2b
-    A2b -. produce .-> LIB
-    A2b -.->|"feedback del uso: puede llegar antes de la ceremonia"| A2c
-    A2c -. produce .-> FBK
-    FBK -. consume .-> A3a
-    FBK -. consume .-> A3b
-    A2c --> A3a
-    A2c --> A3b
-    A3a <-.->|"consulta / confirmacion de la regla"| A2b
-    A3b -. produce .-> FAC
-    FAC -. consume .-> A4
-    A3a --> A4
-    A3b --> A4
-    A4 --> A5
-    A4 -. escribe .-> PB
-    PB -. lee .-> A5
-    A5 -->|"proximo Sprint"| A1
-```
-
-> Limitación conocida: Mermaid no distingue flujo de mensaje de asociación de datos con estilos de línea
-> diferentes (ambos son punteados) ni dibuja carriles reales. Por eso la versión formal es el BPMN.
-
----
-
 ## 4. Capa con IAG
 
 Por cada actividad del §2, las soluciones con IAG que podrían aplicarla. Lo que **no** cambia es el proceso ni los
@@ -188,21 +113,22 @@ Cada ítem indica su fuente y de qué tipo es:
 - **[corpus]** — paper del corpus del mapeo de literatura (`sprint 12/REFERENCIAS.md`): evidencia puntual.
 - **[producto]** — producto o empresa relevada en el sprint 11: evidencia de mercado, no académica.
 
+Cada ítem lleva su fuente y, cuando aplica, la sección exacta: eso hace de esta lista la tabla de trazabilidad.
+
 ### 4.1. Por actividad
 
 #### A1 — Desarrollo del incremento *(contexto)*
 
 - La aplicación más extendida de IAG está justamente acá: copilotos que aceleran codificación, refactorización y
-  reparación de bugs, ya con validación empírica **[general: Malladi & Sudheer Reddy, 2025]**.
+  reparación de bugs, ya con validación empírica **[general: Malladi & Sudheer Reddy, 2025, §III]**.
 - Generación automática de tests unitarios, integración con TDD/BDD y localización de defectos
-  **[general: Malladi & Sudheer Reddy, 2025]**; casos de prueba autogenerados como una de las fases más
-  beneficiadas **[general: Cornide-Reyes et al., 2025]**.
+  **[general: Malladi & Sudheer Reddy, 2025, §III]**; casos de prueba autogenerados como una de las fases más
+  beneficiadas **[general: Cornide-Reyes et al., 2025, RQ3]**.
 - Agentes que generan o ajustan el incremento a partir del ticket **[productos: Devin, Codegen]**.
 
 #### A2a — Liberación del incremento ⚠
 
-- Autoría de pipelines y prácticas de CI/CD con conciencia de calidad, combinando métodos híbridos
-  **[general: Malladi & Sudheer Reddy, 2025]**.
+- Autoría de pipelines y prácticas de CI/CD con conciencia de calidad **[general: Malladi & Sudheer Reddy, 2025, §III]**.
 - La automatización de los procesos de *build* y *deployment* sigue planteada como **pregunta de investigación
   abierta** (§4.6.2, área *Software Processes and Tools*) **[general: Nguyen-Duc et al., 2025]** → zona poco resuelta.
 
@@ -210,12 +136,12 @@ Cada ítem indica su fuente y de qué tipo es:
 
 - **Gap declarado:** la agenda de investigación señala que el *acceptance testing* (junto con integración y
   atributos de calidad) **no es foco de los estudios existentes** y que hace falta investigación sobre la
-  efectividad y los límites de la IAG ahí **[general: Nguyen-Duc et al., 2025]**.
+  efectividad y los límites de la IAG ahí **[general: Nguyen-Duc et al., 2025, §4.4.5]**.
 - Pregunta abierta asociada: *"How can GenAI be utilized to automate acceptance criteria from high-level
-  requirements?"* **[general: Nguyen-Duc et al., 2025]**.
+  requirements?"* **[general: Nguyen-Duc et al., 2025, §4.4.2]**.
 - Reportes de bug en lenguaje natural → bug completo con pasos de reproducción **[corpus: Bug Tracking GenAI]**.
 - **Límite:** usar IAG para validar rápido puede terminar sacrificando calidad de UX en favor de la velocidad de
-  entrega **[general: Cornide-Reyes et al., 2025]**.
+  entrega **[general: Cornide-Reyes et al., 2025, §1]**.
 
 #### A2c — Sprint Review
 
@@ -225,7 +151,7 @@ Cada ítem indica su fuente y de qué tipo es:
 - A nivel general, se proyecta un modo de trabajo de plataformas colaborativas humano-IA que asisten a expertos de
   dominio, ingenieros de requisitos y usuarios **en tiempo real**, habilitando *"instantaneous feedback loops"* y
   refinamiento iterativo como nueva norma **[general: Nguyen-Duc et al., 2025]** → sostiene la hipótesis del
-  objetivo B sobre frecuencia y temporalidad.
+  objetivo B sobre frecuencia y temporalidad **[área *Requirements Engineering*]**.
 
 > ⚠️ **Ninguno de los 4 artículos del tutor menciona la Sprint Review** (0 ocurrencias de "sprint review" en los
 > cuatro textos completos). Trabajan a nivel de etapas del SDLC, no de ceremonias. Por eso el zoom fino en la
@@ -237,15 +163,15 @@ Cada ítem indica su fuente y de qué tipo es:
   into RE]**; detectar si el pedido ya está cubierto o implementado **[corpus: Closing the Loop US↔GUI]**.
 - A nivel general: los LLMs detectan requisitos superfluos, incorrectos o inconsistentes en un contexto de dominio,
   **pero** esas inconsistencias pueden desviar el proyecto si no son revisadas meticulosamente por stakeholders con
-  experiencia **[general: Nguyen-Duc et al., 2025]** → el chequeo automático no reemplaza la validación humana.
+  experiencia **[general: Nguyen-Duc et al., 2025, área *RE*]** → el chequeo automático no reemplaza la validación humana.
 
 #### A3b — Validación de factibilidad técnica ⚠
 
 - Estimación de esfuerzo e impacto: técnicas automatizadas dan repriorización y estimación **más consistentes,
   reduciendo el sesgo humano** y mejorando la alineación con necesidades cambiantes del cliente
-  **[general: Malladi & Sudheer Reddy, 2025]**.
+  **[general: Malladi & Sudheer Reddy, 2025, §V]**.
 - La generación de criterios de aceptación y descripciones de escenarios permite a POs y developers **tomar
-  decisiones de trade-off informadas** durante los releases iterativos **[general: Malladi & Sudheer Reddy, 2025]**.
+  decisiones de trade-off informadas** durante los releases iterativos **[general: Malladi & Sudheer Reddy, 2025, §V]**.
 - Detectar desalineación entre la intención y el sistema **[corpus: Requirements are All You Need]**.
 
 > **Corrección respecto de la v1:** la v1 marcaba "estimar impacto y esfuerzo" como *poco cubierto → gap y foco de
@@ -259,50 +185,17 @@ Cada ítem indica su fuente y de qué tipo es:
 - Reformular o mejorar la expresión del feedback del stakeholder **[corpus: Supporting Stakeholder Requirements
   Expression]**.
 - A nivel general: los LLMs asisten en la redacción de user stories y en el *backlog grooming*, mejorando la
-  precisión de estimación y planificación **[general: Malladi & Sudheer Reddy, 2025]**; la planificación (análisis
+  precisión de estimación y planificación **[general: Malladi & Sudheer Reddy, 2025, §III y §V]**; la planificación (análisis
   de requisitos y generación de user stories) es una de las fases del ciclo ágil más beneficiadas
-  **[general: Cornide-Reyes et al., 2025]**.
+  **[general: Cornide-Reyes et al., 2025, RQ3]**.
 
 #### A5 — Product Backlog refinement ↻
 
 - Evaluar la calidad de los ítems del backlog y recomendar mejoras **[corpus: Epic Evaluator]**; detectar riesgos de
   sobrecompromiso al priorizar **[corpus: Meeting Assistants]**.
-- Repriorización dinámica del backlog como área en expansión **[general: Malladi & Sudheer Reddy, 2025]**.
+- Repriorización dinámica del backlog como área en expansión **[general: Malladi & Sudheer Reddy, 2025, §III]**.
 
-### 4.2. Trazabilidad (actividad → afirmación → fuente)
-
-Tabla para que el tutor pueda auditar cada afirmación contra su fuente.
-
-| Actividad | Afirmación | Fuente | Tipo |
-|---|---|---|---|
-| A1 | La implementación es donde más se aplica IAG (código, refactor, bug repair) | Malladi & Sudheer Reddy (2025), §III | general |
-| A1 | Generación de tests, TDD/BDD, localización de defectos | Malladi & Sudheer Reddy (2025), §III | general |
-| A1 | Código y debugging automatizados como fase beneficiada | Cornide-Reyes et al. (2025), abstract y RQ3 | general |
-| A1 | Agentes ticket → PR | Devin, Codegen | producto |
-| A2a | CI/CD y autoría de pipelines con IAG | Malladi & Sudheer Reddy (2025), §III | general |
-| A2a | Automatizar build y deployment sigue siendo RQ abierta | Nguyen-Duc et al. (2025), §4.6.2 *Software Processes and Tools* | general |
-| A2b | El testing de aceptación **no** es foco de los estudios existentes | Nguyen-Duc et al. (2025), §4.4.5 *Quality Assurance* | general |
-| A2b | RQ: automatizar criterios de aceptación desde requisitos de alto nivel | Nguyen-Duc et al. (2025), §4.4.2 *Quality Assurance* | general |
-| A2b | Bug en lenguaje natural → bug con pasos de reproducción | Bug Tracking GenAI | corpus |
-| A2b | Validar rápido con IAG puede degradar la UX | Cornide-Reyes et al. (2025), §1 | general |
-| A2c | Stakeholder-IA que emite feedback continuo | Designing Tiny Robots | corpus |
-| A2c | Asistente que resume y detecta riesgos e impedimentos | Meeting Assistants | corpus |
-| A2c | Plataformas humano-IA con *instantaneous feedback loops* | Nguyen-Duc et al. (2025), área *RE* | general |
-| A3a | Chequeo de conflictos contra requisitos y reglas | Integrating LLMs into RE | corpus |
-| A3a | Detectar si el pedido ya está implementado | Closing the Loop US↔GUI | corpus |
-| A3a | Los LLMs detectan inconsistencias, pero requieren revisión de stakeholders con experiencia | Nguyen-Duc et al. (2025), área *RE* | general |
-| A3b | Estimación y repriorización más consistentes, menos sesgo humano | Malladi & Sudheer Reddy (2025), §V | general |
-| A3b | Criterios de aceptación y escenarios habilitan trade-offs informados | Malladi & Sudheer Reddy (2025), §V | general |
-| A3b | Detectar desalineación intención ↔ sistema | Requirements are All You Need | corpus |
-| A4 | Voz/call → tickets con criterios de aceptación | PM Agent, Versive, Kraftful · Towards Human-AI Synergy | producto + corpus |
-| A4 | Mejorar la expresión del feedback del stakeholder | Supporting Stakeholder Requirements Expression | corpus |
-| A4 | Redacción de user stories y *backlog grooming* asistidos | Malladi & Sudheer Reddy (2025), §III y §V | general |
-| A4 | Planificación y generación de user stories entre las fases más beneficiadas | Cornide-Reyes et al. (2025), RQ3 | general |
-| A5 | Evaluar calidad de ítems del backlog | Epic Evaluator | corpus |
-| A5 | Riesgo de sobrecompromiso al priorizar | Meeting Assistants | corpus |
-| A5 | Repriorización dinámica del backlog | Malladi & Sudheer Reddy (2025), §III | general |
-
-### 4.3. Qué aportan los 4 artículos del tutor (y qué no)
+### 4.2. Qué aportan los 4 artículos del tutor (y qué no)
 
 **Aportan:**
 
@@ -387,10 +280,9 @@ paper (se redibuja en vez de reproducir la imagen original, y se cita la fuente)
 | **S3** | *AI assumes role(s)* | La IA asume roles seleccionados; el humano controla la operación | **5.1** impersonación (la IA *asume* el rol de quien da feedback) |
 | **S4** | *Human-in-the-loop* | La IA gestiona varios roles; el humano vigila | **5.4** generación→desarrollo apunta acá (con la contra-evidencia de Tusk/Sweep) |
 
-El paper además parametriza cada escenario (H1–H4 de destreza humana, AI1–AI4 de automatización, T1–T3 de
-herramientas, P1–P3 de proceso) y modela **trayectorias de transición** entre escenarios. Para la tesis alcanza con
-el nivel grueso, pero la parametrización es citable si hace falta precisión sobre "cuánto" asume la IA.
+El paper además parametriza cada escenario por niveles y modela **trayectorias de transición** entre ellos: citable
+si hace falta precisión sobre *cuánto* asume la IA.
 
 ---
 
-_Última actualización: 2026-07-26 — Fase 3 del sprint 15 (Fase 4 pendiente)._
+_Última actualización: 2026-07-26 — sprint 15._

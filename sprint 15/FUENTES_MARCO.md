@@ -48,11 +48,6 @@ Es la fuente que sostiene todo lo que Scrum deja fuera. Secciones localizadas y 
 | §20.5 (p. 599) | *"Agile methods do not rely on having a complete system specification for system acceptance testing. Rather, stakeholders are closely engaged with the testing process and have the authority to decide when the overall system is acceptable."* | **A2b en contexto ágil**: la aceptación no es una fase contractual separada sino participación continua del stakeholder |
 | §25.3 Gestión de cambios (p. 745) | Flujo de *change request*: submit → check → register → **análisis de costo/impacto** → decisión | **A3b** (viabilidad, impacto y esfuerzo) |
 
-> **Los dos hallazgos que más aportan:** §2.3.2 describe literalmente el par liberación + uso en el entorno real
-> del cliente, que era la pieza que faltaba en el marco; y §20.5 dice que en ágil la aceptación **no** depende de
-> una especificación completa sino de stakeholders involucrados con autoridad para decidir — que es precisamente
-> la relación que la tesis pone en cuestión cuando entra IAG de por medio.
-
 > Los PDF de los dos libros quedan como copia local en `fuentes_marco/` pero **excluidos del repositorio**
 > (`.gitignore`): son libros completos (Springer y Pearson) y el repositorio es público.
 
