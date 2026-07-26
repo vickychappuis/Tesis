@@ -61,6 +61,8 @@ que la tesis pone en cuestión cuando entra IAG. Citas en `FUENTES_MARCO.md` §a
 Se pasó a **BPMN**: como los roles son carriles del mismo diagrama, las dos vistas se unifican en **una sola** y no
 quedan notaciones que reconciliar. El feedback, que antes era una caja de actividad, ahora es un objeto de datos.
 
+![Etapa de revisión y feedback — vista BPMN](diagramas/marco_feedback_bpmn.png)
+
 ## 4. Capa IAG reforzada *(pedido: "reforzar con los 4 artículos")*
 
 Los cuatro artículos están verificados uno por uno y leídos. Qué respaldo tenía cada actividad antes y qué se agregó:
@@ -100,8 +102,10 @@ cada uno quién ocupa cuatro funciones (gestión, trabajo, herramientas, entrega
 | **S4** | *Human-in-the-loop* | La IA gestiona varios roles; el humano pasa a vigilancia | Generación → desarrollo automático (con el pivote de Tusk/Sweep como contra-evidencia) |
 
 **Para qué sirve:** es la escala que le faltaba al **objetivo C** — permite decir *cuánto* asume la IA en cada área
-en lugar de solo afirmar que "cambia el rol". La figura (`diagramas/escenarios_s1_s4.*`) es **propia**, redibujada a
-partir de las Tablas 1 y 2 del paper.
+en lugar de solo afirmar que "cambia el rol". La figura es **propia**, redibujada a partir de las Tablas 1 y 2 del
+paper.
+
+![Cuatro escenarios de uso de IAG en el desarrollo de software (S1–S4)](diagramas/escenarios_s1_s4.png)
 
 ## 6. Lo que no se tocó
 
