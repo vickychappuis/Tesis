@@ -112,11 +112,8 @@ que ya estaba en la capa por actividad, y pasó a ser la sec. 6 del marco.
 
 1. **¿Va el desdoblamiento de A2?** Es la lectura literal del reparo y tiene respaldo en Sommerville, pero suma dos
    cajas al diagrama.
-2. **¿Se mantiene el analista funcional**, sabiendo que no es una accountability de Scrum? (Propuesta: sí — no es
-   equivalente al PO, sino el puente negocio↔técnico anclado en los loops de negocio fuera de Scrum, L1/L2/L4
-   (`sprint 12/CICLO_DE_VIDA.md`); solo donde participa en actividades ancladas en Scrum, A2c y A4, lo hace como
-   delegado del PO *"may delegate the responsibility to others"*. Es el intermediario del objetivo C — ver
-   `MARCO_PROCESO_FEEDBACK_v2.md` sec. 3.2.)
+2. **¿Se mantiene el analista funcional**, sabiendo que no es una accountability de Scrum? (Propuesta: sí, como
+   delegado del PO donde toca actividades de Scrum — argumento completo en `MARCO_PROCESO_FEEDBACK_v2.md` sec. 3.2.)
 3. **¿El Scrum Master queda afuera** del diagrama? (Propuesta: sí, con la ausencia declarada.)
 4. **¿Cuánto peso darle al hallazgo léxico** (`feedback` = 0 en la Guía)? Sirve para justificar el marco como aporte
    propio y no como copia de Scrum; podría ir en el cuerpo de la tesis.

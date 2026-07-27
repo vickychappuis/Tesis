@@ -79,14 +79,14 @@ Revisar la **primera versión del marco del proceso de desarrollo con zoom en el
 
 | # | Tarea | Estado |
 |---|-------|--------|
-| 1 | **Anclar el diagrama de etapas en bibliografía de Scrum** (actividades/flujo estándar) y **formalizar** el diagrama | ✅ Base normativa en el marco v2 (sec. 2), con las citas de la Scrum Guide 2020 verificadas literalmente, + diagrama en BPMN |
-| 2 | **Uniformar la notación** entre la vista principal y la vista por carriles (cajitas vs globitos; distinguir actividad de input/output) | ✅ Al pasar a BPMN las dos vistas **se unifican en una sola**: los roles son carriles del mismo diagrama y el feedback pasa a ser objeto de datos |
-| 3 | **Reforzar la capa IAG (punto 4)** pidiéndole a Claude que tome referencia de los **4 artículos de Daniel** sobre IAG en desarrollo, además de los del corpus; mantener trazabilidad | ✅ `MARCO_PROCESO_FEEDBACK_v2.md` sec. 5, con la fuente y la sección exacta en cada ítem. Los 4 artículos, con identidad verificada, en `papers_daniel/` |
-| 4 | **Rascar y armonizar Scrum:** entender bien la **Sprint Review** (liberación + testing de aceptación, no solo reunión) y ubicar ahí el zoom del feedback; ajustar nombres de actividades a estándar Scrum si corresponde | ✅ El reparo quedó respaldado por la Guía. **A2 se desdobló** en liberación / uso y testing de aceptación / Sprint Review, y A4 y A5 tomaron nombre de la Guía |
-| 5 | Agregar la **imagen de los 4 escenarios** del paper *Future of software development with generative AI* (S1–S4) | ✅ Figura **propia** redibujada de las Tablas 1 y 2 de Sauvola et al. (2024): `diagramas/escenarios_s1_s4.*` |
+| 1 | **Anclar el diagrama de etapas en bibliografía de Scrum** (actividades/flujo estándar) y **formalizar** el diagrama | ✅ Marco v2 sec. 2 (citas de la Guía verificadas) + diagrama BPMN |
+| 2 | **Uniformar la notación** entre la vista principal y la vista por carriles (cajitas vs globitos; distinguir actividad de input/output) | ✅ BPMN unifica las dos vistas: roles = carriles, feedback = objeto de datos |
+| 3 | **Reforzar la capa IAG (punto 4)** pidiéndole a Claude que tome referencia de los **4 artículos de Daniel** sobre IAG en desarrollo, además de los del corpus; mantener trazabilidad | ✅ Marco v2 sec. 5, con fuente y sección por ítem; artículos verificados en `papers_daniel/` |
+| 4 | **Rascar y armonizar Scrum:** entender bien la **Sprint Review** (liberación + testing de aceptación, no solo reunión) y ubicar ahí el zoom del feedback; ajustar nombres de actividades a estándar Scrum si corresponde | ✅ El reparo lo respalda la Guía: **A2 se desdobló** en A2a/A2b/A2c; A4 y A5 con nombre de la Guía |
+| 5 | Agregar la **imagen de los 4 escenarios** del paper *Future of software development with generative AI* (S1–S4) | ✅ Figura propia: `diagramas/escenarios_s1_s4.*` |
 | 6 | Dejar el **punto 5 (generalidades) como está** (aprobado por el tutor) | ✅ Sin cambios, salvo los nombres de actividades |
 | 7 | Segunda pasada del marco **junto con Daniel** (él revisa los 4 artículos por arriba) | ⏭ Próxima reunión — las **4 decisiones a confirmar** están al final de `sprint 15/CAMBIOS_DESDE_V1.md` |
-| 8 | **Elegir una gran área bien pegada al feedback** para la PoC → recolectar literatura específica → ver herramientas disponibles → armar prototipo mínimo (candidata: grabación oral → tickets automáticos) | ⏭ Más adelante — apareció una candidata con respaldo: **criterios y testing de aceptación asistidos** (A2b), gap declarado por Nguyen-Duc et al. y más pegado al feedback que la generación de tickets |
+| 8 | **Elegir una gran área bien pegada al feedback** para la PoC → recolectar literatura específica → ver herramientas disponibles → armar prototipo mínimo (candidata: grabación oral → tickets automáticos) | ⏭ Más adelante — candidata con respaldo: **A2b** (gap declarado por Nguyen-Duc et al.), más pegada al feedback que la generación de tickets |
 
 ---
 

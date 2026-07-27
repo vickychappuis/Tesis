@@ -193,7 +193,6 @@
   - Reforzar la capa IAG con los 4 artículos de Daniel, además del corpus de la revisión
   - Rascar y armonizar Scrum: ubicar el zoom del feedback en la Sprint Review (liberación + testing de aceptación)
   - Agregar la imagen de los 4 escenarios del paper *Future of software development with generative AI* (S1–S4)
-- Segunda pasada del marco junto con Daniel (revisión de los 4 artículos)
 
 ### Entregables
 
