@@ -118,24 +118,9 @@ La Guía **declara su propia incompletitud**:
 > *"Scrum exists only in its entirety and functions well as a **container for other techniques, methodologies, and
 > practices**."* (End Note)
 
-El conteo léxico sobre el texto completo (14 pp.) lo confirma:
-
-| Término                          | Ocurrencias                                                                               |
-| -------------------------------- | ----------------------------------------------------------------------------------------- |
-| `inspect` / `inspection`         | 23                                                                                        |
-| `adapt` / `adaptation`           | 18                                                                                        |
-| `stakeholder`                    | 13                                                                                        |
-| `quality`                        | 4                                                                                         |
-| `verif*` (verified/verification) | 2                                                                                         |
-| `valid*`                         | 1                                                                                         |
-| `customer`                       | 1                                                                                         |
-| `user`                           | 1                                                                                         |
-| **`feedback`**                   | **0**                                                                                     |
-| **`test` / `testing`**           | **0**                                                                                     |
-| **`acceptance`**                 | **0**                                                                                     |
-| **`release`**                    | **1** (solo como verbo: *"it cannot be released or even presented at the Sprint Review"*) |
-
-> Reproducible: `grep -o -i "<término>" fuentes_marco/scrumguide2020.txt | wc -l`.
+El conteo léxico sobre el texto completo (14 pp.) lo confirma: `inspect`/`inspection` (23) y `adapt`/`adaptation`
+(18) son centrales; `feedback`, `test`/`testing` y `acceptance` no aparecen ni una vez. (Reproducible:
+`grep -o -i "<término>" fuentes_marco/scrumguide2020.txt | wc -l`.)
 
 El objeto de estudio de esta tesis —el *feedback*— **no es un término del framework**: Scrum lo cubre indirectamente
 vía *inspection* / *adaptation* y vía la participación de *stakeholders* en la review. La parte de ingeniería
