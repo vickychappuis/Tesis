@@ -120,8 +120,7 @@ La Guía **declara su propia incompletitud**:
 > practices**."* (End Note)
 
 El conteo léxico sobre el texto completo (14 pp.) lo confirma: `inspect`/`inspection` (23) y `adapt`/`adaptation`
-(18) son centrales; `feedback`, `test`/`testing` y `acceptance` no aparecen ni una vez. (Reproducible:
-`grep -o -i "<término>" fuentes_marco/scrumguide2020.txt | wc -l`.)
+(18) son centrales; `feedback`, `test`/`testing` y `acceptance` no aparecen ni una vez.
 
 El objeto de estudio de esta tesis —el *feedback*— **no es un término del framework**: Scrum lo cubre indirectamente
 vía *inspection* / *adaptation* y vía la participación de *stakeholders* en la review. La parte de ingeniería
