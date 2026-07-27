@@ -26,10 +26,10 @@ Secciones localizadas y leídas en el ejemplar (2ª edición). Sostienen tanto l
 | Sección | Pág. | Qué dice (verificado) | Dónde se usa |
 |---|---|---|---|
 | sec. 1.4 The BPM Lifecycle | 16 | Fases del ciclo BPM, empezando por *process identification* | Encuadre del ciclo de vida (`sprint 12/CICLO_DE_VIDA.md`) |
-| sec. 3.3 Business Objects | 93 | La perspectiva de objetos indica qué artefactos *requiere* una actividad y cuáles *produce* | **Objetos de datos** del BPMN (entradas/salidas de la sección 2) |
+| sec. 3.3 Business Objects | 93 | La perspectiva de objetos indica qué artefactos *requiere* una actividad y cuáles *produce* | **Objetos de datos** del BPMN (entradas/salidas de la sección 3) |
 | sec. 3.4 Resources | 96–98 | *"BPMN provides two constructs to model resource aspects: pools and lanes. Pools are generally used to model resource classes, lanes are used to partition a pool into sub-classes or single resources."* Y: los pools y carriles contienen actividades, eventos, gateways y objetos de datos | **Pools y carriles = participante / rol** en el diagrama |
 | sec. 4.4 Processes and Business Rules | 138 | Una regla de negocio implementa una política o práctica organizacional; puede aparecer como actividad de decisión, como condición de un (X)OR-split o como *conditional event* | Actividad **A3a** (reglas de negocio) |
-| sec. 5.2.2 Interview-Based Discovery | 168 | Descubrimiento entrevistando a expertos de dominio; el conocimiento del proceso está fragmentado por la división del trabajo | Área **sec. 5.2** del marco (oralidad → artefacto) |
+| sec. 5.2.2 Interview-Based Discovery | 168 | Descubrimiento entrevistando a expertos de dominio; el conocimiento del proceso está fragmentado por la división del trabajo | Área **6.2** del marco (oralidad → artefacto) |
 | sec. 5.4.2 Semantic Quality and Validation | 187–188 | *"Validation is the activity of checking the semantic quality of a model by comparing it with its real-world business process"*, y solo puede hacerse *"by talking to the process participants and by consulting the available documentation"* | Actividad **A3a**: fundamenta que validar la regla **exige** hablar con el negocio |
 
 ### a.2. Sommerville (2016) — citas verificadas
@@ -40,7 +40,7 @@ Es la fuente que sostiene todo lo que Scrum deja fuera. Secciones localizadas y 
 | Sección | Qué dice (verificado) | Dónde se usa |
 |---|---|---|
 | sec. 2.3.2 Entrega incremental | *"some of the developed increments are delivered to the customer and deployed for use in their working environment"*; una vez entregado, *"it is installed in the customer's normal working environment. They can experiment with the system"* | **A2a + A2b**: es exactamente la secuencia liberación → uso real por el negocio |
-| sec. 4.5 Validación de requisitos | Validación = *"checking that requirements define the system that the customer really wants"*, con cuatro chequeos: **validez, consistencia, completitud y realismo** | **A3a** y el área del **"firewall"** (sec. 5.3): los cuatro chequeos son justamente lo que se propone automatizar con IAG |
+| sec. 4.5 Validación de requisitos | Validación = *"checking that requirements define the system that the customer really wants"*, con cuatro chequeos: **validez, consistencia, completitud y realismo** | **A3a** y el área del **"firewall"** (6.3): los cuatro chequeos son justamente lo que se propone automatizar con IAG |
 | sec. 4.6 Cambio de requisitos | Gestión del cambio de requisitos y su planificación | **A4** y **A5** |
 | sec. 7.3 Implementation issues | Cuestiones de construcción (reuso, gestión de configuración, host-target) | **A1** (contexto) |
 | sec. 8.3 Release testing (p. 245) | *"the process of testing a particular release of a system that is intended for use outside of the development team"*, y el equipo de desarrollo **no** debería ser responsable de él | **A2a** |

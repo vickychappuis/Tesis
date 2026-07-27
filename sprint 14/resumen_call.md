@@ -79,7 +79,7 @@ Revisar la **primera versión del marco del proceso de desarrollo con zoom en el
 
 | # | Tarea | Estado |
 |---|-------|--------|
-| 1 | **Anclar el diagrama de etapas en bibliografía de Scrum** (actividades/flujo estándar) y **formalizar** el diagrama | ✅ `SCRUM_ANCLAJE.md` (Scrum Guide 2020, citas verificadas literalmente) + diagrama en BPMN |
+| 1 | **Anclar el diagrama de etapas en bibliografía de Scrum** (actividades/flujo estándar) y **formalizar** el diagrama | ✅ Base normativa en el marco v2 (sec. 2), con las citas de la Scrum Guide 2020 verificadas literalmente, + diagrama en BPMN |
 | 2 | **Uniformar la notación** entre la vista principal y la vista por carriles (cajitas vs globitos; distinguir actividad de input/output) | ✅ Al pasar a BPMN las dos vistas **se unifican en una sola**: los roles son carriles del mismo diagrama y el feedback pasa a ser objeto de datos |
 | 3 | **Reforzar la capa IAG (punto 4)** pidiéndole a Claude que tome referencia de los **4 artículos de Daniel** sobre IAG en desarrollo, además de los del corpus; mantener trazabilidad | ✅ `MARCO_PROCESO_FEEDBACK_v2.md` sec. 4, con la fuente y la sección exacta en cada ítem. Los 4 artículos, con identidad verificada, en `papers_daniel/` |
 | 4 | **Rascar y armonizar Scrum:** entender bien la **Sprint Review** (liberación + testing de aceptación, no solo reunión) y ubicar ahí el zoom del feedback; ajustar nombres de actividades a estándar Scrum si corresponde | ✅ El reparo quedó respaldado por la Guía. **A2 se desdobló** en liberación / uso y testing de aceptación / Sprint Review, y A4 y A5 tomaron nombre de la Guía |

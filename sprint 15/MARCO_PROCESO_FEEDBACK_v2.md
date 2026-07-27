@@ -1,10 +1,12 @@
 # Marco del proceso de desarrollo — zoom en la etapa de feedback
 
 > Modelo de proceso de la etapa de feedback —actividades, roles, entradas, salidas y objetivos—, con una capa que
-> describe cómo cada actividad podría potenciarse con IAG. Las actividades usan el vocabulario de la **Scrum Guide
-> 2020**; lo que el framework no define se marca con **⚠** y se ancla en literatura de ingeniería de software.
+> describe cómo cada actividad podría potenciarse con IAG.
 >
-> Evidencia sobre Scrum: `SCRUM_ANCLAJE.md` · Fuentes y secciones verificadas: `FUENTES_MARCO.md`.
+> **Fuente normativa del proceso:** *The 2020 Scrum Guide™*, Schwaber & Sutherland, licencia CC BY-SA 4.0. Todas las
+> citas en inglés de este documento están verificadas literalmente contra el PDF oficial (`fuentes_marco/`). Lo que
+> el framework no define se marca con **⚠** y se ancla en literatura de ingeniería de software; las secciones exactas
+> y sus citas textuales están en `FUENTES_MARCO.md`.
 
 ---
 
@@ -24,7 +26,7 @@ negocio hasta que el backlog queda listo para la próxima iteración, y se compo
 | Incorporación al backlog | A4, A5 | El feedback se vuelve trabajo priorizado y reabre el ciclo |
 
 El **núcleo** es el primer bloque: es donde el negocio ve el producto y reacciona, y es el que la Sprint Review sola
-no alcanza a cubrir (sección 2.1). El desarrollo del incremento (**A1**) entra solo como contexto: produce la versión
+no alcanza a cubrir (sección 2.2). El desarrollo del incremento (**A1**) entra solo como contexto: produce la versión
 que el negocio ve, pero no es el foco.
 
 **Entra:** desde que hay un incremento (v ≥ 0.1 **con código**) que llega al negocio, y el feedback externo que
@@ -35,7 +37,138 @@ producción / evolución (feedback posterior a la aceptación).
 
 ---
 
-## 2. La etapa de feedback como modelo de proceso
+## 2. Base normativa: qué define Scrum y qué no
+
+El proceso se describe con el vocabulario de Scrum porque es el marco de gestión más extendido y da nombres
+establecidos a actividades, artefactos y roles. Ahora bien, Scrum no cubre todo lo que ocurre en la etapa de
+feedback, y esa insuficiencia no es una interpretación nuestra: la Guía la declara. Esta sección establece qué dice
+la fuente oficial, qué no dice, y de dónde sale cada pieza que falta.
+
+### 2.1. Qué define Scrum
+
+> *"Scrum is a lightweight framework that helps people, teams and organizations generate value through adaptive
+> solutions for complex problems."*
+
+| Categoría | Elementos |
+|---|---|
+| **Accountabilities** (no "roles") | Developers · Product Owner · Scrum Master |
+| **Events** (5) | The Sprint · Sprint Planning · Daily Scrum · **Sprint Review** · Sprint Retrospective |
+| **Artifacts** (3) + su *commitment* | Product Backlog → *Product Goal* · Sprint Backlog → *Sprint Goal* · Increment → *Definition of Done* |
+| **Pilares empíricos** | transparency · inspection · adaptation |
+
+Cuatro definiciones de la Guía anclan actividades y roles concretos de este marco:
+
+- **El Sprint es el contenedor:** *"All the work necessary to achieve the Product Goal, including Sprint Planning,
+  Daily Scrums, Sprint Review, and Sprint Retrospective, happen within Sprints."*
+- **El Product Owner puede delegar sin dejar de ser responsable:** *"The Product Owner may do the above work or may
+  delegate the responsibility to others. Regardless, the Product Owner remains accountable."* → habilita el rol de
+  analista funcional (sección 3.2) sin crear una accountability nueva.
+- **Cómo entra un pedido al backlog:** *"Those wanting to change the Product Backlog can do so by trying to convince
+  the Product Owner."* → ancla la actividad **A4**.
+- **Refinamiento, término oficial:** *"Product Backlog refinement is the act of breaking down and further defining
+  Product Backlog items into smaller more precise items. This is an ongoing activity..."* → ancla **A5**, y establece
+  que es una actividad **continua, no un evento**.
+
+### 2.2. La Sprint Review, textual
+
+Es el único momento del núcleo que Scrum define, y conviene leerlo completo (p. 9):
+
+> *"The purpose of the Sprint Review is to inspect the outcome of the Sprint and determine future adaptations. The
+> Scrum Team presents the results of their work to key stakeholders and progress toward the Product Goal is discussed.*
+>
+> *During the event, the Scrum Team and stakeholders review what was accomplished in the Sprint and what has changed
+> in their environment. Based on this information, attendees collaborate on what to do next. The Product Backlog may
+> also be adjusted to meet new opportunities. **The Sprint Review is a working session and the Scrum Team should
+> avoid limiting it to a presentation.***
+>
+> *The Sprint Review is the second to last event of the Sprint and is timeboxed to a maximum of four hours for a
+> one-month Sprint. For shorter Sprints, the event is usually shorter."*
+
+Y en la sección del Increment (p. 12):
+
+> *"Multiple Increments may be created within a Sprint. The sum of the Increments is presented at the Sprint Review
+> thus supporting empiricism. However, **an Increment may be delivered to stakeholders prior to the end of the Sprint.
+> The Sprint Review should never be considered a gate to releasing value.**"*
+
+De estos dos pasajes se siguen tres consecuencias para el modelo:
+
+**(a) La ceremonia no es una reunión de aprobación.** La lectura habitual —mostrar el incremento y obtener el visto
+bueno— proviene del material introductorio de scrum.org, que resume el framework y al resumir omite matices. No es
+que las fuentes se contradigan: la Guía es explícita en que la review es una *working session* que **no debe
+limitarse a una presentación**.
+
+**(b) La liberación está desacoplada de la ceremonia por diseño.** El incremento puede entregarse antes del fin del
+Sprint y la review *"should never be considered a gate to releasing value"*. Es decir: **el feedback del negocio
+puede llegar antes de la ceremonia y por fuera de ella**. No es una licencia de este marco, lo habilita el framework.
+
+**(c) La ceremonia no alcanza para contener lo que se estudia.** La review es un evento acotado a un máximo de cuatro
+horas. La liberación, el uso del producto por el negocio y la detección de errores no caben ahí ni están definidos
+ahí — de ahí que el núcleo de la etapa sean tres actividades y no una.
+
+Consecuencia para el **objetivo B**: el feedback tiene **dos canales y dos momentos** —el uso real del producto, que
+puede ser asincrónico y anterior a la ceremonia, y la ceremonia misma—, que es exactamente lo que la tesis indaga en
+términos de frecuencia, secuencia, granularidad y temporalidad.
+
+> **Alcance de lo verificado:** la Guía 2020 se leyó completa y todas sus citas están verificadas contra el PDF. La
+> página introductoria de scrum.org **no** se pudo recuperar de forma automática (está renderizada con JavaScript);
+> lo que se sabe de su contenido proviene de la transcripción de la reunión del 9 de julio de 2026. Si se la cita en
+> la tesis, hay que abrirla y citarla de primera mano.
+
+### 2.3. Lo que Scrum no define
+
+La Guía **declara su propia incompletitud**:
+
+> *"The Scrum framework is purposefully incomplete, only defining the parts required to implement Scrum theory.
+> [...] Rather than provide people with detailed instructions, the rules of Scrum guide their relationships and
+> interactions."*
+
+> *"Scrum exists only in its entirety and functions well as a **container for other techniques, methodologies, and
+> practices**."* (End Note)
+
+El conteo léxico sobre el texto completo (14 pp.) lo confirma:
+
+| Término | Ocurrencias |
+|---|---|
+| `inspect` / `inspection` | 23 |
+| `adapt` / `adaptation` | 18 |
+| `stakeholder` | 13 |
+| `quality` | 4 |
+| `verif*` (verified/verification) | 2 |
+| `valid*` | 1 |
+| `customer` | 1 |
+| `user` | 1 |
+| **`feedback`** | **0** |
+| **`test` / `testing`** | **0** |
+| **`acceptance`** | **0** |
+| **`release`** | **1** (solo como verbo: *"it cannot be released or even presented at the Sprint Review"*) |
+
+> Reproducible: `grep -o -i "<término>" fuentes_marco/scrumguide2020.txt | wc -l`.
+
+El objeto de estudio de esta tesis —el *feedback*— **no es un término del framework**: Scrum lo cubre indirectamente
+vía *inspection* / *adaptation* y vía la participación de *stakeholders* en la review. La parte de ingeniería
+—testing, aceptación, liberación— queda fuera por diseño, porque el framework se define como contenedor de otras
+prácticas.
+
+### 2.4. De dónde sale cada pieza que Scrum no define
+
+| Pieza de la etapa de feedback | ¿Está en Scrum? | Anclaje |
+|---|---|---|
+| Construcción del incremento (inner loop, PR) | ❌ solo el *qué* (Increment + DoD), no el *cómo* | Sommerville (2016) sec. 7.3 *implementation issues* |
+| **Liberación / despliegue al entorno donde el negocio lo usa** | ❌ desacoplada por diseño | Sommerville (2016) sec. 2.3.2 —el incremento *"is installed in the customer's normal working environment"*— y sec. 8.3 *release testing* |
+| **Testing de aceptación / uso real por el usuario** | ❌ (`acceptance` y `test`: 0 ocurrencias) | Sommerville (2016) sec. 8.4 *user testing* —alpha, beta y aceptación; la primera de sus seis etapas define los criterios— y sec. 20.5: en ágil *"stakeholders are closely engaged with the testing process and have the authority to decide when the overall system is acceptable"* |
+| Presentación e inspección del incremento con stakeholders | ✅ **Sprint Review** | Scrum Guide (2020), p. 9 |
+| Validación de reglas y flujos de negocio | ❌ | Dumas et al. (2018) sec. 4.4 y sec. 5.4.2 —validar *"can only be done by talking to the process participants"*—; Sommerville (2016) sec. 4.5 |
+| Validación de factibilidad técnica / impacto | ⚠ parcial (Developers *"creating a plan"*, PO y *trade-offs*) | Sommerville (2016) sec. 25.3, flujo de *change request* con análisis de costo/impacto |
+| Registro del pedido y entrada al backlog | ✅ parcial (*"convince the Product Owner"*) | Scrum Guide (2020), p. 6 |
+| Refinamiento y ordenamiento del backlog | ✅ **Product Backlog refinement** | Scrum Guide (2020), pp. 5 y 10 |
+| Rol de intermediario negocio ↔ técnica | ❌ no existe la accountability | Delegación del PO (Scrum Guide, p. 6) + literatura de análisis de negocio e ingeniería de requisitos |
+
+> Las secciones de Sommerville y Dumas fueron verificadas contra los ejemplares; sus citas textuales están en
+> `FUENTES_MARCO.md` sec. a.1 y sec. a.2.
+
+---
+
+## 3. El modelo de proceso
 
 > **⚠** = actividad de la práctica **no definida en Scrum**, con su anclaje propio.
 
@@ -46,7 +179,7 @@ producción / evolución (feedback posterior a la aceptación).
 | A1 | Desarrollo del incremento *(incluye inner loop y revisión de PR)* | Developers, PO | Sprint Backlog, Definition of Done | *Increment* que cumple la DoD | Producir el incremento | Scrum: *Sprint*, *Increment*, *DoD*; el **cómo** no lo define → Sommerville sec. 7.3 |
 
 **▶ Entrega y revisión del incremento — EL NÚCLEO DE LA ETAPA.** Es donde el incremento llega al negocio y se
-genera el feedback. Son tres momentos, y **solo el último está definido por Scrum** (ver sección 2.1):
+genera el feedback. Son tres momentos, y **solo el último está definido por Scrum** (ver sección 2.2):
 
 | # | Actividad | Roles | Entradas | Salidas | Objetivo | Anclaje |
 |---|---|---|---|---|---|---|
@@ -65,22 +198,7 @@ genera el feedback. Son tres momentos, y **solo el último está definido por Sc
 
 > Citas textuales de cada anclaje: `FUENTES_MARCO.md` sec. a.1 (Dumas) y sec. a.2 (Sommerville).
 
-### 2.1. Por qué el núcleo son tres actividades y no solo la Sprint Review
-
-De los tres momentos del núcleo —A2a, A2b y A2c—, el único que Scrum define es la **Sprint Review**. La Guía la describe como una *working session* que no debe limitarse a una presentación, pero **desacopla
-la liberación de la ceremonia** —*"an Increment may be delivered to stakeholders prior to the end of the Sprint. The
-Sprint Review should never be considered a gate to releasing value"*— y **declara su propia incompletitud**: es un
-*"container for other techniques, methodologies, and practices"*. Coherente con eso, las palabras `feedback`, `test`
-y `acceptance` no aparecen en sus 14 páginas.
-
-Por eso **A2a** y **A2b** se modelan como actividades separadas y se anclan en literatura de ingeniería de software.
-La consecuencia no es cosmética: el feedback del negocio tiene **dos canales y dos momentos** —el uso real del
-producto, que puede llegar antes de la ceremonia, y la ceremonia misma—, que es materia directa del objetivo B
-(frecuencia, secuencia, granularidad y temporalidad).
-
-> Citas textuales, conteo léxico y alcance de lo verificado: **`SCRUM_ANCLAJE.md` sec. 3 y sec. 4**.
-
-### 2.2. Correspondencia con el ciclo de vida
+### 3.1. Correspondencia con el ciclo de vida
 
 El diagrama de ciclo de vida elaborado previamente (`sprint 12/CICLO_DE_VIDA.md`) numera los ciclos de feedback
 como L1–L5. Este marco hace zoom sobre una parte: **A1** pliega los loops técnicos internos del equipo (L3a, inner
@@ -88,7 +206,7 @@ loop del desarrollador, y L3b, revisión de PR); **A2a–A2c** son el loop de in
 de reglas de negocio (L4). El discovery inicial (L1), la validación de prototipo (L2) y la evolución del producto en
 producción (L5) quedan **fuera**.
 
-### 2.3. Roles
+### 3.2. Roles
 
 | Rol | ¿Scrum? | Nota |
 |---|---|---|
@@ -100,7 +218,7 @@ producción (L5) quedan **fuera**.
 
 ---
 
-## 3. Diagrama
+## 4. Diagrama
 
 ![Etapa de revisión y feedback — vista BPMN](diagramas/marco_feedback_bpmn.png)
 
@@ -108,7 +226,7 @@ producción (L5) quedan **fuera**.
 vocabulario de actividades y artefactos viene de la Scrum Guide 2020.
 **Fuente editable:** `diagramas/marco_feedback_bpmn.drawio` (draw.io); el PNG se re-exporta desde ahí.
 
-### 3.1. Leyenda (una sola semántica para todo el diagrama)
+### 4.1. Leyenda (una sola semántica para todo el diagrama)
 
 | Elemento | Significado |
 |---|---|
@@ -122,9 +240,9 @@ vocabulario de actividades y artefactos viene de la Scrum Guide 2020.
 | Flecha **punteada fina amarilla** | Asociación de datos (lectura o escritura de un artefacto) |
 | ↻ | Actividad continua, no un evento |
 
-## 4. Capa con IAG
+## 5. Capa con IAG
 
-Por cada actividad de la sección 2, las soluciones con IAG que podrían aplicarla. Lo que **no** cambia es el proceso ni los
+Por cada actividad de la sección 3, las soluciones con IAG que podrían aplicarla. Lo que **no** cambia es el proceso ni los
 roles; cambia **quién** ejecuta la tarea y **cómo**.
 
 Cada ítem indica su fuente y, cuando aplica, la sección exacta, de modo que la lista misma sirve de tabla de
@@ -135,7 +253,7 @@ trazabilidad. Las fuentes son de tres tipos:
 - **[corpus]** — paper del mapeo de literatura (`sprint 12/REFERENCIAS.md`): evidencia puntual.
 - **[producto]** — producto o empresa relevada como *state of practice*: evidencia de mercado, no académica.
 
-### 4.1. Por actividad
+### 5.1. Por actividad
 
 #### A1 — Desarrollo del incremento *(contexto)*
 
@@ -211,11 +329,11 @@ trazabilidad. Las fuentes son de tres tipos:
   sobrecompromiso al priorizar **[corpus: Meeting Assistants]**.
 - Repriorización dinámica del backlog como área en expansión **[general: Malladi & Sudheer Reddy, 2025, sec. III]**.
 
-### 4.2. Alcance de las dos capas de evidencia
+### 5.2. Alcance de las dos capas de evidencia
 
 La capa **general** (los cuatro artículos sobre IAG en el desarrollo) aporta el respaldo por etapa del SDLC, **dos
 gaps declarados** —testing de aceptación y automatización de build/deployment, ambos de Nguyen-Duc et al.— y dos
-marcos de encuadre: los escenarios S1–S4 (sec. 5.5) y las **11 áreas** de Nguyen-Duc et al., que ubican este zoom en
+marcos de encuadre: los escenarios S1–S4 (sección 6.5) y las **11 áreas** de Nguyen-Duc et al., que ubican este zoom en
 *Requirements Engineering*, *Quality Assurance* y *Engineering Management*.
 
 Ninguno de los cuatro menciona la **Sprint Review** ni las ceremonias (0 ocurrencias): el zoom fino en el momento del
@@ -224,12 +342,12 @@ sobrevender el anclaje.
 
 ---
 
-## 5. Grandes áreas con IAG
+## 6. Grandes áreas con IAG
 
-Las ideas por actividad (sec. 4) se agrupan en cuatro áreas transversales (sec. 5.1–sec. 5.4). La sec. 5.5 las ubica en una
+Las ideas por actividad (sección 5) se agrupan en cuatro áreas transversales (6.1 a 6.4). La sección 6.5 las ubica en una
 escala de suplantación de roles.
 
-### 5.1. Impersonación de stakeholders (stakeholder-IA)
+### 6.1. Impersonación de stakeholders (stakeholder-IA)
 
 - **Qué es:** una IA configurada para representar a un stakeholder (cliente, usuario, PM) y emitir feedback como si
   fuera él, de forma continua y sin depender de su disponibilidad.
@@ -240,7 +358,7 @@ escala de suplantación de roles.
 - **Límite (objetivo D / ética):** *(corpus: REConnect)* advierte que la IA no debe sustituir la conexión humana ni
   descontextualizar; el stakeholder real sigue como curador y guardián de valores.
 
-### 5.2. Oralidad / entrevistas → artefacto procesable
+### 6.2. Oralidad / entrevistas → artefacto procesable
 
 - **Qué es:** convertir feedback oral o conversacional (calls, entrevistas, demos) en artefactos estructurados y
   accionables (tickets, user stories con criterios, especificaciones, modelos de proceso).
@@ -252,7 +370,7 @@ escala de suplantación de roles.
   realizada por IA; el AF cura y valida.
 - **Límite:** precisión en extracción, jerarquías y modelado estructurado; riesgo de alucinaciones.
 
-### 5.3. Chequeo de consistencia feedback ↔ requisitos (el "firewall")
+### 6.3. Chequeo de consistencia feedback ↔ requisitos (el "firewall")
 
 - **Qué es:** validar automáticamente el pedido contra los requisitos, reglas y artefactos existentes; detectar
   conflictos, contradicciones, duplicados o cosas ya cubiertas, antes de que entren al Product Backlog.
@@ -263,7 +381,7 @@ escala de suplantación de roles.
 - **Límite:** *(general: Nguyen-Duc et al., 2025)* — las inconsistencias detectadas por LLMs pueden desviar el
   proyecto si no las revisan stakeholders con experiencia de dominio.
 
-### 5.4. Generación → desarrollo automático de tickets
+### 6.4. Generación → desarrollo automático de tickets
 
 - **Qué es:** del ticket —o del requisito en lenguaje natural— al código integrado, de forma automática.
 - **Evidencia:** *(productos: Devin, Codegen)*; *(corpus: Requirements are All You Need)*; *(general: Malladi &
@@ -271,7 +389,7 @@ escala de suplantación de roles.
   de Tusk y Sweep (abandonaron el ticket→PR autónomo) muestra que el modo totalmente autónomo todavía no cierra.
 - **Cómo cambia el rol:** la construcción (actividad **A1**) pasa a agentes; los Developers supervisan.
 
-### 5.5. Transformación de roles: los cuatro escenarios S1–S4
+### 6.5. Transformación de roles: los cuatro escenarios S1–S4
 
 Las cuatro áreas muestran un mismo movimiento de fondo: actividades que hoy hace una persona empiezan a ser
 asumidas por la IA. Sauvola et al. (2024) dan una escala para graduar ese movimiento.
@@ -283,10 +401,10 @@ original, y se cita la fuente. Editable en `diagramas/escenarios_s1_s4.drawio`.
 
 | Escenario | Nombre | En una línea | Dónde caen nuestras áreas |
 |---|---|---|---|
-| **S1** | *Traditional Software Development Operations* | Humanos en todos los roles; las herramientas automatizan | Es el proceso **hoy** (sec. 2) |
-| **S2** | *AI in loop* | El humano domina; la IA automatiza partes de tareas y asiste decisiones | **5.2** oralidad→artefacto y **5.3** firewall |
-| **S3** | *AI assumes role(s)* | La IA asume roles seleccionados; el humano controla la operación | **5.1** impersonación (la IA *asume* el rol de quien da feedback) |
-| **S4** | *Human-in-the-loop* | La IA gestiona varios roles; el humano vigila | **5.4** generación→desarrollo apunta acá (con la contra-evidencia de Tusk/Sweep) |
+| **S1** | *Traditional Software Development Operations* | Humanos en todos los roles; las herramientas automatizan | Es el proceso **hoy** (sección 3) |
+| **S2** | *AI in loop* | El humano domina; la IA automatiza partes de tareas y asiste decisiones | **6.2** oralidad→artefacto y **6.3** firewall |
+| **S3** | *AI assumes role(s)* | La IA asume roles seleccionados; el humano controla la operación | **6.1** impersonación (la IA *asume* el rol de quien da feedback) |
+| **S4** | *Human-in-the-loop* | La IA gestiona varios roles; el humano vigila | **6.4** generación→desarrollo apunta acá (con la contra-evidencia de Tusk/Sweep) |
 
 El paper además parametriza cada escenario por niveles y modela **trayectorias de transición** entre ellos: citable
 si hace falta precisión sobre *cuánto* asume la IA.

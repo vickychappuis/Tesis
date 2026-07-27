@@ -201,8 +201,7 @@ Se ordenó por **dependencia** y no por el orden de los tickets: primero anclar 
 
 | Entregable | Qué es |
 |---|---|
-| `sprint 15/SCRUM_ANCLAJE.md` | La evidencia: Scrum Guide 2020 con citas verificadas literalmente, qué cubre y qué no, y el mapeo A1–A5 → vocabulario Scrum |
-| `sprint 15/MARCO_PROCESO_FEEDBACK_v2.md` | El marco corregido; **reemplaza** al del sprint 14, que queda como registro |
+| `sprint 15/MARCO_PROCESO_FEEDBACK_v2.md` | El marco corregido, **autocontenido**: base normativa de Scrum con citas verificadas, modelo de proceso, diagrama y capa IAG. **Reemplaza** al del sprint 14, que queda como registro |
 | `sprint 15/diagramas/` | El marco en BPMN (una sola notación para flujo y roles) y la figura propia de los escenarios S1–S4 |
 | `sprint 15/FUENTES_MARCO.md` / `.bib` | Las fuentes del marco con sus secciones verificadas contra los ejemplares |
 | `sprint 15/CAMBIOS_DESDE_V1.md` | Resumen para la segunda pasada con Daniel, con las decisiones abiertas |

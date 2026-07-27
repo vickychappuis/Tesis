@@ -9,8 +9,7 @@ El marco de trabajo pasa a ser el **v2**. La v1 no se editó: queda como registr
 
 | Documento | Qué es |
 |---|---|
-| `MARCO_PROCESO_FEEDBACK_v2.md` | **Reemplaza** al marco del sprint 14. Actividades ancladas y renombradas, diagrama BPMN, capa IAG reforzada. Su sección 2.1 tiene la correspondencia v1 → v2 |
-| `SCRUM_ANCLAJE.md` | **Nuevo.** La evidencia: qué dice la Scrum Guide 2020, qué no cubre y con qué se cubre |
+| `MARCO_PROCESO_FEEDBACK_v2.md` | **Reemplaza** al marco del sprint 14. Autocontenido: incluye la base normativa de Scrum, el modelo, el diagrama y la capa IAG |
 | `FUENTES_MARCO.md` / `.bib` | **Nuevo.** Las fuentes con sus secciones verificadas (sec. a.1 Dumas, sec. a.2 Sommerville) |
 | `diagramas/` | **Reemplazan** a los dos PNG del sprint 14: el marco en BPMN y la figura de escenarios |
 
@@ -26,7 +25,7 @@ explícita en que la review es una *working session* que no debe limitarse a una
 considerarse una puerta para liberar valor. La Guía además declara su propia incompletitud
 (*"purposefully incomplete"*), y `feedback`, `test` y `acceptance` no aparecen ni una vez en sus 14 páginas.
 
-→ Citas textuales, conteo léxico completo y alcance de lo verificado: **`SCRUM_ANCLAJE.md` sec. 3 y sec. 4**.
+→ Citas textuales, conteo léxico completo y alcance de lo verificado: **`MARCO_PROCESO_FEEDBACK_v2.md` sec. 2**.
 
 **Consecuencia:** lo que Scrum no define no se presenta como si fuera Scrum. Se declara y se ancla en literatura de
 ingeniería (Sommerville, Dumas), con secciones verificadas contra los ejemplares — ver `FUENTES_MARCO.md`. En el
@@ -81,7 +80,7 @@ Los cuatro artículos están verificados uno por uno y leídos. Qué respaldo te
 | A5 Refinement | Dos papers del corpus | Malladi: repriorización dinámica del backlog |
 
 Cada ítem quedó etiquetado como **corpus**, **producto** o **general** (los cuatro artículos) para poder auditarlo
-→ `MARCO_PROCESO_FEEDBACK_v2.md` sec. 4.
+→ `MARCO_PROCESO_FEEDBACK_v2.md` sec. 5.
 
 Dos cosas para decir de frente:
 
