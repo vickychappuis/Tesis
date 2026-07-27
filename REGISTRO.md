@@ -196,7 +196,7 @@
 
 ### Cómo se resolvió
 
-Se ordenó por **dependencia** y no por el orden de los tickets (`sprint 15/PLAN_SPRINT.md`): primero anclar Scrum
+Se ordenó por **dependencia** y no por el orden de los tickets: primero anclar Scrum
 —porque fija el vocabulario de las actividades—, después el diagrama, después la capa IAG.
 
 | Entregable | Qué es |
