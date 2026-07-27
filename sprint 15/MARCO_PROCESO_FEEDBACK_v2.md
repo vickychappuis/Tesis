@@ -158,7 +158,7 @@ genera el feedback. Son tres momentos, y **solo el último está definido por Sc
 | --- | ------------------------------------------------- | ----------------- | -------------------------------------------------------- | ---------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------------------------- |
 | A3a | Validación de reglas de negocio ⚠                 | AF ↔ Stakeholder  | Feedback, reglas y flujos definidos                      | Discrepancias, ajustes, aceptación/rechazo                 | Confirmar que el pedido respeta la regla de negocio real | ⚠ fuera de Scrum → Dumas sec. 4.4 y sec. 5.4.2; Sommerville sec. 4.5   |
 | A3b | Validación de factibilidad técnica ⚠ *(parcial)*  | Developers (+ PO) | Feedback, código/arquitectura, requisitos no funcionales | Evaluación de viabilidad, impacto y esfuerzo; alternativas | Confirmar que lo pedido es viable y a qué costo          | ⚠ parcial en Scrum → Sommerville sec. 25.3 (análisis de costo/impacto) |
-| A4  | **Incorporación del feedback al Product Backlog** | AF, PO            | Feedback crudo (call, mail, bugs)                        | Ítems de Product Backlog                                   | Convertir feedback disperso en trabajo accionable        | Scrum Guide p. 6 — *convince the Product Owner*                        |
+| A4  | **Incorporación del feedback al Product Backlog** | AF, PO            | Feedback crudo (call, mail, bugs)                        | Ítems de Product Backlog                                   | Convertir feedback disperso en trabajo accionable        | Scrum Guide p. 6 — *convince the Product Owner*; Sommerville sec. 4.6 (gestión del cambio) |
 | A5  | **Product Backlog refinement** ↻                  | PO (+ Developers) | Ítems nuevos + Product Backlog                           | Product Backlog ordenado y refinado                        | Decidir qué entra en la próxima iteración → reabre A1    | Scrum Guide p. 10 — término textual. **Continua, no evento**           |
 
 > Citas textuales de cada anclaje: `FUENTES_MARCO.md` sec. a.1 (Dumas) y sec. a.2 (Sommerville).
@@ -328,7 +328,7 @@ Convertir feedback oral o conversacional (calls, entrevistas, demos) en artefact
 (tickets, user stories con criterios, especificaciones, modelos de proceso) → evidencia en **A4** (sec. 5.1). Se
 suma *(corpus: Automating BI Requirements, Business Process Discovery through Agentic GenAI, LLM-Assisted
 Sketch-Based Elicitation)*: es el patrón recurrente del mapeo de literatura, *feedback humano → estructuración con
-IA → artefacto usable*.
+IA → artefacto usable*. Lo que se automatiza es el descubrimiento por entrevistas de Dumas sec. 5.2.2.
 
 - **Cómo cambia el rol:** la traducción que hacía el analista funcional (actividad **A4**) pasa a ser asistida o
   realizada por IA; el AF cura y valida.
