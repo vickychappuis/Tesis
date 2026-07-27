@@ -107,11 +107,6 @@ Consecuencia para el **objetivo B**: el feedback tiene **dos canales y dos momen
 puede ser asincrónico y anterior a la ceremonia, y la ceremonia misma—, que es exactamente lo que la tesis indaga en
 términos de frecuencia, secuencia, granularidad y temporalidad.
 
-> **Alcance de lo verificado:** la Guía 2020 se leyó completa y todas sus citas están verificadas contra el PDF. La
-> página introductoria de scrum.org **no** se pudo recuperar de forma automática (está renderizada con JavaScript);
-> lo que se sabe de su contenido proviene de la transcripción de la reunión del 9 de julio de 2026. Si se la cita en
-> la tesis, hay que abrirla y citarla de primera mano.
-
 ### 2.3. Lo que Scrum no define
 
 La Guía **declara su propia incompletitud**:
