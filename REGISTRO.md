@@ -187,28 +187,10 @@
 
 ## Sprint 15 — 10 jul → 29 jul 2026
 
-- Profundizar el marco del proceso de feedback según los comentarios del sprint 14 (ver "Próximos pasos — Sprint 15" en `sprint 14/resumen_call.md`):
-  - Anclar el diagrama de etapas en bibliografía de Scrum y formalizarlo
-  - Uniformar la notación entre la vista principal y la vista por carriles
-  - Reforzar la capa IAG con los 4 artículos de Daniel, además del corpus de la revisión
-  - Rascar y armonizar Scrum: ubicar el zoom del feedback en la Sprint Review (liberación + testing de aceptación)
-  - Agregar la imagen de los 4 escenarios del paper *Future of software development with generative AI* (S1–S4)
+- Profundizar el marco según los comentarios del sprint 14 (ver "Próximos pasos — Sprint 15" en `sprint 14/resumen_call.md`): anclaje en la Scrum Guide 2020, notación única (BPMN), refuerzo de la capa IAG con los 4 artículos del tutor, desdoblamiento de la Sprint Review y figura propia de los escenarios S1–S4
+- Resultado: `sprint 15/MARCO_PROCESO_FEEDBACK_v2.md` (autocontenido, reemplaza al del sprint 14), con el núcleo recortado a **A2b + A2c** y la **propuesta de la PoC** bajada al marco como `[propuesta]` en sec. 5.1. Fuentes verificadas en `sprint 15/FUENTES_MARCO.md` / `.bib`; resumen para la reunión y decisiones abiertas en `sprint 15/CAMBIOS_DESDE_V1.md`
+- Hallazgo principal: la Guía **respalda el reparo del tutor** sobre la Sprint Review y declara su propia incompletitud (`feedback`, `test` y `acceptance`: 0 ocurrencias en 14 pp.) → **A2 se desdobló** y el feedback pasa a tener dos canales y dos momentos (objetivo B)
 
-### Entregables
-
-| Archivo | Qué es |
-|---|---|
-| `sprint 15/MARCO_PROCESO_FEEDBACK_v2.md` | El marco **autocontenido** (base normativa de Scrum, modelo, diagrama, capa IAG). **Reemplaza** al del sprint 14, que queda como registro |
-| `sprint 15/diagramas/` | El marco en BPMN (una sola notación) y la figura propia de los escenarios S1–S4 |
-| `sprint 15/FUENTES_MARCO.md` / `.bib` | Fuentes del marco, con secciones verificadas contra los ejemplares |
-| `sprint 15/CAMBIOS_DESDE_V1.md` | Resumen para la segunda pasada con Daniel + decisiones abiertas |
-| `sprint 15/papers_daniel/` | Los 4 artículos del tutor, con identidad verificada |
-
-Hallazgo principal: la Guía **respalda el reparo del tutor** sobre la Sprint Review y **declara su propia
-incompletitud** (`feedback`, `test` y `acceptance`: 0 ocurrencias en 14 pp.), así que **A2 se desdobló** en
-liberación / uso y testing de aceptación / Sprint Review — el feedback pasa a tener dos canales y dos momentos
-(objetivo B).
-
-**Pendiente:** segunda pasada con Daniel, con las 4 decisiones abiertas de `sprint 15/CAMBIOS_DESDE_V1.md`.
+**Pendiente:** segunda pasada con Daniel, con las 5 decisiones abiertas de `sprint 15/CAMBIOS_DESDE_V1.md`.
 
 ---
