@@ -9,9 +9,9 @@ El marco de trabajo pasa a ser el **v2**. La v1 no se editó: queda como registr
 
 | Documento | Qué es |
 |---|---|
-| `MARCO_PROCESO_FEEDBACK_v2.md` | **Reemplaza** al marco del sprint 14. Actividades ancladas y renombradas, diagrama BPMN, capa IAG reforzada. Su §2.1 tiene la correspondencia v1 → v2 |
+| `MARCO_PROCESO_FEEDBACK_v2.md` | **Reemplaza** al marco del sprint 14. Actividades ancladas y renombradas, diagrama BPMN, capa IAG reforzada. Su sección 2.1 tiene la correspondencia v1 → v2 |
 | `SCRUM_ANCLAJE.md` | **Nuevo.** La evidencia: qué dice la Scrum Guide 2020, qué no cubre y con qué se cubre |
-| `FUENTES_MARCO.md` / `.bib` | **Nuevo.** Las fuentes con sus secciones verificadas (§a.1 Dumas, §a.2 Sommerville) |
+| `FUENTES_MARCO.md` / `.bib` | **Nuevo.** Las fuentes con sus secciones verificadas (sec. a.1 Dumas, sec. a.2 Sommerville) |
 | `diagramas/` | **Reemplazan** a los dos PNG del sprint 14: el marco en BPMN y la figura de escenarios |
 
 ---
@@ -26,7 +26,7 @@ explícita en que la review es una *working session* que no debe limitarse a una
 considerarse una puerta para liberar valor. La Guía además declara su propia incompletitud
 (*"purposefully incomplete"*), y `feedback`, `test` y `acceptance` no aparecen ni una vez en sus 14 páginas.
 
-→ Citas textuales, conteo léxico completo y alcance de lo verificado: **`SCRUM_ANCLAJE.md` §3 y §4**.
+→ Citas textuales, conteo léxico completo y alcance de lo verificado: **`SCRUM_ANCLAJE.md` sec. 3 y sec. 4**.
 
 **Consecuencia:** lo que Scrum no define no se presenta como si fuera Scrum. Se declara y se ancla en literatura de
 ingeniería (Sommerville, Dumas), con secciones verificadas contra los ejemplares — ver `FUENTES_MARCO.md`. En el
@@ -53,10 +53,10 @@ que puede llegar antes de la ceremonia, y la ceremonia misma—, materia directa
 entrega al negocio cruza al otro *pool* como flujo de mensaje sin pasar por la review, y del uso real sale un segundo
 flujo rotulado *"puede llegar antes de la ceremonia"*.
 
-**No se apoya solo en la lectura de Scrum:** Sommerville (2016) describe el par liberación + uso (§2.3.2), el
-*release* y el *acceptance testing* (§8.3 y §8.4), y sostiene que en ágil la aceptación no depende de una
-especificación completa sino de stakeholders involucrados **con autoridad para decidir** (§20.5) — la relación misma
-que la tesis pone en cuestión cuando entra IAG. Citas en `FUENTES_MARCO.md` §a.2.
+**No se apoya solo en la lectura de Scrum:** Sommerville (2016) describe el par liberación + uso (sec. 2.3.2), el
+*release* y el *acceptance testing* (sec. 8.3 y sec. 8.4), y sostiene que en ágil la aceptación no depende de una
+especificación completa sino de stakeholders involucrados **con autoridad para decidir** (sec. 20.5) — la relación misma
+que la tesis pone en cuestión cuando entra IAG. Citas en `FUENTES_MARCO.md` sec. a.2.
 
 ## 3. Notación uniforme *(pedido: "cajitas y globitos, marea un poquito")*
 
@@ -81,7 +81,7 @@ Los cuatro artículos están verificados uno por uno y leídos. Qué respaldo te
 | A5 Refinement | Dos papers del corpus | Malladi: repriorización dinámica del backlog |
 
 Cada ítem quedó etiquetado como **corpus**, **producto** o **general** (los cuatro artículos) para poder auditarlo
-→ `MARCO_PROCESO_FEEDBACK_v2.md` §4.
+→ `MARCO_PROCESO_FEEDBACK_v2.md` sec. 4.
 
 Dos cosas para decir de frente:
 
@@ -129,5 +129,5 @@ El marco v1 tampoco se editó.
 ## Siguiente paso propuesto
 
 Elegir **una** de las cuatro grandes áreas para bajar a la PoC. **A2b** (criterios y testing de aceptación asistidos)
-quedó como candidata con respaldo explícito —el gap declarado de Nguyen-Duc et al. y §20.5 de Sommerville— y está más
+quedó como candidata con respaldo explícito —el gap declarado de Nguyen-Duc et al. y sec. 20.5 de Sommerville— y está más
 pegada al feedback que la generación de tickets → código.

@@ -29,16 +29,16 @@ producción / evolución (feedback posterior a la aceptación).
 
 | # | Actividad | Roles | Entradas | Salidas | Objetivo | Anclaje |
 |---|---|---|---|---|---|---|
-| A1 | Desarrollo del incremento *(contexto; incluye inner loop y revisión de PR)* | Developers, PO | Sprint Backlog, Definition of Done | *Increment* que cumple la DoD | Producir el incremento | Scrum: *Sprint*, *Increment*, *DoD*; el **cómo** no lo define → Sommerville §7.3 |
-| A2a | **Liberación del incremento** ⚠ | Developers | Increment | Incremento liberado, accesible al negocio | Poner el incremento en manos del negocio | ⚠ fuera de Scrum → Sommerville §2.3.2 y §8.3 |
-| A2b | **Uso y testing de aceptación** ⚠ | Stakeholder (+ AF) | Incremento liberado, criterios de aceptación | Observaciones, cambios, bugs detectados en el uso | Que el negocio use el producto y detecte desvíos | ⚠ fuera de Scrum → Sommerville §8.4 y §20.5 |
+| A1 | Desarrollo del incremento *(contexto; incluye inner loop y revisión de PR)* | Developers, PO | Sprint Backlog, Definition of Done | *Increment* que cumple la DoD | Producir el incremento | Scrum: *Sprint*, *Increment*, *DoD*; el **cómo** no lo define → Sommerville sec. 7.3 |
+| A2a | **Liberación del incremento** ⚠ | Developers | Increment | Incremento liberado, accesible al negocio | Poner el incremento en manos del negocio | ⚠ fuera de Scrum → Sommerville sec. 2.3.2 y sec. 8.3 |
+| A2b | **Uso y testing de aceptación** ⚠ | Stakeholder (+ AF) | Incremento liberado, criterios de aceptación | Observaciones, cambios, bugs detectados en el uso | Que el negocio use el producto y detecte desvíos | ⚠ fuera de Scrum → Sommerville sec. 8.4 y sec. 20.5 |
 | A2c | **Sprint Review** | PO, Developers, Stakeholders, AF | Suma de incrementos, Product Goal | Feedback del negocio; Product Backlog ajustado | Inspeccionar el resultado del Sprint y determinar adaptaciones | Scrum Guide p. 9 — *working session*, ≤ 4 h |
-| A3a | Validación de reglas de negocio ⚠ | AF ↔ Stakeholder | Feedback, reglas y flujos definidos | Discrepancias, ajustes, aceptación/rechazo | Confirmar que el pedido respeta la regla de negocio real | ⚠ fuera de Scrum → Dumas §4.4 y §5.4.2; Sommerville §4.5 |
-| A3b | Validación de factibilidad técnica ⚠ *(parcial)* | Developers (+ PO) | Feedback, código/arquitectura, requisitos no funcionales | Evaluación de viabilidad, impacto y esfuerzo; alternativas | Confirmar que lo pedido es viable y a qué costo | ⚠ parcial en Scrum → Sommerville §25.3 (análisis de costo/impacto) |
+| A3a | Validación de reglas de negocio ⚠ | AF ↔ Stakeholder | Feedback, reglas y flujos definidos | Discrepancias, ajustes, aceptación/rechazo | Confirmar que el pedido respeta la regla de negocio real | ⚠ fuera de Scrum → Dumas sec. 4.4 y sec. 5.4.2; Sommerville sec. 4.5 |
+| A3b | Validación de factibilidad técnica ⚠ *(parcial)* | Developers (+ PO) | Feedback, código/arquitectura, requisitos no funcionales | Evaluación de viabilidad, impacto y esfuerzo; alternativas | Confirmar que lo pedido es viable y a qué costo | ⚠ parcial en Scrum → Sommerville sec. 25.3 (análisis de costo/impacto) |
 | A4 | **Incorporación del feedback al Product Backlog** | AF, PO | Feedback crudo (call, mail, bugs) | Ítems de Product Backlog | Convertir feedback disperso en trabajo accionable | Scrum Guide p. 6 — *convince the Product Owner* |
 | A5 | **Product Backlog refinement** ↻ | PO (+ Developers) | Ítems nuevos + Product Backlog | Product Backlog ordenado y refinado | Decidir qué entra en la próxima iteración → reabre A1 | Scrum Guide p. 10 — término textual. **Continua, no evento** |
 
-> Citas textuales de cada anclaje: `FUENTES_MARCO.md` §a.1 (Dumas) y §a.2 (Sommerville).
+> Citas textuales de cada anclaje: `FUENTES_MARCO.md` sec. a.1 (Dumas) y sec. a.2 (Sommerville).
 
 ### 2.1. Por qué la revisión son tres actividades y no solo la ceremonia
 
@@ -54,7 +54,7 @@ La consecuencia no es cosmética: el feedback del negocio tiene **dos canales y 
 producto, que puede llegar antes de la ceremonia, y la ceremonia misma—, que es materia directa del objetivo B
 (frecuencia, secuencia, granularidad y temporalidad).
 
-> Citas textuales, conteo léxico y alcance de lo verificado: **`SCRUM_ANCLAJE.md` §3 y §4**.
+> Citas textuales, conteo léxico y alcance de lo verificado: **`SCRUM_ANCLAJE.md` sec. 3 y sec. 4**.
 
 ### 2.2. Correspondencia con el ciclo de vida
 
@@ -80,7 +80,7 @@ producción (L5) quedan **fuera**.
 
 ![Etapa de revisión y feedback — vista BPMN](diagramas/marco_feedback_bpmn.png)
 
-**Notación:** BPMN, anclada en Dumas et al. (2018) §3.4 para pools y carriles y §3.3 para objetos de datos. El
+**Notación:** BPMN, anclada en Dumas et al. (2018) sec. 3.4 para pools y carriles y sec. 3.3 para objetos de datos. El
 vocabulario de actividades y artefactos viene de la Scrum Guide 2020.
 **Fuente editable:** `diagramas/marco_feedback_bpmn.drawio` (draw.io); el PNG se re-exporta desde ahí.
 
@@ -100,13 +100,13 @@ vocabulario de actividades y artefactos viene de la Scrum Guide 2020.
 
 ## 4. Capa con IAG
 
-Por cada actividad del §2, las soluciones con IAG que podrían aplicarla. Lo que **no** cambia es el proceso ni los
+Por cada actividad de la sección 2, las soluciones con IAG que podrían aplicarla. Lo que **no** cambia es el proceso ni los
 roles; cambia **quién** ejecuta la tarea y **cómo**.
 
 Cada ítem indica su fuente y, cuando aplica, la sección exacta, de modo que la lista misma sirve de tabla de
 trazabilidad. Las fuentes son de tres tipos:
 
-- **[general]** — los cuatro artículos sobre IAG en el desarrollo (`FUENTES_MARCO.md` §b): hablan del proceso en
+- **[general]** — los cuatro artículos sobre IAG en el desarrollo (`FUENTES_MARCO.md` sec. b): hablan del proceso en
   términos generales, por etapa del SDLC.
 - **[corpus]** — paper del mapeo de literatura (`sprint 12/REFERENCIAS.md`): evidencia puntual.
 - **[producto]** — producto o empresa relevada como *state of practice*: evidencia de mercado, no académica.
@@ -116,28 +116,28 @@ trazabilidad. Las fuentes son de tres tipos:
 #### A1 — Desarrollo del incremento *(contexto)*
 
 - La aplicación más extendida de IAG está justamente acá: copilotos que aceleran codificación, refactorización y
-  reparación de bugs, ya con validación empírica **[general: Malladi & Sudheer Reddy, 2025, §III]**.
+  reparación de bugs, ya con validación empírica **[general: Malladi & Sudheer Reddy, 2025, sec. III]**.
 - Generación automática de tests unitarios, integración con TDD/BDD y localización de defectos
-  **[general: Malladi & Sudheer Reddy, 2025, §III]**; casos de prueba autogenerados como una de las fases más
+  **[general: Malladi & Sudheer Reddy, 2025, sec. III]**; casos de prueba autogenerados como una de las fases más
   beneficiadas **[general: Cornide-Reyes et al., 2025, RQ3]**.
 - Agentes que generan o ajustan el incremento a partir del ticket **[productos: Devin, Codegen]**.
 
 #### A2a — Liberación del incremento ⚠
 
-- Autoría de pipelines y prácticas de CI/CD con conciencia de calidad **[general: Malladi & Sudheer Reddy, 2025, §III]**.
+- Autoría de pipelines y prácticas de CI/CD con conciencia de calidad **[general: Malladi & Sudheer Reddy, 2025, sec. III]**.
 - La automatización de los procesos de *build* y *deployment* sigue planteada como **pregunta de investigación
-  abierta** **[general: Nguyen-Duc et al., 2025, §4.6.2]** → zona poco resuelta.
+  abierta** **[general: Nguyen-Duc et al., 2025, sec. 4.6.2]** → zona poco resuelta.
 
 #### A2b — Uso y testing de aceptación ⚠
 
 - **Gap declarado:** la agenda de investigación señala que el *acceptance testing* (junto con integración y
   atributos de calidad) **no es foco de los estudios existentes** y que hace falta investigación sobre la
-  efectividad y los límites de la IAG ahí **[general: Nguyen-Duc et al., 2025, §4.4.5]**.
+  efectividad y los límites de la IAG ahí **[general: Nguyen-Duc et al., 2025, sec. 4.4.5]**.
 - Pregunta abierta asociada: *"How can GenAI be utilized to automate acceptance criteria from high-level
-  requirements?"* **[general: Nguyen-Duc et al., 2025, §4.4.2]**.
+  requirements?"* **[general: Nguyen-Duc et al., 2025, sec. 4.4.2]**.
 - Reportes de bug en lenguaje natural → bug completo con pasos de reproducción **[corpus: Bug Tracking GenAI]**.
 - **Límite:** usar IAG para validar rápido puede terminar sacrificando calidad de UX en favor de la velocidad de
-  entrega **[general: Cornide-Reyes et al., 2025, §1]**.
+  entrega **[general: Cornide-Reyes et al., 2025, sec. 1]**.
 
 #### A2c — Sprint Review
 
@@ -162,9 +162,9 @@ trazabilidad. Las fuentes son de tres tipos:
 
 - Estimación de esfuerzo e impacto: técnicas automatizadas dan repriorización y estimación **más consistentes,
   reduciendo el sesgo humano** y mejorando la alineación con necesidades cambiantes del cliente
-  **[general: Malladi & Sudheer Reddy, 2025, §V]**.
+  **[general: Malladi & Sudheer Reddy, 2025, sec. V]**.
 - La generación de criterios de aceptación y descripciones de escenarios permite a POs y developers **tomar
-  decisiones de trade-off informadas** durante los releases iterativos **[general: Malladi & Sudheer Reddy, 2025, §V]**.
+  decisiones de trade-off informadas** durante los releases iterativos **[general: Malladi & Sudheer Reddy, 2025, sec. V]**.
 - Detectar desalineación entre la intención y el sistema **[corpus: Requirements are All You Need]**.
 
 > La estimación de esfuerzo **está cubierta** a nivel general; el hueco declarado en la literatura está en **A2b**
@@ -177,7 +177,7 @@ trazabilidad. Las fuentes son de tres tipos:
 - Reformular o mejorar la expresión del feedback del stakeholder **[corpus: Supporting Stakeholder Requirements
   Expression]**.
 - A nivel general: los LLMs asisten en la redacción de user stories y en el *backlog grooming*, mejorando la
-  precisión de estimación y planificación **[general: Malladi & Sudheer Reddy, 2025, §III y §V]**; la planificación (análisis
+  precisión de estimación y planificación **[general: Malladi & Sudheer Reddy, 2025, sec. III y sec. V]**; la planificación (análisis
   de requisitos y generación de user stories) es una de las fases del ciclo ágil más beneficiadas
   **[general: Cornide-Reyes et al., 2025, RQ3]**.
 
@@ -185,13 +185,13 @@ trazabilidad. Las fuentes son de tres tipos:
 
 - Evaluar la calidad de los ítems del backlog y recomendar mejoras **[corpus: Epic Evaluator]**; detectar riesgos de
   sobrecompromiso al priorizar **[corpus: Meeting Assistants]**.
-- Repriorización dinámica del backlog como área en expansión **[general: Malladi & Sudheer Reddy, 2025, §III]**.
+- Repriorización dinámica del backlog como área en expansión **[general: Malladi & Sudheer Reddy, 2025, sec. III]**.
 
 ### 4.2. Alcance de las dos capas de evidencia
 
 La capa **general** (los cuatro artículos sobre IAG en el desarrollo) aporta el respaldo por etapa del SDLC, **dos
 gaps declarados** —testing de aceptación y automatización de build/deployment, ambos de Nguyen-Duc et al.— y dos
-marcos de encuadre: los escenarios S1–S4 (§5.5) y las **11 áreas** de Nguyen-Duc et al., que ubican este zoom en
+marcos de encuadre: los escenarios S1–S4 (sec. 5.5) y las **11 áreas** de Nguyen-Duc et al., que ubican este zoom en
 *Requirements Engineering*, *Quality Assurance* y *Engineering Management*.
 
 Ninguno de los cuatro menciona la **Sprint Review** ni las ceremonias (0 ocurrencias): el zoom fino en el momento del
@@ -202,7 +202,7 @@ sobrevender el anclaje.
 
 ## 5. Grandes áreas con IAG
 
-Las ideas por actividad (§4) se agrupan en cuatro áreas transversales (§5.1–§5.4). La §5.5 las ubica en una
+Las ideas por actividad (sec. 4) se agrupan en cuatro áreas transversales (sec. 5.1–sec. 5.4). La sec. 5.5 las ubica en una
 escala de suplantación de roles.
 
 ### 5.1. Impersonación de stakeholders (stakeholder-IA)
@@ -259,7 +259,7 @@ original, y se cita la fuente. Editable en `diagramas/escenarios_s1_s4.drawio`.
 
 | Escenario | Nombre | En una línea | Dónde caen nuestras áreas |
 |---|---|---|---|
-| **S1** | *Traditional Software Development Operations* | Humanos en todos los roles; las herramientas automatizan | Es el proceso **hoy** (§2) |
+| **S1** | *Traditional Software Development Operations* | Humanos en todos los roles; las herramientas automatizan | Es el proceso **hoy** (sec. 2) |
 | **S2** | *AI in loop* | El humano domina; la IA automatiza partes de tareas y asiste decisiones | **5.2** oralidad→artefacto y **5.3** firewall |
 | **S3** | *AI assumes role(s)* | La IA asume roles seleccionados; el humano controla la operación | **5.1** impersonación (la IA *asume* el rol de quien da feedback) |
 | **S4** | *Human-in-the-loop* | La IA gestiona varios roles; el humano vigila | **5.4** generación→desarrollo apunta acá (con la contra-evidencia de Tusk/Sweep) |
