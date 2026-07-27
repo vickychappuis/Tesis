@@ -19,11 +19,11 @@ intercambio es lo que reabre el ciclo.
 **Ese tramo es el objeto de este marco y lo llamamos *etapa de feedback*.** Va desde que el incremento llega al
 negocio hasta que el backlog queda listo para la próxima iteración, y se compone de tres bloques:
 
-| Bloque | Actividades | Qué pasa ahí |
-|---|---|---|
-| **Entrega y revisión del incremento** ← *el núcleo* | A2a, A2b, A2c | El incremento llega al negocio y **se genera el feedback** |
-| Validación del feedback | A3a, A3b | Se contrasta contra las reglas de negocio y contra lo técnicamente viable |
-| Incorporación al backlog | A4, A5 | El feedback se vuelve trabajo priorizado y reabre el ciclo |
+| Bloque                                              | Actividades   | Qué pasa ahí                                                              |
+| --------------------------------------------------- | ------------- | ------------------------------------------------------------------------- |
+| **Entrega y revisión del incremento** ← *el núcleo* | A2a, A2b, A2c | El incremento llega al negocio y **se genera el feedback**                |
+| Validación del feedback                             | A3a, A3b      | Se contrasta contra las reglas de negocio y contra lo técnicamente viable |
+| Incorporación al backlog                            | A4, A5        | El feedback se vuelve trabajo priorizado y reabre el ciclo                |
 
 El **núcleo** es el primer bloque: es donde el negocio ve el producto y reacciona, y es el que la Sprint Review sola
 no alcanza a cubrir (sección 2.2). El desarrollo del incremento (**A1**) entra solo como contexto: produce la versión
@@ -49,12 +49,12 @@ la fuente oficial, qué no dice, y de dónde sale cada pieza que falta.
 > *"Scrum is a lightweight framework that helps people, teams and organizations generate value through adaptive
 > solutions for complex problems."*
 
-| Categoría | Elementos |
-|---|---|
-| **Accountabilities** (no "roles") | Developers · Product Owner · Scrum Master |
-| **Events** (5) | The Sprint · Sprint Planning · Daily Scrum · **Sprint Review** · Sprint Retrospective |
+| Categoría                           | Elementos                                                                                            |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| **Accountabilities** (no "roles")   | Developers · Product Owner · Scrum Master                                                            |
+| **Events** (5)                      | The Sprint · Sprint Planning · Daily Scrum · **Sprint Review** · Sprint Retrospective                |
 | **Artifacts** (3) + su *commitment* | Product Backlog → *Product Goal* · Sprint Backlog → *Sprint Goal* · Increment → *Definition of Done* |
-| **Pilares empíricos** | transparency · inspection · adaptation |
+| **Pilares empíricos**               | transparency · inspection · adaptation                                                               |
 
 Cuatro definiciones de la Guía anclan actividades y roles concretos de este marco:
 
@@ -76,13 +76,11 @@ Es el único momento del núcleo que Scrum define, y conviene leerlo completo (p
 > *"The purpose of the Sprint Review is to inspect the outcome of the Sprint and determine future adaptations. The
 > Scrum Team presents the results of their work to key stakeholders and progress toward the Product Goal is discussed.*
 >
-> *During the event, the Scrum Team and stakeholders review what was accomplished in the Sprint and what has changed
-> in their environment. Based on this information, attendees collaborate on what to do next. The Product Backlog may
-> also be adjusted to meet new opportunities. **The Sprint Review is a working session and the Scrum Team should
-> avoid limiting it to a presentation.***
+> *During the event, the Scrum Team and stakeholders review what was accomplished in the Sprint [...] The Product
+> Backlog may also be adjusted to meet new opportunities. **The Sprint Review is a working session and the Scrum Team
+> should avoid limiting it to a presentation.***
 >
-> *The Sprint Review is the second to last event of the Sprint and is timeboxed to a maximum of four hours for a
-> one-month Sprint. For shorter Sprints, the event is usually shorter."*
+> *[...] is timeboxed to a maximum of four hours for a one-month Sprint."*
 
 Y en la sección del Increment (p. 12):
 
@@ -127,20 +125,20 @@ La Guía **declara su propia incompletitud**:
 
 El conteo léxico sobre el texto completo (14 pp.) lo confirma:
 
-| Término | Ocurrencias |
-|---|---|
-| `inspect` / `inspection` | 23 |
-| `adapt` / `adaptation` | 18 |
-| `stakeholder` | 13 |
-| `quality` | 4 |
-| `verif*` (verified/verification) | 2 |
-| `valid*` | 1 |
-| `customer` | 1 |
-| `user` | 1 |
-| **`feedback`** | **0** |
-| **`test` / `testing`** | **0** |
-| **`acceptance`** | **0** |
-| **`release`** | **1** (solo como verbo: *"it cannot be released or even presented at the Sprint Review"*) |
+| Término                          | Ocurrencias                                                                               |
+| -------------------------------- | ----------------------------------------------------------------------------------------- |
+| `inspect` / `inspection`         | 23                                                                                        |
+| `adapt` / `adaptation`           | 18                                                                                        |
+| `stakeholder`                    | 13                                                                                        |
+| `quality`                        | 4                                                                                         |
+| `verif*` (verified/verification) | 2                                                                                         |
+| `valid*`                         | 1                                                                                         |
+| `customer`                       | 1                                                                                         |
+| `user`                           | 1                                                                                         |
+| **`feedback`**                   | **0**                                                                                     |
+| **`test` / `testing`**           | **0**                                                                                     |
+| **`acceptance`**                 | **0**                                                                                     |
+| **`release`**                    | **1** (solo como verbo: *"it cannot be released or even presented at the Sprint Review"*) |
 
 > Reproducible: `grep -o -i "<término>" fuentes_marco/scrumguide2020.txt | wc -l`.
 
@@ -149,22 +147,12 @@ vía *inspection* / *adaptation* y vía la participación de *stakeholders* en l
 —testing, aceptación, liberación— queda fuera por diseño, porque el framework se define como contenedor de otras
 prácticas.
 
-### 2.4. De dónde sale cada pieza que Scrum no define
+### 2.4. De dónde sale lo que Scrum no define
 
-| Pieza de la etapa de feedback | ¿Está en Scrum? | Anclaje |
-|---|---|---|
-| Construcción del incremento (inner loop, PR) | ❌ solo el *qué* (Increment + DoD), no el *cómo* | Sommerville (2016) sec. 7.3 *implementation issues* |
-| **Liberación / despliegue al entorno donde el negocio lo usa** | ❌ desacoplada por diseño | Sommerville (2016) sec. 2.3.2 —el incremento *"is installed in the customer's normal working environment"*— y sec. 8.3 *release testing* |
-| **Testing de aceptación / uso real por el usuario** | ❌ (`acceptance` y `test`: 0 ocurrencias) | Sommerville (2016) sec. 8.4 *user testing* —alpha, beta y aceptación; la primera de sus seis etapas define los criterios— y sec. 20.5: en ágil *"stakeholders are closely engaged with the testing process and have the authority to decide when the overall system is acceptable"* |
-| Presentación e inspección del incremento con stakeholders | ✅ **Sprint Review** | Scrum Guide (2020), p. 9 |
-| Validación de reglas y flujos de negocio | ❌ | Dumas et al. (2018) sec. 4.4 y sec. 5.4.2 —validar *"can only be done by talking to the process participants"*—; Sommerville (2016) sec. 4.5 |
-| Validación de factibilidad técnica / impacto | ⚠ parcial (Developers *"creating a plan"*, PO y *trade-offs*) | Sommerville (2016) sec. 25.3, flujo de *change request* con análisis de costo/impacto |
-| Registro del pedido y entrada al backlog | ✅ parcial (*"convince the Product Owner"*) | Scrum Guide (2020), p. 6 |
-| Refinamiento y ordenamiento del backlog | ✅ **Product Backlog refinement** | Scrum Guide (2020), pp. 5 y 10 |
-| Rol de intermediario negocio ↔ técnica | ❌ no existe la accountability | Delegación del PO (Scrum Guide, p. 6) + literatura de análisis de negocio e ingeniería de requisitos |
-
-> Las secciones de Sommerville y Dumas fueron verificadas contra los ejemplares; sus citas textuales están en
-> `FUENTES_MARCO.md` sec. a.1 y sec. a.2.
+Cada actividad del modelo lleva su anclaje en la columna correspondiente de las tablas de la sección 3. Las piezas
+que el framework no cubre —construcción, liberación, testing de aceptación, validación de reglas y análisis de
+impacto— se apoyan en **Sommerville (2016)** y **Dumas et al. (2018)**, verificados sección por sección contra los
+ejemplares; sus citas textuales están en `FUENTES_MARCO.md` sec. a.1 y sec. a.2.
 
 ---
 
@@ -174,27 +162,27 @@ prácticas.
 
 **Contexto** — lo que produce la versión que ve el negocio; no es el foco.
 
-| # | Actividad | Roles | Entradas | Salidas | Objetivo | Anclaje |
-|---|---|---|---|---|---|---|
-| A1 | Desarrollo del incremento *(incluye inner loop y revisión de PR)* | Developers, PO | Sprint Backlog, Definition of Done | *Increment* que cumple la DoD | Producir el incremento | Scrum: *Sprint*, *Increment*, *DoD*; el **cómo** no lo define → Sommerville sec. 7.3 |
+| #   | Actividad                                                         | Roles          | Entradas                           | Salidas                       | Objetivo               | Anclaje                                                                              |
+| --- | ----------------------------------------------------------------- | -------------- | ---------------------------------- | ----------------------------- | ---------------------- | ------------------------------------------------------------------------------------ |
+| A1  | Desarrollo del incremento *(incluye inner loop y revisión de PR)* | Developers, PO | Sprint Backlog, Definition of Done | *Increment* que cumple la DoD | Producir el incremento | Scrum: *Sprint*, *Increment*, *DoD*; el **cómo** no lo define → Sommerville sec. 7.3 |
 
 **▶ Entrega y revisión del incremento — EL NÚCLEO DE LA ETAPA.** Es donde el incremento llega al negocio y se
 genera el feedback. Son tres momentos, y **solo el último está definido por Scrum** (ver sección 2.2):
 
-| # | Actividad | Roles | Entradas | Salidas | Objetivo | Anclaje |
-|---|---|---|---|---|---|---|
-| A2a | **Liberación del incremento** ⚠ | Developers | Increment | Incremento liberado, accesible al negocio | Poner el incremento en manos del negocio | ⚠ fuera de Scrum → Sommerville sec. 2.3.2 y sec. 8.3 |
-| A2b | **Uso y testing de aceptación** ⚠ | Stakeholder (+ AF) | Incremento liberado, criterios de aceptación | Observaciones, cambios, bugs detectados en el uso | Que el negocio use el producto y detecte desvíos | ⚠ fuera de Scrum → Sommerville sec. 8.4 y sec. 20.5 |
-| A2c | **Sprint Review** | PO, Developers, Stakeholders, AF | Suma de incrementos, Product Goal | Feedback del negocio; Product Backlog ajustado | Inspeccionar el resultado del Sprint y determinar adaptaciones | Scrum Guide p. 9 — *working session*, ≤ 4 h |
+| #   | Actividad                         | Roles                            | Entradas                                     | Salidas                                           | Objetivo                                                       | Anclaje                                              |
+| --- | --------------------------------- | -------------------------------- | -------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------- |
+| A2a | **Liberación del incremento** ⚠   | Developers                       | Increment                                    | Incremento liberado, accesible al negocio         | Poner el incremento en manos del negocio                       | ⚠ fuera de Scrum → Sommerville sec. 2.3.2 y sec. 8.3 |
+| A2b | **Uso y testing de aceptación** ⚠ | Stakeholder (+ AF)               | Incremento liberado, criterios de aceptación | Observaciones, cambios, bugs detectados en el uso | Que el negocio use el producto y detecte desvíos               | ⚠ fuera de Scrum → Sommerville sec. 8.4 y sec. 20.5  |
+| A2c | **Sprint Review**                 | PO, Developers, Stakeholders, AF | Suma de incrementos, Product Goal            | Feedback del negocio; Product Backlog ajustado    | Inspeccionar el resultado del Sprint y determinar adaptaciones | Scrum Guide p. 9 — *working session*, ≤ 4 h          |
 
 **Tratamiento del feedback** — qué se hace con lo que el negocio devolvió.
 
-| # | Actividad | Roles | Entradas | Salidas | Objetivo | Anclaje |
-|---|---|---|---|---|---|---|
-| A3a | Validación de reglas de negocio ⚠ | AF ↔ Stakeholder | Feedback, reglas y flujos definidos | Discrepancias, ajustes, aceptación/rechazo | Confirmar que el pedido respeta la regla de negocio real | ⚠ fuera de Scrum → Dumas sec. 4.4 y sec. 5.4.2; Sommerville sec. 4.5 |
-| A3b | Validación de factibilidad técnica ⚠ *(parcial)* | Developers (+ PO) | Feedback, código/arquitectura, requisitos no funcionales | Evaluación de viabilidad, impacto y esfuerzo; alternativas | Confirmar que lo pedido es viable y a qué costo | ⚠ parcial en Scrum → Sommerville sec. 25.3 (análisis de costo/impacto) |
-| A4 | **Incorporación del feedback al Product Backlog** | AF, PO | Feedback crudo (call, mail, bugs) | Ítems de Product Backlog | Convertir feedback disperso en trabajo accionable | Scrum Guide p. 6 — *convince the Product Owner* |
-| A5 | **Product Backlog refinement** ↻ | PO (+ Developers) | Ítems nuevos + Product Backlog | Product Backlog ordenado y refinado | Decidir qué entra en la próxima iteración → reabre A1 | Scrum Guide p. 10 — término textual. **Continua, no evento** |
+| #   | Actividad                                         | Roles             | Entradas                                                 | Salidas                                                    | Objetivo                                                 | Anclaje                                                                |
+| --- | ------------------------------------------------- | ----------------- | -------------------------------------------------------- | ---------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------------------------- |
+| A3a | Validación de reglas de negocio ⚠                 | AF ↔ Stakeholder  | Feedback, reglas y flujos definidos                      | Discrepancias, ajustes, aceptación/rechazo                 | Confirmar que el pedido respeta la regla de negocio real | ⚠ fuera de Scrum → Dumas sec. 4.4 y sec. 5.4.2; Sommerville sec. 4.5   |
+| A3b | Validación de factibilidad técnica ⚠ *(parcial)*  | Developers (+ PO) | Feedback, código/arquitectura, requisitos no funcionales | Evaluación de viabilidad, impacto y esfuerzo; alternativas | Confirmar que lo pedido es viable y a qué costo          | ⚠ parcial en Scrum → Sommerville sec. 25.3 (análisis de costo/impacto) |
+| A4  | **Incorporación del feedback al Product Backlog** | AF, PO            | Feedback crudo (call, mail, bugs)                        | Ítems de Product Backlog                                   | Convertir feedback disperso en trabajo accionable        | Scrum Guide p. 6 — *convince the Product Owner*                        |
+| A5  | **Product Backlog refinement** ↻                  | PO (+ Developers) | Ítems nuevos + Product Backlog                           | Product Backlog ordenado y refinado                        | Decidir qué entra en la próxima iteración → reabre A1    | Scrum Guide p. 10 — término textual. **Continua, no evento**           |
 
 > Citas textuales de cada anclaje: `FUENTES_MARCO.md` sec. a.1 (Dumas) y sec. a.2 (Sommerville).
 
@@ -208,13 +196,13 @@ producción (L5) quedan **fuera**.
 
 ### 3.2. Roles
 
-| Rol | ¿Scrum? | Nota |
-|---|---|---|
-| **Product Owner** | ✅ accountability | — |
-| **Developers** | ✅ accountability | Scrum no tiene rol de QA separado: el testing vive dentro de Developers vía Definition of Done |
-| **Stakeholder / cliente** | ⚠ término de la Guía, pero **no** es accountability | Participante externo al Scrum Team |
-| **Analista funcional (AF)** | ❌ no existe | Se mantiene, anclado en que el PO *"may delegate the responsibility to others"* y en la literatura de análisis de negocio e ingeniería de requisitos. Es el intermediario cuya mediación la IAG pone en cuestión (objetivo C) |
-| Scrum Master | ✅ accountability | **Ausente del marco a propósito**: no es dueño de ninguna actividad del loop de feedback |
+| Rol                         | ¿Scrum?                                             | Nota                                                                                                                                                                                                                          |
+| --------------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Product Owner**           | ✅ accountability                                    | —                                                                                                                                                                                                                             |
+| **Developers**              | ✅ accountability                                    | Scrum no tiene rol de QA separado: el testing vive dentro de Developers vía Definition of Done                                                                                                                                |
+| **Stakeholder / cliente**   | ⚠ término de la Guía, pero **no** es accountability | Participante externo al Scrum Team                                                                                                                                                                                            |
+| **Analista funcional (AF)** | ❌ no existe                                         | Se mantiene, anclado en que el PO *"may delegate the responsibility to others"* y en la literatura de análisis de negocio e ingeniería de requisitos. Es el intermediario cuya mediación la IAG pone en cuestión (objetivo C) |
+| Scrum Master                | ✅ accountability                                    | **Ausente del marco a propósito**: no es dueño de ninguna actividad del loop de feedback                                                                                                                                      |
 
 ---
 
@@ -228,17 +216,17 @@ vocabulario de actividades y artefactos viene de la Scrum Guide 2020.
 
 ### 4.1. Leyenda (una sola semántica para todo el diagrama)
 
-| Elemento | Significado |
-|---|---|
-| Rectángulo redondeado **azul** | Actividad **definida en Scrum** |
-| Rectángulo redondeado **gris punteado** | Actividad de la práctica, **⚠ no definida en Scrum** |
-| **Nota amarilla** | Objeto de datos (artefacto que se produce o consume) |
-| **Cilindro violeta** | Almacén de datos (*Product Backlog*, persiste entre Sprints) |
-| **Carril** / pool | Rol / participante |
-| Flecha **llena negra** | Flujo de secuencia (orden de actividades dentro del mismo participante) |
-| Flecha **punteada roja** | Flujo de mensaje (comunicación entre participantes) |
-| Flecha **punteada fina amarilla** | Asociación de datos (lectura o escritura de un artefacto) |
-| ↻ | Actividad continua, no un evento |
+| Elemento                                | Significado                                                             |
+| --------------------------------------- | ----------------------------------------------------------------------- |
+| Rectángulo redondeado **azul**          | Actividad **definida en Scrum**                                         |
+| Rectángulo redondeado **gris punteado** | Actividad de la práctica, **⚠ no definida en Scrum**                    |
+| **Nota amarilla**                       | Objeto de datos (artefacto que se produce o consume)                    |
+| **Cilindro violeta**                    | Almacén de datos (*Product Backlog*, persiste entre Sprints)            |
+| **Carril** / pool                       | Rol / participante                                                      |
+| Flecha **llena negra**                  | Flujo de secuencia (orden de actividades dentro del mismo participante) |
+| Flecha **punteada roja**                | Flujo de mensaje (comunicación entre participantes)                     |
+| Flecha **punteada fina amarilla**       | Asociación de datos (lectura o escritura de un artefacto)               |
+| ↻                                       | Actividad continua, no un evento                                        |
 
 ## 5. Capa con IAG
 
@@ -399,16 +387,16 @@ asumidas por la IA. Sauvola et al. (2024) dan una escala para graduar ese movimi
 Figura **propia** elaborada a partir de las Tablas 1 y 2 del paper: se redibuja en vez de reproducir la imagen
 original, y se cita la fuente. Editable en `diagramas/escenarios_s1_s4.drawio`.
 
-| Escenario | Nombre | En una línea | Dónde caen nuestras áreas |
-|---|---|---|---|
-| **S1** | *Traditional Software Development Operations* | Humanos en todos los roles; las herramientas automatizan | Es el proceso **hoy** (sección 3) |
-| **S2** | *AI in loop* | El humano domina; la IA automatiza partes de tareas y asiste decisiones | **6.2** oralidad→artefacto y **6.3** firewall |
-| **S3** | *AI assumes role(s)* | La IA asume roles seleccionados; el humano controla la operación | **6.1** impersonación (la IA *asume* el rol de quien da feedback) |
-| **S4** | *Human-in-the-loop* | La IA gestiona varios roles; el humano vigila | **6.4** generación→desarrollo apunta acá (con la contra-evidencia de Tusk/Sweep) |
+| Escenario | Nombre                                        | En una línea                                                            | Dónde caen nuestras áreas                                                        |
+| --------- | --------------------------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **S1**    | *Traditional Software Development Operations* | Humanos en todos los roles; las herramientas automatizan                | Es el proceso **hoy** (sección 3)                                                |
+| **S2**    | *AI in loop*                                  | El humano domina; la IA automatiza partes de tareas y asiste decisiones | **6.2** oralidad→artefacto y **6.3** firewall                                    |
+| **S3**    | *AI assumes role(s)*                          | La IA asume roles seleccionados; el humano controla la operación        | **6.1** impersonación (la IA *asume* el rol de quien da feedback)                |
+| **S4**    | *Human-in-the-loop*                           | La IA gestiona varios roles; el humano vigila                           | **6.4** generación→desarrollo apunta acá (con la contra-evidencia de Tusk/Sweep) |
 
 El paper además parametriza cada escenario por niveles y modela **trayectorias de transición** entre ellos: citable
 si hace falta precisión sobre *cuánto* asume la IA.
 
 ---
 
-_Última actualización: 2026-07-26 — sprint 15._
+*Última actualización: 2026-07-26 — sprint 15.*
