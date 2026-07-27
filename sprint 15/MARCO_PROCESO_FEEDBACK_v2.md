@@ -10,24 +10,15 @@
 
 ## 1. Delimitación del zoom
 
-**Entra:** desde que hay un incremento (v ≥ 0.1 **con código**) que llega al negocio, y el feedback externo
-que desencadena hasta el siguiente entregable.
+El desarrollo transcurre en iteraciones de longitud fija —Sprints—, cada una de las cuales produce un incremento de
+producto. Al final de cada iteración ese incremento llega al negocio, que lo revisa y devuelve feedback; ese
+intercambio es lo que reabre el ciclo. **Esa etapa de revisión es el objeto de este marco.**
+
+**Entra:** desde que hay un incremento (v ≥ 0.1 **con código**) que llega al negocio, y el feedback externo que
+desencadena hasta el siguiente entregable.
 
 **Queda fuera:** discovery / elicitación inicial, validación de prototipo, diseño UX temprano, y el uso en
 producción / evolución (feedback posterior a la aceptación).
-
-### 1.1. Por qué el zoom no es solo la Sprint Review
-
-La Sprint Review **es** el momento que Scrum define para inspeccionar el incremento con los stakeholders, pero la Guía 2020 la define como *working session* que no debe limitarse a una
-presentación, **desacopla la liberación de la ceremonia** (*"never a gate to releasing value"*) y **declara su propia
-incompletitud** (*"purposefully incomplete"*). Tampoco menciona nunca `feedback`, `test` ni `acceptance`.
-
-Conclusión para el marco: la etapa que estudiamos es una **etapa de revisión** compuesta por liberación → uso y
-testing de aceptación → Sprint Review, de la cual **solo el último momento está definido por Scrum**. Los otros dos se
-anclan en literatura de ingeniería de software.
-
-> Citas textuales, conteo léxico, la distinción entre la Guía y el material introductorio de scrum.org, y el alcance
-> de lo verificado: **`SCRUM_ANCLAJE.md` §3 y §4**.
 
 ---
 
@@ -49,13 +40,29 @@ anclan en literatura de ingeniería de software.
 
 > Citas textuales de cada anclaje: `FUENTES_MARCO.md` §a.1 (Dumas) y §a.2 (Sommerville).
 
-### 2.1. Correspondencia con el ciclo de vida
+### 2.1. Por qué la revisión son tres actividades y no solo la ceremonia
+
+El único de esos tres momentos que Scrum define es **A2c**, la Sprint Review. La Guía la describe como una
+*working session* que no debe limitarse a una presentación, pero **desacopla la liberación de la ceremonia**
+—*"an Increment may be delivered to stakeholders prior to the end of the Sprint. The Sprint Review should never be
+considered a gate to releasing value"*— y **declara su propia incompletitud**: es un *"container for other
+techniques, methodologies, and practices"*. Coherente con eso, las palabras `feedback`, `test` y `acceptance` no
+aparecen en sus 14 páginas.
+
+Por eso **A2a** y **A2b** se modelan como actividades separadas y se anclan en literatura de ingeniería de software.
+La consecuencia no es cosmética: el feedback del negocio tiene **dos canales y dos momentos** —el uso real del
+producto, que puede llegar antes de la ceremonia, y la ceremonia misma—, que es materia directa del objetivo B
+(frecuencia, secuencia, granularidad y temporalidad).
+
+> Citas textuales, conteo léxico y alcance de lo verificado: **`SCRUM_ANCLAJE.md` §3 y §4**.
+
+### 2.2. Correspondencia con el ciclo de vida
 
 Respecto del ciclo de vida del `sprint 12`: A1 pliega los loops técnicos internos (L3a inner loop,
 L3b revisión de PR); A2a–A2c son el loop de incremento (L3); A3a es la validación de reglas de negocio (L4).
 El uso en producción / evolución (L5) queda **fuera** del zoom.
 
-### 2.2. Roles
+### 2.3. Roles
 
 | Rol | ¿Scrum? | Nota |
 |---|---|---|
