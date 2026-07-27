@@ -80,9 +80,10 @@ Los cuatro artículos están verificados uno por uno y leídos. Qué respaldo te
 | A5 Refinement | Dos papers del corpus | Malladi: repriorización dinámica del backlog |
 
 Cada ítem quedó etiquetado como **corpus**, **producto** o **general** (los cuatro artículos) para poder auditarlo.
-La tabla de arriba es el registro de qué se agregó respecto de la v1; en el marco, la sec. 5.1 quedó recortada al
-**núcleo** (A2a–A2c) y la evidencia de las demás actividades vive en las áreas de la sec. 6
-→ `MARCO_PROCESO_FEEDBACK_v2.md` secs. 5 y 6.
+La tabla de arriba es el registro de qué se agregó respecto de la v1. En el marco, la capa con IAG quedó
+**organizada por actividad del núcleo** (A2a–A2c), con la evidencia, el cambio de rol y el límite dentro de cada
+una; el resto del proceso (A1, A3a–A5) se comprimió en una tabla al final
+→ `MARCO_PROCESO_FEEDBACK_v2.md` sec. 5.
 
 Dos cosas para decir de frente:
 
@@ -103,10 +104,14 @@ paper.
 
 ![Cuatro escenarios de uso de IAG en el desarrollo de software (S1–S4)](diagramas/escenarios_s1_s4.png)
 
-## 6. Lo que no se tocó
+## 6. Lo que cambió de forma, no de contenido
 
-El **punto 5** (grandes áreas), aprobado tal cual en la call, mantiene su contenido: solo se le quitó la evidencia
-que ya estaba en la capa por actividad, y pasó a ser la sec. 6 del marco.
+El **punto 5** (grandes áreas) fue aprobado tal cual en la call y **mantiene todo su contenido**, pero dejó de ser
+una sección aparte: se solapaba con la capa por actividad —las dos hablaban de soluciones con IAG, solo que
+cortadas distinto— y se fusionaron. Cada área quedó dentro de la actividad que le corresponde, y las que cruzan
+varias —la impersonación de stakeholders, que toca A2b y A2c— se marcan como transversales ahí mismo. Los
+escenarios S1–S4 sí quedaron como sección propia (sec. 6 del marco), porque no son una solución más sino la escala
+para graduar cuánto desplaza la IA al humano.
 
 ---
 
@@ -122,6 +127,6 @@ que ya estaba en la capa por actividad, y pasó a ser la sec. 6 del marco.
 
 ## Siguiente paso propuesto
 
-Elegir **una** de las cuatro grandes áreas para bajar a la PoC. **A2b** (criterios y testing de aceptación asistidos)
+Elegir **una** de las soluciones relevadas para bajar a la PoC. **A2b** (criterios y testing de aceptación asistidos)
 quedó como candidata con respaldo explícito —el gap declarado de Nguyen-Duc et al. y sec. 20.4 de Sommerville— y está más
 pegada al feedback que la generación de tickets → código.
