@@ -195,35 +195,21 @@
   - Agregar la imagen de los 4 escenarios del paper *Future of software development with generative AI* (S1–S4)
 - Segunda pasada del marco junto con Daniel (revisión de los 4 artículos)
 
-### Cómo se resolvió
+### Entregables
 
-Se ordenó por **dependencia** y no por el orden de los tickets: primero anclar Scrum
-—porque fija el vocabulario de las actividades—, después el diagrama, después la capa IAG.
-
-| Entregable | Qué es |
+| Archivo | Qué es |
 |---|---|
-| `sprint 15/MARCO_PROCESO_FEEDBACK_v2.md` | El marco corregido, **autocontenido**: base normativa de Scrum con citas verificadas, modelo de proceso, diagrama y capa IAG. **Reemplaza** al del sprint 14, que queda como registro |
-| `sprint 15/diagramas/` | El marco en BPMN (una sola notación para flujo y roles) y la figura propia de los escenarios S1–S4 |
-| `sprint 15/FUENTES_MARCO.md` / `.bib` | Las fuentes del marco con sus secciones verificadas contra los ejemplares |
-| `sprint 15/CAMBIOS_DESDE_V1.md` | Resumen para la segunda pasada con Daniel, con las decisiones abiertas |
-| `sprint 15/papers_daniel/` | Los 4 artículos del tutor, con identidad verificada uno por uno |
+| `sprint 15/MARCO_PROCESO_FEEDBACK_v2.md` | El marco **autocontenido** (base normativa de Scrum, modelo, diagrama, capa IAG). **Reemplaza** al del sprint 14, que queda como registro |
+| `sprint 15/diagramas/` | El marco en BPMN (una sola notación) y la figura propia de los escenarios S1–S4 |
+| `sprint 15/FUENTES_MARCO.md` / `.bib` | Fuentes del marco, con secciones verificadas contra los ejemplares |
+| `sprint 15/CAMBIOS_DESDE_V1.md` | Resumen para la segunda pasada con Daniel + decisiones abiertas |
+| `sprint 15/papers_daniel/` | Los 4 artículos del tutor, con identidad verificada |
 
-### Resultados destacados
+Hallazgo principal: la Guía **respalda el reparo del tutor** sobre la Sprint Review y **declara su propia
+incompletitud** (`feedback`, `test` y `acceptance`: 0 ocurrencias en 14 pp.), así que **A2 se desdobló** en
+liberación / uso y testing de aceptación / Sprint Review — el feedback pasa a tener dos canales y dos momentos
+(objetivo B).
 
-- La **Scrum Guide 2020 respalda el reparo del tutor** sobre la Sprint Review, y el framework **declara su propia
-  incompletitud**: las palabras `feedback`, `test` y `acceptance` tienen **0 ocurrencias** en sus 14 páginas. El
-  objeto de estudio de la tesis vive en el hueco declarado del framework.
-- **A2 se desdobló** en liberación / uso y testing de aceptación / Sprint Review, con anclaje en Sommerville: el
-  feedback pasa a tener **dos canales y dos momentos** (objetivo B).
-- Los 4 artículos del tutor **no mencionan la Sprint Review**: refuerzan la capa general por etapa del SDLC. Aportaron
-  dos gaps declarados y corrigieron una afirmación de la v1 (la estimación de esfuerzo ya está cubierta; el gap se
-  corrió al testing de aceptación).
-- Bibliografía cerrada: **Sommerville y Dumas conseguidos y verificados sección por sección**. Los PDF quedan como
-  copia local excluida del repositorio (libros completos; el repositorio es público).
-
-### Pendientes
-
-- Unificar `sprint 15/FUENTES_MARCO.bib` con `sprint 12/REFERENCIAS.bib` al arrancar la redacción.
-- Segunda pasada con Daniel: 4 decisiones abiertas listadas en `sprint 15/CAMBIOS_DESDE_V1.md`.
+**Pendiente:** segunda pasada con Daniel, con las 4 decisiones abiertas de `sprint 15/CAMBIOS_DESDE_V1.md`.
 
 ---

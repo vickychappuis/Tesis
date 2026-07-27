@@ -95,13 +95,6 @@ Dos cosas para decir de frente:
 No son etapas ni una predicción temporal: son una **escala de suplantación de roles humanos**, y el paper modela en
 cada uno quién ocupa cuatro funciones (gestión, trabajo, herramientas, entrega y mantenimiento).
 
-| | Escenario | Quién hace qué | Áreas del marco |
-|---|---|---|---|
-| **S1** | *Traditional* | Humanos en todos los roles | El proceso **hoy** |
-| **S2** | *AI in loop* | El humano domina; la IA automatiza tareas repetitivas y asiste decisiones | Oralidad → artefacto · chequeo de consistencia |
-| **S3** | *AI assumes role(s)* | La IA **asume roles** seleccionados; el humano controla la operación | Impersonación de stakeholders |
-| **S4** | *Human-in-the-loop* | La IA gestiona varios roles; el humano pasa a vigilancia | Generación → desarrollo automático (con el pivote de Tusk/Sweep como contra-evidencia) |
-
 **Para qué sirve:** es la escala que le faltaba al **objetivo C** — permite decir *cuánto* asume la IA en cada área
 en lugar de solo afirmar que "cambia el rol". La figura es **propia**, redibujada a partir de las Tablas 1 y 2 del
 paper.

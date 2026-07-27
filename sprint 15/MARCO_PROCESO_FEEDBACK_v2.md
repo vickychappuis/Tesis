@@ -178,7 +178,7 @@ producción (L5) quedan **fuera**.
 | **Product Owner**           | ✅ accountability                                    | —                                                                                                                                                                                                                             |
 | **Developers**              | ✅ accountability                                    | Scrum no tiene rol de QA separado: el testing vive dentro de Developers vía Definition of Done                                                                                                                                |
 | **Stakeholder / cliente**   | ⚠ término de la Guía, pero **no** es accountability | Participante externo al Scrum Team                                                                                                                                                                                            |
-| **Analista funcional (AF)** | ❌ no es accountability                              | Puente negocio↔técnico anclado fuera de Scrum, en L1/L2/L4 (`sprint 12/CICLO_DE_VIDA.md`) y en la literatura de análisis de negocio e ingeniería de requisitos. Donde participa en actividades ancladas en Scrum (A2c, A4) lo hace como delegado del PO —*"may delegate the responsibility to others"*—, sin ser su equivalente: el AF vive en los loops de negocio, el PO dentro del sprint. Es el intermediario cuya mediación la IAG pone en cuestión (objetivo C) |
+| **Analista funcional (AF)** | ❌ no es accountability                              Puente negocio↔técnico anclado fuera de Scrum, en L1/L2/L4 (`sprint 12/CICLO_DE_VIDA.md`). No es el equivalente del PO: el AF vive en los loops de negocio, el PO dentro del sprint. En A2c y A4 participa como delegado del PO —*"may delegate the responsibility to others"*—. Es el intermediario cuya mediación la IAG pone en cuestión (objetivo C) |
 | Scrum Master                | ✅ accountability                                    | **Ausente del marco a propósito**: no es dueño de ninguna actividad del loop de feedback                                                                                                                                      |
 
 ---
@@ -191,19 +191,9 @@ producción (L5) quedan **fuera**.
 vocabulario de actividades y artefactos viene de la Scrum Guide 2020.
 **Fuente editable:** `diagramas/marco_feedback_bpmn.drawio` (draw.io); el PNG se re-exporta desde ahí.
 
-### 4.1. Leyenda (una sola semántica para todo el diagrama)
+La leyenda —una sola semántica para todo el diagrama— va dentro de la figura.
 
-| Elemento                                | Significado                                                             |
-| --------------------------------------- | ----------------------------------------------------------------------- |
-| Rectángulo redondeado **azul**          | Actividad **definida en Scrum**                                         |
-| Rectángulo redondeado **gris punteado** | Actividad de la práctica, **⚠ no definida en Scrum**                    |
-| **Nota amarilla**                       | Objeto de datos (artefacto que se produce o consume)                    |
-| **Cilindro violeta**                    | Almacén de datos (*Product Backlog*, persiste entre Sprints)            |
-| **Carril** / pool                       | Rol / participante                                                      |
-| Flecha **llena negra**                  | Flujo de secuencia (orden de actividades dentro del mismo participante) |
-| Flecha **punteada roja**                | Flujo de mensaje (comunicación entre participantes)                     |
-| Flecha **punteada fina amarilla**       | Asociación de datos (lectura o escritura de un artefacto)               |
-| ↻                                       | Actividad continua, no un evento                                        |
+---
 
 ## 5. Capa con IAG
 
