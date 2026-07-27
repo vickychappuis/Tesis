@@ -248,8 +248,8 @@ dirección que explora la PoC (objetivo F).
 stakeholder (cliente, usuario, PM) y emitir feedback como si fuera él, de forma continua y sin depender de su
 disponibilidad. La evidencia la ubica acá y no en la ceremonia, justamente porque el feedback se emite **sin esperar
 la Sprint Review** **[corpus: Designing Tiny Robots · `raftopoulos2024designing`]**; se suma el concepto de
-*AI-Stakeholder* **[Pirozzi, 2024 · `pirozzi2024stakeholder` — revista profesional, no corpus; `FUENTES_MARCO.md`
-sec. c]** y productos que ofrecen personas virtuales. Es la solución que más directamente toca el objetivo C.
+*AI-Stakeholder* **[Pirozzi, 2024 — revista profesional, no corpus; ver `FUENTES_MARCO.md` sec. c]** y productos
+que ofrecen personas virtuales. Es la solución que más directamente toca el objetivo C.
 
 - **Cómo cambia el rol:** el stakeholder deja de ser el único emisor de feedback —una IA lo emite por él, de forma
   continua— y queda como **validador** de lo que la IA devolvió. Cruza hacia A2c, donde la ceremonia deja de ser el
@@ -258,6 +258,7 @@ sec. c]** y productos que ofrecen personas virtuales. Es la solución que más d
   humana ni descontextualizar; el stakeholder real sigue como curador y guardián de valores. Y Cornide-Reyes et al.
   (2025, sec. 1) advierten que usar IAG para validar rápido puede terminar sacrificando calidad de UX en favor de la
   velocidad de entrega **[general]**.
+
 ### 5.2. A2c — Sprint Review
 
 **Qué podría hacer la IAG.** Asistente que resume la reunión y detecta riesgos e impedimentos **[corpus: Meeting
@@ -319,7 +320,7 @@ original, y se cita la fuente. Editable en `diagramas/escenarios_s1_s4.drawio`.
 | Escenario | Nombre                                        | En una línea                                                            | Dónde cae el núcleo (sección 5)                                                                  |
 | --------- | --------------------------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | **S1**    | *Traditional Software Development Operations* | Humanos en todos los roles; las herramientas automatizan                | Es el proceso **hoy** (sección 3)                                                                  |
-| **S2**    | *AI in loop*                                  | El humano domina; la IA automatiza partes de tareas y asiste decisiones | Casi todo el núcleo: bugs desde lenguaje natural (**5.1**) y asistente de reunión (**5.2**) |
+| **S2**    | *AI in loop*                                  | El humano domina; la IA automatiza partes de tareas y asiste decisiones | Casi todo el núcleo: bugs desde lenguaje natural y generación de criterios de aceptación (**5.1**), y asistente de reunión (**5.2**) |
 | **S3**    | *AI assumes role(s)*                          | La IA asume roles seleccionados; el humano controla la operación        | **Impersonación de stakeholders** (**5.1**): la IA *asume* el rol de quien da feedback — es el único punto del núcleo que llega hasta acá |
 | **S4**    | *Human-in-the-loop*                           | La IA gestiona varios roles; el humano vigila                           | **Ninguna solución del núcleo llega**. El candidato —generación automática desde el ticket— cae en A1, fuera del núcleo, y el pivote de Tusk y Sweep (abandonaron el ticket→PR autónomo) muestra que ese modo todavía no cierra |
 

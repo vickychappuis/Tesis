@@ -125,9 +125,8 @@ recortar el marco al núcleo, las áreas se repartieron así:
 | Chequeo de consistencia (el "firewall") | A3a, A5 | Fuera del núcleo → sale del marco; ídem |
 | Generación → desarrollo automático | A1 | Fuera del núcleo → sale del marco; ídem. Se menciona en sec. 6 como el candidato a S4 que hoy no cierra |
 
-De la última área sobrevive la **contra-evidencia** (el pivote de Tusk y Sweep), y del "firewall" el **límite** de
-Nguyen-Duc —que la IAG *genera* inconsistencias— porque se traslada tal cual al feedback que emite un stakeholder-IA
-y por eso quedó como límite de sec. 5.1.
+De la última área sobrevive la **contra-evidencia** (el pivote de Tusk y Sweep); del "firewall" no queda nada en el
+marco.
 
 Los escenarios S1–S4 sí quedaron como sección propia (sec. 6 del marco), porque no son una solución más sino la
 escala para graduar cuánto desplaza la IA al humano. Leído contra ella aparece un resultado que antes no se veía:
