@@ -42,12 +42,12 @@ producción / evolución (feedback posterior a la aceptación).
 
 ### 2.1. Por qué la revisión son tres actividades y no solo la ceremonia
 
-El único de esos tres momentos que Scrum define es **A2c**, la Sprint Review. La Guía la describe como una
-*working session* que no debe limitarse a una presentación, pero **desacopla la liberación de la ceremonia**
-—*"an Increment may be delivered to stakeholders prior to the end of the Sprint. The Sprint Review should never be
-considered a gate to releasing value"*— y **declara su propia incompletitud**: es un *"container for other
-techniques, methodologies, and practices"*. Coherente con eso, las palabras `feedback`, `test` y `acceptance` no
-aparecen en sus 14 páginas.
+De los tres momentos en que se descompone la revisión —A2a, A2b y A2c—, el único que Scrum define es la **Sprint
+Review**. La Guía la describe como una *working session* que no debe limitarse a una presentación, pero **desacopla
+la liberación de la ceremonia** —*"an Increment may be delivered to stakeholders prior to the end of the Sprint. The
+Sprint Review should never be considered a gate to releasing value"*— y **declara su propia incompletitud**: es un
+*"container for other techniques, methodologies, and practices"*. Coherente con eso, las palabras `feedback`, `test`
+y `acceptance` no aparecen en sus 14 páginas.
 
 Por eso **A2a** y **A2b** se modelan como actividades separadas y se anclan en literatura de ingeniería de software.
 La consecuencia no es cosmética: el feedback del negocio tiene **dos canales y dos momentos** —el uso real del
@@ -58,9 +58,11 @@ producto, que puede llegar antes de la ceremonia, y la ceremonia misma—, que e
 
 ### 2.2. Correspondencia con el ciclo de vida
 
-Respecto del ciclo de vida del `sprint 12`: A1 pliega los loops técnicos internos (L3a inner loop,
-L3b revisión de PR); A2a–A2c son el loop de incremento (L3); A3a es la validación de reglas de negocio (L4).
-El uso en producción / evolución (L5) queda **fuera** del zoom.
+El diagrama de ciclo de vida elaborado previamente (`sprint 12/CICLO_DE_VIDA.md`) numera los ciclos de feedback
+como L1–L5. Este marco hace zoom sobre una parte: **A1** pliega los loops técnicos internos del equipo (L3a, inner
+loop del desarrollador, y L3b, revisión de PR); **A2a–A2c** son el loop de incremento (L3); **A3a** es la validación
+de reglas de negocio (L4). El discovery inicial (L1), la validación de prototipo (L2) y la evolución del producto en
+producción (L5) quedan **fuera**.
 
 ### 2.3. Roles
 
@@ -69,7 +71,7 @@ El uso en producción / evolución (L5) queda **fuera** del zoom.
 | **Product Owner** | ✅ accountability | — |
 | **Developers** | ✅ accountability | Scrum no tiene rol de QA separado: el testing vive dentro de Developers vía Definition of Done |
 | **Stakeholder / cliente** | ⚠ término de la Guía, pero **no** es accountability | Participante externo al Scrum Team |
-| **Analista funcional (AF)** | ❌ no existe | Se mantiene, anclado en que el PO *"may delegate the responsibility to others"* + BABOK/RE. Es el intermediario cuya mediación la IAG pone en cuestión (objetivo C) |
+| **Analista funcional (AF)** | ❌ no existe | Se mantiene, anclado en que el PO *"may delegate the responsibility to others"* y en la literatura de análisis de negocio e ingeniería de requisitos. Es el intermediario cuya mediación la IAG pone en cuestión (objetivo C) |
 | Scrum Master | ✅ accountability | **Ausente del marco a propósito**: no es dueño de ninguna actividad del loop de feedback |
 
 ---
@@ -101,14 +103,13 @@ vocabulario de actividades y artefactos viene de la Scrum Guide 2020.
 Por cada actividad del §2, las soluciones con IAG que podrían aplicarla. Lo que **no** cambia es el proceso ni los
 roles; cambia **quién** ejecuta la tarea y **cómo**.
 
-Cada ítem indica su fuente y de qué tipo es:
+Cada ítem indica su fuente y, cuando aplica, la sección exacta, de modo que la lista misma sirve de tabla de
+trazabilidad. Las fuentes son de tres tipos:
 
-- **[general]** — uno de los **4 artículos del tutor** (`FUENTES_MARCO.md` §b): hablan del proceso de desarrollo
-  en términos generales, por etapa del SDLC.
-- **[corpus]** — paper del corpus del mapeo de literatura (`sprint 12/REFERENCIAS.md`): evidencia puntual.
-- **[producto]** — producto o empresa relevada en el sprint 11: evidencia de mercado, no académica.
-
-Cada ítem lleva su fuente y, cuando aplica, la sección exacta: eso hace de esta lista la tabla de trazabilidad.
+- **[general]** — los cuatro artículos sobre IAG en el desarrollo (`FUENTES_MARCO.md` §b): hablan del proceso en
+  términos generales, por etapa del SDLC.
+- **[corpus]** — paper del mapeo de literatura (`sprint 12/REFERENCIAS.md`): evidencia puntual.
+- **[producto]** — producto o empresa relevada como *state of practice*: evidencia de mercado, no académica.
 
 ### 4.1. Por actividad
 
@@ -125,7 +126,7 @@ Cada ítem lleva su fuente y, cuando aplica, la sección exacta: eso hace de est
 
 - Autoría de pipelines y prácticas de CI/CD con conciencia de calidad **[general: Malladi & Sudheer Reddy, 2025, §III]**.
 - La automatización de los procesos de *build* y *deployment* sigue planteada como **pregunta de investigación
-  abierta** (§4.6.2, área *Software Processes and Tools*) **[general: Nguyen-Duc et al., 2025]** → zona poco resuelta.
+  abierta** **[general: Nguyen-Duc et al., 2025, §4.6.2]** → zona poco resuelta.
 
 #### A2b — Uso y testing de aceptación ⚠
 
@@ -141,16 +142,12 @@ Cada ítem lleva su fuente y, cuando aplica, la sección exacta: eso hace de est
 #### A2c — Sprint Review
 
 - Stakeholder-IA impersonado que emite feedback de forma continua, sin esperar la ceremonia
-  **[corpus: Designing Tiny Robots; concepto del sprint 11]**.
+  **[corpus: Designing Tiny Robots]**.
 - Asistente que resume la reunión y detecta riesgos e impedimentos **[corpus: Meeting Assistants]**.
 - A nivel general, se proyecta un modo de trabajo de plataformas colaborativas humano-IA que asisten a expertos de
   dominio, ingenieros de requisitos y usuarios **en tiempo real**, habilitando *"instantaneous feedback loops"* y
-  refinamiento iterativo como nueva norma **[general: Nguyen-Duc et al., 2025]** → sostiene la hipótesis del
-  objetivo B sobre frecuencia y temporalidad **[área *Requirements Engineering*]**.
-
-> ⚠️ **Ninguno de los 4 artículos del tutor menciona la Sprint Review** (0 ocurrencias de "sprint review" en los
-> cuatro textos completos). Trabajan a nivel de etapas del SDLC, no de ceremonias. Por eso el zoom fino en la
-> ceremonia sigue apoyado en el corpus, y los 4 artículos aportan la capa general.
+  refinamiento iterativo como nueva norma **[general: Nguyen-Duc et al., 2025, área *Requirements Engineering*]**
+  → sostiene la hipótesis del objetivo B sobre frecuencia y temporalidad.
 
 #### A3a — Validación de reglas de negocio ⚠
 
@@ -158,7 +155,8 @@ Cada ítem lleva su fuente y, cuando aplica, la sección exacta: eso hace de est
   into RE]**; detectar si el pedido ya está cubierto o implementado **[corpus: Closing the Loop US↔GUI]**.
 - A nivel general: los LLMs detectan requisitos superfluos, incorrectos o inconsistentes en un contexto de dominio,
   **pero** esas inconsistencias pueden desviar el proyecto si no son revisadas meticulosamente por stakeholders con
-  experiencia **[general: Nguyen-Duc et al., 2025, área *RE*]** → el chequeo automático no reemplaza la validación humana.
+  experiencia **[general: Nguyen-Duc et al., 2025, área *Requirements Engineering*]** → el chequeo automático no
+  reemplaza la validación humana.
 
 #### A3b — Validación de factibilidad técnica ⚠
 
@@ -204,17 +202,18 @@ sobrevender el anclaje.
 
 ## 5. Grandes áreas con IAG
 
-Las ideas por actividad (§4) se agrupan en cuatro áreas transversales.
+Las ideas por actividad (§4) se agrupan en cuatro áreas transversales (§5.1–§5.4). La §5.5 las ubica en una
+escala de suplantación de roles.
 
 ### 5.1. Impersonación de stakeholders (stakeholder-IA)
 
 - **Qué es:** una IA configurada para representar a un stakeholder (cliente, usuario, PM) y emitir feedback como si
   fuera él, de forma continua y sin depender de su disponibilidad.
-- **Evidencia:** *(corpus: Designing Tiny Robots* — dinámicas participativas con stakeholders*)*; concepto de
-  *AI-Stakeholder* (Pirozzi, sprint 3); impersonación / personas virtuales del sprint 11.
+- **Evidencia:** *(corpus:* Designing Tiny Robots *— dinámicas participativas con stakeholders)*; concepto de
+  *AI-Stakeholder* (Pirozzi); productos que ofrecen personas virtuales.
 - **Cómo cambia el rol:** el rol del stakeholder como emisor de feedback pasa parcialmente a una IA (actividad
   **A2c**, y potencialmente **A2b**); el humano queda como validador.
-- **Límite (obj. D / ética):** *(corpus: REConnect)* advierte que la IA no debe sustituir la conexión humana ni
+- **Límite (objetivo D / ética):** *(corpus: REConnect)* advierte que la IA no debe sustituir la conexión humana ni
   descontextualizar; el stakeholder real sigue como curador y guardián de valores.
 
 ### 5.2. Oralidad / entrevistas → artefacto procesable
@@ -223,8 +222,8 @@ Las ideas por actividad (§4) se agrupan en cuatro áreas transversales.
   accionables (tickets, user stories con criterios, especificaciones, modelos de proceso).
 - **Evidencia:** *(productos: PM Agent, Versive, Kraftful)*; *(corpus: Towards Human-AI Synergy in RE, Automating
   BI Requirements, Business Process Discovery through Agentic GenAI, LLM-Assisted Sketch-Based Elicitation)*;
-  *(general: Malladi & Sudheer Reddy, 2025* — user stories y backlog grooming asistidos*)*. Es el patrón central
-  del sprint 13: *feedback humano → estructuración con IA → artefacto usable*.
+  *(general: Malladi & Sudheer Reddy, 2025 — user stories y backlog grooming asistidos)*. Es el patrón
+  recurrente del mapeo de literatura: *feedback humano → estructuración con IA → artefacto usable*.
 - **Cómo cambia el rol:** la traducción que hacía el analista funcional (actividad **A4**) pasa a ser asistida o
   realizada por IA; el AF cura y valida.
 - **Límite:** precisión en extracción, jerarquías y modelado estructurado; riesgo de alucinaciones.
@@ -233,8 +232,8 @@ Las ideas por actividad (§4) se agrupan en cuatro áreas transversales.
 
 - **Qué es:** validar automáticamente el pedido contra los requisitos, reglas y artefactos existentes; detectar
   conflictos, contradicciones, duplicados o cosas ya cubiertas, antes de que entren al Product Backlog.
-- **Evidencia:** *(corpus: Epic Evaluator* — rúbrica de calidad de epics*; Closing the Loop US↔GUI* — detecta si ya
-  está implementado*; Integrating LLMs into RE* — inconsistencias y jerarquías*)*.
+- **Evidencia:** *(corpus:* Epic Evaluator *—rúbrica de calidad de epics—;* Closing the Loop US↔GUI *—detecta si ya está
+  implementado—;* Integrating LLMs into RE *—inconsistencias y jerarquías)*.
 - **Cómo cambia el rol:** la validación de reglas de negocio (actividad **A3a**) se apoya en una IA que pre-chequea
   consistencia; el AF resuelve lo que la IA marca.
 - **Límite:** *(general: Nguyen-Duc et al., 2025)* — las inconsistencias detectadas por LLMs pueden desviar el
@@ -244,9 +243,9 @@ Las ideas por actividad (§4) se agrupan en cuatro áreas transversales.
 
 - **Qué es:** del ticket —o del requisito en lenguaje natural— al código integrado, de forma automática.
 - **Evidencia:** *(productos: Devin, Codegen)*; *(corpus: Requirements are All You Need)*; *(general: Malladi &
-  Sudheer Reddy, 2025* — la implementación es el área de mayor aplicación*)*. **Contra-evidencia útil:** el pivote
+  Sudheer Reddy, 2025 — la implementación es el área de mayor aplicación)*. **Contra-evidencia útil:** el pivote
   de Tusk y Sweep (abandonaron el ticket→PR autónomo) muestra que el modo totalmente autónomo todavía no cierra.
-- **Cómo cambia el rol:** la construcción (actividad **A1**) pasa a agentes; el DEV supervisa.
+- **Cómo cambia el rol:** la construcción (actividad **A1**) pasa a agentes; los Developers supervisan.
 
 ### 5.5. Transformación de roles: los cuatro escenarios S1–S4
 
