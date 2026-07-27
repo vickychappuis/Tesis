@@ -61,4 +61,4 @@ Identidad verificada uno por uno (Crossref / OpenAlex / primera página del PDF)
 
 ---
 
-_Última actualización: 2026-07-26 — Fase 1 del sprint 15._
+_Última actualización: 2026-07-26 — sprint 15._

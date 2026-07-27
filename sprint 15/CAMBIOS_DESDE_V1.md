@@ -25,7 +25,7 @@ explícita en que la review es una *working session* que no debe limitarse a una
 considerarse una puerta para liberar valor. La Guía además declara su propia incompletitud
 (*"purposefully incomplete"*), y `feedback`, `test` y `acceptance` no aparecen ni una vez en sus 14 páginas.
 
-→ Citas textuales, conteo léxico completo y alcance de lo verificado: **`MARCO_PROCESO_FEEDBACK_v2.md` sec. 2**.
+→ Citas textuales y conteo léxico: **`MARCO_PROCESO_FEEDBACK_v2.md` sec. 2**.
 
 **Consecuencia:** lo que Scrum no define no se presenta como si fuera Scrum. Se declara y se ancla en literatura de
 ingeniería (Sommerville, Dumas), con secciones verificadas contra los ejemplares — ver `FUENTES_MARCO.md`. En el
@@ -110,9 +110,8 @@ paper.
 
 ## 6. Lo que no se tocó
 
-El marco v1 no se editó, queda como registro del sprint 14. *(Actualización posterior a esta reunión: las
-"grandes áreas", que acá quedaron sin tocar, después se depuraron para no repetir la evidencia de la sección 5 —
-ver `MARCO_PROCESO_FEEDBACK_v2.md` sec. 6.)*
+El **punto 5** (grandes áreas), aprobado tal cual en la call, mantiene su contenido: solo se le quitó la evidencia
+que ya estaba en la capa por actividad, y pasó a ser la sec. 6 del marco.
 
 ---
 
