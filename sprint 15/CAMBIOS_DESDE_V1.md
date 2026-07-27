@@ -1,151 +1,79 @@
 # Qué cambió desde la v1 — para la segunda pasada con Daniel
 
-> Resumen para arrancar la reunión. Cada sección responde a un comentario de la call del 9 de julio y apunta al
-> documento donde está el detalle.
+> Resumen para arrancar la reunión: cada punto responde a un comentario de la call del 9 de julio y apunta al detalle.
+> El marco pasa a ser **`MARCO_PROCESO_FEEDBACK_v2.md`** (autocontenido; la v1 queda como registro del sprint 14).
+> Fuentes verificadas contra los ejemplares en `FUENTES_MARCO.md` / `.bib`; diagramas nuevos en `diagramas/`.
 
-## Mapa de documentos
+## 1. Anclaje en bibliografía *("falta fuente oficial")*
 
-El marco de trabajo pasa a ser el **v2**. La v1 no se editó: queda como registro del sprint 14.
+Se trabajó sobre la **Scrum Guide 2020**, con citas verificadas literalmente contra el PDF. La aparente contradicción
+eran **dos documentos distintos**: la página introductoria de scrum.org resume —de ahí la impresión de reunión de
+aprobación—, mientras que la Guía es explícita en que la review es una *working session* y **nunca** una puerta para
+liberar valor. La Guía además se declara *"purposefully incomplete"*, y `feedback`, `test` y `acceptance` no aparecen
+ni una vez en sus 14 páginas. Lo que Scrum no define se declara como tal y se ancla en Sommerville y Dumas (gris
+punteado con ⚠ en el diagrama). → Citas y conteo léxico: marco sec. 2.
 
-| Documento | Qué es |
-|---|---|
-| `MARCO_PROCESO_FEEDBACK_v2.md` | **Reemplaza** al marco del sprint 14. Autocontenido: incluye la base normativa de Scrum, el modelo, el diagrama y la capa IAG |
-| `FUENTES_MARCO.md` / `.bib` | **Nuevo.** Las fuentes con sus secciones verificadas (sec. a.1 Dumas, sec. a.2 Sommerville) |
-| `diagramas/` | **Reemplazan** a los dos PNG del sprint 14: el marco en BPMN y la figura de escenarios |
+## 2. Rascar la Sprint Review *("hay toda una etapa de revisión")*
 
----
+La vieja A2 se desdobló en una **etapa de tres momentos**: **A2a** liberación del incremento (⚠ no-Scrum; estaba
+escondida dentro de A1), **A2b** uso y testing de aceptación (⚠ **nueva** — la pieza que faltaba) y **A2c** Sprint
+Review (✅; la vieja A2 sin la palabra "demo"). Efecto teórico: el feedback pasa a tener **dos canales y dos
+momentos** —el uso real, que puede llegar antes de la ceremonia, y la ceremonia misma— materia directa del objetivo B.
+Respaldo en Sommerville (2016): liberación + uso (sec. 2.3.2), *release* y *acceptance testing* (secs. 8.3–8.4), y
+aceptación ágil apoyada en stakeholders **con autoridad para decidir** (sec. 20.4).
 
-## 1. Anclaje en bibliografía *(pedido: "falta fuente oficial")*
+Estado actual: **A2a pasó a la franja de contexto** —la ejecutan solo los Developers y ahí no se genera feedback; del
+proceso importa su cadencia—. El **núcleo** queda en **A2b + A2c**.
 
-Se trabajó sobre la **Scrum Guide 2020**, con todas las citas verificadas literalmente contra el PDF oficial.
+## 3. Notación uniforme *("cajitas y globitos, marea un poquito")*
 
-Son **dos documentos distintos**, no una fuente que se desdiga: la **página introductoria de scrum.org** resume el
-framework y al resumir omite matices —de ahí la impresión de una reunión de aprobación—, mientras que la **Guía** es
-explícita en que la review es una *working session* que no debe limitarse a una presentación y en que **nunca** debe
-considerarse una puerta para liberar valor. La Guía además declara su propia incompletitud
-(*"purposefully incomplete"*), y `feedback`, `test` y `acceptance` no aparecen ni una vez en sus 14 páginas.
-
-→ Citas textuales y conteo léxico: **`MARCO_PROCESO_FEEDBACK_v2.md` sec. 2**.
-
-**Consecuencia:** lo que Scrum no define no se presenta como si fuera Scrum. Se declara y se ancla en literatura de
-ingeniería (Sommerville, Dumas), con secciones verificadas contra los ejemplares — ver `FUENTES_MARCO.md`. En el
-diagrama, esas actividades van en gris punteado con ⚠.
-
-## 2. Rascar la Sprint Review *(pedido: "hay toda una etapa de revisión")*
-
-El zoom ya no es la ceremonia sola: es una **etapa de feedback** de tres momentos, y solo el último —la Sprint
-Review— está definido por Scrum.
-
-| | Actividad | ¿Scrum? | Origen |
-|---|---|---|---|
-| **A2a** | Liberación del incremento | ⚠ no | **Se hizo explícita:** en la v1 el deploy estaba escondido dentro de A1 |
-| **A2b** | Uso y testing de aceptación | ⚠ no | **Nueva.** Es la pieza que faltaba |
-| **A2c** | Sprint Review | ✅ sí | **Es la vieja A2**, sin la palabra "demo" |
-
-El resto de las actividades: **A1** pasa a llamarse solo *Desarrollo del incremento* —la entrega se fue a A2a—,
-**A3a** y **A3b** se mantienen igual (ahora marcadas ⚠ porque no son de Scrum), y **A4** y **A5** toman nombre de la
-Guía: *Incorporación del feedback al Product Backlog* y *Product Backlog refinement*, esta última una actividad
-**continua** y no un evento.
-
-**Efecto teórico, no cosmético:** el feedback pasa a tener **dos canales y dos momentos** —el uso real del producto,
-que puede llegar antes de la ceremonia, y la ceremonia misma—, materia directa del objetivo B. En el diagrama, la
-entrega al negocio cruza al otro *pool* como flujo de mensaje sin pasar por la review, y del uso real sale un segundo
-flujo rotulado *"puede llegar antes de la ceremonia"*.
-
-**No se apoya solo en la lectura de Scrum:** Sommerville (2016) describe el par liberación + uso (sec. 2.3.2), el
-*release* y el *acceptance testing* (sec. 8.3 y sec. 8.4), y sostiene que en ágil la aceptación no depende de una
-especificación completa sino de stakeholders involucrados **con autoridad para decidir** (sec. 20.4) — la relación misma
-que la tesis pone en cuestión cuando entra IAG. Citas en `FUENTES_MARCO.md` sec. a.2.
-
-*(Estado actual: tras el desdoblamiento, **A2a se movió a la franja de contexto** del marco, junto a A1 — la
-ejecutan solo los Developers y ahí no se genera feedback; del proceso importa su cadencia, no su mecánica. El
-**núcleo** queda en **A2b + A2c**, que es donde el negocio usa el producto y reacciona.)*
-
-## 3. Notación uniforme *(pedido: "cajitas y globitos, marea un poquito")*
-
-Se pasó a **BPMN**: como los roles son carriles del mismo diagrama, las dos vistas se unifican en **una sola** y no
-quedan notaciones que reconciliar. El feedback, que antes era una caja de actividad, ahora es un objeto de datos.
+Se pasó a **BPMN**: los roles son carriles del mismo diagrama, así que las dos vistas se unifican en una sola. El
+feedback, antes una caja de actividad, ahora es un objeto de datos.
 
 ![Etapa de revisión y feedback — vista BPMN](diagramas/marco_feedback_bpmn.png)
 
-## 4. Capa IAG reforzada *(pedido: "reforzar con los 4 artículos")*
+## 4. Capa IAG reforzada *("reforzar con los 4 artículos")*
 
-Los cuatro artículos están verificados uno por uno y leídos. Qué respaldo tenía cada actividad antes y qué se agregó:
+Los cuatro artículos, leídos y verificados, respaldan ahora cada actividad, con cada ítem etiquetado
+(**[corpus]** / **[producto]** / **[general]**) para poder auditarlo. Dos cosas de frente: **ninguno de los cuatro
+menciona la Sprint Review** —trabajan a nivel de etapas del SDLC; el zoom fino sigue en el corpus— y **el gap se
+movió**: salió de A3b (estimación, que resultó cubierta por Malladi) y quedó en **A2b** — el *acceptance testing*
+casi no se investiga con IAG, gap que declaran los propios Nguyen-Duc et al.
 
-| Actividad | Antes | Se agregó |
-|---|---|---|
-| A1 Desarrollo | Solo dos **productos** (Devin, Codegen) | Malladi: la implementación es donde más se aplica IAG; generación de tests con TDD/BDD. Cornide-Reyes: código y debugging entre las fases más beneficiadas |
-| **A2a** Liberación | **Nada: la actividad no existía** | Malladi: pipelines y CI/CD. Nguyen-Duc: automatizar *build* y *deployment* sigue siendo pregunta abierta |
-| **A2b** Uso y aceptación | **Nada: la actividad no existía** | Nguyen-Duc: el *acceptance testing* **no es foco de los estudios existentes** (gap declarado) y la RQ abierta sobre automatizar criterios de aceptación. Cornide-Reyes: el riesgo de validar rápido sacrificando UX |
-| A2c Sprint Review | Dos papers del corpus | Nguyen-Duc: plataformas humano-IA en tiempo real con *"instantaneous feedback loops"* → respalda el objetivo B |
-| A3a Reglas de negocio | Dos papers del corpus | Nguyen-Duc: **el límite** — la IAG *genera* requisitos superfluos, incorrectos o inconsistentes, y eso desvía el proyecto sin revisión de stakeholders con experiencia |
-| A3b Factibilidad | Marcada como *"poco cubierto → gap"* | Malladi: estimación y repriorización más consistentes, con menos sesgo humano → **corrige la v1**: ya no es gap |
-| A4 Incorporación al backlog | Tres productos + tres papers | Malladi: user stories y *backlog grooming* asistidos. Cornide-Reyes: la planificación entre las fases más beneficiadas |
-| A5 Refinement | Dos papers del corpus | Malladi: repriorización dinámica del backlog |
+Tras el refuerzo, el marco **se recortó al núcleo**: la sec. 5 trata solo A2b y A2c. El relevamiento de A1, A3a,
+A3b, A4 y A5 vive en `sprint 12/REFERENCIAS.md`; en el marco solo queda el argumento de que ahí la literatura ya
+cubre y por eso el hueco del núcleo resalta (sec. 5.3).
 
-Cada ítem quedó etiquetado como **corpus**, **producto** o **general** (los cuatro artículos) para poder auditarlo.
+## 5. Los cuatro escenarios S1–S4 *("la imagen de los cuatro escenarios")*
 
-⚠️ **La tabla de arriba es el registro del refuerzo, no el estado actual del marco.** Después del refuerzo, la capa
-con IAG se recortó al **núcleo**: `MARCO_PROCESO_FEEDBACK_v2.md` sec. 5 trata solo A2b y A2c, con la evidencia,
-el cambio de rol y el límite dentro de cada actividad. A2a pasó a **contexto**: su evidencia (Malladi) y su gap
-declarado (build/deployment, Nguyen-Duc) quedaron registrados en sec. 5.3 por trazabilidad, sin ser objeto de la
-tesis. Las filas de A1, A3a, A3b, A4 y A5 **ya no están en el
-marco** —el relevamiento de esas actividades vive en `sprint 12/REFERENCIAS.md`—; en el marco quedó únicamente el
-argumento de que ahí la literatura ya cubre y que por eso el hueco del núcleo resalta (sec. 5.3).
-
-Dos cosas para decir de frente:
-
-- **Ninguno de los cuatro menciona la Sprint Review.** Trabajan a nivel de etapas del SDLC, no de ceremonias:
-  aportan la capa general, y el zoom fino sigue apoyado en el corpus. Mejor decirlo que sobrevender el anclaje.
-- **El gap se movió:** salió de A3b (estimación, que resultó cubierta) y quedó en **A2b**, que además es la actividad
-  más pegada al feedback.
-
-## 5. Los cuatro escenarios S1–S4 *(pedido: "la imagen de los cuatro escenarios")*
-
-**Qué son.** Cuatro escenarios de cómo se reorganiza el desarrollo según cuánto asume la IA (Sauvola et al., 2024).
-No son etapas ni una predicción temporal: son una **escala de suplantación de roles humanos**, y el paper modela en
-cada uno quién ocupa cuatro funciones (gestión, trabajo, herramientas, entrega y mantenimiento).
-
-**Para qué sirve:** es la escala que le faltaba al **objetivo C** — permite decir *cuánto* asume la IA en cada área
-en lugar de solo afirmar que "cambia el rol". La figura es **propia**, redibujada a partir de las Tablas 1 y 2 del
-paper.
+Escala de **cuánto asume la IA** (Sauvola et al., 2024) — no son etapas ni predicción temporal. Es la graduación que
+le faltaba al objetivo C. Figura propia, redibujada desde las Tablas 1 y 2 del paper (marco sec. 6). Leído el núcleo
+contra la escala: se concentra en **S2**, con dos puntos en **S3** —la impersonación de stakeholders (evidencia
+relevada) y la propuesta de la PoC (idea a explorar)— y nada en S4.
 
 ![Cuatro escenarios de uso de IAG en el desarrollo de software (S1–S4)](diagramas/escenarios_s1_s4.png)
 
-## 6. Las cuatro grandes áreas: qué pasó con ellas
+## 6. Las cuatro grandes áreas *(punto 5, aprobado en la call)*
 
-El **punto 5** (grandes áreas) fue aprobado tal cual en la call, pero dejó de ser una sección aparte: se solapaba
-con la capa por actividad —las dos hablaban de soluciones con IAG, solo que cortadas distinto—. Al fusionarlas y
-recortar el marco al núcleo, las áreas se repartieron así:
+Dejaron de ser sección aparte: se solapaban con la capa por actividad y se fusionaron. Solo la **impersonación de
+stakeholders** quedó dentro del marco (sec. 5.1, transversal a A2b/A2c); oralidad→artefacto, el "firewall" y
+generación→desarrollo automático salieron del núcleo (relevamiento en sprint 12). De la última sobrevive la
+contra-evidencia —el pivote de Tusk y Sweep—; del "firewall" no queda nada en el marco.
 
-| Área (v1) | Actividad que tocaba | Dónde quedó |
-|---|---|---|
-| Impersonación de stakeholders | A2b, A2c | **Adentro del marco**, en sec. 5.1, marcada como transversal a A2b y A2c |
-| Oralidad → artefacto procesable | A4, A5 | Fuera del núcleo → sale del marco; relevamiento en `sprint 12/REFERENCIAS.md` |
-| Chequeo de consistencia (el "firewall") | A3a, A5 | Fuera del núcleo → sale del marco; ídem |
-| Generación → desarrollo automático | A1 | Fuera del núcleo → sale del marco; ídem. Se menciona en sec. 6 como el candidato a S4 que hoy no cierra |
+## 7. Nuevo: la propuesta de la PoC ya está bajada al marco
 
-De la última área sobrevive la **contra-evidencia** (el pivote de Tusk y Sweep); del "firewall" no queda nada en el
-marco.
-
-Los escenarios S1–S4 sí quedaron como sección propia (sec. 6 del marco), porque no son una solución más sino la
-escala para graduar cuánto desplaza la IA al humano. Leído contra ella aparece un resultado que antes no se veía:
-**el núcleo se concentra en S2**, con un único punto en S3 —la impersonación— y nada en S4.
-
----
+El "siguiente paso" (elegir una solución para la PoC) ya se dio: quedó escrita en la sec. 5.1 como
+**[propuesta]** —etiqueta nueva que la distingue de los hallazgos de la literatura—. Es **validación temprana sobre
+el cambio generado**: el stakeholder **real** sigue emitiendo el feedback; la IA lo estructura, devuelve señal de
+viabilidad en vivo, genera el cambio y se lo muestra para testing de aceptación —contra criterios generados (la
+RQ 5 de Nguyen-Duc et al.)—, con el **developer como validador** de lo generado. La generación de código entra solo
+como instrumento; el recorte al núcleo no cambia. En la escala cae en S3 (el sub-modelo *"AI design with human
+validation"* del propio Sauvola).
 
 ## Decisiones a confirmar en la reunión
 
-1. **¿Va el desdoblamiento de A2?** Es la lectura literal del reparo y tiene respaldo en Sommerville, pero suma dos
-   cajas al diagrama.
-2. **¿Se mantiene el analista funcional**, sabiendo que no es una accountability de Scrum? (Propuesta: sí, como
-   delegado del PO donde toca actividades de Scrum — argumento completo en `MARCO_PROCESO_FEEDBACK_v2.md` sec. 3.2.)
-3. **¿El Scrum Master queda afuera** del diagrama? (Propuesta: sí, con la ausencia declarada.)
-4. **¿Cuánto peso darle al hallazgo léxico** (`feedback` = 0 en la Guía)? Sirve para justificar el marco como aporte
-   propio y no como copia de Scrum; podría ir en el cuerpo de la tesis.
-
-## Siguiente paso propuesto
-
-Elegir **una** de las soluciones relevadas para bajar a la PoC. **A2b** (criterios y testing de aceptación asistidos)
-quedó como candidata con respaldo explícito —el gap declarado de Nguyen-Duc et al. y sec. 20.4 de Sommerville— y está más
-pegada al feedback que la generación de tickets → código.
+1. **¿Va el desdoblamiento de A2?** Lectura literal del reparo, con respaldo en Sommerville; suma dos cajas.
+2. **¿Se mantiene el analista funcional?** (Propuesta: sí, como delegado del PO — marco sec. 3.2.)
+3. **¿El Scrum Master queda afuera del diagrama?** (Propuesta: sí, con la ausencia declarada.)
+4. **¿Cuánto peso darle al hallazgo léxico** (`feedback` = 0 en la Guía)? Podría ir en el cuerpo de la tesis.
+5. **¿Se valida la propuesta de la PoC** tal como quedó en sec. 5.1?
