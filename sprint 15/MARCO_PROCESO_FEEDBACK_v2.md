@@ -61,8 +61,9 @@ Cuatro definiciones de la Guía anclan actividades y roles concretos de este mar
 - **El Sprint es el contenedor:** *"All the work necessary to achieve the Product Goal, including Sprint Planning,
   Daily Scrums, Sprint Review, and Sprint Retrospective, happen within Sprints."*
 - **El Product Owner puede delegar sin dejar de ser responsable:** *"The Product Owner may do the above work or may
-  delegate the responsibility to others. Regardless, the Product Owner remains accountable."* → habilita el rol de
-  analista funcional (sección 3.2) sin crear una accountability nueva.
+  delegate the responsibility to others. Regardless, the Product Owner remains accountable."* → habilita la
+  participación del analista funcional en las actividades ancladas en Scrum (sección 3.2), sin crear una
+  accountability nueva.
 - **Cómo entra un pedido al backlog:** *"Those wanting to change the Product Backlog can do so by trying to convince
   the Product Owner."* → ancla la actividad **A4**.
 - **Refinamiento, término oficial:** *"Product Backlog refinement is the act of breaking down and further defining
@@ -124,15 +125,11 @@ El conteo léxico sobre el texto completo (14 pp.) lo confirma: `inspect`/`inspe
 
 El objeto de estudio de esta tesis —el *feedback*— **no es un término del framework**: Scrum lo cubre indirectamente
 vía *inspection* / *adaptation* y vía la participación de *stakeholders* en la review. La parte de ingeniería
-—testing, aceptación, liberación— queda fuera por diseño, porque el framework se define como contenedor de otras
-prácticas.
-
-### 2.4. De dónde sale lo que Scrum no define
-
-Cada actividad del modelo lleva su anclaje en la columna correspondiente de las tablas de la sección 3. Las piezas
-que el framework no cubre —construcción, liberación, testing de aceptación, validación de reglas y análisis de
-impacto— se apoyan en **Sommerville (2016)** y **Dumas et al. (2018)**, verificados sección por sección contra los
-ejemplares; sus citas textuales están en `FUENTES_MARCO.md` sec. a.1 y sec. a.2.
+—construcción, liberación, testing de aceptación, validación de reglas, análisis de impacto— queda fuera por
+diseño, porque el framework se define como contenedor de otras prácticas. Esas piezas se apoyan en **Sommerville
+(2016)** y **Dumas et al. (2018)**, verificados sección por sección contra los ejemplares (citas en
+`FUENTES_MARCO.md` sec. a.1 y a.2); cada actividad del modelo lleva su anclaje puntual en las tablas de la
+sección 3.
 
 ---
 
@@ -181,7 +178,7 @@ producción (L5) quedan **fuera**.
 | **Product Owner**           | ✅ accountability                                    | —                                                                                                                                                                                                                             |
 | **Developers**              | ✅ accountability                                    | Scrum no tiene rol de QA separado: el testing vive dentro de Developers vía Definition of Done                                                                                                                                |
 | **Stakeholder / cliente**   | ⚠ término de la Guía, pero **no** es accountability | Participante externo al Scrum Team                                                                                                                                                                                            |
-| **Analista funcional (AF)** | ❌ no existe                                         | Se mantiene, anclado en que el PO *"may delegate the responsibility to others"* y en la literatura de análisis de negocio e ingeniería de requisitos. Es el intermediario cuya mediación la IAG pone en cuestión (objetivo C) |
+| **Analista funcional (AF)** | ❌ no es accountability                              | Puente negocio↔técnico anclado fuera de Scrum, en L1/L2/L4 (`sprint 12/CICLO_DE_VIDA.md`) y en la literatura de análisis de negocio e ingeniería de requisitos. Donde participa en actividades ancladas en Scrum (A2c, A4) lo hace como delegado del PO —*"may delegate the responsibility to others"*—, sin ser su equivalente: el AF vive en los loops de negocio, el PO dentro del sprint. Es el intermediario cuya mediación la IAG pone en cuestión (objetivo C) |
 | Scrum Master                | ✅ accountability                                    | **Ausente del marco a propósito**: no es dueño de ninguna actividad del loop de feedback                                                                                                                                      |
 
 ---
@@ -225,26 +222,25 @@ trazabilidad. Las fuentes son de tres tipos:
 
 #### A1 — Desarrollo del incremento *(contexto)*
 
-- La aplicación más extendida de IAG está justamente acá: copilotos que aceleran codificación, refactorización y
-  reparación de bugs, ya con validación empírica **[general: Malladi & Sudheer Reddy, 2025, sec. III]**.
-- Generación automática de tests unitarios, integración con TDD/BDD y localización de defectos
-  **[general: Malladi & Sudheer Reddy, 2025, sec. III]**; casos de prueba autogenerados como una de las fases más
+- Es la etapa de mayor aplicación de IAG: copilotos que aceleran codificación, refactorización, reparación de bugs y
+  generación de tests (TDD/BDD, localización de defectos), ya con validación empírica
+  **[general: Malladi & Sudheer Reddy, 2025, sec. III]**; casos de prueba autogenerados, una de las fases más
   beneficiadas **[general: Cornide-Reyes et al., 2025, RQ3]**.
 - Agentes que generan o ajustan el incremento a partir del ticket **[productos: Devin, Codegen]**.
 
 #### A2a — Liberación del incremento ⚠
 
-- Autoría de pipelines y prácticas de CI/CD con conciencia de calidad **[general: Malladi & Sudheer Reddy, 2025, sec. III]**.
-- La automatización de los procesos de *build* y *deployment* sigue planteada como **pregunta de investigación
-  abierta** **[general: Nguyen-Duc et al., 2025, sec. 4.6.2]** → zona poco resuelta.
+- Autoría de pipelines y prácticas de CI/CD con conciencia de calidad
+  **[general: Malladi & Sudheer Reddy, 2025, sec. III]**; la automatización de *build* y *deployment* sigue
+  planteada como **pregunta de investigación abierta** **[general: Nguyen-Duc et al., 2025, sec. 4.6.2]** → zona
+  poco resuelta.
 
 #### A2b — Uso y testing de aceptación ⚠
 
-- **Gap declarado:** la agenda de investigación señala que el *acceptance testing* (junto con integración y
-  atributos de calidad) **no es foco de los estudios existentes** y que hace falta investigación sobre la
-  efectividad y los límites de la IAG ahí **[general: Nguyen-Duc et al., 2025, sec. 4.4.5]**.
-- Pregunta abierta asociada: *"How can GenAI be utilized to automate acceptance criteria from high-level
-  requirements?"* **[general: Nguyen-Duc et al., 2025, sec. 4.4.2]**.
+- **Gap declarado:** el *acceptance testing* (junto con integración y atributos de calidad) **no es foco de los
+  estudios existentes**, con pregunta abierta sobre cómo automatizarlo desde requisitos de alto nivel —*"How can
+  GenAI be utilized to automate acceptance criteria from high-level requirements?"*
+  **[general: Nguyen-Duc et al., 2025, sec. 4.4.2 y 4.4.5]**.
 - Reportes de bug en lenguaje natural → bug completo con pasos de reproducción **[corpus: Bug Tracking GenAI]**.
 - **Límite:** usar IAG para validar rápido puede terminar sacrificando calidad de UX en favor de la velocidad de
   entrega **[general: Cornide-Reyes et al., 2025, sec. 1]**.
@@ -270,11 +266,9 @@ trazabilidad. Las fuentes son de tres tipos:
 
 #### A3b — Validación de factibilidad técnica ⚠
 
-- Estimación de esfuerzo e impacto: técnicas automatizadas dan repriorización y estimación **más consistentes,
-  reduciendo el sesgo humano** y mejorando la alineación con necesidades cambiantes del cliente
-  **[general: Malladi & Sudheer Reddy, 2025, sec. V]**.
-- La generación de criterios de aceptación y descripciones de escenarios permite a POs y developers **tomar
-  decisiones de trade-off informadas** durante los releases iterativos **[general: Malladi & Sudheer Reddy, 2025, sec. V]**.
+- Estimación de esfuerzo/impacto y generación de criterios de aceptación dan repriorización **más consistente,
+  reduciendo el sesgo humano**, y permiten a POs y developers **tomar decisiones de trade-off informadas** durante
+  los releases iterativos **[general: Malladi & Sudheer Reddy, 2025, sec. V]**.
 - Detectar desalineación entre la intención y el sistema **[corpus: Requirements are All You Need]**.
 
 > La estimación de esfuerzo **está cubierta** a nivel general; el hueco declarado en la literatura está en **A2b**
@@ -283,9 +277,8 @@ trazabilidad. Las fuentes son de tres tipos:
 #### A4 — Incorporación del feedback al Product Backlog
 
 - Voz o call → tickets / user stories con criterios de aceptación **[productos: PM Agent, Versive, Kraftful;
-  corpus: Towards Human-AI Synergy]**.
-- Reformular o mejorar la expresión del feedback del stakeholder **[corpus: Supporting Stakeholder Requirements
-  Expression]**.
+  corpus: Towards Human-AI Synergy]**, incluyendo reformular o mejorar la expresión del feedback del stakeholder
+  **[corpus: Supporting Stakeholder Requirements Expression]**.
 - A nivel general: los LLMs asisten en la redacción de user stories y en el *backlog grooming*, mejorando la
   precisión de estimación y planificación **[general: Malladi & Sudheer Reddy, 2025, sec. III y sec. V]**; la planificación (análisis
   de requisitos y generación de user stories) es una de las fases del ciclo ágil más beneficiadas
@@ -293,9 +286,9 @@ trazabilidad. Las fuentes son de tres tipos:
 
 #### A5 — Product Backlog refinement ↻
 
-- Evaluar la calidad de los ítems del backlog y recomendar mejoras **[corpus: Epic Evaluator]**; detectar riesgos de
-  sobrecompromiso al priorizar **[corpus: Meeting Assistants]**.
-- Repriorización dinámica del backlog como área en expansión **[general: Malladi & Sudheer Reddy, 2025, sec. III]**.
+- Evaluar la calidad de los ítems del backlog y recomendar mejoras **[corpus: Epic Evaluator]**, detectar riesgos de
+  sobrecompromiso al priorizar **[corpus: Meeting Assistants]**, y repriorización dinámica del backlog como área en
+  expansión **[general: Malladi & Sudheer Reddy, 2025, sec. III]**.
 
 ### 5.2. Alcance de las dos capas de evidencia
 
@@ -315,46 +308,50 @@ sobrevender el anclaje.
 Las ideas por actividad (sección 5) se agrupan en cuatro áreas transversales (6.1 a 6.4). La sección 6.5 las ubica en una
 escala de suplantación de roles.
 
+> La evidencia por cita ya está en la sección 5.1, actividad por actividad; acá solo se agrega lo que no está ahí
+> —citas adicionales y las dos lecturas propias de esta sección: cómo cambia el rol y cuál es el límite.
+
 ### 6.1. Impersonación de stakeholders (stakeholder-IA)
 
-- **Qué es:** una IA configurada para representar a un stakeholder (cliente, usuario, PM) y emitir feedback como si
-  fuera él, de forma continua y sin depender de su disponibilidad.
-- **Evidencia:** *(corpus:* Designing Tiny Robots *— dinámicas participativas con stakeholders)*; concepto de
-  *AI-Stakeholder* (Pirozzi); productos que ofrecen personas virtuales.
+Una IA configurada para representar a un stakeholder (cliente, usuario, PM) y emitir feedback como si fuera él, de
+forma continua y sin depender de su disponibilidad → evidencia en **A2c** (sec. 5.1). Se suma el concepto de
+*AI-Stakeholder* (Pirozzi) y productos que ofrecen personas virtuales.
+
 - **Cómo cambia el rol:** el rol del stakeholder como emisor de feedback pasa parcialmente a una IA (actividad
   **A2c**, y potencialmente **A2b**); el humano queda como validador.
-- **Límite (objetivo D / ética):** *(corpus: REConnect)* advierte que la IA no debe sustituir la conexión humana ni
+- **Límite (objetivo D / ética):** *(corpus: REConnect)* la IA no debe sustituir la conexión humana ni
   descontextualizar; el stakeholder real sigue como curador y guardián de valores.
 
 ### 6.2. Oralidad / entrevistas → artefacto procesable
 
-- **Qué es:** convertir feedback oral o conversacional (calls, entrevistas, demos) en artefactos estructurados y
-  accionables (tickets, user stories con criterios, especificaciones, modelos de proceso).
-- **Evidencia:** *(productos: PM Agent, Versive, Kraftful)*; *(corpus: Towards Human-AI Synergy in RE, Automating
-  BI Requirements, Business Process Discovery through Agentic GenAI, LLM-Assisted Sketch-Based Elicitation)*;
-  *(general: Malladi & Sudheer Reddy, 2025 — user stories y backlog grooming asistidos)*. Es el patrón
-  recurrente del mapeo de literatura: *feedback humano → estructuración con IA → artefacto usable*.
+Convertir feedback oral o conversacional (calls, entrevistas, demos) en artefactos estructurados y accionables
+(tickets, user stories con criterios, especificaciones, modelos de proceso) → evidencia en **A4** (sec. 5.1). Se
+suma *(corpus: Automating BI Requirements, Business Process Discovery through Agentic GenAI, LLM-Assisted
+Sketch-Based Elicitation)*: es el patrón recurrente del mapeo de literatura, *feedback humano → estructuración con
+IA → artefacto usable*.
+
 - **Cómo cambia el rol:** la traducción que hacía el analista funcional (actividad **A4**) pasa a ser asistida o
   realizada por IA; el AF cura y valida.
 - **Límite:** precisión en extracción, jerarquías y modelado estructurado; riesgo de alucinaciones.
 
 ### 6.3. Chequeo de consistencia feedback ↔ requisitos (el "firewall")
 
-- **Qué es:** validar automáticamente el pedido contra los requisitos, reglas y artefactos existentes; detectar
-  conflictos, contradicciones, duplicados o cosas ya cubiertas, antes de que entren al Product Backlog.
-- **Evidencia:** *(corpus:* Epic Evaluator *—rúbrica de calidad de epics—;* Closing the Loop US↔GUI *—detecta si ya está
-  implementado—;* Integrating LLMs into RE *—inconsistencias y jerarquías)*.
+Validar automáticamente el pedido contra los requisitos, reglas y artefactos existentes; detectar conflictos,
+contradicciones, duplicados o cosas ya cubiertas antes de que entren al Product Backlog → evidencia en **A3a**
+(sec. 5.1). Se suma *(corpus: Epic Evaluator* — rúbrica de calidad de epics, ya citada en A5 —*)* como evidencia
+adicional de chequeo automático de calidad.
+
 - **Cómo cambia el rol:** la validación de reglas de negocio (actividad **A3a**) se apoya en una IA que pre-chequea
   consistencia; el AF resuelve lo que la IA marca.
-- **Límite:** *(general: Nguyen-Duc et al., 2025)* — las inconsistencias detectadas por LLMs pueden desviar el
+- **Límite:** *(general: Nguyen-Duc et al., 2025)* las inconsistencias detectadas por LLMs pueden desviar el
   proyecto si no las revisan stakeholders con experiencia de dominio.
 
 ### 6.4. Generación → desarrollo automático de tickets
 
-- **Qué es:** del ticket —o del requisito en lenguaje natural— al código integrado, de forma automática.
-- **Evidencia:** *(productos: Devin, Codegen)*; *(corpus: Requirements are All You Need)*; *(general: Malladi &
-  Sudheer Reddy, 2025 — la implementación es el área de mayor aplicación)*. **Contra-evidencia útil:** el pivote
-  de Tusk y Sweep (abandonaron el ticket→PR autónomo) muestra que el modo totalmente autónomo todavía no cierra.
+Del ticket —o del requisito en lenguaje natural— al código integrado, de forma automática → evidencia en **A1**
+(sec. 5.1). Se suma *(corpus: Requirements are All You Need)*. **Contra-evidencia útil:** el pivote de Tusk y Sweep
+(abandonaron el ticket→PR autónomo) muestra que el modo totalmente autónomo todavía no cierra.
+
 - **Cómo cambia el rol:** la construcción (actividad **A1**) pasa a agentes; los Developers supervisan.
 
 ### 6.5. Transformación de roles: los cuatro escenarios S1–S4

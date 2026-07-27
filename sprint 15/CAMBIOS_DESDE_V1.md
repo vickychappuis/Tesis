@@ -110,8 +110,9 @@ paper.
 
 ## 6. Lo que no se tocó
 
-El **punto 5 (grandes áreas)** quedó como estaba, según lo pedido; solo se actualizaron los nombres de actividades.
-El marco v1 tampoco se editó.
+El marco v1 no se editó, queda como registro del sprint 14. *(Actualización posterior a esta reunión: las
+"grandes áreas", que acá quedaron sin tocar, después se depuraron para no repetir la evidencia de la sección 5 —
+ver `MARCO_PROCESO_FEEDBACK_v2.md` sec. 6.)*
 
 ---
 
@@ -119,8 +120,11 @@ El marco v1 tampoco se editó.
 
 1. **¿Va el desdoblamiento de A2?** Es la lectura literal del reparo y tiene respaldo en Sommerville, pero suma dos
    cajas al diagrama.
-2. **¿Se mantiene el analista funcional**, sabiendo que no existe en Scrum? (Propuesta: sí, declarado como rol de la
-   práctica y anclado en que el PO *"may delegate the responsibility to others"*. Es el intermediario del objetivo C.)
+2. **¿Se mantiene el analista funcional**, sabiendo que no es una accountability de Scrum? (Propuesta: sí — no es
+   equivalente al PO, sino el puente negocio↔técnico anclado en los loops de negocio fuera de Scrum, L1/L2/L4
+   (`sprint 12/CICLO_DE_VIDA.md`); solo donde participa en actividades ancladas en Scrum, A2c y A4, lo hace como
+   delegado del PO *"may delegate the responsibility to others"*. Es el intermediario del objetivo C — ver
+   `MARCO_PROCESO_FEEDBACK_v2.md` sec. 3.2.)
 3. **¿El Scrum Master queda afuera** del diagrama? (Propuesta: sí, con la ausencia declarada.)
 4. **¿Cuánto peso darle al hallazgo léxico** (`feedback` = 0 en la Guía)? Sirve para justificar el marco como aporte
    propio y no como copia de Scrum; podría ir en el cuerpo de la tesis.
