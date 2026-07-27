@@ -80,10 +80,12 @@ Los cuatro artículos están verificados uno por uno y leídos. Qué respaldo te
 | A5 Refinement | Dos papers del corpus | Malladi: repriorización dinámica del backlog |
 
 Cada ítem quedó etiquetado como **corpus**, **producto** o **general** (los cuatro artículos) para poder auditarlo.
-La tabla de arriba es el registro de qué se agregó respecto de la v1. En el marco, la capa con IAG quedó
-**organizada por actividad del núcleo** (A2a–A2c), con la evidencia, el cambio de rol y el límite dentro de cada
-una; el resto del proceso (A1, A3a–A5) se comprimió en una tabla al final
-→ `MARCO_PROCESO_FEEDBACK_v2.md` sec. 5.
+
+⚠️ **La tabla de arriba es el registro del refuerzo, no el estado actual del marco.** Después del refuerzo, la capa
+con IAG se recortó al **núcleo**: `MARCO_PROCESO_FEEDBACK_v2.md` sec. 5 trata solo A2a, A2b y A2c, con la evidencia,
+el cambio de rol y el límite dentro de cada actividad. Las filas de A1, A3a, A3b, A4 y A5 **ya no están en el
+marco** —el relevamiento de esas actividades vive en `sprint 12/REFERENCIAS.md`—; en el marco quedó únicamente el
+argumento de que ahí la literatura ya cubre y que por eso el hueco del núcleo resalta (sec. 5.4).
 
 Dos cosas para decir de frente:
 
@@ -104,14 +106,26 @@ paper.
 
 ![Cuatro escenarios de uso de IAG en el desarrollo de software (S1–S4)](diagramas/escenarios_s1_s4.png)
 
-## 6. Lo que cambió de forma, no de contenido
+## 6. Las cuatro grandes áreas: qué pasó con ellas
 
-El **punto 5** (grandes áreas) fue aprobado tal cual en la call y **mantiene todo su contenido**, pero dejó de ser
-una sección aparte: se solapaba con la capa por actividad —las dos hablaban de soluciones con IAG, solo que
-cortadas distinto— y se fusionaron. Cada área quedó dentro de la actividad que le corresponde, y las que cruzan
-varias —la impersonación de stakeholders, que toca A2b y A2c— se marcan como transversales ahí mismo. Los
-escenarios S1–S4 sí quedaron como sección propia (sec. 6 del marco), porque no son una solución más sino la escala
-para graduar cuánto desplaza la IA al humano.
+El **punto 5** (grandes áreas) fue aprobado tal cual en la call, pero dejó de ser una sección aparte: se solapaba
+con la capa por actividad —las dos hablaban de soluciones con IAG, solo que cortadas distinto—. Al fusionarlas y
+recortar el marco al núcleo, las áreas se repartieron así:
+
+| Área (v1) | Actividad que tocaba | Dónde quedó |
+|---|---|---|
+| Impersonación de stakeholders | A2b, A2c | **Adentro del marco**, en sec. 5.2, marcada como transversal a A2b y A2c |
+| Oralidad → artefacto procesable | A4, A5 | Fuera del núcleo → sale del marco; relevamiento en `sprint 12/REFERENCIAS.md` |
+| Chequeo de consistencia (el "firewall") | A3a, A5 | Fuera del núcleo → sale del marco; ídem |
+| Generación → desarrollo automático | A1 | Fuera del núcleo → sale del marco; ídem. Se menciona en sec. 6 como el candidato a S4 que hoy no cierra |
+
+De la última área sobrevive la **contra-evidencia** (el pivote de Tusk y Sweep), y del "firewall" el **límite** de
+Nguyen-Duc —que la IAG *genera* inconsistencias— porque se traslada tal cual al feedback que emite un stakeholder-IA
+y por eso quedó como límite de sec. 5.2.
+
+Los escenarios S1–S4 sí quedaron como sección propia (sec. 6 del marco), porque no son una solución más sino la
+escala para graduar cuánto desplaza la IA al humano. Leído contra ella aparece un resultado que antes no se veía:
+**el núcleo se concentra en S2**, con un único punto en S3 —la impersonación— y nada en S4.
 
 ---
 

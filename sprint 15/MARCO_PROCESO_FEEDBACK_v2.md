@@ -196,11 +196,11 @@ La leyenda —una sola semántica para todo el diagrama— va dentro de la figur
 
 ## 5. Capa con IAG
 
-Qué podría hacer la IAG en cada actividad del proceso de la sección 3. **Esta es la única sección que trata las
-soluciones con IAG**, y se organiza **por actividad del núcleo** —A2a, A2b y A2c, sección 1—, que es donde se enfoca
-la tesis: cada una lleva su evidencia, cómo cambia el rol y cuál es el límite. Lo que la literatura reporta sobre el
-resto del proceso (A1, A3a–A5) va comprimido al final, en 5.4, para que el contraste se vea sin competir con el
-núcleo.
+Qué podría hacer la IAG en **el núcleo de la etapa** —A2a, A2b y A2c, sección 1—, que es donde se enfoca la tesis.
+**Esta es la única sección que trata las soluciones con IAG**, y va actividad por actividad: cada una lleva su
+evidencia, cómo cambia el rol y cuál es el límite. Las actividades fuera del núcleo (A1, A3a–A5) **no se cubren
+acá**: lo que la literatura reporta sobre ellas está relevado en `sprint 12/REFERENCIAS.md`, y lo único que importa
+para este marco —que ahí la literatura ya cubre, y que por eso el hueco del núcleo resalta— se dice en 5.4.
 
 Algunas soluciones **cruzan más de una actividad** —la impersonación de stakeholders es el caso claro: toca A2b y
 A2c— y se marcan como tales en la actividad donde la evidencia las ubica, en vez de tratarse aparte.
@@ -262,6 +262,11 @@ sec. c]** y productos que ofrecen personas virtuales. Es la solución que más d
   humana ni descontextualizar; el stakeholder real sigue como curador y guardián de valores. Y Cornide-Reyes et al.
   (2025, sec. 1) advierten que usar IAG para validar rápido puede terminar sacrificando calidad de UX en favor de la
   velocidad de entrega **[general]**.
+- **Límite — la IAG no solo deja pasar errores, los introduce:** Nguyen-Duc et al. (2025, sec. 4.1.4) advierten que
+  la IAG genera requisitos que *"appear sound but are either superfluous, incorrect, or inconsistent in a given
+  domain context"*, y que eso desvía el proyecto *"if not meticulously reviewed by stakeholders with relevant
+  experience"* **[general]**. Lo dicen sobre requisitos, pero el riesgo se traslada tal cual al feedback que emite
+  un stakeholder-IA: puede sonar razonable y no serlo, y no hay stakeholder real que lo haya dicho.
 
 ### 5.3. A2c — Sprint Review
 
@@ -279,43 +284,21 @@ temporalidad, pero hay que citarla por lo que es: una expectativa de los autores
 - **Cómo cambia el rol:** la ceremonia deja de concentrar el feedback y pasa a ser el lugar donde se **cura** lo que
   ya llegó por otros canales. El AF, que en A2c participa como delegado del PO (sec. 3.2), ve reducido su papel de
   traductor en vivo.
-- **Límite:** ninguno de los cuatro artículos generales menciona la Sprint Review ni las ceremonias (ver 5.5). Lo
+- **Límite:** ninguno de los cuatro artículos generales menciona la Sprint Review ni las ceremonias (ver 5.4). Lo
   que se afirma acá se apoya en el corpus y en una proyección declarada como tal.
 
-### 5.4. El resto del proceso, en breve
-
-Fuera del núcleo la literatura **ya cubre** buena parte del trabajo, y por eso el hueco del núcleo resalta. Se
-comprime acá para dejar constancia de la trazabilidad, sin desarrollarlo:
-
-| Actividad | Qué reporta la literatura | Cómo cambia el rol |
-| --------- | ------------------------- | ------------------ |
-| **A1** Desarrollo del incremento | Es la etapa de mayor aplicación de IAG: Malladi & Sudheer Reddy (2025, sec. III) reportan que las aplicaciones más extensas están en implementación —copilotos que aceleran codificación, refactorización y reparación de bugs, ya validados empíricamente— y en testing —tests unitarios, TDD/BDD, localización de defectos—; Cornide-Reyes et al. (2025, RQ3) ubican los casos de prueba autogenerados entre lo más beneficiado *(general)*. Detección de desalineación entre intención y sistema *(corpus: `robinson2025requirements`)*; agentes que generan el incremento desde el ticket *(productos: Devin, Codegen)* | La construcción pasa a agentes; los Developers supervisan |
-| **A3a** Validación de reglas de negocio | Chequear el pedido contra los requisitos y reglas ya definidos, detectando conflictos *(corpus: `stein2026integrating`)*; detectar si ya está cubierto o implementado *(corpus: `kretzer2025closing`)*. Los cinco chequeos de Sommerville sec. 4.5 —validez, consistencia, completitud, realismo, verificabilidad— son justamente lo automatizable | El AF se apoya en una IA que pre-chequea consistencia y resuelve lo que ésta marca |
-| **A3b** Validación de factibilidad técnica | Estimación de esfuerzo e impacto: repriorización más consistente, con menos sesgo humano, y decisiones de trade-off informadas para POs y developers durante los releases iterativos (Malladi & Sudheer Reddy, 2025, sec. V) *(general)* | Se mantiene en Developers, con la estimación asistida |
-| **A4** Incorporación al Product Backlog | De la voz o la call al ticket / user story con criterios *(productos: PM Agent, Versive, Kraftful)*; en el corpus el patrón *feedback humano → estructuración con IA → artefacto usable* es recurrente *(corpus: `abbasi2025towards`; `mircea2026supporting`, que además reformula la expresión del feedback; `busany2024bi`; `lindenberg2025business`; `alabsi2026empirical`)*; a nivel general, redacción de user stories y *backlog grooming* asistidos (Malladi, sec. III y V) y la planificación entre las fases más beneficiadas (Cornide-Reyes, RQ3). Automatiza el descubrimiento por entrevistas de Dumas sec. 5.2.2 | La traducción que hacía el AF pasa a ser asistida por IA; el AF cura y valida |
-| **A5** Product Backlog refinement | Rúbrica de calidad de ítems del backlog con recomendaciones *(corpus: `geyer2025epics`)*; detección de riesgos de sobrecompromiso al priorizar *(corpus: `cabrero2024exploring`)*; repriorización dinámica como área en expansión (Malladi, sec. III) *(general)* | El PO prioriza sobre ítems pre-evaluados |
-
-Tres límites valen para todo este bloque:
-
-- **La IAG no solo deja pasar errores: los introduce.** Nguyen-Duc et al. (2025, sec. 4.1.4) no advierten sobre
-  inconsistencias *detectadas* por el LLM, sino sobre las que el LLM **produce**: genera requisitos que *"appear
-  sound but are either superfluous, incorrect, or inconsistent in a given domain context"*, y eso desvía el proyecto
-  *"if not meticulously reviewed by stakeholders with relevant experience"*. El chequeo automático no reemplaza la
-  validación humana.
-- **Precisión** en extracción, jerarquías y modelado estructurado; riesgo de alucinaciones (A4).
-- **Contra-evidencia útil:** el pivote de Tusk y Sweep —abandonaron el ticket→PR autónomo— muestra que el modo
-  totalmente autónomo todavía no cierra (A1).
-
-### 5.5. Alcance de las dos capas de evidencia
+### 5.4. Alcance de las dos capas de evidencia
 
 La capa **general** (los cuatro artículos sobre IAG en el desarrollo) aporta el respaldo por etapa del SDLC, **dos
 gaps declarados** —testing de aceptación y automatización de build/deployment, ambos de Nguyen-Duc et al.— y dos
 marcos de encuadre: los escenarios S1–S4 (sección 6) y las **11 áreas** de Nguyen-Duc et al., que ubican este zoom en
 *Requirements Engineering*, *Quality Assurance* y *Engineering Management*.
 
-Los dos gaps caen **dentro del núcleo** —A2a y A2b—, y eso es lo que justifica el recorte: fuera del núcleo la
-literatura ya cubre (tabla de 5.4), y de los dos gaps **A2b** —criterios y testing de aceptación— es el candidato
-natural para profundizar.
+Los dos gaps caen **dentro del núcleo** —A2a y A2b—, y eso es lo que justifica el recorte de esta sección. Fuera del
+núcleo la literatura ya cubre: construcción y generación de tests (A1), chequeo del pedido contra los requisitos
+(A3a), estimación de esfuerzo e impacto (A3b), redacción de user stories y refinamiento del backlog (A4, A5) —el
+relevamiento está en `sprint 12/REFERENCIAS.md` y no se repite acá—. De los dos gaps, **A2b** —criterios y testing
+de aceptación— es el candidato natural para profundizar.
 
 Ninguno de los cuatro menciona la **Sprint Review** ni las ceremonias (0 ocurrencias): el zoom fino en el momento del
 feedback está sostenido por la capa **corpus**, que aporta la evidencia puntual. Conviene explicitarlo para no
@@ -334,15 +317,19 @@ las soluciones por **cuánto** desplazan al humano —no por qué actividad toca
 Figura **propia** elaborada a partir de las Tablas 1 y 2 del paper: se redibuja en vez de reproducir la imagen
 original, y se cita la fuente. Editable en `diagramas/escenarios_s1_s4.drawio`.
 
-| Escenario | Nombre                                        | En una línea                                                            | Dónde cae lo de la sección 5                                                                     |
+| Escenario | Nombre                                        | En una línea                                                            | Dónde cae el núcleo (sección 5)                                                                  |
 | --------- | --------------------------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | **S1**    | *Traditional Software Development Operations* | Humanos en todos los roles; las herramientas automatizan                | Es el proceso **hoy** (sección 3)                                                                  |
-| **S2**    | *AI in loop*                                  | El humano domina; la IA automatiza partes de tareas y asiste decisiones | Casi todo el núcleo: bugs desde lenguaje natural (**5.2**), asistente de reunión (**5.3**), y fuera del núcleo la estructuración del feedback y el chequeo de consistencia (**5.4**, A4 y A3a) |
-| **S3**    | *AI assumes role(s)*                          | La IA asume roles seleccionados; el humano controla la operación        | **Impersonación de stakeholders** (**5.2**): la IA *asume* el rol de quien da feedback — es el único punto del núcleo que llega a este escenario |
-| **S4**    | *Human-in-the-loop*                           | La IA gestiona varios roles; el humano vigila                           | Generación→desarrollo automático (**5.4**, A1) apunta acá, con la contra-evidencia de Tusk/Sweep    |
+| **S2**    | *AI in loop*                                  | El humano domina; la IA automatiza partes de tareas y asiste decisiones | Casi todo el núcleo: pipelines de CI/CD (**5.1**), bugs desde lenguaje natural (**5.2**), asistente de reunión (**5.3**) |
+| **S3**    | *AI assumes role(s)*                          | La IA asume roles seleccionados; el humano controla la operación        | **Impersonación de stakeholders** (**5.2**): la IA *asume* el rol de quien da feedback — es el único punto del núcleo que llega hasta acá |
+| **S4**    | *Human-in-the-loop*                           | La IA gestiona varios roles; el humano vigila                           | **Ninguna solución del núcleo llega**. El candidato —generación automática desde el ticket— cae en A1, fuera del núcleo, y el pivote de Tusk y Sweep (abandonaron el ticket→PR autónomo) muestra que ese modo todavía no cierra |
 
 El paper además parametriza cada escenario por niveles y modela **trayectorias de transición** entre ellos: citable
 si hace falta precisión sobre *cuánto* asume la IA.
+
+Leído así, el núcleo se concentra en **S2**, con un solo punto en **S3** —la impersonación— y nada en S4. Es un
+resultado, no una omisión: el desplazamiento de roles que la tesis indaga (objetivo C) hoy pasa casi todo por la
+impersonación del stakeholder.
 
 ---
 
@@ -350,8 +337,9 @@ si hace falta precisión sobre *cuánto* asume la IA.
 áreas con IAG) se **fusionaron en una sola**: hablaban de lo mismo desde dos cortes distintos y se solapaban. Queda
 la sección 5, organizada por actividad del núcleo (A2a–A2c), con la evidencia, el cambio de rol y el límite dentro
 de cada una; las soluciones que cruzan más de una actividad —la impersonación de stakeholders, que toca A2b y A2c—
-se marcan como tales en lugar de tratarse aparte. El resto del proceso (A1, A3a–A5) quedó comprimido en una tabla
+se marcan como tales en lugar de tratarse aparte. El resto del proceso (A1, A3a–A5) **salió del marco**: su
+relevamiento vive en `sprint 12/REFERENCIAS.md` y acá solo queda el argumento de que ahí la literatura ya cubre
 (5.4). Los escenarios S1–S4 pasan a ser la sección 6, porque no son soluciones sino una escala para graduar cuánto
-desplaza la IA al humano. Se explicitó en cada ítem quién afirma qué —hallazgo empírico vs. pregunta abierta de la
+desplaza la IA al humano; leído contra ella, el núcleo se concentra en S2 y solo la impersonación llega a S3. Se explicitó en cada ítem quién afirma qué —hallazgo empírico vs. pregunta abierta de la
 agenda de Nguyen-Duc et al. vs. expectativa declarada por los autores— y se corrigió el sentido de la cita de
 Nguyen-Duc sec. 4.1.4: la IAG **genera** inconsistencias, no las detecta.*
