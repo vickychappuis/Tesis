@@ -239,7 +239,10 @@ high-level requirements?"* (RQ 5 de sec. 4.4.2) **[general]**. Es decir: el huec
 declaran los propios autores; la tesis solo lo toma como justificación del foco de la PoC.
 
 **Qué podría hacer la IAG.** Reportes de bug en lenguaje natural → bug completo con pasos de reproducción
-**[corpus: Bug Tracking GenAI · `torun2025bugtracking`]**.
+**[corpus: Bug Tracking GenAI · `torun2025bugtracking`]**. Y una idea que la literatura deja planteada pero no
+probada: **generar criterios de aceptación a partir de requisitos de alto nivel** — es la RQ 5 de Nguyen-Duc et al.
+citada arriba, una pregunta abierta de su agenda y no un hallazgo empírico **[general]**. Es exactamente la
+dirección que explora la PoC (objetivo F).
 
 **Impersonación de stakeholders (stakeholder-IA) — cruza A2b y A2c.** Una IA configurada para representar a un
 stakeholder (cliente, usuario, PM) y emitir feedback como si fuera él, de forma continua y sin depender de su
@@ -255,12 +258,6 @@ sec. c]** y productos que ofrecen personas virtuales. Es la solución que más d
   humana ni descontextualizar; el stakeholder real sigue como curador y guardián de valores. Y Cornide-Reyes et al.
   (2025, sec. 1) advierten que usar IAG para validar rápido puede terminar sacrificando calidad de UX en favor de la
   velocidad de entrega **[general]**.
-- **Límite — la IAG no solo deja pasar errores, los introduce:** Nguyen-Duc et al. (2025, sec. 4.1.4) advierten que
-  la IAG genera requisitos que *"appear sound but are either superfluous, incorrect, or inconsistent in a given
-  domain context"*, y que eso desvía el proyecto *"if not meticulously reviewed by stakeholders with relevant
-  experience"* **[general]**. Lo dicen sobre requisitos, pero el riesgo se traslada tal cual al feedback que emite
-  un stakeholder-IA: puede sonar razonable y no serlo, y no hay stakeholder real que lo haya dicho.
-
 ### 5.2. A2c — Sprint Review
 
 **Qué podría hacer la IAG.** Asistente que resume la reunión y detecta riesgos e impedimentos **[corpus: Meeting
