@@ -189,8 +189,7 @@
 
 - Profundizar el marco según los comentarios del sprint 14 (ver "Próximos pasos — Sprint 15" en `sprint 14/resumen_call.md`): anclaje en la Scrum Guide 2020, notación única (BPMN), refuerzo de la capa IAG con los 4 artículos del tutor, desdoblamiento de la Sprint Review y figura propia de los escenarios S1–S4
 - Resultado: `sprint 15/MARCO_PROCESO_FEEDBACK_v2.md` (autocontenido, reemplaza al del sprint 14), con el núcleo recortado a **A2b + A2c** y la **propuesta de la PoC** bajada al marco como `[propuesta]` en sec. 5.1. Fuentes verificadas en `sprint 15/FUENTES_MARCO.md` / `.bib`; resumen para la reunión y decisiones abiertas en `sprint 15/CAMBIOS_DESDE_V1.md`
-- Hallazgo principal: la Guía **respalda el reparo del tutor** sobre la Sprint Review y declara su propia incompletitud (`feedback`, `test` y `acceptance`: 0 ocurrencias en 14 pp.) → **A2 se desdobló** y el feedback pasa a tener dos canales y dos momentos (objetivo B)
 
-**Pendiente:** segunda pasada con Daniel, con las 5 decisiones abiertas de `sprint 15/CAMBIOS_DESDE_V1.md`.
+**Pendiente:** segunda pasada con Daniel sobre el marco v2 (`sprint 15/CAMBIOS_DESDE_V1.md` como guía de la reunión).
 
 ---

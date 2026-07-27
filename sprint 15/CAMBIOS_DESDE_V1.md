@@ -69,11 +69,3 @@ viabilidad en vivo, genera el cambio y se lo muestra para testing de aceptación
 RQ 5 de Nguyen-Duc et al.)—, con el **developer como validador** de lo generado. La generación de código entra solo
 como instrumento; el recorte al núcleo no cambia. En la escala cae en S3 (el sub-modelo *"AI design with human
 validation"* del propio Sauvola).
-
-## Decisiones a confirmar en la reunión
-
-1. **¿Va el desdoblamiento de A2?** Lectura literal del reparo, con respaldo en Sommerville; suma dos cajas.
-2. **¿Se mantiene el analista funcional?** (Propuesta: sí, como delegado del PO — marco sec. 3.2.)
-3. **¿El Scrum Master queda afuera del diagrama?** (Propuesta: sí, con la ausencia declarada.)
-4. **¿Cuánto peso darle al hallazgo léxico** (`feedback` = 0 en la Guía)? Podría ir en el cuerpo de la tesis.
-5. **¿Se valida la propuesta de la PoC** tal como quedó en sec. 5.1?
