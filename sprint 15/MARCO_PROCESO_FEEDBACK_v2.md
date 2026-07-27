@@ -224,6 +224,8 @@ sirva de tabla de trazabilidad. Las fuentes son de tres tipos:
 - **[corpus]** — paper del mapeo de literatura (`sprint 12/REFERENCIAS.md`): evidencia puntual. Cada cita lleva su
   clave BibTeX de `sprint 12/REFERENCIAS.bib` para que la trazabilidad no dependa del nombre corto.
 - **[producto]** — producto o empresa relevada como *state of practice*: evidencia de mercado, no académica.
+- **[propuesta]** — idea de esta tesis, sin evidencia previa: es lo que la PoC (objetivo F) se propone explorar.
+  Se marca como tal para no confundirla con un hallazgo de la literatura; el respaldo que se cita es direccional.
 
 ### 5.1. A2b — Uso y testing de aceptación ⚠
 
@@ -249,7 +251,8 @@ stakeholder (cliente, usuario, PM) y emitir feedback como si fuera él, de forma
 disponibilidad. La evidencia la ubica acá y no en la ceremonia, justamente porque el feedback se emite **sin esperar
 la Sprint Review** **[corpus: Designing Tiny Robots · `raftopoulos2024designing`]**; se suma el concepto de
 *AI-Stakeholder* **[Pirozzi, 2024 — revista profesional, no corpus; ver `FUENTES_MARCO.md` sec. c]** y productos
-que ofrecen personas virtuales. Es la solución que más directamente toca el objetivo C.
+que ofrecen personas virtuales. Es la solución **relevada** que más directamente toca el objetivo C; la propuesta
+de la PoC (abajo) toca el mismo objetivo por otra vía — sin sustituir al stakeholder.
 
 - **Cómo cambia el rol:** el stakeholder deja de ser el único emisor de feedback —una IA lo emite por él, de forma
   continua— y queda como **validador** de lo que la IA devolvió. Cruza hacia A2c, donde la ceremonia deja de ser el
@@ -258,6 +261,26 @@ que ofrecen personas virtuales. Es la solución que más directamente toca el ob
   humana ni descontextualizar; el stakeholder real sigue como curador y guardián de valores. Y Cornide-Reyes et al.
   (2025, sec. 1) advierten que usar IAG para validar rápido puede terminar sacrificando calidad de UX en favor de la
   velocidad de entrega **[general]**.
+
+**Validación temprana sobre el cambio generado — el flujo de la PoC [propuesta] — cruza A2b/A2c con A3b y usa A1
+como instrumento.** A diferencia de la impersonación, acá el feedback lo sigue emitiendo el stakeholder **real**;
+lo que cambia es qué pasa con él en el momento en que se emite: (1) la IA lo estructura y devuelve **en vivo** una
+señal de viabilidad —la validación de factibilidad (A3b) se anticipa al instante del feedback, alterando la
+**secuencia** de la etapa (objetivo B)—; (2) del feedback se **genera el cambio y se le muestra** al stakeholder,
+que hace el testing de aceptación sobre software funcionando —contra los criterios de aceptación generados
+(RQ 5, arriba)— casi en el momento del pedido: la cadencia A4→A1→A2a colapsa (sección 1); (3) el **developer pasa
+de autor a validador**: revisa y aprueba lo generado antes de que se consolide. La generación de código (A1) entra
+**instrumentalmente**: es el mecanismo de la validación temprana, no el objeto de estudio — el recorte del núcleo
+(sección 1) no cambia. Respaldo direccional: la visión de *end-user software engineering* —requisitos en lenguaje
+natural como artefacto central— **[corpus: Requirements Are All You Need · `robinson2025requirements`]**, productos
+que van de la intención a la app (Emergent) o de la call al spec (PM Agent) **[producto]**, y el sub-modelo *"AI
+design with human validation"* que Sauvola et al. (2024) listan entre las variantes de sus escenarios **[general]**.
+
+- **Cómo cambia el rol:** el stakeholder valida sobre software funcionando en vez de sobre descripciones; el
+  developer valida y aprueba lo que la IA generó (objetivo C); la estructuración automática del feedback toma parte
+  de la traducción que hoy hace el AF.
+- **Límite:** el pivote de Tusk y Sweep (sección 6) muestra que el modo autónomo sin validador humano todavía no
+  cierra — por eso el developer queda como compuerta de aprobación y la propuesta llega a S3, no a S4.
 
 ### 5.2. A2c — Sprint Review
 
@@ -320,16 +343,18 @@ original, y se cita la fuente. Editable en `diagramas/escenarios_s1_s4.drawio`.
 | Escenario | Nombre                                        | En una línea                                                            | Dónde cae el núcleo (sección 5)                                                                  |
 | --------- | --------------------------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | **S1**    | *Traditional Software Development Operations* | Humanos en todos los roles; las herramientas automatizan                | Es el proceso **hoy** (sección 3)                                                                  |
-| **S2**    | *AI in loop*                                  | El humano domina; la IA automatiza partes de tareas y asiste decisiones | Casi todo el núcleo: bugs desde lenguaje natural y generación de criterios de aceptación (**5.1**), y asistente de reunión (**5.2**) |
-| **S3**    | *AI assumes role(s)*                          | La IA asume roles seleccionados; el humano controla la operación        | **Impersonación de stakeholders** (**5.1**): la IA *asume* el rol de quien da feedback — es el único punto del núcleo que llega hasta acá |
+| **S2**    | *AI in loop*                                  | El humano domina; la IA automatiza partes de tareas y asiste decisiones | Casi todo el núcleo: bugs desde lenguaje natural y generación de criterios de aceptación (**5.1**), señal de viabilidad en vivo (**5.1**, propuesta) y asistente de reunión (**5.2**) |
+| **S3**    | *AI assumes role(s)*                          | La IA asume roles seleccionados; el humano controla la operación        | Dos puntos: la **impersonación de stakeholders** (**5.1**), donde la IA asume el rol de quien emite el feedback, y la **propuesta de la PoC** (**5.1**), donde la IA genera el cambio y el developer valida — el sub-modelo *AI design with human validation* del propio paper |
 | **S4**    | *Human-in-the-loop*                           | La IA gestiona varios roles; el humano vigila                           | **Ninguna solución del núcleo llega**. El candidato —generación automática desde el ticket— cae en A1, fuera del núcleo, y el pivote de Tusk y Sweep (abandonaron el ticket→PR autónomo) muestra que ese modo todavía no cierra |
 
 El paper además parametriza cada escenario por niveles y modela **trayectorias de transición** entre ellos: citable
 si hace falta precisión sobre *cuánto* asume la IA.
 
-Leído así, el núcleo se concentra en **S2**, con un solo punto en **S3** —la impersonación— y nada en S4. Es un
-resultado, no una omisión: el desplazamiento de roles que la tesis indaga (objetivo C) hoy pasa casi todo por la
-impersonación del stakeholder.
+Leído así, el núcleo se concentra en **S2**, con dos puntos en **S3** —la impersonación, que es evidencia
+relevada, y la propuesta de la PoC, que es una idea a explorar— y nada en S4. Es un resultado, no una omisión: el
+desplazamiento de roles que la tesis indaga (objetivo C) tiene hoy dos vías dentro del núcleo — la IA sustituye al
+emisor del feedback (impersonación) o la IA ejecuta y el humano valida (propuesta de la PoC) — y en ninguna de las
+dos el humano sale del loop.
 
 ---
 
