@@ -14,9 +14,18 @@ El desarrollo transcurre en iteraciones de longitud fija —Sprints—, cada una
 producto. Al final de cada iteración ese incremento llega al negocio, que lo usa, lo evalúa y devuelve feedback; ese
 intercambio es lo que reabre el ciclo.
 
-**Ese tramo es el objeto de este marco y lo llamamos *etapa de feedback*.** No coincide con la Sprint Review: la
-ceremonia es uno de sus tres momentos, junto con la liberación del incremento y su uso y testing de aceptación por
-parte del negocio (sección 2.1).
+**Ese tramo es el objeto de este marco y lo llamamos *etapa de feedback*.** Va desde que el incremento llega al
+negocio hasta que el backlog queda listo para la próxima iteración, y se compone de tres bloques:
+
+| Bloque | Actividades | Qué pasa ahí |
+|---|---|---|
+| **Entrega y revisión del incremento** ← *el núcleo* | A2a, A2b, A2c | El incremento llega al negocio y **se genera el feedback** |
+| Validación del feedback | A3a, A3b | Se contrasta contra las reglas de negocio y contra lo técnicamente viable |
+| Incorporación al backlog | A4, A5 | El feedback se vuelve trabajo priorizado y reabre el ciclo |
+
+El **núcleo** es el primer bloque: es donde el negocio ve el producto y reacciona, y es el que la Sprint Review sola
+no alcanza a cubrir (sección 2.1). El desarrollo del incremento (**A1**) entra solo como contexto: produce la versión
+que el negocio ve, pero no es el foco.
 
 **Entra:** desde que hay un incremento (v ≥ 0.1 **con código**) que llega al negocio, y el feedback externo que
 desencadena hasta el siguiente entregable.
@@ -28,15 +37,27 @@ producción / evolución (feedback posterior a la aceptación).
 
 ## 2. La etapa de feedback como modelo de proceso
 
-> **A#** = actividad de esta etapa. **⚠** = actividad de la práctica **no definida en Scrum** (con su anclaje propio).
-> A1 va como *contexto*: es lo que produce la versión que ve el negocio, no es el foco.
+> **⚠** = actividad de la práctica **no definida en Scrum**, con su anclaje propio.
+
+**Contexto** — lo que produce la versión que ve el negocio; no es el foco.
 
 | # | Actividad | Roles | Entradas | Salidas | Objetivo | Anclaje |
 |---|---|---|---|---|---|---|
-| A1 | Desarrollo del incremento *(contexto; incluye inner loop y revisión de PR)* | Developers, PO | Sprint Backlog, Definition of Done | *Increment* que cumple la DoD | Producir el incremento | Scrum: *Sprint*, *Increment*, *DoD*; el **cómo** no lo define → Sommerville sec. 7.3 |
+| A1 | Desarrollo del incremento *(incluye inner loop y revisión de PR)* | Developers, PO | Sprint Backlog, Definition of Done | *Increment* que cumple la DoD | Producir el incremento | Scrum: *Sprint*, *Increment*, *DoD*; el **cómo** no lo define → Sommerville sec. 7.3 |
+
+**▶ Entrega y revisión del incremento — EL NÚCLEO DE LA ETAPA.** Es donde el incremento llega al negocio y se
+genera el feedback. Son tres momentos, y **solo el último está definido por Scrum** (ver sección 2.1):
+
+| # | Actividad | Roles | Entradas | Salidas | Objetivo | Anclaje |
+|---|---|---|---|---|---|---|
 | A2a | **Liberación del incremento** ⚠ | Developers | Increment | Incremento liberado, accesible al negocio | Poner el incremento en manos del negocio | ⚠ fuera de Scrum → Sommerville sec. 2.3.2 y sec. 8.3 |
 | A2b | **Uso y testing de aceptación** ⚠ | Stakeholder (+ AF) | Incremento liberado, criterios de aceptación | Observaciones, cambios, bugs detectados en el uso | Que el negocio use el producto y detecte desvíos | ⚠ fuera de Scrum → Sommerville sec. 8.4 y sec. 20.5 |
 | A2c | **Sprint Review** | PO, Developers, Stakeholders, AF | Suma de incrementos, Product Goal | Feedback del negocio; Product Backlog ajustado | Inspeccionar el resultado del Sprint y determinar adaptaciones | Scrum Guide p. 9 — *working session*, ≤ 4 h |
+
+**Tratamiento del feedback** — qué se hace con lo que el negocio devolvió.
+
+| # | Actividad | Roles | Entradas | Salidas | Objetivo | Anclaje |
+|---|---|---|---|---|---|---|
 | A3a | Validación de reglas de negocio ⚠ | AF ↔ Stakeholder | Feedback, reglas y flujos definidos | Discrepancias, ajustes, aceptación/rechazo | Confirmar que el pedido respeta la regla de negocio real | ⚠ fuera de Scrum → Dumas sec. 4.4 y sec. 5.4.2; Sommerville sec. 4.5 |
 | A3b | Validación de factibilidad técnica ⚠ *(parcial)* | Developers (+ PO) | Feedback, código/arquitectura, requisitos no funcionales | Evaluación de viabilidad, impacto y esfuerzo; alternativas | Confirmar que lo pedido es viable y a qué costo | ⚠ parcial en Scrum → Sommerville sec. 25.3 (análisis de costo/impacto) |
 | A4 | **Incorporación del feedback al Product Backlog** | AF, PO | Feedback crudo (call, mail, bugs) | Ítems de Product Backlog | Convertir feedback disperso en trabajo accionable | Scrum Guide p. 6 — *convince the Product Owner* |
@@ -44,9 +65,9 @@ producción / evolución (feedback posterior a la aceptación).
 
 > Citas textuales de cada anclaje: `FUENTES_MARCO.md` sec. a.1 (Dumas) y sec. a.2 (Sommerville).
 
-### 2.1. Por qué la etapa abarca tres actividades y no solo la Sprint Review
+### 2.1. Por qué el núcleo son tres actividades y no solo la Sprint Review
 
-De los tres momentos que componen la etapa —A2a, A2b y A2c—, el único que Scrum define es la **Sprint Review**. La Guía la describe como una *working session* que no debe limitarse a una presentación, pero **desacopla
+De los tres momentos del núcleo —A2a, A2b y A2c—, el único que Scrum define es la **Sprint Review**. La Guía la describe como una *working session* que no debe limitarse a una presentación, pero **desacopla
 la liberación de la ceremonia** —*"an Increment may be delivered to stakeholders prior to the end of the Sprint. The
 Sprint Review should never be considered a gate to releasing value"*— y **declara su propia incompletitud**: es un
 *"container for other techniques, methodologies, and practices"*. Coherente con eso, las palabras `feedback`, `test`
