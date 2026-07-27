@@ -214,7 +214,8 @@ Cada ítem indica su fuente y, cuando aplica, la sección exacta, de modo que la
 trazabilidad. Las fuentes son de tres tipos:
 
 - **[general]** — los cuatro artículos sobre IAG en el desarrollo (`FUENTES_MARCO.md` sec. b): hablan del proceso en
-  términos generales, por etapa del SDLC.
+  términos generales, por etapa del SDLC. (Las secciones de Nguyen-Duc et al. remiten al preprint; ver
+  `FUENTES_MARCO.md` sec. b.)
 - **[corpus]** — paper del mapeo de literatura (`sprint 12/REFERENCIAS.md`): evidencia puntual.
 - **[producto]** — producto o empresa relevada como *state of practice*: evidencia de mercado, no académica.
 
