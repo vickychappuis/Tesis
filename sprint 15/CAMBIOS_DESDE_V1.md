@@ -43,8 +43,10 @@ por Scrum.
 | **A2b** | Uso y testing de aceptación | ⚠ no | **Nueva.** Es la pieza que faltaba |
 | **A2c** | Sprint Review | ✅ sí | **Es la vieja A2**, sin la palabra "demo" |
 
-También se renombraron **A4** (*Incorporación del feedback al Product Backlog*) y **A5** (*Product Backlog
-refinement*, término textual de la Guía, que además es una actividad **continua** y no un evento).
+El resto de las actividades: **A1** pasa a llamarse solo *Desarrollo del incremento* —la entrega se fue a A2a—,
+**A3a** y **A3b** se mantienen igual (ahora marcadas ⚠ porque no son de Scrum), y **A4** y **A5** toman nombre de la
+Guía: *Incorporación del feedback al Product Backlog* y *Product Backlog refinement*, esta última una actividad
+**continua** y no un evento.
 
 **Efecto teórico, no cosmético:** el feedback pasa a tener **dos canales y dos momentos** —el uso real del producto,
 que puede llegar antes de la ceremonia, y la ceremonia misma—, materia directa del objetivo B. En el diagrama, la

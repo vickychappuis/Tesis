@@ -1,11 +1,10 @@
-# Marco del proceso de desarrollo — zoom en la etapa de feedback (v2)
+# Marco del proceso de desarrollo — zoom en la etapa de feedback
 
-> **v2 del sprint 15.** La v1 está en `sprint 14/MARCO_PROCESO_FEEDBACK.md` (se conserva como registro).
-> Cambios de esta versión respecto de la v1:
-> 1. Actividades **ancladas y renombradas** según la Scrum Guide 2020 → fundamento en `SCRUM_ANCLAJE.md`.
-> 2. **A2 se desdobla** en liberación / uso y testing de aceptación / Sprint Review.
-> 3. Diagrama **formalizado en BPMN**, con una sola semántica y leyenda explícita, en `diagramas/marco_feedback_bpmn.drawio`.
-> 4. Lo que **no** está definido en Scrum queda marcado como tal (⚠), con su anclaje propio.
+> Modelo de proceso de la etapa de feedback —actividades, roles, entradas, salidas y objetivos—, con una capa que
+> describe cómo cada actividad podría potenciarse con IAG. Las actividades usan el vocabulario de la **Scrum Guide
+> 2020**; lo que el framework no define se marca con **⚠** y se ancla en literatura de ingeniería de software.
+>
+> Evidencia sobre Scrum: `SCRUM_ANCLAJE.md` · Fuentes y secciones verificadas: `FUENTES_MARCO.md`.
 
 ---
 
@@ -19,8 +18,7 @@ producción / evolución (feedback posterior a la aceptación).
 
 ### 1.1. Por qué el zoom no es solo la Sprint Review
 
-Es la corrección central de esta versión. La Sprint Review **es** el momento que Scrum define para inspeccionar el
-incremento con los stakeholders, pero la Guía 2020 la define como *working session* que no debe limitarse a una
+La Sprint Review **es** el momento que Scrum define para inspeccionar el incremento con los stakeholders, pero la Guía 2020 la define como *working session* que no debe limitarse a una
 presentación, **desacopla la liberación de la ceremonia** (*"never a gate to releasing value"*) y **declara su propia
 incompletitud** (*"purposefully incomplete"*). Tampoco menciona nunca `feedback`, `test` ni `acceptance`.
 
@@ -51,17 +49,9 @@ anclan en literatura de ingeniería de software.
 
 > Citas textuales de cada anclaje: `FUENTES_MARCO.md` §a.1 (Dumas) y §a.2 (Sommerville).
 
-### 2.1. Correspondencia con la v1 y con el ciclo de vida
+### 2.1. Correspondencia con el ciclo de vida
 
-| v1 (sprint 14) | v2 | Motivo del cambio |
-|---|---|---|
-| A1 Construcción y entrega del incremento | A1 Desarrollo del incremento + **A2a Liberación** | La entrega se separa: Scrum la desacopla de la ceremonia |
-| A2 Sprint Review / **demo** | **A2b** Uso y testing de aceptación + **A2c** Sprint Review | Se cae "demo": la Guía dice que no debe limitarse a una presentación. Se agrega el uso/aceptación real, que era el reparo del tutor |
-| A3a / A3b Validación | A3a / A3b (igual, marcadas ⚠) | Se mantienen; se explicita que no son de Scrum |
-| A4 Registro y traducción del feedback | A4 Incorporación del feedback al Product Backlog | Nombre anclado en la Guía |
-| A5 Refinamiento y repriorización del backlog | A5 Product Backlog refinement | Término textual de la Guía; se marca que es continua |
-
-Respecto del ciclo de vida (`sprint 12/CICLO_DE_VIDA.md`): A1 pliega los loops técnicos internos (L3a inner loop,
+Respecto del ciclo de vida del `sprint 12`: A1 pliega los loops técnicos internos (L3a inner loop,
 L3b revisión de PR); A2a–A2c son el loop de incremento (L3); A3a es la validación de reglas de negocio (L4).
 El uso en producción / evolución (L5) queda **fuera** del zoom.
 
@@ -98,9 +88,6 @@ vocabulario de actividades y artefactos viene de la Scrum Guide 2020.
 | Flecha **punteada roja** | Flujo de mensaje (comunicación entre participantes) |
 | Flecha **punteada fina amarilla** | Asociación de datos (lectura o escritura de un artefacto) |
 | ↻ | Actividad continua, no un evento |
-
-> Resuelve el reproche del sprint 14: la v1 tenía dos vistas con semánticas distintas y una caja de actividad (el
-> feedback) que era en realidad un artefacto. Ahora hay **un solo diagrama** y el feedback es un objeto de datos.
 
 ## 4. Capa con IAG
 
@@ -175,9 +162,8 @@ Cada ítem lleva su fuente y, cuando aplica, la sección exacta: eso hace de est
   decisiones de trade-off informadas** durante los releases iterativos **[general: Malladi & Sudheer Reddy, 2025, §V]**.
 - Detectar desalineación entre la intención y el sistema **[corpus: Requirements are All You Need]**.
 
-> **Corrección respecto de la v1:** la v1 marcaba "estimar impacto y esfuerzo" como *poco cubierto → gap y foco de
-> PoC*. Con la capa general eso ya no se sostiene: hay evidencia de cobertura. El gap se corre a **A2b**
-> (testing de aceptación), que sí está declarado como poco estudiado.
+> La estimación de esfuerzo **está cubierta** a nivel general; el hueco declarado en la literatura está en **A2b**
+> (criterios y testing de aceptación), que es el candidato natural para profundizar.
 
 #### A4 — Incorporación del feedback al Product Backlog
 
@@ -196,24 +182,20 @@ Cada ítem lleva su fuente y, cuando aplica, la sección exacta: eso hace de est
   sobrecompromiso al priorizar **[corpus: Meeting Assistants]**.
 - Repriorización dinámica del backlog como área en expansión **[general: Malladi & Sudheer Reddy, 2025, §III]**.
 
-### 4.2. Qué aportan los 4 artículos del tutor (y qué no)
+### 4.2. Alcance de las dos capas de evidencia
 
-**Aportan** la capa general que faltaba —la v1 solo citaba el corpus—, **dos gaps declarados** útiles para elegir el
-foco de la PoC (testing de aceptación y automatización de build/deployment, ambos de Nguyen-Duc et al.), **una
-corrección** a la v1 (la estimación de esfuerzo ya está cubierta, §4.1 A3b) y dos marcos de encuadre: los escenarios
-S1–S4 (§5.5) y las **11 áreas** de Nguyen-Duc et al., que ubican nuestro zoom en *Requirements Engineering*,
-*Quality Assurance* y *Engineering Management*.
+La capa **general** (los cuatro artículos sobre IAG en el desarrollo) aporta el respaldo por etapa del SDLC, **dos
+gaps declarados** —testing de aceptación y automatización de build/deployment, ambos de Nguyen-Duc et al.— y dos
+marcos de encuadre: los escenarios S1–S4 (§5.5) y las **11 áreas** de Nguyen-Duc et al., que ubican este zoom en
+*Requirements Engineering*, *Quality Assurance* y *Engineering Management*.
 
-**No aportan** nada sobre la Sprint Review ni las ceremonias (0 ocurrencias en los cuatro): el zoom fino sigue
-sostenido por el corpus. Conviene decirlo para no sobrevender el anclaje.
+Ninguno de los cuatro menciona la **Sprint Review** ni las ceremonias (0 ocurrencias): el zoom fino en el momento del
+feedback está sostenido por la capa **corpus**, que aporta la evidencia puntual. Conviene explicitarlo para no
+sobrevender el anclaje.
 
 ---
 
 ## 5. Grandes áreas con IAG
-
-> **Aprobado por el tutor tal cual** en la call del 9 de jul (*"me gusta como lo hiciste, no cambies"*). Se
-> conserva el contenido de la v1 (`sprint 14/MARCO_PROCESO_FEEDBACK.md` §5), con los nombres de actividades
-> actualizados al §2 de este documento y la figura propia de los escenarios.
 
 Las ideas por actividad (§4) se agrupan en cuatro áreas transversales.
 
