@@ -54,7 +54,7 @@ flujo rotulado *"puede llegar antes de la ceremonia"*.
 
 **No se apoya solo en la lectura de Scrum:** Sommerville (2016) describe el par liberación + uso (sec. 2.3.2), el
 *release* y el *acceptance testing* (sec. 8.3 y sec. 8.4), y sostiene que en ágil la aceptación no depende de una
-especificación completa sino de stakeholders involucrados **con autoridad para decidir** (sec. 20.5) — la relación misma
+especificación completa sino de stakeholders involucrados **con autoridad para decidir** (sec. 20.4) — la relación misma
 que la tesis pone en cuestión cuando entra IAG. Citas en `FUENTES_MARCO.md` sec. a.2.
 
 ## 3. Notación uniforme *(pedido: "cajitas y globitos, marea un poquito")*
@@ -121,5 +121,5 @@ que ya estaba en la capa por actividad, y pasó a ser la sec. 6 del marco.
 ## Siguiente paso propuesto
 
 Elegir **una** de las cuatro grandes áreas para bajar a la PoC. **A2b** (criterios y testing de aceptación asistidos)
-quedó como candidata con respaldo explícito —el gap declarado de Nguyen-Duc et al. y sec. 20.5 de Sommerville— y está más
+quedó como candidata con respaldo explícito —el gap declarado de Nguyen-Duc et al. y sec. 20.4 de Sommerville— y está más
 pegada al feedback que la generación de tickets → código.
