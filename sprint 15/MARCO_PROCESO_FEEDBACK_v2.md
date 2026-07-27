@@ -196,11 +196,16 @@ La leyenda —una sola semántica para todo el diagrama— va dentro de la figur
 
 ## 5. Capa con IAG
 
-Por cada actividad de la sección 3, las soluciones con IAG que podrían aplicarla. Lo que **no** cambia es el proceso ni los
-roles; cambia **quién** ejecuta la tarea y **cómo**.
+Por cada actividad **del núcleo de la etapa** —A2a, A2b y A2c, sección 1—, las soluciones con IAG que podrían
+aplicarla. El núcleo es el foco de la tesis y por eso es lo único que se detalla actividad por actividad; lo que la
+literatura reporta sobre las demás actividades del modelo (A1, A3a–A5) se trata en la sección 6, agrupado por área
+transversal.
 
-Cada ítem indica su fuente y, cuando aplica, la sección exacta, de modo que la lista misma sirve de tabla de
-trazabilidad. Las fuentes son de tres tipos:
+Lo que **no** cambia es el proceso ni los roles; cambia **quién** ejecuta la tarea y **cómo**.
+
+Cada ítem indica su fuente y, cuando aplica, la sección exacta y quién afirma qué —importa distinguir un hallazgo
+empírico de una pregunta que los autores dejan abierta o de una expectativa que declaran—, de modo que esta sección
+y la 6 sirvan juntas de tabla de trazabilidad. Las fuentes son de tres tipos:
 
 - **[general]** — los cuatro artículos sobre IAG en el desarrollo (`FUENTES_MARCO.md` sec. b): hablan del proceso en
   términos generales, por etapa del SDLC. (Las secciones de Nguyen-Duc et al. remiten al preprint; ver
@@ -209,86 +214,45 @@ trazabilidad. Las fuentes son de tres tipos:
   clave BibTeX de `sprint 12/REFERENCIAS.bib` para que la trazabilidad no dependa del nombre corto.
 - **[producto]** — producto o empresa relevada como *state of practice*: evidencia de mercado, no académica.
 
-### 5.1. Por actividad
+### 5.1. El núcleo, actividad por actividad
 
-> Se cubren las ocho actividades para que la tabla de trazabilidad quede completa, pero el peso no es parejo:
-> **▶** marca el núcleo de la etapa (A2a–A2c, sección 1), que es donde se enfoca la tesis — y dentro de él, **A2b**
-> concentra el gap declarado (ver la nota tras A3b). El resto (A1, A3a–A5) se releva solo para mostrar dónde la
-> literatura ya cubre y que el hueco quede en contraste.
+#### A2a — Liberación del incremento ⚠
 
-#### A1 — Desarrollo del incremento *(contexto)*
+- **Lo que hay:** en el terreno de DevOps y despliegue, Malladi & Sudheer Reddy (2025, sec. III) relevan **métodos
+  híbridos** —aprendizaje por refuerzo combinado con síntesis de datos— aplicados a la escritura de pipelines y a
+  prácticas de CI/CD atentas a la calidad **[general]**. Hay trabajo publicado, pero no es IAG sola.
+- **Lo que falta, y quién dice que falta:** son **Nguyen-Duc et al. (2025)** quienes ubican la automatización de
+  *build* y *deployment* entre las preguntas que **su propia agenda deja abiertas a investigación futura** —*"How
+  can GenAI support the automation of build and deployment processes?"*, RQ 6 de la lista de sec. 4.6.2
+  **[general]**. No es un vacío que declare esta tesis ni un resultado disponible: son ellos los que registran que
+  todavía no está resuelto.
 
-- Es la etapa de mayor aplicación de IAG: copilotos que aceleran codificación, refactorización, reparación de bugs y
-  generación de tests (TDD/BDD, localización de defectos), ya con validación empírica
-  **[general: Malladi & Sudheer Reddy, 2025, sec. III]**; casos de prueba autogenerados, una de las fases más
-  beneficiadas **[general: Cornide-Reyes et al., 2025, RQ3]**.
-- Agentes que generan o ajustan el incremento a partir del ticket **[productos: Devin, Codegen]**.
+#### A2b — Uso y testing de aceptación ⚠
 
-#### ▶ A2a — Liberación del incremento ⚠
-
-- Autoría de pipelines y prácticas de CI/CD con conciencia de calidad
-  **[general: Malladi & Sudheer Reddy, 2025, sec. III]**; la automatización de *build* y *deployment* sigue
-  planteada como **pregunta de investigación abierta** **[general: Nguyen-Duc et al., 2025, sec. 4.6.2]** → zona
-  poco resuelta.
-
-#### ▶ A2b — Uso y testing de aceptación ⚠
-
-- **Gap declarado:** el *acceptance testing* (junto con integración y atributos de calidad) **no es foco de los
-  estudios existentes**, con pregunta abierta sobre cómo automatizarlo desde requisitos de alto nivel —*"How can
-  GenAI be utilized to automate acceptance criteria from high-level requirements?"*
-  **[general: Nguyen-Duc et al., 2025, sec. 4.4.2 y 4.4.5]**.
+- **El gap, y quién lo declara:** al revisar el estado del arte en aseguramiento de la calidad, **Nguyen-Duc et al.
+  (2025)** constatan que el *acceptance testing* —junto con el de integración y el de atributos de calidad— queda
+  afuera de lo que se investiga hoy: *"other areas of testing are not currently the focus of existing studies, i.e.
+  acceptance testing, integration testing, and testing other software quality requirements"* (sec. 4.4.5). Y en su
+  agenda dejan planteada la pregunta *"How can GenAI be utilized to automate acceptance criteria from high-level
+  requirements?"* (RQ 5 de sec. 4.4.2) **[general]**. De nuevo: el hueco lo declaran los autores; esta tesis lo
+  toma como justificación del foco de la PoC.
 - Reportes de bug en lenguaje natural → bug completo con pasos de reproducción **[corpus: Bug Tracking GenAI ·
   `torun2025bugtracking`]**.
-- **Límite:** usar IAG para validar rápido puede terminar sacrificando calidad de UX en favor de la velocidad de
-  entrega **[general: Cornide-Reyes et al., 2025, sec. 1]**.
+- **Límite:** Cornide-Reyes et al. (2025, sec. 1) advierten que usar IAG para validar rápido puede terminar
+  sacrificando calidad de UX en favor de la velocidad de entrega **[general]**.
 
-#### ▶ A2c — Sprint Review
+#### A2c — Sprint Review
 
 - Stakeholder-IA impersonado que emite feedback de forma continua, sin esperar la ceremonia
   **[corpus: Designing Tiny Robots · `raftopoulos2024designing`]**.
 - Asistente que resume la reunión y detecta riesgos e impedimentos **[corpus: Meeting Assistants ·
   `cabrero2024exploring`]**.
-- A nivel general, se proyecta un modo de trabajo de plataformas colaborativas humano-IA que asisten a expertos de
-  dominio, ingenieros de requisitos y usuarios **en tiempo real**, habilitando *"instantaneous feedback loops"* y
-  refinamiento iterativo como nueva norma **[general: Nguyen-Duc et al., 2025, área *Requirements Engineering*]**
-  → sostiene la hipótesis del objetivo B sobre frecuencia y temporalidad.
-
-#### A3a — Validación de reglas de negocio ⚠
-
-- Chequear el pedido contra los requisitos y reglas ya definidos, detectando conflictos **[corpus: Integrating LLMs
-  into RE · `stein2026integrating`]**; detectar si el pedido ya está cubierto o implementado **[corpus: Closing the
-  Loop US↔GUI · `kretzer2025closing`]**.
-- A nivel general: los LLMs detectan requisitos superfluos, incorrectos o inconsistentes en un contexto de dominio,
-  **pero** esas inconsistencias pueden desviar el proyecto si no son revisadas meticulosamente por stakeholders con
-  experiencia **[general: Nguyen-Duc et al., 2025, área *Requirements Engineering*]** → el chequeo automático no
-  reemplaza la validación humana.
-
-#### A3b — Validación de factibilidad técnica ⚠
-
-- Estimación de esfuerzo/impacto y generación de criterios de aceptación dan repriorización **más consistente,
-  reduciendo el sesgo humano**, y permiten a POs y developers **tomar decisiones de trade-off informadas** durante
-  los releases iterativos **[general: Malladi & Sudheer Reddy, 2025, sec. V]**.
-- Detectar desalineación entre la intención y el sistema **[corpus: Requirements are All You Need ·
-  `robinson2025requirements`]**.
-
-> La estimación de esfuerzo **está cubierta** a nivel general; el hueco declarado en la literatura está en **A2b**
-> (criterios y testing de aceptación), que es el candidato natural para profundizar.
-
-#### A4 — Incorporación del feedback al Product Backlog
-
-- Voz o call → tickets / user stories con criterios de aceptación **[productos: PM Agent, Versive, Kraftful;
-  corpus: Towards Human-AI Synergy · `abbasi2025towards`]**, incluyendo reformular o mejorar la expresión del
-  feedback del stakeholder **[corpus: Supporting Stakeholder Requirements Expression · `mircea2026supporting`]**.
-- A nivel general: los LLMs asisten en la redacción de user stories y en el *backlog grooming*, mejorando la
-  precisión de estimación y planificación **[general: Malladi & Sudheer Reddy, 2025, sec. III y sec. V]**; la planificación (análisis
-  de requisitos y generación de user stories) es una de las fases del ciclo ágil más beneficiadas
-  **[general: Cornide-Reyes et al., 2025, RQ3]**.
-
-#### A5 — Product Backlog refinement ↻
-
-- Evaluar la calidad de los ítems del backlog y recomendar mejoras **[corpus: Epic Evaluator · `geyer2025epics`]**,
-  detectar riesgos de sobrecompromiso al priorizar **[corpus: Meeting Assistants · `cabrero2024exploring`]**, y
-  repriorización dinámica del backlog como área en expansión **[general: Malladi & Sudheer Reddy, 2025, sec. III]**.
+- **Proyección de los autores, no hallazgo empírico:** en su sección de *Future Prospects* (sec. 4.1.5),
+  **Nguyen-Duc et al. (2025)** dicen lo que **esperan** que pase —*"We believe that the future way of working will
+  be AI-human collaborative platforms..."*—: plataformas colaborativas humano-IA que asistan **en tiempo real** a
+  expertos de dominio, ingenieros de requisitos y usuarios, habilitando *"instantaneous feedback loops"* y
+  refinamiento iterativo como nueva norma **[general]**. Sostiene la hipótesis del objetivo B sobre frecuencia y
+  temporalidad, pero hay que citarla por lo que es: una expectativa de los autores, no evidencia.
 
 ### 5.2. Alcance de las dos capas de evidencia
 
@@ -296,6 +260,14 @@ La capa **general** (los cuatro artículos sobre IAG en el desarrollo) aporta el
 gaps declarados** —testing de aceptación y automatización de build/deployment, ambos de Nguyen-Duc et al.— y dos
 marcos de encuadre: los escenarios S1–S4 (sección 6.5) y las **11 áreas** de Nguyen-Duc et al., que ubican este zoom en
 *Requirements Engineering*, *Quality Assurance* y *Engineering Management*.
+
+Los dos gaps caen **dentro del núcleo** —A2a y A2b—, y eso es lo que justifica que esta sección se limite a él.
+Fuera del núcleo la literatura ya cubre: la construcción y la generación de tests (A1), el chequeo del pedido
+contra los requisitos (A3a), la estimación de esfuerzo e impacto —que Malladi & Sudheer Reddy (2025, sec. V)
+reportan como repriorización más consistente, con menos sesgo humano, y decisiones de trade-off informadas para POs
+y developers durante los releases iterativos— (A3b), y la redacción de user stories y el refinamiento del backlog
+(A4, A5). Esa evidencia está en la sección 6, agrupada por área. De los dos gaps, **A2b** —criterios y testing de
+aceptación— es el candidato natural para profundizar.
 
 Ninguno de los cuatro menciona la **Sprint Review** ni las ceremonias (0 ocurrencias): el zoom fino en el momento del
 feedback está sostenido por la capa **corpus**, que aporta la evidencia puntual. Conviene explicitarlo para no
@@ -308,8 +280,9 @@ sobrevender el anclaje.
 Las ideas por actividad (sección 5) se agrupan en cuatro áreas transversales (6.1 a 6.4). La sección 6.5 las ubica en una
 escala de suplantación de roles.
 
-> La evidencia por cita ya está en la sección 5.1, actividad por actividad; acá solo se agrega lo que no está ahí
-> —citas adicionales y las dos lecturas propias de esta sección: cómo cambia el rol y cuál es el límite.
+> La evidencia del núcleo ya está en la sección 5.1 y no se repite: cuando un área se apoya en A2a–A2c se remite
+> ahí. La evidencia de las actividades **fuera** del núcleo (A1, A3a–A5) vive acá, en el área que le corresponde.
+> A eso se suman las dos lecturas propias de esta sección: cómo cambia el rol y cuál es el límite.
 
 ### 6.1. Impersonación de stakeholders (stakeholder-IA)
 
@@ -326,11 +299,20 @@ sec. c]** y productos que ofrecen personas virtuales.
 ### 6.2. Oralidad / entrevistas → artefacto procesable
 
 Convertir feedback oral o conversacional (calls, entrevistas, demos) en artefactos estructurados y accionables
-(tickets, user stories con criterios, especificaciones, modelos de proceso) → evidencia en **A4** (sec. 5.1). Se
-suma *(corpus: Automating BI Requirements · `busany2024bi`; Business Process Discovery through Agentic GenAI ·
-`lindenberg2025business`; LLM-Assisted Sketch-Based Elicitation · `alabsi2026empirical`)*: es el patrón recurrente
-del mapeo de literatura, *feedback humano → estructuración con IA → artefacto usable*. Lo que se automatiza es el
-descubrimiento por entrevistas de Dumas sec. 5.2.2.
+(tickets, user stories con criterios, especificaciones, modelos de proceso). Es la vía por la que el feedback entra
+al Product Backlog (**A4**) y por la que después se refina (**A5**). Lo que se automatiza es el descubrimiento por
+entrevistas de Dumas sec. 5.2.2.
+
+**Evidencia.** De la voz o la call al ticket o la user story con criterios de aceptación *(productos: PM Agent,
+Versive, Kraftful)*. En el corpus, el mismo patrón —*feedback humano → estructuración con IA → artefacto usable*—
+es recurrente: *(corpus: Towards Human-AI Synergy · `abbasi2025towards`; Supporting Stakeholder Requirements
+Expression · `mircea2026supporting`, que además reformula y mejora la expresión del feedback del stakeholder;
+Automating BI Requirements · `busany2024bi`; Business Process Discovery through Agentic GenAI ·
+`lindenberg2025business`; LLM-Assisted Sketch-Based Elicitation · `alabsi2026empirical`)*. A nivel general, Malladi
+& Sudheer Reddy (2025, sec. III y sec. V) reportan asistencia de los LLMs en la redacción de user stories, en el
+*backlog grooming* y en la repriorización dinámica —esta última como área en expansión—, con mejora en la precisión
+de estimación y planificación; y Cornide-Reyes et al. (2025, RQ3) ubican la planificación —análisis de requisitos y
+generación de user stories— entre las fases del ciclo ágil más beneficiadas *(general)*.
 
 - **Cómo cambia el rol:** la traducción que hacía el analista funcional (actividad **A4**) pasa a ser asistida o
   realizada por IA; el AF cura y valida.
@@ -339,21 +321,40 @@ descubrimiento por entrevistas de Dumas sec. 5.2.2.
 ### 6.3. Chequeo de consistencia feedback ↔ requisitos (el "firewall")
 
 Validar automáticamente el pedido contra los requisitos, reglas y artefactos existentes; detectar conflictos,
-contradicciones, duplicados o cosas ya cubiertas antes de que entren al Product Backlog → evidencia en **A3a**
-(sec. 5.1). Se suma *(corpus: Epic Evaluator · `geyer2025epics`* — rúbrica de calidad de epics, ya citada en A5 —*)*
-como evidencia adicional de chequeo automático de calidad.
+contradicciones, duplicados o cosas ya cubiertas antes de que entren al Product Backlog (**A3a**), y evaluar la
+calidad de los ítems una vez adentro (**A5**).
+
+**Evidencia.** Chequear el pedido contra los requisitos y reglas ya definidos, detectando conflictos *(corpus:
+Integrating LLMs into RE · `stein2026integrating`)*; detectar si el pedido ya está cubierto o implementado
+*(corpus: Closing the Loop US↔GUI · `kretzer2025closing`)*; evaluar con una rúbrica la calidad de los ítems del
+backlog y recomendar mejoras *(corpus: Epic Evaluator · `geyer2025epics`)*; detectar riesgos de sobrecompromiso al
+priorizar *(corpus: Meeting Assistants · `cabrero2024exploring`)*. Los cinco chequeos de validación de requisitos de
+Sommerville sec. 4.5 —validez, consistencia, completitud, realismo y verificabilidad— son justamente lo que acá se
+propone automatizar.
 
 - **Cómo cambia el rol:** la validación de reglas de negocio (actividad **A3a**) se apoya en una IA que pre-chequea
   consistencia; el AF resuelve lo que la IA marca.
-- **Límite:** *(general: Nguyen-Duc et al., 2025)* las inconsistencias detectadas por LLMs pueden desviar el
-  proyecto si no las revisan stakeholders con experiencia de dominio.
+- **Límite — y va en la dirección contraria a la que parece:** Nguyen-Duc et al. (2025, sec. 4.1.4) no advierten
+  sobre inconsistencias *detectadas* por el LLM, sino sobre las que el LLM **produce**: la IAG genera requisitos que
+  *"appear sound but are either superfluous, incorrect, or inconsistent in a given domain context"*, y esas
+  inconsistencias pueden desviar el proyecto *"if not meticulously reviewed by stakeholders with relevant
+  experience"*. O sea que el riesgo no es solo que el firewall deje pasar algo: es que él mismo introduzca ruido. El
+  chequeo automático no reemplaza la validación humana.
 
 ### 6.4. Generación → desarrollo automático de tickets
 
-Del ticket —o del requisito en lenguaje natural— al código integrado, de forma automática → evidencia en **A1**
-(sec. 5.1). Se suma *(corpus: Requirements are All You Need · `robinson2025requirements`)*. **Contra-evidencia
-útil:** el pivote de Tusk y Sweep
-(abandonaron el ticket→PR autónomo) muestra que el modo totalmente autónomo todavía no cierra.
+Del ticket —o del requisito en lenguaje natural— al código integrado, de forma automática (**A1**).
+
+**Evidencia.** Es la etapa de mayor aplicación de IAG: Malladi & Sudheer Reddy (2025, sec. III) reportan que las
+aplicaciones más extensas aparecen en implementación —copilotos que aceleran codificación, refactorización y
+reparación de bugs, ya validados en estudios empíricos— y en testing —generación automática de tests unitarios,
+integración con TDD/BDD y localización de defectos—; Cornide-Reyes et al. (2025, RQ3) ubican los casos de prueba
+autogenerados entre las fases más beneficiadas *(general)*. En el corpus, la detección de desalineación entre la
+intención y el sistema *(corpus: Requirements are All You Need · `robinson2025requirements`)*; en el mercado,
+agentes que generan o ajustan el incremento a partir del ticket *(productos: Devin, Codegen)*.
+
+**Contra-evidencia útil:** el pivote de Tusk y Sweep (abandonaron el ticket→PR autónomo) muestra que el modo
+totalmente autónomo todavía no cierra.
 
 - **Cómo cambia el rol:** la construcción (actividad **A1**) pasa a agentes; los Developers supervisan.
 
@@ -379,6 +380,9 @@ si hace falta precisión sobre *cuánto* asume la IA.
 
 ---
 
-*Última actualización: 2026-07-27 — sprint 15. Sección 5: se marcó el núcleo (▶) para distinguirlo de las
-actividades relevadas solo por trazabilidad; cada cita [corpus] lleva ahora su clave BibTeX; Pirozzi (2024) quedó
-referenciado formalmente en `FUENTES_MARCO.md` sec. c.*
+*Última actualización: 2026-07-27 — sprint 15. La sección 5.1 se recortó al núcleo (A2a–A2c): las actividades fuera
+del núcleo se eliminaron de ahí y su evidencia se migró a las áreas de la sección 6 que ya las referenciaban, salvo
+la estimación de esfuerzo (A3b), que quedó en 5.2 como parte del argumento de foco. Se explicitó en cada ítem quién
+afirma qué —hallazgo empírico vs. pregunta abierta de la agenda de Nguyen-Duc et al. vs. expectativa declarada por
+los autores— y se corrigió el sentido de la cita de Nguyen-Duc sec. 4.1.4 (la IAG **genera** inconsistencias; no las
+detecta), que estaba invertida en el límite del área 6.3.*

@@ -74,13 +74,15 @@ Los cuatro artículos están verificados uno por uno y leídos. Qué respaldo te
 | **A2a** Liberación | **Nada: la actividad no existía** | Malladi: pipelines y CI/CD. Nguyen-Duc: automatizar *build* y *deployment* sigue siendo pregunta abierta |
 | **A2b** Uso y aceptación | **Nada: la actividad no existía** | Nguyen-Duc: el *acceptance testing* **no es foco de los estudios existentes** (gap declarado) y la RQ abierta sobre automatizar criterios de aceptación. Cornide-Reyes: el riesgo de validar rápido sacrificando UX |
 | A2c Sprint Review | Dos papers del corpus | Nguyen-Duc: plataformas humano-IA en tiempo real con *"instantaneous feedback loops"* → respalda el objetivo B |
-| A3a Reglas de negocio | Dos papers del corpus | Nguyen-Duc: **el límite** — los LLM detectan inconsistencias, pero pueden desviar el proyecto sin revisión de stakeholders con experiencia |
+| A3a Reglas de negocio | Dos papers del corpus | Nguyen-Duc: **el límite** — la IAG *genera* requisitos superfluos, incorrectos o inconsistentes, y eso desvía el proyecto sin revisión de stakeholders con experiencia |
 | A3b Factibilidad | Marcada como *"poco cubierto → gap"* | Malladi: estimación y repriorización más consistentes, con menos sesgo humano → **corrige la v1**: ya no es gap |
 | A4 Incorporación al backlog | Tres productos + tres papers | Malladi: user stories y *backlog grooming* asistidos. Cornide-Reyes: la planificación entre las fases más beneficiadas |
 | A5 Refinement | Dos papers del corpus | Malladi: repriorización dinámica del backlog |
 
-Cada ítem quedó etiquetado como **corpus**, **producto** o **general** (los cuatro artículos) para poder auditarlo
-→ `MARCO_PROCESO_FEEDBACK_v2.md` sec. 5.
+Cada ítem quedó etiquetado como **corpus**, **producto** o **general** (los cuatro artículos) para poder auditarlo.
+La tabla de arriba es el registro de qué se agregó respecto de la v1; en el marco, la sec. 5.1 quedó recortada al
+**núcleo** (A2a–A2c) y la evidencia de las demás actividades vive en las áreas de la sec. 6
+→ `MARCO_PROCESO_FEEDBACK_v2.md` secs. 5 y 6.
 
 Dos cosas para decir de frente:
 
