@@ -205,10 +205,16 @@ trazabilidad. Las fuentes son de tres tipos:
 - **[general]** — los cuatro artículos sobre IAG en el desarrollo (`FUENTES_MARCO.md` sec. b): hablan del proceso en
   términos generales, por etapa del SDLC. (Las secciones de Nguyen-Duc et al. remiten al preprint; ver
   `FUENTES_MARCO.md` sec. b.)
-- **[corpus]** — paper del mapeo de literatura (`sprint 12/REFERENCIAS.md`): evidencia puntual.
+- **[corpus]** — paper del mapeo de literatura (`sprint 12/REFERENCIAS.md`): evidencia puntual. Cada cita lleva su
+  clave BibTeX de `sprint 12/REFERENCIAS.bib` para que la trazabilidad no dependa del nombre corto.
 - **[producto]** — producto o empresa relevada como *state of practice*: evidencia de mercado, no académica.
 
 ### 5.1. Por actividad
+
+> Se cubren las ocho actividades para que la tabla de trazabilidad quede completa, pero el peso no es parejo:
+> **▶** marca el núcleo de la etapa (A2a–A2c, sección 1), que es donde se enfoca la tesis — y dentro de él, **A2b**
+> concentra el gap declarado (ver la nota tras A3b). El resto (A1, A3a–A5) se releva solo para mostrar dónde la
+> literatura ya cubre y que el hueco quede en contraste.
 
 #### A1 — Desarrollo del incremento *(contexto)*
 
@@ -218,28 +224,30 @@ trazabilidad. Las fuentes son de tres tipos:
   beneficiadas **[general: Cornide-Reyes et al., 2025, RQ3]**.
 - Agentes que generan o ajustan el incremento a partir del ticket **[productos: Devin, Codegen]**.
 
-#### A2a — Liberación del incremento ⚠
+#### ▶ A2a — Liberación del incremento ⚠
 
 - Autoría de pipelines y prácticas de CI/CD con conciencia de calidad
   **[general: Malladi & Sudheer Reddy, 2025, sec. III]**; la automatización de *build* y *deployment* sigue
   planteada como **pregunta de investigación abierta** **[general: Nguyen-Duc et al., 2025, sec. 4.6.2]** → zona
   poco resuelta.
 
-#### A2b — Uso y testing de aceptación ⚠
+#### ▶ A2b — Uso y testing de aceptación ⚠
 
 - **Gap declarado:** el *acceptance testing* (junto con integración y atributos de calidad) **no es foco de los
   estudios existentes**, con pregunta abierta sobre cómo automatizarlo desde requisitos de alto nivel —*"How can
   GenAI be utilized to automate acceptance criteria from high-level requirements?"*
   **[general: Nguyen-Duc et al., 2025, sec. 4.4.2 y 4.4.5]**.
-- Reportes de bug en lenguaje natural → bug completo con pasos de reproducción **[corpus: Bug Tracking GenAI]**.
+- Reportes de bug en lenguaje natural → bug completo con pasos de reproducción **[corpus: Bug Tracking GenAI ·
+  `torun2025bugtracking`]**.
 - **Límite:** usar IAG para validar rápido puede terminar sacrificando calidad de UX en favor de la velocidad de
   entrega **[general: Cornide-Reyes et al., 2025, sec. 1]**.
 
-#### A2c — Sprint Review
+#### ▶ A2c — Sprint Review
 
 - Stakeholder-IA impersonado que emite feedback de forma continua, sin esperar la ceremonia
-  **[corpus: Designing Tiny Robots]**.
-- Asistente que resume la reunión y detecta riesgos e impedimentos **[corpus: Meeting Assistants]**.
+  **[corpus: Designing Tiny Robots · `raftopoulos2024designing`]**.
+- Asistente que resume la reunión y detecta riesgos e impedimentos **[corpus: Meeting Assistants ·
+  `cabrero2024exploring`]**.
 - A nivel general, se proyecta un modo de trabajo de plataformas colaborativas humano-IA que asisten a expertos de
   dominio, ingenieros de requisitos y usuarios **en tiempo real**, habilitando *"instantaneous feedback loops"* y
   refinamiento iterativo como nueva norma **[general: Nguyen-Duc et al., 2025, área *Requirements Engineering*]**
@@ -248,7 +256,8 @@ trazabilidad. Las fuentes son de tres tipos:
 #### A3a — Validación de reglas de negocio ⚠
 
 - Chequear el pedido contra los requisitos y reglas ya definidos, detectando conflictos **[corpus: Integrating LLMs
-  into RE]**; detectar si el pedido ya está cubierto o implementado **[corpus: Closing the Loop US↔GUI]**.
+  into RE · `stein2026integrating`]**; detectar si el pedido ya está cubierto o implementado **[corpus: Closing the
+  Loop US↔GUI · `kretzer2025closing`]**.
 - A nivel general: los LLMs detectan requisitos superfluos, incorrectos o inconsistentes en un contexto de dominio,
   **pero** esas inconsistencias pueden desviar el proyecto si no son revisadas meticulosamente por stakeholders con
   experiencia **[general: Nguyen-Duc et al., 2025, área *Requirements Engineering*]** → el chequeo automático no
@@ -259,7 +268,8 @@ trazabilidad. Las fuentes son de tres tipos:
 - Estimación de esfuerzo/impacto y generación de criterios de aceptación dan repriorización **más consistente,
   reduciendo el sesgo humano**, y permiten a POs y developers **tomar decisiones de trade-off informadas** durante
   los releases iterativos **[general: Malladi & Sudheer Reddy, 2025, sec. V]**.
-- Detectar desalineación entre la intención y el sistema **[corpus: Requirements are All You Need]**.
+- Detectar desalineación entre la intención y el sistema **[corpus: Requirements are All You Need ·
+  `robinson2025requirements`]**.
 
 > La estimación de esfuerzo **está cubierta** a nivel general; el hueco declarado en la literatura está en **A2b**
 > (criterios y testing de aceptación), que es el candidato natural para profundizar.
@@ -267,8 +277,8 @@ trazabilidad. Las fuentes son de tres tipos:
 #### A4 — Incorporación del feedback al Product Backlog
 
 - Voz o call → tickets / user stories con criterios de aceptación **[productos: PM Agent, Versive, Kraftful;
-  corpus: Towards Human-AI Synergy]**, incluyendo reformular o mejorar la expresión del feedback del stakeholder
-  **[corpus: Supporting Stakeholder Requirements Expression]**.
+  corpus: Towards Human-AI Synergy · `abbasi2025towards`]**, incluyendo reformular o mejorar la expresión del
+  feedback del stakeholder **[corpus: Supporting Stakeholder Requirements Expression · `mircea2026supporting`]**.
 - A nivel general: los LLMs asisten en la redacción de user stories y en el *backlog grooming*, mejorando la
   precisión de estimación y planificación **[general: Malladi & Sudheer Reddy, 2025, sec. III y sec. V]**; la planificación (análisis
   de requisitos y generación de user stories) es una de las fases del ciclo ágil más beneficiadas
@@ -276,9 +286,9 @@ trazabilidad. Las fuentes son de tres tipos:
 
 #### A5 — Product Backlog refinement ↻
 
-- Evaluar la calidad de los ítems del backlog y recomendar mejoras **[corpus: Epic Evaluator]**, detectar riesgos de
-  sobrecompromiso al priorizar **[corpus: Meeting Assistants]**, y repriorización dinámica del backlog como área en
-  expansión **[general: Malladi & Sudheer Reddy, 2025, sec. III]**.
+- Evaluar la calidad de los ítems del backlog y recomendar mejoras **[corpus: Epic Evaluator · `geyer2025epics`]**,
+  detectar riesgos de sobrecompromiso al priorizar **[corpus: Meeting Assistants · `cabrero2024exploring`]**, y
+  repriorización dinámica del backlog como área en expansión **[general: Malladi & Sudheer Reddy, 2025, sec. III]**.
 
 ### 5.2. Alcance de las dos capas de evidencia
 
@@ -305,20 +315,22 @@ escala de suplantación de roles.
 
 Una IA configurada para representar a un stakeholder (cliente, usuario, PM) y emitir feedback como si fuera él, de
 forma continua y sin depender de su disponibilidad → evidencia en **A2c** (sec. 5.1). Se suma el concepto de
-*AI-Stakeholder* (Pirozzi) y productos que ofrecen personas virtuales.
+*AI-Stakeholder* **[Pirozzi, 2024 · `pirozzi2024stakeholder` — revista profesional, no corpus; `FUENTES_MARCO.md`
+sec. c]** y productos que ofrecen personas virtuales.
 
 - **Cómo cambia el rol:** el rol del stakeholder como emisor de feedback pasa parcialmente a una IA (actividad
   **A2c**, y potencialmente **A2b**); el humano queda como validador.
-- **Límite (objetivo D / ética):** *(corpus: REConnect)* la IA no debe sustituir la conexión humana ni
-  descontextualizar; el stakeholder real sigue como curador y guardián de valores.
+- **Límite (objetivo D / ética):** *(corpus: REConnect · `damian2025reconnect`)* la IA no debe sustituir la conexión
+  humana ni descontextualizar; el stakeholder real sigue como curador y guardián de valores.
 
 ### 6.2. Oralidad / entrevistas → artefacto procesable
 
 Convertir feedback oral o conversacional (calls, entrevistas, demos) en artefactos estructurados y accionables
 (tickets, user stories con criterios, especificaciones, modelos de proceso) → evidencia en **A4** (sec. 5.1). Se
-suma *(corpus: Automating BI Requirements, Business Process Discovery through Agentic GenAI, LLM-Assisted
-Sketch-Based Elicitation)*: es el patrón recurrente del mapeo de literatura, *feedback humano → estructuración con
-IA → artefacto usable*. Lo que se automatiza es el descubrimiento por entrevistas de Dumas sec. 5.2.2.
+suma *(corpus: Automating BI Requirements · `busany2024bi`; Business Process Discovery through Agentic GenAI ·
+`lindenberg2025business`; LLM-Assisted Sketch-Based Elicitation · `alabsi2026empirical`)*: es el patrón recurrente
+del mapeo de literatura, *feedback humano → estructuración con IA → artefacto usable*. Lo que se automatiza es el
+descubrimiento por entrevistas de Dumas sec. 5.2.2.
 
 - **Cómo cambia el rol:** la traducción que hacía el analista funcional (actividad **A4**) pasa a ser asistida o
   realizada por IA; el AF cura y valida.
@@ -328,8 +340,8 @@ IA → artefacto usable*. Lo que se automatiza es el descubrimiento por entrevis
 
 Validar automáticamente el pedido contra los requisitos, reglas y artefactos existentes; detectar conflictos,
 contradicciones, duplicados o cosas ya cubiertas antes de que entren al Product Backlog → evidencia en **A3a**
-(sec. 5.1). Se suma *(corpus: Epic Evaluator* — rúbrica de calidad de epics, ya citada en A5 —*)* como evidencia
-adicional de chequeo automático de calidad.
+(sec. 5.1). Se suma *(corpus: Epic Evaluator · `geyer2025epics`* — rúbrica de calidad de epics, ya citada en A5 —*)*
+como evidencia adicional de chequeo automático de calidad.
 
 - **Cómo cambia el rol:** la validación de reglas de negocio (actividad **A3a**) se apoya en una IA que pre-chequea
   consistencia; el AF resuelve lo que la IA marca.
@@ -339,7 +351,8 @@ adicional de chequeo automático de calidad.
 ### 6.4. Generación → desarrollo automático de tickets
 
 Del ticket —o del requisito en lenguaje natural— al código integrado, de forma automática → evidencia en **A1**
-(sec. 5.1). Se suma *(corpus: Requirements are All You Need)*. **Contra-evidencia útil:** el pivote de Tusk y Sweep
+(sec. 5.1). Se suma *(corpus: Requirements are All You Need · `robinson2025requirements`)*. **Contra-evidencia
+útil:** el pivote de Tusk y Sweep
 (abandonaron el ticket→PR autónomo) muestra que el modo totalmente autónomo todavía no cierra.
 
 - **Cómo cambia el rol:** la construcción (actividad **A1**) pasa a agentes; los Developers supervisan.
@@ -366,4 +379,6 @@ si hace falta precisión sobre *cuánto* asume la IA.
 
 ---
 
-*Última actualización: 2026-07-26 — sprint 15.*
+*Última actualización: 2026-07-27 — sprint 15. Sección 5: se marcó el núcleo (▶) para distinguirlo de las
+actividades relevadas solo por trazabilidad; cada cita [corpus] lleva ahora su clave BibTeX; Pirozzi (2024) quedó
+referenciado formalmente en `FUENTES_MARCO.md` sec. c.*

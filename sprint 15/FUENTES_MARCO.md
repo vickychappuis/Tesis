@@ -60,9 +60,19 @@ Identidad verificada uno por uno (Crossref / OpenAlex / primera página del PDF)
 | 6 | **Nguyen-Duc et al. (2025)** — *GenAI for Software Engineering — A Research Agenda*. *Software: Practice and Experience* 55(11), 1806–1843. DOI `10.1002/spe.70005` | ⚠️ preprint arXiv:2310.18648 (v1, oct 2023), verificado como el mismo trabajo. **Las secciones que se citan (4.4.2, 4.4.5, 4.6.2) son las del preprint**: antes de citar en la tesis hay que mapearlas a la versión publicada | 78 preguntas abiertas en 11 áreas de la ingeniería de software → sirve para ubicar los **gaps** y justificar el foco de la PoC |
 | 7 | **Sauvola, Tarkoma, Klemettinen, Riekki & Doermann (2024)** — *Future of software development with generative AI*. *Automated Software Engineering* 31(26). DOI `10.1007/s10515-024-00426-z` | ✅ PDF (open access) | **Tabla 1**: los cuatro escenarios S1–S4 (sec. 6.5 del marco); **Tabla 2**: parámetros del modelo (H/AI/T/P y roles A/B/C/D) |
 
+## (c) Otras fuentes citadas por el marco
+
+Fuentes que el marco cita pero que no pertenecen ni al corpus sistemático (`sprint 12/REFERENCIAS.md`) ni a los
+artículos del tutor (sec. b).
+
+| # | Fuente | Acceso | Aporte al marco |
+|---|--------|--------|-----------------|
+| 8 | **Pirozzi, M. (2024)** — *The Stakeholder Perspective in the Generative Artificial Intelligence Scenario and the AI-Stakeholders*. *PM World Journal* XIII(VIII), Featured Paper. ISSN 2330-4480 | ✅ PDF en `fuentes_marco/`; identidad verificada contra la primera página | Concepto de **AI-Stakeholder** (sec. 6.1 del marco). ⚠️ Revista profesional, **no peer-reviewed**: citar como literatura gris. Hallada en la exploración temprana (sprint 2), antes de la búsqueda sistemática |
+
 ---
 
 _Última actualización: 2026-07-27 — sprint 15. Los anclajes de Sommerville y Dumas se re-chequearon uno por uno contra
 el texto extraído de los PDF: Dumas quedó sin cambios (6/6 correctos); en Sommerville se corrigió el número de sección
 de la cita de aceptación en ágil (20.5 → 20.4), el número de chequeos de validación (cuatro → cinco) y la ubicación de
-la definición de acceptance testing (sec. 8.4 → introducción del cap. 8)._
+la definición de acceptance testing (sec. 8.4 → introducción del cap. 8). Se agregó la sec. (c) con Pirozzi (2024),
+que estaba citado en el marco sin referencia formal._
