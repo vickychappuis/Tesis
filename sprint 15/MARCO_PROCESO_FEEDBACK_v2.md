@@ -227,13 +227,16 @@ sirva de tabla de trazabilidad. Las fuentes son de tres tipos:
 
 ### 5.1. A2b — Uso y testing de aceptación ⚠
 
-**El gap, y quién lo declara.** Al revisar el estado del arte en aseguramiento de la calidad, **Nguyen-Duc et al.
-(2025)** constatan que el *acceptance testing* —junto con el de integración y el de atributos de calidad— queda
-afuera de lo que se investiga hoy: *"other areas of testing are not currently the focus of existing studies, i.e.
-acceptance testing, integration testing, and testing other software quality requirements"* (sec. 4.4.5). Y en su
-agenda dejan planteada la pregunta *"How can GenAI be utilized to automate acceptance criteria from high-level
-requirements?"* (RQ 5 de sec. 4.4.2) **[general]**. De nuevo: el hueco lo declaran los autores; esta tesis lo toma
-como justificación del foco de la PoC.
+**El gap, y quién lo declara.** El *acceptance testing* —las pruebas con las que el cliente o stakeholder valida
+que el software entregado hace lo que el negocio necesita, es decir, la actividad central de A2b— casi no se
+investiga en el contexto de la IAG. Lo constatan **Nguyen-Duc et al. (2025)**: su artículo es una agenda de
+investigación que releva qué se estudió sobre IAG en cada área de la ingeniería de software y qué preguntas quedan
+abiertas (78, en 11 áreas), y al repasar el aseguramiento de la calidad encuentran que los estudios existentes se
+concentran en otros tipos de prueba: *"other areas of testing are not currently the focus of existing studies, i.e.
+acceptance testing, integration testing, and testing other software quality requirements"* (sec. 4.4.5). Entre sus
+preguntas abiertas dejan planteada, además, *"How can GenAI be utilized to automate acceptance criteria from
+high-level requirements?"* (RQ 5 de sec. 4.4.2) **[general]**. Es decir: el hueco no lo postula esta tesis, lo
+declaran los propios autores; la tesis solo lo toma como justificación del foco de la PoC.
 
 **Qué podría hacer la IAG.** Reportes de bug en lenguaje natural → bug completo con pasos de reproducción
 **[corpus: Bug Tracking GenAI · `torun2025bugtracking`]**.
