@@ -332,19 +332,5 @@ impersonación del stakeholder.
 
 ---
 
-*Última actualización: 2026-07-27 — sprint 15. Las viejas secciones 5 (capa con IAG, por actividad) y 6 (grandes
-áreas con IAG) se **fusionaron en una sola**: hablaban de lo mismo desde dos cortes distintos y se solapaban. Queda
-la sección 5, organizada por actividad del núcleo (A2b–A2c), con la evidencia, el cambio de rol y el límite dentro
-de cada una; las soluciones que cruzan más de una actividad —la impersonación de stakeholders, que toca A2b y A2c—
-se marcan como tales en lugar de tratarse aparte. El resto del proceso (A1, A3a–A5) **salió del marco**: su
-relevamiento vive en `sprint 12/REFERENCIAS.md` y acá solo queda el argumento de que ahí la literatura ya cubre
-(5.3). Los escenarios S1–S4 pasan a ser la sección 6, porque no son soluciones sino una escala para graduar cuánto
-desplaza la IA al humano; leído contra ella, el núcleo se concentra en S2 y solo la impersonación llega a S3. Se explicitó en cada ítem quién afirma qué —hallazgo empírico vs. pregunta abierta de la
-agenda de Nguyen-Duc et al. vs. expectativa declarada por los autores— y se corrigió el sentido de la cita de
-Nguyen-Duc sec. 4.1.4: la IAG **genera** inconsistencias, no las detecta.*
-
-*Además, **A2a (liberación del incremento) pasó del núcleo a la franja de contexto**, junto a A1: la ejecutan solo
-los Developers, ahí no cambia ninguna dinámica stakeholder–equipo y su gap declarado —automatización de
-build/deployment, RQ 6 de Nguyen-Duc et al.— no es objeto de esta tesis; queda registrado en 5.3 por trazabilidad.
-Del proceso importa su cadencia (sección 1), que condiciona la frecuencia posible del feedback. El núcleo queda en
-**A2b + A2c**: exactamente donde se genera el feedback.*
+*Última actualización: 2026-07-27 — sprint 15. El registro de cambios respecto de la v1 está en
+`CAMBIOS_DESDE_V1.md`.*
