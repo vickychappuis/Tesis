@@ -21,13 +21,15 @@ negocio hasta que el backlog queda listo para la próxima iteración, y se compo
 
 | Bloque                                              | Actividades   | Qué pasa ahí                                                              |
 | --------------------------------------------------- | ------------- | ------------------------------------------------------------------------- |
-| **Entrega y revisión del incremento** ← *el núcleo* | A2a, A2b, A2c | El incremento llega al negocio y **se genera el feedback**                |
+| **Uso y revisión del incremento** ← *el núcleo*     | A2b, A2c      | El negocio usa el incremento y **se genera el feedback**                  |
 | Validación del feedback                             | A3a, A3b      | Se contrasta contra las reglas de negocio y contra lo técnicamente viable |
 | Incorporación al backlog                            | A4, A5        | El feedback se vuelve trabajo priorizado y reabre el ciclo                |
 
 El **núcleo** es el primer bloque: es donde el negocio ve el producto y reacciona, y es el que la Sprint Review sola
-no alcanza a cubrir (sección 2.2). El desarrollo del incremento (**A1**) entra solo como contexto: produce la versión
-que el negocio ve, pero no es el foco.
+no alcanza a cubrir (sección 2.2). El desarrollo del incremento (**A1**) y su liberación (**A2a**) entran solo como
+contexto: producen la versión que el negocio ve y la ponen en sus manos, pero no son el foco — en la liberación no
+interviene ningún actor del negocio ni se genera feedback. De A2a importa su **cadencia** —condiciona cada cuánto
+puede llegar feedback al negocio (objetivo B)—, no su mecánica interna.
 
 **Entra:** desde que hay un incremento (v ≥ 0.1 **con código**) que llega al negocio, y el feedback externo que
 desencadena hasta el siguiente entregable.
@@ -136,18 +138,22 @@ sección 3.
 
 > **⚠** = actividad de la práctica **no definida en Scrum**, con su anclaje propio.
 
-**Contexto** — lo que produce la versión que ve el negocio; no es el foco.
+**Contexto** — lo que produce la versión que ve el negocio y la pone en sus manos; no es el foco.
 
-| #   | Actividad                                                         | Roles          | Entradas                           | Salidas                       | Objetivo               | Anclaje                                                                              |
-| --- | ----------------------------------------------------------------- | -------------- | ---------------------------------- | ----------------------------- | ---------------------- | ------------------------------------------------------------------------------------ |
-| A1  | Desarrollo del incremento *(incluye inner loop y revisión de PR)* | Developers, PO | Sprint Backlog, Definition of Done | *Increment* que cumple la DoD | Producir el incremento | Scrum: *Sprint*, *Increment*, *DoD*; el **cómo** no lo define → Sommerville sec. 7.3 |
+| #   | Actividad                                                         | Roles          | Entradas                           | Salidas                                   | Objetivo                                 | Anclaje                                                                              |
+| --- | ----------------------------------------------------------------- | -------------- | ---------------------------------- | ----------------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------ |
+| A1  | Desarrollo del incremento *(incluye inner loop y revisión de PR)* | Developers, PO | Sprint Backlog, Definition of Done | *Increment* que cumple la DoD             | Producir el incremento                   | Scrum: *Sprint*, *Increment*, *DoD*; el **cómo** no lo define → Sommerville sec. 7.3 |
+| A2a | Liberación del incremento ⚠                                       | Developers     | Increment                          | Incremento liberado, accesible al negocio | Poner el incremento en manos del negocio | ⚠ fuera de Scrum → Sommerville sec. 2.3.2 y sec. 8.3                                 |
 
-**▶ Entrega y revisión del incremento — EL NÚCLEO DE LA ETAPA.** Es donde el incremento llega al negocio y se
-genera el feedback. Son tres momentos, y **solo el último está definido por Scrum** (ver sección 2.2):
+> A2a queda fuera del objeto de estudio —la ejecutan solo los Developers y ahí no cambia ninguna dinámica
+> stakeholder–equipo—, pero su **cadencia** condiciona la frecuencia posible del feedback (objetivo B), y por eso
+> permanece en el modelo como compuerta de entrada del núcleo.
+
+**▶ Uso y revisión del incremento — EL NÚCLEO DE LA ETAPA.** Es donde el negocio usa el incremento y se
+genera el feedback. Son dos momentos, y **solo el segundo está definido por Scrum** (ver sección 2.2):
 
 | #   | Actividad                         | Roles                            | Entradas                                     | Salidas                                           | Objetivo                                                       | Anclaje                                              |
 | --- | --------------------------------- | -------------------------------- | -------------------------------------------- | ------------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------- |
-| A2a | **Liberación del incremento** ⚠   | Developers                       | Increment                                    | Incremento liberado, accesible al negocio         | Poner el incremento en manos del negocio                       | ⚠ fuera de Scrum → Sommerville sec. 2.3.2 y sec. 8.3 |
 | A2b | **Uso y testing de aceptación** ⚠ | Stakeholder (+ AF)               | Incremento liberado, criterios de aceptación | Observaciones, cambios, bugs detectados en el uso | Que el negocio use el producto y detecte desvíos               | ⚠ fuera de Scrum → Sommerville sec. 8.4 y sec. 20.4  |
 | A2c | **Sprint Review**                 | PO, Developers, Stakeholders, AF | Suma de incrementos, Product Goal            | Feedback del negocio; Product Backlog ajustado    | Inspeccionar el resultado del Sprint y determinar adaptaciones | Scrum Guide p. 9 — *working session*, ≤ 4 h          |
 
@@ -166,7 +172,7 @@ genera el feedback. Son tres momentos, y **solo el último está definido por Sc
 
 El diagrama de ciclo de vida elaborado previamente (`sprint 12/CICLO_DE_VIDA.md`) numera los ciclos de feedback
 como L1–L5. Este marco hace zoom sobre una parte: **A1** pliega los loops técnicos internos del equipo (L3a, inner
-loop del desarrollador, y L3b, revisión de PR); **A2a–A2c** son el loop de incremento (L3); **A3a** es la validación
+loop del desarrollador, y L3b, revisión de PR); **A2a** (contexto) y **A2b–A2c** componen el loop de incremento (L3); **A3a** es la validación
 de reglas de negocio (L4). El discovery inicial (L1), la validación de prototipo (L2) y la evolución del producto en
 producción (L5) quedan **fuera**.
 
@@ -196,11 +202,12 @@ La leyenda —una sola semántica para todo el diagrama— va dentro de la figur
 
 ## 5. Capa con IAG
 
-Qué podría hacer la IAG en **el núcleo de la etapa** —A2a, A2b y A2c, sección 1—, que es donde se enfoca la tesis.
+Qué podría hacer la IAG en **el núcleo de la etapa** —A2b y A2c, sección 1—, que es donde se enfoca la tesis.
 **Esta es la única sección que trata las soluciones con IAG**, y va actividad por actividad: cada una lleva su
-evidencia, cómo cambia el rol y cuál es el límite. Las actividades fuera del núcleo (A1, A3a–A5) **no se cubren
-acá**: lo que la literatura reporta sobre ellas está relevado en `sprint 12/REFERENCIAS.md`, y lo único que importa
-para este marco —que ahí la literatura ya cubre, y que por eso el hueco del núcleo resalta— se dice en 5.4.
+evidencia, cómo cambia el rol y cuál es el límite. Las actividades fuera del núcleo (A1, A2a, A3a–A5) **no se cubren
+acá**: lo que la literatura reporta sobre A1 y A3a–A5 está relevado en `sprint 12/REFERENCIAS.md`, la evidencia
+sobre A2a se resume en 5.3, y lo único que importa para este marco —que fuera del núcleo la literatura ya cubre o el
+gap no toca dinámicas stakeholder–equipo, y que por eso el hueco del núcleo resalta— se dice en 5.3.
 
 Algunas soluciones **cruzan más de una actividad** —la impersonación de stakeholders es el caso claro: toca A2b y
 A2c— y se marcan como tales en la actividad donde la evidencia las ubica, en vez de tratarse aparte.
@@ -218,24 +225,7 @@ sirva de tabla de trazabilidad. Las fuentes son de tres tipos:
   clave BibTeX de `sprint 12/REFERENCIAS.bib` para que la trazabilidad no dependa del nombre corto.
 - **[producto]** — producto o empresa relevada como *state of practice*: evidencia de mercado, no académica.
 
-### 5.1. A2a — Liberación del incremento ⚠
-
-**Qué podría hacer la IAG.** En el terreno de DevOps y despliegue, Malladi & Sudheer Reddy (2025, sec. III) relevan
-**métodos híbridos** —aprendizaje por refuerzo combinado con síntesis de datos— aplicados a la escritura de
-pipelines y a prácticas de CI/CD atentas a la calidad **[general]**. Hay trabajo publicado, pero no es IAG sola.
-
-**Lo que falta, y quién dice que falta.** Son **Nguyen-Duc et al. (2025)** quienes ubican la automatización de
-*build* y *deployment* entre las preguntas que **su propia agenda deja abiertas a investigación futura** —*"How can
-GenAI support the automation of build and deployment processes?"*, RQ 6 de la lista de sec. 4.6.2 **[general]**. No
-es un vacío que declare esta tesis ni un resultado disponible: son ellos los que registran que todavía no está
-resuelto.
-
-- **Cómo cambia el rol:** la liberación sigue siendo de los Developers; lo que se automatiza es el pipeline, no la
-  decisión de liberar. Es la actividad del núcleo donde **menos** se mueve el reparto de trabajo.
-- **Límite:** la evidencia disponible es de métodos híbridos, no de IAG sola; y el gap declarado indica que acá no
-  hay resultados sobre los que apoyarse.
-
-### 5.2. A2b — Uso y testing de aceptación ⚠
+### 5.1. A2b — Uso y testing de aceptación ⚠
 
 **El gap, y quién lo declara.** Al revisar el estado del arte en aseguramiento de la calidad, **Nguyen-Duc et al.
 (2025)** constatan que el *acceptance testing* —junto con el de integración y el de atributos de calidad— queda
@@ -268,10 +258,10 @@ sec. c]** y productos que ofrecen personas virtuales. Es la solución que más d
   experience"* **[general]**. Lo dicen sobre requisitos, pero el riesgo se traslada tal cual al feedback que emite
   un stakeholder-IA: puede sonar razonable y no serlo, y no hay stakeholder real que lo haya dicho.
 
-### 5.3. A2c — Sprint Review
+### 5.2. A2c — Sprint Review
 
 **Qué podría hacer la IAG.** Asistente que resume la reunión y detecta riesgos e impedimentos **[corpus: Meeting
-Assistants · `cabrero2024exploring`]**. La impersonación de stakeholders (5.2) también opera acá: desplaza feedback
+Assistants · `cabrero2024exploring`]**. La impersonación de stakeholders (5.1) también opera acá: desplaza feedback
 que hoy aparece en la ceremonia hacia antes de ella.
 
 **Proyección de los autores, no hallazgo empírico.** En su sección de *Future Prospects* (sec. 4.1.5),
@@ -284,21 +274,30 @@ temporalidad, pero hay que citarla por lo que es: una expectativa de los autores
 - **Cómo cambia el rol:** la ceremonia deja de concentrar el feedback y pasa a ser el lugar donde se **cura** lo que
   ya llegó por otros canales. El AF, que en A2c participa como delegado del PO (sec. 3.2), ve reducido su papel de
   traductor en vivo.
-- **Límite:** ninguno de los cuatro artículos generales menciona la Sprint Review ni las ceremonias (ver 5.4). Lo
+- **Límite:** ninguno de los cuatro artículos generales menciona la Sprint Review ni las ceremonias (ver 5.3). Lo
   que se afirma acá se apoya en el corpus y en una proyección declarada como tal.
 
-### 5.4. Alcance de las dos capas de evidencia
+### 5.3. Alcance de las dos capas de evidencia
 
-La capa **general** (los cuatro artículos sobre IAG en el desarrollo) aporta el respaldo por etapa del SDLC, **dos
-gaps declarados** —testing de aceptación y automatización de build/deployment, ambos de Nguyen-Duc et al.— y dos
-marcos de encuadre: los escenarios S1–S4 (sección 6) y las **11 áreas** de Nguyen-Duc et al., que ubican este zoom en
-*Requirements Engineering*, *Quality Assurance* y *Engineering Management*.
+La capa **general** (los cuatro artículos sobre IAG en el desarrollo) aporta el respaldo por etapa del SDLC, **un
+gap declarado dentro del núcleo** —el testing de aceptación (A2b), de Nguyen-Duc et al.— y dos marcos de encuadre:
+los escenarios S1–S4 (sección 6) y las **11 áreas** de Nguyen-Duc et al., que ubican este zoom en *Requirements
+Engineering*, *Quality Assurance* y *Engineering Management*.
 
-Los dos gaps caen **dentro del núcleo** —A2a y A2b—, y eso es lo que justifica el recorte de esta sección. Fuera del
-núcleo la literatura ya cubre: construcción y generación de tests (A1), chequeo del pedido contra los requisitos
-(A3a), estimación de esfuerzo e impacto (A3b), redacción de user stories y refinamiento del backlog (A4, A5) —el
-relevamiento está en `sprint 12/REFERENCIAS.md` y no se repite acá—. De los dos gaps, **A2b** —criterios y testing
-de aceptación— es el candidato natural para profundizar.
+Ese gap cae **dentro del núcleo** y es lo que justifica el recorte de esta sección: **A2b** —criterios y testing de
+aceptación— es el candidato natural para profundizar. Fuera del núcleo la literatura ya cubre: construcción y
+generación de tests (A1), chequeo del pedido contra los requisitos (A3a), estimación de esfuerzo e impacto (A3b),
+redacción de user stories y refinamiento del backlog (A4, A5) —el relevamiento está en `sprint 12/REFERENCIAS.md` y
+no se repite acá—.
+
+**A2a (contexto) tiene su propio gap declarado, pero queda fuera del objeto de estudio.** Sobre la liberación,
+Malladi & Sudheer Reddy (2025, sec. III) relevan **métodos híbridos** —aprendizaje por refuerzo combinado con
+síntesis de datos— aplicados a la escritura de pipelines y a prácticas de CI/CD atentas a la calidad **[general]**,
+y **Nguyen-Duc et al. (2025)** dejan la automatización de *build* y *deployment* entre las preguntas abiertas de su
+propia agenda —*"How can GenAI support the automation of build and deployment processes?"*, RQ 6 de la lista de
+sec. 4.6.2 **[general]**. Se registra acá por trazabilidad, no como justificación: en A2a la liberación sigue siendo
+de los Developers, no interviene ningún actor del negocio y no cambia ninguna dinámica stakeholder–equipo; lo único
+de A2a que toca la tesis es su cadencia (sección 1).
 
 Ninguno de los cuatro menciona la **Sprint Review** ni las ceremonias (0 ocurrencias): el zoom fino en el momento del
 feedback está sostenido por la capa **corpus**, que aporta la evidencia puntual. Conviene explicitarlo para no
@@ -320,8 +319,8 @@ original, y se cita la fuente. Editable en `diagramas/escenarios_s1_s4.drawio`.
 | Escenario | Nombre                                        | En una línea                                                            | Dónde cae el núcleo (sección 5)                                                                  |
 | --------- | --------------------------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | **S1**    | *Traditional Software Development Operations* | Humanos en todos los roles; las herramientas automatizan                | Es el proceso **hoy** (sección 3)                                                                  |
-| **S2**    | *AI in loop*                                  | El humano domina; la IA automatiza partes de tareas y asiste decisiones | Casi todo el núcleo: pipelines de CI/CD (**5.1**), bugs desde lenguaje natural (**5.2**), asistente de reunión (**5.3**) |
-| **S3**    | *AI assumes role(s)*                          | La IA asume roles seleccionados; el humano controla la operación        | **Impersonación de stakeholders** (**5.2**): la IA *asume* el rol de quien da feedback — es el único punto del núcleo que llega hasta acá |
+| **S2**    | *AI in loop*                                  | El humano domina; la IA automatiza partes de tareas y asiste decisiones | Casi todo el núcleo: bugs desde lenguaje natural (**5.1**) y asistente de reunión (**5.2**) |
+| **S3**    | *AI assumes role(s)*                          | La IA asume roles seleccionados; el humano controla la operación        | **Impersonación de stakeholders** (**5.1**): la IA *asume* el rol de quien da feedback — es el único punto del núcleo que llega hasta acá |
 | **S4**    | *Human-in-the-loop*                           | La IA gestiona varios roles; el humano vigila                           | **Ninguna solución del núcleo llega**. El candidato —generación automática desde el ticket— cae en A1, fuera del núcleo, y el pivote de Tusk y Sweep (abandonaron el ticket→PR autónomo) muestra que ese modo todavía no cierra |
 
 El paper además parametriza cada escenario por niveles y modela **trayectorias de transición** entre ellos: citable
@@ -335,11 +334,17 @@ impersonación del stakeholder.
 
 *Última actualización: 2026-07-27 — sprint 15. Las viejas secciones 5 (capa con IAG, por actividad) y 6 (grandes
 áreas con IAG) se **fusionaron en una sola**: hablaban de lo mismo desde dos cortes distintos y se solapaban. Queda
-la sección 5, organizada por actividad del núcleo (A2a–A2c), con la evidencia, el cambio de rol y el límite dentro
+la sección 5, organizada por actividad del núcleo (A2b–A2c), con la evidencia, el cambio de rol y el límite dentro
 de cada una; las soluciones que cruzan más de una actividad —la impersonación de stakeholders, que toca A2b y A2c—
 se marcan como tales en lugar de tratarse aparte. El resto del proceso (A1, A3a–A5) **salió del marco**: su
 relevamiento vive en `sprint 12/REFERENCIAS.md` y acá solo queda el argumento de que ahí la literatura ya cubre
-(5.4). Los escenarios S1–S4 pasan a ser la sección 6, porque no son soluciones sino una escala para graduar cuánto
+(5.3). Los escenarios S1–S4 pasan a ser la sección 6, porque no son soluciones sino una escala para graduar cuánto
 desplaza la IA al humano; leído contra ella, el núcleo se concentra en S2 y solo la impersonación llega a S3. Se explicitó en cada ítem quién afirma qué —hallazgo empírico vs. pregunta abierta de la
 agenda de Nguyen-Duc et al. vs. expectativa declarada por los autores— y se corrigió el sentido de la cita de
 Nguyen-Duc sec. 4.1.4: la IAG **genera** inconsistencias, no las detecta.*
+
+*Además, **A2a (liberación del incremento) pasó del núcleo a la franja de contexto**, junto a A1: la ejecutan solo
+los Developers, ahí no cambia ninguna dinámica stakeholder–equipo y su gap declarado —automatización de
+build/deployment, RQ 6 de Nguyen-Duc et al.— no es objeto de esta tesis; queda registrado en 5.3 por trazabilidad.
+Del proceso importa su cadencia (sección 1), que condiciona la frecuencia posible del feedback. El núcleo queda en
+**A2b + A2c**: exactamente donde se genera el feedback.*

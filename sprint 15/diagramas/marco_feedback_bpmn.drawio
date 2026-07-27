@@ -37,7 +37,7 @@
         <mxCell id="A1" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=11;" value="A1 — Desarrollo del incremento&lt;br&gt;&lt;i&gt;(contexto)&lt;/i&gt;" vertex="1">
           <mxGeometry height="70" width="190" x="210" y="655" as="geometry" />
         </mxCell>
-        <mxCell id="A2a" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;dashed=1;dashPattern=8 4;fontSize=11;" value="A2a — Liberación del incremento&lt;br&gt;⚠ fuera de Scrum" vertex="1">
+        <mxCell id="A2a" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;dashed=1;dashPattern=8 4;fontSize=11;" value="A2a — Liberación del incremento&lt;br&gt;⚠ fuera de Scrum · &lt;i&gt;(contexto)&lt;/i&gt;" vertex="1">
           <mxGeometry height="70" width="190" x="430" y="655" as="geometry" />
         </mxCell>
         <mxCell id="A2b" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;dashed=1;dashPattern=8 4;fontSize=11;" value="A2b — Uso y testing de aceptación&lt;br&gt;⚠ fuera de Scrum" vertex="1">

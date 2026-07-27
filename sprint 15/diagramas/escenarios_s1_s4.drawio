@@ -28,7 +28,7 @@
         <mxCell id="hD" value="D&lt;br&gt;entrega y mant." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="900" y="82" width="90" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="hAreas" value="Áreas del marco que se ubican acá (sec. 6)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="hAreas" value="Dónde cae el núcleo de la etapa (sec. 5)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="1010" y="86" width="350" height="24" as="geometry" />
         </mxCell>
 
@@ -73,7 +73,7 @@
         <mxCell id="s2d" value="H o IA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="900" y="275" width="90" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s2n" value="&lt;b&gt;Oralidad → artefacto&lt;/b&gt; (sec. 6.2) y &lt;b&gt;chequeo de consistencia&lt;/b&gt; (sec. 6.3): hoy son asistencia con supervisión humana. Es donde se ubica la mayor parte de la evidencia relevada." style="text;html=1;whiteSpace=wrap;strokeColor=#D6B656;fillColor=#FFF9E6;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s2n" value="&lt;b&gt;Casi todo el núcleo:&lt;/b&gt; bugs desde lenguaje natural (5.1) y asistente de reunión (5.2). Hoy son asistencia con supervisión humana, y es donde se ubica la mayor parte de la evidencia relevada." style="text;html=1;whiteSpace=wrap;strokeColor=#D6B656;fillColor=#FFF9E6;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="1010" y="245" width="350" height="110" as="geometry" />
         </mxCell>
 
@@ -93,7 +93,7 @@
         <mxCell id="s3d" value="IA o H" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="900" y="400" width="90" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s3n" value="&lt;b&gt;Impersonación de stakeholders&lt;/b&gt; (sec. 6.1): la IA &lt;i&gt;asume&lt;/i&gt; el rol de quien emite el feedback. El humano queda como validador." style="text;html=1;whiteSpace=wrap;strokeColor=#B85450;fillColor=#FDF3F2;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s3n" value="&lt;b&gt;Impersonación de stakeholders&lt;/b&gt; (5.1, transversal a A2b y A2c): la IA &lt;i&gt;asume&lt;/i&gt; el rol de quien emite el feedback; el humano queda como validador. &lt;b&gt;Es el único punto del núcleo que llega hasta acá.&lt;/b&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=#B85450;fillColor=#FDF3F2;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="1010" y="370" width="350" height="110" as="geometry" />
         </mxCell>
 
@@ -113,7 +113,7 @@
         <mxCell id="s4d" value="IA ↑ H" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="900" y="525" width="90" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s4n" value="&lt;b&gt;Generación → desarrollo automático&lt;/b&gt; (sec. 6.4) apunta acá. &lt;b&gt;Contra-evidencia:&lt;/b&gt; el pivote de Tusk y Sweep muestra que el modo autónomo todavía no cierra." style="text;html=1;whiteSpace=wrap;strokeColor=#B85450;fillColor=#FDF3F2;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s4n" value="&lt;b&gt;Ninguna solución del núcleo llega.&lt;/b&gt; El candidato —generación automática desde el ticket— cae en A1, fuera del núcleo. &lt;b&gt;Contra-evidencia:&lt;/b&gt; el pivote de Tusk y Sweep muestra que el modo autónomo todavía no cierra." style="text;html=1;whiteSpace=wrap;strokeColor=#B85450;fillColor=#FDF3F2;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="1010" y="495" width="350" height="110" as="geometry" />
         </mxCell>
 

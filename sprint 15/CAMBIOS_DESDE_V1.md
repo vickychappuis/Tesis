@@ -57,6 +57,10 @@ flujo rotulado *"puede llegar antes de la ceremonia"*.
 especificación completa sino de stakeholders involucrados **con autoridad para decidir** (sec. 20.4) — la relación misma
 que la tesis pone en cuestión cuando entra IAG. Citas en `FUENTES_MARCO.md` sec. a.2.
 
+*(Estado actual: tras el desdoblamiento, **A2a se movió a la franja de contexto** del marco, junto a A1 — la
+ejecutan solo los Developers y ahí no se genera feedback; del proceso importa su cadencia, no su mecánica. El
+**núcleo** queda en **A2b + A2c**, que es donde el negocio usa el producto y reacciona.)*
+
 ## 3. Notación uniforme *(pedido: "cajitas y globitos, marea un poquito")*
 
 Se pasó a **BPMN**: como los roles son carriles del mismo diagrama, las dos vistas se unifican en **una sola** y no
@@ -82,10 +86,12 @@ Los cuatro artículos están verificados uno por uno y leídos. Qué respaldo te
 Cada ítem quedó etiquetado como **corpus**, **producto** o **general** (los cuatro artículos) para poder auditarlo.
 
 ⚠️ **La tabla de arriba es el registro del refuerzo, no el estado actual del marco.** Después del refuerzo, la capa
-con IAG se recortó al **núcleo**: `MARCO_PROCESO_FEEDBACK_v2.md` sec. 5 trata solo A2a, A2b y A2c, con la evidencia,
-el cambio de rol y el límite dentro de cada actividad. Las filas de A1, A3a, A3b, A4 y A5 **ya no están en el
+con IAG se recortó al **núcleo**: `MARCO_PROCESO_FEEDBACK_v2.md` sec. 5 trata solo A2b y A2c, con la evidencia,
+el cambio de rol y el límite dentro de cada actividad. A2a pasó a **contexto**: su evidencia (Malladi) y su gap
+declarado (build/deployment, Nguyen-Duc) quedaron registrados en sec. 5.3 por trazabilidad, sin ser objeto de la
+tesis. Las filas de A1, A3a, A3b, A4 y A5 **ya no están en el
 marco** —el relevamiento de esas actividades vive en `sprint 12/REFERENCIAS.md`—; en el marco quedó únicamente el
-argumento de que ahí la literatura ya cubre y que por eso el hueco del núcleo resalta (sec. 5.4).
+argumento de que ahí la literatura ya cubre y que por eso el hueco del núcleo resalta (sec. 5.3).
 
 Dos cosas para decir de frente:
 
@@ -114,14 +120,14 @@ recortar el marco al núcleo, las áreas se repartieron así:
 
 | Área (v1) | Actividad que tocaba | Dónde quedó |
 |---|---|---|
-| Impersonación de stakeholders | A2b, A2c | **Adentro del marco**, en sec. 5.2, marcada como transversal a A2b y A2c |
+| Impersonación de stakeholders | A2b, A2c | **Adentro del marco**, en sec. 5.1, marcada como transversal a A2b y A2c |
 | Oralidad → artefacto procesable | A4, A5 | Fuera del núcleo → sale del marco; relevamiento en `sprint 12/REFERENCIAS.md` |
 | Chequeo de consistencia (el "firewall") | A3a, A5 | Fuera del núcleo → sale del marco; ídem |
 | Generación → desarrollo automático | A1 | Fuera del núcleo → sale del marco; ídem. Se menciona en sec. 6 como el candidato a S4 que hoy no cierra |
 
 De la última área sobrevive la **contra-evidencia** (el pivote de Tusk y Sweep), y del "firewall" el **límite** de
 Nguyen-Duc —que la IAG *genera* inconsistencias— porque se traslada tal cual al feedback que emite un stakeholder-IA
-y por eso quedó como límite de sec. 5.2.
+y por eso quedó como límite de sec. 5.1.
 
 Los escenarios S1–S4 sí quedaron como sección propia (sec. 6 del marco), porque no son una solución más sino la
 escala para graduar cuánto desplaza la IA al humano. Leído contra ella aparece un resultado que antes no se veía:
