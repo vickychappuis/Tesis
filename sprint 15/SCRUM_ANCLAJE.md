@@ -158,11 +158,11 @@ vía *inspection* / *adaptation* y vía la participación de *stakeholders* en l
 
 ---
 
-## 5. Propuesta de armonización: la "etapa de revisión ampliada"
+## 5. Propuesta de armonización: la etapa de feedback excede la ceremonia
 
-Consecuencia de sec. 3 y sec. 4: el zoom **no** es la Sprint Review sola. Es una **etapa de revisión** de la que la Sprint
-Review es *un* momento —el único que Scrum define— compuesta por: **liberación del incremento** (fuera de Scrum) →
-**uso y testing de aceptación** por el negocio (fuera de Scrum) → **Sprint Review** (evento Scrum). De ahí sale el
+Consecuencia de sec. 3 y sec. 4: el zoom **no** es la Sprint Review sola. Es una **etapa de feedback** de la que la
+Sprint Review es *un* momento —el único que Scrum define—, compuesta por: **liberación del incremento** (fuera de
+Scrum) → **uso y testing de aceptación** por el negocio (fuera de Scrum) → **Sprint Review** (evento Scrum). De ahí sale el
 feedback, que pasa por validación de reglas y de factibilidad, entra al Product Backlog y reabre el ciclo.
 
 → Dibujado en `diagramas/marco_feedback_bpmn.*`; actividades y anclajes en `MARCO_PROCESO_FEEDBACK_v2.md` sec. 2.

@@ -11,8 +11,12 @@
 ## 1. Delimitación del zoom
 
 El desarrollo transcurre en iteraciones de longitud fija —Sprints—, cada una de las cuales produce un incremento de
-producto. Al final de cada iteración ese incremento llega al negocio, que lo revisa y devuelve feedback; ese
-intercambio es lo que reabre el ciclo. **Esa etapa de revisión es el objeto de este marco.**
+producto. Al final de cada iteración ese incremento llega al negocio, que lo usa, lo evalúa y devuelve feedback; ese
+intercambio es lo que reabre el ciclo.
+
+**Ese tramo es el objeto de este marco y lo llamamos *etapa de feedback*.** No coincide con la Sprint Review: la
+ceremonia es uno de sus tres momentos, junto con la liberación del incremento y su uso y testing de aceptación por
+parte del negocio (sección 2.1).
 
 **Entra:** desde que hay un incremento (v ≥ 0.1 **con código**) que llega al negocio, y el feedback externo que
 desencadena hasta el siguiente entregable.
@@ -40,10 +44,9 @@ producción / evolución (feedback posterior a la aceptación).
 
 > Citas textuales de cada anclaje: `FUENTES_MARCO.md` sec. a.1 (Dumas) y sec. a.2 (Sommerville).
 
-### 2.1. Por qué la revisión son tres actividades y no solo la ceremonia
+### 2.1. Por qué la etapa abarca tres actividades y no solo la Sprint Review
 
-De los tres momentos en que se descompone la revisión —A2a, A2b y A2c—, el único que Scrum define es la **Sprint
-Review**. La Guía la describe como una *working session* que no debe limitarse a una presentación, pero **desacopla
+De los tres momentos que componen la etapa —A2a, A2b y A2c—, el único que Scrum define es la **Sprint Review**. La Guía la describe como una *working session* que no debe limitarse a una presentación, pero **desacopla
 la liberación de la ceremonia** —*"an Increment may be delivered to stakeholders prior to the end of the Sprint. The
 Sprint Review should never be considered a gate to releasing value"*— y **declara su propia incompletitud**: es un
 *"container for other techniques, methodologies, and practices"*. Coherente con eso, las palabras `feedback`, `test`

@@ -34,8 +34,8 @@ diagrama, esas actividades van en gris punteado con ⚠.
 
 ## 2. Rascar la Sprint Review *(pedido: "hay toda una etapa de revisión")*
 
-El zoom ya no es la ceremonia sola: es una **etapa de revisión** de tres momentos, y solo el último está definido
-por Scrum.
+El zoom ya no es la ceremonia sola: es una **etapa de feedback** de tres momentos, y solo el último —la Sprint
+Review— está definido por Scrum.
 
 | | Actividad | ¿Scrum? | Origen |
 |---|---|---|---|
