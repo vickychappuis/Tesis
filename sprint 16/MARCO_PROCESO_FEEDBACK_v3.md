@@ -190,21 +190,16 @@ pisaban entre sí.
 **Etiquetas de fuente:** **[corpus]** paper del mapeo sistemático · **[general]** los cuatro artículos sobre IAG en el
 desarrollo · **[gris]** preprint o prensa profesional, sin peer review · **[producto]** evidencia de mercado.
 
-> ### ⚠ Advertencia metodológica — leer antes que las categorías
+> ### Nota sobre el alcance de estas categorías
 >
-> **El corpus no fue construido para responder esta pregunta.** El string del sprint 5 fue
-> `"generative AI" AND ("business users" OR clients OR stakeholders) AND "software development"`: **no contiene
-> ningún término de testing, validación, aceptación ni feedback**. En consecuencia, 12 de los 12 papers
-> peer-reviewed son de ingeniería de requisitos y prototipado, y **ninguno observa a un cliente reaccionando frente
-> a software ya construido con IAG** — que es el objeto declarado de esta tesis.
+> El corpus original se armó con un string que **no contenía términos de testing, validación ni aceptación**
+> (`"generative AI" AND ("business users" OR clients OR stakeholders) AND "software development"`, sprint 5). Por eso
+> los 12 papers peer-reviewed son de ingeniería de requisitos y prototipado. Las categorías que siguen describen,
+> entonces, **la literatura adyacente que enmarca el problema**, no el objeto de la tesis.
 >
-> Esto tiene dos consecuencias que se sostienen a lo largo de la sección:
-> 1. Las categorías describen **lo que el corpus contiene**, no el mapa completo del campo.
-> 2. **Ninguna afirmación de hueco puede apoyarse en este corpus** (ver 4.7): un cero de un string que nunca
->    preguntó no es evidencia de ausencia.
->
-> Las asignaciones fueron verificadas contra los PDF en agosto de 2026. De las que la versión anterior daba por
-> buenas, **cuatro resultaron falsas** — el agrupamiento por título tiene tasa de error alta y no se usa acá.
+> Esa laguna se cubrió con una **búsqueda dirigida posterior** (ver 4.7), que confirmó que el hueco es real y no un
+> artefacto del string. Las asignaciones de esta sección fueron verificadas contra los PDF en agosto de 2026; de las
+> que la versión anterior daba por buenas, **cuatro resultaron falsas**, así que no se usa agrupamiento por título.
 
 ### 4.1. La IA **emite** el feedback — impersonación de stakeholders
 
@@ -248,9 +243,16 @@ Agrupa lo que antes estaban separado en tres categorías que se solapaban: refor
 y convertir input disperso en trabajo accionable. Son la misma operación sobre el mismo artefacto; lo único que
 cambia es si la salida es una reescritura, un veredicto o un ticket.
 
-- **Reformulación asistida del enunciado del stakeholder** **[corpus: `mircea2026supporting`, REFSQ 2026]** —
-  *"LLM-assisted reformulation improves perceived completeness, clarity, and alignment"*, con 26 participantes; usa
-  los LLM como *"articulation aids"* y mantiene al stakeholder *"in the validation loop"*.
+- **Reformulación asistida del enunciado del stakeholder** **[corpus: `mircea2026supporting`, REFSQ 2026]** — el
+  participante escribe cinco user stories, un LLM se las devuelve reescritas y él las compara con su original. 26
+  participantes, 130 pares; todas las dimensiones mejoran (p<.001). El 43 % de las revisiones sacó a la luz aspectos
+  que el participante no había mencionado y consideraba importantes; solo el 5 % introdujo errores. Es el caso más
+  limpio de esta categoría: el LLM **no genera ni juzga**, reformula para que el humano apruebe. Su encuadre propio
+  —**"AI-in-the-Loop"**, el humano conduce y la IA asiste— se opone explícitamente a tratar al LLM como productor
+  autónomo, y es un matiz aprovechable para este marco.
+  ⚠ **Alcance:** los 26 son *"software engineering students and professionals"*, todos usuarios activos de IDEs —
+  **no hay actores de negocio**; el eje baja/alta experiencia es experiencia con IDEs, no negocio vs. técnico. Y es
+  elicitación sobre un IDE hipotético: no hay software construido en ningún punto.
 - **Generación asistida de criterios de aceptación** **[corpus: `abbasi2025towards`]** — el prototipo se llama
   *Acceptance Criteria Assistant*: el ingeniero entra una user story y elige o edita los criterios que proponen
   varios modelos. ⚠ **Sin evaluación empírica** (la evaluación con practicantes está planificada, no hecha) y **el
@@ -305,9 +307,13 @@ la intención a la app **[producto: `emergent`]** y de la call al spec con crite
 >   situation involving multiple stakeholders"*. **Lo que adelanta es la sincronización intra-equipo, no la reacción
 >   del negocio.** Su aporte más cercano a esta tesis es la dirección inversa: reconocer si un requisito ya está
 >   cumplido en la GUI, y derivar user stories desde interfaces existentes.
-> - **Alabsi es evidencia débil:** escenario simulado, un solo sketch, 3 evaluadores todos técnicos, preprint sin
->   peer review. Los autores admiten que *"may not fully represent the perspectives of non-technical stakeholders"*.
->   No sostiene afirmaciones sobre dinámicas con el negocio.
+> - **Alabsi no tiene participantes.** Verificado sobre el texto completo: el rol fue actuado — *"a stakeholder role
+>   was **simulated**"*—, hay un solo sketch y 3 evaluadores todos técnicos (ICC(2,k)=0,518, acuerdo moderado), y es
+>   preprint sin peer review. Además es de **una sola pasada** —*"LLMs generated requirements and prototypes in a
+>   single pass"*—, o sea que **no observó ningún ciclo de feedback**. Su promesa de que *"enables earlier
+>   validation"* es por lo tanto **inferencial, no medida**: nadie que no fuera técnico miró nunca el prototipo.
+>   Sirve como encuadre teórico (el prototipo como *boundary object*) y como evidencia del hueco — no como evidencia
+>   de dinámicas con el negocio.
 > - **Robinson es paper de visión** (TOSEM), sin estudio empírico. Es el mejor encaje conceptual del corpus con esta
 >   tesis —cubre elicitación *y* validación por el usuario final— pero aporta agenda, no evidencia.
 
@@ -338,61 +344,128 @@ académico no cubre ese tramo, pero la evidencia de mercado sí y está relevada
       Nota: las referencias clave de `CLAUDE.md` sobre esta dimensión (Perry et al. 2023; Vaithilingam et al. 2022)
       no están citadas en ninguna parte del marco.
 
-### 4.7. Qué está cubierto y qué no — con las cautelas del caso
+### 4.7. Qué está cubierto y qué no — resultado de la búsqueda dirigida
 
-Esta subsección reemplaza al antiguo *"hueco declarado"*, que **era refutable con el propio corpus**.
+El corpus original no podía responder esta pregunta: su string no contenía términos de testing ni de aceptación. Por
+eso se hizo una **búsqueda dirigida y documentada** (agosto 2026) con los términos faltantes.
 
-**Lo que la evidencia disponible sí cubre**, y que por lo tanto **no** puede reclamarse como hueco:
+**Método.** Cuatro strings booleanos sobre la API de arXiv (con conteos exactos), 14 búsquedas web y 3 consultas a
+Semantic Scholar, filtro 2023 en adelante:
 
-| Actividad | Estado | Evidencia |
+| String (campo `abs:`) | Total arXiv | Relevantes |
 |---|---|---|
-| Generar **criterios de aceptación** desde requisitos | **Cubierto** | `abbasi2025towards` (*Acceptance Criteria Assistant*); `stein2026integrating` (los genera en su Task 3); `pmagent` **[producto]** |
-| Generar y ejecutar **tests de aceptación** | **Cubierto** (fuera del corpus) | Literatura de *acceptance test generation* con LLM: escenarios Gherkin desde user stories → scripts ejecutables; hay survey 2026 del área |
-| **Validación de requisitos** como fase de RE | **Cubierto y en disputa** | Ver discrepancia abajo |
+| `"acceptance testing" AND ("large language model" OR "generative AI" OR LLM)` | 13 | 6 |
+| `"acceptance criteria" AND ("large language model" OR "generative AI" OR LLM)` | 31 | 9 |
+| `"user acceptance testing" OR "UAT"` | 55 ⚠ | ~4 |
+| `("acceptance test" OR "acceptance tests") AND (Gherkin OR BDD OR "behaviour-driven")` | 7 | 5 |
 
-**Lo que no se encontró cubierto:** la **instancia de aceptación negociada con el stakeholder real sobre software ya
-construido** — el momento en que la persona de negocio usa el producto y dice "esto no es lo que pedí". Las técnicas
-de arriba automatizan el **artefacto** (criterio, test, ticket) y miran hacia adentro del equipo; el **ciclo de
-feedback humano** en esa instancia es lo que ninguna de las verificaciones logró encontrar tratado.
+⚠ El total de 55 está contaminado: en arXiv, "UAT" matchea mayoritariamente *Universal Approximation Theorem*. **No
+citar ese número.**
 
-> ⚠ **Esta afirmación todavía no está probada y no debe presentarse como hallazgo.** Requiere una **búsqueda
-> dirigida y documentada** (`"acceptance testing"` / `"user acceptance"` / `"UAT"` / `"acceptance criteria"` +
-> GenAI). Un cero con string documentado sería evidencia legítima; el silencio del string actual —que nunca preguntó
-> por estos términos— no lo es.
+**Resultado: 24 trabajos de tipo A, 0 de tipo B.**
 
-**Tres cautelas que hay que declarar en el texto final:**
+- **Tipo A — generar el artefacto** (tests, criterios, escenarios Gherkin). Actividad técnica; el usuario es
+  developer, tester o PO revisando artefactos. Cuerpo consolidado y creciente, 2024–2026, en AST, ASE, ISSTA, ICSE,
+  RE, SIGCSE, SAC.
+- **Tipo B — estudiar la interacción de validación del stakeholder**: una persona de negocio usando el software
+  construido y devolviendo si es lo que pidió. **Ninguno.**
 
-1. **Fechado de la cita de Nguyen-Duc.** El pasaje *"other areas of testing are not currently the focus of existing
-   studies, i.e. acceptance testing…"* **[general]** es literal y correcto, pero su relevamiento **cierra en octubre
-   de 2023**. Citarlo como "(2025)" para sostener un hueco en 2026, teniendo corpus 2024–2026 que lo matiza, es
-   indefendible. Citar como *"relevamiento con corte oct-2023"*.
-2. **Las SLR del corpus se contradicen entre sí sobre la validación.** `cheng2026generative` (238 artículos, la más
-   grande y reciente) reporta que *"studies on requirement validation had a share of 19,0%"* — o sea, **no** está
-   subexplorada. `fischer2026generative` (37 publicaciones) dice lo contrario: validación = 4/37, *"remain
-   underexplored"*. **Hay que declarar la discrepancia, no elegir la cita conveniente.**
-3. **Ojo con el falso amigo "validation".** En las SLR, *requirement validation* significa contrastar requisitos con
-   expectativas **antes de construir** — no aceptación de software entregado. Usar sus cifras como proxy del foco de
-   esta tesis es medir otra cosa.
+**El hueco es real y no es un artefacto del string original:** se buscó con los términos correctos y tampoco apareció.
 
-**Y una objeción que hay que enfrentar de frente:** Lang y Fischer no leen el vacío como oportunidad sino como
-inadecuación — *"requirement validation is less suitable for AI-driven automation, which explains its limited
-presence in research"*. Si esta tesis sostiene lo contrario, tiene que argumentarlo explícitamente, no ignorarlo.
+#### Tres piezas que lo demuestran sin depender de una ausencia
 
-**Un dato mejor para encuadrar el aporte:** `cheng2026generative` reporta que **más del 90 % de los estudios son de
-etapa temprana y solo el 1,3 % llega a integración en producción**. La brecha más defendible del campo hoy no es de
-fase del proceso, sino de **adopción industrial y evidencia empírica de campo**.
+1. **Por contradicción.** *XUAT-Copilot* es el único trabajo con "User Acceptance Testing" en el título, y su
+   contribución es **sacar al humano del UAT** — tres agentes LLM automatizan los scripts. Lo mismo hace
+   *GUISpector* con la verificación de prototipos GUI: automatiza justamente la validación que haría el stakeholder.
+   El único campo dedicado a la aceptación trata el rol humano como trabajo a eliminar, no como interacción a
+   estudiar.
+2. **El campo registra la práctica y no la estudia.** Fonseca et al. (ASE 2025, caso BMW) reportan como hallazgo
+   *lateral* que el Gherkin generado terminó usándose como **artefacto de validación revisado por stakeholders** en
+   vez de ejecutarse. Es evidencia práctica de que la validación del stakeholder ocurre en la industria — dentro de
+   un paper que estudia otra cosa.
+3. **Asimetría industria ↔ academia.** Las búsquedas de *product owner / business analyst + validación + empírico* y
+   de *vibe coding + no programadores + empírico* devolvieron **0 papers y 18 de 18 enlaces comerciales** (blogs de
+   consultoras, Scrum.org, cursos). La industria habla del tema constantemente; la literatura no lo cubre.
+
+#### Dónde está el hueco, exactamente
+
+Cruzando **quién es el sujeto** con **en qué momento del ciclo actúa la IA**:
+
+| | La IA procesa feedback **ya emitido** | La IA media **el acto de emitirlo** |
+|---|---|---|
+| Sujeto = corpus de texto | **Saturado** — minería de reviews con LLM | vacío |
+| Sujeto = developer | trazabilidad issue↔commit | **Poblado** — *vibe coding* |
+| Sujeto = **actor de negocio real** | casi vacío | ⬛ **el hueco** |
+
+Los dos cuerpos grandes están desplazados **en las dos dimensiones a la vez**: la minería de reviews usa la IA para
+*digerir* feedback que el usuario ya emitió por canales tradicionales —el usuario es un corpus histórico y el ciclo
+nunca se observa como interacción—; y el *vibe coding* sí tiene humanos reales, pero el no técnico allí está
+**construyendo**, no validando lo que otro construyó.
+
+> **Cómo enunciarlo.** No como ausencia ("no hay literatura") sino como desplazamiento: *hay un cuerpo consolidado
+> sobre generación automática de tests y criterios de aceptación con IAG, y literatura abundante sobre IA que
+> procesa feedback ya emitido; no hay literatura empírica sobre cómo se reconfigura la interacción de validación del
+> stakeholder de negocio frente a software funcionando.*
+
+#### Por qué el hueco importa — evidencia de que es un problema, no un nicho
+
+Tres trabajos convergen en que **la capacidad de generar se democratizó y la de validar no**:
+
+- **Virk y Liu (VL/HCC 2025)** — profesionales de marketing y ventas evaluando análisis generados por IA:
+  *"business professionals cannot reliably verify AI-generated data analyses on their own"*, y fallan **incluso
+  instruidos explícitamente a buscar errores**. Es el único trabajo hallado que pone actores de negocio reales a
+  validar salida de IA. (Objeto: un análisis de datos, no software funcionando — ahí queda el margen de esta tesis.)
+- **Fawzy et al. (2026)** — 162 *vibe coders* (no programadores, novatos y profesionales): el *perception–action
+  gap*; el *vibe coding* *"is partially democratising as it broadens access to software creation without equally
+  distributing the expertise to evaluate it"*.
+- **Sharma et al. (2026), *Feedback by Design*** — cuatro barreras al feedback de calidad, derivadas de las máximas
+  de Grice: **common ground, verifiability, communication, informativeness**. Es andamiaje conceptual casi directo
+  para este marco y para el diseño de la PoC.
+
+Y los dos papers del corpus que más prometían materialización temprana **declaran esta misma ausencia como
+limitación y trabajo futuro**: `mircea2026supporting` (los participantes son técnicos; en grupos *"with limited
+articulation ability"* los efectos podrían variar) y `alabsi2026empirical` (evaluadores todos técnicos, que *"may
+not fully represent the perspectives of non-technical stakeholders"*).
+
+#### Cautelas que hay que declarar en el texto final
+
+1. **Fechar la cita de Nguyen-Duc.** El pasaje sobre el testing de aceptación **[general]** es literal, pero su
+   relevamiento **cierra en octubre de 2023**. Citarlo como "(2025)" para sostener un hueco en 2026 es indefendible.
+   Citar como *"relevamiento con corte oct-2023"* — y apoyarse en la búsqueda dirigida de arriba, que es actual.
+2. **Las SLR del corpus se contradicen sobre "validación".** `cheng2026generative` (238 artículos) reporta *"studies
+   on requirement validation had a share of 19,0%"*; `fischer2026generative` (37 publicaciones) dice que
+   *"remain underexplored"* (4/37). **Declarar la discrepancia, no elegir la cita conveniente.**
+3. **Falso amigo "validation".** En las SLR de RE significa contrastar requisitos con expectativas **antes de
+   construir**, no aceptación de software entregado. Usar sus cifras como proxy del foco de esta tesis es medir otra
+   cosa.
+4. **Falso amigo "acceptance".** El término está dominado por TAM/UTAUT —escalas psicométricas de *aceptación de la
+   tecnología*, otra disciplina—: 17 de los 20 primeros resultados de una consulta amplia. Todo string con
+   "acceptance" necesita anclaje en *testing* / *criteria* / *software*.
+5. **Objeción a enfrentar de frente:** Lang y Fischer no leen el vacío como oportunidad sino como inadecuación —
+   *"requirement validation is less suitable for AI-driven automation, which explains its limited presence in
+   research"*. Si esta tesis sostiene lo contrario, hay que argumentarlo, no ignorarlo.
+
+**Limitación metodológica de la búsqueda dirigida, a declarar:** ACM DL devolvió 403, SpringerLink redirige a login
+e IEEE Xplore exige sesión; los tres se cubrieron **indirectamente** vía DOIs recuperados desde arXiv y Semantic
+Scholar. Conviene repetir esas tres búsquedas desde la red de ORT para obtener totales citables. Los buscadores web
+no exponen totales, y el `total` de Semantic Scholar es un pool de relevancia, no un conteo booleano.
 
 ### 4.8. Pendientes de esta sección
 
-- [ ] **Bloqueante — búsqueda dirigida** de acceptance testing / UAT / criterios de aceptación + GenAI, documentada
-      como las del sprint 5. Destraba 4.1 (evidencia de impersonación), 4.7 (el hueco) y la decisión de alcance.
-- [ ] **Bloqueante — decisión de alcance.** El marco excluye elicitación inicial y prototipado, pero 4.3 y 4.4 son
-      casi enteramente eso. O se amplía el alcance declarado a todo el intercambio con el stakeholder
-      (requisitos ↔ aceptación, que es lo que ya hace la sec. 2 con las dos puntas del V), o se mantiene angosto y se
-      reporta la cobertura del corpus como limitación metodológica. **Hoy el documento dice una cosa y el corpus es
-      otra.**
-- [ ] Conseguir los tres papers no leídos: `lindenberg2025business` (bloquea 4.5 y el objetivo D),
-      `mircea2026supporting` y `alabsi2026empirical` (Research Square es de acceso abierto).
+- [x] ~~Búsqueda dirigida~~ **hecha** (4-ago-2026) — ver 4.7: 24 trabajos tipo A, 0 tipo B. El hueco es real.
+- [x] ~~Decisión de alcance~~ **resuelta por el resultado de la búsqueda.** Ya no hay que elegir entre alcance
+      angosto y corpus coherente: el corpus de RE es **literatura adyacente que enmarca** el hueco (secs. 4.1–4.6),
+      los 24 trabajos tipo A son **lo que sí existe** sobre aceptación, y la celda vacía es el objeto de la tesis y
+      de la PoC. Queda **redactar ese encuadre** en la sec. 1 y en la introducción de la sec. 4.
+- [ ] **Incorporar al corpus las tres piezas que dan consecuencia al hueco** (ver 4.7): Virk y Liu (VL/HCC 2025),
+      Fawzy et al. (2026) y Sharma et al. (2026). Van a `FUENTES_MARCO.bib` como hallazgos de búsqueda dirigida,
+      **no** a `REFERENCIAS.bib`, que es el corpus del mapeo sistemático.
+- [ ] Repetir las búsquedas en **ACM DL, SpringerLink e IEEE Xplore desde la red de ORT** — los tres bloquearon el
+      acceso y se cubrieron indirectamente vía DOIs. Sin eso no hay totales citables para esas bases.
+- [x] ~~Conseguir Mircea y Alabsi~~ **hechos**: PDF en `sprint 16/papers/`, fichas completadas y verificadas en
+      `REFERENCIAS.bib`. Ninguno de los dos tiene actores de negocio (ver 4.3 y 4.4).
+- [ ] `lindenberg2025business` sigue **sin acceso** (confirmado por Unpaywall, OpenAlex y Semantic Scholar; sin
+      preprint). Bloquea 4.5 y el objetivo D. Vía: SpringerLink desde ORT/Timbó, o mail a los autores.
 - [ ] Decidir el tramo técnico (4.6).
 - [ ] Recuperar del v2 lo que se perdió en la reescritura: `pmagent` ya volvió; revisar `IDEAS_POC.md` por técnicas
       sin categoría (generación de preguntas / Quest-RE, RECOVER, chatbot sobre low-code) y el concepto propio de
@@ -431,7 +504,9 @@ fase del proceso, sino de **adopción industrial y evidencia empírica de campo*
 | # | Falta | Por qué / cómo se destraba |
 |---|---|---|
 | 1 | ~~Fuente citable del V-model~~ **Resuelto** | → `pressman2020software` **cap. 2** (+ `rook1986controlling` como origen histórico), cargadas en `FUENTES_MARCO.bib`. Se cita **por capítulo**, no por figura, así que no hace falta el ejemplar. **Descartado el V-Modell XT:** abandonó el diagrama en V y se organiza por *Vorgehensbausteine* / *Entscheidungspunkte* / *Projekttypen* — citarlo para el V clásico habría sido un error. |
-| 2 | **Cerrar la lista de categorías (sec. 4)** | Requiere pasar por el corpus (`sprint 12/REFERENCIAS.*` + sección 5 del v2) y decidir el agrupamiento. Es trabajo de criterio, no mecánico. |
-| 3 | **Figuras** | V-model y escenarios: ver qué se reusa de `sprint 15/diagramas/`. |
+| 2 | ~~Cerrar la lista de categorías (sec. 4)~~ **Resuelto** | Criterio declarado (qué operación hace la IA sobre el ciclo), 5 categorías + nota del tramo técnico, todas las asignaciones verificadas contra los PDF. Pendientes menores en 4.8. |
+| 3 | **Decisiones de Victoria/Daniel** | (a) el tramo técnico de 4.6 — el objetivo A lo nombra y hoy el marco no lo cubre; (b) si la tabla A2a–A5 de la sec. 3 se queda; (c) si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC. |
+| 4 | **Figuras** | V-model (propia, la de referencia es de origen web) y escenarios: ver qué se reusa de `sprint 15/diagramas/`. |
+| 5 | **Acceso a `lindenberg2025business`** | Bloquea la categoría 4.5 y con ella el objetivo D. Vía biblioteca ORT/Timbó o mail a los autores. |
 
 **Meta B3:** versión escrita y prolija para decidir por dónde encarar la experimentación / PoC.
