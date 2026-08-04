@@ -193,3 +193,10 @@
 **Pendiente:** segunda pasada con Daniel sobre el marco v2 (`sprint 15/CAMBIOS_DESDE_V1.md` como guía de la reunión).
 
 ---
+
+## Sprint 16 — 30 jul → 6 ago 2026
+
+- Segunda pasada del marco v2 con Daniel (call 30 jul, `sprint 15/resumen_call.md`; transcripción en `sprint 15/DANIEL 30 DE JULIO.transcripcion.txt`, gitignoreada). Decisión de fondo: **desacoplar el marco de Scrum** y contarlo de lo general a lo particular. Daniel bajó por escrito la narrativa de la **v3 (B3)**, volcada como tabla de pasos en el resumen: **Sommerville** (proceso de desarrollo) → **V-model** (los 2 puntos de feedback: requisitos y aceptación) → **Scrum** solo como ejemplo (sin IA) → "Feedback con IA" (categorías de artículos con nombre, agnósticas al modelo de proceso) → gráfico de escenarios → aspectos no considerados / problemas abiertos. Sigue siendo estado del arte, sin propuesta propia todavía.
+- **Pendiente:** armar la **v3 (B3)** del marco con la nueva estructura; conectar las técnicas con la tabla de escenarios; agregar capa de aspectos no cubiertos; definir "stakeholder" desde Sommerville. Detalle en `sprint 15/resumen_call.md` ("Próximos pasos — Sprint 16").
+
+---
