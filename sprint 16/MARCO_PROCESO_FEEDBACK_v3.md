@@ -77,8 +77,8 @@ Anclaje en Sommerville (verificado):
 - *Acceptance testing* como instancia formal del cliente (sec. 8.4); *"System stakeholders… who certify the
   acceptability of the system"* (sec. 4.1).
 
-**Fuente del V-model: `pressman2020software`.** Pressman & Maxim presentan el V-model en el capítulo de modelos de
-proceso, con exactamente esta correspondencia (verificado en las slides oficiales de la 7ª ed.):
+**Fuente del V-model: `pressman2020software`, cap. 2 (*Process Models*).** Pressman & Maxim presentan ahí el
+V-model con exactamente esta correspondencia:
 
 | Pressman | ↔ | Pressman |
 |---|---|---|
@@ -101,9 +101,7 @@ V-model en desarrollo de software.
 > **ilustración de la correspondencia** definición ↔ prueba, no como modelo de proceso a seguir. Cuántas veces se
 > recorre la V es justamente lo que cambia entre modelos — y eso es lo que abre la sección 3.
 
-- [x] Fuente citable del V-model → `pressman2020software` (+ `rook1986controlling` como origen), ya cargadas en `FUENTES_MARCO.bib`.
-- [ ] ⚠ Conseguir el ejemplar de Pressman (ed. 2020) para verificar **número de figura y sección** — hoy está
-      verificado el contenido, no la ubicación en esa edición.
+- [x] Fuente citable del V-model → `pressman2020software` cap. 2 (+ `rook1986controlling` como origen), ya cargadas en `FUENTES_MARCO.bib`.
 - [ ] Rehacer la figura del V-model (propia, marcando las dos puntas y la flecha superior) — el diagrama de
       referencia es de origen web, no sirve para publicar.
 - [ ] Chequear largo: Daniel pidió **breve**; hoy esta sección está más larga que la 1.
@@ -158,7 +156,7 @@ Categorías (semilla — cerrar contra la sección 5 del v2 y el corpus):
 
 | # | Falta | Por qué / cómo se destraba |
 |---|---|---|
-| 1 | ~~Fuente citable del V-model~~ **Resuelto** | → `pressman2020software` (+ `rook1986controlling` como origen histórico), cargadas en `FUENTES_MARCO.bib`. **Descartado el V-Modell XT:** abandonó el diagrama en V y se organiza por *Vorgehensbausteine* / *Entscheidungspunkte* / *Projekttypen* — citarlo para el V clásico habría sido un error. **Queda:** conseguir el ejemplar de Pressman 2020 para verificar figura y sección. |
+| 1 | ~~Fuente citable del V-model~~ **Resuelto** | → `pressman2020software` **cap. 2** (+ `rook1986controlling` como origen histórico), cargadas en `FUENTES_MARCO.bib`. Se cita **por capítulo**, no por figura, así que no hace falta el ejemplar. **Descartado el V-Modell XT:** abandonó el diagrama en V y se organiza por *Vorgehensbausteine* / *Entscheidungspunkte* / *Projekttypen* — citarlo para el V clásico habría sido un error. |
 | 2 | **Cerrar la lista de categorías (sec. 4)** | Requiere pasar por el corpus (`sprint 12/REFERENCIAS.*` + sección 5 del v2) y decidir el agrupamiento. Es trabajo de criterio, no mecánico. |
 | 3 | **Figuras** | V-model y escenarios: ver qué se reusa de `sprint 15/diagramas/`. |
 
