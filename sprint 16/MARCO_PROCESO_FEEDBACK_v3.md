@@ -178,6 +178,25 @@ momentos**: el uso real del producto, que puede ser asincrónico y anterior a la
 
 ## 4. Feedback con IA — categorías de técnicas
 
+> # ⛔ NO MOSTRAR ESTA SECCIÓN — EN REVISIÓN
+>
+> Tres verificaciones adversariales (3-ago-2026) encontraron errores graves. **No usar hasta reescribir.**
+> Los tres bloqueantes:
+>
+> 1. **El hueco de 4.8 es un artefacto del string de búsqueda.** El string del sprint 5 —`"generative AI" AND
+>    ("business users" OR clients OR stakeholders) AND "software development"`— **no contiene ningún término de
+>    testing, validación, aceptación ni feedback**. Un corpus que nunca preguntó por *acceptance testing* no puede
+>    ser evidencia de que no se estudia.
+> 2. **4.1 (impersonación) no tiene fuente del corpus.** `raftopoulos2024designing` es diseño participativo con
+>    Lego y cartas de cartón: `impersonat` = 0, `LLM` = 0 apariciones en el texto.
+> 3. **Contradicción alcance ↔ corpus.** El alcance excluye elicitación y prototipado; 4.3 y 4.4 son enteramente eso.
+>
+> Además: la RQ 5 que 4.5 presenta como *pregunta abierta* **ya está respondida por un paper del propio corpus**
+> (el prototipo de `abbasi2025towards` se llama *Acceptance Criteria Assistant*), y Nguyen-Duc está citado como
+> "(2025)" cuando su relevamiento **cierra en octubre de 2023**.
+>
+> Detalle completo de los 12 hallazgos: ver el resumen de la sesión. Correcciones de ficha pendientes en el `.bib`.
+
 Sobre las interacciones descritas hasta acá, la IAG generativa **reformula algunas dinámicas**. Lo que sigue agrupa
 los trabajos del estudio previo en **categorías por aspecto**, no por actividad ni por modelo de proceso: cada una
 tiene un nombre, dice de qué trata y qué efecto tiene la IA ahí — con sus beneficios y sus riesgos.
