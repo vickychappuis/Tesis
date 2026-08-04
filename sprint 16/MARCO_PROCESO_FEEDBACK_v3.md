@@ -176,16 +176,116 @@ momentos**: el uso real del producto, que puede ser asincrónico y anterior a la
       a la trazabilidad con el v2, pero puede leerse como que Scrum vuelve a ser la base).
 - [ ] Chequear que las citas de la Scrum Guide sigan coincidiendo con `FUENTES_MARCO.md` (ya verificadas en v2).
 
-## 4. Feedback con IA — categorías de técnicas (era la sección 5)
+## 4. Feedback con IA — categorías de técnicas
 
-*Qué va:* la IA cambia esas dinámicas. Conectar con los trabajos del estudio previo agrupándolos en **categorías con nombre**; cada una: qué es + efecto de la IA + beneficios/riesgos. Agnóstico al modelo de proceso — no anclar a ninguna actividad de Scrum.
+Sobre las interacciones descritas hasta acá, la IAG generativa **reformula algunas dinámicas**. Lo que sigue agrupa
+los trabajos del estudio previo en **categorías por aspecto**, no por actividad ni por modelo de proceso: cada una
+tiene un nombre, dice de qué trata y qué efecto tiene la IA ahí — con sus beneficios y sus riesgos.
 
-Categorías (semilla — cerrar contra la sección 5 del v2 y el corpus):
+Etiquetas de fuente (se mantiene la convención del v2): **[corpus]** paper del mapeo sistemático ·
+**[general]** los cuatro artículos sobre IAG en el desarrollo · **[producto]** evidencia de mercado, no académica ·
+**[gris]** preprint / prensa profesional, no peer-reviewed.
 
-- **Impersonación de stakeholders** — agentes que actúan como el stakeholder y responden preguntas. Beneficio: feedback **24/7**. Riesgo: no es el stakeholder real (hay que validar que responde como respondería él).
-- **Transcripción / traducción automática de reuniones** — [ ] describir.
-- **Generación de criterios de aceptación** (desde requisitos de alto nivel / transcripciones / contexto de empresa) — [ ] describir.
-- [ ] Revisar sección 5 del v2 + corpus para cerrar la lista.
+> **Estado de verificación.** Las categorías marcadas ✅ ya venían sintetizadas y citadas en el v2 (sec. 5).
+> Las marcadas 🔶 son **agrupamientos propuestos a partir de título y ubicación en el corpus**: hay que leer los
+> papers para confirmar que dicen lo que la categoría afirma antes de darlas por buenas.
+
+### 4.1. Impersonación de stakeholders ✅
+
+Una IA configurada para representar a un stakeholder —cliente, usuario, PM— y emitir feedback como si fuera él, sin
+depender de su disponibilidad **[corpus: `raftopoulos2024designing`]**; se suma el concepto de *AI-Stakeholder*
+**[Pirozzi 2024 — revista profesional, ver `FUENTES_MARCO.md` sec. c]** y productos que ofrecen personas virtuales
+**[producto]**.
+
+- **Efecto:** el stakeholder deja de ser el único emisor de feedback y pasa a **validador** de lo que la IA devolvió.
+  El beneficio que se le atribuye es la disponibilidad continua —feedback 24/7, sin coordinar agendas—.
+- **Riesgo:** no es el stakeholder real. El propio cliente debe validar que el agente responde lo que él respondería;
+  y hay un límite explícito en la literatura: la IA no debe sustituir la conexión humana ni descontextualizar — el
+  stakeholder real sigue como curador **[gris: `damian2025reconnect`]**.
+
+### 4.2. Asistencia en las instancias de interacción 🔶
+
+Asistentes que participan de la reunión con el stakeholder: transcriben, resumen y detectan riesgos e impedimentos
+**[corpus: `cabrero2024exploring`]** ✅. Daniel lo nombró *"traducción automática de reuniones"*.
+
+- **Efecto:** baja el costo de capturar lo que se dijo y de convertirlo en registro; la instancia deja de depender de
+  que alguien tome notas bien.
+- **Riesgo / a verificar:** qué se pierde en el resumen, y si la presencia del asistente cambia lo que el stakeholder
+  dice.
+
+### 4.3. Asistencia en la expresión y el refinamiento de requisitos 🔶
+
+Es la categoría con **más masa en el corpus**: LLMs que ayudan a formular, revisar o completar lo que el stakeholder
+pide. Incluye la revisión asistida de la expresión del propio stakeholder **[corpus: `mircea2026supporting`]**,
+marcos de colaboración humano-IA en RE **[corpus: `abbasi2025towards`]**, la integración de LLMs al proceso de RE
+**[corpus: `stein2026integrating`]** y la automatización de requisitos en dominios concretos
+**[gris: `busany2024bi`]**. Hay además tres panorámicas del área que sirven para encuadrar y no como evidencia
+puntual: **[corpus: `vasudevan2025role`, `fischer2026generative`, `cheng2026generative`]**.
+
+- **Efecto:** el requisito llega mejor formulado sin que el stakeholder tenga que aprender a escribirlo.
+- **Riesgo / a verificar:** si el LLM *refina* o **sustituye** la intención original; y cuánta de esta literatura mira
+  la elicitación inicial —fuera del alcance de esta tesis (sec. 1)— en vez del feedback sobre lo ya construido.
+
+### 4.4. Materialización temprana: de lo pedido a algo que se puede ver 🔶
+
+En vez de devolverle al stakeholder un texto, se le devuelve **algo mirable**: prototipos de interfaz generados desde
+user stories **[corpus: `kretzer2025closing`]** o elicitación y prototipado a partir de bocetos
+**[corpus: `alabsi2026empirical`]**.
+
+- **Efecto:** adelanta el momento en que el stakeholder puede reaccionar — opina sobre algo concreto, no sobre una
+  descripción. Es la categoría más ligada a la **validación temprana** (objetivo D).
+- **Riesgo / a verificar:** el prototipo puede inducir la respuesta; y validar rápido puede sacrificar calidad de UX
+  en favor de la velocidad **[general: Cornide-Reyes et al. 2025, sec. 1]**.
+
+### 4.5. Evaluación automática de la calidad de los artefactos 🔶
+
+La IA no genera el artefacto sino que lo **juzga**: evaluación de la calidad de épicas en ágil
+**[gris: `geyer2025epics`]**. Acá cae también una pregunta que la literatura deja **abierta y sin probar**: *"How can
+GenAI be utilized to automate acceptance criteria from high-level requirements?"* **[general: Nguyen-Duc et al.
+(2025), RQ 5 de sec. 4.4.2]** ✅ — es una pregunta de agenda, no un hallazgo.
+
+- **Efecto:** mueve parte del control de calidad del artefacto antes de que llegue al equipo.
+- **Riesgo:** que el criterio del evaluador automático reemplace al del negocio sin que nadie lo note.
+
+### 4.6. Del feedback disperso al trabajo accionable 🔶
+
+Convertir lo que el negocio dijo —en cualquier canal— en ítems de trabajo: reportes de bug en lenguaje natural que se
+completan con pasos de reproducción **[gris: `torun2025bugtracking`]** ✅, y productos que van de feedback a tickets
+o de entrevistas a reportes **[producto: `kraftful`, `versive`]**.
+
+- **Efecto:** reduce la traducción manual que hoy hace el analista funcional.
+- **Riesgo:** el feedback se estructura según lo que el sistema sabe representar.
+
+### 4.7. Construcción directa por usuarios no técnicos 🔶
+
+El actor de negocio interactúa con la herramienta generativa **sin intermediario técnico**: la visión de
+*end-user software engineering*, con los requisitos en lenguaje natural como artefacto central
+**[corpus: `robinson2025requirements`]** ✅, productos que van de la intención a la app **[producto: `emergent`]** y
+el fenómeno reportado de usuarios de negocio construyendo sus propias apps **[gris: prensa profesional, lote 3 #18]**.
+
+- **Efecto:** es la categoría que más directamente toca el **objetivo C** (transformación de roles): si el negocio
+  construye, la frontera entre quien pide y quien implementa se corre.
+- **Riesgo:** el pivote de dos de los productos relevados **[producto: `tusk`, `sweep`]** sugiere que el modo
+  autónomo sin validador humano todavía no cierra.
+
+### 4.8. El hueco declarado
+
+Transversal a todo lo anterior: el **testing de aceptación** —donde el stakeholder valida que lo entregado hace lo que
+el negocio necesita— **casi no se investiga** en el contexto de la IAG. Lo declaran los propios autores de la agenda:
+*"other areas of testing are not currently the focus of existing studies, i.e. acceptance testing, integration
+testing, and testing other software quality requirements"* **[general: Nguyen-Duc et al. (2025), sec. 4.4.5]** ✅.
+
+Es decir: las categorías 4.1–4.7 se concentran en **entender qué quiere** el stakeholder; la punta derecha del
+V-model —**validar que lo construido es eso**— está mucho menos cubierta.
+
+- [ ] ⚠ **Decisión pendiente:** el v2 tenía en su sec. 5.1 la **propuesta de la PoC** marcada como `[propuesta]`
+      (validación temprana sobre el cambio generado). **La saqué de esta sección**, porque Daniel pidió que el
+      documento sea estado del arte *"solo contexto, no una propuesta concreta"*. Confirmar si se deja fuera hasta la
+      sección de la PoC o si se menciona en la sec. 6 como dirección.
+- [ ] 🔶 Leer los papers de las categorías marcadas para confirmar el agrupamiento (hoy asignados por título/rol en
+      el corpus, no por lectura).
+- [ ] Decidir si `lindenberg2025business` (descubrimiento de procesos de negocio) abre categoría propia o entra en
+      4.3 — no tiene PDF accesible (sec. sin acceso abierto).
 
 ## 5. Vínculo con el gráfico de escenarios de uso (Nguyen-Duc et al.)
 
