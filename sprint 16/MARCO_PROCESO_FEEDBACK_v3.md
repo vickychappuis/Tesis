@@ -12,15 +12,56 @@
 
 ## 1. Proceso de desarrollo de software (Sommerville) → requisitos y V&V
 
-*Qué va:* breve — qué etapas tiene un proceso de desarrollo de software; destacar **requisitos** y **V&V** como las etapas donde entra el stakeholder.
+Un **proceso de software** es una secuencia de actividades que conduce a la producción de un producto de software.
+Sommerville identifica **cuatro actividades fundamentales comunes a todos los procesos de software**
+(sec. 1.1.1), que el capítulo 2 desarrolla como *process activities* (sec. 2.2):
 
-- [ ] 1–2 párrafos apoyados en Sommerville (agregar la cita a `FUENTES_MARCO.bib`).
-- [ ] Enumerar las etapas (análisis/requisitos → diseño → implementación → V&V → evolución) sin sobreexplicar.
+| # | Actividad (Sommerville) | Qué pasa ahí | Sec. |
+|---|---|---|---|
+| 1 | **Especificación** del software | *"customers and engineers define the software that is to be produced and the constraints on its operation"* | 2.2.1 |
+| 2 | **Diseño e implementación** | el software se diseña y se programa | 2.2.2 |
+| 3 | **Validación** (V&V) | *"the software is checked to ensure that it is what the customer requires"* | 2.2.3 |
+| 4 | **Evolución** | el software se modifica para reflejar requisitos cambiantes del cliente y del mercado | 2.2.4 |
+
+Sommerville aclara que estas actividades genéricas *"pueden organizarse de distintas formas y describirse a distintos
+niveles de detalle, según el tipo de software"* (sec. 1.1.1) — lo que habilita el encuadre agnóstico al modelo de
+proceso que sostiene este marco.
+
+**De las cuatro, dos involucran directamente al stakeholder** y son el foco de este documento:
+
+- **Especificación / requisitos (1)** — por definición se hace *con* el cliente: es donde se define qué hay que
+  construir. Sommerville la llama *requirements engineering* (cap. 4).
+- **Validación / V&V (3)** — el chequeo es contra *lo que el cliente requiere*, no solo contra el documento: la
+  V&V *"muestra que un sistema tanto se ajusta a su especificación como cumple las expectativas del cliente"*
+  (sec. 2.2.3). Dentro de V&V, el *user testing* y el *acceptance testing* son las instancias donde el stakeholder
+  participa en persona (sec. 8.4).
+
+Diseño/implementación (2) y evolución (4) quedan como contexto: producen y mantienen lo que el stakeholder
+después ve, pero no son puntos de intercambio con él.
+
+- [ ] Redacción final: chequear largo (Daniel pidió **breve**) y que no se solape con la sección 2.
+- [x] Cita en `FUENTES_MARCO.bib` — ya existe (`sommerville2016software`); sumar secs. 1.1.1 y 2.2 a las verificadas en `FUENTES_MARCO.md`.
 
 ## 2. Verificación y validación: el V-model → las puntas son el feedback del stakeholder
 
 *Qué va:* ilustrar V&V con el V-model; en **las puntas** (elicitación de requisitos ↔ aceptación) es donde aparece el stakeholder que da feedback. Los dos puntos se conectan: se acepta contra lo que se pidió.
 
+Material ya verificado en Sommerville:
+
+- La formulación clásica de V&V (sec. 8.1): *"Validation: Are we building the right product? · Verification: Are we
+  building the product right?"* — sirve para separar las dos preguntas y conectar las dos puntas.
+- El *acceptance testing* como instancia formal del cliente (sec. 8.4).
+
+> ⚠ **Hueco a resolver — anclaje del V-model.** Sommerville menciona el V-model **una sola vez, al pasar**
+> (Figura 2.7, cap. 2): *"This is sometimes called the V-model of development... The V-model shows the software
+> validation activities that correspond to each stage of **the waterfall process model**."* Dos problemas:
+> 1. Lo presenta **atado a cascada**, justo lo contrario del encuadre agnóstico que queremos.
+> 2. Su V-model es sobre **planes de prueba ↔ etapas de desarrollo**; *no* dice que "en las puntas está el
+>    stakeholder que da feedback" — esa lectura es de Daniel (es buena, pero no es de Sommerville).
+>
+> Es decir: **la sección 2 no se sostiene solo con Sommerville.** Ver "Qué falta" al final.
+
+- [ ] Conseguir un anclaje propio del V-model (ver "Qué falta").
 - [ ] Figura del V-model marcando las dos puntas (reusar/adaptar de `sprint 15/diagramas/` si sirve).
 - [ ] 1 párrafo: por qué queremos feedback = (a) saber qué necesita y (b) validar que lo construido es lo que quería.
 
@@ -59,9 +100,23 @@ Categorías (semilla — cerrar contra la sección 5 del v2 y el corpus):
 
 ## Definiciones a explicitar
 
-- **Stakeholder** (Sommerville): acotar al foco de la tesis — una persona/representante que **prueba y opina de forma verbal**. Excluir feedback indirecto (telemetría/ML, auto-PRs).
+- **Stakeholder** — Sommerville lo define en sec. 4.1 (cap. 4, *Requirements engineering*): *"System stakeholders
+  include anyone who is affected by the system in some way and so anyone who has a legitimate interest in it.
+  Stakeholders range from end-users of a system through managers to external stakeholders such as regulators, who
+  certify the acceptability of the system."* Es una definición **amplia** (incluye usuario final, cliente,
+  reguladores). Sobre ella hay que **acotar el foco de la tesis**: un representante que **prueba el producto y opina
+  de forma verbal**, excluyendo el feedback indirecto (telemetría/ML, auto-PRs). La cita da el paraguas; el recorte
+  es nuestro y hay que declararlo como tal.
 - **Analista funcional:** rol clásico (validación de reglas de negocio). No sobre-formalizar; se decide luego si es rol propio o se absorbe en el Product Owner.
 
 ---
+
+## Qué falta (bloqueantes reales)
+
+| # | Falta | Por qué / cómo se destraba |
+|---|---|---|
+| 1 | **Fuente propia del V-model** | Sommerville solo lo nombra al pasar y **atado a cascada** (ver ⚠ en sec. 2). Si el V-model va a cargar el argumento de la sección 2, necesita anclaje propio. Candidatos: Pressman & Maxim (2020, ya en las referencias del proyecto), Forsberg & Mooz (origen del V-model), o ISO/IEC/IEEE 12207. **Decisión de Victoria/Daniel:** conseguir la fuente o bajar el V-model a "ilustración" sin pretensión normativa. |
+| 2 | **Cerrar la lista de categorías (sec. 4)** | Requiere pasar por el corpus (`sprint 12/REFERENCIAS.*` + sección 5 del v2) y decidir el agrupamiento. Es trabajo de criterio, no mecánico. |
+| 3 | **Figuras** | V-model y escenarios: ver qué se reusa de `sprint 15/diagramas/`. |
 
 **Meta B3:** versión escrita y prolija para decidir por dónde encarar la experimentación / PoC.
