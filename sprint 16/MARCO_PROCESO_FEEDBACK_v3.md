@@ -44,26 +44,52 @@ después ve, pero no son puntos de intercambio con él.
 
 ## 2. Verificación y validación: el V-model → las puntas son el feedback del stakeholder
 
-*Qué va:* ilustrar V&V con el V-model; en **las puntas** (elicitación de requisitos ↔ aceptación) es donde aparece el stakeholder que da feedback. Los dos puntos se conectan: se acepta contra lo que se pidió.
+El V-model ordena las actividades del proceso en una **V**: la rama descendente son las etapas de definición
+(*verificación*) y la ascendente las de prueba (*validación*), con **coding** en el vértice. Lo relevante para este
+marco no son los niveles en sí, sino las **flechas horizontales**: cada nivel de definición tiene su nivel de prueba
+correspondiente, y **se prueba contra lo que ese nivel definió**.
 
-Material ya verificado en Sommerville:
+| Rama de definición (verificación) | ↔ | Rama de prueba (validación) |
+|---|---|---|
+| **Requirement gathering** | ↔ | **Acceptance testing** |
+| System analysis | ↔ | System testing |
+| Software design | ↔ | Integration testing |
+| Module design | ↔ | Unit testing |
+| *Coding* (vértice) | | |
 
-- La formulación clásica de V&V (sec. 8.1): *"Validation: Are we building the right product? · Verification: Are we
-  building the product right?"* — sirve para separar las dos preguntas y conectar las dos puntas.
-- El *acceptance testing* como instancia formal del cliente (sec. 8.4).
+**El nivel superior es el único donde participa el stakeholder**, y aparece en las dos puntas:
 
-> ⚠ **Hueco a resolver — anclaje del V-model.** Sommerville menciona el V-model **una sola vez, al pasar**
-> (Figura 2.7, cap. 2): *"This is sometimes called the V-model of development... The V-model shows the software
-> validation activities that correspond to each stage of **the waterfall process model**."* Dos problemas:
-> 1. Lo presenta **atado a cascada**, justo lo contrario del encuadre agnóstico que queremos.
-> 2. Su V-model es sobre **planes de prueba ↔ etapas de desarrollo**; *no* dice que "en las puntas está el
->    stakeholder que da feedback" — esa lectura es de Daniel (es buena, pero no es de Sommerville).
+- **Punta izquierda — requirement gathering:** el stakeholder dice *qué necesita*.
+- **Punta derecha — acceptance testing:** el stakeholder dice *si lo construido es lo que quería*.
+
+La flecha horizontal que las une no es decorativa: expresa que **la aceptación se evalúa contra los requisitos que
+ese mismo stakeholder planteó**. Por eso los dos puntos de feedback no son independientes — son las dos mitades de
+un mismo circuito, y es exactamente la razón por la que queremos feedback del usuario: (a) saber qué necesita y
+(b) validar que lo construido es eso.
+
+Los niveles inferiores (system/integration/unit) son internos al equipo: hay verificación, pero no interviene el
+negocio. Por eso el marco se queda con la punta de arriba.
+
+Anclaje en Sommerville (verificado):
+
+- Formulación de V&V (sec. 8.1): *"Validation: Are we building the right product? · Verification: Are we building
+  the product right?"* — las dos preguntas que separan las dos ramas.
+- *Acceptance testing* como instancia formal del cliente (sec. 8.4); *"System stakeholders… who certify the
+  acceptability of the system"* (sec. 4.1).
+
+> ⚠ **Pendiente de fuente.** Sommerville nombra el V-model **una sola vez y al pasar** (Fig. 2.7, cap. 2), además
+> atado a cascada: *"The V-model shows the software validation activities that correspond to each stage of the
+> **waterfall** process model."* La estructura de arriba es la del V-model canónico (la del diagrama que pasó
+> Victoria), no la de Sommerville → **hace falta una fuente citable propia** (ver "Qué falta").
 >
-> Es decir: **la sección 2 no se sostiene solo con Sommerville.** Ver "Qué falta" al final.
+> **Sobre el "atado a cascada":** no invalida el uso que le damos. Acá el V-model entra como **ilustración de la
+> correspondencia** definición ↔ prueba, no como modelo de proceso a seguir. Cuántas veces se recorre la V es
+> justamente lo que cambia entre modelos — y eso es lo que abre la sección 3.
 
-- [ ] Conseguir un anclaje propio del V-model (ver "Qué falta").
-- [ ] Figura del V-model marcando las dos puntas (reusar/adaptar de `sprint 15/diagramas/` si sirve).
-- [ ] 1 párrafo: por qué queremos feedback = (a) saber qué necesita y (b) validar que lo construido es lo que quería.
+- [ ] Conseguir la fuente citable del V-model (ver "Qué falta") y sumarla a `FUENTES_MARCO.{md,bib}`.
+- [ ] Rehacer la figura del V-model (propia, marcando las dos puntas y la flecha superior) — el diagrama de
+      referencia es de origen web, no sirve para publicar.
+- [ ] Chequear largo: Daniel pidió **breve**; hoy esta sección está más larga que la 1.
 
 ## 3. Esto toma distintas formas — ejemplo: Scrum (sin IA)
 
@@ -115,7 +141,7 @@ Categorías (semilla — cerrar contra la sección 5 del v2 y el corpus):
 
 | # | Falta | Por qué / cómo se destraba |
 |---|---|---|
-| 1 | **Fuente propia del V-model** | Sommerville solo lo nombra al pasar y **atado a cascada** (ver ⚠ en sec. 2). Si el V-model va a cargar el argumento de la sección 2, necesita anclaje propio. Candidatos: Pressman & Maxim (2020, ya en las referencias del proyecto), Forsberg & Mooz (origen del V-model), o ISO/IEC/IEEE 12207. **Decisión de Victoria/Daniel:** conseguir la fuente o bajar el V-model a "ilustración" sin pretensión normativa. |
+| 1 | **Fuente citable del V-model** | La estructura ya está clara (sec. 2); falta de dónde citarla. Sommerville no alcanza (la nombra al pasar y atada a cascada). Candidatos, en orden de practicidad: **Pressman & Maxim (2020)** — ya está en las referencias del proyecto y trata el V-model explícitamente, pero **no hay copia local**; *V-Modell XT* (estándar del gobierno alemán, acceso libre); Forsberg & Mooz (1991, origen del modelo). Va a `FUENTES_MARCO.bib` (anclajes del marco), **no** a `REFERENCIAS.bib` (corpus sistemático). |
 | 2 | **Cerrar la lista de categorías (sec. 4)** | Requiere pasar por el corpus (`sprint 12/REFERENCIAS.*` + sección 5 del v2) y decidir el agrupamiento. Es trabajo de criterio, no mecánico. |
 | 3 | **Figuras** | V-model y escenarios: ver qué se reusa de `sprint 15/diagramas/`. |
 
