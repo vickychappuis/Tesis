@@ -11,7 +11,6 @@ Objetivo: armar la **v3 (B3)** del marco, desacoplada de Scrum y contada de lo g
 - `MARCO_PROCESO_FEEDBACK_v3.md` — esqueleto de las 6 secciones con los TODO por resolver.
 
 ## Pendientes
-- [x] Enviar a Daniel el flujo de feedback por escrito.
 - [ ] Redactar prolijo las 6 secciones del v3.
 - [ ] Definir "stakeholder" (Sommerville) y acotar el foco.
 - [ ] Cerrar la lista de categorías de la sección 4.

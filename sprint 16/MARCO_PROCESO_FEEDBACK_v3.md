@@ -29,7 +29,7 @@
 *Qué va:* lo anterior puede adoptar distintas formas y repetirse (sobre todo iterativo/incremental). Ejemplo Scrum: actividades específicas entre la liberación de una versión y la aceptación de cambios para la siguiente iteración. Describir **cómo ha sido hasta ahora** esa interacción con el stakeholder, sin IA. Scrum entra solo para contextualizar; nombrarlo no es imprescindible.
 
 - [ ] Traer el flujo que ya se tenía (A2b/A2c del v2) como *ejemplo*, no como base.
-- [ ] Párrafos del flujo: liberación del incremento → uso/aceptación → feedback → nuevos requisitos o cambios → Sprint Review (reglas de negocio, factibilidad, priorización). Reusar el texto que se le mandó a Daniel por escrito.
+- [ ] Párrafos del flujo: liberación del incremento → uso/aceptación → feedback → nuevos requisitos o cambios → Sprint Review (reglas de negocio, factibilidad, priorización). Reusar el texto del flujo que Daniel bajó por escrito.
 
 ## 4. Feedback con IA — categorías de técnicas (era la sección 5)
 

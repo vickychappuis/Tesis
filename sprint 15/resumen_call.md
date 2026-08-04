@@ -27,7 +27,6 @@
 
 ## Próximos pasos (Sprint 16)
 
-- [x] Enviarle a Daniel por escrito el flujo de feedback que dictó (liberación del incremento → uso/aceptación → feedback → nuevos requisitos o cambios → Sprint Review para reglas de negocio, factibilidad y priorización). *Enviado; Daniel respondió con la narrativa de la B3 (ver tabla de pasos).*
 - [ ] **B3 del marco** siguiendo la tabla de pasos de arriba, desacoplada de Scrum.
 - [ ] Conectar las categorías de la sección 5 con el gráfico de escenarios (si no encaja fácil, no forzarlo).
 - [ ] Sumar capa de **aspectos no cubiertos / problemas abiertos**.
