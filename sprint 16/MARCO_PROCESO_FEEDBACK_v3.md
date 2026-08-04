@@ -108,10 +108,73 @@ V-model en desarrollo de software.
 
 ## 3. Esto toma distintas formas — ejemplo: Scrum (sin IA)
 
-*Qué va:* lo anterior puede adoptar distintas formas y repetirse (sobre todo iterativo/incremental). Ejemplo Scrum: actividades específicas entre la liberación de una versión y la aceptación de cambios para la siguiente iteración. Describir **cómo ha sido hasta ahora** esa interacción con el stakeholder, sin IA. Scrum entra solo para contextualizar; nombrarlo no es imprescindible.
+Las dos puntas de la sección 2 no ocurren una sola vez ni en un único orden: **cuántas veces se recorre la V depende
+del modelo de proceso**. En un proceso en cascada se recorre una vez —los requisitos al inicio, la aceptación al
+final—. En uno **iterativo e incremental** se recorre en cada iteración: cada entrega vuelve a abrir los dos puntos,
+y la aceptación de una iteración alimenta los requisitos de la siguiente.
 
-- [ ] Traer el flujo que ya se tenía (A2b/A2c del v2) como *ejemplo*, no como base.
-- [ ] Párrafos del flujo: liberación del incremento → uso/aceptación → feedback → nuevos requisitos o cambios → Sprint Review (reglas de negocio, factibilidad, priorización). Reusar el texto del flujo que Daniel bajó por escrito.
+Lo que sigue es **un ejemplo**, no la base del marco: se toma Scrum porque es la forma de trabajo más extendida y da
+nombres establecidos a las actividades. El objetivo es describir **cómo viene siendo hoy** la interacción con el
+stakeholder, **sin IA** — la línea de base contra la cual la sección 4 contrasta lo que cambia.
+
+### 3.1. Qué define Scrum y qué no
+
+Scrum define **una** instancia de contacto con el stakeholder, la **Sprint Review**, y la define como sesión de
+trabajo, no como reunión de aprobación (Scrum Guide 2020, p. 9):
+
+> *"The Sprint Review is a working session and the Scrum Team should avoid limiting it to a presentation."*
+
+Dos precisiones del propio framework, importantes para el marco:
+
+- **La liberación está desacoplada de la ceremonia por diseño** (p. 12): *"an Increment may be delivered to
+  stakeholders prior to the end of the Sprint. The Sprint Review should never be considered a gate to releasing
+  value."* Es decir: **el feedback puede llegar antes de la ceremonia y por fuera de ella** — no es una licencia de
+  este marco, lo habilita Scrum.
+- **La ceremonia no alcanza para contener lo que se estudia**: está acotada a un máximo de cuatro horas. El uso real
+  del producto y la detección de desvíos no caben ahí ni están definidos ahí.
+
+Y lo que Scrum **no** define: sobre el texto completo de la Guía (14 pp.), `inspect`/`inspection` (23 apariciones) y
+`adapt`/`adaptation` (18) son centrales, pero **`feedback`, `test`/`testing` y `acceptance` no aparecen ni una vez**.
+El framework se declara *"purposefully incomplete"* y *"a container for other techniques, methodologies, and
+practices"*. Por eso la parte de ingeniería —liberación, testing de aceptación, validación de reglas, análisis de
+impacto— se ancla fuera de Scrum, en Sommerville y Dumas.
+
+### 3.2. El flujo, tal como ocurre hoy
+
+Luego de que el equipo de desarrollo **libera un incremento**, éste se comunica al stakeholder. El stakeholder lo
+**utiliza**, lo acepta o no, y genera un **feedback** que deriva en una de dos cosas: **incluir nuevos requisitos** o
+**modificar** lo construido porque no lo valida. Es decir, la etapa de aceptación no siempre se pasa: hay mejoras que
+deben hacerse para ser consistentes con los requisitos que él mismo definió originalmente — que es exactamente la
+flecha superior del V-model (sección 2).
+
+Ese feedback se da hoy **por múltiples canales**: por escrito, por llamadas telefónicas, o en instancias específicas
+generadas para que ocurra. En particular, la **Sprint Review** es una instancia definida para hacer una recorrida del
+sistema con el propio usuario y poder:
+
+- **validar reglas de negocio** — confirmar que lo considerado se corresponde con la regla real;
+- **analizar factibilidad** de los cambios pedidos;
+- **priorizar** — determinar el orden de los cambios, para un análisis de factibilidad posterior y decidir si ese
+  feedback se incorpora o no a la próxima iteración.
+
+En términos del modelo del v2, el tramo se compone así (los códigos se mantienen para trazabilidad con
+`MARCO_PROCESO_FEEDBACK_v2.md` y su diagrama BPMN):
+
+| # | Actividad | Quién | ¿Definida en Scrum? |
+|---|---|---|---|
+| A2a | Liberación del incremento | Developers | ⚠ no → Sommerville sec. 2.3.2 y 8.3 |
+| **A2b** | **Uso y testing de aceptación** | Stakeholder (+ AF) | ⚠ no → Sommerville sec. 8.4 y 20.4 |
+| **A2c** | **Sprint Review** | PO, Developers, Stakeholders | ✅ sí — Scrum Guide p. 9 |
+| A3a | Validación de reglas de negocio | AF ↔ Stakeholder | ⚠ no → Dumas sec. 4.4 y 5.4.2 |
+| A3b | Validación de factibilidad técnica | Developers (+ PO) | ⚠ parcial → Sommerville sec. 25.3 |
+| A4 | Incorporación al Product Backlog | AF, PO | ✅ parcial — Scrum Guide p. 6 |
+| A5 | Refinement → reabre el ciclo | PO (+ Developers) | ✅ sí — Scrum Guide p. 10 |
+
+**El feedback del negocio se genera en A2b y A2c** — el resto es lo que se hace con él. Y son **dos canales y dos
+momentos**: el uso real del producto, que puede ser asincrónico y anterior a la ceremonia, y la ceremonia misma.
+
+- [ ] Decidir si la tabla A2a–A5 se queda o si alcanza con la prosa (Daniel pidió *"unos párrafos"*; la tabla ayuda
+      a la trazabilidad con el v2, pero puede leerse como que Scrum vuelve a ser la base).
+- [ ] Chequear que las citas de la Scrum Guide sigan coincidiendo con `FUENTES_MARCO.md` (ya verificadas en v2).
 
 ## 4. Feedback con IA — categorías de técnicas (era la sección 5)
 
