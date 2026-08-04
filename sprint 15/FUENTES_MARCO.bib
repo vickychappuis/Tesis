@@ -66,6 +66,51 @@
   note={Artículo al que se atribuye la introducción del V-model en desarrollo de software (separa la rama de descomposición/diseño de la de composición/prueba y explicita las dependencias entre etapas tempranas y tardías). Citar solo como origen histórico}
 }
 
+% -----------------------------------------------------------------------------
+% (d) HALLAZGOS DE LA BÚSQUEDA DIRIGIDA (ago-2026)
+%
+% NO pertenecen al corpus del mapeo sistemático (`sprint 12/REFERENCIAS.bib`):
+% salieron de la búsqueda dirigida hecha para cubrir la laguna del string del
+% sprint 5 (sin términos de testing/aceptación). Ver sec. 4.7 del marco v3.
+% ⚠️ Fichas tomadas de metadatos de búsqueda; VERIFICAR contra el PDF antes de citar.
+% -----------------------------------------------------------------------------
+
+% Único trabajo hallado que pone actores de negocio REALES a validar salida de IA.
+@inproceedings{virk2025nonprogrammers,
+  title={Non-programmers Assessing AI-Generated Code: A Case Study of Business Users Analyzing Data},
+  author={Virk, Yasharth and Liu, Michael Xieyang},
+  booktitle={IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC)},
+  year={2025},
+  eprint={2508.06484},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2508.06484},
+  note={Profesionales de marketing y ventas evalúan análisis generados por IA. Hallazgo central: "business professionals cannot reliably verify AI-generated data analyses on their own" — fallan incluso instruidos a buscar errores. ⚠️ El objeto validado es un análisis de datos, no software funcionando: ahí queda el margen de esta tesis. Sostiene los objetivos C, D y F}
+}
+
+% El "perception-action gap": generar se democratizó, validar no.
+@misc{fawzy2026prompting,
+  title={From Prompting to Verification: How Experience Shapes Vibe Coding Practices},
+  author={Fawzy, Amr and Tahir, Amjed and Blincoe, Kelly},
+  year={2026},
+  eprint={2605.24521},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2605.24521},
+  note={Encuesta a 162 vibe coders en tres grupos (no programadores, novatos, profesionales). "the capacity to evaluate, debug, and verify remains experience-dependent"; el vibe coding "is partially democratising as it broadens access to software creation without equally distributing the expertise to evaluate it". ⚠️ El sujeto es quien CONSTRUYE, no el cliente que recibe}
+}
+
+% Andamiaje conceptual para el diseño de la PoC: barreras al feedback de calidad.
+@misc{sharma2026feedback,
+  title={Feedback by Design: Understanding and Overcoming User Feedback Barriers in Conversational Agents},
+  author={Sharma, Sanjay and Zhang, Yi and Lee, Jaehyun and Krishnan, Rahul and Ren, Xiang and Xiao, Ziang and Li, Toby Jia-Jun},
+  year={2026},
+  eprint={2602.01405},
+  archivePrefix={arXiv},
+  url={https://arxiv.org/abs/2602.01405},
+  note={Dos estudios con usuarios. Identifica cuatro barreras al feedback de calidad derivadas de las máximas de Grice — common ground, verifiability, communication, informativeness — y diseña andamiajes que la mejoran. ⚠️ Formulado para agentes conversacionales, NO para el ciclo cliente↔equipo: trasladarlo es trabajo abierto (ver sec. 6.2). ⚠️ Lista de autores a verificar contra el PDF}
+}
+
+% -----------------------------------------------------------------------------
+
 % Secciones verificadas contra el ejemplar; citas textuales en FUENTES_MARCO.md (a.1 y a.2)
 @book{dumas2018fundamentals,
   title={Fundamentals of Business Process Management},

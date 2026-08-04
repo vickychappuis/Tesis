@@ -4,9 +4,17 @@
 > particular según la narrativa que bajó Daniel (30 jul; ver la tabla de pasos en `sprint 15/resumen_call.md`).
 > Sigue siendo **estado del arte, sin propuesta propia todavía** — todo esto es contexto.
 >
-> **Fuentes:** se reutilizan `sprint 15/FUENTES_MARCO.{md,bib}`; se suma Sommerville como anclaje del proceso.
+> **Fuentes:** se reutilizan `sprint 15/FUENTES_MARCO.{md,bib}` y `sprint 12/REFERENCIAS.{md,bib}`; se suman
+> Sommerville y Pressman como anclajes del proceso, y los hallazgos de la búsqueda dirigida de la sec. 4.7.
 >
-> **Estado: esqueleto.** Cada sección dice *qué va* y marca lo que falta (TODO). La redacción prolija es el trabajo del sprint 16.
+> **Estado (4-ago-2026):** secciones 1–6 redactadas. Las asignaciones de la sec. 4 fueron verificadas contra los
+> PDF; los pendientes de cada sección están al pie de cada una y los bloqueantes, al final del documento.
+>
+> **Encuadre del alcance** — surge del resultado de la búsqueda dirigida (sec. 4.7) y atraviesa todo el documento:
+> el corpus del mapeo sistemático es **literatura adyacente que enmarca el problema** (elicitación, prototipado,
+> asistencia sobre el artefacto de requisito); lo que **sí** existe sobre aceptación es un cuerpo consolidado que
+> automatiza el *artefacto* (tests y criterios); y la **interacción de validación del stakeholder de negocio sobre
+> software funcionando** es la celda vacía — el objeto de esta tesis y de la PoC.
 
 ---
 
@@ -470,19 +478,107 @@ no exponen totales, y el `total` de Semantic Scholar es un pool de relevancia, n
 - [ ] Recuperar del v2 lo que se perdió en la reescritura: `pmagent` ya volvió; revisar `IDEAS_POC.md` por técnicas
       sin categoría (generación de preguntas / Quest-RE, RECOVER, chatbot sobre low-code) y el concepto propio de
       *"firewall" de feedback* (sprint 11), que es lo más cercano al objetivo D que hay en el proyecto.
-- [ ] Tabla resumen **categoría × dimensión del objetivo B** al cierre de la sección.
-## 5. Vínculo con el gráfico de escenarios de uso (Nguyen-Duc et al.)
+### 4.9. Qué dimensión del ciclo altera cada categoría (objetivo B)
 
-*Qué va:* ubicar las categorías de la sección 4 en el gráfico de escenarios (niveles humano ↔ IA). **Si no encaja fácil, no forzarlo:** el gráfico igual sirve para mostrar los distintos niveles de interacción.
+El objetivo B pregunta por cambios en **frecuencia, secuencia, granularidad y temporalidad** de los intercambios de
+validación. Leídas con esa grilla, las categorías no son intercambiables:
 
-- [ ] Reusar la figura de escenarios (S1–S4) del v2 / `sprint 15/diagramas/`.
-- [ ] Mapear cada categoría a un nivel (asiste / automatiza), sin obsesionarse con la clasificación exacta.
+| Categoría | Frecuencia | Secuencia | Granularidad | Temporalidad |
+|---|:---:|:---:|:---:|:---:|
+| 4.1 La IA emite el feedback | ✦ | | | ✦ |
+| 4.2 La IA captura lo dicho | | | ✦ | |
+| 4.3 La IA trabaja el artefacto | | ✦ | ✦ | |
+| 4.4 La IA construye algo mirable | | ✦ | | ✦ |
+| 4.5 La IA valida reglas de negocio | | | | |
 
-## 6. Aspectos no considerados / problemas abiertos
+Lecturas que se desprenden:
 
-*Qué va:* al final o ligado a la sección 4. Necesidades sin trabajo asociado y oportunidades a futuro. Es **solo contexto, no una propuesta concreta**.
+- **La frecuencia solo la altera 4.1.** Es la única categoría que rompe la dependencia de la agenda del stakeholder
+  — porque sustituye al emisor. Todas las demás siguen esperando a que la persona esté disponible.
+- **La temporalidad la alteran 4.1 y 4.4**, pero por vías opuestas: una adelanta el feedback *sustituyendo* a quien
+  lo da; la otra adelanta el *momento en que hay algo que mirar*. Solo la segunda es compatible con mantener al
+  stakeholder real en el circuito.
+- **4.5 está vacía** porque su única fuente no se pudo verificar (ver 4.5), no porque no altere nada.
+- **Ninguna categoría altera las cuatro dimensiones.** Esto acota lo que puede afirmarse: el estado del arte no
+  sostiene todavía un cambio integral del ciclo, sino desplazamientos parciales y por vías distintas.
 
-- [ ] Listar gaps (p. ej. acceptance testing poco estudiado; feedback indirecto por telemetría/ML queda fuera de alcance).
+## 5. Dónde caen estas categorías en los escenarios S1–S4
+
+Todo lo de la sección 4 muestra un mismo movimiento de fondo: actividades que hoy hace una persona empiezan a ser
+asumidas por la IA. **Sauvola et al. (2024)** dan una escala para graduar ese movimiento — sus Tablas 1 y 2 —, y es
+lo que permite ordenar las categorías por **cuánto** desplazan al humano, no por qué actividad tocan.
+
+![Cuatro escenarios de uso de IAG en el desarrollo de software (S1–S4)](../sprint%2015/diagramas/escenarios_s1_s4.png)
+
+Figura **propia**, elaborada a partir de las Tablas 1 y 2 del paper (se redibuja en vez de reproducir el original, y
+se cita la fuente). Editable en `sprint 15/diagramas/escenarios_s1_s4.drawio`.
+
+| Escenario | En una línea | Dónde caen las categorías |
+|---|---|---|
+| **S1** *Traditional Software Development Operations* | Humanos en todos los roles; las herramientas automatizan | Es el proceso **de hoy** — la línea de base de la sec. 3 |
+| **S2** *AI in loop* | El humano domina; la IA automatiza partes de tareas y asiste decisiones | **La mayor parte del estado del arte**: 4.2 (asistentes de reunión), 4.3 (reformular, juzgar, rutear) y la rama (a) de 4.4, donde el equipo opera la herramienta |
+| **S3** *AI assumes role(s)* | La IA asume roles seleccionados; el humano controla la operación | Dos puntos: **4.1**, donde la IA asume el rol de quien emite el feedback, y la rama (b) de **4.4**, donde el actor de negocio construye y el developer queda como compuerta |
+| **S4** *Human-in-the-loop* | La IA gestiona varios roles; el humano vigila | **Ninguna categoría llega.** El candidato sería el tramo técnico autónomo (4.6), y el pivote de dos de los productos relevados sugiere que ese modo todavía no cierra |
+
+El paper además parametriza cada escenario por niveles y modela **trayectorias de transición**: citable si hace falta
+precisión sobre *cuánto* asume la IA.
+
+**Qué se lee del mapeo.** El estado del arte se concentra en **S2** y toca **S3** en dos puntos; **nada llega a S4**.
+Es un resultado, no una omisión: en ninguna de las vías relevadas el humano sale del circuito. Y las dos que llegan
+a S3 lo hacen de maneras incompatibles entre sí — o la IA sustituye a quien emite el feedback (4.1), o lo emite un
+humano de negocio que ahora también construye (4.4b).
+
+> **Nota de honestidad sobre este mapeo.** Daniel señaló que si las categorías no encajan fácil en el gráfico, no
+> hay que forzarlo. Encajan de forma razonable, pero con dos salvedades: (a) los escenarios de Sauvola describen
+> **la organización del trabajo de desarrollo**, no específicamente el ciclo de feedback con el stakeholder, así que
+> el mapeo es una lectura nuestra; (b) varias categorías tienen ramas que caen en escenarios distintos (4.4 sobre
+> todo), de modo que **la unidad que se ubica en el gráfico no siempre es la categoría entera**.
+
+## 6. Aspectos no considerados y problemas abiertos
+
+Cierra el estado del arte con lo que **no** está cubierto. Es contexto para decidir por dónde encarar la
+experimentación — **no una propuesta**.
+
+### 6.1. El hueco principal
+
+La **instancia de aceptación con el stakeholder real sobre software funcionando** (ver 4.7). Existe un cuerpo
+consolidado sobre generar el *artefacto* de aceptación —tests, criterios, escenarios— y literatura abundante sobre
+IA que *procesa* feedback ya emitido; no hay trabajo empírico sobre cómo se reconfigura la **interacción** de
+validación. Los dos papers del corpus que más prometían en esa dirección declaran esa ausencia como trabajo futuro.
+
+### 6.2. Necesidades sin trabajo asociado
+
+- **Validación de reglas y flujos de negocio con IAG (objetivo D).** La categoría 4.5 está prácticamente vacía. Es
+  la mitad del planteo de esta tesis y no encuentra respaldo en la literatura relevada.
+- **El actor de negocio como validador de lo que la IA produjo.** La evidencia disponible sugiere que **no lo logra
+  de forma confiable** (4.7): la capacidad de generar se democratizó y la de validar no. Nadie estudia qué
+  andamiajes cerrarían esa brecha.
+- **La calidad del feedback que el stakeholder logra emitir.** Las cuatro barreras de Sharma et al. —*common
+  ground*, *verifiability*, *communication*, *informativeness*— están formuladas para agentes conversacionales, no
+  para el ciclo cliente↔equipo de desarrollo. Trasladarlas es trabajo abierto.
+- **El tramo técnico** (4.6), si se decide dejarlo fuera del marco.
+
+### 6.3. Lo que queda fuera de alcance por decisión, no por vacío
+
+- **Feedback indirecto por telemetría / ML** —analítica de uso, auto-PRs, detección de fricción—. Hay productos y
+  literatura, pero el foco de esta tesis es la interacción con un representante que prueba y opina de forma verbal
+  (ver *Definiciones*). Vale registrar la observación del tutor: ese feedback **igual termina entrando al equipo
+  como feedback normal**, y su incorporación depende de otros stakeholders (quién paga, factibilidad).
+- **Minería de reviews de app stores con LLM.** Es el subcampo más poblado de todos los relevados (~15 trabajos),
+  pero opera *sobre feedback ya emitido* y del lado del equipo: el usuario es un corpus de texto histórico. Se
+  menciona **como contraste**, que es donde rinde: ahí la IA digiere el feedback; acá se estudia la IA dentro del
+  acto de emitirlo.
+- **Elicitación inicial y prototipado.** Quedan fuera del objeto, pero **no** de la sección 4: son la literatura
+  adyacente que enmarca el hueco.
+
+### 6.4. Limitaciones de este relevamiento
+
+- El corpus sistemático se armó con un string **sin términos de testing ni aceptación**; la búsqueda dirigida de
+  4.7 lo compensa, pero no lo reemplaza.
+- **ACM DL, SpringerLink e IEEE Xplore** bloquearon el acceso automatizado; se cubrieron indirectamente vía DOIs.
+  Faltan totales citables de esas tres bases.
+- **`lindenberg2025business` sin acceso**, lo que deja 4.5 y el objetivo D sin sustento verificable.
+- Parte de la evidencia de mercado (productos) **no es académica** y se etiqueta como tal.
 
 ---
 
