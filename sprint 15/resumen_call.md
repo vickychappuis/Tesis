@@ -1,6 +1,11 @@
 # Resumen call — Sprint 15 (2ª pasada del marco)
 
-**Fecha:** 30/07/2026 · **Con:** Daniel (tutor) · **Fuente:** `DANIEL 30 DE JULIO.transcripcion.txt` + apuntes escritos de Daniel (jue. 12:25)
+**Fecha:** 30/07/2026 · **Con:** Daniel (tutor) · **Fuente:** apuntes escritos de Daniel (jue. 12:25) + `DANIEL 30 DE JULIO.transcripcion.txt`
+
+> ⚠️ **La transcripción es automática y poco confiable para nombres.** Confunde sistemáticamente **V con B** —escribe
+> "B-model" por *V-model* y "B3" por *v3*— y deforma apellidos: "Saugola" (Sauvola), "Torum" (Torun), "Raftopulos"
+> (Raftopoulos), "Somerville" (Sommerville), "Spring Review" (Sprint Review). **La fuente confiable de la narrativa
+> son los apuntes escritos de Daniel**; la transcripción sirve para el contexto de la discusión, no para citar.
 
 ## Decisión de fondo
 
