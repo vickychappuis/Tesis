@@ -8,7 +8,7 @@
 - Lo esencial es **agnóstico al modelo de proceso**: siempre hay un stakeholder que (a) aporta nuevos requisitos y (b) valida/opina lo construido. El feedback llega en cualquier momento, no solo en la Sprint Review.
 - Sigue siendo **estado del arte, sin propuesta propia todavía**: todo esto es contexto.
 
-## Pasos para la B3 (narrativa dictada por Daniel)
+## Pasos para la v3 (narrativa dictada por Daniel)
 
 | # | Parte del documento | Qué va |
 |---|---|---|
@@ -27,9 +27,9 @@
 
 ## Próximos pasos (Sprint 16)
 
-- [ ] **B3 del marco** siguiendo la tabla de pasos de arriba, desacoplada de Scrum.
+- [ ] **v3 del marco** siguiendo la tabla de pasos de arriba, desacoplada de Scrum.
 - [ ] Conectar las categorías de la sección 5 con el gráfico de escenarios (si no encaja fácil, no forzarlo).
 - [ ] Sumar capa de **aspectos no cubiertos / problemas abiertos**.
 - [ ] Definir **"stakeholder"** (Sommerville) y acotar el foco.
 
-**Meta B3:** versión escrita y prolija para decidir por dónde encarar la experimentación / PoC.
+**Meta v3:** versión escrita y prolija para decidir por dónde encarar la experimentación / PoC.

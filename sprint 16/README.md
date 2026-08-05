@@ -1,6 +1,6 @@
 # Sprint 16 — 30 jul → 6 ago 2026
 
-Objetivo: armar la **v3 (B3)** del marco, desacoplada de Scrum y contada de lo general a lo particular, según la narrativa que bajó Daniel en la call del 30 jul.
+Objetivo: armar la **v3** del marco, desacoplada de Scrum y contada de lo general a lo particular, según la narrativa que bajó Daniel en la call del 30 jul.
 
 ## Insumos
 - Narrativa y tabla de pasos: `sprint 15/resumen_call.md`

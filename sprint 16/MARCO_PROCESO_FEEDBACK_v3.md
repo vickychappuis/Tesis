@@ -1,4 +1,4 @@
-# Marco del proceso de feedback — v3 (B3)
+# Marco del proceso de feedback — v3
 
 > Reescritura de `sprint 15/MARCO_PROCESO_FEEDBACK_v2.md` **desacoplada de Scrum**, contada de lo general a lo
 > particular según la narrativa que bajó Daniel (30 jul; ver la tabla de pasos en `sprint 15/resumen_call.md`).
@@ -605,4 +605,4 @@ validación. Los dos papers del corpus que más prometían en esa dirección dec
 | 4 | **Figuras** | V-model (propia, la de referencia es de origen web) y escenarios: ver qué se reusa de `sprint 15/diagramas/`. |
 | 5 | **Acceso a `lindenberg2025business`** | Bloquea la categoría 4.5 y con ella el objetivo D. Vía biblioteca ORT/Timbó o mail a los autores. |
 
-**Meta B3:** versión escrita y prolija para decidir por dónde encarar la experimentación / PoC.
+**Meta v3:** versión escrita y prolija para decidir por dónde encarar la experimentación / PoC.
