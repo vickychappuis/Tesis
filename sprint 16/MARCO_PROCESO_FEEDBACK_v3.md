@@ -417,6 +417,52 @@ nunca se observa como interacción—; y el *vibe coding* sí tiene humanos real
 > procesa feedback ya emitido; no hay literatura empírica sobre cómo se reconfigura la interacción de validación del
 > stakeholder de negocio frente a software funcionando.*
 
+#### El hueco sobre el proceso de aceptación de Sommerville
+
+El mismo resultado puede leerse sobre un diagrama canónico de manual. Sommerville descompone el *acceptance testing*
+en **seis etapas** [`sommerville2016software`, sec. 8.4, Fig. 8.11]:
+
+```mermaid
+flowchart LR
+    subgraph out [" "]
+        direction LR
+        a1(Test criteria) ~~~ a2(Test plan) ~~~ a3(Tests) ~~~ a4(Test results) ~~~ a5(Testing report)
+    end
+    A["1 · Define<br/>acceptance criteria"] --> B["2 · Plan<br/>acceptance testing"]
+    B --> C["3 · Derive<br/>acceptance tests"]
+    C --> D["4 · Run<br/>acceptance tests"]
+    D --> E["5 · Negotiate<br/>test results"]
+    E --> F["6 · Accept or<br/>reject system"]
+    A -.-> a1
+    B -.-> a2
+    C -.-> a3
+    D -.-> a4
+    E -.-> a5
+    style out fill:none,stroke:none
+```
+
+*Figura propia, elaborada a partir de la Fig. 8.11 de Sommerville (2016), sec. 8.4: se reproducen las seis etapas y
+sus productos tal como los nombra el autor.*
+
+Cruzando esas etapas con lo relevado:
+
+| Etapa | Cobertura en la literatura |
+|---|---|
+| 1 · Define acceptance criteria | **Cubierto** — `abbasi2025towards` (*Acceptance Criteria Assistant*), `stein2026integrating`, `pmagent` |
+| 2 · Plan acceptance testing | sin trabajos relevados |
+| 3 · Derive acceptance tests | **Cubierto** — el grueso de los 24 trabajos tipo A (user stories → Gherkin → scripts) |
+| 4 · Run acceptance tests | **Parcial** — hay trabajos que lo automatizan sacando al humano del circuito |
+| 5 · **Negotiate test results** | ⬛ **sin trabajos** |
+| 6 · **Accept or reject system** | ⬛ **sin trabajos** |
+
+El corte es limpio: **la literatura cubre las etapas donde el producto es un artefacto (1, 3, 4) y no toca aquellas
+donde el producto es un acuerdo entre personas (5 y 6)**.
+
+Y el propio Sommerville anticipa por qué. De la etapa 5: *"the developer and the customer have to **negotiate** to
+decide if the system is good enough to be used"*. De la etapa 4: *"**It is difficult to automate this process** as
+part of the acceptance tests may involve testing the interactions between end-users and the system"*. El manual dice
+que ahí la interacción humana resiste la automatización — y es exactamente donde esta tesis se ubica.
+
 #### Por qué el hueco importa — evidencia de que es un problema, no un nicho
 
 Tres trabajos convergen en que **la capacidad de generar se democratizó y la de validar no**:
