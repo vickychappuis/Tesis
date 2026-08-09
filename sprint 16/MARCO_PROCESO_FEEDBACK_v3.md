@@ -20,9 +20,9 @@
 
 ## 1. Proceso de desarrollo de software (Sommerville) → requisitos y V&V
 
-Un **proceso de software** es una secuencia de actividades que conduce a la producción de un producto de software.
-Sommerville identifica **cuatro actividades fundamentales comunes a todos los procesos de software**
-(sec. 1.1.1), que el capítulo 2 desarrolla como *process activities* (sec. 2.2):
+Un **proceso de software** es *"una secuencia de actividades que conduce a la producción de un producto de
+software"*, y **cuatro actividades fundamentales son comunes a todos los procesos de software**
+[`sommerville2016software`, sec. 1.1.1]. El capítulo 2 las desarrolla como *process activities* (íd., sec. 2.2):
 
 | # | Actividad (Sommerville) | Qué pasa ahí | Sec. |
 |---|---|---|---|
@@ -32,8 +32,8 @@ Sommerville identifica **cuatro actividades fundamentales comunes a todos los pr
 | 4 | **Evolución** | el software se modifica para reflejar requisitos cambiantes del cliente y del mercado | 2.2.4 |
 
 Sommerville aclara que estas actividades genéricas *"pueden organizarse de distintas formas y describirse a distintos
-niveles de detalle, según el tipo de software"* (sec. 1.1.1) — lo que habilita el encuadre agnóstico al modelo de
-proceso que sostiene este marco.
+niveles de detalle, según el tipo de software"* [`sommerville2016software`, sec. 1.1.1] — lo que habilita el encuadre
+agnóstico al modelo de proceso que sostiene este marco.
 
 **De las cuatro, dos involucran directamente al stakeholder** y son el foco de este documento:
 
@@ -41,8 +41,8 @@ proceso que sostiene este marco.
   construir. Sommerville la llama *requirements engineering* (cap. 4).
 - **Validación / V&V (3)** — el chequeo es contra *lo que el cliente requiere*, no solo contra el documento: la
   V&V *"muestra que un sistema tanto se ajusta a su especificación como cumple las expectativas del cliente"*
-  (sec. 2.2.3). Dentro de V&V, el *user testing* y el *acceptance testing* son las instancias donde el stakeholder
-  participa en persona (sec. 8.4).
+  [`sommerville2016software`, sec. 2.2.3]. Dentro de V&V, el *user testing* y el *acceptance testing* son las
+  instancias donde el stakeholder participa en persona [íd., sec. 8.4].
 
 Diseño/implementación (2) y evolución (4) quedan como contexto: producen y mantienen lo que el stakeholder
 después ve, pero no son puntos de intercambio con él.
@@ -53,9 +53,10 @@ después ve, pero no son puntos de intercambio con él.
 ## 2. Verificación y validación: el V-model → las puntas son el feedback del stakeholder
 
 El V-model ordena las actividades del proceso en una **V**: la rama descendente son las etapas de definición
-(*verificación*) y la ascendente las de prueba (*validación*), con **coding** en el vértice. Lo relevante para este
-marco no son los niveles en sí, sino las **flechas horizontales**: cada nivel de definición tiene su nivel de prueba
-correspondiente, y **se prueba contra lo que ese nivel definió**.
+(*verificación*) y la ascendente las de prueba (*validación*), con la codificación en el vértice
+[`pressman2020software`, cap. 2]. Lo relevante para este marco no son los niveles en sí, sino las **flechas
+horizontales**: cada nivel de definición tiene su nivel de prueba correspondiente, y **se prueba contra lo que ese
+nivel definió**.
 
 | Rama de definición (verificación) | ↔ | Rama de prueba (validación) |
 |---|---|---|
@@ -78,12 +79,13 @@ un mismo circuito, y es exactamente la razón por la que queremos feedback del u
 Los niveles inferiores (system/integration/unit) son internos al equipo: hay verificación, pero no interviene el
 negocio. Por eso el marco se queda con la punta de arriba.
 
-Anclaje en Sommerville (verificado):
+Anclaje en Sommerville (verificado contra el ejemplar):
 
-- Formulación de V&V (sec. 8.1): *"Validation: Are we building the right product? · Verification: Are we building
-  the product right?"* — las dos preguntas que separan las dos ramas.
-- *Acceptance testing* como instancia formal del cliente (sec. 8.4); *"System stakeholders… who certify the
-  acceptability of the system"* (sec. 4.1).
+- Formulación de V&V: *"Validation: Are we building the right product? · Verification: Are we building the product
+  right?"* [`sommerville2016software`, **cap. 8, introducción** — el pasaje está antes de que arranque la sec. 8.1].
+  Son las dos preguntas que separan las dos ramas.
+- *Acceptance testing* como instancia formal del cliente [íd., sec. 8.4]; y *"System stakeholders… who certify the
+  acceptability of the system"* [íd., **cap. 4, introducción**, no sec. 4.1].
 
 **Fuente del V-model: `pressman2020software`, cap. 2 (*Process Models*).** Pressman & Maxim presentan ahí el
 V-model con exactamente esta correspondencia:
