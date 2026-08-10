@@ -281,5 +281,6 @@ se absorbe en el Product Owner.
 
 ## Para decidir
 
-- Si el BPMN del v2 se queda en la sec. 3.2.
-- Si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC.
+- Si el diagrama BPMN heredado del marco v2 se queda en la sec. 3.2 o se reemplaza por texto.
+- Si la PoC retoma la idea del *"firewall" de feedback* (validar el feedback del stakeholder contra los requisitos
+  ya definidos antes de incorporarlo, planteada en la call del sprint 11).
