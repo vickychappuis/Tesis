@@ -29,8 +29,11 @@ agnóstico al modelo de proceso que sostiene este marco.
   [`sommerville2016software`, sec. 2.2.3]. Dentro de V&V, el *user testing* y el *acceptance testing* son las
   instancias donde el stakeholder participa en persona [íd., sec. 8.4].
 
-Diseño/implementación (2) y evolución (4) quedan como contexto: producen y mantienen lo que el stakeholder
-después ve, pero no son puntos de intercambio con él.
+Diseño/implementación (2) es interna al equipo. Evolución (4) sí nace del stakeholder (la propia definición habla
+de sus requisitos cambiantes), pero el intercambio con él ocurre a través de las otras dos actividades: el cambio
+entra como requisito nuevo (especificación) y se acepta validando lo modificado (V&V). Evolucionar es recorrer ese
+ciclo otra vez. Por eso el foco del marco queda en 1 y 3, que son los puntos de contacto; 2 y 4 son el trabajo del
+equipo entre ambos.
 
 ## 2. Verificación y validación: el V-model → las puntas son el feedback del stakeholder
 
