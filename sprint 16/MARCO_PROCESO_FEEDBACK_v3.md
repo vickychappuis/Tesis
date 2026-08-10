@@ -163,11 +163,12 @@ donde pasa, se dice.
 **Etiquetas de fuente:** **[corpus]** paper del mapeo sistemático · **[general]** los cuatro artículos sobre IAG en el
 desarrollo · **[gris]** preprint o prensa profesional, sin peer review · **[producto]** evidencia de mercado.
 
-> **Alcance.** El corpus se armó buscando cómo cambia el feedback entre stakeholders y equipo con IAG (sprint 5),
-> y eso es lo que cubren las categorías que siguen. Lo que el string no incluía eran términos de testing ni de
-> aceptación, así que por sí solo no podía confirmar ni descartar cobertura del tramo específico de esta tesis: la
-> validación del stakeholder sobre software construido. Ese tramo se chequeó aparte con la búsqueda dirigida de
-> 4.7, con los términos correctos: el hueco ahí es real, no un efecto del string.
+> **Alcance.** El corpus se armó con el string del sprint 5 (`"generative AI" AND ("business users" OR clients OR
+> stakeholders) AND "software development"`), que apunta exactamente al tema de la tesis, y de él salen las
+> categorías que siguen. La búsqueda dirigida de 4.7 no lo corrige: lo complementa con el vocabulario propio del
+> tramo de aceptación (*acceptance testing*, *acceptance criteria*, UAT, Gherkin), que un paper de esa literatura
+> puede usar sin nombrar "generative AI" ni "stakeholders". Hecha esa segunda pasada, el hueco sobre la validación
+> del stakeholder en software construido sigue vacío: es real con los dos vocabularios.
 
 ### 4.1. La IA **emite** el feedback: impersonación de stakeholders
 
@@ -302,8 +303,8 @@ final del documento).
 
 ### 4.7. Qué está cubierto y qué no: resultado de la búsqueda dirigida
 
-Para responder esta pregunta se hizo una **búsqueda dirigida y documentada** (agosto 2026) con los términos de
-testing y aceptación que el string original no tenía.
+Para responder esta pregunta se hizo una **búsqueda dirigida y documentada** (agosto 2026) con el vocabulario de
+testing y aceptación, complementario al del string del corpus.
 
 **Método.** Cuatro strings booleanos sobre la API de arXiv (con conteos exactos), 14 búsquedas web y 3 consultas a
 Semantic Scholar, filtro 2023 en adelante:
@@ -328,7 +329,8 @@ RE, SIGCSE, SAC.
 - **Tipo B, estudiar la interacción de validación del stakeholder**: una persona de negocio usando el software
 construido y devolviendo si es lo que pidió. **Ninguno.**
 
-**El hueco es real y no es un artefacto del string original:** se buscó con los términos correctos y tampoco apareció.
+**El hueco es real y no es un efecto del vocabulario de búsqueda:** se buscó también con los términos propios de la
+aceptación y tampoco apareció.
 
 #### Tres piezas que lo demuestran sin depender de una ausencia
 
@@ -511,9 +513,9 @@ adyacente que enmarca el hueco.
 
 ### 6.4. Limitaciones de este relevamiento
 
-- El corpus sistemático se armó con un string **sin términos de testing ni aceptación**; la búsqueda dirigida de
-4.7 lo compensa, pero no lo reemplaza. Y esa búsqueda tiene conteos exactos solo de arXiv: ACM DL, SpringerLink
-e IEEE Xplore se cubrieron de forma indirecta, vía los DOI recuperados desde arXiv y Semantic Scholar.
+- El string del corpus y la búsqueda dirigida de 4.7 usan vocabularios complementarios (tema de la tesis y tramo
+de aceptación); ninguno reemplaza al otro. La búsqueda dirigida tiene conteos exactos solo de arXiv: ACM DL,
+SpringerLink e IEEE Xplore se cubrieron de forma indirecta, vía los DOI recuperados desde arXiv y Semantic Scholar.
 - La lectura de `**lindenberg2025business**` (4.5) se basa solo en su abstract; el texto completo no está
 disponible.
 - Parte de la evidencia de mercado (productos) **no es académica** y se etiqueta como tal.
