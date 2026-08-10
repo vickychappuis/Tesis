@@ -188,20 +188,12 @@ developer, tester o PO revisando artefactos. Cuerpo consolidado y creciente, 202
 - **Tipo B, estudiar la interacción de validación del stakeholder**: una persona de negocio usando el software
 construido y devolviendo si es lo que pidió. **Ninguno.**
 
-#### Tres piezas que lo demuestran sin depender de una ausencia
-
-1. **Por contradicción.** *XUAT-Copilot* es el único trabajo con "User Acceptance Testing" en el título, y su
- contribución es **sacar al humano del UAT**: tres agentes LLM automatizan los scripts. Lo mismo hace
- *GUISpector* con la verificación de prototipos GUI: automatiza justamente la validación que haría el stakeholder.
- El único campo dedicado a la aceptación trata el rol humano como trabajo a eliminar, no como interacción a
- estudiar.
-2. **El campo registra la práctica y no la estudia.** Fonseca et al. (ASE 2025, caso BMW) reportan como hallazgo
- *lateral* que el Gherkin generado terminó usándose como **artefacto de validación revisado por stakeholders** en
- vez de ejecutarse. Es evidencia práctica de que la validación del stakeholder ocurre en la industria, dentro de
- un paper que estudia otra cosa.
-3. **Asimetría industria ↔ academia.** Sobre la validación a cargo de product owners o analistas de negocio, y
- sobre no programadores construyendo con IA, lo que se encuentra es contenido comercial (consultoras, Scrum.org,
- cursos), **no papers**. La industria habla del tema constantemente; la literatura no lo cubre.
+El hueco no se apoya solo en la ausencia; lo que sí existe apunta en la dirección contraria. Los trabajos
+dedicados a la aceptación buscan **automatizarla sin el humano**: *XUAT-Copilot* automatiza los scripts del UAT y
+*GUISpector* la verificación de prototipos. Y la práctica existe pero no se estudia: Fonseca et al. (ASE 2025,
+caso BMW) reportan de pasada que el Gherkin generado terminó usándose como **artefacto de validación revisado por
+stakeholders**; fuera de eso, sobre la validación a cargo de gente de negocio solo hay contenido comercial, no
+papers.
 
 #### Dónde está el hueco, exactamente
 
