@@ -7,8 +7,8 @@
 > **Fuentes:** se reutilizan `sprint 15/FUENTES_MARCO.{md,bib}` y `sprint 12/REFERENCIAS.{md,bib}`; se suman
 > Sommerville y Pressman como anclajes del proceso, y los hallazgos de la búsqueda dirigida de la sec. 4.7.
 >
-> **Estado (4-ago-2026):** secciones 1–6 redactadas. Las asignaciones de la sec. 4 fueron verificadas contra los
-> PDF; los pendientes de cada sección están al pie de cada una y los bloqueantes, al final del documento.
+> **Estado (10-ago-2026):** secciones 1–6 redactadas; las asignaciones de la sec. 4 están verificadas contra los
+> PDF. Pendientes: tabla *Qué falta*, al final.
 >
 > **Encuadre del alcance** — surge del resultado de la búsqueda dirigida (sec. 4.7) y atraviesa todo el documento:
 > el corpus del mapeo sistemático es **literatura adyacente que enmarca el problema** (elicitación, prototipado,
@@ -84,37 +84,16 @@ un mismo circuito, y es exactamente la razón por la que queremos feedback del u
 Los niveles inferiores (system/integration/unit) son internos al equipo: hay verificación, pero no interviene el
 negocio. Por eso el marco se queda con la punta de arriba.
 
-Anclaje en Sommerville (verificado contra el ejemplar):
+La formulación clásica de las dos ramas es de Sommerville: *"Validation: Are we building the right product? ·
+Verification: Are we building the product right?"* [`sommerville2016software`, cap. 8, introducción]. Como fuente
+del modelo se cita `pressman2020software`, cap. 2 (*Process Models*) — presenta la misma correspondencia superior
+**requisitos ↔ aceptación**; los nombres de los demás niveles varían entre presentaciones —, y como origen
+histórico, `rook1986controlling`.
 
-- Formulación de V&V: *"Validation: Are we building the right product? · Verification: Are we building the product
-  right?"* [`sommerville2016software`, **cap. 8, introducción** — el pasaje está antes de que arranque la sec. 8.1].
-  Son las dos preguntas que separan las dos ramas.
-- *Acceptance testing* como instancia formal del cliente [íd., sec. 8.4]; y *"System stakeholders… who certify the
-  acceptability of the system"* [íd., **cap. 4, introducción**, no sec. 4.1].
-
-**Fuente del V-model: `pressman2020software`, cap. 2 (*Process Models*).** Pressman & Maxim presentan ahí el
-V-model con exactamente esta correspondencia:
-
-| Pressman | ↔ | Pressman |
-|---|---|---|
-| Requirements modeling | ↔ | Acceptance testing |
-| Architectural design | ↔ | System testing |
-| Component design | ↔ | Integration testing |
-| Code generation | ↔ | Unit testing |
-
-(Los nombres de nivel varían levemente entre presentaciones del modelo — p. ej. *requirement gathering* vs.
-*requirements modeling* —; la correspondencia superior **requisitos ↔ aceptación** es la misma en todas.)
-
-Como **origen histórico** puede citarse `rook1986controlling`, el artículo al que se atribuye la introducción del
-V-model en desarrollo de software.
-
-> ⚠ **Nota sobre "el V-model es de cascada".** Tanto Pressman como Sommerville lo presentan como variante del
-> modelo en cascada — Sommerville además lo nombra una sola vez y al pasar (Fig. 2.7, cap. 2): *"The V-model shows
-> the software validation activities that correspond to each stage of the **waterfall** process model."*
->
-> **No invalida el uso que le damos**, pero conviene decirlo explícitamente en el texto: acá el V-model entra como
-> **ilustración de la correspondencia** definición ↔ prueba, no como modelo de proceso a seguir. Cuántas veces se
-> recorre la V es justamente lo que cambia entre modelos — y eso es lo que abre la sección 3.
+> ⚠ Tanto Pressman como Sommerville presentan el V-model como variante de **cascada**. No invalida el uso que le
+> damos, pero hay que decirlo explícitamente: acá entra como **ilustración de la correspondencia** definición ↔
+> prueba, no como modelo de proceso a seguir. Cuántas veces se recorre la V es justamente lo que cambia entre
+> modelos — y eso es lo que abre la sección 3.
 
 ## 3. Esto toma distintas formas — ejemplo: Scrum (sin IA)
 
@@ -143,11 +122,9 @@ Dos precisiones del propio framework, importantes para el marco:
 - **La ceremonia no alcanza para contener lo que se estudia**: está acotada a un máximo de cuatro horas. El uso real
   del producto y la detección de desvíos no caben ahí ni están definidos ahí.
 
-Y lo que Scrum **no** define: sobre el texto completo de la Guía (14 pp.), `inspect`/`inspection` (23 apariciones) y
-`adapt`/`adaptation` (18) son centrales, pero **`feedback`, `test`/`testing` y `acceptance` no aparecen ni una vez**.
-El framework se declara *"purposefully incomplete"* y *"a container for other techniques, methodologies, and
-practices"*. Por eso la parte de ingeniería —liberación, testing de aceptación, validación de reglas, análisis de
-impacto— se ancla fuera de Scrum, en Sommerville y Dumas.
+Y lo que Scrum **no** define: en el texto completo de la Guía, **`feedback`, `test`/`testing` y `acceptance` no
+aparecen ni una vez** — el framework se declara *"purposefully incomplete"*. Por eso la parte de ingeniería
+—liberación, testing de aceptación, validación de reglas— se ancla fuera de Scrum, en Sommerville y Dumas.
 
 ### 3.2. El flujo, tal como ocurre hoy
 
@@ -189,23 +166,15 @@ nombre**, describe de qué trata cada una y qué efecto tiene la IA ahí, con su
 
 **Criterio de clasificación.** Las categorías se ordenan por **qué operación hace la IA sobre el ciclo de feedback** —
 no por actividad, no por modelo de proceso, no por fase del SDLC. Un mismo trabajo puede tocar más de una categoría;
-donde pasa, se dice. Declarar el eje importa porque en una primera versión de esta sección convivían tres ejes
-distintos (qué hace la IA con el artefacto / quién opera la herramienta / qué artefacto sale) y las categorías se
-pisaban entre sí.
+donde pasa, se dice.
 
 **Etiquetas de fuente:** **[corpus]** paper del mapeo sistemático · **[general]** los cuatro artículos sobre IAG en el
 desarrollo · **[gris]** preprint o prensa profesional, sin peer review · **[producto]** evidencia de mercado.
 
-> ### Nota sobre el alcance de estas categorías
->
-> El corpus original se armó con un string que **no contenía términos de testing, validación ni aceptación**
-> (`"generative AI" AND ("business users" OR clients OR stakeholders) AND "software development"`, sprint 5). Por eso
-> los 12 papers peer-reviewed son de ingeniería de requisitos y prototipado. Las categorías que siguen describen,
-> entonces, **la literatura adyacente que enmarca el problema**, no el objeto de la tesis.
->
-> Esa laguna se cubrió con una **búsqueda dirigida posterior** (ver 4.7), que confirmó que el hueco es real y no un
-> artefacto del string. Las asignaciones de esta sección fueron verificadas contra los PDF en agosto de 2026; de las
-> que la versión anterior daba por buenas, **cuatro resultaron falsas**, así que no se usa agrupamiento por título.
+> **Alcance.** El corpus original se armó con un string sin términos de testing, validación ni aceptación (sprint 5);
+> por eso sus papers son de ingeniería de requisitos y prototipado, y las categorías que siguen describen **la
+> literatura adyacente que enmarca el problema**, no el objeto de la tesis. Esa laguna se cubrió con la búsqueda
+> dirigida de 4.7, que confirmó que el hueco es real y no un artefacto del string.
 
 ### 4.1. La IA **emite** el feedback — impersonación de stakeholders
 
@@ -220,14 +189,10 @@ disponibilidad. Es la categoría que más directamente toca el **objetivo C**.
   inclusivity"*) siempre que un humano las cure. Sirve como límite a la **sustitución**, no a la técnica.
 - **Objetivo B:** altera **frecuencia** y **temporalidad**.
 
-> ⚠ **Esta categoría no tiene respaldo del corpus.** La versión anterior la apoyaba en `raftopoulos2024designing`,
-> que **no trata de esto**: es diseño participativo con cartas de cartón y Lego Serious Play; sobre su texto
-> completo, `impersonat` = 0, `LLM` = 0, `GPT` = 0 apariciones. Queda sostenida solo por Pirozzi (2024, revista
-> profesional, **no peer-reviewed**) y por productos. **O se consigue evidencia académica con una búsqueda dirigida,
-> o la categoría se declara [gris]+[producto].**
->
-> `raftopoulos2024designing` reubicado: es un antecedente de **métodos participativos de co-diseño pre-IAG**, útil
-> para el objetivo A (dinámicas tradicionales) o para diseñar los talleres de la PoC.
+> ⚠ **Esta categoría no tiene respaldo del corpus:** queda sostenida solo por Pirozzi (2024, revista profesional,
+> **no peer-reviewed**) y por productos — o aparece evidencia académica, o se declara [gris]+[producto].
+> (`raftopoulos2024designing`, que antes se citaba acá, no trata de esto: es co-diseño participativo pre-IAG, sin
+> LLMs; queda como antecedente para el objetivo A y para los talleres de la PoC.)
 
 ### 4.2. La IA **captura** lo que se dijo — asistentes de reunión
 
@@ -248,9 +213,8 @@ Asistentes LLM que acompañan una reunión y devuelven resumen, tickets y señal
 
 ### 4.3. La IA **trabaja el artefacto de requisito** — formular, revisar, juzgar, rutear
 
-Agrupa lo que antes estaban separado en tres categorías que se solapaban: reformular el enunciado, evaluar su calidad
-y convertir input disperso en trabajo accionable. Son la misma operación sobre el mismo artefacto; lo único que
-cambia es si la salida es una reescritura, un veredicto o un ticket.
+Reformular el enunciado, evaluar su calidad y convertir input disperso en trabajo accionable: es la misma operación
+sobre el mismo artefacto; lo que cambia es si la salida es una reescritura, un veredicto o un ticket.
 
 - **Reformulación asistida del enunciado del stakeholder** **[corpus: `mircea2026supporting`, REFSQ 2026]** — el
   participante escribe cinco user stories, un LLM se las devuelve reescritas y él las compara con su original. 26
@@ -279,15 +243,10 @@ cambia es si la salida es una reescritura, un veredicto o un ticket.
   evaluador automático reemplace al del negocio sin que nadie lo note.
 - **Objetivo B:** altera **granularidad** y **secuencia**.
 
-> **Nota de encuadre — no confundir con la masa del corpus.** Las tres revisiones sistemáticas del área
-> (**[corpus: `vasudevan2025role`, `fischer2026generative`, `cheng2026generative`]**) **no** son evidencia de esta
-> categoría: son tres mediciones del mismo campo y se usan en 4.7 para encuadrar. Sacándolas, la evidencia primaria
-> acá son 4 estudios, no 7.
->
-> **`stein2026integrating` fue removido de esta categoría.** No asiste a nadie: es un método de *benchmarking* de
-> LLMs y estrategias de prompting contra ground truth, con un diálogo de stakeholder ficticio y estático, sin humano
-> en el loop. Su *"Self-Refine"* es una técnica de prompting (auto-reflexión del modelo), **no** refinamiento de
-> requisitos con el cliente. Encaja mejor como *"evaluación de capacidad técnica de LLMs en tareas de RE"*.
+> Las tres revisiones sistemáticas del área (**[corpus: `vasudevan2025role`, `fischer2026generative`,
+> `cheng2026generative`]**) **no** son evidencia de esta categoría — se usan en 4.7 para encuadrar; la evidencia
+> primaria acá son 4 estudios. Y `stein2026integrating` fue removido: es *benchmarking* de LLMs contra ground truth,
+> sin humano en el loop (su *"Self-Refine"* es una técnica de prompting, no refinamiento con el cliente).
 
 ### 4.4. La IA **construye** algo mirable o ejecutable — materialización temprana
 
@@ -313,22 +272,15 @@ De Troyer et al. (IFIP HCI 2025) mapearía acá (fuera del corpus, `sprint 12/ID
   **[producto: `tusk`, `sweep`]** sugiere que el modo autónomo sin validador humano todavía no cierra.
 - **Objetivo B:** altera **temporalidad** (el momento en que el feedback es posible).
 
-> ⚠ **Tres precisiones que la versión anterior se saltaba:**
-> - **Kretzer no involucra al negocio.** Es un plug-in de Figma para integración *cross-functional* entre UX, PO y
->   developers: `client` = 0, `end-user` = 0 apariciones; sus "stakeholders" son roles internos; los participantes
->   fueron estudiantes y crowd-workers. Y los autores declaran que *"we did not evaluate the assistant in a co-design
->   situation involving multiple stakeholders"*. **Lo que adelanta es la sincronización intra-equipo, no la reacción
->   del negocio.** Su aporte más cercano a esta tesis es la dirección inversa: reconocer si un requisito ya está
->   cumplido en la GUI, y derivar user stories desde interfaces existentes.
-> - **Alabsi no tiene participantes.** Verificado sobre el texto completo: el rol fue actuado — *"a stakeholder role
->   was **simulated**"*—, hay un solo sketch y 3 evaluadores todos técnicos (ICC(2,k)=0,518, acuerdo moderado), y es
->   preprint sin peer review. Además es de **una sola pasada** —*"LLMs generated requirements and prototypes in a
->   single pass"*—, o sea que **no observó ningún ciclo de feedback**. Su promesa de que *"enables earlier
->   validation"* es por lo tanto **inferencial, no medida**: nadie que no fuera técnico miró nunca el prototipo.
->   Sirve como encuadre teórico (el prototipo como *boundary object*) y como evidencia del hueco — no como evidencia
->   de dinámicas con el negocio.
-> - **Robinson es paper de visión** (TOSEM), sin estudio empírico. Es el mejor encaje conceptual del corpus con esta
->   tesis —cubre elicitación *y* validación por el usuario final— pero aporta agenda, no evidencia.
+> ⚠ **Tres precisiones verificadas contra los PDF:**
+> - **Kretzer no involucra al negocio:** es un plug-in de Figma para sincronización intra-equipo (UX, PO, devs);
+>   `client` = 0 apariciones y sin evaluación en co-diseño con stakeholders. Su aporte más cercano a esta tesis es
+>   la dirección inversa: derivar user stories desde interfaces existentes.
+> - **Alabsi no tiene participantes:** el rol de stakeholder fue *simulado*, un solo sketch, 3 evaluadores técnicos
+>   y **una sola pasada** — no observó ningún ciclo de feedback; su *"enables earlier validation"* es inferencial,
+>   no medido. Sirve como encuadre (el prototipo como *boundary object*) y como evidencia del hueco.
+> - **Robinson es paper de visión** (TOSEM), sin estudio empírico: el mejor encaje conceptual del corpus, pero
+>   aporta agenda, no evidencia.
 
 ### 4.5. La IA **valida contra reglas y procesos de negocio**
 
@@ -342,9 +294,6 @@ planteo de esta tesis— y hoy **prácticamente vacía**.
 - El anclaje conceptual de la validación semántica de reglas contra el proceso real sigue siendo **Dumas et al.
   (2018)**, secs. 4.4 y 5.4.2 — que en el v2 sostenía la actividad A3a y que esta sección no debe perder.
 - **Objetivo B:** sin evidencia para afirmar nada todavía.
-
-> **Pendiente bloqueante:** conseguir Lindenberg (biblioteca ORT / Timbó). Sin esta categoría, el objetivo D queda
-> huérfano en todo el marco.
 
 ### 4.6. Nota sobre el tramo técnico (generación de código con validación humana)
 
@@ -467,28 +416,9 @@ limitación y trabajo futuro**: `mircea2026supporting` (los participantes son t�
 articulation ability"* los efectos podrían variar) y `alabsi2026empirical` (evaluadores todos técnicos, que *"may
 not fully represent the perspectives of non-technical stakeholders"*).
 
-#### Cautelas que hay que declarar en el texto final
-
-1. **Fechar la cita de Nguyen-Duc.** El pasaje sobre el testing de aceptación **[general]** es literal, pero su
-   relevamiento **cierra en octubre de 2023**. Citarlo como "(2025)" para sostener un hueco en 2026 es indefendible.
-   Citar como *"relevamiento con corte oct-2023"* — y apoyarse en la búsqueda dirigida de arriba, que es actual.
-2. **Las SLR del corpus se contradicen sobre "validación".** `cheng2026generative` (238 artículos) reporta *"studies
-   on requirement validation had a share of 19,0%"*; `fischer2026generative` (37 publicaciones) dice que
-   *"remain underexplored"* (4/37). **Declarar la discrepancia, no elegir la cita conveniente.**
-3. **Falso amigo "validation".** En las SLR de RE significa contrastar requisitos con expectativas **antes de
-   construir**, no aceptación de software entregado. Usar sus cifras como proxy del foco de esta tesis es medir otra
-   cosa.
-4. **Falso amigo "acceptance".** El término está dominado por TAM/UTAUT —escalas psicométricas de *aceptación de la
-   tecnología*, otra disciplina—: 17 de los 20 primeros resultados de una consulta amplia. Todo string con
-   "acceptance" necesita anclaje en *testing* / *criteria* / *software*.
-5. **Objeción a enfrentar de frente:** Lang y Fischer no leen el vacío como oportunidad sino como inadecuación —
-   *"requirement validation is less suitable for AI-driven automation, which explains its limited presence in
-   research"*. Si esta tesis sostiene lo contrario, hay que argumentarlo, no ignorarlo.
-
-**Limitación metodológica de la búsqueda dirigida, a declarar:** ACM DL devolvió 403, SpringerLink redirige a login
-e IEEE Xplore exige sesión; los tres se cubrieron **indirectamente** vía DOIs recuperados desde arXiv y Semantic
-Scholar. Conviene repetir esas tres búsquedas desde la red de ORT para obtener totales citables. Los buscadores web
-no exponen totales, y el `total` de Semantic Scholar es un pool de relevancia, no un conteo booleano.
+**Cautelas de citado** (fechado de Nguyen-Duc, contradicción entre las SLR, los falsos amigos *validation* y
+*acceptance*, la objeción de Lang y Fischer, y las bases sin totales citables): registradas en `NOTAS_MEMORIA.md` —
+son reglas para la memoria final, no contenido de este marco.
 
 ### 4.8. Qué dimensión del ciclo altera cada categoría (objetivo B)
 
@@ -531,9 +461,6 @@ se cita la fuente). Editable en `sprint 15/diagramas/escenarios_s1_s4.drawio`.
 | **S2** *AI in loop* | El humano domina; la IA automatiza partes de tareas y asiste decisiones | **La mayor parte del estado del arte**: 4.2 (asistentes de reunión), 4.3 (reformular, juzgar, rutear) y la rama (a) de 4.4, donde el equipo opera la herramienta |
 | **S3** *AI assumes role(s)* | La IA asume roles seleccionados; el humano controla la operación | Dos puntos: **4.1**, donde la IA asume el rol de quien emite el feedback, y la rama (b) de **4.4**, donde el actor de negocio construye y el developer queda como compuerta |
 | **S4** *Human-in-the-loop* | La IA gestiona varios roles; el humano vigila | **Ninguna categoría llega.** El candidato sería el tramo técnico autónomo (4.6), y el pivote de dos de los productos relevados sugiere que ese modo todavía no cierra |
-
-El paper además parametriza cada escenario por niveles y modela **trayectorias de transición**: citable si hace falta
-precisión sobre *cuánto* asume la IA.
 
 **Qué se lee del mapeo.** El estado del arte se concentra en **S2** y toca **S3** en dos puntos; **nada llega a S4**.
 Es un resultado, no una omisión: en ninguna de las vías relevadas el humano sale del circuito. Y las dos que llegan
@@ -586,9 +513,8 @@ validación. Los dos papers del corpus que más prometían en esa dirección dec
 ### 6.4. Limitaciones de este relevamiento
 
 - El corpus sistemático se armó con un string **sin términos de testing ni aceptación**; la búsqueda dirigida de
-  4.7 lo compensa, pero no lo reemplaza.
-- **ACM DL, SpringerLink e IEEE Xplore** bloquearon el acceso automatizado; se cubrieron indirectamente vía DOIs.
-  Faltan totales citables de esas tres bases.
+  4.7 lo compensa, pero no lo reemplaza — y de ACM DL, SpringerLink e IEEE Xplore faltan totales citables
+  (`BUSQUEDAS_ORT.md`).
 - **`lindenberg2025business` sin acceso**, lo que deja 4.5 y el objetivo D sin sustento verificable.
 - Parte de la evidencia de mercado (productos) **no es académica** y se etiqueta como tal.
 
@@ -612,7 +538,7 @@ validación. Los dos papers del corpus que más prometían en esa dirección dec
 | # | Falta | Por qué / cómo se destraba |
 |---|---|---|
 | 1 | **Decisiones de Victoria/Daniel** | (a) el tramo técnico de 4.6 — el objetivo A lo nombra y hoy el marco no lo cubre; nota: Perry et al. (2023) y Vaithilingam et al. (2022), referencias clave del proyecto sobre esa dimensión, no están citadas en el marco; (b) si la tabla A2a–A5 de la sec. 3 se queda (Daniel pidió *"unos párrafos"*; la tabla ayuda a la trazabilidad con el v2 pero puede leerse como que Scrum vuelve a ser la base — y con ella se decide si el BPMN del v2, `sprint 15/diagramas/marco_feedback_bpmn.png`, se reusa); (c) si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC. |
-| 2 | **Redacción final** | Chequear largo (Daniel pidió **breve**; hoy la sec. 2 es más larga que la 1) y redactar el encuadre del hueco —corpus de RE como literatura adyacente, la celda vacía como objeto de la tesis— en la sec. 1 y en la introducción de la sec. 4. |
+| 2 | **Redacción final** | Pasada de recorte hecha (10-ago): secs. 2 y 4 podadas, cautelas movidas a `NOTAS_MEMORIA.md`. El encuadre del hueco ya está en el header y en la intro de la sec. 4. Queda solo una pasada de estilo después del feedback de Daniel. |
 | 3 | **Victoria, desde la red de ORT** | (a) **Ahora:** bajar el PDF de `lindenberg2025business` (SpringerLink vía ORT/Timbó; sin acceso abierto confirmado) — bloquea la categoría 4.5 y el objetivo D. (b) **No urgente — recién para la memoria final:** repetir las 4 búsquedas en ACM DL, IEEE Xplore y SpringerLink (`BUSQUEDAS_ORT.md`). No es para sumar fuentes: es para tener totales reproducibles que respalden la afirmación de que el tipo B no existe (hoy solo arXiv tiene conteo exacto; la limitación ya está declarada en 4.7). |
 
 **Meta v3:** versión escrita y prolija para decidir por dónde encarar la experimentación / PoC.
