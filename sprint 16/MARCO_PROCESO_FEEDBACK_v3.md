@@ -180,7 +180,6 @@ que se le atribuye es la disponibilidad continua (feedback 24/7, sin coordinar a
 - **Riesgo:** no es el stakeholder real. El límite lo formula REConnect, que pide que el humano quede como
 *"curator of AI outputs"* **[gris: `damian2025reconnect` v1]**; el paper *no* critica la impersonación (avala las
 personas sintéticas si un humano las cura), así que sirve como límite a la **sustitución**, no a la técnica.
-- **Objetivo B:** altera **frecuencia** y **temporalidad**.
 
 > ⚠ **Esta categoría no tiene respaldo del corpus:** queda sostenida solo por Pirozzi (2024, revista profesional,
 > **no peer-reviewed**) y por productos; se declara entonces [gris]+[producto]. (`raftopoulos2024designing` no
@@ -199,7 +198,6 @@ transcribe**: los autores lo declaran trabajo futuro y alimentan el asistente co
 - **Riesgo:** qué se pierde en el resumen; y si la presencia del asistente cambia lo que se dice.
 - **Señalado, sin verificar:** *RECOVER* (Voria et al., IEEE TSE 2025), requisitos desde conversaciones con
 stakeholders; fuera del corpus y con ficha sin verificar contra el PDF.
-- **Objetivo B:** altera **granularidad** del registro.
 
 ### 4.3. La IA **trabaja el artefacto de requisito**: formular, revisar, juzgar, rutear
 
@@ -227,7 +225,6 @@ reproducir. **Es el único trabajo del corpus que opera sobre software ya constr
 Torun, aguas arriba); fuera del corpus y con ficha sin verificar contra el PDF.
 - **Riesgo transversal:** que el LLM *sustituya* la intención original en vez de articularla; y que el criterio del
 evaluador automático reemplace al del negocio sin que nadie lo note.
-- **Objetivo B:** altera **granularidad** y **secuencia**.
 
 > Las tres revisiones sistemáticas del área (**[corpus: `vasudevan2025role`, `fischer2026generative`,
 > `cheng2026generative`]**) **no** son evidencia de esta categoría: se usan en 4.7 para encuadrar; la evidencia
@@ -255,7 +252,6 @@ were assumed subconsciously but not articulated"*.
 - **Riesgo:** el prototipo puede inducir la respuesta; validar rápido puede sacrificar calidad de UX en favor de la
 velocidad **[general: Cornide-Reyes et al. 2025]**; y el pivote de dos productos relevados
 **[producto: `tusk`, `sweep`]** sugiere que el modo autónomo sin validador humano todavía no cierra.
-- **Objetivo B:** altera **temporalidad** (el momento en que el feedback es posible).
 
 > ⚠ **Tres precisiones verificadas contra los PDF:**
 >
@@ -281,7 +277,6 @@ no en la validación de software construido contra reglas; y demuestra factibili
 stakeholders reales. Aun el trabajo más cercano al objetivo D deja esa celda vacía.
 - El anclaje conceptual de la validación semántica de reglas contra el proceso real es **Dumas et al. (2018)**,
 secs. 4.4 y 5.4.2, el mismo que sostiene la actividad A3a de la sec. 3.
-- **Objetivo B:** sin evidencia para afirmar nada todavía.
 
 ### 4.6. Nota sobre el tramo técnico (generación de código con validación humana)
 
