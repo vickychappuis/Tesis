@@ -1,22 +1,7 @@
 # Marco del proceso de feedback — v3
 
-> Reescritura de `sprint 15/MARCO_PROCESO_FEEDBACK_v2.md` **desacoplada de Scrum**, contada de lo general a lo
-> particular según la narrativa que bajó Daniel (30 jul; ver la tabla de pasos en `sprint 15/resumen_call.md`).
-> Sigue siendo **estado del arte, sin propuesta propia todavía** — todo esto es contexto.
->
-> **Fuentes:** se reutilizan `sprint 15/FUENTES_MARCO.{md,bib}` y `sprint 12/REFERENCIAS.{md,bib}`; se suman
-> Sommerville y Pressman como anclajes del proceso, y los hallazgos de la búsqueda dirigida de la sec. 4.7.
->
-> **Estado (10-ago-2026):** secciones 1–6 redactadas; las asignaciones de la sec. 4 están verificadas contra los
-> PDF. Pendientes: tabla *Qué falta*, al final.
->
-> **Encuadre del alcance** — surge del resultado de la búsqueda dirigida (sec. 4.7) y atraviesa todo el documento:
-> el corpus del mapeo sistemático es **literatura adyacente que enmarca el problema** (elicitación, prototipado,
-> asistencia sobre el artefacto de requisito); lo que **sí** existe sobre aceptación es un cuerpo consolidado que
-> automatiza el *artefacto* (tests y criterios); y la **interacción de validación del stakeholder de negocio sobre
-> software funcionando** es la celda vacía — el objeto de esta tesis y de la PoC.
-
----
+Estado del arte, sin propuesta propia todavía. El objeto de esta tesis es la **interacción de validación del
+stakeholder de negocio sobre software funcionando**: la literatura relevada la enmarca pero no la cubre (sec. 4.7).
 
 ## 1. Proceso de desarrollo de software (Sommerville) → requisitos y V&V
 
@@ -520,16 +505,16 @@ validación. Los dos papers del corpus que más prometían en esa dirección dec
 
 ---
 
-## Definiciones a explicitar
+## Definiciones
 
-- **Stakeholder** — Sommerville lo define en sec. 4.1 (cap. 4, *Requirements engineering*): *"System stakeholders
-  include anyone who is affected by the system in some way and so anyone who has a legitimate interest in it.
-  Stakeholders range from end-users of a system through managers to external stakeholders such as regulators, who
-  certify the acceptability of the system."* Es una definición **amplia** (incluye usuario final, cliente,
-  reguladores). Sobre ella hay que **acotar el foco de la tesis**: un representante que **prueba el producto y opina
-  de forma verbal**, excluyendo el feedback indirecto (telemetría/ML, auto-PRs). La cita da el paraguas; el recorte
-  es nuestro y hay que declararlo como tal.
-- **Analista funcional:** rol clásico (validación de reglas de negocio). No sobre-formalizar; se decide luego si es rol propio o se absorbe en el Product Owner.
+- **Stakeholder.** *"System stakeholders include anyone who is affected by the system in some way and so anyone
+  who has a legitimate interest in it. Stakeholders range from end-users of a system through managers to external
+  stakeholders such as regulators, who certify the acceptability of the system"*
+  [`sommerville2016software`, cap. 4, introducción]. La definición es amplia; esta tesis se acota a **un
+  representante del negocio que prueba el producto y opina de forma verbal**. El feedback indirecto (telemetría,
+  ML, auto-PRs) queda fuera de alcance. El recorte es nuestro, no de Sommerville.
+- **Analista funcional.** Rol clásico de validación de reglas de negocio. No se formaliza por ahora; queda para
+  decidir si es un rol propio o se absorbe en el Product Owner.
 
 ---
 
