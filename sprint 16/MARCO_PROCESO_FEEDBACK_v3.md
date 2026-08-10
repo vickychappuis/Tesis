@@ -177,112 +177,41 @@ Evidencia de mercado relevada (sprint 11):
 | **4.5** | **Valida contra reglas y procesos de negocio**: la mitad del planteo de esta tesis (**objetivo D**) | [corpus: `lindenberg2025business`, solo abstract] | | | **sin trabajos de validación propiamente dicha**: Lindenberg *descubre* procesos (aguas arriba, sin humanos en la evaluación), no valida software construido contra reglas; el ancla conceptual es Dumas secs. 4.4 y 5.4.2 (la A3a de la sec. 3) |
 | **4.6** | **Tramo técnico** (nota): generación de código con validación humana (objetivos A y C) | [producto: `devin`, `codegen`, `tusk`, `sweep`] | | | el corpus académico no lo cubre; si entra como categoría propia o se justifica su exclusión es decisión abierta (*Para decidir*) |
 
-### 4.7. Qué está cubierto y qué no
+### 4.7. El hueco: la instancia de aceptación
 
-Como complemento de las búsquedas principales (sprints 4 y 5), se revisó también la literatura con el vocabulario
-propio de la aceptación (*acceptance testing*, *acceptance criteria*, UAT, Gherkin/BDD; 2023 en adelante).
-**Resultado: 24 trabajos de tipo A, 0 de tipo B.**
+Como complemento de las búsquedas principales (sprints 4 y 5), se revisó la literatura con el vocabulario propio
+de la aceptación (*acceptance testing*, *acceptance criteria*, UAT, Gherkin/BDD). En lo relevado, lo que hay
+apunta a **generar el artefacto de aceptación** (tests, criterios, escenarios Gherkin) con el developer, tester o
+PO como usuario, y donde toca la aceptación busca automatizarla. **No encontramos estudios de la interacción de
+validación del stakeholder**: una persona de negocio usando el software construido y devolviendo si es lo que
+pidió.
 
-- **Tipo A, generar el artefacto** (tests, criterios, escenarios Gherkin). Actividad técnica; el usuario es
-developer, tester o PO revisando artefactos. Cuerpo consolidado y creciente, 2024–2026.
-- **Tipo B, estudiar la interacción de validación del stakeholder**: una persona de negocio usando el software
-construido y devolviendo si es lo que pidió. **Ninguno.**
-
-Los propios trabajos de tipo A confirman la dirección: donde aparece la aceptación, el objetivo es
-**automatizarla y sacar al humano del circuito**, no estudiar la interacción del stakeholder.
-
-#### Dónde está el hueco, exactamente
-
-Cruzando **quién es el sujeto** con **en qué momento del ciclo actúa la IA**:
-
-
-|                                    | La IA procesa feedback **ya emitido**    | La IA media **el acto de emitirlo** |
-| ---------------------------------- | ---------------------------------------- | ----------------------------------- |
-| Sujeto = corpus de texto           | **Saturado**: minería de reviews con LLM | vacío                               |
-| Sujeto = developer                 | trazabilidad issue↔commit                | **Poblado**: *vibe coding*          |
-| Sujeto = **actor de negocio real** | casi vacío                               | ⬛ **el hueco**                      |
-
-
-Los dos cuerpos grandes están desplazados **en las dos dimensiones a la vez**: la minería de reviews *digiere*
-feedback ya emitido (el usuario es un corpus histórico, no una interacción), y en el *vibe coding* el no técnico
-está **construyendo**, no validando lo que otro construyó. La formulación completa del hueco está en 6.1.
-
-#### El hueco sobre el proceso de aceptación de Sommerville
-
-El mismo resultado puede leerse sobre un diagrama canónico de manual. Sommerville descompone el *acceptance testing*
-en **seis etapas** [`sommerville2016software`, sec. 8.4, Fig. 8.11]:
+Sobre el proceso de aceptación de Sommerville se ve dónde cae ese hueco. El manual lo descompone en seis etapas
+[`sommerville2016software`, sec. 8.4, Fig. 8.11]:
 
 ![Fig. 8.11 de Sommerville (2016): The acceptance testing process](figuras/sommerville_fig8_11_acceptance_testing.png)
 
 *Fig. 8.11 de Sommerville (2016), sec. 8.4, "The acceptance testing process". Reproducción literal del ejemplar,
 con fines académicos.*
 
-Cruzando esas etapas con lo relevado:
+Lo relevado se concentra en definir criterios, derivar tests y correrlos (etapas 1, 3 y 4); no encontramos
+trabajos sobre las etapas donde el resultado es un acuerdo entre personas: *negotiate test results* y *accept or
+reject system* (5 y 6). El propio Sommerville anticipa por qué: *"the developer and the customer have to
+negotiate to decide if the system is good enough to be used"*. Ahí se ubica esta tesis.
 
-
-| Etapa                           | Cobertura en la literatura                                                                             |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| 1 · Define acceptance criteria  | **Cubierto**: `abbasi2025towards` (*Acceptance Criteria Assistant*), `stein2026integrating`, `pmagent` |
-| 2 · Plan acceptance testing     | sin trabajos relevados                                                                                 |
-| 3 · Derive acceptance tests     | **Cubierto**: el grueso de los 24 trabajos tipo A (user stories → Gherkin → scripts)                   |
-| 4 · Run acceptance tests        | **Parcial**: hay trabajos que lo automatizan sacando al humano del circuito                            |
-| 5 · **Negotiate test results**  | ⬛ **sin trabajos**                                                                                     |
-| 6 · **Accept or reject system** | ⬛ **sin trabajos**                                                                                     |
-
-
-El corte es limpio: **la literatura cubre las etapas donde el producto es un artefacto (1, 3, 4) y no toca aquellas
-donde el producto es un acuerdo entre personas (5 y 6)**.
-
-Y el propio Sommerville anticipa por qué. De la etapa 5: *"the developer and the customer have to **negotiate** to
-decide if the system is good enough to be used"*. De la etapa 4: *"**It is difficult to automate this process** as
-part of the acceptance tests may involve testing the interactions between end-users and the system"*. El manual dice
-que ahí la interacción humana resiste la automatización, y es exactamente donde esta tesis se ubica.
-
-#### Por qué el hueco importa: evidencia de que es un problema, no un nicho
-
-Tres trabajos convergen en que **la capacidad de generar se democratizó y la de validar no**:
-
-- **Virk y Liu (VL/HCC 2025)**: profesionales de marketing y ventas evaluando análisis generados por IA. Su
-hallazgo: *"business professionals cannot reliably verify AI-generated data analyses on their own"*, y fallan **incluso
-instruidos explícitamente a buscar errores**. Es el único trabajo hallado que pone actores de negocio reales a
-validar salida de IA. (Objeto: un análisis de datos, no software funcionando; ahí queda el margen de esta tesis.)
-- **Fawzy et al. (2026)**: 162 *vibe coders* (no programadores, novatos y profesionales) y el *perception–action
-gap*; el *vibe coding* *"is partially democratising as it broadens access to software creation without equally
-distributing the expertise to evaluate it"*.
-- **Sharma et al. (2026), *Feedback by Design***: cuatro barreras al feedback de calidad, derivadas de las máximas
-de Grice: **common ground, verifiability, communication, informativeness**. Es andamiaje conceptual casi directo
-para este marco y para el diseño de la PoC.
-
-Y los dos papers del corpus que más prometían materialización temprana **declaran esta misma ausencia como
-limitación y trabajo futuro**: `mircea2026supporting` (los participantes son técnicos; en grupos *"with limited
-articulation ability"* los efectos podrían variar) y `alabsi2026empirical` (evaluadores todos técnicos, que *"may
-not fully represent the perspectives of non-technical stakeholders"*).
-
+El hueco importa porque **la capacidad de generar se democratizó y la de validar no**: Virk y Liu (2025)
+encuentran que profesionales de negocio no logran verificar de forma confiable salidas de IA, incluso instruidos
+para buscar errores; Fawzy et al. (2026) reportan lo mismo en no programadores que construyen con IA; y Sharma et
+al. (2026) sistematizan cuatro barreras al feedback de calidad (common ground, verifiability, communication,
+informativeness), andamiaje directo para la PoC.
 
 ### 4.8. Qué dimensión del ciclo altera cada categoría (objetivo B)
 
-El objetivo B pregunta por cambios en **frecuencia, secuencia, granularidad y temporalidad** de los intercambios de
-validación. Leídas con esa grilla, las categorías no son intercambiables:
-
-
-| Categoría                          | Frecuencia | Secuencia | Granularidad | Temporalidad |
-| ---------------------------------- | :----------: | :---------: | :------------: | :------------: |
-| 4.1 La IA emite el feedback        | ✦          |           |              | ✦            |
-| 4.2 La IA captura lo dicho         |            |           | ✦            |              |
-| 4.3 La IA trabaja el artefacto     |            | ✦         | ✦            |              |
-| 4.4 La IA construye algo mirable   |            | ✦         |              | ✦            |
-| 4.5 La IA valida reglas de negocio |            |           |              |              |
-
-
-Lecturas que se desprenden:
-
-- **La frecuencia solo la altera 4.1**, la única que rompe la dependencia de la agenda del stakeholder porque
-sustituye al emisor.
-- **La temporalidad la alteran 4.1 y 4.4** por vías opuestas: sustituir a quien da el feedback, o adelantar el
-momento en que hay algo que mirar. Solo la segunda mantiene al stakeholder real en el circuito.
-- **4.5 queda sin marcas**: no hay evidencia de esa operación con IA todavía.
-- **Ninguna categoría altera las cuatro dimensiones**: el estado del arte sostiene desplazamientos parciales, no
-un cambio integral del ciclo.
+Leídas con la grilla del objetivo B (frecuencia, secuencia, granularidad, temporalidad): 4.1 altera **frecuencia
+y temporalidad**, porque sustituye al emisor; 4.2, la **granularidad** del registro; 4.3, **granularidad y
+secuencia**; 4.4, **secuencia y temporalidad**, porque adelanta el momento en que hay algo que mirar; para 4.5 no
+hay evidencia. Ninguna categoría altera las cuatro dimensiones: lo relevado sostiene desplazamientos
+parciales del ciclo, no un cambio integral.
 
 ## 5. Dónde caen estas categorías en los escenarios S1–S4
 
@@ -298,12 +227,12 @@ Figura **propia** a partir de las Tablas 1 y 2 del paper.
 | Escenario                                            | En una línea                                                            | Dónde caen las categorías                                                                                                                                                   |
 | ---------------------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **S1** *Traditional Software Development Operations* | Humanos en todos los roles; las herramientas automatizan                | Es el proceso **de hoy**, la línea de base de la sec. 3                                                                                                                     |
-| **S2** *AI in loop*                                  | El humano domina; la IA automatiza partes de tareas y asiste decisiones | **La mayor parte del estado del arte**: 4.2 (asistentes de reunión), 4.3 (reformular, juzgar, rutear) y la rama (a) de 4.4, donde el equipo opera la herramienta            |
+| **S2** *AI in loop*                                  | El humano domina; la IA automatiza partes de tareas y asiste decisiones | **La mayor parte de lo relevado**: 4.2 (asistentes de reunión), 4.3 (reformular, juzgar, rutear) y la rama (a) de 4.4, donde el equipo opera la herramienta            |
 | **S3** *AI assumes role(s)*                          | La IA asume roles seleccionados; el humano controla la operación        | Dos puntos: **4.1**, donde la IA asume el rol de quien emite el feedback, y la rama (b) de **4.4**, donde el actor de negocio construye y el developer queda como compuerta |
 | **S4** *Human-in-the-loop*                           | La IA gestiona varios roles; el humano vigila                           | **Ninguna categoría llega.** El candidato sería el tramo técnico autónomo (4.6), y el pivote de dos de los productos relevados sugiere que ese modo todavía no cierra       |
 
 
-**Qué se lee del mapeo.** El estado del arte se concentra en **S2** y toca **S3** en dos puntos; **nada llega a S4**.
+**Qué se lee del mapeo.** Lo relevado se concentra en **S2** y toca **S3** en dos puntos; **nada llega a S4**.
 Es un resultado, no una omisión: en ninguna de las vías relevadas el humano sale del circuito. Y las dos que llegan
 a S3 lo hacen de maneras incompatibles entre sí: o la IA sustituye a quien emite el feedback (4.1), o lo emite un
 humano de negocio que ahora también construye (4.4b).
@@ -320,18 +249,17 @@ experimentación, **no una propuesta**.
 
 ### 6.1. El hueco principal
 
-La **instancia de aceptación con el stakeholder real sobre software funcionando**. Enunciado como desplazamiento,
-no como ausencia: hay un cuerpo consolidado sobre generar el *artefacto* de aceptación y literatura abundante sobre
-IA que *procesa* feedback ya emitido; no hay trabajo empírico sobre cómo se reconfigura la **interacción** de
-validación (evidencia en 4.7).
+La **instancia de aceptación con el stakeholder real sobre software funcionando**. En lo relevado hay trabajos
+sobre generar el *artefacto* de aceptación y sobre IA que *procesa* feedback ya emitido; no encontramos trabajo
+empírico sobre cómo se reconfigura la **interacción** de validación (4.7).
 
 ### 6.2. Necesidades sin trabajo asociado
 
 - **Validación de reglas y flujos de negocio con IAG (objetivo D).** La categoría 4.5 no tiene trabajos de
 validación propiamente dicha: la mitad del planteo de esta tesis no encuentra respaldo en la literatura relevada.
 - **El actor de negocio como validador de lo que la IA produjo.** La evidencia disponible sugiere que **no lo logra
-de forma confiable** (4.7): la capacidad de generar se democratizó y la de validar no. Nadie estudia qué
-andamiajes cerrarían esa brecha.
+de forma confiable** (4.7): la capacidad de generar se democratizó y la de validar no. No encontramos estudios
+sobre qué andamiajes cerrarían esa brecha.
 - **La calidad del feedback que el stakeholder logra emitir.** Las cuatro barreras de Sharma et al. (4.7) están
 formuladas para agentes conversacionales, no para el ciclo cliente↔equipo de desarrollo. Trasladarlas es trabajo
 abierto.
@@ -342,8 +270,8 @@ abierto.
 literatura, pero el foco de esta tesis es la interacción con un representante que prueba y opina de forma verbal
 (ver *Definiciones*). Observación del tutor: ese feedback **igual termina entrando al equipo como feedback
 normal**, y su incorporación depende de otros stakeholders (quién paga, factibilidad).
-- **Minería de reviews de app stores con LLM.** El subcampo más poblado de todos los relevados (~15 trabajos), pero
-opera sobre feedback ya emitido (ver la matriz de 4.7). Se menciona solo **como contraste**.
+- **Minería de reviews de app stores con LLM.** Abundante en lo relevado, pero opera sobre feedback ya emitido: el
+usuario es un corpus histórico, no una interacción. Se menciona solo **como contraste**.
 - **Elicitación inicial y prototipado.** Quedan fuera del objeto, pero **no** de la sección 4: son la literatura
 adyacente que enmarca el hueco.
 
