@@ -293,8 +293,8 @@ final del documento).
 
 ### 4.7. Qué está cubierto y qué no: resultado de la búsqueda dirigida
 
-El corpus original no podía responder esta pregunta: su string no contenía términos de testing ni de aceptación. Por
-eso se hizo una **búsqueda dirigida y documentada** (agosto 2026) con los términos faltantes.
+Para responder esta pregunta se hizo una **búsqueda dirigida y documentada** (agosto 2026) con los términos de
+testing y aceptación que el string original no tenía.
 
 **Método.** Cuatro strings booleanos sobre la API de arXiv (con conteos exactos), 14 búsquedas web y 3 consultas a
 Semantic Scholar, filtro 2023 en adelante:
@@ -347,12 +347,8 @@ Cruzando **quién es el sujeto** con **en qué momento del ciclo actúa la IA**:
 Los dos cuerpos grandes están desplazados **en las dos dimensiones a la vez**: la minería de reviews usa la IA para
 *digerir* feedback que el usuario ya emitió por canales tradicionales (el usuario es un corpus histórico y el ciclo
 nunca se observa como interacción); y el *vibe coding* sí tiene humanos reales, pero el no técnico allí está
-**construyendo**, no validando lo que otro construyó.
-
-> **Cómo enunciarlo.** No como ausencia ("no hay literatura") sino como desplazamiento: *hay un cuerpo consolidado
-> sobre generación automática de tests y criterios de aceptación con IAG, y literatura abundante sobre IA que
-> procesa feedback ya emitido; no hay literatura empírica sobre cómo se reconfigura la interacción de validación del
-> stakeholder de negocio frente a software funcionando.*
+**construyendo**, no validando lo que otro construyó. El hueco se enuncia entonces como desplazamiento, no como
+ausencia; la formulación completa está en 6.1.
 
 #### El hueco sobre el proceso de aceptación de Sommerville
 
@@ -403,9 +399,7 @@ limitación y trabajo futuro**: `mircea2026supporting` (los participantes son t�
 articulation ability"* los efectos podrían variar) y `alabsi2026empirical` (evaluadores todos técnicos, que *"may
 not fully represent the perspectives of non-technical stakeholders"*).
 
-**Cautelas de citado** (fechado de Nguyen-Duc, contradicción entre las SLR, los falsos amigos *validation* y
-*acceptance*, la objeción de Lang y Fischer, y las bases sin totales citables): registradas en `NOTAS_MEMORIA.md`.
-Son reglas para la memoria final, no contenido de este marco.
+Las cautelas de citado para la memoria final están registradas en `NOTAS_MEMORIA.md`.
 
 ### 4.8. Qué dimensión del ciclo altera cada categoría (objetivo B)
 
@@ -468,22 +462,21 @@ experimentación, **no una propuesta**.
 
 ### 6.1. El hueco principal
 
-La **instancia de aceptación con el stakeholder real sobre software funcionando** (ver 4.7). Existe un cuerpo
-consolidado sobre generar el *artefacto* de aceptación (tests, criterios, escenarios) y literatura abundante sobre
+La **instancia de aceptación con el stakeholder real sobre software funcionando**. Enunciado como desplazamiento,
+no como ausencia: hay un cuerpo consolidado sobre generar el *artefacto* de aceptación y literatura abundante sobre
 IA que *procesa* feedback ya emitido; no hay trabajo empírico sobre cómo se reconfigura la **interacción** de
-validación. Los dos papers del corpus que más prometían en esa dirección declaran esa ausencia como trabajo futuro.
+validación (evidencia en 4.7).
 
 ### 6.2. Necesidades sin trabajo asociado
 
 - **Validación de reglas y flujos de negocio con IAG (objetivo D).** La categoría 4.5 no tiene trabajos de
-  validación propiamente dicha: lo más cercano hace descubrimiento de procesos, aguas arriba. Es la mitad del
-  planteo de esta tesis y no encuentra respaldo en la literatura relevada.
+  validación propiamente dicha: la mitad del planteo de esta tesis no encuentra respaldo en la literatura relevada.
 - **El actor de negocio como validador de lo que la IA produjo.** La evidencia disponible sugiere que **no lo logra
   de forma confiable** (4.7): la capacidad de generar se democratizó y la de validar no. Nadie estudia qué
   andamiajes cerrarían esa brecha.
-- **La calidad del feedback que el stakeholder logra emitir.** Las cuatro barreras de Sharma et al. (*common
-  ground*, *verifiability*, *communication*, *informativeness*) están formuladas para agentes conversacionales, no
-  para el ciclo cliente↔equipo de desarrollo. Trasladarlas es trabajo abierto.
+- **La calidad del feedback que el stakeholder logra emitir.** Las cuatro barreras de Sharma et al. (4.7) están
+  formuladas para agentes conversacionales, no para el ciclo cliente↔equipo de desarrollo. Trasladarlas es trabajo
+  abierto.
 - **El tramo técnico** (4.6), si se decide dejarlo fuera del marco.
 
 ### 6.3. Lo que queda fuera de alcance por decisión, no por vacío
@@ -492,10 +485,8 @@ validación. Los dos papers del corpus que más prometían en esa dirección dec
   literatura, pero el foco de esta tesis es la interacción con un representante que prueba y opina de forma verbal
   (ver *Definiciones*). Vale registrar la observación del tutor: ese feedback **igual termina entrando al equipo
   como feedback normal**, y su incorporación depende de otros stakeholders (quién paga, factibilidad).
-- **Minería de reviews de app stores con LLM.** Es el subcampo más poblado de todos los relevados (~15 trabajos),
-  pero opera *sobre feedback ya emitido* y del lado del equipo: el usuario es un corpus de texto histórico. Se
-  menciona **como contraste**, que es donde rinde: ahí la IA digiere el feedback; acá se estudia la IA dentro del
-  acto de emitirlo.
+- **Minería de reviews de app stores con LLM.** El subcampo más poblado de todos los relevados (~15 trabajos), pero
+  opera sobre feedback ya emitido (ver la matriz de 4.7). Se menciona solo **como contraste**.
 - **Elicitación inicial y prototipado.** Quedan fuera del objeto, pero **no** de la sección 4: son la literatura
   adyacente que enmarca el hueco.
 
