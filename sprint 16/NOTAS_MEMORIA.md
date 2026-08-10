@@ -15,7 +15,18 @@
    oportunidad: *"requirement validation is less suitable for AI-driven automation, which explains its limited
    presence in research"*. Si la tesis sostiene lo contrario, argumentarlo de frente.
 4. **Búsquedas de la memoria:** todo string con "acceptance" necesita anclaje en *testing* / *criteria* /
-   *software* (el término está dominado por TAM/UTAUT, otra disciplina). Si el tribunal pide totales de ACM DL,
-   IEEE Xplore o SpringerLink (hoy solo arXiv tiene conteo exacto), repetir desde la red de ORT los 4 strings de
-   la sec. 4.7 del marco v3, con filtro 2023–2026 y buscando en abstract (en SpringerLink es texto completo y el
-   total no es comparable; anotarlo). Registrar fecha, string y total por base.
+   *software* (el término está dominado por TAM/UTAUT, otra disciplina). La verificación complementaria de la
+   sec. 4.7 del marco v3 (agosto 2026) usó estos 4 strings sobre la API de arXiv (campo `abs:`, filtro 2023+),
+   más 14 búsquedas web y 3 consultas a Semantic Scholar:
+
+   | String | Total arXiv | Relevantes |
+   |---|---|---|
+   | `"acceptance testing" AND ("large language model" OR "generative AI" OR LLM)` | 13 | 6 |
+   | `"acceptance criteria" AND ("large language model" OR "generative AI" OR LLM)` | 31 | 9 |
+   | `"user acceptance testing" OR "UAT"` | 55 ⚠ | ~4 |
+   | `("acceptance test" OR "acceptance tests") AND (Gherkin OR BDD OR "behaviour-driven")` | 7 | 5 |
+
+   ⚠ El 55 está contaminado: en arXiv "UAT" matchea mayoritariamente *Universal Approximation Theorem*; no citar
+   ese número. Si el tribunal pide totales de ACM DL, IEEE Xplore o SpringerLink (hoy solo arXiv tiene conteo
+   exacto), repetir estos strings desde la red de ORT, filtro 2023–2026, buscando en abstract (en SpringerLink es
+   texto completo y el total no es comparable; anotarlo). Registrar fecha, string y total por base.

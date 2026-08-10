@@ -165,10 +165,10 @@ La evidencia [producto] se relevó en el sprint 11 (detalle y links en `sprint 1
 
 > **Alcance.** El corpus se armó con el string del sprint 5 (`"generative AI" AND ("business users" OR clients OR
 > stakeholders) AND "software development"`), que apunta exactamente al tema de la tesis, y de él salen las
-> categorías que siguen. La búsqueda dirigida de 4.7 no lo corrige: lo complementa con el vocabulario propio del
-> tramo de aceptación (*acceptance testing*, *acceptance criteria*, UAT, Gherkin), que un paper de esa literatura
-> puede usar sin nombrar "generative AI" ni "stakeholders". Hecha esa segunda pasada, el hueco sobre la validación
-> del stakeholder en software construido sigue vacío: es real con los dos vocabularios.
+> categorías que siguen. La revisión complementaria de 4.7 suma el vocabulario propio del tramo de aceptación
+> (*acceptance testing*, *acceptance criteria*, UAT, Gherkin), que un paper de esa literatura puede usar sin
+> nombrar "generative AI" ni "stakeholders". Con los dos vocabularios, el hueco sobre la validación del
+> stakeholder en software construido sigue vacío.
 
 ### Las categorías, 4.1 a 4.6
 
@@ -181,36 +181,16 @@ La evidencia [producto] se relevó en el sprint 11 (detalle y links en `sprint 1
 | **4.5** | **Valida contra reglas y procesos de negocio**: la mitad del planteo de esta tesis (**objetivo D**) | [corpus: `lindenberg2025business`, solo abstract] | | | **sin trabajos de validación propiamente dicha**: Lindenberg *descubre* procesos (aguas arriba, sin humanos en la evaluación), no valida software construido contra reglas; el ancla conceptual es Dumas secs. 4.4 y 5.4.2 (la A3a de la sec. 3) |
 | **4.6** | **Tramo técnico** (nota): generación de código con validación humana (objetivos A y C) | [producto: `devin`, `codegen`, `tusk`, `sweep`] | | | el corpus académico no lo cubre; si entra como categoría propia o se justifica su exclusión es decisión abierta (*Qué falta*) |
 
-### 4.7. Qué está cubierto y qué no: resultado de la búsqueda dirigida
+### 4.7. Qué está cubierto y qué no
 
-Para responder esta pregunta se hizo una **búsqueda dirigida y documentada** (agosto 2026) con el vocabulario de
-testing y aceptación, complementario al del string del corpus.
-
-**Método.** Cuatro strings booleanos sobre la API de arXiv (con conteos exactos), 14 búsquedas web y 3 consultas a
-Semantic Scholar, filtro 2023 en adelante:
-
-
-| String (campo `abs:`)                                                                  | Total arXiv | Relevantes |
-| -------------------------------------------------------------------------------------- | ----------- | ---------- |
-| `"acceptance testing" AND ("large language model" OR "generative AI" OR LLM)`          | 13          | 6          |
-| `"acceptance criteria" AND ("large language model" OR "generative AI" OR LLM)`         | 31          | 9          |
-| `"user acceptance testing" OR "UAT"`                                                   | 55 ⚠        | ~4         |
-| `("acceptance test" OR "acceptance tests") AND (Gherkin OR BDD OR "behaviour-driven")` | 7           | 5          |
-
-
-⚠ El total de 55 está contaminado: en arXiv, "UAT" matchea mayoritariamente *Universal Approximation Theorem*. **No
-citar ese número.**
-
+Como complemento de las búsquedas principales (sprints 4 y 5), se revisó también la literatura con el vocabulario
+propio de la aceptación (*acceptance testing*, *acceptance criteria*, UAT, Gherkin/BDD; 2023 en adelante).
 **Resultado: 24 trabajos de tipo A, 0 de tipo B.**
 
 - **Tipo A, generar el artefacto** (tests, criterios, escenarios Gherkin). Actividad técnica; el usuario es
-developer, tester o PO revisando artefactos. Cuerpo consolidado y creciente, 2024–2026, en AST, ASE, ISSTA, ICSE,
-RE, SIGCSE, SAC.
+developer, tester o PO revisando artefactos. Cuerpo consolidado y creciente, 2024–2026.
 - **Tipo B, estudiar la interacción de validación del stakeholder**: una persona de negocio usando el software
 construido y devolviendo si es lo que pidió. **Ninguno.**
-
-**El hueco es real y no es un efecto del vocabulario de búsqueda:** se buscó también con los términos propios de la
-aceptación y tampoco apareció.
 
 #### Tres piezas que lo demuestran sin depender de una ausencia
 
@@ -387,9 +367,8 @@ adyacente que enmarca el hueco.
 
 ### 6.4. Limitaciones de este relevamiento
 
-- El string del corpus y la búsqueda dirigida de 4.7 usan vocabularios complementarios (tema de la tesis y tramo
-de aceptación); ninguno reemplaza al otro. La búsqueda dirigida tiene conteos exactos solo de arXiv: ACM DL,
-SpringerLink e IEEE Xplore se cubrieron de forma indirecta, vía los DOI recuperados desde arXiv y Semantic Scholar.
+- La revisión complementaria de 4.7 se hizo sobre arXiv y Semantic Scholar; ACM DL, SpringerLink e IEEE Xplore se
+cubrieron de forma indirecta, vía los DOI recuperados desde ahí.
 - La lectura de **`lindenberg2025business`** (4.5) se basa solo en su abstract; el texto completo no está
 disponible.
 - Parte de la evidencia de mercado (productos) **no es académica** y se etiqueta como tal.
