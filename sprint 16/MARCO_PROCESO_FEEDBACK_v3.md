@@ -55,6 +55,14 @@ El V-model ordena las actividades del proceso en una **V**: la rama descendente 
 horizontales**: cada nivel de definición tiene su nivel de prueba correspondiente, y **se prueba contra lo que ese
 nivel definió**.
 
+![Fig. 2.7 de Sommerville (2016): Testing phases in a plan-driven software process](figuras/sommerville_fig2_7_testing_phases.png)
+
+*Fig. 2.7 de Sommerville (2016), sec. 2.2.3 — "Testing phases in a plan-driven software process". Es la versión
+citable del V-model: el propio texto dice* "This is sometimes called the V-model of development (**turn it on its
+side to see the V**)". *Reproducción literal del ejemplar, con fines académicos.*
+
+En la nomenclatura más difundida del modelo, los niveles se nombran así:
+
 | Rama de definición (verificación) | ↔ | Rama de prueba (validación) |
 |---|---|---|
 | **Requirement gathering** | ↔ | **Acceptance testing** |
@@ -615,7 +623,7 @@ validación. Los dos papers del corpus que más prometían en esa dirección dec
 |---|---|---|
 | 1 | **Decisiones de Victoria/Daniel** | (a) el tramo técnico de 4.6 — el objetivo A lo nombra y hoy el marco no lo cubre; nota: Perry et al. (2023) y Vaithilingam et al. (2022), referencias clave del proyecto sobre esa dimensión, no están citadas en el marco; (b) si la tabla A2a–A5 de la sec. 3 se queda (Daniel pidió *"unos párrafos"*; la tabla ayuda a la trazabilidad con el v2 pero puede leerse como que Scrum vuelve a ser la base); (c) si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC. |
 | 2 | **Redacción final** | Chequear largo (Daniel pidió **breve**; hoy la sec. 2 es más larga que la 1) y redactar el encuadre del hueco —corpus de RE como literatura adyacente, la celda vacía como objeto de la tesis— en la sec. 1 y en la introducción de la sec. 4. |
-| 3 | **Figuras** | V-model (propia, la de referencia es de origen web) y escenarios: ver qué se reusa de `sprint 15/diagramas/`. |
+| 3 | **Figuras** | V-model: **resuelta** con la Fig. 2.7 de Sommerville reproducida literal en la sec. 2 (la imagen web que se barajó resultó ser un vector de stock de Shutterstock, sin licencia ni fuente citable). Escenarios: ver qué se reusa de `sprint 15/diagramas/`. |
 | 4 | **Acceso a `lindenberg2025business`** | Sin acceso (confirmado por Unpaywall, OpenAlex y Semantic Scholar; sin preprint). Bloquea la categoría 4.5 y con ella el objetivo D. Vía biblioteca ORT/Timbó o mail a los autores. |
 | 5 | **Búsquedas desde la red de ORT** | ACM DL, SpringerLink e IEEE Xplore bloquearon el acceso automatizado y se cubrieron indirectamente vía DOIs; sin repetirlas desde ORT no hay totales citables de esas bases. |
 | 6 | **Verificar fichas contra PDF** | Virk y Liu, Fawzy et al. y Sharma et al. ya están en `FUENTES_MARCO.bib` como hallazgos de la búsqueda dirigida (no van a `REFERENCIAS.bib`), pero sus fichas quedaron sin verificar contra los PDF. |
