@@ -163,11 +163,11 @@ donde pasa, se dice.
 **Etiquetas de fuente:** **[corpus]** paper del mapeo sistemático · **[general]** los cuatro artículos sobre IAG en el
 desarrollo · **[gris]** preprint o prensa profesional, sin peer review · **[producto]** evidencia de mercado.
 
-> **Alcance.** La búsqueda con la que se armó el corpus (sprint 5) no incluía términos de testing ni de aceptación.
-> Por eso los papers que trajo tratan de requisitos y prototipado, no del objeto de esta tesis, y las categorías que
-> siguen describen esa **literatura vecina: rodea el problema pero no lo cubre**. Para chequear que el objeto de
-> verdad no está estudiado (y no que simplemente no lo buscamos), se hizo la búsqueda dirigida de 4.7 con los
-> términos correctos: tampoco apareció.
+> **Alcance.** El corpus se armó buscando cómo cambia el feedback entre stakeholders y equipo con IAG (sprint 5),
+> y eso es lo que cubren las categorías que siguen. Lo que el string no incluía eran términos de testing ni de
+> aceptación, así que por sí solo no podía confirmar ni descartar cobertura del tramo específico de esta tesis: la
+> validación del stakeholder sobre software construido. Ese tramo se chequeó aparte con la búsqueda dirigida de
+> 4.7, con los términos correctos: el hueco ahí es real, no un efecto del string.
 
 ### 4.1. La IA **emite** el feedback: impersonación de stakeholders
 
