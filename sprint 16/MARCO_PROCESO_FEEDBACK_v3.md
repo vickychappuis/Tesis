@@ -269,15 +269,17 @@ De Troyer et al. (IFIP HCI 2025) mapearía acá (fuera del corpus, `sprint 12/ID
 
 ### 4.5. La IA **valida contra reglas y procesos de negocio**
 
-Categoría necesaria para el **objetivo D** —validación de reglas de negocio y flujos operativos, que es la mitad del
-planteo de esta tesis— y hoy **prácticamente vacía**.
+Categoría necesaria para el **objetivo D** (validación de reglas de negocio y flujos operativos, la mitad del
+planteo de esta tesis) y hoy **sin trabajos de validación propiamente dicha**.
 
-- El único trabajo del corpus que apunta acá es **[corpus: `lindenberg2025business`]** (*Business Process Discovery
-  Through Agentic Generative AI*), y **no se pudo verificar**: sin acceso abierto, abstract elidido por el editor.
-  La pregunta decisiva —si los agentes conversan con stakeholders humanos reales o con informantes simulados— es
-  justamente la que no se puede responder sin el texto. **No se le asigna contenido hasta conseguirlo.**
-- El anclaje conceptual de la validación semántica de reglas contra el proceso real sigue siendo **Dumas et al.
-  (2018)**, secs. 4.4 y 5.4.2 — que en el v2 sostenía la actividad A3a y que esta sección no debe perder.
+- Lo más cercano en el corpus es **[corpus: `lindenberg2025business`, lectura por abstract]** (ICSOC 2025): un
+  framework de agentes LLM que **descubre** procesos de negocio mediante diálogo estructurado multi-turno
+  (metodología Gaia, cuatro configuraciones de agentes), evaluado por exactitud sobre tres procesos y tres LLMs,
+  **sin participantes humanos en la evaluación**. Es decir: opera aguas arriba, en el descubrimiento del proceso,
+  no en la validación de software construido contra reglas; y demuestra factibilidad técnica, no dinámicas con
+  stakeholders reales. Aun el trabajo más cercano al objetivo D deja esa celda vacía.
+- El anclaje conceptual de la validación semántica de reglas contra el proceso real es **Dumas et al. (2018)**,
+  secs. 4.4 y 5.4.2 (en el v2 sostenía la actividad A3a; esta sección no debe perderlo).
 - **Objetivo B:** sin evidencia para afirmar nada todavía.
 
 ### 4.6. Nota sobre el tramo técnico (generación de código con validación humana)
@@ -425,7 +427,8 @@ Lecturas que se desprenden:
 - **La temporalidad la alteran 4.1 y 4.4**, pero por vías opuestas: una adelanta el feedback *sustituyendo* a quien
   lo da; la otra adelanta el *momento en que hay algo que mirar*. Solo la segunda es compatible con mantener al
   stakeholder real en el circuito.
-- **4.5 está vacía** porque su única fuente no se pudo verificar (ver 4.5), no porque no altere nada.
+- **4.5 queda sin marcas** porque su trabajo más cercano hace descubrimiento de procesos, no validación (ver 4.5):
+  no hay evidencia de que esta operación se esté haciendo con IA todavía.
 - **Ninguna categoría altera las cuatro dimensiones.** Esto acota lo que puede afirmarse: el estado del arte no
   sostiene todavía un cambio integral del ciclo, sino desplazamientos parciales y por vías distintas.
 
@@ -472,8 +475,9 @@ validación. Los dos papers del corpus que más prometían en esa dirección dec
 
 ### 6.2. Necesidades sin trabajo asociado
 
-- **Validación de reglas y flujos de negocio con IAG (objetivo D).** La categoría 4.5 está prácticamente vacía. Es
-  la mitad del planteo de esta tesis y no encuentra respaldo en la literatura relevada.
+- **Validación de reglas y flujos de negocio con IAG (objetivo D).** La categoría 4.5 no tiene trabajos de
+  validación propiamente dicha: lo más cercano hace descubrimiento de procesos, aguas arriba. Es la mitad del
+  planteo de esta tesis y no encuentra respaldo en la literatura relevada.
 - **El actor de negocio como validador de lo que la IA produjo.** La evidencia disponible sugiere que **no lo logra
   de forma confiable** (4.7): la capacidad de generar se democratizó y la de validar no. Nadie estudia qué
   andamiajes cerrarían esa brecha.
@@ -500,7 +504,8 @@ validación. Los dos papers del corpus que más prometían en esa dirección dec
 - El corpus sistemático se armó con un string **sin términos de testing ni aceptación**; la búsqueda dirigida de
   4.7 lo compensa, pero no lo reemplaza — y de ACM DL, SpringerLink e IEEE Xplore faltan totales citables
   (`BUSQUEDAS_ORT.md`).
-- **`lindenberg2025business` sin acceso**, lo que deja 4.5 y el objetivo D sin sustento verificable.
+- La lectura de **`lindenberg2025business`** (4.5) se basa solo en su abstract; el texto completo no está
+  disponible.
 - Parte de la evidencia de mercado (productos) **no es académica** y se etiqueta como tal.
 
 ---
@@ -524,6 +529,6 @@ validación. Los dos papers del corpus que más prometían en esa dirección dec
 |---|---|---|
 | 1 | **Decisiones de Victoria/Daniel** | (a) el tramo técnico de 4.6 — el objetivo A lo nombra y hoy el marco no lo cubre; nota: Perry et al. (2023) y Vaithilingam et al. (2022), referencias clave del proyecto sobre esa dimensión, no están citadas en el marco; (b) si la tabla A2a–A5 de la sec. 3 se queda (Daniel pidió *"unos párrafos"*; la tabla ayuda a la trazabilidad con el v2 pero puede leerse como que Scrum vuelve a ser la base — y con ella se decide si el BPMN del v2, `sprint 15/diagramas/marco_feedback_bpmn.png`, se reusa); (c) si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC. |
 | 2 | **Redacción final** | Pasada de recorte hecha (10-ago): secs. 2 y 4 podadas, cautelas movidas a `NOTAS_MEMORIA.md`. El encuadre del hueco ya está en el header y en la intro de la sec. 4. Queda solo una pasada de estilo después del feedback de Daniel. |
-| 3 | **Victoria, desde la red de ORT** | (a) **Ahora:** bajar el PDF de `lindenberg2025business` (SpringerLink vía ORT/Timbó; sin acceso abierto confirmado) — bloquea la categoría 4.5 y el objetivo D. (b) **No urgente — recién para la memoria final:** repetir las 4 búsquedas en ACM DL, IEEE Xplore y SpringerLink (`BUSQUEDAS_ORT.md`). No es para sumar fuentes: es para tener totales reproducibles que respalden la afirmación de que el tipo B no existe (hoy solo arXiv tiene conteo exacto; la limitación ya está declarada en 4.7). |
+| 3 | **To-do de largo plazo** | (a) La lectura de `lindenberg2025business` en 4.5 se basa en su abstract; si el PDF aparece alguna vez (mail a los autores en Tilburg/JADS como vía restante), verificarla. (b) Recién para la memoria final: repetir las 4 búsquedas en ACM DL, IEEE Xplore y SpringerLink (`BUSQUEDAS_ORT.md`). No es para sumar fuentes: es para tener totales reproducibles que respalden la afirmación de que el tipo B no existe (hoy solo arXiv tiene conteo exacto; la limitación ya está declarada en 4.7). |
 
 **Meta v3:** versión escrita y prolija para decidir por dónde encarar la experimentación / PoC.

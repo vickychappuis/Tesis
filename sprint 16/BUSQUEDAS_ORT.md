@@ -39,7 +39,8 @@ junto al número.
 
 ## Extra, si hay tiempo (misma sesión en SpringerLink)
 
-- Bajar el PDF de **`lindenberg2025business`** (*Business Process Discovery Through Agentic Generative AI*,
-  BPM 2025, DOI en `sprint 15/FUENTES_MARCO.bib`) — es el bloqueante de la categoría 4.5 y del objetivo D.
+- Intentar el PDF de **`lindenberg2025business`** (*Business Process Discovery Through Agentic Generative AI*,
+  ICSOC 2025, DOI en `sprint 12/REFERENCIAS.bib`). No es bloqueante: la sec. 4.5 ya se sostiene con la lectura
+  por abstract; el PDF serviría solo para verificarla.
 
 Con los totales y los exports, yo hago el resto (conteo de relevantes y actualización de la sec. 4.7).
