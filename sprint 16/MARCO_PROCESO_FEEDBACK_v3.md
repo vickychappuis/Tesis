@@ -225,15 +225,6 @@ lo que permite ordenar las categorías por **cuánto** desplazan al humano, no p
 
 Figura **propia** a partir de las Tablas 1 y 2 del paper.
 
-
-| Escenario                                            | En una línea                                                            | Dónde caen las categorías                                                                                                                                                   |
-| ---------------------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **S1** *Traditional Software Development Operations* | Humanos en todos los roles; las herramientas automatizan                | Es el proceso **de hoy**, la línea de base de la sec. 3                                                                                                                     |
-| **S2** *AI in loop*                                  | El humano domina; la IA automatiza partes de tareas y asiste decisiones | **La mayor parte de lo relevado**: 4.2 (asistentes de reunión), 4.3 (reformular, juzgar, rutear) y la rama (a) de 4.4, donde el equipo opera la herramienta            |
-| **S3** *AI assumes role(s)*                          | La IA asume roles seleccionados; el humano controla la operación        | Dos puntos: **4.1**, donde la IA asume el rol de quien emite el feedback, y la rama (b) de **4.4**, donde el actor de negocio construye y el developer queda como compuerta |
-| **S4** *Human-in-the-loop*                           | La IA gestiona varios roles; el humano vigila                           | **Ninguna categoría llega.** El candidato sería el tramo técnico autónomo (4.6), y el pivote de dos de los productos relevados sugiere que ese modo todavía no cierra       |
-
-
 **Qué se lee del mapeo.** Lo relevado se concentra en **S2** y toca **S3** en dos puntos; **nada llega a S4**.
 Es un resultado, no una omisión: en ninguna de las vías relevadas el humano sale del circuito. Y las dos que llegan
 a S3 lo hacen de maneras incompatibles entre sí: o la IA sustituye a quien emite el feedback (4.1), o lo emite un
