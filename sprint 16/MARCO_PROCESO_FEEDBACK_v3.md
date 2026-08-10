@@ -257,23 +257,6 @@ sobre qué andamiajes cerrarían esa brecha.
 formuladas para agentes conversacionales, no para el ciclo cliente↔equipo de desarrollo. Trasladarlas es trabajo
 abierto.
 
-### 6.3. Lo que queda fuera de alcance por decisión, no por vacío
-
-- **Feedback indirecto por telemetría / ML** (analítica de uso, auto-PRs, detección de fricción). Hay productos y
-literatura, pero el foco de esta tesis es la interacción con un representante que prueba y opina de forma verbal
-(ver *Definiciones*). Observación del tutor: ese feedback **igual termina entrando al equipo como feedback
-normal**, y su incorporación depende de otros stakeholders (quién paga, factibilidad).
-- **Minería de reviews de app stores con LLM.** Abundante en lo relevado, pero opera sobre feedback ya emitido: el
-usuario es un corpus histórico, no una interacción. Se menciona solo **como contraste**.
-- **Elicitación inicial y prototipado.** Quedan fuera del objeto, pero **no** de la sección 4: son la literatura
-adyacente que enmarca el hueco.
-
-### 6.4. Limitaciones de este relevamiento
-
-- La lectura de **`lindenberg2025business`** (4.5) se basa solo en su abstract; el texto completo no está
-disponible.
-- Parte de la evidencia de mercado (productos) **no es académica** y se etiqueta como tal.
-
 ---
 
 ## Definiciones
