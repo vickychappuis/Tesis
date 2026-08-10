@@ -131,10 +131,11 @@ El tramo completo, con los códigos del v2 para trazabilidad (`MARCO_PROCESO_FEE
 *Vista BPMN del tramo (sprint 15): actividades A1 a A5 sobre los carriles de quién las hace, con las que Scrum no
 define en punteado. Editable en `sprint 15/diagramas/marco_feedback_bpmn.drawio`.*
 
-De todo eso, Scrum solo define la Sprint Review (A2c, p. 9) y, parcialmente, el Product Backlog y su refinement
-(A4 y A5, pp. 6 y 10). El resto se ancla fuera: la liberación del incremento (A2a) en Sommerville secs. 2.3.2 y
-8.3, el uso y testing de aceptación (A2b) en Sommerville secs. 8.4 y 20.4, la validación de reglas de negocio
-(A3a) en Dumas secs. 4.4 y 5.4.2, y la de factibilidad técnica (A3b) en Sommerville sec. 25.3.
+De todo eso, Scrum define la Sprint Review (A2c, p. 9) y el refinement (A5, p. 10); define solo parcialmente la
+incorporación al Product Backlog (A4, p. 6) y la validación de factibilidad técnica (A3b, anclada en Sommerville
+sec. 25.3). El resto queda fuera y se ancla en los manuales: la liberación del incremento (A2a) en Sommerville
+secs. 2.3.2 y 8.3, el uso y testing de aceptación (A2b) en Sommerville secs. 8.4 y 20.4, y la validación de reglas
+de negocio (A3a) en Dumas secs. 4.4 y 5.4.2.
 
 **El feedback del negocio se genera en A2b y A2c**; el resto es lo que se hace con él. Y son **dos canales y dos
 momentos**: el uso real del producto, que puede ser asincrónico y anterior a la ceremonia, y la ceremonia misma.
