@@ -6,9 +6,10 @@ narrativa que bajó Daniel en la call del 30 jul (tabla de pasos en `sprint 15/r
 ## Entregable
 
 - **`MARCO_PROCESO_FEEDBACK_v3.md`** — completo y listo para enviar a Daniel. Secciones 1 a 6 según su narrativa,
-  asignaciones de la sec. 4 verificadas contra los PDF, figuras literales de Sommerville (Figs. 2.7 y 8.11) en
-  `figuras/`, y la búsqueda dirigida sobre aceptación (24 trabajos tipo A, 0 tipo B: el hueco es el objeto de la
-  tesis).
+  en formato de resumen ejecutivo: evidencia de mercado y categorías 4.1–4.6 como tablas, BPMN del v2 embebido en
+  la sec. 3, figuras literales de Sommerville (Figs. 2.7 y 8.11) y todas las afirmaciones escopadas a "lo
+  relevado". El hueco (4.7): no encontramos estudios de la interacción de validación del stakeholder sobre
+  software construido.
 
 ## Archivos de apoyo
 
@@ -23,4 +24,5 @@ narrativa que bajó Daniel en la call del 30 jul (tabla de pasos en `sprint 15/r
       (c) "firewall" de feedback como línea de la PoC. Detalle en *Para decidir*, al final del marco.
 - [ ] Después del feedback de Daniel: pasada de estilo; y si aparece el PDF de Lindenberg, verificar la lectura
       por abstract de 4.5.
-- [ ] Al presentarlo, aclarar que 4.7 y 4.8 exceden la narrativa pedida (surgieron al verificar la sec. 4).
+- [ ] Al presentarlo, aclarar que 4.7 y 4.8 (breves) exceden la narrativa pedida: sostienen el hueco y el
+      objetivo B.
