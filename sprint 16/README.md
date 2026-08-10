@@ -23,8 +23,6 @@ abiertos. Sin propuesta propia todavía.
 
 ## Queda abierto
 
-- Preguntarle a Daniel si el diagrama BPMN heredado del marco v2 se queda en la sec. 3.2 o se reemplaza por texto
-  (puede leerse como que Scrum vuelve a ser la base del marco).
 - Retomar con Daniel la idea del *"firewall" de feedback* que salió en la call del sprint 11 (validar el feedback
   del stakeholder contra los requisitos ya definidos antes de incorporarlo) y decidir si la PoC va por ahí.
 - Sin descubrir (posibles lugares para la PoC): cómo se reconfigura la interacción de validación cuando media la

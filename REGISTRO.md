@@ -200,6 +200,6 @@
 - Resultado: `sprint 16/MARCO_PROCESO_FEEDBACK_v3.md`, resumen ejecutivo con las 6 secciones de esa narrativa, figuras literales de Sommerville y el BPMN del v2. Asignaciones de la sec. 4 verificadas contra los PDF; en lo relevado no aparecen estudios de la validación del stakeholder sobre software construido, que es el hueco de la tesis
 - Referencias nuevas verificadas (Virk, Fawzy, Sharma) sumadas a `REFERENCIAS.xlsx`; cautelas de citado para la memoria en `sprint 16/NOTAS_MEMORIA.md`
 
-**Pendiente:** enviar la v3 a Daniel; 2 decisiones para la reunión (sección *Para decidir* del marco).
+**Pendiente:** enviar la v3 a Daniel; queda una decisión para la reunión: el "firewall" de feedback como línea de la PoC.
 
 ---
