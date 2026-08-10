@@ -1,0 +1,2417 @@
+arXiv:2602.01405v1 [cs.HC] 1 Feb 2026
+
+Feedback by Design: Understanding and Overcoming User
+Feedback Barriers in Conversational Agents
+Nikhil Sharma∗
+
+Zheng Zhang
+
+Daniel Lee
+
+nsharm27@jhu.edu
+Johns Hopkins University
+Baltimore, MD, USA
+
+zhengzhang@adobe.com
+Adobe Inc.
+San Jose, CA, USA
+
+dlee1@adobe.com
+Adobe Inc.
+San Jose, CA, USA
+
+Namita Krishnan
+
+Guang-Jie Ren
+
+Ziang Xiao
+
+namitak@adobe.com
+Adobe Inc.
+San Jose, CA, USA
+
+gren@adobe.com
+Adobe Inc.
+San Jose, CA, USA
+
+ziang.xiao@jhu.edu
+Johns Hopkins University
+Baltimore, MD, USA
+
+Yunyao Li
+yunyaol@adobe.com
+Adobe Inc.
+San Jose, CA, USA
+
+Abstract
+
+Keywords
+
+High-quality feedback is essential for effective human–AI interaction. It bridges knowledge gaps, corrects digressions, and shapes
+system behavior; both during interaction and throughout model
+development. Yet despite its importance, human feedback to AI
+is often infrequent and low quality. This gap motivates a critical
+examination of human feedback during interactions with AIs. To understand and overcome the challenges preventing users from giving
+high-quality feedback, we conducted two studies examining feedback dynamics between humans and conversational agents (CAs).
+Our formative study, through the lens of Grice’s maxims, identified
+four Feedback Barriers—Common Ground, Verifiability, Communication, and Informativeness—that prevent high-quality feedback by
+users. Building on these findings, we derive three design desiderata and show that systems incorporating scaffolds aligned with
+these desiderata enabled users to provide higher-quality feedback.
+Finally, we detail a call for action to the broader AI community
+for advances in Large Language Models capabilities to overcome
+Feedback Barriers.
+
+Human-AI Interaction, Human-AI Collaboration, User Feedback,
+Feedback Barriers, Feedback Quality, Human-AI Collaboration, Generative AI, Large Language Models, Conversational Agents
+
+CCS Concepts
+• Human-centered computing → Human computer interaction (HCI); HCI design and evaluation methods; User studies;
+Empirical studies in HCI; Collaborative and social computing; • Information systems;
+
+∗ This work was done during the author’s internship at Adobe
+
+This work is licensed under a Creative Commons Attribution 4.0 International License.
+CHI ’26, Barcelona, Spain
+© 2026 Copyright held by the owner/author(s).
+ACM ISBN 979-8-4007-2278-3/2026/04
+https://doi.org/10.1145/3772318.3791600
+
+ACM Reference Format:
+Nikhil Sharma, Zheng Zhang, Daniel Lee, Namita Krishnan, Guang-Jie Ren,
+Ziang Xiao, and Yunyao Li. 2026. Feedback by Design: Understanding and
+Overcoming User Feedback Barriers in Conversational Agents. In Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems
+(CHI ’26), April 13–17, 2026, Barcelona, Spain. ACM, New York, NY, USA,
+23 pages. https://doi.org/10.1145/3772318.3791600
+
+1
+
+Introduction
+
+The rapid progress of foundation models [88] and agentic AI [28]
+have elevated Conversational Agents (CAs) into one of the central paradigms for Human–AI interaction. These systems can now
+reason over complex knowledge bases and dynamic contexts to
+address multifaceted user goals, while leveraging human feedback
+to refine their responses in multi-turn conversations. In multi-turn
+goal-oriented tasks, where users and model have a shared goal,
+high-quality human feedback is pivotal to keep CAs aligned with
+the user’s evolving intent and requirements, enabling the successful
+pursuit of goals across extended conversations.
+Human feedback also plays a critical role in today’s machine
+learning (ML) research [7, 66, 126, 155]. Techniques like Direct
+Preference Optimization (DPO) [97] or Reinforcement Learning
+from Human Feedback (RLHF) [90] extract preference signals from
+human feedback to steer model behavior. With more powerful and
+embedded models in diverse high-stakes domains, human feedback
+quality will influence system behavior and outputs [31, 54, 81].
+However, recent literature reveals a troubling disconnect: despite
+the critical importance of human feedback, people rarely provide
+high-quality feedback when interacting with CAs in real-world
+settings [26, 83, 112]. For instance, WildFeedback[112], a dataset
+of in-the-wild human feedback occurring over 1 million ChatGPT
+conversations, shows that out of 1.02 million conversations, only
+38,992 (3.89%) contain feedback. Furthermore, the feedback people
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+gave was often ambiguous and incomplete, such as “The flow is not
+natural”, “wrong” and“incorrect try again”. This pattern persists
+even during complex, multi-turn tasks where high-quality feedback would be most beneficial for achieving user goals. The result
+demonstrates a critical gap: while AI systems are designed to learn
+and adapt from human input, users consistently fail to provide clear,
+specific feedback to improve the interaction outcome. Although
+synthetic feedback has emerged as a scalable alternative[68], synthetic feedback cannot fully capture the contextual nuances and
+diverse cultural perspectives that humans bring[108, 119] when
+interacting with CAs — making human feedback irreplaceable in
+today’s AI training paradigm.
+In contrast to human feedback towards CAs, in many everyday
+settings, humans provide frequent, high-quality feedback; In education and organizations, people routinely exchange timely, specific
+feedback. Research demonstrates that humans are adept at giving
+effective feedback [41, 121]. In collaborative work environments, humans regularly provide contextual, actionable feedback that helps
+others improve performance [39]. Even in informal settings, people
+engage in effective feedback behaviors — from coaching sports
+teams to mentoring colleagues — suggesting that the capacity for
+quality feedback is inherent to human social interaction [59]. This
+raises a critical question: if humans are capable feedback providers
+in other domains, what prevents them from providing high-quality
+feedback when interacting with Conversational Agents?
+HCI research has studied how to elicit effective feedback in human–AI interaction [2, 25, 42, 89, 124]. Proposed scaffolds range
+from mixed-initiative systems that dynamically negotiate control
+with users [3, 43, 44] to interactive machine learning frameworks
+that lower the barrier for corrective input [4, 29, 115]. These approaches emphasize design strategies such as exposing system state,
+structuring user input, and sharing initiative in dialogue to improve
+both quality and frequency of user feedback. However, most techniques were developed for rule-based or hybrid systems that lack
+the capacity for multi-round complex tasks or incorporating nuanced feedback during interaction [15, 152].
+The emergence of LLM-powered conversational agents with their
+capacity to have natural multi-turn conversations, prompts new
+questions: What barriers limit user feedback with LLM-powered
+Conversational Agents (RQ1), and how should we design scaffolds
+to foster sustained, high-quality feedback in richer, more effective
+interactions (RQ2)?
+To explore the feedback dynamics in Conversational Agents, we
+conducted two studies. To answer RQ1, we carried out a formative study with 16 participants, who regularly use CAs for diverse,
+goal-driven tasks such as creative writing, coding, image editing,
+research, and search. Through in-depth interviews, we identified
+common breakdowns in human-AI interaction, how users provide
+feedback to the models, and what prevents users from giving highquality feedback. Through the lens of Grice’s maxims[36], which
+describe cooperative principles that human-human conversations
+follow, we identify and define four key Feedback Barriers.
+In our second study, we designed and implemented FeedbackGPT,
+which incorporates six model-agnostic scaffolds, each targeting a
+specific feedback barrier identified in Study 1. To answer RQ2, we
+recruited 20 participants for a within-subject study where they
+completed two goal-oriented tasks using the baseline interface
+
+Sharma et al.
+
+(ChatGPT) and FeedbackGPT. Through a mixed-methods analysis,
+we found that providing scaffolds that minimize feedback barriers
+enabled users to provide higher-quality and frequent feedback.
+In summary, our work makes three primary contributions:
+• First, we provide empirical insights into the Feedback Barriers that deter users from providing high-quality feedback
+during interactions with Conversational Agents.
+• Second, we present the design and implementation of FeedbackGPT, a system incorporating a set of model and taskagnostic scaffolds that effectively encourages users to provide more frequent and higher-quality feedback.
+• Third, we contribute a set of practical design recommendations to elicit high-quality user feedback during interactions
+with Conversational Agents.
+
+2 Related Works
+2.1 Feedback in Human–AI Interaction
+Interactive systems have long required human feedback for task
+completion and alignment. In the design and evaluation of human–AI systems, feedback is typically defined as information provided after the system has acted, indicating how well its behavior met a predefined goal [39, 114]. Research distinguishes two
+main forms of feedback: explicit feedback, such as ratings or corrections, and implicit feedback, derived passively from users’ behaviors
+(e.g., clicks, skips, dwell time). Early human-in-the-loop (HITL) and
+interactive-machine-learning (IML) research treat feedback as critical for incremental improvement of models and interfaces [82, 129]
+In HCI and ML literature, eliciting effective user feedback has
+long been central. Mixed-initiative systems emphasized shared
+control between human and agent, enabling users to continuously
+steer system behavior rather than issuing one-shot commands [3,
+43]. Interactive ML extends this by treating users as collaborators
+who iteratively label, correct, and re-weight examples such that
+models can adapt in situ [4, 27, 96]. Complementing this, work
+on explanatory debugging shows that when systems expose their
+reasoning, people can understand and debug model behavior more
+effectively and provide more targeted corrective feedback [62, 117].
+Similarly, research on recommender systems treats feedback
+as the backbone of personalization. Recent work on interactive
+and conversational recommender create interfaces that encourages
+users to critique and refine suggestions over time rather than passive consumption [16, 40, 45]. For instance, Xiao et al. [138] study
+how a music streaming service’s voice assistant can elicit explicit
+feedback and show that interface-level choices strongly shape when
+and how users are willing to provide corrections. These lines of
+work demonstrate that thoughtfully designed feedback channels
+can substantially improve model alignment with user preferences.
+LLM-powered CAs inherit this history as mixed-initiative interactive systems—but they differ in key respects. Unlike traditional
+IML or recommender systems, conversational agents support openended, multi-turn tasks in which goals, strategies, and evaluation
+criteria can evolve over time. Recent studies of human–LLM collaboration document challenges in maintaining shared goals, deciding
+when to trust or correct the model, and negotiating initiative during
+complex workflows [50, 74, 149]. Our work builds on this tradition
+by focusing specifically on the feedback phase of collaboration: we
+
+Feedback by Design: Understanding and Overcoming User Feedback Barriers in Conversational Agents
+
+empirically characterize how and why feedback breaks down in CA
+interactions and derive interface-level scaffolds that make feedback
+easier to express, interpret, and incorporate.
+
+2.2
+
+User interaction in LLM-based systems
+
+Users interact with LLM-powered systems by providing two types
+of inputs: user prompts and user feedback. Both play distinct roles
+in LLM-powered systems: prompts act as prospective control signals
+that try to prevent errors before the model acts, while feedback
+functions as a retrospective evaluation after a response is produced.
+In the ML and alignment literature, both are used as signals for
+steering and improving models. Prompt-engineering work focuses
+on crafting effective initial instructions, conceptualizing prompts
+as ex-ante, task-specific templates that specify goals, constraints,
+and output formats without changing model parameters [100, 133].
+Human-in-the-loop prompt optimization methods such as CoTAL
+treat prompt design itself as an iterative learning problem, combining chain-of-thought prompting with active learning so that
+users can refine grading prompts over time [21]. However, empirical work such as Zamfirescu-Pereira et al. [143] shows that even
+technically savvy non-experts struggle to translate their goals into
+effective first-turn prompts, making ex-post information (feedback)
+essential to steer the model.
+ML work typically treats feedback primarily as a training signal
+extracted from large-scale human–LLM chat logs. WildFeedback
+automatically identifies natural-language critiques and preferences
+in in-situ user–ChatGPT conversations and uses them to build
+preference datasets, but finds that most usable supervision comes
+from short retries and terse follow-ups rather than rich, structured
+critique [112]. Reinforcement Learning from Human Interaction
+(RLHI) similarly repurposes the WildChat-1M corpus as a source
+of interaction-level supervision, distinguishing follow-up messages
+that revise previous answers from those that start new tasks and
+emphasizing that only a minority of turns carry explicit corrective
+signals [48]. Complementary work on Feedback shows that loosely
+structured comments (e.g., thumbs up/down, short replies) are noisy,
+sparse, and skewed toward coarse accept/reject judgments [26].
+Taken together, this ML-centric line of work demonstrates the
+promise of learning from real-world interactions but also reveals a
+core limitation: high-quality feedback data are scarce, fragmentary,
+and rarely capture the rich structure needed for nuanced alignment.
+Existing methods largely treat feedback as labels attached to turns,
+without asking why users rarely provide detailed, well-formed feedback in the first place. Our work complements these efforts by
+approaching the problem from an interaction standpoint: we empirically investigate how feedback breaks down in everyday CA use
+and how interface scaffolds can elicit more structured, high-quality
+feedback that could eventually serve as better training signals.
+
+2.3
+
+Human–AI Interaction with LLM-Powered
+Conversational Agents
+
+From an HCI perspective, LLM-powered conversational agents represent a shift from narrow, task-oriented, rule-based dialog systems
+to general-purpose, mixed-initiative interfaces that support increasingly complex goals. Users now turn to CAs for search, writing,
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+coding, tutoring, emotional support, and everyday problem solving [32, 46, 52, 67, 70, 107, 127, 142]. Unlike earlier systems, these
+agents are deployed as always-on collaborators that can flexibly
+shift roles (e.g., explainer, co-author, critic) within a single session.
+Recent alignment surveys argue that this context demands a bidirectional view of alignment: models must adapt to human goals,
+but humans also cognitively and behaviorally adapt to powerful
+assistants over time [47, 55, 73, 109]. In such mixed-initiative collaborations, feedback is central to maintaining shared goals and
+coordinating complex tasks across multiple turns.
+A growing body of HCI and NLP work examines how people
+actually interact with CAs in the wild. Frameworks like HALIE
+re-conceptualize evaluation around the full interaction trace, firstperson experience, and criteria such as ownership and enjoyment,
+rather than only task accuracy on static prompts [70]. Large-scale
+analyses of WildChat and related corpora study information-access
+conversations “in the wild,” mapping what users ask for and which
+utterances contain check-worthy claims across over a million ChatGPT conversations [49]. Educational and sociocultural studies show
+that students and language learners appropriate CAs as tutors or
+cultural informants, often over-trusting fluent responses unless
+explicitly encouraged to adopt more critical interactional practices [22, 153]. Recent work on prototypical human–AI collaboration behaviors clusters multi-turn chat traces into patterns such
+as delegation, co-editing, and verification, and observes that users
+frequently treat CAs as collaborators while offering surprisingly
+little explicit evaluative feedback [83].
+Multi-turn interaction further amplifies the importance of feedback. Human–LLM interaction work increasingly treats decomposition, planning, and refinement across turns as central design
+problems, arguing that “pure prompting” places unrealistic burdens
+on end users and makes it difficult to leverage ongoing feedback
+effectively [142]. Multi-turn evaluation studies such as Laban et al.
+[65] show that when instructions are underspecified and information is revealed gradually, models tend to over-commit to early
+guesses and struggle to course-correct as users add clarifications,
+leading to substantial performance degradation compared to singleturn baselines. Yet in these evaluations, the user side is typically
+simulated or abstracted away: multi-turn phenomena are analyzed
+to understand model robustness and task performance, not to characterize how real users decide when and how to provide feedback.
+In summary, HCI work has begun to evaluate LLM-powered
+CAs as mixed-initiative, multi-turn collaborators and to analyze
+real-world usage traces, but has devoted relatively little attention to
+the micro-level interactional work of giving feedback: how people
+formulate critiques, when they abandon repair, and what barriers
+prevent them from offering more informative guidance. Existing
+studies typically focus on task outcomes, user satisfaction, or coarse
+preferences, treating feedback as an undifferentiated scalar or short
+text tag. Our work addresses this gap by shifting from a purely
+outcome- or data-centric view of feedback to an interaction-centric
+one: we systematically code turn-level feedback acts and conversational breakdowns, identify the barriers that prevent users from providing high-quality feedback, and design interface-level scaffolds
+to make such feedback easier to express, interpret, and incorporate, complementing recent calls for bidirectional, interaction-level
+alignment [53, 109, 142].
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+2.4
+
+The Science of Effective Feedback
+
+LLM-powered conversational agents are explicitly designed to emulate human conversational partners at the interaction layer. Prior
+work has shown that computers are social actors [84] and characterizes CAs as natural-language user interfaces that “emulate
+human-to-human communication” and “mimic human conversation” through text, speech, and other modalities [104, 125]. Recent
+analyses of LLM-based conversational agents show that they convincingly reproduce human-like dialogue and prosocial behaviors,
+even without genuine social understanding [8, 22, 56, 95]. From
+a user’s perspective, interacting with a CA therefore resembles
+interacting with another person: they formulate requests, interpret responses, and decide whether and how to provide feedback
+through the same conversational resources they use with humans.
+While the underlying mechanisms differ radically, this emulation
+justifies importing insights from the science of human–human
+feedback and communication as a normative baseline for evaluating
+interaction-level quality.
+Decades of research in education and psychology establish feedback as a powerful driver of learning and performance. Metaanalyses by Kluger and DeNisi [59] and by Hattie and Timperley [39] show that well-designed feedback interventions can yield
+large positive effects on achievement across domains. Effective
+feedback is typically timely, specific, and goal-referenced: it helps
+learners understand the gap between their current performance
+and a desired standard and offers concrete information about how
+to close that gap [39, 114, 135]. Conversely, vague, overly complex,
+or poorly timed feedback can overload learners, be ignored, or even
+harm performance [59, 114]. These results highlight that feedback
+is not merely any response, but structured information that reduces
+uncertainty about how to improve.
+More recent work emphasizes that feedback must also be usable. Carless and Boud [12] introduce the notion of “feedback
+literacy”—the capacity of learners to interpret, evaluate, and act
+on feedback. Nicol and Macfarlane-Dick [85] similarly argue that
+students need opportunities to compare their work against explicit
+criteria, discuss feedback, and regulate their own revisions if feedback is to lead to improvement. These accounts treat feedback as
+a dialogic, iterative process rather than a one-shot transmission:
+givers and receivers jointly negotiate meaning, and both must invest
+effort for feedback to translate into better outcomes. For CAs, this
+suggests that simply providing a feedback channel (e.g., a thumbsdown button or a free-text box) is insufficient; the interaction must
+scaffold users in articulating, interpreting, and acting on feedback.
+Beyond effectiveness and usability, human communication research explains how such feedback is coordinated in conversation. Conversation analysis and pragmatics specify the cooperative
+norms that make feedback exchanges possible. Grice’s maxims and
+subsequent work on common ground describe how interlocutors
+keep contributions truthful, relevant, sufficiently informative, and
+clear, while grounding mutual understanding through backchannels and repairs [19, 36]. In NLP and HCI, these maxims have been
+adopted as concrete design and evaluation heuristics for chatbots
+and analytical agents. For example, Xiao et al. [140] operationalize
+response quality in a chatbot-based open-ended survey by coding answers along Gricean dimensions such as informativeness,
+
+Sharma et al.
+
+relevance, specificity, and clarity, and use these codes to compare
+chatbot-elicited responses with traditional web forms. Similarly,
+Panfili et al. [91] analyze human interactions with voice assistants
+like Alexa through a Gricean lens, showing that users experience
+off-topic or nonsensical replies as violations of relevance and clarity, and arguing that such violations are especially disruptive for
+human–AI collaboration. More broadly, recent work explicitly instantiates Gricean maxims as criteria for judging whether system
+responses are appropriately informative, honest, on-topic, and comprehensible, and for structuring evaluation tasks for conversational
+models [33, 61, 79, 92, 98, 105, 139].
+In parallel, social and organizational psychology clarifies why
+people do not always give feedback, even when norms are understood. Feedback seeking and giving are modeled as cost–benefit
+trade-offs: people provide detailed feedback only when expected
+benefits outweigh cognitive, temporal, and social costs [6]. This
+perspective complements conversational norms by highlighting
+motivational barriers shaping cooperative feedback.
+We adopt these human–human frameworks as a normative baseline for analyzing human–CA feedback. Given that conversational
+agents are built to participate in human-like dialogue [8, 56, 95,
+104, 125], they will be judged against human conversational expectations, even if their internal processes are non-human. In our
+analysis, Gricean maxims and feedback-effectiveness criteria serve
+as a lens for characterizing where CA–user interactions fall short
+of cooperative, high-quality feedback exchanges. We use this lens
+to understand the feedback dynamics in human–CA communication and to motivate the Feedback Barriers and design implications
+developed in this paper.
+
+3
+
+Formative Study
+
+Shi et al. [112] highlights divergence between in-the-wild human
+feedback for CAs and how humans naturally provide feedback to
+other humans. To understand why such divergences exist, we ran
+an in-person formative study with a total of 16 participants. Out of
+the 16, we had 11 experienced CA users of complex goal-oriented
+tasks and 5 inexperienced CA users for complex goal-oriented
+tasks.; Through analysis of the N=11 experienced user interviews
+we discover the Feedback Barriers (defined in the section below)
+that deter users from providing “high-quality” feedback during
+interactions with CAs (RQ1). We also generalize our findings with
+N=5 inexperienced users of CA who don’t have experience in taskoriented dialogues.
+
+3.1
+
+Method and Participants
+
+We conducted 30-minute, one-on-one interviews with 16 participants(Experienced, N = 11; Inexperienced, N = 5). The 11 experienced participants were from large international tech companies
+and academic institutions, places actively exploring Conversational
+Agents for complex goal-oriented tasks. All experienced participants had current or recent experience with Conversational Agents
+across various tasks, including research, creative writing, coding,
+image editing, decision-making, and essay writing. The inexperienced participants were school teachers, retired, house-helpers
+and high school graduates. These participants had little experience
+using CAs for complex goal-oriented tasks. Instead, their primary
+
+Feedback by Design: Understanding and Overcoming User Feedback Barriers in Conversational Agents
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+use cases included medical help, recommendations for clothing,
+language learning, image touch-ups and general factual questions.
+All participant demographics and detailed usage scenarios are summarized in Table 1.
+The interviews followed a semi-structured format centered around
+the following themes:
+
+studies leveraging the diverse backgrounds of the scholars. The final research was a synthesis of perspectives from both the academic
+and industrial institutions, which was strengthened by a deliberate
+process of reconciling diverse backgrounds and institutions.
+
+• Conversational breakdowns: What are the common challenges that participants experienced during conversations
+with CAs?
+• Breakdown Repair (Feedback): What strategies did the
+participants use resolve the conversational breakdowns?
+• Feedback effectiveness: What were the obstacles participants faced while providing feedback to CAs?
+• Feedback evaluations: What strategies do the participants
+use to evaluate the success of their feedback?
+
+3.4.1 What are the common breakdowns while interacting with CAs?
+We first asked participants to recall instances when conversations
+with the CAs were unsatisfactory or when outputs diverged from
+what they had expected. Participants especially experienced participants most often pointed out context loss (10/16 participants) as
+the dominant interaction failure, where the agent gradually drifted
+away from the original goal of the task. One participant explained
+that “the biggest thing is context drift . . . it really just forgets what
+the initial goal of this whole conversation was” (P2;P4, P5, P7, P9).
+Others emphasized how long, interleaved sessions made it hard to
+keep the agent grounded: “You may have to spend hours telling it
+the right context or start a new chat” (P9; P2, P4, P8).
+Beyond context drift, participants frequently reported quality
+issues. When using CAs for research and coding, they encountered
+fabricated or unreliable content: “It will make things up that I never
+mentioned” (P8; P1, P9, P10, P11). Many participants also described
+tensions around instruction-following and sycophancy [106, 107].
+While models attempted to comply, they often did so in ways that
+ignored nuance or failed to challenge users’ assumptions: “Sometimes the AI agrees even when I’m wrong—whereas a person would
+say, ‘That doesn’t make sense”’ (P7; P2, P4, P10); “Cursor just takes
+your command as law and doesn’t really ask any clarifications”
+(P2; P4, P7, P9); “[ChatGPT] just tells me what I want to hear, and
+that makes me uncomfortable” (P12; P13, P14, P16). Together, these
+failures—loss of context, unreliable content, and over- or undercompliance—capture where current CAs fall short of maintaining
+shared understanding with users.
+
+All participants volunteered for the study. The study was approved by company’s internal review committee. Interviews were
+transcribed and anonymized with consent from the participants.
+
+3.2
+
+Analysis
+
+We followed the reflexive thematic analysis approach by Braun and
+Clarke [11]. The semi-structured format allowed for flexible exploration of emerging themes and follow-up questions based on participants’ responses. The first author coded the interviews inductively.
+The first author then drafted a codebook, which was discussed
+and refined with the research team. The first author then coded
+the transcripts again after which further iterations of discussion
+and refinement took place, resulting in an updated codebook. The
+first author proceeded to derive thematic clusters from the coded
+transcripts to build up the wider findings and discussion. We report
+our findings below with the following format: Quote_participant𝛼
+(P𝛼; supported by P𝑖,P𝑗...).
+
+3.3
+
+Positionality Statement
+
+The research team primarily consisted of authors with different positionalities. The authors had two distinct institutional backgrounds:
+academic and industrial institutions. All researchers except the
+third author have gone through postgraduate training at academic
+institutions in STEM backgrounds in the fields of Human-Computer
+Interaction(HCI) and Machine Learning (ML). The diverse institutional and professional backgrounds of the team members created
+a rich, interdisciplinary environment for this project, but also introduced distinct perspectives on research goals and practices. The
+scholars from academic institutions focused on delivering generalizable insights on understanding the feedback barriers users faced and
+the scholars from industry focused on actionable insights on overcoming feedback barriers. The collaboration required continuous,
+open discussion and reflexivity to bridge these different priorities.
+For instance, the early research questions were discussed to balance
+both the broader understanding of feedback barriers and actionable
+insights for the industry to overcome the feedback barriers. During data collection in user studies, the research team had regular
+discussions that made explicit how each researcher’s individual
+positionality might impact the data collection and interpretation.
+By acknowledging these differences, we aimed to conduct robust
+
+3.4
+
+Findings - Descriptive
+
+3.4.2 How do users give feedback? When the conversation derailed,
+participants employed pragmatic repair tactics, ranging from loweffort repeated-inputs to abandoning the agent altogether. A common first move was to simply rephrase or repeat the request: “Most
+of the time, out of sheer laziness, I just reprompt it” (P2; P1, P3,
+P4, P7, P8, P10, P11). Others tried to incrementally refine inputs
+or decompose tasks: “Other times I’ll break the task into smaller
+tasks and manually guide the AI step-by-step”(P4; P3, P5, P7, P9),
+or front-load more detail in order to steer the model: “For coding
+tasks I front-load a very detailed prompt—the clearer my input, the
+better it performs”(P11; P2, P4, P6).
+When the strategies highlighted above failed, participants often
+reset the interaction or switched tools: “Sometimes it can be so bad
+that you just restart the whole conversation” (P2; P3, P4, P6, P9) or
+“If that fails, I try a different LLM—I hop around because one of them
+will probably solve it” (P6; P1, P5, P7). Under time pressure, many resorted to accepting imperfect outputs and completing the task themselves: “It’s faster to do it myself than to keep prompting, so I accept
+a sub-optimal reply and fix it manually” (P5; P1, P7, P9, P10, P11).
+Abandonment was especially common with all inexperienced users
+because they were not aware of the affordances to provide feedback:
+“I didn’t know it [Feedback] was possible”(P12;P13,P14,P15) and “It
+[ChatGPT] never asked me to”(P13;P12,P16).
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+Across the strategies, participants’ feedback tended to be reactive,
+local to the most recent turn, and short-lived. They nudged outputs
+just enough to move the task forward but rarely invested in rich
+and structured feedback. This pattern raises a natural question: how
+do these everyday feedback practices compare to canonical notions
+of high-quality feedback from education and psychology [39, 78,
+114], which emphasize goal-referenced, actionable, articulate, and
+progressive feedback? We examine this next.
+3.4.3 Does user feedback follow the properties of high-quality
+feedback? CAs require high-quality human feedback to complete
+complex tasks and bridge knowledge gaps. We define feedback
+quality along four dimensions derived from the literature in education and psychology— goal-referenced, actionable, articulated, and
+progressive feedback [39, 78, 114]. Below, we examine how participants’ feedback practices towards CAs align and diverge from the
+properties of high-quality feedback.
+• Goal-referenced: High-quality feedback is coupled with
+the immediate goal and explicitly references the criteria
+for success. Educational literature emphasizes that feedback
+should be anchored in clear success criteria so that learners can see “how [they] are doing in relation to the goal”
+rather than receiving comments on tangential aspects [39].
+Goal-referenced feedback thus helps close the gap between
+current performance and the desired outcome. Although
+users actively strive to maintain context, for instance by reemphasizing instructions: “No, I want you to do what I said
+earlier” (P1); participants highlight that when a conversation
+derails, users often fail to provide goal-referenced, corrective feedback to steer it back on track. Their most common
+strategy is to abandon relevance altogether by ending the
+interaction. A participant noted that when conversation goes
+poorly, “it can be so bad that you just restart the whole conversation” (P2; P4, P7, P9). This restart abandons formative
+feedback disrupting goal-referenced feedback loops central
+to improvement as highlighted by education literature.
+• Actionable: Effective feedback is specific and actionable. In
+education and formative assessment, feedback is most powerful when it gives learners concrete information about what to
+change and how to change it, rather than global evaluations
+(e.g., “good job”) [114]. Hattie and Timperley [39] highlight
+that feedback should not only describe current performance
+but also offer “where to next” guidance—strategies or revisions that help close the gap to the goal. In sync with the
+literature, participants who achieve better outcomes often do
+so by providing granular instructions, such as “break[ing]
+the task into smaller tasks” (P4) or front-loading a “very
+detailed prompt” for coding tasks (P11). However, user feedback frequently lacks the level of detail needed for strong
+actionability. Participants often default to high-level, vague
+instructions, such as asking the AI to “Improve the flow”
+or “Fix the vocabulary” (P1; P3, P4, P6, P9). This tendency
+towards low actionability is also evident in low-effort tactics. For example, few participants admitted: “I just reprompt
+it, it’s easier” (P8; P2, P7, P10, P11) rather than providing
+
+Sharma et al.
+
+granular corrections. From the perspective of feedback research, these behaviors resemble evaluative comments without process-level guidance: they signal dissatisfaction but
+offer little information about specific next steps or strategies,
+limiting the CAs ability to meaningfully adjust.
+• Articulated: High-quality feedback is clearly articulated,
+with minimal ambiguity, to support common grounding. Formative feedback research stresses that comments should be
+easy to interpret; when feedback is vague or opaque, learners must expend extra effort just to decode what is being
+asked of them, which can make feedback feel “useless” or
+frustrating [114]. In our study, users’ feedback was often
+under-articulated, with participants citing struggles to express the problem clearly: “Sometimes I know what I want
+semantically, but I can’t phrase it so the model understands”
+(P3; P7, P8, P11). This difficulty was a recurring theme, with
+one user confirming that “explaining why [a response is
+wrong] is hard” (P10; P3, P7, P8). This inability to verbalize the issue results in feedback that is inherently unclear
+and difficult for the CAs to act upon, mirroring classroom
+findings where underspecified comments leave learners uncertain about how to respond or improve [114].
+• Progressive: High-quality feedback is delivered over time
+as part of a progressive formative cycle. Education research
+shows that the most impactful feedback is not a one-off
+judgment at task completion, but information that supports
+revision and reattempts [39, 114]. However, feedback volume must be calibrated: too many comments at once can
+increase cognitive load and reduce effectiveness [114]. One
+participant stated bluntly, “I don’t give AI feedback, not as
+frequently. And sometimes not at all” (P3; P5, P6). Thresholds
+for abandonment were low; users will abstain from giving
+more feedback if the AI “gets basic things wrong more than
+twice” (P8; P1, P5), or will “abandon the task entirely if it isn’t
+working within 15–20 minutes” (P11; P6, P8). This pattern
+results in a sparse feedback landscape in stark contrast to the
+progressive, formative cycles envisioned in the literature.
+
+Notably, prior work distinguishes between task-level feedback
+(about correctness), process-level feedback (about strategies), and
+self-regulation feedback (about monitoring one’s own learning) [39].
+In our interviews, participants’ comments to CAs were almost entirely task-level—nudging specific outputs—rather than processoriented guidance that might help calibrate how they and the CA
+collaborate over time. Taken together, these accounts suggest that
+while users sometimes provide feedback that is goal-focused, actionable, clearly articulated, and progressive, their everyday practices
+more often fall short along one or more of these dimensions and
+rarely rise beyond local, task-level corrections. This education- and
+psychology-driven lens focuses on the content and form of feedback
+itself; next we complement these findings with a conversational
+lens based on Grice’s Maxims to understand the underlying barriers
+that keep users from reaching this ideal.
+
+Feedback by Design: Understanding and Overcoming User Feedback Barriers in Conversational Agents
+
+3.5
+
+Findings - What prevents users from giving
+“high-quality” feedback?
+
+Our descriptive findings above, found that users rarely provide
+“high-quality feedback” in practice. To understand what prevents
+users from providing high-quality feedback, we distill participant
+accounts into recurring challenges users face when providing feedback. As described in related works (Sec 2.4), CAs are explicitly
+designed for human communication and often perceived as social
+actors. Hence to uncover the barriers users faced while interactions
+with CAs, we use Grice’s Maxims[36] which are cooperative principles for successful human communication —Relation (staying on
+topic), Quality (being truthful and well-evidenced), Manner (being
+clear and orderly), and Informativeness (providing the right amount
+of information), as an analytical lens to unpack these challenges.
+Critically, violations are reciprocal: model failures (e.g., drift, hallucination, verbosity) trigger user behaviors (e.g., abandonment,
+under-specification, vague repair) that themselves breach cooperative principles. This reciprocal degradation explains why feedback
+cycles collapse and motivates scaffolds that address both model
+limitations and human cognitive constraints that sustain cooperative feedback cycles. Using the four maxims, first author coded all
+interviews: each interview sentence was annotated once for userside maxim violations and once for CA-side maxim violations. The
+detailed codebooks are provided in the supplementary material.
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+or two”(P8; P1, P10, P11), while another explained, “If it’s researchrelated or fact-heavy, I need to check whether links or cited papers are real. So that takes more effort” (P5; P6). Such failures to
+ground information in evidence erode trust. These hallucinations
+and loosely directly increase the cost of evaluating whether feedback has been correctly incorporated. In human conversation, such
+lapses would undermine trust; in CAs, they impose additional verification burdens on users discouraging them from offering more
+nuanced, quality-oriented feedback.
+From the user perspective, although participants didn’t state
+false claims themselves, they described relaxing their evidential
+standards under time and effort constraints. As P6 put it “I don’t
+check every line. I look at the high-level structure . . . it’s more of a
+gut check” (P6; P5, P7, P9). Another participant admitted, “When
+I’m short on time . . . I just copy and paste it without thinking about
+the feedback” (P9; P7, P10). Under deadline pressure or low stakes,
+users propagated model outputs with minimal verification rather
+than offering corrective, evidence-based feedback. Thus, modelside Quality violations (hallucinations) and user-side shortcuts (gut
+checks, skipped verification) reinforce each other, undermining the
+overall reliability of the feedback loop.
+
+3.5.1 Maxim of Relation: CAs shift the conversational goal and users
+abandon the interaction. The maxim of Relation requires each conversational move to be relevant to the shared goal of the interaction.
+On the model side, participants described how even corrective
+feedback often failed to re-anchor the CA to the shared goal. One
+participant summarized this drift: “It just goes even more down
+a hole you don’t want it to” (P7; P2, P4, P8). Others noted that
+repeated attempts to restate context or constraints did not prevent
+the model from circling around an off-target interpretation: “If I
+give it feedback more than two or three times, it starts iterating
+its own previous answers instead of finding newer directions” (P8;
+P5, P6, P9). In longer interactions, users felt they had to keep reestablishing common ground: “You may have to spend hours telling
+it the right context or start a new chat” (P9; P2, P4). These patterns
+show the CA failing to use feedback to restore relevance to the
+user’s goal, violating the maxim of Relation.
+On the user side, participants responded to this misalignment
+by withdrawing from the interaction rather than offering more targeted, goal-focused feedback. As one participant remarked, “Sometimes it’s honestly easier to restart . . . or just code it myself.” (P4; P2,
+P5, P6, P7, P8). Another was more blunt: “It’s faster to do it myself
+than to keep prompting, so I accept a sub-optimal reply and fix it
+manually.”(P5; P3, P9, P11). Instead of feedback pulling the conversation back toward a shared goal, both sides drift: the CA continues
+off-topic, and the user abandons the attempt to repair, breaking the
+relational thread that effective feedback depends on [19].
+
+3.5.3 Maxim of Manner: CAs rarely follow up and users struggle to
+articulate. The maxim of Manner requires contributions to be clear,
+concise, and easy to interpret. On the model side, participants, described a pattern of surface politeness without genuine clarification
+or adjustment. As P2 noted, “Cursor . . . just takes your command
+as law and doesn’t really ask any clarifications,” (P2; P3, P4, P6,
+P7). Even repeated inputs often failed to change the underlying
+behavior: “Even if I re-prompt it, it apologized but repeats the same
+answer” (P6; P2, P4, P7). Others experienced this as stylistic clutter:
+“It feels overly polite—almost fake. A person would just say ’Okay,
+let me try this,’ not wrap it in unnecessary fluff.”(P1; P3, P6). Because
+CAs lack paralinguistic cues such as tone, facial expressions, and
+body language, users also struggled to infer whether the system had
+truly understood their feedback: “human-to-human conversations,
+you give someone feedback, you can sometimes see it in their eyes.
+If someone’s clueless, you can see they’re confused.”(P2; P1, P7, P13,
+P12, P14, P16). Together, these issues violate Manner by making
+model responses harder to interpret and diagnose.
+On the user side, participants admitted difficulty articulating
+their needs. One participant explained, “Sometimes I know what
+I want semantically, but I can’t phrase it so the model understands”(P3; P7, P8, P11). Another reflected, “In the beginning it’s
+hard—I know what I want, but I don’t have the right adjectives”(P7;
+P3, P10). P10 similarly noted that “Explaining why [the model was
+wrong] is hard”(P10; P3, P8). In more visual tasks, articulation barriers were even sharper: “It doesn’t get visualization positions right
+and I find it difficult to verbalize them.” (P8). As a result, even when
+users recognize problems, the feedback they provide is often vague
+or underspecified, limiting its usefulness for the CA and constituting a user-side violation of Manner.
+
+3.5.2 Maxim of Quality: CAs hallucinate and users propagate unverified outputs. The maxim of Quality requires speakers to provide
+contributions that are truthful and well-evidenced. On the model
+side, participants consistently flagged fabricated or hallucinated
+outputs. One participant noted, “Out of five papers, it makes up one
+
+3.5.4 Maxim of Quantity: CAs are either over or under-informative
+and users consistently are under-informative. The maxim of Quantity calls for providing neither too much nor too little information
+relative to the task at hand. On the model side, participants experienced both over- and under-informativeness from the AI. On one
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+side, the CA omitted important elements: “It picks and chooses two
+or three things . . . I have to keep adding the rest of my metrics,”(P7;
+P4, P5, P6, P9). On the other, it sometimes did more than asked for:
+“It’s usually trying to do more things than I asked it to do, messing
+up other parts of my code” (P4; P7, P9). In both cases, users needed
+to compensate—either by repeatedly adding missing details or undoing unwanted edits—before they could even begin to provide
+focused feedback on essential parts. Front-loading detailed context
+was seen as burdensome, particularly for novices or those learning
+from the AI’s responses: “Sometimes I want to give feedback but I
+hold back because I’m also learning from its response” (P9).
+On the user side, Quantity violations showed up primarily as
+the tendency to provide too little or insufficient feedback. Many
+participants defaulted to minimal tweaks: “Most of the time, out of
+sheer laziness, I just reprompt it”(P2; P1, P3, P6, P7, P8, P9, P10, P11).
+Others described escalating frustration rather than providing richer
+context: “I usually yell at it three or four times first . . . if that doesn’t
+work, I start a new chat” (P6; P2, P3, P7, P9). A few participants did
+add more detail when repeated retries failed—for example, “If retry
+fails, I add more context or ask it to review the entire code-base before trying again” (P4, P3, P5, P9)—but this was the exception rather
+than the norm. Overall, users rarely calibrated the amount of feedback they provided to what the CA would need to recover, instead
+oscillating between very short inputs and complete abandonment.
+This combination of model-side over/under-informativeness and
+user-side under-informativeness makes it difficult to sustain the
+progressive, appropriately scoped feedback cycles as articulated in
+formative assessment research [10, 39, 99, 114].
+3.5.5 The Feedback Barriers. From the observed reciprocal violations of Grice’s maxims, we derive four key Feedback Barriers
+that prevent users from giving high-quality feedback to CAs today.
+Barrier of Common Ground.
+• Model: The model fails to maintain the stated task goal. This
+manifests as context drift, ignoring explicit constraints, or
+silently substituting user’s objective for hallucinated ones.
+• User: The user disengages from the conversational goal,
+thereby severing the collaborative relationship. Visible as explicit abandonment (“I’ll just do it myself”) or restarting
+the chat, which voids all shared context.
+• Impact: This barrier forces users to constantly re-align CAs,
+increasing the cognitive cost of interaction. It places the
+entire burden of disseminating and maintaining shared goal
+on the user, making interaction feel unproductive, making
+users: “spend hours telling it the right context or start a new
+chat” (P9; P2, P5, P7, P8).
+Barrier of Verifiability.
+• Model: The model provides information that is not grounded
+in verifiable evidence. This includes generating hallucinations, citing non-existent sources, or presenting outdated
+information as current fact.
+• User: The user fails to uphold evidential standards in the
+workflow. This is not about lying, but rather skipping verification i.e. accepting potentially flawed outputs, or propagating unverified information.
+
+Sharma et al.
+
+• Impact: This barrier forces the user into the role of a factchecker, undermining trust. Without affordances to evaluate
+whether feedback was incorporated faithfully, the verification effort becomes prohibitively costly, forcing users to
+adopt shortcuts: “I don’t check every line. I look at the highlevel structure . . . it’s more of a gut check” (P6; P5, P7, P9).
+Barrier of Communication.
+• Model: The model communicates in an unclear or unhelpful
+way. This includes evasive politeness (“fluff”), apology loops,
+and critically, failing to ask clarifying questions when
+the user’s request is ambiguous.
+• User: The user fails to provide clear and unambiguous feedback. This stems from the inherent difficulty of articulating what is wrong, providing vague instructions (e.g., “make
+it better”), or being unable to verbalize the desired correction.
+• Impact: This barrier leads to frustrating cycles of guesswork.
+The high cognitive effort required to continue the conversation without useful probes from the AI makes sustained
+engagement feel irrational, leading users to abandon the task
+when perceived costs outweigh benefits. As one user explained, “If I’ve learned that it takes seven prompts to get
+a good result for a certain task, I probably won’t even try
+anymore” (P3; P1, P5, P8, P11).
+Barrier of Informativeness.
+• Model: The model provides an inappropriate amount of information. This can be under-informativeness (omitting key
+steps; addressing only a subset of a input) or information
+overload (unrequested changes; providing tangential details).
+• User: The user provides insufficient information for the
+model to make a meaningful correction. This includes loweffort responses within the conversation, such as simple
+re-prompts (“try again”), or feedback that lacks necessary
+context (“that’s not right”).
+• Impact: This barrier traps the user in an inefficient guessing
+game. Lacking low-friction ways to disseminate structured
+feedback about what to change, where, and at the right granularity, users default to providing minimal information; this
+perpetuates a cycle of low-quality outputs: “Unless I give
+very specific, file-level instructions I hesitate, because otherwise it messes everything up” (P11; P2, P7, P8, P10).
+3.5.6 Synthesis and Implications. Our formative study reveals that
+the feedback dynamics in human-AI interactions are systematically fragile. These failures are not one-sided but reflect a reciprocal collapse of the cooperative principles from the model and
+the user. Model failures (drift, fabrication, ambiguity, over- and
+under-informativeness) elicit low-quality user feedback such as
+abandonment and under-informativeness. In turn, these behaviors
+starve the model of the goal-referenced, actionable, articulated, and
+ongoing feedback necessary for alignment and task success.
+The four Feedback Barriers we identified, the Barrier of Common Ground, Barrier of Verifiability, Barrier of Communication and Barrier of Informativeness, provide a compact framework for diagnosing these dysfunctional cycles across core phases
+of CA interaction, including how users disseminate feedback, how
+
+Feedback by Design: Understanding and Overcoming User Feedback Barriers in Conversational Agents
+
+models and users engage with it, and how both parties evaluate outputs. Together, they demonstrate that without proper support, the
+cognitive and interaction costs[5, 64] of providing good feedback
+quickly outweigh the perceived benefits for the user.
+To make human-AI collaboration truly effective, we must design
+systems that explicitly break down these Feedback Barriers. In the
+next section, we translate this analysis into design desiderata aimed
+at mitigating the feedback barriers and building scaffolds aimed at
+restoring the cooperative communication principles with CA.
+
+4
+
+Designing systems to resolve the Feedback
+barriers
+
+The preceding analysis positions the four Feedback Barriers as concrete obstacles that prevent users from providing high-quality feedback for effective human-AI collaboration.
+Overcoming the feedback barriers requires addressing disruptions in the three fundamental areas of human-AI interaction impacted by the barriers: First, they hinder how users disseminate
+feedback—that is, how easily they can express goals, corrections,
+and constraints. Second, they undermine how users and models
+engage with feedback, including how well the system interprets,
+clarifies, and responds to user-provided input. Third, they compromise the user’s ability to evaluate feedback outcomes, making it
+difficult to verify whether the system correctly incorporated their
+corrections. Together, the Feedback Barriers impede Dissemination,
+Engagement, and Evaluation, creating a cycle in which users cannot
+contribute the very feedback necessary to improve the interaction.
+Building on these three interaction areas and the ways the Feedback Barriers distort them, we now translate our findings into three
+design desiderata that any conversational agent must satisfy to
+break down these barriers and support high-quality feedback.
+
+4.1
+
+The Design Desiderata
+
+Each desideratum corresponds to one or more Feedback Barriers
+and outlines how systems can reduce the interaction costs that
+currently prevent users from giving high-quality feedback.
+4.1.1 Foster a Persistent and Legible Shared Frame of Reference.
+The Barrier of Common Ground arises when users and CAs fail
+to maintain a stable shared understanding of the task[19]. Our
+study shows that the Barrier of Common Ground arises from the
+ephemeral, turn-by-turn nature of current Conversational Agents,
+which frequently leads to context drift. This failure, forces user into
+a constant high-effort loop of re-orienting the agent, a significant
+source of interaction cost[5, 64]. The first desideratum, therefore,
+is a system that must maintain and expose a persistent, shared
+understanding of the task. This aligns with foundational principles of external cognition, where visible, persistent artifacts offload user’s cognitive burden of remembering and tracking task
+state[57, 87, 101, 147]. Instead of relying solely on the transient
+chat log, systems should externalize goals and constraints into a
+shared, editable artifact. When feedback can be anchored to this
+stable frame of reference, it supports the pillar of Dissemination by
+allowing users to articulate their intent with precision and confidence.
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+4.1.2 Design for Proactive and Low-Friction Interaction. The Barriers of Communication and Informativeness emerge when users
+must shoulder the full burden of expressing corrections, determining granularity, and repairing misunderstandings—leading to premature abandonment. The second desideratum aims to design for
+reciprocal, mixed-initiative interaction that lower the cost of
+articulation and correction. Instead of requiring users to craft
+increasingly specific inputs or diagnose model failures, systems
+should actively participate in maintaining communicative clarity.
+This includes prompting users for missing constraints, surfacing
+ambiguities, proposing candidate interpretations, and offering structured actions (e.g., “Apply change only to Section 2”). This aligns
+with interactive machine learning, which frames human–AI collaboration as a reciprocal, mixed-initiative process[3, 4, 43]. By
+proactively seeking clarification when user input is ambiguous and
+offering structured, contextual actions, the system can bridge the
+“gulf of execution”, reducing the cognitive load required for users
+to express their intent[132].
+4.1.3 Provide Transparent and Verifiable Reasoning. The Barrier
+of Verifiability emerges when users cannot inspect how the CA
+interpreted their feedback or verify that it was faithfully incorporated. This opacity pushes users toward either blind acceptance
+or exhaustive manual checking—both of which hinder sustained
+feedback. To counter this, the third desideratum requires systems
+to offer transparent and verifiable reasoning, making the
+feedback loop visible and auditable. This is a core tenet of
+Explainable AI (XAI), where making a system’s internal logic understandable helps users build accurate mental models and calibrate
+their trust[37, 69, 80, 122]. Instrumenting the interaction to make
+outcomes legible—for example, by presenting changes with a visual
+diff—bridges the “gulf of evaluation” by making the effects of a
+user’s feedback immediately apparent. By making the connection
+between feedback and outcome direct and “scannable”, the system enables low-cost evaluation, enabling users to assess both the
+models output and the efficacy of their feedback.
+
+4.2
+
+Operationalizing Design Desiderata to
+Breakdown the Feedback Barriers
+
+To operationalize the design desiderata, we built a lightweight,
+web-based conversational agent system (FeedbackGPT) that uses
+a familiar ChatGPT-like interface (Figure 1). We introduced these
+scaffolds without modifying model weights or core model behavior,
+ensuring that improvements arise from interaction design rather
+than model tuning. In what follows, we describe and motivate the
+scaffolds and the system, and detail implementation choices so the
+system is reproducible and interpretable. Because the formative
+study surfaced many potential scaffolds, we prioritized those that
+were (i) complementary to existing chat-based workflows, (ii) feasible within current CA affordances, (iii) model- and domain-agnostic,
+and (iv) directly addressed the identified Feedback Barriers. These
+scaffolds represent one possible instantiation of many; our goal is to
+demonstrate how scaffolds that operationalize the design desiderata
+bridge the feedback barriers leading to higher-quality feedback.
+Below, we describe each scaffold by (1) identifying the design
+desideratum it satisfies, (2) explaining which Feedback Barrier it
+mitigates, and (3) detailing how the feature achieves this in practice.
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+Sharma et al.
+
+Figure 1: Overview of FeedbackGPT. The system consists of three new interface components, a sidebar, a panel and a popup.
+The interface give users seven different scaffolds for the three desideratum as described in Sec 4.2
+Interface components. FeedbackGPT preserves the familiar chat
+stream and composer while introducing inline controls, a persistent
+right-hand sidebar, and an auxiliary bottom panel.
+4.2.1 Scaffolds for Desideratum 1: Foster a Persistent and
+Legible Shared Frame of Reference. These features are designed
+to overcome the Barrier of Common Ground by making task
+state visible and anchoring feedback to specific contexts, thereby
+stabilizing the shared frame of reference between user and CA.
+Inline Comments & Highlights: Inspired by collaborative document tools, Inline Comments & Highlights allow users to anchor
+feedback to specific spans in the models output via highlights and
+in-place comments[9]. By tying feedback to concrete text rather
+than to vague references (e.g., “the second paragraph”), this scaffold
+
+operationalizes the desideratum of a persistent shared frame: feedback lives on as an explicit, inspectable part of the conversation
+state. These anchors are collected in a sidebar and passed back as
+structured constraints in the next input, forcing the model to acknowledge and address each locus. In doing so, Inline Comments &
+Highlights directly mitigate the Barrier of Common Ground by reducing context drift and ensuring that feedback remains grounded
+in a shared, stable representation of the task.
+Undo and Redo: Absence of an undo feature in today’s CAs
+deters experimentation and restricts user control[9]. Undo and
+Redo extend the persistent frame of reference by letting users step
+back through conversation snapshots without discarding the entire
+interaction. By capturing conversation states and exposing them
+
+Feedback by Design: Understanding and Overcoming User Feedback Barriers in Conversational Agents
+
+through simple buttons, the system lets users explore alternative
+feedback paths—for instance, trying different critiques or different
+constraints—without the risk of losing hard-won context. This reduces the need to abandon and restart chats when feedback goes
+wrong, thereby weakening the Barrier of Common Ground and
+making it safer to iteratively refine feedback.
+4.2.2 Scaffolds for Desideratum 2: Design for Proactive and
+Low-Friction Interaction. These features are designed to overcome the Barriers of Communication and Informativeness by
+lowering the effort required to provide high-quality feedback and
+by turning feedback refinement into a collaborative, back-and-forth
+process rather than a one-sided monologue.
+Feedback Huddle: When a user’s feedback is vague or hard
+to articulate (a key aspect of the Barrier of Communication), the
+Feedback Huddle opens a panel where the same model has new
+instructions to proactively ask targeted, clarifying questions; In this
+space, users can iteratively refine broad reactions (e.g., “this doesn’t
+sound right”) into concrete, actionable instructions following properties of high-quality feedback (3.4.3). By sharing responsibility
+for clarification and prompting the user with specific follow-up
+questions, Feedback Huddle operationalizes the desideratum of
+reciprocal, low-friction interaction and helps users overcome articulation difficulties, thereby addressing both Communication and
+Informativeness barriers.
+Quick Actions: Quick Actions address the Barrier of Informativeness by turning common, high-value feedback patterns into onetap operations. Users can invoke reusable and editable templates—
+for example, “regenerate using only the highlighted changes”—
+without repeatedly retyping long instructions. Because even small
+repetition costs deter users from providing detailed feedback [132],
+these shortcuts lower the marginal effort of adding rich constraints,
+making it more likely that users will provide sufficiently informative
+feedback to guide the CA.
+Feedback Evaluation: Feedback Evaluation helps users overcome ambiguity in their own feedback by providing real-time guidance before a message is sent. The system evaluates the user’s
+input against prompting heuristics and communicative principles,
+then offers brief suggestions to improve specificity, structure, and
+clarity. This directly targets user-side violations of the maxims of
+Manner and Quantity: instead of expecting users to instinctively
+produce high-quality feedback, the interface teaches them how
+to refine their messages with minimal extra effort, advancing the
+desideratum of low-friction, reciprocal feedback exchange.
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+diagnose the root cause of errors, and determine whether poor
+outcomes stem from their feedback, the models reasoning, or both.
+This approach differs from the “thinking” or intermediate reasoning
+traces produced by some models, which are primarily internalfacing and often hidden from users. Explanations are user-directed
+and generated after the response, allowing them to remain grounded
+in the final output and, consequently, more faithful to what the
+model actually produced.
+Split-View Comparison: To prevent users from blindly accepting the first plausible output, the Split-View Comparison feature
+allows side-by-side evaluation of different response versions generated from different feedback[120]. By making comparative evaluation cheap and visuually salient, this scaffold supports the desideratum of verifiable reasoning: users can directly see how alternative
+feedback strategies change the models behavior, and are encouraged to critically assess the outcome of their feedback rather than
+propagating a potentially flawed response.
+4.2.4 Implementation. To develop our system we used Next.js
+framework for the frontend, Node.js with express for the backend
+and finally MongoDB for the database. We used typescript as our
+language for developing the system.
+We leveraged the responses API from OpenAI to interface with
+the models allowing tool use, file upload and web search. Our
+primary model was GPT-4o for text based tasks and gpt-4o-realtimepreview-2024-12-17 for voice mode.
+For the conversation in the main single-stream chat window,
+we did not modify the default system prompt, to ensure we did
+not change the underlying model behavior. When a user provided
+highlights and comments, we added them as (context, comment)
+pairs to the user input. Green highlights were translated as “good”
+comments and red highlights as “needs improvement” comments.
+During huddle mode, we change the system prompt to enable
+the model to provide feedback based on the OpenAI prompting
+guidelines. We also instructed the model to reply in short 1-2 line responses to make the interaction more conversational. Similarly, for
+evaluation of a user input we used a custom system prompt where
+the model evaluated the input based on the OpenAI prompting
+guidelines (See Supplementary Material for prompt details).
+
+5
+
+Study 2: How do affordances that resolve
+Feedback Barriers change user feedback?
+
+4.2.3 Scaffolds for Desideratum 3: Provide Transparent and
+Verifiable Reasoning. These features are designed to overcome
+the Barrier of Verifiability by making the model’s reasoning processes and the impact of user feedback transparent and auditable.
+
+To evaluate how our scaffolds that provide affordances to minimize
+feedback barriers affect the user feedback-quality, we ran a one-hour
+within-subject in-person study (virtual for participants not available
+in-person) with 20 participants where participants interacted with
+ChatGPT and FeedbackGPT to complete two writing tasks. Below
+we describe our study design and measures.
+
+Explanation: Opaque outputs force users into the role of a factchecker. The Explanation scaffold offers a one-click control that
+prompts the model to detail the context it used, which instructions
+it prioritized, and how it interpreted the user’s feedback to generate
+a response. Inspired by explanatory debugging[62, 63], this feature
+operationalizes the desideratum of transparent, verifiable reasoning:
+it helps users build a more accurate mental model of the system,
+
+The study procedure as shown in Figure 2, includes five parts: a
+pre-task survey, first co-writing task,survey for first task, second cowriting task, survey for second task, post-task survey and finally an
+open-ended interview about their experience with the two systems
+they interacted with.
+
+5.1
+
+Study Procedure
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+Sharma et al.
+
+Pre Task Survey
+
+Demographic, attitude
+on AI, stance on AI, AI
+usage
+Choose from 3 Tasks:
+1. AI Fellowship
+2. Neighborhood
+Improvement
+3. Leadership Pitch
+
+Task 1
+
+FeedbackGPT
+
+Randomly
+assigned
+
+Post Task Questions Task 1
+
+Post Completion
+Questionnaire
+
+output satisfaction,
+conversation
+satisfaction and
+productivity
+
+ease of giving
+feedback, ability to
+steer AI, output
+preference
+FeedbackGPT ability
+to breakdown
+barriers
+
+Co-​writing
+
+ChatGPT
+Task 2
+
+Choose from
+remaining Tasks
+
+~Task 1 system
+
+Co writing
+
+Post Task Questions Task 2
+
+Post Completion Interview
+
+output satisfaction,
+conversation
+satisfaction and
+productivity
+
+Open-​ended
+Interview about
+experience
+
+Figure 2: Overall study procedure for Study 2. In the pre-task survey, participants answered questions regarding their prior
+experience with conversational AI and their prior attitude and demographic questions. Participants then chose a task from
+three available topics. They were then randomly assigned a system with which they complete the task. Following which, they
+were asked three post-task questions about their results, conversation and productivity. They then choose a second task from
+the remaining two options and were assigned the system not assigned in task 1 and completed the task with the post task
+questions. After which, participants were asked three general questions about their experience with FeedbackGPT and then
+were asked eight questions about their experience with FeedbackGPT aimed to capture the effects of feedback barriers in
+FeedbackGPT.
+In the pre-task survey, participants were asked to rate their prior
+experiences with AI and their attitudes toward Conversational
+Agents. Following which participants completed two tasks each
+with a different topic and system. In each cycle, participants were
+randomly assigned a system which was either the baseline (ChatGPT) or FeedbackGPT. They had to spend a minimum of 20 mins
+interacting with the system and complete the task they chose. After
+completion of the task, they were asked to rate the output quality,
+conversation quality, and productivity on a 5-point Likert scale.
+After completion of both the tasks, participants completed the
+post-task survey. In which they were asked to rate the ease of
+providing feedback, perceived conversation quality and final output
+quality of FeedbackGPT compared to ChatGPT. Then they were
+asked two questions for each feedback barrier where they rated
+their experience with FeedbackGPT. All of the post-task surveys
+were measured by a set of five-point Likert scales. The detailed
+questionnaire is available in the supplementary materials.
+
+5.2
+
+Co-writing task
+
+We wanted participants to interact with the system to complete
+a task that would involve multiple turns, and where participants
+would have to provide feedback to complete the task successfully.
+We found co-writing task with the topic focused on the users personal experiences to be the best fit for our purpose. In our setup,
+
+there was an inherent knowledge gap between the user and the
+model which could only be bridged by user providing feedback to
+the agent. Furthermore, unlike coding and image editing which
+require special interfaces, co-writing task does not require special
+interface elements and is standard across different platforms such
+as Gemini and ChatGPT. The three topics we chose we as follows
+(detailed task descriptions are in Appendix A.2:
+• Fellowship application for transformative AI usecases.
+• Proposal for neighborhood improvement plan
+• Pitch for STEM leadership development recruitment
+
+5.3
+
+Measures
+
+We used three families of measures capturing (1) the objective
+quality of user feedback, (2) participants’ subjective experience
+of each system, and (3) their perceived ability of FeedbackGPT’s
+affordances to overcome the four feedback barriers. We additionally
+collected pre-task attitudes and demographics for contextualization.
+5.3.1
+
+Feedback Quality and Barriers(Log-based).
+
+Unit of analysis. We define a feedback turn as any user message
+after the first system response that contains evaluative, corrective,
+or guiding content intended to shape the system’s subsequent output (e.g., “this section is too vague, please add concrete examples”
+
+Feedback by Design: Understanding and Overcoming User Feedback Barriers in Conversational Agents
+
+or “keep the introduction but shorten the methods”). For each participant, we extracted all feedback turns and the preceding model
+response from both the ChatGPT and FeedbackGPT episodes.
+Coding scheme - Feedback Quality. Using the definition of highquality feedback (Section 3.4.3), we manually annotated each feedback turn along three binary dimensions for goal-referenced, actionable and articulated, and the total number of feedback turns
+for progressive. Each dimension was coded as present (1) or absent (0) for a given feedback turn.1 . The detailed codebook is in
+supplementary materials. First author and a second coder independently annotated a randomly sampled subset of 20% of the feedback
+turns to assess reliability, yielding a Cohen’s 𝜅 of 0.895 for goalreferenced, 0.878 for actionable and 1 for articulated. Disagreements
+were discussed and resolved. Following which the remaining data
+was coded by first author.
+Coding scheme - Feedback Barriers. In parallel, the first author
+coded feedback barrier present in each model response using definitions of feedback barriers(3.5.5). Following the same process as
+above, a second coder coded a random 20% sample independently.
+Cohen’s 𝜅: Common Ground=1, Verifiability=0.95, Communication=1, Informativeness=1.
+Derived metrics. For each participant 𝑝 and system condition
+𝑠 ∈ {ChatGPT, FeedbackGPT}, we computed the proportions for
+each dimension 𝑑 (goal-referenced, actionable and articulated):
+• dimension proportion:
+𝑑 𝑝,𝑠 =
+
+#{feedback turns coded as 𝑑 for 𝑝, 𝑠}
+× 100.
+#{feedback turns for 𝑝, 𝑠}
+
+These normalized rates allow us to compare feedback quality across
+systems while controlling for differences in the number of turns.
+Progressive feedback was computed as:
+Í
+feedback turns 𝑡 for 𝑝,𝑠 characters(𝑡)
+Vol𝑝,𝑠 =
+,
+#{feedback turns for 𝑝, 𝑠}
+i.e., the mean number of characters per feedback turn in that episode.
+5.3.2 Effect of Feedback Barriers. To assess whether FeedbackGPT’s scaffolds reduced the four feedback barriers(3.5.5), we combined post-task survey scales with qualitative analysis of openended responses and interviews. In post-task survey, participants
+answered barrier-focused items (5-point Likert scale) about their
+experience with FeedbackGPT ).
+For each barrier, we constructed a two-item subscale. For each
+subscale we computed the participant-level mean of the two items.
+Internal consistency for each two-item subscale was acceptable
+(0.701 ≤ 𝛼 ≥ 0.852). In addition, we treated three global items
+as standalone indicators which capture overall ease of feedback
+and output preference between systems. The details are in the
+supplementary materials.
+Open-ended interviews. To contextualize the survey ratings, participants participated in a brief post-study interview about their
+experience with both systems and the scaffolds.
+1 Turns could simultaneously express multiple dimensions, e.g., a message can be both
+
+highly relevant and highly specific.
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+Per-episode satisfaction and productivity. After each task, participants also completed three items (Output satisfaction, Conversation
+satisfaction and Perceived productivity) for the system they had
+just used (FeedbackGPT or ChatGPT), using a 5-point Likert scale
+from Strongly disagree (1) to Strongly agree (5).
+
+5.4
+
+Participants
+
+We recruited participants via mailing lists and internal channels at
+several large international technology companies and universities.
+Inclusion criteria were: (1) fluent English speakers and (2) prior
+familiarity with conversational agents (e.g., ChatGPT).
+In total, 22 participants started the study and 2 were excluded
+due to incomplete tasks and failed attention checks. Our analyses
+are based on the remaining 20 participants who completed the full
+protocol (two tasks, both systems, post-task survey, and interview).
+The study was conducted either in person or virtually (video call
+with screen sharing), with each session lasting approximately one
+hour. All participants volunteered for the study. All participants
+provided informed consent, and the study was approved by the
+company’s internal review committee.
+Of the 20 participants, 6 identified as women, 13 as men, and
+1 as non-binary or third gender. The median education level was
+a Bachelor’s degree. The median annual household income fell
+between $50,000 and $100,000, and the median age was 25–34 years.
+
+5.5
+
+Analysis
+
+Our primary goal in Study 2 is to compare how the baseline ChatGPT interface and the scaffolded FeedbackGPT interface affect (1)
+the objective quality of user feedback and (2) participants’ subjective
+experience of giving feedback and steering the AI. Each participant
+used both systems in a randomized order; All inferential analyses
+treat system (ChatGPT vs. FeedbackGPT) as a within-subject factor.
+User-level analyses. For feedback quality metrics (Relevance,
+Specificity, Clarity proportions, and Volume) and participant-level
+survey composites (Perceived Interaction Quality, barrier subscales,
+and global items such as ease of giving feedback), we first computed per-participant scores for each system as described above.
+We then compared systems using the Wilcoxon signed-rank test, a
+non-parametric alternative to the paired 𝑡-test, appropriate given
+the small sample size (𝑁 = 20) and the non-normal distribution of
+several measures.
+We report descriptive statistics as means and standard errors (e.g.,
+𝑀 ± 𝑆𝐸) and provide exact 𝑝-values for Wilcoxon tests. Following
+common practice in HCI and psychology [20], we consider results
+with 𝑝 < .05 statistically significant and treat 0.05 ≤ 𝑝 < 0.10 as
+marginal, indicating suggestive trends that we interpret cautiously.
+Turn-level analyses. For outcomes defined at the turn or episode
+level (e.g., binary indicators of whether a feedback turn exhibits a
+given property), we used Generalized Estimating Equations (GEE)
+to account for the non-independence of observations nested within
+participants. We modeled participant ID as the clustering variable
+with an exchangeable working correlation structure and used:
+• a logit link for binary outcomes (e.g., whether a turn is coded
+as relevant), and
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+• an identity link for continuous outcomes (e.g., the number
+of characters per episode).
+Qualitative analysis. Qualitative analyses of open-ended survey
+responses and post-task interviews followed the reflexive thematic
+analysis procedure described in Section 3.2. We use these themes to
+triangulate and interpret the quantitative findings, especially with
+respect to how participants experienced the feedback barriers and
+the affordances designed to address them.
+
+6 Results
+6.1 Manipulation Check
+To ensure a fair comparison, we tested whether participants were
+exposed to a similar degree of feedback barriers in both conditions.
+For each barrier, we computed per-participant rates (proportion
+of turns in which the barrier was present) and compared systems
+using both descriptive statistics and a GEE logistic model with
+system (FeedbackGPT vs. ChatGPT) as a predictor.
+Barrier rates were low for Relation and Disambiguation and
+moderate for Verifiability. On average, participants encountered
+Relation violations on 1.45% ± 1.08 of turns with ChatGPT and
+3.50% ± 2.64 of turns with FeedbackGPT; Verifiability failures on
+54.33% ± 8.83 (ChatGPT) vs. 47.55% ± 7.84 (FeedbackGPT); Disambiguation issues on 1.94%±1.17 vs. 5.85%±2.75; and Informativeness
+failures on 4.38% ± 2.18 vs. 2.25% ± 1.27. None of these per-user
+differences were statistically significant (all Wilcoxon 𝑝 ≥ .173).
+Consistent with these descriptive patterns, GEE models found
+no significant system effect on barrier presence for any barrier:
+Relation (Odds Ratio (OR) = 1.17, 𝑝 = .878), Verifiability (OR = 1.14,
+𝑝 = .715), Disambiguation (OR = 3.85, 𝑝 = .071), and Informativeness (OR = 0.56, 𝑝 = .399). Taken together, these results suggest that
+participants experienced comparable levels of model-side failures
+in both conditions, supporting a fair test of the scaffolds’ effects.
+
+6.2
+
+Scaffolds to lower feedback barriers increase
+feedback quality
+
+We next examine whether FeedbackGPT increased user feedback
+quality along our four dimensions: goal-referenced, actionable, articulate, and progressive. For the first three, we analyze proportions
+whereas for progressiveness, we analyze mean number of characters per feedback turn as described in Sec 5.3.
+Goal-referenced — Scaffolds helped participants stay on-goal. FeedbackGPT (FG) made participant’s feedback more goal-referenced
+than ChatGPT (CG). On average, participants’ relevant feedback
+proportion rose from 32.49% ± 7.07 (CG) to 58.43% ± 6.56 (FG),
+a +25.94% gain (SE=10.08); Wilcoxon signed-rank: n=20, W=40.5,
+𝑝 < .05. This objective gain aligns with post-task survey data,
+where participants strongly agreed that FeedbackGPT enabled with
+Goal-referenced feedback (keeping goals/criteria in view)
+(𝑥¯ = 3.60, 𝑝 < .01). Furthermore, we found evidence of 2 participants restarting their conversations with ChatGPT but there was
+no evidence of restarts with FeedbackGPT.
+Participants tied these gains to features that kept task goals “in
+view.” For example, anchored comments and comparison helped
+participants sustain intent across turns: “With FeedbackGPT I maintained the conversation state longer” (P9) and “I compared a few
+
+Sharma et al.
+
+prompts to see which response I liked better” (P11). Inline controls also increased trust that changes would be localized: “Marking
+good/bad gave me confidence the model won’t change the parts I
+want to keep” (P15); “The inline comment feature. . . lets me point
+to the specific part that’s wrong and ask for a fix” (P18).
+6.2.1 Actionable — Scaffolds enabled precise and detailed feedback.
+The normalized specificity rate rose from 65.86% ± 4.58 (CG) to
+90.62% ± 2.60 (FG), a +24.76 increase (SE=4.34); Wilcoxon: n=20,
+W=1.0, 𝑝 < 0.01. This was corroborated by post-task ratings, where
+participants agreed that FeedbackGPT helped with Specificity (saying exactly what to change) (𝑥¯ = 3.48, 𝑝 < .01).
+Interviews point to two mechanisms driving this. First, locusspecific annotation enabled precise edits without lengthy explanations: “I could add multiple comments to specific areas instead of
+having to. . . manually copy things and explain everything” (P8).
+Second, scaffolds that encouraged input refinement and short backand-forth exchanges elicited more detailed inputs before generation.
+As P6 explained, “Huddle was basically prompting me for details...
+I would go provide it.” This proactive engagement from the system
+encouraged users to supply concrete details, contrasting with their
+usual pattern where the model often “fill[s] the gaps itself” (P11).
+6.2.2 Articulate — Vague feedback persisted despite perceived improvements. We observe no significant difference in clarity: 77.59%±
+6.59 (CG) vs 84.85% ± 4.77 (FG); Δ = +7.26 (SE=8.21); Wilcoxon:
+n=20, W=35.0, 𝑝 = 0.463. This result reveals a notable tension.
+Qualitatively, some participants felt FeedbackGPT helped them increase the quality of their inputs: “The auto evaluate and prompt
+refinement improved my prompt quality” (P6; P15). This perception is strongly supported by post-task ratings, where users felt
+FeedbackGPT significantly improved Communication (expressing
+feedback) (𝑥¯ = 3.69, 𝑝 < 0.01). However, in practice, participants
+still provided vague and ambiguous inputs like “Need one more
+version” and “trim to 950 words.” This disconnect—a perceived
+ease of expression that did not translate to objectively clearer feedback—correlates with self-reported ratings for conversation quality
+that showed no significant improvement (FG=3.70 vs. CG=3.63).
+6.2.3 Progressive — Scaffolds encouraged richer feedback at the
+cost of effort. Participants contributed significantly more feedback
+volume with FeedbackGPT. Measured as characters per turn, participants wrote 585.06 ± 68.55 characters with FG vs 242.33 ± 35.24
+with CG; Wilcoxon: n=20, W=32.0, 𝑝 < .01. This aligns with posttask survey data showing users felt FeedbackGPT was superior for
+Informativeness (supplying needed info) (𝑥¯ = 3.93, 𝑝 < 0.01).
+The interviews reveal this increase in engagement came with
+an effort trade-off. Participants felt more in control and productive—“My favorite way to interact was to comment and regenerate”
+(P2)—but also noted the cost: “There was more cognitive load because I was interacting with comments but it allowed me to be
+more productive and in control” (P2). This pattern of a productive
+but more effortful workflow explains why objective gains in feedback quality and volume did not translate to significantly higher
+subjective ratings of perceived productivity (FG=3.65 vs. CG=3.63)
+or output quality (FG=3.91 vs. CG=3.87). Many participants found
+this trade-off acceptable because the interaction felt more like a
+
+Feedback by Design: Understanding and Overcoming User Feedback Barriers in Conversational Agents
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+Figure 3: Scatterplot showing the distribution of user feedbacks. The x axis are the ChatGPT rate of giving high quality feedback
+and the Y axis are FeedbackGPT rate of giving high quality feedback per 100 feedbacks. We see FeedbackGPT made feedback
+more goal-referenced, actionable and progressive. However, users still struggle with producing articulate feedback.
+human-like collaboration. As P3 explained, “It feels more like interacting with a human because you can point somewhere and they
+know what you’re talking about.”. Ultimately, while the scaffolds
+successfully lowered barriers to providing high-quality feedback,
+the increased cognitive load tempered users’ subjective ratings of
+the overall experience. Nonetheless, participants confirmed it was
+“easier to give feedback in FeedbackGPT” (𝑥¯ = 3.69, 𝑝 < 0.01) and
+that it “improved my ability to guide the AI” (𝑥¯ = 3.63, 𝑝 < 0.01).
+
+desiderata—and the underlying Feedback Barriers they target—that
+should guide which affordances are built and how they are composed, rather than added ad hoc. Below, we interpret our findings,
+propose design implications for the next generation of Conversational Agents, and issue a call for action to the broader Artificial
+Intelligence community to address challenges at the model level.
+
+7
+
+Our results suggest that the scaffolds in FeedbackGPT began to shift
+the interaction from a transactional, command-based monologue to
+a more collaborative dialogue. In the baseline condition (ChatGPT),
+users treated the CA as a tool to be instructed, and when instructions
+failed, they resorted to low-effort repair strategies like re-prompting
+or abandonment. The interaction was one-directional and brittle.
+The scaffolds created a sense of a shared conversational space.
+Features like inline comments allowed users to anchor their feedback to a specific locus, making their intent more precise and reducing the need for lengthy, decontextualized explanations. As P8
+noted, this meant they could “add multiple comments to specific
+areas instead of having to... manually copy things and explain everything”. This aligns with principles of external cognition [101], where
+visible, persistent artifacts offload cognitive burden and support
+a shared frame of reference. However, this increased engagement
+came at a cost. Participants reported a higher cognitive load, even
+as they felt more productive and in control—“the burden to provide
+the right feedback was on me”(P19;P17,P2). This “productive friction” is a key finding: effective collaboration requires mental effort.
+While our scaffolds lowered the barrier to providing feedback, the
+act of formulating good feedback remains a cognitively demanding
+
+Discussion
+
+Our two studies demonstrate that the feedback loop in modern
+human-AI collaboration is systematically broken, not because either humans or models “fail” in isolation, but because of a reciprocal
+collapse of cooperative principles. Formative study identified four
+Feedback Barriers—Common Ground, Verifiability, Communication and Informativeness—that emerged from a combination of
+model limitations and user-side cognitive constraints. Second study
+showed that, FeedbackGPT, a system equipped with lightweight,
+model and task agnostic scaffolds, can mitigate the barriers in practice: enabling users to provide significantly more goal-referenced,
+actionable and progressive feedback.
+At the same time, our findings also revealed a critical trade-off.
+While the scaffolds empowered users to be more effective collaborators, they also increased the perceived cognitive-load: 9/20 users felt
+that “burden to provide the right feedback” remained squarely on
+them. This underscores that simply providing tools is not enough;
+the path to effective human-AI collaboration requires deeper rethinking of the interaction paradigm itself. Moreover, while individual scaffolds may be subsumed into future commercial CA
+interfaces, our enduring contribution is to articulate the design
+
+7.1
+
+From Monologue to Dialogue: Interpreting
+the Impact of Scaffolding
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+task. This explains why objective gains in feedback quality did not
+always translate to higher subjective ratings of ease or productivity. It suggests that future systems must not only provide tools
+for feedback but also more actively share the cognitive load of the
+collaborative process itself [132]. Taken together, these findings
+suggest that the value of scaffolding is not limited to improving
+the interactional experience itself, but may also shape how users
+engage with and take ownership over AI outputs downstream.
+The effect of scaffolds on downstream performance was evident
+in our interviews. Participants consistently described a stronger
+sense of authorship and increased perceived quality: “I feel I own the
+FeedbackGPT output more because I have better control.” (P16; P3,
+P5, P19), and “...saw my prompts quality increasing which also increased the output quality” (P20; P5, P7). While we did not observe a
+significant difference in self-reported output quality, we expect that
+as systems become better at incorporating user feedback, and users
+become more comfortable giving it, these interactional changes will
+translate into measurable downstream gains. Future work could
+operationalize such gains through process-oriented metrics, such
+as the proportion of user-generated content in the final artifact, the
+number of turns required to reach a stable output, or objective task
+performance in domains where ground truth exists.
+
+7.2
+
+Design Implications for Truly Collaborative
+Agents
+
+Our findings, particularly the qualitative feedback from participants,
+point toward three key design principles for moving beyond mere
+assistance to true collaboration.
+• Design for Proactivity and Mixed Initiative. Participants
+expressed a clear desire for the AI to be more than a passive respondent; they wanted a collaborator that could take
+initiative by suggesting its own refinements (P6), offering a
+high-level plan before generating a full response (P5, P20),
+or even “persuade” them towards a better idea (P15). This
+calls for a return to the HCI principles of mixed-initiative
+interaction, where the system can proactively guide the user,
+ask clarifying questions, and share responsibility for the
+task’s success. The goal is not just to react to feedback, but
+to co-create the solution.
+• Foster Reciprocity and Mutual Grounding. The interaction still felt “one-directional” to many participants. As
+P3 noted, “I leave comments for a model, but like the model
+doesn’t leave comments for me.” Users desire a reciprocal
+dialogue where the AI also provides its own feedback and
+insights. P19 summarized this perfectly: “the conversation
+is two way you know, as much as i want to provide feedback I also want to receive feedback.” Future systems should
+incorporate mechanisms for explicit grounding, where the
+model confirms its understanding. As P8 envisioned, a comment should become “a conversation with friends in that
+comment,” allowing for back-and-forth clarifications.
+• Make the Value of Feedback Interpretable. Users are
+more likely to provide high-quality feedback if they understand how it is being used and see its benefit. Current systems
+with simple thumbs-up/down controls offer no transparency.
+
+Sharma et al.
+
+Organizational science shows that people give more feedback when its benefits are clear [1, 6]. By showing users how
+their feedback is leveraged beyond the immediate turn, we
+can help them become partners in AI development, thereby
+increasing trust, alignment, and safety.
+
+7.3
+
+A call for action for the broader Artificial
+Intelligence community
+
+While our work demonstrates the power of interface and interaction design, fundamentally overcoming the Feedback Barriers
+requires parallel advances in core LLM capabilities. We urge the AI
+community to address the model-side drivers of these barriers:
+• To Overcome the Barrier of Common Ground, models
+need more than just longer context windows [76]; they need
+context-robust attention and memory. The “lost-in-themiddle” effect [77] is a critical failure of shared reference that
+burdens users with constant re-contextualization. Research
+into mitigating this effect [18, 150], along with developing
+more faithful chain-of-thought reasoning [71, 123] and explicit planning capabilities [130], is essential for maintaining
+a stable shared goal that updates with the conversation.
+• To Overcome the Barrier of Verifiability, the burden of
+fact-checking must shift away from the user [94]. Hallucinations remain a central barrier to trust [51, 118], and while
+Retrieval Augmented Generation (RAG) [72] helps [86, 113],
+its effectiveness is sensitive to retrieval quality [30]. We need
+models that are verifiable by design. This requires progress
+in three key areas: (i) calibration [34, 116], so models can
+express reliable confidence scores, aiding paralinguistic features; (ii) principled abstention [128, 131, 136], so models
+can ask for help when uncertain; and (iii) reliable inline
+citation [14, 145, 146], to ground claims in evidence.
+• To Overcome the Barriers of Communication and Informativeness, models must be trained for multi-turn, collaborative dialogue [65, 144], not just single-turn instruction following [90, 110]. This involves developing benchmarks and training schemes that reward proactivity, seeking
+clarification, and self-critique, mirroring what participants
+want [13, 17, 24, 35, 75, 111]. Furthermore, models must
+learn to adapt their communication style based on user cues,
+leveraging research into personalization [151, 154] and paralinguistics [38, 58, 60, 102, 103] to deliver information at the
+right level of detail, just as humans do [39, 114].
+
+7.4
+
+Utilizing user feedback from scaffolded
+interfaces in RLHF
+
+As discussed earlier (Sec 2.3), current RLHF and preference optimization pipelines mostly learn from coarse, turn-level signals (e.g.,
+thumbs up/down, whole-response comparisons), which constrains
+the granularity of reward models and the kinds of collaborative
+behaviors they can support [90, 97, 134, 141]. Scaffolded interfaces
+like FeedbackGPT can instead yield structured, high-quality preference data: span-level highlights and comments, huddle transcripts,
+and prompt-evaluation scores naturally form rich preference tuples (e.g., pre- vs. post-feedback responses, competing revisions
+that better satisfy marked constraints) that can be fed into RLHF
+
+Feedback by Design: Understanding and Overcoming User Feedback Barriers in Conversational Agents
+
+and DPO-style training, including online and continual preference
+learning [93, 97, 141]. Moreover, logs of when users open huddles, request explanations, or repeatedly flag the same error expose
+“missed opportunities” for the model to ask clarifying questions or
+self-critique; these are precisely the states targeted by recent work
+on proactive and collaborative LLMs [23, 83, 137, 148].
+
+8
+
+Limitations
+
+We have identified several limitations as a part of this empirical
+study. First, our sample is not representative of the population.
+Although we try to get diverse participants with diverse use-cases
+there were imbalances in our sample particularly with gender and
+the education levels. Furthermore, because of the nature and the
+high cognitive demand of the second study, there was a selection
+bias with participants who volunteered and completed the task.
+Second, our task focuses on co-writing to make our findings
+generalizable however other interfaces with their task specific interfaces may elicit different behaviors from users.
+Third, our scaffolds are not exhaustive but rather one instantiation of the design desiderata. Different feature combinations might
+elicit different behaviors from users. Furthermore, we have not
+studied how different actions interact with each other or with the
+user to elicit different types of feedback and behaviors from both
+the user and the model. We leave this exploration to future work.
+Finally, we also acknowledge that users feedback behaviors will
+change over time as they get more accustomed to the interfaces
+and model behaviors. Given the short term nature of our study, we
+cannot predict how user behaviors will evolve. We leave exploration
+of longitudinal studies on user feedback behavior as future work.
+
+9
+
+Conclusion
+
+As Conversational Agents become integral collaborators in complex, multi-turn tasks, their effectiveness is critically dependent on
+high-quality user feedback—a resource that is often sparse and difficult to elicit. Across a formative study and a controlled comparison
+of a scaffolded system (FeedbackGPT) with a baseline (ChatGPT),
+we empirically show: (1) that naturally occurring feedback is impeded by four Feedback Barriers (Common Ground, Verifiability,
+Communication, and Informativeness), arising from reciprocal user
+and model breakdowns; and (2) that lightweight, model-agnostic
+scaffolds that operationalize persistent shared reference, reciprocal
+interaction, and verifiable reasoning can significantly increase the
+relevance, specificity, and volume of user feedback. These findings
+underscore a key insight: the path to high-quality feedback lies not
+only in more powerful models but also in interaction designs that
+make giving feedback cognitively affordable, socially reciprocal,
+and visibly impactful.
+Looking forward, our work points to a dual agenda for the field.
+On the design side, practitioners must integrate scaffolds that help
+users disseminate, engage with, and evaluate feedback in ways
+that sustain cooperative norms. On the model side, advances in
+memory, calibration, and multi-turn training are essential to reduce the user’s burden and enable truly reciprocal dialogue. More
+broadly, bringing rich human feedback back into the loop is not
+merely a matter of usability. It is a fundamental requirement for
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+building more trustworthy, adaptive, and socially aligned AI systems, turning users from passive consumers into active partners in
+the development of safe and effective AI.
+
+Acknowledgments
+This work is partially supported by Science of trustworthy AI award
+from Schmidt Sciences.
+
+References
+[1] Nicole Abi-Esber, Jennifer E Abel, Juliana Schroeder, and Francesca Gino. 2022.
+“Just letting you know. . . ” Underestimating others’ desire for constructive feedback. Journal of Personality and Social Psychology 123, 6 (2022), 1362.
+[2] Daehwan Ahn, Abdullah Almaatouq, Monisha Gulabani, and Kartik Hosanagar.
+2024. Impact of Model Interpretability and Outcome Feedback on Trust in AI. In
+Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems
+(Honolulu, HI, USA) (CHI ’24). Association for Computing Machinery, New York,
+NY, USA, Article 27, 25 pages. doi:10.1145/3613904.3642780
+[3] J.E. Allen, C.I. Guinn, and E. Horvtz. 1999. Mixed-initiative interaction. IEEE
+Intelligent Systems and their Applications 14, 5 (1999), 14–23. doi:10.1109/5254.
+796083
+[4] Saleema Amershi, Maya Cakmak, William Bradley Knox, and Todd Kulesza.
+2014. Power to the People: The Role of Humans in Interactive Machine Learning.
+AI Magazine 35, 4 (Dec. 2014), 105–120. doi:10.1609/aimag.v35i4.2513
+[5] Christopher J. Anderson. 2003. The Psychology of Doing Nothing: Forms of
+Decision Avoidance Result from Reason and Emotion. Psychological Bulletin
+129 (2003), 139–167. https://ssrn.com/abstract=895727
+[6] F. Anseel, A. S. Beatty, W. Shen, F. Lievens, and P. R. Sackett. 2015. How Are
+We Doing After 30 Years? A Meta-Analytic Review of the Antecedents and
+Outcomes of Feedback-Seeking Behavior. Journal of Management 41, 1 (2015),
+318–348. doi:10.1177/0149206313484521
+[7] Neeraj Arora, Ishita Chakraborty, and Yohei Nishimura. 2025.
+AI–Human Hybrids for Marketing Research: Leveraging Large Language Models (LLMs) as Collaborators.
+Journal of Marketing 89,
+2 (2025), 43–70.
+arXiv:https://doi.org/10.1177/00222429241276529
+doi:10.1177/00222429241276529
+[8] Ariel Flint Ashery, Luca Maria Aiello, and Andrea Baronchelli. 2025. Emergent
+social conventions and collective bias in LLM populations. Science Advances 11,
+20 (2025), eadu9368. doi:10.1126/sciadv.adu9368
+[9] Alberto Bacchelli and Christian Bird. 2013. Expectations, outcomes, and challenges of modern code review. In 2013 35th International Conference on Software
+Engineering (ICSE). 712–721. doi:10.1109/ICSE.2013.6606617
+[10] Paul Black and Dylan Wiliam. 1998. Assessment and Classroom Learning. Assessment in Education: Principles, Policy & Practice 5, 1 (1998), 7–74.
+arXiv:https://doi.org/10.1080/0969595980050102 doi:10.1080/0969595980050102
+[11] Virginia Braun and Victoria Clarke. 2023. Toward good practice in thematic analysis: Avoiding common problems and be(com)ing a knowing researcher. International Journal of Transgender Health 24, 1 (2023), 1–6.
+arXiv:https://doi.org/10.1080/26895269.2022.2129597 doi:10.1080/26895269.2022.
+2129597
+[12] David Carless and David Boud. 2018. The development of student feedback literacy: enabling uptake of feedback. Assessment & Evaluation in Higher Education
+43, 8 (2018), 1315–1325. arXiv:https://doi.org/10.1080/02602938.2018.1463354
+doi:10.1080/02602938.2018.1463354
+[13] Amartya Chakraborty, Paresh Dashore, Nadia Bathaee, Anmol Jain, Anirban
+Das, Shi-Xiong Zhang, Sambit Sahu, Milind Naphade, and Genta Indra Winata.
+2025. T1: A Tool-Oriented Conversational Dataset for Multi-Turn Agentic
+Planning. arXiv preprint arXiv:2505.16986 (2025).
+[14] Joseph Chee Chang, Amy X. Zhang, Jonathan Bragg, Andrew Head, Kyle Lo,
+Doug Downey, and Daniel S. Weld. 2023. CiteSee: Augmenting Citations in
+Scientific Papers with Persistent and Personalized Historical Context. In Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems
+(Hamburg, Germany) (CHI ’23). Association for Computing Machinery, New
+York, NY, USA, Article 737, 15 pages. doi:10.1145/3544548.3580847
+[15] Hongshen Chen, Xiaorui Liu, Dawei Yin, and Jiliang Tang. 2017. A survey on
+dialogue systems: Recent advances and new frontiers. Acm Sigkdd Explorations
+Newsletter 19, 2 (2017), 25–35.
+[16] Li Chen and Pearl Pu. 2007. The evaluation of a hybrid critiquing system with
+preference-based recommendations organization. In Proceedings of the 2007
+ACM Conference on Recommender Systems (Minneapolis, MN, USA) (RecSys ’07).
+Association for Computing Machinery, New York, NY, USA, 169–172. doi:10.
+1145/1297231.1297263
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+[17] Maximillian Chen, Ruoxi Sun, Tomas Pfister, and Sercan Arik. 2025.
+Learning to Clarify: Multi-turn Conversations with Action-Based Contrastive Self-Training. In International Conference on Learning Representations, Y. Yue, A. Garg, N. Peng, F. Sha, and R. Yu (Eds.), Vol. 2025.
+32244–32279.
+https://proceedings.iclr.cc/paper_files/paper/2025/file/
+4ffd05ca3cf3985f4572af015b4cfc1e-Paper-Conference.pdf
+[18] Yeounoh Chung, Gaurav T. Kakkar, Yu Gan, Brenton Milne, and Fatma Özcan.
+2025. Is Long Context All You Need? Leveraging LLM’s Extended Context for
+NL2SQL. Proceedings of the VLDB Endowment 18, 8 (April 2025), 2735–2747.
+doi:10.14778/3742728.3742761
+[19] Herbert H Clark and Susan E Brennan. 1991. Grounding in communication. In
+Perspectives on socially shared cognition. American Psychological Association,
+127–149.
+[20] Jacob Cohen. 1992. A power primer. Psychological Bulletin 112, 1 (1992), 155–159.
+doi:10.1037//0033-2909.112.1.155
+[21] Clayton Cohn, Ashwin T S, Naveeduddin Mohammed, and Gautam Biswas. 2025.
+CoTAL: Human-in-the-Loop Prompt Engineering for Generalizable Formative
+Assessment Scoring. arXiv:2504.02323 [cs.CL] https://arxiv.org/abs/2504.02323
+[22] David Wei Dai, Hua Zhu, and Guanliang Chen. 2025. How does interaction with
+LLM powered chatbots shape human understanding of culture? The need for
+Critical Interactional Competence (CritIC). Annual Review of Applied Linguistics
+45 (2025), 28–49. doi:10.1017/S0267190525000054
+[23] Yang Deng, Lizi Liao, Wenqiang Lei, Grace Hui Yang, Wai Lam, and Tat-Seng
+Chua. 2025. Proactive Conversational AI: A Comprehensive Survey of Advancements and Opportunities. ACM Trans. Inf. Syst. 43, 3, Article 67 (March 2025),
+45 pages. doi:10.1145/3715097
+[24] Kaustubh Deshpande, Ved Sirdeshmukh, Johannes Baptist Mols, Lifeng Jin,
+Ed-Yeremai Hernandez-Cardona, Dean Lee, Jeremy Kritz, Willow E. Primack,
+Summer Yue, and Chen Xing. 2025. MultiChallenge: A Realistic Multi-Turn
+Conversation Evaluation Benchmark Challenging to Frontier LLMs. In Findings
+of the Association for Computational Linguistics: ACL 2025, Wanxiang Che, Joyce
+Nabende, Ekaterina Shutova, and Mohammad Taher Pilehvar (Eds.). Association
+for Computational Linguistics, Vienna, Austria, 18632–18702. doi:10.18653/v1/
+2025.findings-acl.958
+[25] Berkeley J Dietvorst, Joseph P Simmons, and Cade Massey. 2015. Algorithm
+aversion: People erroneously avoid algorithms after seeing them err. Journal of
+Experimental Psychology: General 144, 1 (2015), 114–126. doi:10.1037/xge0000033
+[26] Shachar Don-Yehiya, Leshem Choshen, and Omri Abend. 2025. Naturally Occurring Feedback is Common, Extractable and Useful. arXiv:2407.10944 [cs.CL]
+https://arxiv.org/abs/2407.10944
+[27] John J. Dudley and Per Ola Kristensson. 2018. A Review of User Interface Design
+for Interactive Machine Learning. ACM Trans. Interact. Intell. Syst. 8, 2, Article
+8 (June 2018), 37 pages. doi:10.1145/3185517
+[28] Zane Durante, Qiuyuan Huang, Naoki Wake, Ran Gong, Jae Sung Park, Bidipta
+Sarkar, Rohan Taori, Yusuke Noda, Demetri Terzopoulos, Yejin Choi, Katsushi
+Ikeuchi, Hoi Vo, Li Fei-Fei, and Jianfeng Gao. 2024. Agent AI: Surveying the
+Horizons of Multimodal Interaction. arXiv:2401.03568 [cs.AI] https://arxiv.org/
+abs/2401.03568
+[29] Jerry Alan Fails and Dan R Olsen Jr. 2003. Interactive machine learning. In
+Proceedings of the 8th International Conference on Intelligent User Interfaces. ACM,
+39–45. doi:10.1145/604045.604056
+[30] Wenqi Fan, Yujuan Ding, Liangbo Ning, Shijie Wang, Hengyun Li, Dawei Yin,
+Tat-Seng Chua, and Qing Li. 2024. A Survey on RAG Meeting LLMs: Towards Retrieval-Augmented Large Language Models. In Proceedings of the 30th
+ACM SIGKDD Conference on Knowledge Discovery and Data Mining (Barcelona,
+Spain) (KDD ’24). Association for Computing Machinery, New York, NY, USA,
+6491–6501. doi:10.1145/3637528.3671470
+[31] Patrick Fernandes, Aman Madaan, Emmy Liu, António Farinhas, Pedro Henrique
+Martins, Amanda Bertsch, José G. C. de Souza, Shuyan Zhou, Tongshuang
+Wu, Graham Neubig, and André F. T. Martins. 2023. Bridging the Gap: A
+Survey on Integrating (Human) Feedback for Natural Language Generation.
+Transactions of the Association for Computational Linguistics 11 (2023), 1643–1668.
+doi:10.1162/tacl_a_00626
+[32] Jie Gao, Simret Araya Gebreegziabher, Kenny Tsu Wei Choo, Toby Jia-Jun Li,
+Simon Tangi Perrault, and Thomas W Malone. 2024. A Taxonomy for HumanLLM Interaction Modes: An Initial Exploration. In Extended Abstracts of the
+CHI Conference on Human Factors in Computing Systems (CHI ’24). ACM, 1–11.
+doi:10.1145/3613905.3650786
+[33] Yubin Ge, Ziang Xiao, Jana Diesner, Heng Ji, Karrie Karahalios, and Hari Sundaram. 2023. What should i ask: A knowledge-driven approach for follow-up
+questions generation in conversational surveys. In Proceedings of the 37th Pacific
+Asia Conference on Language, Information and Computation. 113–124.
+[34] Jiahui Geng, Fengyu Cai, Yuxia Wang, Heinz Koeppl, Preslav Nakov, and Iryna
+Gurevych. 2024. A Survey of Confidence Estimation and Calibration in Large
+Language Models. In Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language
+Technologies (Volume 1: Long Papers), Kevin Duh, Helena Gomez, and Steven
+Bethard (Eds.). Association for Computational Linguistics, Mexico City, Mexico,
+
+Sharma et al.
+
+6577–6595. doi:10.18653/v1/2024.naacl-long.366
+[35] Zhibin Gou, Zhihong Shao, Yeyun Gong, yelong shen, Yujiu Yang, Nan Duan,
+and Weizhu Chen. 2024. CRITIC: Large Language Models Can Self-Correct with
+Tool-Interactive Critiquing. In The Twelfth International Conference on Learning
+Representations. https://openreview.net/forum?id=Sx038qxjek
+[36] H. P. Grice. 1975. Logic and Conversation. Brill, Leiden, The Netherlands, 41 –
+58. doi:10.1163/9789004368811_003
+[37] David Gunning and David W Aha. 2019. DARPA’s explainable artificial intelligence (XAI) program. AI Magazine 40, 2 (2019), 44–58.
+[38] J. J. Guyer, P. Briñol, T. I. Vaughan-Johnston, L. R. Fabrigar, L. Moreno, and
+R. E. Petty. 2021. Paralinguistic Features Communicated through Voice can
+Affect Appraisals of Confidence and Evaluative Judgments. Journal of Nonverbal
+Behavior 45, 4 (2021), 479–504. arXiv:2021-07-06 doi:10.1007/s10919-021-00374-2
+[39] John Hattie and Helen Timperley. 2007. The power of feedback. Review of
+educational research 77, 1 (2007), 81–112.
+[40] Chen He, Denis Parra, and Katrien Verbert. 2016. Interactive recommender
+systems: A survey of the state of the art and future research challenges and
+opportunities. Expert Systems with Applications 56 (2016), 9–27. doi:10.1016/j.
+eswa.2016.02.013
+[41] M. Henderson, M. Bearman, J. Chung, T. Fawns, S. Buckingham Shum, K. E.
+Matthews, and J. de Mello Heredia. 2025. Comparing Generative AI and teacher
+feedback: student perceptions of usefulness and trustworthiness. Assessment &
+Evaluation in Higher Education (2025), 1–16. doi:10.1080/02602938.2025.2502582
+[42] Donald Honeycutt, Mahsan Nourani, and Eric Ragan. 2020. Soliciting Human-inthe-Loop User Feedback for Interactive Machine Learning Reduces User Trust
+and Impressions of Model Accuracy. Proceedings of the AAAI Conference on
+Human Computation and Crowdsourcing 8, 1 (Oct. 2020), 63–72. doi:10.1609/
+hcomp.v8i1.7464
+[43] Eric Horvitz. 1999. Principles of mixed-initiative user interfaces. In Proceedings
+of the SIGCHI Conference on Human Factors in Computing Systems. ACM, 159–166.
+doi:10.1145/302979.303030
+[44] Eric Horvitz, Tim Paek, and Mani Subramani. 1999. Continual computation
+policies for utility-directed preference assessment. In Proceedings of the Fifteenth
+Conference on Uncertainty in Artificial Intelligence. Morgan Kaufmann Publishers
+Inc., 269–278.
+[45] Dietmar Jannach, Ahtsham Manzoor, Wanling Cai, and Li Chen. 2021. A Survey
+on Conversational Recommender Systems. ACM Comput. Surv. 54, 5, Article
+105 (May 2021), 36 pages. doi:10.1145/3453154
+[46] Juyong Jiang, Fan Wang, Jiasi Shen, Sungju Kim, and Sunghun Kim. 2025. A
+Survey on Large Language Models for Code Generation. ACM Trans. Softw. Eng.
+Methodol. (July 2025). doi:10.1145/3747588 Just Accepted.
+[47] Yuyang Jiang, Longjie Guo, Yuchen Wu, Aylin Caliskan, Tanu Mitra, and Hua
+Shen. 2025. Beyond One-Way Influence: Bidirectional Opinion Dynamics in
+Multi-Turn Human-LLM Interactions. arXiv:2510.20039 [cs.HC] https://arxiv.
+org/abs/2510.20039
+[48] Chuanyang Jin, Jing Xu, Bo Liu, Leitian Tao, Olga Golovneva, Tianmin Shu,
+Wenting Zhao, Xian Li, and Jason Weston. 2025. The Era of Real-World Human
+Interaction: RL from User Conversations. arXiv:2509.25137 [cs.AI] https://arxiv.
+org/abs/2509.25137
+[49] Hideaki Joko, Shakiba Amirshahi, Charles L. A. Clarke, and Faegheh Hasibi. 2025. WildClaims: Information Access Conversations in the Wild(Chat).
+arXiv:2509.17442 [cs.IR] https://arxiv.org/abs/2509.17442
+[50] Wendy Ju et al. 2025. Collaborating with AI Agents in the Field: A Study of
+Situated Human–AI Interaction. In Proceedings of the 2025 CHI Conference on
+Human Factors in Computing Systems. ACM.
+[51] Adam Tauman Kalai, Ofir Nachum, Santosh S. Vempala, and Edwin Zhang.
+2025. Why Language Models Hallucinate. arXiv:2509.04664 [cs.CL] https:
+//arxiv.org/abs/2509.04664
+[52] Dongjin Kang, Sunghwan Kim, Taeyoon Kwon, Seungjun Moon, Hyunsouk Cho,
+Youngjae Yu, Dongha Lee, and Jinyoung Yeo. 2024. Can Large Language Models
+be Good Emotional Supporter? Mitigating Preference Bias on Emotional Support
+Conversation. In Proceedings of the 62nd Annual Meeting of the Association for
+Computational Linguistics (Volume 1: Long Papers), Lun-Wei Ku, Andre Martins,
+and Vivek Srikumar (Eds.). Association for Computational Linguistics, Bangkok,
+Thailand, 15232–15261. doi:10.18653/v1/2024.acl-long.813
+[53] Yoonsu Kim, Brandon Chin, Kihoon Son, Seoyoung Kim, and Juho Kim. 2025.
+Applying the Gricean Maxims to a Human-LLM Interaction Cycle: Design
+Insights from a Participatory Approach. CoRR abs/2503.00858 (March 2025).
+https://doi.org/10.48550/arXiv.2503.00858
+[54] Hannah Rose Kirk, Andrew M. Bean, Bertie Vidgen, Paul Röttger, and Scott A.
+Hale. 2023. The Past, Present and Better Future of Feedback Learning in Large
+Language Models for Subjective Human Preferences and Values. In Proceedings of
+the 2023 Conference on Empirical Methods in Natural Language Processing, Houda
+Bouamor, Juan Pino, and Kalika Bali (Eds.). Association for Computational
+Linguistics, Singapore, 2409–2430. doi:10.18653/v1/2023.emnlp-main.148
+[55] Hannah Rose Kirk, Iason Gabriel, Chris Summerfield, Bertie Vidgen, and Scott A.
+Hale. 2025. Why human–AI relationships need socioaffective alignment. Humanities and Social Sciences Communications 12 (2025), 728. doi:10.1057/s41599-
+
+Feedback by Design: Understanding and Overcoming User Feedback Barriers in Conversational Agents
+
+025-04532-5
+[56] Asger Kirkeby-Hinrup and Jakob Stenseke. 2025. The psychology of LLM
+interactions: the uncanny valley and other minds. Journal of Psychology and AI
+1, 1 (2025). doi:10.1080/29974100.2025.2457627
+[57] David Kirsh and Paul Maglio. 1994. On distinguishing epistemic from pragmatic
+action. Cognitive Science 18, 4 (1994), 513–549.
+[58] S. H. Klein. 2025. The effects of human-like social cues on social responses
+towards text-based conversational agents—a meta-analysis. Humanities and
+Social Sciences Communications 12 (2025), 1322. doi:10.1057/s41599-025-05618-w
+[59] Avraham N Kluger and Angelo DeNisi. 1996. The effect of feedback interventions
+on performance: A historical review, a meta-analysis, and a preliminary feedback
+intervention theory. Psychological Bulletin 119, 2 (1996), 254–284.
+[60] Dimosthenis Kontogiorgos and Julie Shah. 2025. Questioning the Robot: Using
+Human Non-verbal Cues to Estimate the Need for Explanations. In Proceedings
+of the 2025 ACM/IEEE International Conference on Human-Robot Interaction
+(Melbourne, Australia) (HRI ’25). IEEE Press, 717–728.
+[61] Lea Krause and Piek T.J.M. Vossen. 2024. The Gricean Maxims in NLP - A Survey.
+In Proceedings of the 17th International Natural Language Generation Conference,
+Saad Mahamood, Nguyen Le Minh, and Daphne Ippolito (Eds.). Association for
+Computational Linguistics, Tokyo, Japan, 470–485. doi:10.18653/v1/2024.inlgmain.39
+[62] Todd Kulesza, Margaret Burnett, Weng-Keen Wong, and Simone Stumpf. 2015.
+Principles of Explanatory Debugging to Personalize Interactive Machine Learning. In Proceedings of the 20th International Conference on Intelligent User Interfaces (Atlanta, Georgia, USA) (IUI ’15). Association for Computing Machinery,
+New York, NY, USA, 126–137. doi:10.1145/2678025.2701399
+[63] Todd Kulesza, Simone Stumpf, Margaret Burnett, Sherry Yang, Irwin Kwan, and
+Weng-Keen Wong. 2013. Too much, too little, or just right? Ways explanations
+impact end users’ mental models. In 2013 IEEE Symposium on Visual Languages
+and Human Centric Computing. 3–10. doi:10.1109/VLHCC.2013.6645235
+[64] Indah Kurniawan, Alexander Soutschek, and Matthew Apps. 2023. Taking the
+path of least resistance now, but not later: Pushing cognitive effort into the
+future reduces effort discounting. Psychonomic Bulletin & Review 30, 1 (2023),
+1–15. doi:10.3758/s13423-022-02198-7
+[65] Philippe Laban, Hiroaki Hayashi, Yingbo Zhou, and Jennifer Neville. 2025.
+LLMs Get Lost In Multi-Turn Conversation. arXiv:2505.06120 [cs.CL] https:
+//arxiv.org/abs/2505.06120
+[66] Vivian Lai, Yiming Zhang, Chacha Chen, Q. Vera Liao, and Chenhao Tan. 2023.
+Selective Explanations: Leveraging Human Input to Align Explainable AI. Proc.
+ACM Hum.-Comput. Interact. 7, CSCW2, Article 357 (Oct. 2023), 35 pages. doi:10.
+1145/3610206
+[67] Daniel Lee, Nikhil Sharma, Donghoon Shin, DaEun Choi, Harsh Sharma, Jeonghwan Kim, and Heng Ji. 2025. ThematicPlane: Bridging Tacit User Intent and
+Latent Spaces for Image Generation. In Adjunct Proceedings of the 38th Annual
+ACM Symposium on User Interface Software and Technology (UIST Adjunct ’25).
+Association for Computing Machinery, New York, NY, USA, Article 120, 3 pages.
+doi:10.1145/3746058.3758376
+[68] Harrison Lee, Samrat Phatale, Hassan Mansoor, Thomas Mesnard, Johan Ferret,
+Kellie Lu, Colton Bishop, Ethan Hall, Victor Carbune, Abhinav Rastogi, and
+Sushant Prakash. 2024. RLAIF vs. RLHF: scaling reinforcement learning from
+human feedback with AI feedback. In Proceedings of the 41st International Conference on Machine Learning (Vienna, Austria) (ICML’24). JMLR.org, Article 1071,
+28 pages.
+[69] John D Lee and Kelly A See. 2004. Trust in automation: designing for appropriate
+reliance. Human Factors 46, 1 (2004), 50–80.
+[70] Mina Lee, Megha Srivastava, Amelia Hardy, John Thickstun, Esin Durmus,
+Ashwin Paranjape, Ines Gerard-Ursin, Xiang Lisa Li, Faisal Ladhak, Frieda Rong,
+Rose E Wang, Minae Kwon, Joon Sung Park, Hancheng Cao, Tony Lee, Rishi
+Bommasani, Michael S. Bernstein, and Percy Liang. 2023. Evaluating HumanLanguage Model Interaction. Transactions on Machine Learning Research (2023).
+https://openreview.net/forum?id=hjDYJUn9l1
+[71] S. Lee, X. Wang, A. Zhang, et al. 2025. Toward faithful and human-aligned
+self-explanation of deep models. npj Artificial Intelligence 1 (2025), 21. doi:10.
+1038/s44387-025-00023-9
+[72] Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir
+Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim
+Rocktäschel, Sebastian Riedel, and Douwe Kiela. 2020. Retrieval-augmented
+generation for knowledge-intensive NLP tasks. In Proceedings of the 34th International Conference on Neural Information Processing Systems (Vancouver, BC,
+Canada) (NIPS ’20). Curran Associates Inc., Red Hook, NY, USA, Article 793,
+16 pages.
+[73] Jingshu Li, Tianqi Song, Beichen Xue, and Yi-Chieh Lee. 2025. We Shape AI, and
+Thereafter AI Shape Us: Humans Align with AI through Social Influences. In
+ICLR 2025 Workshop on Bidirectional Human-AI Alignment. https://openreview.
+net/forum?id=64rCWVC78p
+[74] Zhiyu Lin, Upol Ehsan, Rohan Agarwal, Samihan Dani, Vidushi Vashishth, and
+Mark O. Riedl. [n. d.]. Beyond Prompts: Exploring the Design Space of MixedInitiative Co-Creativity Systems. International Conference on Computational
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+Creativity ([n. d.]). https://par.nsf.gov/biblio/10434407
+[75] Zicheng Lin, Zhibin Gou, Tian Liang, Ruilin Luo, Haowei Liu, and Yujiu Yang.
+2024. CriticBench: Benchmarking LLMs for Critique-Correct Reasoning. In
+Findings of the Association for Computational Linguistics: ACL 2024, Lun-Wei
+Ku, Andre Martins, and Vivek Srikumar (Eds.). Association for Computational
+Linguistics, Bangkok, Thailand, 1552–1587. doi:10.18653/v1/2024.findings-acl.91
+[76] Jiaheng Liu, Dawei Zhu, Zhiqi Bai, Yancheng He, Huanxuan Liao, Haoran Que,
+Zekun Wang, Chenchen Zhang, Ge Zhang, Jiebin Zhang, Yuanxing Zhang, Zhuo
+Chen, Hangyu Guo, Shilong Li, Ziqiang Liu, Yong Shan, Yifan Song, Jiayi Tian,
+Wenhao Wu, Zhejian Zhou, Ruijie Zhu, Junlan Feng, Yang Gao, Shizhu He,
+Zhoujun Li, Tianyu Liu, Fanyu Meng, Wenbo Su, Yingshui Tan, Zili Wang, Jian
+Yang, Wei Ye, Bo Zheng, Wangchunshu Zhou, Wenhao Huang, Sujian Li, and
+Zhaoxiang Zhang. 2025. A Comprehensive Survey on Long Context Language
+Modeling. arXiv:2503.17407 [cs.CL] https://arxiv.org/abs/2503.17407
+[77] Nelson F. Liu, Kevin Lin, John Hewitt, Ashwin Paranjape, Michele Bevilacqua,
+Fabio Petroni, and Percy Liang. 2024. Lost in the Middle: How Language Models
+Use Long Contexts. Transactions of the Association for Computational Linguistics
+12 (2024), 157–173. doi:10.1162/tacl_a_00638
+[78] Edwin A Locke and Gary P Latham. 2013. New developments in goal setting and
+task performance. Vol. 24. Routledge New York.
+[79] Erik Miehling, Manish Nagireddy, Prasanna Sattigeri, Elizabeth M. Daly, David
+Piorkowski, and John T. Richards. 2024. Language Models in Dialogue: Conversational Maxims for Human-AI Interactions. In Findings of the Association
+for Computational Linguistics: EMNLP 2024, Yaser Al-Onaizan, Mohit Bansal,
+and Yun-Nung Chen (Eds.). Association for Computational Linguistics, Miami,
+Florida, USA, 14420–14437. doi:10.18653/v1/2024.findings-emnlp.843
+[80] Tim Miller. 2019. Explanation in artificial intelligence: Insights from the social
+sciences. Artificial Intelligence 267 (2019), 1–38.
+[81] Taywon Min, Haeone Lee, Yongchan Kwon, and Kimin Lee. 2025. Understanding
+Impact of Human Feedback via Influence Functions. In Proceedings of the 63rd
+Annual Meeting of the Association for Computational Linguistics (Volume 1: Long
+Papers). Association for Computational Linguistics, 27471–27500. doi:10.18653/
+v1/2025.acl-long.1333
+[82] Eduardo Mosqueira-Rey, Elena Hernández-Pereira, David Alonso-Ríos, José
+Bobes-Bascarán, and Ángel Fernández-Leal. 2023. Human-in-the-loop machine
+learning: a state of the art. Artificial Intelligence Review 56 (2023), 3005–3054.
+doi:10.1007/s10462-022-10246-w
+[83] Sheshera Mysore, Debarati Das, Hancheng Cao, and Bahareh Sarrafzadeh. 2025.
+Prototypical Human-AI Collaboration Behaviors from LLM-Assisted Writing in
+the Wild. In Proceedings of the 2025 Conference on Empirical Methods in Natural
+Language Processing, Christos Christodoulopoulos, Tanmoy Chakraborty, Carolyn Rose, and Violet Peng (Eds.). Association for Computational Linguistics,
+Suzhou, China, 16819–16846. doi:10.18653/v1/2025.emnlp-main.852
+[84] Clifford Nass, Jonathan Steuer, and Ellen R Tauber. 1994. Computers are social
+actors. In Proceedings of the SIGCHI conference on Human factors in computing
+systems. ACM, 72–78.
+[85] David J. Nicol and Debra Macfarlane-Dick. 2006. Formative assessment and
+self-regulated learning: a model and seven principles of good feedback practice.
+Studies in Higher Education 31, 2 (2006), 199–218. doi:10.1080/03075070600572090
+[86] Cheng Niu, Yuanhao Wu, Juno Zhu, Siliang Xu, KaShun Shum, Randy Zhong,
+Juntong Song, and Tong Zhang. 2024. RAGTruth: A Hallucination Corpus for
+Developing Trustworthy Retrieval-Augmented Language Models. In Proceedings
+of the 62nd Annual Meeting of the Association for Computational Linguistics
+(Volume 1: Long Papers), Lun-Wei Ku, Andre Martins, and Vivek Srikumar (Eds.).
+Association for Computational Linguistics, Bangkok, Thailand, 10862–10878.
+doi:10.18653/v1/2024.acl-long.585
+[87] Donald A Norman. 1993. Things that make us smart: Defending human attributes
+in the age of the machine. Basic Books.
+[88] OpenAI. 2022. ChatGPT. https://openai.com/blog/chatgpt
+[89] Jianzhe Ou, Krzysztof Z Gajos, Wojciech Matusik, Wilmot Li, and Maneesh
+Agrawala. 2022. ARTEMIS: A Human-AI Loop for Creative 3D Modeling. In
+Proceedings of the 35th Annual ACM Symposium on User Interface Software and
+Technology (UIST ’22). 75–88. doi:10.1145/3526113.3545685
+[90] Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L Wainwright, Pamela
+Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et al. 2022.
+Training Language Models to Follow Instructions with Human Feedback. In
+Advances in Neural Information Processing Systems NeurIPS. https://arxiv.org/
+abs/2203.02155
+[91] Laura Panfili, Steve Duman, Andrew Nave, Katherine Phelps Ridgeway, Nathan
+Eversole, and Ruhi Sarikaya. 2021. Human-AI interactions through a Gricean
+lens. Proceedings of the Linguistic Society of America 6, 1 (March 2021), 288.
+doi:10.3765/plsa.v6i1.4971
+[92] Dojun Park, Jiwoo Lee, Hyeyun Jeong, Seohyun Park, and Sungeun Lee. 2024.
+Pragmatic Competence Evaluation of Large Language Models for the Korean
+Language. In Proceedings of the 38th Pacific Asia Conference on Language, Information and Computation, Nathaniel Oco, Shirley N. Dita, Ariane Macalinga
+Borlongan, and Jong-Bok Kim (Eds.). Tokyo University of Foreign Studies, Tokyo,
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+Japan, 256–266. https://aclanthology.org/2024.paclic-1.25/
+[93] Ryan Park, Rafael Rafailov, Stefano Ermon, and Chelsea Finn. 2024. Disentangling Length from Quality in Direct Preference Optimization. In Findings of
+the Association for Computational Linguistics: ACL 2024, Lun-Wei Ku, Andre
+Martins, and Vivek Srikumar (Eds.). Association for Computational Linguistics,
+Bangkok, Thailand, 4998–5017. doi:10.18653/v1/2024.findings-acl.297
+[94] Petr Parshakov, Iuliia Naidenova, Sofia Paklina, Nikita Matkin, and Cornel
+Nesseler. 2025. Users Favor LLM-Generated Content – Until They Know It’s AI.
+Papers 2503.16458. arXiv.org. doi:None
+[95] Sandra Peter, Kai Riemer, and Jevin D. West. 2025. The benefits and dangers of
+anthropomorphic conversational agents. Proceedings of the National Academy
+of Sciences of the United States of America 122, 22 (2025), e2415898122. doi:10.
+1073/pnas.2415898122
+[96] Nicolas Pfeuffer, Lorenz Baum, Wolfgang Stammer, Benjamin M. Abdel-Karim,
+Patrick Schramowski, Andreas M. Bucher, Christian Hügel, Gernot Rohde, Kristian Kersting, and Oliver Hinz. 2023. Explanatory Interactive Machine Learning - Establishing an Action Design Research Process for Machine Learning
+Projects. Business & Information Systems Engineering 65, 6 (2023), 677–701.
+https://aisel.aisnet.org/bise/vol65/iss6/4
+[97] Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher D.
+Manning, and Chelsea Finn. 2023. Direct preference optimization: your language model is secretly a reward model. In Proceedings of the 37th International
+Conference on Neural Information Processing Systems (New Orleans, LA, USA)
+(NIPS ’23). Curran Associates Inc., Red Hook, NY, USA, Article 2338, 14 pages.
+[98] Fardin Saad, Pradeep K. Murukannaiah, and Munindar P. Singh. 2025. Gricean
+Norms as a Basis for Effective Collaboration. In Proceedings of the 24th International Conference on Autonomous Agents and Multiagent Systems (Detroit,
+MI, USA) (AAMAS ’25). International Foundation for Autonomous Agents and
+Multiagent Systems, Richland, SC, 1812–1820.
+[99] D. Royce Sadler. 1989. Formative assessment and the design of instructional
+systems. Instructional Science 18, 2 (1989), 119–144. doi:10.1007/BF00117714
+[100] Pranab Sahoo, Ayush Kumar Singh, Sriparna Saha, Vinija Jain, Samrat Mondal,
+and Aman Chadha. 2025. A Systematic Survey of Prompt Engineering in
+Large Language Models: Techniques and Applications. arXiv:2402.07927 [cs.AI]
+https://arxiv.org/abs/2402.07927
+[101] Mike Scaife and Yvonne Rogers. 1996. External cognition: How do graphical
+representations work? International Journal of Human-Computer Studies 45, 2
+(1996), 185–213.
+[102] Klaus R. Scherer, Harvey London, and Jared J. Wolf. 1973. The voice of confidence:
+Paralinguistic cues and audience evaluation. Journal of Research in Personality
+7, 1 (1973), 31–44. doi:10.1016/0092-6566(73)90030-5
+[103] Juliana Schroeder, Michael Kardas, and Nicholas Epley. 2017. The humanizing
+voice: Speech reveals, and text conceals, a more thoughtful mind in the midst of
+disagreement. Psychological science 28, 12 (2017), 1745–1762.
+[104] Anna-Maria Seeger, Jella Pfeiffer, and Armin Heinzl. 2021. Texting with humanlike conversational agents: Designing for anthropomorphism. Journal of the
+Association for Information systems 22, 4 (2021), 8.
+[105] Vidya Setlur and Melanie Tory. 2022. How do you Converse with an Analytical
+Chatbot? Revisiting Gricean Maxims for Designing Analytical Conversational
+Behavior. In Proceedings of the 2022 CHI Conference on Human Factors in Computing Systems (New Orleans, LA, USA) (CHI ’22). Association for Computing Machinery, New York, NY, USA, Article 29, 17 pages. doi:10.1145/3491102.3501972
+[106] Mrinank Sharma, Meg Tong, Tomek Korbak, David Duvenaud, Amanda Askell,
+Sam Bowman, Esin DURMUS, Zac Hatfield-Dodds, Scott Johnston, Shauna
+Kravec, Timothy Maxwell, Sam McCandlish, Kamal Ndousse, Oliver Rausch,
+Nicholas Schiefer, Da Yan, Miranda Zhang, and Ethan Perez. 2024. Towards
+Understanding Sycophancy in Language Models. In International Conference on
+Learning Representations, B. Kim, Y. Yue, S. Chaudhuri, K. Fragkiadaki, M. Khan,
+and Y. Sun (Eds.), Vol. 2024. 110–144. https://proceedings.iclr.cc/paper_files/
+paper/2024/file/0105f7972202c1d4fb817da9f21a9663-Paper-Conference.pdf
+[107] Nikhil Sharma, Q. Vera Liao, and Ziang Xiao. 2024. Generative Echo Chamber?
+Effect of LLM-Powered Search Systems on Diverse Information Seeking. In
+Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems
+(Honolulu, HI, USA) (CHI ’24). Association for Computing Machinery, New York,
+NY, USA, Article 1033, 17 pages. doi:10.1145/3613904.3642459
+[108] Nikhil Sharma, Kenton Murray, and Ziang Xiao. 2025. Faux Polyglot: A Study
+on Information Disparity in Multilingual Large Language Models. In Proceedings
+of the 2025 Conference of the Nations of the Americas Chapter of the Association
+for Computational Linguistics: Human Language Technologies (Volume 1: Long
+Papers). Association for Computational Linguistics, 8090–8107. doi:10.18653/v1/
+2025.naacl-long.411
+[109] Hua Shen, Tiffany Knearem, Reshmi Ghosh, Michael Xieyang Liu, Andrés
+Monroy-Hernández, Tongshuang Wu, Diyi Yang, Yun Huang, Tanushree Mitra,
+Yang Li, and Marti Hearst. 2025. Bidirectional Human-AI Alignment: Emerging
+Challenges and Opportunities. In Proceedings of the Extended Abstracts of the CHI
+Conference on Human Factors in Computing Systems (CHI EA ’25). Association
+for Computing Machinery, New York, NY, USA, Article 857, 6 pages. doi:10.
+1145/3706599.3716291
+
+Sharma et al.
+
+[110] Lingfeng Shen, Sihao Chen, Linfeng Song, Lifeng Jin, Baolin Peng, Haitao Mi,
+Daniel Khashabi, and Dong Yu. 2024. The Trickle-down Impact of Reward
+Inconsistency on RLHF. In The Twelfth International Conference on Learning
+Representations. https://openreview.net/forum?id=MeHmwCDifc
+[111] Li Shi, Houjiang Liu, Yian Wong, Utkarsh Mujumdar, Dan Zhang, Jacek Gwizdka,
+and Matthew Lease. 2025. Argumentative Experience: Reducing Confirmation
+Bias on Controversial Issues through LLM-Generated Multi-Persona Debates.
+arXiv:2412.04629 [cs.HC] https://arxiv.org/abs/2412.04629
+[112] Taiwei Shi, Zhuoer Wang, Longqi Yang, Ying-Chun Lin, Zexue He, Mengting Wan, Pei Zhou, Sujay Kumar Jauhar, Xiaofeng Xu, Xia Song, and Jennifer
+Neville. 2024. WildFeedback: Aligning LLMs With In-situ User Interactions
+And Feedback. In NeurIPS 2024 Workshop on Behavioral Machine Learning.
+https://openreview.net/forum?id=07QCozT1pi
+[113] Kurt Shuster, Spencer Poff, Moya Chen, Douwe Kiela, and Jason Weston. 2021.
+Retrieval Augmentation Reduces Hallucination in Conversation. In Findings
+of the Association for Computational Linguistics: EMNLP 2021, Marie-Francine
+Moens, Xuanjing Huang, Lucia Specia, and Scott Wen-tau Yih (Eds.). Association
+for Computational Linguistics, Punta Cana, Dominican Republic, 3784–3803.
+doi:10.18653/v1/2021.findings-emnlp.320
+[114] Valerie J. Shute. 2008. Focus on Formative Feedback. Review of Educational
+Research 78, 1 (2008), 153–189. arXiv:https://doi.org/10.3102/0034654307313795
+doi:10.3102/0034654307313795
+[115] Patrice Y. Simard, Saleema Amershi, David Maxwell Chickering, Alicia Edelman
+Pelton, Soroush Ghorashi, Christopher Meek, Gonzalo A. Ramos, Jina Suh,
+Johan Verwey, Mo Wang, and John Wernsing. 2017. Machine Teaching: A New
+Paradigm for Building Machine Learning Systems. CoRR abs/1707.06742 (2017).
+arXiv:1707.06742 http://arxiv.org/abs/1707.06742
+[116] M. Steyvers, H. Tejeda, A. Kumar, et al. 2025. What large language models know
+and what people think they know. Nature Machine Intelligence 7 (2025), 221–231.
+doi:10.1038/s42256-024-00976-7
+[117] Simone Stumpf, Vidya Rajaram, Lida Li, Weng-Keen Wong, Margaret Burnett,
+Thomas Dietterich, Erin Sullivan, and Jonathan Herlocker. 2009. Interacting
+meaningfully with machine learning systems: Three experiments. International
+Journal of Human-Computer Studies 67, 8 (2009), 639–662. doi:10.1016/j.ijhcs.
+2009.03.004
+[118] Y. Sun, D. Sheng, Z. Zhou, et al. 2024. AI hallucination: towards a comprehensive
+classification of distorted information in artificial intelligence-generated content.
+Humanities and Social Sciences Communications 11 (2024), 1278. doi:10.1057/
+s41599-024-03811-x
+[119] Yan Tao, Olga Viberg, Ryan S Baker, and René F Kizilcec. 2024. Cultural bias
+and cultural alignment of large language models. PNAS Nexus 3, 9 (Sept. 2024).
+doi:10.1093/pnasnexus/pgae346
+[120] Maryam Tohidi, William Buxton, Ronald Baecker, and Abigail Sellen. 2006.
+Getting the right design and the design right. In Proceedings of the SIGCHI
+conference on Human Factors in computing systems. 1243–1252.
+[121] Keith J. Topping. 2009. Peer Assessment. Theory Into Practice 48, 1
+(2009), 20–27. arXiv:https://doi.org/10.1080/00405840802577569 doi:10.1080/
+00405840802577569
+[122] Amy Turner, Meena Kaushik, Mu-Ti Huang, and Srikar Varanasi. 2022. Calibrating trust in AI-assisted decision making. Google Scholar Google Scholar Navigate
+to (2022).
+[123] Miles Turpin, Julian Michael, Ethan Perez, and Samuel R. Bowman. 2023. Language Models Don’t Always Say What They Think: Unfaithful Explanations in
+Chain-of-Thought Prompting. In Thirty-seventh Conference on Neural Information Processing Systems. https://openreview.net/forum?id=bzs4uPLXvi
+[124] Andrea Vaccaro and colleagues. 2024. Humans working with AI often underperform humans working alone: A meta-analysis. Nature Human Behaviour
+(2024). doi:10.1038/s41562-024-02024-1
+[125] Michelle M.E. Van Pinxteren, Mark Pluymaekers, and Jos G.A.M. Lemmink.
+2020. Human-like communication in conversational agents: a literature review
+and research agenda. Journal of Service Management 31, 2 (2020), 203–225.
+doi:10.1108/JOSM-06-2019-0175
+[126] Vanshika Vats, Marzia Binta Nizam, Minghao Liu, Ziyuan Wang, Richard
+Ho, Mohnish Sai Prasad, Vincent Titterton, Sai Venkat Malreddy, Riya Aggarwal, Yanwen Xu, Lei Ding, Jay Mehta, Nathan Grinnell, Li Liu, Sijia
+Zhong, Devanathan Nallur Gandamani, Xinyi Tang, Rohan Ghosalkar, Celeste
+Shen, Rachel Shen, Nafisa Hussain, Kesav Ravichandran, and James Davis.
+2025. A Survey on Human-AI Collaboration with Large Foundation Models.
+arXiv:2403.04931 [cs.AI] https://arxiv.org/abs/2403.04931
+[127] Shen Wang, Tianlong Xu, Hang Li, Chaoli Zhang, Joleen Liang, Jiliang Tang,
+Philip S. Yu, and Qingsong Wen. 2024. Large Language Models for Education:
+A Survey and Outlook. CoRR abs/2403.18105 (2024). arXiv:2403.18105 doi:10.
+48550/ARXIV.2403.18105
+[128] Wenxuan Wang, Shi Juluan, Zixuan Ling, Yuk-Kit Chan, Chaozheng Wang,
+Cheryl Lee, Youliang Yuan, Jen-tse Huang, Wenxiang Jiao, and Michael R. Lyu.
+2025. Learning to Ask: When LLM Agents Meet Unclear Instruction. In Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing,
+Christos Christodoulopoulos, Tanmoy Chakraborty, Carolyn Rose, and Violet
+
+Feedback by Design: Understanding and Overcoming User Feedback Barriers in Conversational Agents
+
+Peng (Eds.). Association for Computational Linguistics, Suzhou, China, 21773–
+21784. doi:10.18653/v1/2025.emnlp-main.1104
+[129] Zijie J. Wang, Dongjin Choi, Shenyu Xu, and Diyi Yang. 2021. Putting Humans
+in the Natural Language Processing Loop: A Survey. In Proceedings of the First
+Workshop on Bridging Human–Computer Interaction and Natural Language Processing, Su Lin Blodgett, Michael Madaio, Brendan O’Connor, Hanna Wallach,
+and Qian Yang (Eds.). Association for Computational Linguistics, Online, 47–52.
+https://aclanthology.org/2021.hcinlp-1.8/
+[130] Hui Wei, Zihao Zhang, Shenghua He, Tian Xia, Shijia Pan, and Fei Liu. 2025.
+PlanGenLLMs: A Modern Survey of LLM Planning Capabilities. In Proceedings
+of the 63rd Annual Meeting of the Association for Computational Linguistics
+(Volume 1: Long Papers), Wanxiang Che, Joyce Nabende, Ekaterina Shutova, and
+Mohammad Taher Pilehvar (Eds.). Association for Computational Linguistics,
+Vienna, Austria, 19497–19521. doi:10.18653/v1/2025.acl-long.958
+[131] Bingbing Wen, Jihan Yao, Shangbin Feng, Chenjun Xu, Yulia Tsvetkov, Bill
+Howe, and Lucy Lu Wang. 2025. Know Your Limits: A Survey of Abstention
+in Large Language Models. Transactions of the Association for Computational
+Linguistics 13 (2025), 529–556. doi:10.1162/tacl_a_00754
+[132] Andrew Westbrook and Todd S. Braver. 2015. Cognitive effort: A neuroeconomic
+approach. Cognitive, Affective, & Behavioral Neuroscience 15 (2015), 395–415.
+doi:10.3758/s13415-015-0334-y
+[133] Jules White, Quchen Fu, Sam Hays, Michael Sandborn, Carlos Olea, Henry
+Gilbert, Ashraf Elnashar, Jesse Spencer-Smith, and Douglas C. Schmidt. 2023.
+A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT. In
+Proceedings of the 30th Conference on Pattern Languages of Programs (Monticello,
+IL, USA) (PLoP ’23). The Hillside Group, USA, Article 5, 31 pages.
+[134] Genta Indra Winata, Hanyang Zhao, Anirban Das, Wenpin Tang, David D
+Yao, Shi-Xiong Zhang, and Sambit Sahu. 2025. Preference tuning with human
+feedback on language, speech, and vision tasks: A survey. Journal of Artificial
+Intelligence Research 82 (2025), 2595–2661.
+[135] Benedikt Wisniewski, Klaus Zierer, and John Hattie. 2020. The Power of Feedback Revisited: A Meta-Analysis of Educational Feedback Research. Frontiers in
+Psychology 10 (2020), 3087. doi:10.3389/fpsyg.2019.03087
+[136] Cheng-Kuang Wu, Zhi Rui Tam, Chao-Chung Wu, Chieh-Yen Lin, Hung-yi
+Lee, and Yun-Nung Chen. 2024. I Need Help! Evaluating LLM’s Ability to Ask
+for Users’ Support: A Case Study on Text-to-SQL Generation. In Proceedings
+of the 2024 Conference on Empirical Methods in Natural Language Processing,
+Yaser Al-Onaizan, Mohit Bansal, and Yun-Nung Chen (Eds.). Association for
+Computational Linguistics, Miami, Florida, USA, 2191–2199. doi:10.18653/v1/
+2024.emnlp-main.131
+[137] Shirley Wu, Michel Galley, Baolin Peng, Hao Cheng, Gavin Li, Yao Dou, Weixin
+Cai, James Zou, Jure Leskovec, and Jianfeng Gao. 2025. CollabLLM: From Passive
+Responders to Active Collaborators. In Forty-second International Conference on
+Machine Learning. https://openreview.net/forum?id=DmH4HHVb3y
+[138] Ziang Xiao, Sarah Mennicken, Bernd Huber, Adam Shonkoff, and Jennifer Thom.
+2021. Let me ask you this: How can a voice assistant elicit explicit user feedback?
+Proceedings of the ACM on Human-Computer Interaction 5, CSCW2 (2021), 1–24.
+[139] Ziang Xiao, Michelle X Zhou, Wenxi Chen, Huahai Yang, and Changyan Chi.
+2020. If I hear you correctly: Building and evaluating interview chatbots with
+active listening skills. In Proceedings of the 2020 CHI Conference on Human Factors
+in Computing Systems. 1–14.
+[140] Ziang Xiao, Michelle X Zhou, Q Vera Liao, Gloria Mark, Changyan Chi, Wenxi
+Chen, and Huahai Yang. 2020. Tell me about yourself: Using an AI-powered
+chatbot to conduct conversational surveys with open-ended questions. ACM
+Transactions on Computer-Human Interaction (TOCHI) 27, 3 (2020), 1–37.
+[141] Fengli Xu, Qianyue Hao, Chenyang Shao, Zefang Zong, Yu Li, Jingwei Wang,
+Yunke Zhang, Jingyi Wang, Xiaochong Lan, Jiahui Gong, Tianjian Ouyang,
+Fanjin Meng, Yuwei Yan, Qinglong Yang, Yiwen Song, Sijian Ren, Xinyuan
+Hu, Jie Feng, Chen Gao, and Yong Li. 2025. Toward large reasoning models:
+A survey of reinforced reasoning with large language models. Patterns 6, 10
+(2025), 101370. doi:10.1016/j.patter.2025.101370
+[142] Diyi Yang, Sherry Tongshuang Wu, and Marti A Hearst. 2024. Human-AI
+interaction in the age of LLMs. In Proceedings of the 2024 Conference of the
+North American Chapter of the Association for Computational Linguistics: Human
+Language Technologies (Volume 5: Tutorial Abstracts). 34–38.
+[143] J.D. Zamfirescu-Pereira, Richmond Y. Wong, Bjoern Hartmann, and Qian Yang.
+2023. Why Johnny Can’t Prompt: How Non-AI Experts Try (and Fail) to Design
+LLM Prompts. In Proceedings of the 2023 CHI Conference on Human Factors in
+Computing Systems (Hamburg, Germany) (CHI ’23). Association for Computing
+Machinery, New York, NY, USA, Article 437, 21 pages. doi:10.1145/3544548.
+3581388
+[144] Chen Zhang, Xinyi Dai, Yaxiong Wu, Qu Yang, Yasheng Wang, Ruiming Tang,
+and Yong Liu. 2025. A Survey on Multi-Turn Interaction Capabilities of Large
+Language Models. arXiv:2501.09959 [cs.CL] https://arxiv.org/abs/2501.09959
+[145] Jiajie Zhang, Yushi Bai, Xin Lv, Wanjun Gu, Danqing Liu, Minhao Zou, Shulin
+Cao, Lei Hou, Yuxiao Dong, Ling Feng, and Juanzi Li. 2025. LongCite: Enabling
+LLMs to Generate Fine-grained Citations in Long-Context QA. In Findings of
+the Association for Computational Linguistics: ACL 2025, Wanxiang Che, Joyce
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+Nabende, Ekaterina Shutova, and Mohammad Taher Pilehvar (Eds.). Association
+for Computational Linguistics, Vienna, Austria, 5098–5122. doi:10.18653/v1/
+2025.findings-acl.264
+[146] Jingyu Zhang, Marc Marone, Tianjian Li, Benjamin Van Durme, and Daniel
+Khashabi. 2025. Verifiable by Design: Aligning Language Models to Quote
+from Pre-Training Data. In Proceedings of the 2025 Conference of the Nations of
+the Americas Chapter of the Association for Computational Linguistics: Human
+Language Technologies (Volume 1: Long Papers), Luis Chiruzzo, Alan Ritter, and
+Lu Wang (Eds.). Association for Computational Linguistics, Albuquerque, New
+Mexico, 3748–3768. doi:10.18653/v1/2025.naacl-long.191
+[147] Jiajie Zhang and Donald A Norman. 1994. Representations in distributed cognitive tasks. Cognitive Science 18, 1 (1994), 87–122.
+[148] Michael JQ Zhang, W. Bradley Knox, and Eunsol Choi. 2025. Modeling
+Future Conversation Turns to Teach LLMs to Ask Clarifying Questions. In
+The Thirteenth International Conference on Learning Representations. https:
+//openreview.net/forum?id=cwuSAR7EKd
+[149] Shuning Zhang, Hui Wang, and Xin Yi. 2025. Exploring Collaboration Patterns
+and Strategies in Human-AI Co-creation through the Lens of Agency: A Scoping
+Review of the Top-tier HCI Literature. Proc. ACM Hum.-Comput. Interact. 9, 7,
+Article CSCW413 (Oct. 2025), 43 pages. doi:10.1145/3757594
+[150] Zhenyu Zhang, Runjin Chen, Shiwei Liu, Zhewei Yao, Olatunji Ruwase, Beidi
+Chen, Xiaoxia Wu, and Zhangyang Wang. 2025. Found in the middle: how language models use long contexts better via plug-and-play positional encoding. In
+Proceedings of the 38th International Conference on Neural Information Processing
+Systems (Vancouver, BC, Canada) (NIPS ’24). Curran Associates Inc., Red Hook,
+NY, USA, Article 1943, 21 pages.
+[151] Zhehao Zhang, Ryan A. Rossi, Branislav Kveton, Yijia Shao, Diyi Yang, Hamed
+Zamani, Franck Dernoncourt, Joe Barrow, Tong Yu, Sungchul Kim, Ruiyi Zhang,
+Jiuxiang Gu, Tyler Derr, Hongjie Chen, Junda Wu, Xiang Chen, Zichao Wang,
+Subrata Mitra, Nedim Lipka, Nesreen K. Ahmed, and Yu Wang. 2025. Personalization of Large Language Models: A Survey. Transactions on Machine Learning
+Research (2025). https://openreview.net/forum?id=tf6A9EYMo6 Survey Certification.
+[152] Zheng Zhang, Ryuichi Takanobu, Qi Zhu, MinLie Huang, and XiaoYan Zhu.
+2020. Recent advances and challenges in task-oriented dialog systems. Science
+China Technological Sciences 63, 10 (2020), 2011–2027.
+[153] Yukun Zhao, Zhen Huang, Martin Seligman, and Kaiping Peng. 2024. Risk and
+prosocial behavioural cues elicit human-like response patterns from AI chatbots.
+Scientific Reports 14 (2024), 7095. doi:10.1038/s41598-024-55949-y
+[154] Zheng Zhao, Clara Vania, Subhradeep Kayal, Naila Khan, Shay B Cohen, and
+Emine Yilmaz. 2025. PersonaLens: A Benchmark for Personalization Evaluation
+in Conversational AI Assistants. In Findings of the Association for Computational
+Linguistics: ACL 2025, Wanxiang Che, Joyce Nabende, Ekaterina Shutova, and
+Mohammad Taher Pilehvar (Eds.). Association for Computational Linguistics,
+Vienna, Austria, 18023–18055. doi:10.18653/v1/2025.findings-acl.927
+[155] Henry Peng Zou, Wei-Chieh Huang, Yaozu Wu, Chunyu Miao, Dongyuan Li,
+Aiwei Liu, Yue Zhou, Yankai Chen, Weizhi Zhang, Yangning Li, Liancheng Fang,
+Renhe Jiang, and Philip S. Yu. 2025. A Call for Collaborative Intelligence: Why
+Human-Agent Systems Should Precede AI Autonomy. arXiv:2506.09420 [cs.AI]
+https://arxiv.org/abs/2506.09420
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+A Appendix
+A.1 Study 1: Participant table
+See Table1
+
+A.2
+
+Detailed task descriptions
+
+A.2.1 Task 1: $250K STEM Fellowship Application. Instructions
+for participants: You are applying for a $250,000 STEM Fellowship
+aimed at individuals with bold, creative visions for using artificial
+intelligence in transformative ways in their respective fields.
+Requirements (500–1000 words):
+• Who you are: Share your background, values, and what
+personally motivates you.
+• Why you are uniquely qualified: Highlight your personal
+strengths, experiences, and perspectives.
+• Your AI vision: What innovative AI project or initiative
+would you pursue?
+• Impact of the fellowship: Explain how it will advance your
+personal journey and create a wider positive social impact.
+Important:
+• Must be 500–1000 words (applications outside this range will
+be disqualified).
+• Strive for an authentic, imaginative, and thematic essay that
+blends clarity with personal narrative.
+• You will need to deliver a talk for the first minute of the
+essay you have drafted.
+A.2.2 Task 2: $50K Neighborhood Improvement Grant. Instructions for participants: You are proposing a local solution for your
+community via a $50,000 Neighborhood Improvement Grant.
+Requirements (500–1000 words):
+• Neighborhood & problem statement: Describe your neighborhood and a pressing issue it faces. Why is this problem
+urgent?
+• Proposed solution: What concrete action or project are
+you proposing (e.g., a public space, safety improvement, communal benefit)?
+• Your role & qualifications: Your personal connection, experience, or past involvement in community improvement.
+• Grant usage & sustainability: How will funds be spent?
+How will the project continue after funding ends?
+• Community impact: Who will benefit and how will this
+enhance neighborhood well-being?
+Important:
+• Must be 500–1000 words, with strict disqualification if under
+or over.
+• You will need to deliver a talk for the first minute of the
+essay you have drafted.
+A.2.3 Task 3: $10K Competition — 5-Minute Personal Pitch. Instructions for participants: You are in a competition to win $10,000 for
+participants who display readiness to tackle the unknown and can
+be leaders in their respective fields. This fund is aimed to develop
+leaders who can drive change and boost the economy.
+Requirements:
+• 5-minute pitch (∼500–1000 words total).
+
+Sharma et al.
+
+• Submit both:
+– The transcript.
+– A 1-minute audio recording of you speaking a portion of
+it.
+In this pitch, aim to convey:
+• What you do and why it matters.
+• What unique perspective or expertise you offer.
+• A clear ask or next step (e.g., working with you, supporting
+your work).
+• Why you are positioned to be the leader of your field, with
+examples from your past.
+• The impact you will deliver if chosen, and why you want to
+be a leader.
+Important:
+• Time/word constraint strict—5 minutes (∼500–1000 words).
+• You will need to deliver a talk for the first minute of the
+pitch.
+
+Feedback by Design: Understanding and Overcoming User Feedback Barriers in Conversational Agents
+
+Participant
+P1
+P2
+P3
+P4
+P5
+P6
+P7
+P8
+P9
+P10
+P11
+P12
+P13
+P14
+P15
+P16
+
+CHI ’26, April 13–17, 2026, Barcelona, Spain
+
+Age Range
+
+Gender
+
+AI Usage
+
+Educational Background
+
+18–24
+25–34
+18–24
+25–34
+25–34
+25–34
+18–24
+25–34
+18–24
+18–24
+18–24
+35–44
+18–24
+75–84
+45–54
+45–54
+
+Male
+Male
+Male
+Male
+Female
+Female
+Female
+Male
+Male
+Male
+Non-Binary
+Female
+Female
+Male
+Male
+Female
+
+Coding, Homework
+Coding, Information Seeking, Research
+Decision Making, Writing, Planning
+Image Generation, Coding
+Essay Writing, Coding
+Automation, Coding
+Cooking, Automation, Research
+Learning, Image Generation
+Image Generation, Information Seeking
+Writing
+Learning, Coding, Decision Making
+Messaging, Information Seeking, Cooking, Decision Making
+Information Seeking, Decision Making
+Information Seeking, Email, Decision Making
+Information Seeking, Decision Making
+Information Seeking, Decision Making
+
+High-School graduate
+Doctorate
+Bachelors
+Doctorate
+Bachelors
+Bachelors
+High-School graduate
+Doctorate
+Bachelors
+Bachelors
+High-School graduate
+Bachelors
+High-School graduate
+High-School graduate
+Bachelors
+Bachelors
+
+Table 1: Participant demographics and reported AI use-case expertise. (P12-P16 are inexperienced users)
+
+
