@@ -47,9 +47,6 @@ agnóstico al modelo de proceso que sostiene este marco.
 Diseño/implementación (2) y evolución (4) quedan como contexto: producen y mantienen lo que el stakeholder
 después ve, pero no son puntos de intercambio con él.
 
-- [ ] Redacción final: chequear largo (Daniel pidió **breve**) y que no se solape con la sección 2.
-- [x] Cita en `FUENTES_MARCO.bib` — ya existe (`sommerville2016software`); sumar secs. 1.1.1 y 2.2 a las verificadas en `FUENTES_MARCO.md`.
-
 ## 2. Verificación y validación: el V-model → las puntas son el feedback del stakeholder
 
 El V-model ordena las actividades del proceso en una **V**: la rama descendente son las etapas de definición
@@ -110,11 +107,6 @@ V-model en desarrollo de software.
 > **No invalida el uso que le damos**, pero conviene decirlo explícitamente en el texto: acá el V-model entra como
 > **ilustración de la correspondencia** definición ↔ prueba, no como modelo de proceso a seguir. Cuántas veces se
 > recorre la V es justamente lo que cambia entre modelos — y eso es lo que abre la sección 3.
-
-- [x] Fuente citable del V-model → `pressman2020software` cap. 2 (+ `rook1986controlling` como origen), ya cargadas en `FUENTES_MARCO.bib`.
-- [ ] Rehacer la figura del V-model (propia, marcando las dos puntas y la flecha superior) — el diagrama de
-      referencia es de origen web, no sirve para publicar.
-- [ ] Chequear largo: Daniel pidió **breve**; hoy esta sección está más larga que la 1.
 
 ## 3. Esto toma distintas formas — ejemplo: Scrum (sin IA)
 
@@ -181,10 +173,6 @@ En términos del modelo del v2, el tramo se compone así (los códigos se mantie
 
 **El feedback del negocio se genera en A2b y A2c** — el resto es lo que se hace con él. Y son **dos canales y dos
 momentos**: el uso real del producto, que puede ser asincrónico y anterior a la ceremonia, y la ceremonia misma.
-
-- [ ] Decidir si la tabla A2a–A5 se queda o si alcanza con la prosa (Daniel pidió *"unos párrafos"*; la tabla ayuda
-      a la trazabilidad con el v2, pero puede leerse como que Scrum vuelve a ser la base).
-- [ ] Chequear que las citas de la Scrum Guide sigan coincidiendo con `FUENTES_MARCO.md` (ya verificadas en v2).
 
 ## 4. Feedback con IA — categorías de técnicas
 
@@ -349,10 +337,8 @@ El **objetivo A** nombra el feedback *técnico*, y el **C** la reconfiguración 
 académico no cubre ese tramo, pero la evidencia de mercado sí y está relevada: agentes que van de ticket a PR
 **[producto: `devin`, `codegen`, `tusk`, `sweep`]**, con el developer como compuerta de aprobación.
 
-- [ ] **Decisión:** o esto abre categoría propia, o se justifica por escrito por qué queda fuera —dado que el
-      objetivo A lo nombra explícitamente y `startups_relacionadas.md` observa que "el tramo técnico está saturado".
-      Nota: las referencias clave de `CLAUDE.md` sobre esta dimensión (Perry et al. 2023; Vaithilingam et al. 2022)
-      no están citadas en ninguna parte del marco.
+Si entra al marco como categoría propia o se justifica su exclusión es una decisión abierta (ver *Qué falta*, al
+final del documento).
 
 ### 4.7. Qué está cubierto y qué no — resultado de la búsqueda dirigida
 
@@ -506,27 +492,7 @@ e IEEE Xplore exige sesión; los tres se cubrieron **indirectamente** vía DOIs 
 Scholar. Conviene repetir esas tres búsquedas desde la red de ORT para obtener totales citables. Los buscadores web
 no exponen totales, y el `total` de Semantic Scholar es un pool de relevancia, no un conteo booleano.
 
-### 4.8. Pendientes de esta sección
-
-- [x] ~~Búsqueda dirigida~~ **hecha** (4-ago-2026) — ver 4.7: 24 trabajos tipo A, 0 tipo B. El hueco es real.
-- [x] ~~Decisión de alcance~~ **resuelta por el resultado de la búsqueda.** Ya no hay que elegir entre alcance
-      angosto y corpus coherente: el corpus de RE es **literatura adyacente que enmarca** el hueco (secs. 4.1–4.6),
-      los 24 trabajos tipo A son **lo que sí existe** sobre aceptación, y la celda vacía es el objeto de la tesis y
-      de la PoC. Queda **redactar ese encuadre** en la sec. 1 y en la introducción de la sec. 4.
-- [ ] **Incorporar al corpus las tres piezas que dan consecuencia al hueco** (ver 4.7): Virk y Liu (VL/HCC 2025),
-      Fawzy et al. (2026) y Sharma et al. (2026). Van a `FUENTES_MARCO.bib` como hallazgos de búsqueda dirigida,
-      **no** a `REFERENCIAS.bib`, que es el corpus del mapeo sistemático.
-- [ ] Repetir las búsquedas en **ACM DL, SpringerLink e IEEE Xplore desde la red de ORT** — los tres bloquearon el
-      acceso y se cubrieron indirectamente vía DOIs. Sin eso no hay totales citables para esas bases.
-- [x] ~~Conseguir Mircea y Alabsi~~ **hechos**: PDF en `sprint 16/papers/`, fichas completadas y verificadas en
-      `REFERENCIAS.bib`. Ninguno de los dos tiene actores de negocio (ver 4.3 y 4.4).
-- [ ] `lindenberg2025business` sigue **sin acceso** (confirmado por Unpaywall, OpenAlex y Semantic Scholar; sin
-      preprint). Bloquea 4.5 y el objetivo D. Vía: SpringerLink desde ORT/Timbó, o mail a los autores.
-- [ ] Decidir el tramo técnico (4.6).
-- [ ] Recuperar del v2 lo que se perdió en la reescritura: `pmagent` ya volvió; revisar `IDEAS_POC.md` por técnicas
-      sin categoría (generación de preguntas / Quest-RE, RECOVER, chatbot sobre low-code) y el concepto propio de
-      *"firewall" de feedback* (sprint 11), que es lo más cercano al objetivo D que hay en el proyecto.
-### 4.9. Qué dimensión del ciclo altera cada categoría (objetivo B)
+### 4.8. Qué dimensión del ciclo altera cada categoría (objetivo B)
 
 El objetivo B pregunta por cambios en **frecuencia, secuencia, granularidad y temporalidad** de los intercambios de
 validación. Leídas con esa grilla, las categorías no son intercambiables:
@@ -643,14 +609,16 @@ validación. Los dos papers del corpus que más prometían en esa dirección dec
 
 ---
 
-## Qué falta (bloqueantes reales)
+## Qué falta
 
 | # | Falta | Por qué / cómo se destraba |
 |---|---|---|
-| 1 | ~~Fuente citable del V-model~~ **Resuelto** | → `pressman2020software` **cap. 2** (+ `rook1986controlling` como origen histórico), cargadas en `FUENTES_MARCO.bib`. Se cita **por capítulo**, no por figura, así que no hace falta el ejemplar. **Descartado el V-Modell XT:** abandonó el diagrama en V y se organiza por *Vorgehensbausteine* / *Entscheidungspunkte* / *Projekttypen* — citarlo para el V clásico habría sido un error. |
-| 2 | ~~Cerrar la lista de categorías (sec. 4)~~ **Resuelto** | Criterio declarado (qué operación hace la IA sobre el ciclo), 5 categorías + nota del tramo técnico, todas las asignaciones verificadas contra los PDF. Pendientes menores en 4.8. |
-| 3 | **Decisiones de Victoria/Daniel** | (a) el tramo técnico de 4.6 — el objetivo A lo nombra y hoy el marco no lo cubre; (b) si la tabla A2a–A5 de la sec. 3 se queda; (c) si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC. |
-| 4 | **Figuras** | V-model (propia, la de referencia es de origen web) y escenarios: ver qué se reusa de `sprint 15/diagramas/`. |
-| 5 | **Acceso a `lindenberg2025business`** | Bloquea la categoría 4.5 y con ella el objetivo D. Vía biblioteca ORT/Timbó o mail a los autores. |
+| 1 | **Decisiones de Victoria/Daniel** | (a) el tramo técnico de 4.6 — el objetivo A lo nombra y hoy el marco no lo cubre; nota: Perry et al. (2023) y Vaithilingam et al. (2022), referencias clave del proyecto sobre esa dimensión, no están citadas en el marco; (b) si la tabla A2a–A5 de la sec. 3 se queda (Daniel pidió *"unos párrafos"*; la tabla ayuda a la trazabilidad con el v2 pero puede leerse como que Scrum vuelve a ser la base); (c) si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC. |
+| 2 | **Redacción final** | Chequear largo (Daniel pidió **breve**; hoy la sec. 2 es más larga que la 1) y redactar el encuadre del hueco —corpus de RE como literatura adyacente, la celda vacía como objeto de la tesis— en la sec. 1 y en la introducción de la sec. 4. |
+| 3 | **Figuras** | V-model (propia, la de referencia es de origen web) y escenarios: ver qué se reusa de `sprint 15/diagramas/`. |
+| 4 | **Acceso a `lindenberg2025business`** | Sin acceso (confirmado por Unpaywall, OpenAlex y Semantic Scholar; sin preprint). Bloquea la categoría 4.5 y con ella el objetivo D. Vía biblioteca ORT/Timbó o mail a los autores. |
+| 5 | **Búsquedas desde la red de ORT** | ACM DL, SpringerLink e IEEE Xplore bloquearon el acceso automatizado y se cubrieron indirectamente vía DOIs; sin repetirlas desde ORT no hay totales citables de esas bases. |
+| 6 | **Verificar fichas contra PDF** | Virk y Liu, Fawzy et al. y Sharma et al. ya están en `FUENTES_MARCO.bib` como hallazgos de la búsqueda dirigida (no van a `REFERENCIAS.bib`), pero sus fichas quedaron sin verificar contra los PDF. |
+| 7 | **Recuperar del v2** | Revisar `IDEAS_POC.md` por técnicas sin categoría (generación de preguntas / Quest-RE, RECOVER, chatbot sobre low-code). |
 
 **Meta v3:** versión escrita y prolija para decidir por dónde encarar la experimentación / PoC.
