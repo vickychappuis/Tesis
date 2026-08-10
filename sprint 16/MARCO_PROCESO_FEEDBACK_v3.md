@@ -181,14 +181,17 @@ La evidencia [producto] se relevó en el sprint 11 (detalle y links en `sprint 1
 | **4.5** | **Valida contra reglas y procesos de negocio**: la mitad del planteo de esta tesis (**objetivo D**) | [corpus: `lindenberg2025business`, solo abstract] | | | **sin trabajos de validación propiamente dicha**: Lindenberg *descubre* procesos (aguas arriba, sin humanos en la evaluación), no valida software construido contra reglas; el ancla conceptual es Dumas secs. 4.4 y 5.4.2 (la A3a de la sec. 3) |
 | **4.6** | **Tramo técnico** (nota): generación de código con validación humana (objetivos A y C) | [producto: `devin`, `codegen`, `tusk`, `sweep`] | | | el corpus académico no lo cubre; si entra como categoría propia o se justifica su exclusión es decisión abierta (*Qué falta*) |
 
-Dos notas por fuera de la tabla:
+Qué no está en la tabla, y por qué:
 
-- **Señalados, sin verificar contra el PDF** (fuera del corpus): *RECOVER* (Voria et al., IEEE TSE 2025) mapearía
-a 4.2; *Quest-RE* (Hasso et al. 2024) a 4.3; el chatbot para no expertos de De Troyer et al. (IFIP HCI 2025) a 4.4b.
-- **Exclusiones:** las tres revisiones sistemáticas (**[corpus: `vasudevan2025role`, `fischer2026generative`,
-`cheng2026generative`]**) no son evidencia de categorías, se usan en 4.7 para encuadrar; `stein2026integrating`
-se removió (benchmarking sin humano en el loop); `raftopoulos2024designing` no es impersonación (co-diseño
-pre-IAG, queda como antecedente del objetivo A).
+- **Tres papers que encajarían pero no se leyeron contra el PDF**, así que no se usan como evidencia: *RECOVER*
+(Voria et al. 2025, iría a 4.2), *Quest-RE* (Hasso et al. 2024, a 4.3) y el chatbot para no expertos de De Troyer
+et al. (2025, a 4.4b).
+- **Las tres revisiones sistemáticas del área** (`vasudevan2025role`, `fischer2026generative`,
+`cheng2026generative`): no son estudios primarios, así que no son evidencia de ninguna categoría; se usan en 4.7
+para encuadrar el hueco.
+- **Dos papers que se citaban en versiones anteriores y se sacaron al verificarlos:** `stein2026integrating`
+evalúa LLMs contra respuestas de referencia, sin personas en el circuito; `raftopoulos2024designing` es anterior
+a la IAG, sin LLMs (queda solo como antecedente del objetivo A).
 
 ### 4.7. Qué está cubierto y qué no: resultado de la búsqueda dirigida
 
