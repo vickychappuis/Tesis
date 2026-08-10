@@ -124,25 +124,17 @@ sistema con el propio usuario y poder:
 - **priorizar**: determinar el orden de los cambios, para un análisis de factibilidad posterior y decidir si ese
 feedback se incorpora o no a la próxima iteración.
 
-En términos del modelo del v2, el tramo se compone así (los códigos se mantienen para trazabilidad con
-`MARCO_PROCESO_FEEDBACK_v2.md`):
-
-
-| #       | Actividad                          | Quién                        | ¿Definida en Scrum?                 |
-| ------- | ---------------------------------- | ---------------------------- | ----------------------------------- |
-| A2a     | Liberación del incremento          | Developers                   | ⚠ no → Sommerville sec. 2.3.2 y 8.3 |
-| **A2b** | **Uso y testing de aceptación**    | Stakeholder (+ AF)           | ⚠ no → Sommerville sec. 8.4 y 20.4  |
-| **A2c** | **Sprint Review**                  | PO, Developers, Stakeholders | ✅ sí (Scrum Guide p. 9)             |
-| A3a     | Validación de reglas de negocio    | AF ↔ Stakeholder             | ⚠ no → Dumas sec. 4.4 y 5.4.2       |
-| A3b     | Validación de factibilidad técnica | Developers (+ PO)            | ⚠ parcial → Sommerville sec. 25.3   |
-| A4      | Incorporación al Product Backlog   | AF, PO                       | ✅ parcial (Scrum Guide p. 6)        |
-| A5      | Refinement → reabre el ciclo       | PO (+ Developers)            | ✅ sí (Scrum Guide p. 10)            |
-
+El tramo completo, con los códigos del v2 para trazabilidad (`MARCO_PROCESO_FEEDBACK_v2.md`):
 
 ![Etapa de revisión y feedback, vista BPMN (marco v2)](../sprint%2015/diagramas/marco_feedback_bpmn.png)
 
-*Vista BPMN del mismo tramo (sprint 15), con las actividades A1 a A5 sobre los carriles de Developers, PO, analista
-funcional y stakeholder. Editable en `sprint 15/diagramas/marco_feedback_bpmn.drawio`.*
+*Vista BPMN del tramo (sprint 15): actividades A1 a A5 sobre los carriles de quién las hace, con las que Scrum no
+define en punteado. Editable en `sprint 15/diagramas/marco_feedback_bpmn.drawio`.*
+
+De todo eso, Scrum solo define la Sprint Review (A2c, p. 9) y, parcialmente, el Product Backlog y su refinement
+(A4 y A5, pp. 6 y 10). El resto se ancla fuera: la liberación del incremento (A2a) en Sommerville secs. 2.3.2 y
+8.3, el uso y testing de aceptación (A2b) en Sommerville secs. 8.4 y 20.4, la validación de reglas de negocio
+(A3a) en Dumas secs. 4.4 y 5.4.2, y la de factibilidad técnica (A3b) en Sommerville sec. 25.3.
 
 **El feedback del negocio se genera en A2b y A2c**; el resto es lo que se hace con él. Y son **dos canales y dos
 momentos**: el uso real del producto, que puede ser asincrónico y anterior a la ceremonia, y la ceremonia misma.
@@ -522,7 +514,7 @@ decidir si es un rol propio o se absorbe en el Product Owner.
 
 | #   | Falta                             | Por qué / cómo se destraba                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | **Decisiones de Victoria/Daniel** | (a) el tramo técnico de 4.6: el objetivo A lo nombra y hoy el marco no lo cubre; nota: Perry et al. (2023) y Vaithilingam et al. (2022), referencias clave del proyecto sobre esa dimensión, no están citadas en el marco. (b) Si la tabla A2a–A5 y el BPMN de la sec. 3 se quedan (Daniel pidió *"unos párrafos"*; ayudan a la trazabilidad con el v2 pero pueden leerse como que Scrum vuelve a ser la base). (c) Si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC. |
+| 1   | **Decisiones de Victoria/Daniel** | (a) el tramo técnico de 4.6: el objetivo A lo nombra y hoy el marco no lo cubre; nota: Perry et al. (2023) y Vaithilingam et al. (2022), referencias clave del proyecto sobre esa dimensión, no están citadas en el marco. (b) La sec. 3.2 quedó como párrafos más el BPMN del v2; confirmar con Daniel si el diagrama se queda (puede leerse como que Scrum vuelve a ser la base). (c) Si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC. |
 | 2   | **Redacción final**               | Una pasada de estilo después del feedback de Daniel sobre esta versión.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | 3   | **To-do de largo plazo**          | (a) La lectura de `lindenberg2025business` en 4.5 se basa en su abstract; si el PDF aparece alguna vez, verificarla. (b) Lo demás que recién importa al redactar la memoria está en `NOTAS_MEMORIA.md`.                                                                                                                                                                                                                                                                                                                                                                                |
 

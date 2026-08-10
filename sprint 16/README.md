@@ -19,6 +19,6 @@ narrativa que bajó Daniel en la call del 30 jul (tabla de pasos en `sprint 15/r
 ## Pendientes
 
 - [ ] **Enviar la v3 a Daniel** (Victoria).
-- [ ] Para la reunión, 3 decisiones: (a) tramo técnico 4.6; (b) tabla A2a–A5 de la sec. 3 (Daniel pidió "unos
-      párrafos"); (c) "firewall" de feedback como línea de la PoC. Detalle en la tabla *Qué falta* del marco.
+- [ ] Para la reunión, 3 decisiones: (a) tramo técnico 4.6; (b) si el BPMN del v2 se queda en la sec. 3.2;
+      (c) "firewall" de feedback como línea de la PoC. Detalle en la tabla *Qué falta* del marco.
 - [ ] Al presentarlo, aclarar que 4.7 y 4.8 exceden la narrativa pedida (surgieron al verificar la sec. 4).
