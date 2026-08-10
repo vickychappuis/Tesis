@@ -15,5 +15,7 @@
    oportunidad: *"requirement validation is less suitable for AI-driven automation, which explains its limited
    presence in research"*. Si la tesis sostiene lo contrario, argumentarlo de frente.
 4. **Búsquedas de la memoria:** todo string con "acceptance" necesita anclaje en *testing* / *criteria* /
-   *software* (el término está dominado por TAM/UTAUT, otra disciplina). Los totales citables de ACM DL, IEEE
-   Xplore y SpringerLink siguen pendientes: instrucciones en `BUSQUEDAS_ORT.md`.
+   *software* (el término está dominado por TAM/UTAUT, otra disciplina). Si el tribunal pide totales de ACM DL,
+   IEEE Xplore o SpringerLink (hoy solo arXiv tiene conteo exacto), repetir desde la red de ORT los 4 strings de
+   la sec. 4.7 del marco v3, con filtro 2023–2026 y buscando en abstract (en SpringerLink es texto completo y el
+   total no es comparable; anotarlo). Registrar fecha, string y total por base.

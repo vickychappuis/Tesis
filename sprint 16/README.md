@@ -12,9 +12,8 @@ narrativa que bajó Daniel en la call del 30 jul (tabla de pasos en `sprint 15/r
 
 ## Archivos de apoyo
 
-- `NOTAS_MEMORIA.md` — reglas de citado para cuando se redacte la memoria final. Sin acción hasta entonces.
-- `BUSQUEDAS_ORT.md` — instrucciones para repetir las 4 búsquedas desde la red de ORT (totales citables para la
-  memoria). No urgente.
+- `NOTAS_MEMORIA.md` — reglas de citado y metodología para cuando se redacte la memoria final. Sin acción hasta
+  entonces.
 - `papers/` — PDFs verificados de la búsqueda dirigida y del corpus (Virk, Fawzy, Sharma, Mircea, Alabsi).
 
 ## Pendientes
