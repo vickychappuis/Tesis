@@ -28,7 +28,7 @@
         <mxCell id="hD" value="D&lt;br&gt;entrega y mant." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="900" y="82" width="90" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="hAreas" value="Dónde cae el núcleo de la etapa (sec. 5)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="hAreas" value="Dónde caen las categorías de la sec. 4 del marco" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="1010" y="86" width="350" height="24" as="geometry" />
         </mxCell>
 
@@ -53,7 +53,7 @@
         <mxCell id="s1d" value="H" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=11;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="900" y="150" width="90" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s1n" value="Es el proceso &lt;b&gt;hoy&lt;/b&gt; descrito en la sec. 3 del marco: el diagrama BPMN sin capa de IAG." style="text;html=1;whiteSpace=wrap;strokeColor=#CCCCCC;fillColor=#FAFAFA;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s1n" value="Es el proceso de &lt;b&gt;hoy&lt;/b&gt;, la línea de base descrita en la sec. 3 del marco." style="text;html=1;whiteSpace=wrap;strokeColor=#CCCCCC;fillColor=#FAFAFA;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="1010" y="120" width="350" height="110" as="geometry" />
         </mxCell>
 
@@ -73,7 +73,7 @@
         <mxCell id="s2d" value="H o IA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="900" y="275" width="90" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s2n" value="&lt;b&gt;Casi todo el núcleo:&lt;/b&gt; bugs desde lenguaje natural, criterios de aceptación y señal de viabilidad en vivo (5.1) y asistente de reunión (5.2). Hoy son asistencia con supervisión humana, y es donde se ubica la mayor parte de la evidencia relevada." style="text;html=1;whiteSpace=wrap;strokeColor=#D6B656;fillColor=#FFF9E6;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s2n" value="&lt;b&gt;La mayor parte del estado del arte:&lt;/b&gt; 4.2 (asistentes de reunión), 4.3 (la IA trabaja el artefacto de requisito) y la rama (a) de 4.4, donde el equipo opera la herramienta. Asistencia con supervisión humana." style="text;html=1;whiteSpace=wrap;strokeColor=#D6B656;fillColor=#FFF9E6;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="1010" y="245" width="350" height="110" as="geometry" />
         </mxCell>
 
@@ -93,7 +93,7 @@
         <mxCell id="s3d" value="IA o H" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="900" y="400" width="90" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s3n" value="&lt;b&gt;Dos puntos:&lt;/b&gt; la &lt;b&gt;impersonación de stakeholders&lt;/b&gt; (5.1): la IA &lt;i&gt;asume&lt;/i&gt; el rol de quien emite el feedback — y la &lt;b&gt;propuesta de la PoC&lt;/b&gt; (5.1): la IA genera el cambio y el developer valida (&lt;i&gt;AI design with human validation&lt;/i&gt;)." style="text;html=1;whiteSpace=wrap;strokeColor=#B85450;fillColor=#FDF3F2;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s3n" value="&lt;b&gt;Dos puntos:&lt;/b&gt; la &lt;b&gt;impersonación de stakeholders&lt;/b&gt; (4.1), donde la IA &lt;i&gt;asume&lt;/i&gt; el rol de quien emite el feedback; y la rama (b) de &lt;b&gt;4.4&lt;/b&gt;, donde el actor de negocio construye y el developer queda como compuerta." style="text;html=1;whiteSpace=wrap;strokeColor=#B85450;fillColor=#FDF3F2;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="1010" y="370" width="350" height="110" as="geometry" />
         </mxCell>
 
@@ -113,7 +113,7 @@
         <mxCell id="s4d" value="IA ↑ H" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="900" y="525" width="90" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s4n" value="&lt;b&gt;Ninguna solución del núcleo llega.&lt;/b&gt; El candidato —generación automática desde el ticket— cae en A1, fuera del núcleo. &lt;b&gt;Contra-evidencia:&lt;/b&gt; el pivote de Tusk y Sweep muestra que el modo autónomo todavía no cierra." style="text;html=1;whiteSpace=wrap;strokeColor=#B85450;fillColor=#FDF3F2;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s4n" value="&lt;b&gt;Ninguna categoría llega.&lt;/b&gt; El candidato sería el tramo técnico autónomo (4.6), y el pivote de Tusk y Sweep sugiere que ese modo todavía no cierra." style="text;html=1;whiteSpace=wrap;strokeColor=#B85450;fillColor=#FDF3F2;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="1010" y="495" width="350" height="110" as="geometry" />
         </mxCell>
 
