@@ -241,6 +241,9 @@ Asistentes LLM que acompañan una reunión y devuelven resumen, tickets y señal
 - **Qué hace, verificado:** detecta riesgos de sobrecompromiso e impedimentos no visualizados; resume el Daily. **No
   transcribe** — los autores lo declaran trabajo futuro y alimentan el asistente con planillas cargadas a mano.
 - **Riesgo:** qué se pierde en el resumen; y si la presencia del asistente cambia lo que se dice.
+- **Señalado, sin verificar:** *RECOVER* (Voria et al., IEEE TSE 2025) — requisitos generados desde conversaciones
+  con stakeholders. Mapearía acá, pero quedó fuera del corpus (snowballing, `sprint 12/IDEAS_POC.md`) y su ficha no
+  se verificó contra el PDF.
 - **Objetivo B:** altera **granularidad** del registro.
 
 ### 4.3. La IA **trabaja el artefacto de requisito** — formular, revisar, juzgar, rutear
@@ -269,6 +272,9 @@ cambia es si la salida es una reescritura, un veredicto o un ticket.
   natural que la IA completa con preguntas de seguimiento cuando faltan pasos de reproducción, y luego intenta
   reproducir. **Es el único trabajo del corpus que opera sobre software ya construido.** Se suman productos que van
   de feedback a tickets o de entrevistas a reportes **[producto: `kraftful`, `versive`]**.
+- **Señalado, sin verificar:** *Quest-RE* (Hasso et al. 2024) — generación de preguntas de elicitación; misma
+  operación que las preguntas de seguimiento de Torun, pero en elicitación. Fuera del corpus
+  (`sprint 12/IDEAS_POC.md`), ficha sin verificar contra el PDF.
 - **Riesgo transversal:** que el LLM *sustituya* la intención original en vez de articularla; y que el criterio del
   evaluador automático reemplace al del negocio sin que nadie lo note.
 - **Objetivo B:** altera **granularidad** y **secuencia**.
@@ -296,7 +302,8 @@ prototipos analíticos y reportes visuales en BI **[gris: `busany2024bi`]**; eli
 requisitos en lenguaje natural como artefacto central **[corpus: `robinson2025requirements`]**; productos que van de
 la intención a la app **[producto: `emergent`]** y de la call al spec con criterios de aceptación *policy-aware*
 **[producto: `pmagent`]**; y el fenómeno reportado de usuarios de negocio construyendo sus propias apps
-**[gris: prensa profesional]**.
+**[gris: prensa profesional]**. Señalado sin verificar: el chatbot para no expertos sobre low-code/no-code de
+De Troyer et al. (IFIP HCI 2025) mapearía acá (fuera del corpus, `sprint 12/IDEAS_POC.md`, ficha sin verificar).
 
 - **Efecto:** adelanta el momento en que se puede reaccionar — se opina sobre algo concreto, no sobre una
   descripción. Robinson lo formula bien: *"seeing a tangible product can unearth elements of the requirements that
@@ -604,12 +611,9 @@ validación. Los dos papers del corpus que más prometían en esa dirección dec
 
 | # | Falta | Por qué / cómo se destraba |
 |---|---|---|
-| 1 | **Decisiones de Victoria/Daniel** | (a) el tramo técnico de 4.6 — el objetivo A lo nombra y hoy el marco no lo cubre; nota: Perry et al. (2023) y Vaithilingam et al. (2022), referencias clave del proyecto sobre esa dimensión, no están citadas en el marco; (b) si la tabla A2a–A5 de la sec. 3 se queda (Daniel pidió *"unos párrafos"*; la tabla ayuda a la trazabilidad con el v2 pero puede leerse como que Scrum vuelve a ser la base); (c) si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC. |
+| 1 | **Decisiones de Victoria/Daniel** | (a) el tramo técnico de 4.6 — el objetivo A lo nombra y hoy el marco no lo cubre; nota: Perry et al. (2023) y Vaithilingam et al. (2022), referencias clave del proyecto sobre esa dimensión, no están citadas en el marco; (b) si la tabla A2a–A5 de la sec. 3 se queda (Daniel pidió *"unos párrafos"*; la tabla ayuda a la trazabilidad con el v2 pero puede leerse como que Scrum vuelve a ser la base — y con ella se decide si el BPMN del v2, `sprint 15/diagramas/marco_feedback_bpmn.png`, se reusa); (c) si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC. |
 | 2 | **Redacción final** | Chequear largo (Daniel pidió **breve**; hoy la sec. 2 es más larga que la 1) y redactar el encuadre del hueco —corpus de RE como literatura adyacente, la celda vacía como objeto de la tesis— en la sec. 1 y en la introducción de la sec. 4. |
-| 3 | **Figuras** | V-model: **resuelta** con la Fig. 2.7 de Sommerville reproducida literal en la sec. 2 (la imagen web que se barajó resultó ser un vector de stock de Shutterstock, sin licencia ni fuente citable). Escenarios: ver qué se reusa de `sprint 15/diagramas/`. |
-| 4 | **Acceso a `lindenberg2025business`** | Sin acceso (confirmado por Unpaywall, OpenAlex y Semantic Scholar; sin preprint). Bloquea la categoría 4.5 y con ella el objetivo D. Vía biblioteca ORT/Timbó o mail a los autores. |
-| 5 | **Búsquedas desde la red de ORT** | ACM DL, SpringerLink e IEEE Xplore bloquearon el acceso automatizado y se cubrieron indirectamente vía DOIs; sin repetirlas desde ORT no hay totales citables de esas bases. |
-| 6 | **Verificar fichas contra PDF** | Virk y Liu, Fawzy et al. y Sharma et al. ya están en `FUENTES_MARCO.bib` como hallazgos de la búsqueda dirigida (no van a `REFERENCIAS.bib`), pero sus fichas quedaron sin verificar contra los PDF. |
-| 7 | **Recuperar del v2** | Revisar `IDEAS_POC.md` por técnicas sin categoría (generación de preguntas / Quest-RE, RECOVER, chatbot sobre low-code). |
+| 3 | **Victoria, desde la red de ORT** | (a) Bajar el PDF de `lindenberg2025business` (SpringerLink vía ORT/Timbó; sin acceso abierto confirmado) — bloquea la categoría 4.5 y el objetivo D; (b) correr las 4 búsquedas en ACM DL, IEEE Xplore y SpringerLink — **instrucciones listas en `BUSQUEDAS_ORT.md`**; con los totales, el resto lo hace Claude. |
+| 4 | **Verificar fichas contra PDF** | Virk y Liu, Fawzy et al. y Sharma et al. ya están en `FUENTES_MARCO.bib` como hallazgos de la búsqueda dirigida (no van a `REFERENCIAS.bib`), pero sus fichas quedaron sin verificar contra los PDF. |
 
 **Meta v3:** versión escrita y prolija para decidir por dónde encarar la experimentación / PoC.
