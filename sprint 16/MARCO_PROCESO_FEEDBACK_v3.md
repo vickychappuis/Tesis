@@ -125,7 +125,7 @@ sistema con el propio usuario y poder:
 feedback se incorpora o no a la próxima iteración.
 
 En términos del modelo del v2, el tramo se compone así (los códigos se mantienen para trazabilidad con
-`MARCO_PROCESO_FEEDBACK_v2.md` y su diagrama BPMN):
+`MARCO_PROCESO_FEEDBACK_v2.md`):
 
 
 | #       | Actividad                          | Quién                        | ¿Definida en Scrum?                 |
@@ -138,6 +138,11 @@ En términos del modelo del v2, el tramo se compone así (los códigos se mantie
 | A4      | Incorporación al Product Backlog   | AF, PO                       | ✅ parcial (Scrum Guide p. 6)        |
 | A5      | Refinement → reabre el ciclo       | PO (+ Developers)            | ✅ sí (Scrum Guide p. 10)            |
 
+
+![Etapa de revisión y feedback, vista BPMN (marco v2)](../sprint%2015/diagramas/marco_feedback_bpmn.png)
+
+*Vista BPMN del mismo tramo (sprint 15), con las actividades A1 a A5 sobre los carriles de Developers, PO, analista
+funcional y stakeholder. Editable en `sprint 15/diagramas/marco_feedback_bpmn.drawio`.*
 
 **El feedback del negocio se genera en A2b y A2c**; el resto es lo que se hace con él. Y son **dos canales y dos
 momentos**: el uso real del producto, que puede ser asincrónico y anterior a la ceremonia, y la ceremonia misma.
@@ -517,7 +522,7 @@ decidir si es un rol propio o se absorbe en el Product Owner.
 
 | #   | Falta                             | Por qué / cómo se destraba                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | **Decisiones de Victoria/Daniel** | (a) el tramo técnico de 4.6: el objetivo A lo nombra y hoy el marco no lo cubre; nota: Perry et al. (2023) y Vaithilingam et al. (2022), referencias clave del proyecto sobre esa dimensión, no están citadas en el marco. (b) Si la tabla A2a–A5 de la sec. 3 se queda (Daniel pidió *"unos párrafos"*; la tabla ayuda a la trazabilidad con el v2 pero puede leerse como que Scrum vuelve a ser la base; con ella se decide si el BPMN del v2, `sprint 15/diagramas/marco_feedback_bpmn.png`, se reusa). (c) Si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC. |
+| 1   | **Decisiones de Victoria/Daniel** | (a) el tramo técnico de 4.6: el objetivo A lo nombra y hoy el marco no lo cubre; nota: Perry et al. (2023) y Vaithilingam et al. (2022), referencias clave del proyecto sobre esa dimensión, no están citadas en el marco. (b) Si la tabla A2a–A5 y el BPMN de la sec. 3 se quedan (Daniel pidió *"unos párrafos"*; ayudan a la trazabilidad con el v2 pero pueden leerse como que Scrum vuelve a ser la base). (c) Si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC. |
 | 2   | **Redacción final**               | Una pasada de estilo después del feedback de Daniel sobre esta versión.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | 3   | **To-do de largo plazo**          | (a) La lectura de `lindenberg2025business` en 4.5 se basa en su abstract; si el PDF aparece alguna vez, verificarla. (b) Lo demás que recién importa al redactar la memoria está en `NOTAS_MEMORIA.md`.                                                                                                                                                                                                                                                                                                                                                                                |
 
