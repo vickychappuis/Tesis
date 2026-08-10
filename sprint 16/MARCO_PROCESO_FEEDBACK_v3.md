@@ -188,12 +188,8 @@ developer, tester o PO revisando artefactos. Cuerpo consolidado y creciente, 202
 - **Tipo B, estudiar la interacción de validación del stakeholder**: una persona de negocio usando el software
 construido y devolviendo si es lo que pidió. **Ninguno.**
 
-El hueco no se apoya solo en la ausencia; lo que sí existe apunta en la dirección contraria. Los trabajos
-dedicados a la aceptación buscan **automatizarla sin el humano**: *XUAT-Copilot* automatiza los scripts del UAT y
-*GUISpector* la verificación de prototipos. Y la práctica existe pero no se estudia: Fonseca et al. (ASE 2025,
-caso BMW) reportan de pasada que el Gherkin generado terminó usándose como **artefacto de validación revisado por
-stakeholders**; fuera de eso, sobre la validación a cargo de gente de negocio solo hay contenido comercial, no
-papers.
+Los propios trabajos de tipo A confirman la dirección: donde aparece la aceptación, el objetivo es
+**automatizarla y sacar al humano del circuito**, no estudiar la interacción del stakeholder.
 
 #### Dónde está el hueco, exactamente
 
