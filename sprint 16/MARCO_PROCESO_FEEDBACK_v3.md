@@ -170,122 +170,25 @@ La evidencia [producto] se relevó en el sprint 11 (detalle y links en `sprint 1
 > puede usar sin nombrar "generative AI" ni "stakeholders". Hecha esa segunda pasada, el hueco sobre la validación
 > del stakeholder en software construido sigue vacío: es real con los dos vocabularios.
 
-### 4.1. La IA **emite** el feedback: impersonación de stakeholders
+### Las categorías, 4.1 a 4.6
 
-Una IA configurada para representar a un stakeholder y emitir feedback como si fuera él, sin depender de su
-disponibilidad. Es la categoría que más directamente toca el **objetivo C**.
+| # | Categoría: qué hace la IA | Evidencia | Efecto / beneficio | Riesgo | Límites verificados |
+|---|---|---|---|---|---|
+| **4.1** | **Emite el feedback**: impersonación de stakeholders, sin depender de su disponibilidad. Toca directo el **objetivo C** | [gris: Pirozzi 2024, `damian2025reconnect`] + [producto] | disponibilidad continua (feedback 24/7, sin coordinar agendas); el stakeholder pasa de emisor a **validador** | no es el stakeholder real; REConnect pide que el humano quede como *"curator of AI outputs"* (límite a la **sustitución**, no a la técnica) | ⚠ **sin respaldo del corpus**: se declara [gris]+[producto] |
+| **4.2** | **Captura lo que se dijo**: asistentes de reunión que devuelven resumen, tickets y señales de riesgo | [corpus: `cabrero2024exploring`] | detecta sobrecompromiso e impedimentos no visualizados; resume el Daily | qué se pierde en el resumen; si la presencia del asistente cambia lo que se dice | cubre solo **reuniones internas** (`Sprint Review` = 0, `client` = 0); **no transcribe** (planillas cargadas a mano): entra como contexto, no como núcleo |
+| **4.3** | **Trabaja el artefacto de requisito**: reformular el enunciado, juzgar su calidad, rutear input disperso | [corpus: `mircea2026supporting`, `abbasi2025towards`] · [gris: `geyer2025epics`, `torun2025bugtracking`] · [producto: `kraftful`, `versive`] | Mircea (26 participantes, 130 pares): todas las dimensiones mejoran (p&lt;.001), el 43 % de las revisiones destapa aspectos no dichos y solo el 5 % introduce errores; el LLM reformula y el humano aprueba (*"AI-in-the-Loop"*) | que el LLM *sustituya* la intención original; que el criterio del evaluador automático reemplace al del negocio sin que nadie lo note | Mircea: participantes técnicos, **sin actores de negocio** ni software construido; Abbasi: **sin evaluación empírica** y el usuario es el ingeniero, no el stakeholder; Geyer: evaluado por 17 PMs, no clientes; Torun: el único del corpus sobre software ya construido |
+| **4.4** | **Construye algo mirable o ejecutable**: materialización temprana. (a) la opera el equipo; (b) el usuario de negocio, sin intermediario técnico | (a) [corpus: `kretzer2025closing`] · [gris: `busany2024bi`, `alabsi2026empirical`]; (b) [corpus: `robinson2025requirements`] · [producto: `emergent`, `pmagent`] · [gris: prensa profesional] | adelanta el momento de reaccionar: se opina sobre algo concreto (*"seeing a tangible product can unearth elements of the requirements that were assumed subconsciously but not articulated"*, Robinson) | el prototipo puede inducir la respuesta; validar rápido sacrifica UX **[general: Cornide-Reyes 2025]**; el pivote de Tusk y Sweep sugiere que el modo autónomo no cierra | Kretzer: intra-equipo (`client` = 0); Alabsi: **sin participantes** (stakeholder simulado, una sola pasada; su *"enables earlier validation"* es inferencial); Robinson: **visión sin empiria** |
+| **4.5** | **Valida contra reglas y procesos de negocio**: la mitad del planteo de esta tesis (**objetivo D**) | [corpus: `lindenberg2025business`, solo abstract] | | | **sin trabajos de validación propiamente dicha**: Lindenberg *descubre* procesos (aguas arriba, sin humanos en la evaluación), no valida software construido contra reglas; el ancla conceptual es Dumas secs. 4.4 y 5.4.2 (la A3a de la sec. 3) |
+| **4.6** | **Tramo técnico** (nota): generación de código con validación humana (objetivos A y C) | [producto: `devin`, `codegen`, `tusk`, `sweep`] | | | el corpus académico no lo cubre; si entra como categoría propia o se justifica su exclusión es decisión abierta (*Qué falta*) |
 
-- **Efecto:** el stakeholder deja de ser el único emisor y pasa a **validador** de lo que la IA devolvió. El beneficio
-que se le atribuye es la disponibilidad continua (feedback 24/7, sin coordinar agendas).
-- **Riesgo:** no es el stakeholder real. El límite lo formula REConnect, que pide que el humano quede como
-*"curator of AI outputs"* **[gris: `damian2025reconnect` v1]**; el paper *no* critica la impersonación (avala las
-personas sintéticas si un humano las cura), así que sirve como límite a la **sustitución**, no a la técnica.
+Dos notas por fuera de la tabla:
 
-> ⚠ **Esta categoría no tiene respaldo del corpus:** queda sostenida solo por Pirozzi (2024, revista profesional,
-> **no peer-reviewed**) y por productos; se declara entonces [gris]+[producto]. (`raftopoulos2024designing` no
-> trata de esto: es co-diseño pre-IAG, sin LLMs; queda como antecedente para el objetivo A.)
-
-### 4.2. La IA **captura** lo que se dijo: asistentes de reunión
-
-Asistentes LLM que acompañan una reunión y devuelven resumen, tickets y señales de riesgo
-**[corpus: `cabrero2024exploring`]**.
-
-- **Limitación fuerte:** el estudio cubre **Daily Scrum y refinamiento**, reuniones internas del equipo
-(`Sprint Review` = 0, `client` = 0 apariciones). Es coordinación intra-equipo, no intercambio con el stakeholder:
-entra como contexto, no como núcleo.
-- **Qué hace, verificado:** detecta riesgos de sobrecompromiso e impedimentos no visualizados; resume el Daily. **No
-transcribe**: los autores lo declaran trabajo futuro y alimentan el asistente con planillas cargadas a mano.
-- **Riesgo:** qué se pierde en el resumen; y si la presencia del asistente cambia lo que se dice.
-- **Señalado, sin verificar:** *RECOVER* (Voria et al., IEEE TSE 2025), requisitos desde conversaciones con
-stakeholders; fuera del corpus y con ficha sin verificar contra el PDF.
-
-### 4.3. La IA **trabaja el artefacto de requisito**: formular, revisar, juzgar, rutear
-
-Reformular el enunciado, evaluar su calidad y convertir input disperso en trabajo accionable: es la misma operación
-sobre el mismo artefacto; lo que cambia es si la salida es una reescritura, un veredicto o un ticket.
-
-- **Reformulación asistida del enunciado del stakeholder** **[corpus: `mircea2026supporting`, REFSQ 2026]**: el
-participante escribe cinco user stories, un LLM se las devuelve reescritas y él las compara. 26 participantes, 130
-pares; todas las dimensiones mejoran (p&lt;.001), el 43 % de las revisiones sacó a la luz aspectos no mencionados
-que el participante consideraba importantes, y solo el 5 % introdujo errores. El LLM **no genera ni juzga**:
-reformula para que el humano apruebe (su encuadre propio, **"AI-in-the-Loop"**).
-⚠ **Alcance:** los 26 son *"software engineering students and professionals"*, **no hay actores de negocio**, y es
-elicitación sobre un IDE hipotético: no hay software construido en ningún punto.
-- **Generación asistida de criterios de aceptación** **[corpus: `abbasi2025towards`]**: el prototipo se llama
-*Acceptance Criteria Assistant*: el ingeniero entra una user story y elige o edita los criterios que proponen
-varios modelos. ⚠ **Sin evaluación empírica** (la evaluación con practicantes está planificada, no hecha) y **el
-usuario es el ingeniero de requisitos, no el stakeholder**.
-- **Evaluación automática de la calidad del artefacto** **[gris: `geyer2025epics`]**: LLMs que *evalúan* la calidad
-de épicas; la IA juzga, no genera. Evaluadores: 17 product managers, no clientes.
-- **De feedback disperso a trabajo accionable** **[gris: `torun2025bugtracking`]**: reportes de bug en lenguaje
-natural que la IA completa con preguntas de seguimiento cuando faltan pasos de reproducción, y luego intenta
-reproducir. **Es el único trabajo del corpus que opera sobre software ya construido.** Misma operación en
-**[producto: `kraftful`, `versive`]**.
-- **Señalado, sin verificar:** *Quest-RE* (Hasso et al. 2024), preguntas de elicitación (la misma operación que
-Torun, aguas arriba); fuera del corpus y con ficha sin verificar contra el PDF.
-- **Riesgo transversal:** que el LLM *sustituya* la intención original en vez de articularla; y que el criterio del
-evaluador automático reemplace al del negocio sin que nadie lo note.
-
-> Las tres revisiones sistemáticas del área (**[corpus: `vasudevan2025role`, `fischer2026generative`,
-> `cheng2026generative`]**) **no** son evidencia de esta categoría: se usan en 4.7 para encuadrar; la evidencia
-> primaria acá son 4 estudios. `stein2026integrating` fue removido: es *benchmarking* contra ground truth, sin
-> humano en el loop.
-
-### 4.4. La IA **construye** algo mirable o ejecutable: materialización temprana
-
-En vez de devolver texto, se devuelve algo con lo que el stakeholder puede interactuar. Es la categoría más ligada a
-la **validación temprana**, y se subdivide por **quién opera la herramienta**.
-
-**(a) La opera el equipo.** Prototipos de interfaz generados desde user stories **[corpus: `kretzer2025closing`]**;
-prototipos analíticos y reportes visuales en BI **[gris: `busany2024bi`]**; elicitación y prototipado desde bocetos
-**[gris: `alabsi2026empirical`]**.
-
-**(b) La opera el usuario de negocio, sin intermediario técnico.** La visión de *end-user software engineering*, con
-requisitos en lenguaje natural como artefacto central **[corpus: `robinson2025requirements`]**; los productos
-**[producto: `emergent`, `pmagent`]**; y el fenómeno reportado de usuarios de negocio construyendo sus propias apps
-**[gris: prensa profesional]**. Señalado sin verificar: el chatbot para no expertos sobre low-code/no-code de
-De Troyer et al. (IFIP HCI 2025) mapearía acá.
-
-- **Efecto:** adelanta el momento en que se puede reaccionar: se opina sobre algo concreto, no sobre una
-descripción. Robinson lo formula bien: *"seeing a tangible product can unearth elements of the requirements that
-were assumed subconsciously but not articulated"*.
-- **Riesgo:** el prototipo puede inducir la respuesta; validar rápido puede sacrificar calidad de UX en favor de la
-velocidad **[general: Cornide-Reyes et al. 2025]**; y el pivote de dos productos relevados
-**[producto: `tusk`, `sweep`]** sugiere que el modo autónomo sin validador humano todavía no cierra.
-
-> ⚠ **Tres precisiones verificadas contra los PDF:**
->
-> - **Kretzer no involucra al negocio:** es un plug-in de Figma para sincronización intra-equipo (UX, PO, devs);
-> `client` = 0 apariciones y sin evaluación en co-diseño con stakeholders. Su aporte más cercano a esta tesis es
-> la dirección inversa: derivar user stories desde interfaces existentes.
-> - **Alabsi no tiene participantes:** el rol de stakeholder fue *simulado*, un solo sketch, 3 evaluadores técnicos
-> y **una sola pasada**: no observó ningún ciclo de feedback, y su *"enables earlier validation"* es inferencial,
-> no medido. Sirve como encuadre (el prototipo como *boundary object*) y como evidencia del hueco.
-> - **Robinson es paper de visión** (TOSEM), sin estudio empírico: el mejor encaje conceptual del corpus, pero
-> aporta agenda, no evidencia.
-
-### 4.5. La IA **valida contra reglas y procesos de negocio**
-
-Categoría necesaria para el **objetivo D** (validación de reglas de negocio y flujos operativos, la mitad del
-planteo de esta tesis) y hoy **sin trabajos de validación propiamente dicha**.
-
-- Lo más cercano en el corpus es **[corpus: `lindenberg2025business`, lectura por abstract]** (ICSOC 2025): un
-framework de agentes LLM que **descubre** procesos de negocio mediante diálogo estructurado multi-turno
-(metodología Gaia, cuatro configuraciones de agentes), evaluado por exactitud sobre tres procesos y tres LLMs,
-**sin participantes humanos en la evaluación**. Es decir: opera aguas arriba, en el descubrimiento del proceso,
-no en la validación de software construido contra reglas; y demuestra factibilidad técnica, no dinámicas con
-stakeholders reales. Aun el trabajo más cercano al objetivo D deja esa celda vacía.
-- El anclaje conceptual de la validación semántica de reglas contra el proceso real es **Dumas et al. (2018)**,
-secs. 4.4 y 5.4.2, el mismo que sostiene la actividad A3a de la sec. 3.
-
-### 4.6. Nota sobre el tramo técnico (generación de código con validación humana)
-
-El **objetivo A** nombra el feedback *técnico*, y el **C** la reconfiguración del rol del developer. El corpus
-académico no cubre ese tramo, pero la evidencia de mercado sí: los agentes ticket → PR de la tabla de productos
-**[producto: `devin`, `codegen`, `tusk`, `sweep`]**.
-
-Si entra al marco como categoría propia o se justifica su exclusión es una decisión abierta (ver *Qué falta*, al
-final del documento).
+- **Señalados, sin verificar contra el PDF** (fuera del corpus): *RECOVER* (Voria et al., IEEE TSE 2025) mapearía
+a 4.2; *Quest-RE* (Hasso et al. 2024) a 4.3; el chatbot para no expertos de De Troyer et al. (IFIP HCI 2025) a 4.4b.
+- **Exclusiones:** las tres revisiones sistemáticas (**[corpus: `vasudevan2025role`, `fischer2026generative`,
+`cheng2026generative`]**) no son evidencia de categorías, se usan en 4.7 para encuadrar; `stein2026integrating`
+se removió (benchmarking sin humano en el loop); `raftopoulos2024designing` no es impersonación (co-diseño
+pre-IAG, queda como antecedente del objetivo A).
 
 ### 4.7. Qué está cubierto y qué no: resultado de la búsqueda dirigida
 
@@ -423,7 +326,7 @@ Lecturas que se desprenden:
 sustituye al emisor.
 - **La temporalidad la alteran 4.1 y 4.4** por vías opuestas: sustituir a quien da el feedback, o adelantar el
 momento en que hay algo que mirar. Solo la segunda mantiene al stakeholder real en el circuito.
-- **4.5 queda sin marcas**: no hay evidencia de esa operación con IA todavía (ver 4.5).
+- **4.5 queda sin marcas**: no hay evidencia de esa operación con IA todavía (ver la fila 4.5).
 - **Ninguna categoría altera las cuatro dimensiones**: el estado del arte sostiene desplazamientos parciales, no
 un cambio integral del ciclo.
 
