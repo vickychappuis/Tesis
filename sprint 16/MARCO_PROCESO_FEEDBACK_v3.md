@@ -493,8 +493,8 @@ validación (evidencia en 4.7).
 ### 6.4. Limitaciones de este relevamiento
 
 - El corpus sistemático se armó con un string **sin términos de testing ni aceptación**; la búsqueda dirigida de
-  4.7 lo compensa, pero no lo reemplaza; y de ACM DL, SpringerLink e IEEE Xplore faltan totales citables
-  (`NOTAS_MEMORIA.md`).
+  4.7 lo compensa, pero no lo reemplaza. Y esa búsqueda tiene conteos exactos solo de arXiv: ACM DL, SpringerLink
+  e IEEE Xplore se cubrieron de forma indirecta, vía los DOI recuperados desde arXiv y Semantic Scholar.
 - La lectura de **`lindenberg2025business`** (4.5) se basa solo en su abstract; el texto completo no está
   disponible.
 - Parte de la evidencia de mercado (productos) **no es académica** y se etiqueta como tal.
