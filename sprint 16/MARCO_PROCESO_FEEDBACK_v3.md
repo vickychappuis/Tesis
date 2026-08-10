@@ -277,9 +277,3 @@ ML, auto-PRs) queda fuera de alcance. El recorte es nuestro, no de Sommerville.
 - **Analista funcional.** Rol clásico de validación de reglas de negocio; queda por decidir si es un rol propio o
 se absorbe en el Product Owner.
 
----
-
-## Para decidir
-
-- Si la PoC retoma la idea del *"firewall" de feedback* (validar el feedback del stakeholder contra los requisitos
-  ya definidos antes de incorporarlo, planteada en la call del sprint 11).

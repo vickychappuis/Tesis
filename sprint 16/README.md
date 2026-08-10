@@ -23,8 +23,6 @@ abiertos. Sin propuesta propia todavía.
 
 ## Queda abierto
 
-- Retomar con Daniel la idea del *"firewall" de feedback* que salió en la call del sprint 11 (validar el feedback
-  del stakeholder contra los requisitos ya definidos antes de incorporarlo) y decidir si la PoC va por ahí.
 - Sin descubrir (posibles lugares para la PoC): cómo se reconfigura la interacción de validación cuando media la
   IA; qué andamiaje le permitiría al actor de negocio validar de forma confiable; cómo trasladar las barreras de
   Sharma al ciclo cliente-equipo.
