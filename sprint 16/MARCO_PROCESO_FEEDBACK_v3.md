@@ -72,8 +72,9 @@ un mismo circuito, y es exactamente la razón por la que queremos feedback del u
 Los niveles inferiores (system/integration/unit) son internos al equipo: hay verificación, pero no interviene el
 negocio. Por eso el marco se queda con la punta de arriba.
 
-La formulación clásica de las dos ramas es de Sommerville: *"Validation: Are we building the right product? ·
-Verification: Are we building the product right?"* [`sommerville2016software`, cap. 8, introducción]. Como fuente
+La formulación clásica de las dos ramas es de Boehm (1979): *"Validation: Are we building the right product? ·
+Verification: Are we building the product right?"* [Boehm 1979, citado en `sommerville2016software`, cap. 8,
+introducción]. Como fuente
 del modelo se cita `pressman2020software`, cap. 2 (*Process Models*), que presenta la misma correspondencia superior
 **requisitos ↔ aceptación** (los nombres de los demás niveles varían entre presentaciones); como origen histórico,
 `rook1986controlling`.
