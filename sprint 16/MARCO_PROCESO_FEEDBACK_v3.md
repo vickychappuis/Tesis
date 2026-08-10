@@ -3,8 +3,8 @@
 ## 1. Proceso de desarrollo de software (Sommerville) → requisitos y V&amp;V
 
 Un **proceso de software** es *"una secuencia de actividades que conduce a la producción de un producto de
-software"*, y **cuatro actividades fundamentales son comunes a todos los procesos de software**
-[`sommerville2016software`, sec. 1.1.1]. El capítulo 2 las desarrolla como *process activities* (íd., sec. 2.2):
+software"*, y **cuatro actividades fundamentales son comunes a todos los procesos de
+software** [`sommerville2016software`, sec. 1.1.1]. El capítulo 2 las desarrolla como *process activities* (íd., sec. 2.2):
 
 
 | #   | Actividad (Sommerville)         | Qué pasa ahí                                                                                                | Sec.  |
@@ -23,8 +23,8 @@ de proceso.
 
 - **Especificación / requisitos (1).** Por definición se hace *con* el cliente (cap. 4, *requirements engineering*).
 - **Validación / V&amp;V (3).** El chequeo es contra *lo que el cliente requiere*, no solo contra el documento: la
-V&amp;V *"muestra que un sistema tanto se ajusta a su especificación como cumple las expectativas del cliente"*
-[sec. 2.2.3]. Dentro de V&amp;V, el *user testing* y el *acceptance testing* son las instancias donde el stakeholder
+V&amp;V *"muestra que un sistema tanto se ajusta a su especificación como cumple las expectativas del
+cliente"* [sec. 2.2.3]. Dentro de V&amp;V, el *user testing* y el *acceptance testing* son las instancias donde el stakeholder
 participa en persona [sec. 8.4].
 
 Diseño/implementación (2) es interna al equipo. Evolución (4) nace del stakeholder (sus requisitos cambiantes),
@@ -34,8 +34,8 @@ modificado. Por eso el foco queda en 1 y 3; 2 y 4 son el trabajo del equipo entr
 ## 2. Verificación y validación: el V-model → las puntas son el feedback del stakeholder
 
 El V-model ordena las actividades del proceso en una **V**: la rama descendente son las etapas de definición
-(*verificación*) y la ascendente las de prueba (*validación*), con la codificación en el vértice
-[`pressman2020software`, cap. 2]. Lo relevante para este marco no son los niveles en sí, sino las **flechas
+(*verificación*) y la ascendente las de prueba (*validación*), con la codificación en el
+vértice [`pressman2020software`, cap. 2]. Lo relevante para este marco no son los niveles en sí, sino las **flechas
 horizontales**: cada nivel de definición tiene su nivel de prueba correspondiente, y **se prueba contra lo que ese
 nivel definió**.
 
@@ -60,8 +60,8 @@ Leída como V, la figura empareja cada nivel de definición con su nivel de prue
 
 - **Punta izquierda (requirements specification):** el stakeholder dice *qué necesita*.
 - **Punta derecha (customer test):** el stakeholder dice *si lo construido es lo que quería*. Es la instancia de
-aceptación: el *acceptance testing* es el *user testing* donde *"the customer formally tests a system"*
-[`sommerville2016software`, sec. 8.4].
+aceptación: el *acceptance testing* es el *user testing* donde *"the customer formally tests a
+system"* [`sommerville2016software`, sec. 8.4].
 
 La flecha horizontal que las une expresa que **la aceptación se evalúa contra los requisitos que ese mismo
 stakeholder planteó**: los dos puntos de feedback son las dos mitades de un mismo circuito. Los niveles inferiores
@@ -186,8 +186,8 @@ PO como usuario, y donde toca la aceptación busca automatizarla. **No encontram
 validación del stakeholder**: una persona de negocio usando el software construido y devolviendo si es lo que
 pidió.
 
-Sobre el proceso de aceptación de Sommerville se ve dónde cae ese hueco. El manual lo descompone en seis etapas
-[`sommerville2016software`, sec. 8.4, Fig. 8.11]:
+Sobre el proceso de aceptación de Sommerville se ve dónde cae ese hueco. El manual lo descompone en seis
+etapas [`sommerville2016software`, sec. 8.4, Fig. 8.11]:
 
 ![Fig. 8.11 de Sommerville (2016): The acceptance testing process](figuras/sommerville_fig8_11_acceptance_testing.png)
 
@@ -287,8 +287,8 @@ disponible.
 
 - **Stakeholder.** *"System stakeholders include anyone who is affected by the system in some way and so anyone
 who has a legitimate interest in it. Stakeholders range from end-users of a system through managers to external
-stakeholders such as regulators, who certify the acceptability of the system"*
-[`sommerville2016software`, cap. 4, introducción]. La definición es amplia; esta tesis se acota a **un
+stakeholders such as regulators, who certify the acceptability of the
+system"* [`sommerville2016software`, cap. 4, introducción]. La definición es amplia; esta tesis se acota a **un
 representante del negocio que prueba el producto y opina de forma verbal**. El feedback indirecto (telemetría,
 ML, auto-PRs) queda fuera de alcance. El recorte es nuestro, no de Sommerville.
 - **Analista funcional.** Rol clásico de validación de reglas de negocio; queda por decidir si es un rol propio o
