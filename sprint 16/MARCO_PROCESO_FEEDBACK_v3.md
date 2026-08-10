@@ -519,7 +519,7 @@ validación (evidencia en 4.7).
 | # | Falta | Por qué / cómo se destraba |
 |---|---|---|
 | 1 | **Decisiones de Victoria/Daniel** | (a) el tramo técnico de 4.6: el objetivo A lo nombra y hoy el marco no lo cubre; nota: Perry et al. (2023) y Vaithilingam et al. (2022), referencias clave del proyecto sobre esa dimensión, no están citadas en el marco. (b) Si la tabla A2a–A5 de la sec. 3 se queda (Daniel pidió *"unos párrafos"*; la tabla ayuda a la trazabilidad con el v2 pero puede leerse como que Scrum vuelve a ser la base; con ella se decide si el BPMN del v2, `sprint 15/diagramas/marco_feedback_bpmn.png`, se reusa). (c) Si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC. |
-| 2 | **Redacción final** | Pasada de recorte hecha (10-ago): secs. 2 y 4 podadas, cautelas movidas a `NOTAS_MEMORIA.md`. El encuadre del hueco ya está en el header y en la intro de la sec. 4. Queda solo una pasada de estilo después del feedback de Daniel. |
+| 2 | **Redacción final** | Una pasada de estilo después del feedback de Daniel sobre esta versión. |
 | 3 | **To-do de largo plazo** | (a) La lectura de `lindenberg2025business` en 4.5 se basa en su abstract; si el PDF aparece alguna vez, verificarla. (b) Lo demás que recién importa al redactar la memoria está en `NOTAS_MEMORIA.md`. |
 
 **Meta v3:** versión escrita y prolija para decidir por dónde encarar la experimentación / PoC.
