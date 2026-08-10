@@ -1,8 +1,5 @@
 # Marco del proceso de feedback (v3)
 
-Estado del arte, sin propuesta propia todavía. El objeto de esta tesis es la **interacción de validación del
-stakeholder de negocio sobre software funcionando**: la literatura relevada la enmarca pero no la cubre (sec. 4.7).
-
 ## 1. Proceso de desarrollo de software (Sommerville) → requisitos y V&V
 
 Un **proceso de software** es *"una secuencia de actividades que conduce a la producción de un producto de
@@ -49,27 +46,28 @@ nivel definió**.
 citable del V-model: el propio texto dice* "This is sometimes called the V-model of development (**turn it on its
 side to see the V**)". *Reproducción literal del ejemplar, con fines académicos.*
 
-En la nomenclatura más difundida del modelo, los niveles se nombran así:
+Leída como V, la figura empareja cada nivel de definición con su nivel de prueba mediante el plan que los conecta:
 
-| Rama de definición (verificación) | ↔ | Rama de prueba (validación) |
+| Rama de definición (verificación) | Plan que los une | Rama de prueba (validación) |
 |---|---|---|
-| **Requirement gathering** | ↔ | **Acceptance testing** |
-| System analysis | ↔ | System testing |
-| Software design | ↔ | Integration testing |
-| Module design | ↔ | Unit testing |
-| *Coding* (vértice) | | |
+| **Requirements specification** | Customer test plan | **Customer test** |
+| System specification | System integration test plan | System integration test |
+| System design | Sub-system integration test plan | Sub-system integration test |
+| Component design | | *Component code and test* (vértice) |
 
 **El nivel superior es el único donde participa el stakeholder**, y aparece en las dos puntas:
 
-- **Punta izquierda (requirement gathering):** el stakeholder dice *qué necesita*.
-- **Punta derecha (acceptance testing):** el stakeholder dice *si lo construido es lo que quería*.
+- **Punta izquierda (requirements specification):** el stakeholder dice *qué necesita*.
+- **Punta derecha (customer test):** el stakeholder dice *si lo construido es lo que quería*. Es la instancia de
+  aceptación: el *acceptance testing* es el *user testing* donde *"the customer formally tests a system"*
+  [`sommerville2016software`, sec. 8.4].
 
 La flecha horizontal que las une no es decorativa: expresa que **la aceptación se evalúa contra los requisitos que
 ese mismo stakeholder planteó**. Por eso los dos puntos de feedback no son independientes: son las dos mitades de
 un mismo circuito, y es exactamente la razón por la que queremos feedback del usuario: (a) saber qué necesita y
 (b) validar que lo construido es eso.
 
-Los niveles inferiores (system/integration/unit) son internos al equipo: hay verificación, pero no interviene el
+Los niveles inferiores (integración de sistema, de subsistemas y componentes) son internos al equipo: hay verificación, pero no interviene el
 negocio. Por eso el marco se queda con la punta de arriba.
 
 La formulación clásica de las dos ramas es de Boehm (1979): *"Validation: Are we building the right product? ·
