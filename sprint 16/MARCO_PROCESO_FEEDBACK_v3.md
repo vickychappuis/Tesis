@@ -143,7 +143,8 @@ momentos**: el uso real del producto, que puede ser asincrónico y anterior a la
 ## 4. Feedback con IA: categorías de técnicas
 
 La IAG reformula algunas de las dinámicas descritas. Esta sección agrupa los trabajos relevados en categorías
-ordenadas por **qué operación hace la IA sobre el ciclo de feedback**.
+ordenadas por **qué operación hace la IA sobre el ciclo de feedback**. Las menciones a objetivos (A, B, C, D)
+refieren a los objetivos específicos del anteproyecto.
 
 **Etiquetas de fuente:** **[corpus]** paper del mapeo sistemático · **[general]** los cuatro artículos sobre IAG en el
 desarrollo · **[gris]** preprint o prensa profesional, sin peer review · **[producto]** evidencia de mercado.
@@ -207,7 +208,8 @@ informativeness), andamiaje directo para la PoC.
 
 ### 4.8. Qué dimensión del ciclo altera cada categoría (objetivo B)
 
-Leídas con la grilla del objetivo B (frecuencia, secuencia, granularidad, temporalidad): 4.1 altera **frecuencia
+El objetivo B pide identificar cambios en la **frecuencia, secuencia, granularidad y temporalidad** de los
+intercambios de validación. Con esa grilla: 4.1 altera **frecuencia
 y temporalidad**, porque sustituye al emisor; 4.2, la **granularidad** del registro; 4.3, **granularidad y
 secuencia**; 4.4, **secuencia y temporalidad**, porque adelanta el momento en que hay algo que mirar; para 4.5 no
 hay evidencia. Ninguna categoría altera las cuatro dimensiones: lo relevado sostiene desplazamientos
