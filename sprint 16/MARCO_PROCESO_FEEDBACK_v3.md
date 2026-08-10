@@ -143,8 +143,9 @@ momentos**: el uso real del producto, que puede ser asincrónico y anterior a la
 ## 4. Feedback con IA: categorías de técnicas
 
 La IAG reformula algunas de las dinámicas descritas. Esta sección agrupa los trabajos relevados en categorías
-ordenadas por **qué operación hace la IA sobre el ciclo de feedback**, y marca a qué objetivo específico del
-anteproyecto le pega cada una:
+ordenadas por **qué operación hace la IA sobre el ciclo de feedback**, y marca a qué objetivo específico responde
+cada una. Los objetivos son los del anteproyecto, en uso como referencia desde el sprint 4
+(`sprint 4/busqueda.md`):
 
 - **A.** Caracterizar las dinámicas de feedback técnico y de validación de negocio en equipos que adoptan IAG.
 - **B.** Identificar cambios en frecuencia, secuencia, granularidad y temporalidad de los intercambios de validación.
