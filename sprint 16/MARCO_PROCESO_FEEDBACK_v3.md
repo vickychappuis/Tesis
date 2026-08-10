@@ -416,27 +416,10 @@ nunca se observa como interacción—; y el *vibe coding* sí tiene humanos real
 El mismo resultado puede leerse sobre un diagrama canónico de manual. Sommerville descompone el *acceptance testing*
 en **seis etapas** [`sommerville2016software`, sec. 8.4, Fig. 8.11]:
 
-```mermaid
-flowchart LR
-    subgraph out [" "]
-        direction LR
-        a1(Test criteria) ~~~ a2(Test plan) ~~~ a3(Tests) ~~~ a4(Test results) ~~~ a5(Testing report)
-    end
-    A["1 · Define<br/>acceptance criteria"] --> B["2 · Plan<br/>acceptance testing"]
-    B --> C["3 · Derive<br/>acceptance tests"]
-    C --> D["4 · Run<br/>acceptance tests"]
-    D --> E["5 · Negotiate<br/>test results"]
-    E --> F["6 · Accept or<br/>reject system"]
-    A -.-> a1
-    B -.-> a2
-    C -.-> a3
-    D -.-> a4
-    E -.-> a5
-    style out fill:none,stroke:none
-```
+![Fig. 8.11 de Sommerville (2016): The acceptance testing process](figuras/sommerville_fig8_11_acceptance_testing.png)
 
-*Figura propia, elaborada a partir de la Fig. 8.11 de Sommerville (2016), sec. 8.4: se reproducen las seis etapas y
-sus productos tal como los nombra el autor.*
+*Fig. 8.11 de Sommerville (2016), sec. 8.4 — "The acceptance testing process". Reproducción literal del ejemplar,
+con fines académicos.*
 
 Cruzando esas etapas con lo relevado:
 
