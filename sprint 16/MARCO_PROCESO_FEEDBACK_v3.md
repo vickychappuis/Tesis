@@ -152,6 +152,17 @@ donde pasa, se dice.
 **Etiquetas de fuente:** **[corpus]** paper del mapeo sistemático · **[general]** los cuatro artículos sobre IAG en el
 desarrollo · **[gris]** preprint o prensa profesional, sin peer review · **[producto]** evidencia de mercado.
 
+La evidencia [producto] se relevó en el sprint 11 (detalle y links en `sprint 11/startups_relacionadas.md`):
+
+| Producto | Qué hace | Estado | Cat. |
+|---|---|---|---|
+| Emergent (YC) | intención en lenguaje natural → app desplegada, para no técnicos | activa | 4.4b |
+| PM Agent (Heizen) | call → spec con criterios de aceptación → tickets | activa | 4.4b |
+| Kraftful (YC S19) | feedback de calls, soporte y reviews → tickets | adquirida | 4.3 |
+| Versive (YC) | entrevistas con clientes → reportes con citas | activa | 4.3 |
+| Devin (Cognition) · Codegen | ticket → PR, con el developer como compuerta | activa · adquirida | 4.6 |
+| Tusk (YC W24) · Sweep (YC S23) | ticket → PR autónomo | **ambos pivotearon** | 4.6, contra-evidencia |
+
 > **Alcance.** El corpus se armó con el string del sprint 5 (`"generative AI" AND ("business users" OR clients OR
 > stakeholders) AND "software development"`), que apunta exactamente al tema de la tesis, y de él salen las
 > categorías que siguen. La búsqueda dirigida de 4.7 no lo corrige: lo complementa con el vocabulario propio del
@@ -210,8 +221,8 @@ usuario es el ingeniero de requisitos, no el stakeholder**.
 de épicas; la IA juzga, no genera. Evaluadores: 17 product managers, no clientes.
 - **De feedback disperso a trabajo accionable** **[gris: `torun2025bugtracking`]**: reportes de bug en lenguaje
 natural que la IA completa con preguntas de seguimiento cuando faltan pasos de reproducción, y luego intenta
-reproducir. **Es el único trabajo del corpus que opera sobre software ya construido.** Se suman productos que van
-de feedback a tickets o de entrevistas a reportes **[producto: `kraftful`, `versive`]**.
+reproducir. **Es el único trabajo del corpus que opera sobre software ya construido.** Misma operación en
+**[producto: `kraftful`, `versive`]**.
 - **Señalado, sin verificar:** *Quest-RE* (Hasso et al. 2024), preguntas de elicitación (la misma operación que
 Torun, aguas arriba); fuera del corpus y con ficha sin verificar contra el PDF.
 - **Riesgo transversal:** que el LLM *sustituya* la intención original en vez de articularla; y que el criterio del
@@ -233,9 +244,8 @@ prototipos analíticos y reportes visuales en BI **[gris: `busany2024bi`]**; eli
 **[gris: `alabsi2026empirical`]**.
 
 **(b) La opera el usuario de negocio, sin intermediario técnico.** La visión de *end-user software engineering*, con
-requisitos en lenguaje natural como artefacto central **[corpus: `robinson2025requirements`]**; productos que van de
-la intención a la app **[producto: `emergent`]** y de la call al spec con criterios de aceptación *policy-aware*
-**[producto: `pmagent`]**; y el fenómeno reportado de usuarios de negocio construyendo sus propias apps
+requisitos en lenguaje natural como artefacto central **[corpus: `robinson2025requirements`]**; los productos
+**[producto: `emergent`, `pmagent`]**; y el fenómeno reportado de usuarios de negocio construyendo sus propias apps
 **[gris: prensa profesional]**. Señalado sin verificar: el chatbot para no expertos sobre low-code/no-code de
 De Troyer et al. (IFIP HCI 2025) mapearía acá.
 
@@ -276,8 +286,8 @@ secs. 4.4 y 5.4.2, el mismo que sostiene la actividad A3a de la sec. 3.
 ### 4.6. Nota sobre el tramo técnico (generación de código con validación humana)
 
 El **objetivo A** nombra el feedback *técnico*, y el **C** la reconfiguración del rol del developer. El corpus
-académico no cubre ese tramo, pero la evidencia de mercado sí y está relevada: agentes que van de ticket a PR
-**[producto: `devin`, `codegen`, `tusk`, `sweep`]**, con el developer como compuerta de aprobación.
+académico no cubre ese tramo, pero la evidencia de mercado sí: los agentes ticket → PR de la tabla de productos
+**[producto: `devin`, `codegen`, `tusk`, `sweep`]**.
 
 Si entra al marco como categoría propia o se justifica su exclusión es una decisión abierta (ver *Qué falta*, al
 final del documento).
