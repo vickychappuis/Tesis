@@ -20,5 +20,7 @@ narrativa que bajó Daniel en la call del 30 jul (tabla de pasos en `sprint 15/r
 
 - [ ] **Enviar la v3 a Daniel** (Victoria).
 - [ ] Para la reunión, 3 decisiones: (a) tramo técnico 4.6; (b) si el BPMN del v2 se queda en la sec. 3.2;
-      (c) "firewall" de feedback como línea de la PoC. Detalle en la tabla *Qué falta* del marco.
+      (c) "firewall" de feedback como línea de la PoC. Detalle en *Para decidir*, al final del marco.
+- [ ] Después del feedback de Daniel: pasada de estilo; y si aparece el PDF de Lindenberg, verificar la lectura
+      por abstract de 4.5.
 - [ ] Al presentarlo, aclarar que 4.7 y 4.8 exceden la narrativa pedida (surgieron al verificar la sec. 4).

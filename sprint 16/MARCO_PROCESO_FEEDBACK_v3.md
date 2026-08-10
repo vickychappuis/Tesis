@@ -124,12 +124,12 @@ sistema con el propio usuario y poder:
 - **priorizar**: determinar el orden de los cambios, para un análisis de factibilidad posterior y decidir si ese
 feedback se incorpora o no a la próxima iteración.
 
-El tramo completo, con los códigos del v2 para trazabilidad (`MARCO_PROCESO_FEEDBACK_v2.md`):
+El tramo completo, con los códigos del marco v2:
 
 ![Etapa de revisión y feedback, vista BPMN (marco v2)](../sprint%2015/diagramas/marco_feedback_bpmn.png)
 
-*Vista BPMN del tramo (sprint 15): actividades A1 a A5 sobre los carriles de quién las hace, con las que Scrum no
-define en punteado. Editable en `sprint 15/diagramas/marco_feedback_bpmn.drawio`.*
+*Vista BPMN del tramo (marco v2): actividades A1 a A5 sobre los carriles de quién las hace, con las que Scrum no
+define en punteado.*
 
 De todo eso, Scrum define la Sprint Review (A2c, p. 9) y el refinement (A5, p. 10); define solo parcialmente la
 incorporación al Product Backlog (A4, p. 6) y la validación de factibilidad técnica (A3b, anclada en Sommerville
@@ -142,17 +142,13 @@ momentos**: el uso real del producto, que puede ser asincrónico y anterior a la
 
 ## 4. Feedback con IA: categorías de técnicas
 
-La IAG reformula algunas de las dinámicas descritas. Esta sección agrupa los trabajos relevados en **categorías con
-nombre**, describe de qué trata cada una y qué efecto tiene la IA ahí, con sus beneficios y sus riesgos.
-
-**Criterio de clasificación.** Las categorías se ordenan por **qué operación hace la IA sobre el ciclo de feedback**:
-no por actividad, no por modelo de proceso, no por fase del SDLC. Un mismo trabajo puede tocar más de una categoría;
-donde pasa, se dice.
+La IAG reformula algunas de las dinámicas descritas. Esta sección agrupa los trabajos relevados en categorías
+ordenadas por **qué operación hace la IA sobre el ciclo de feedback**.
 
 **Etiquetas de fuente:** **[corpus]** paper del mapeo sistemático · **[general]** los cuatro artículos sobre IAG en el
 desarrollo · **[gris]** preprint o prensa profesional, sin peer review · **[producto]** evidencia de mercado.
 
-La evidencia [producto] se relevó en el sprint 11 (detalle y links en `sprint 11/startups_relacionadas.md`):
+Evidencia de mercado relevada (sprint 11):
 
 | Producto | Qué hace | Estado | Cat. |
 |---|---|---|---|
@@ -179,7 +175,7 @@ La evidencia [producto] se relevó en el sprint 11 (detalle y links en `sprint 1
 | **4.3** | **Trabaja el artefacto de requisito**: reformular el enunciado, juzgar su calidad, rutear input disperso | [corpus: `mircea2026supporting`, `abbasi2025towards`] · [gris: `geyer2025epics`, `torun2025bugtracking`] · [producto: `kraftful`, `versive`] | Mircea (26 participantes, 130 pares): todas las dimensiones mejoran (p&lt;.001), el 43 % de las revisiones destapa aspectos no dichos y solo el 5 % introduce errores; el LLM reformula y el humano aprueba (*"AI-in-the-Loop"*) | que el LLM *sustituya* la intención original; que el criterio del evaluador automático reemplace al del negocio sin que nadie lo note | Mircea: participantes técnicos, **sin actores de negocio** ni software construido; Abbasi: **sin evaluación empírica** y el usuario es el ingeniero, no el stakeholder; Geyer: evaluado por 17 PMs, no clientes; Torun: el único del corpus sobre software ya construido |
 | **4.4** | **Construye algo mirable o ejecutable**: materialización temprana. (a) la opera el equipo; (b) el usuario de negocio, sin intermediario técnico | (a) [corpus: `kretzer2025closing`] · [gris: `busany2024bi`, `alabsi2026empirical`]; (b) [corpus: `robinson2025requirements`] · [producto: `emergent`, `pmagent`] · [gris: prensa profesional] | adelanta el momento de reaccionar: se opina sobre algo concreto (*"seeing a tangible product can unearth elements of the requirements that were assumed subconsciously but not articulated"*, Robinson) | el prototipo puede inducir la respuesta; validar rápido sacrifica UX **[general: Cornide-Reyes 2025]**; el pivote de Tusk y Sweep sugiere que el modo autónomo no cierra | Kretzer: intra-equipo (`client` = 0); Alabsi: **sin participantes** (stakeholder simulado, una sola pasada; su *"enables earlier validation"* es inferencial); Robinson: **visión sin empiria** |
 | **4.5** | **Valida contra reglas y procesos de negocio**: la mitad del planteo de esta tesis (**objetivo D**) | [corpus: `lindenberg2025business`, solo abstract] | | | **sin trabajos de validación propiamente dicha**: Lindenberg *descubre* procesos (aguas arriba, sin humanos en la evaluación), no valida software construido contra reglas; el ancla conceptual es Dumas secs. 4.4 y 5.4.2 (la A3a de la sec. 3) |
-| **4.6** | **Tramo técnico** (nota): generación de código con validación humana (objetivos A y C) | [producto: `devin`, `codegen`, `tusk`, `sweep`] | | | el corpus académico no lo cubre; si entra como categoría propia o se justifica su exclusión es decisión abierta (*Qué falta*) |
+| **4.6** | **Tramo técnico** (nota): generación de código con validación humana (objetivos A y C) | [producto: `devin`, `codegen`, `tusk`, `sweep`] | | | el corpus académico no lo cubre; si entra como categoría propia o se justifica su exclusión es decisión abierta (*Para decidir*) |
 
 ### 4.7. Qué está cubierto y qué no
 
@@ -203,9 +199,9 @@ construido y devolviendo si es lo que pidió. **Ninguno.**
  *lateral* que el Gherkin generado terminó usándose como **artefacto de validación revisado por stakeholders** en
  vez de ejecutarse. Es evidencia práctica de que la validación del stakeholder ocurre en la industria, dentro de
  un paper que estudia otra cosa.
-3. **Asimetría industria ↔ academia.** Las búsquedas de *product owner / business analyst + validación + empírico* y
- de *vibe coding + no programadores + empírico* devolvieron **0 papers y 18 de 18 enlaces comerciales** (blogs de
- consultoras, Scrum.org, cursos). La industria habla del tema constantemente; la literatura no lo cubre.
+3. **Asimetría industria ↔ academia.** Sobre la validación a cargo de product owners o analistas de negocio, y
+ sobre no programadores construyendo con IA, lo que se encuentra es contenido comercial (consultoras, Scrum.org,
+ cursos), **no papers**. La industria habla del tema constantemente; la literatura no lo cubre.
 
 #### Dónde está el hueco, exactamente
 
@@ -274,7 +270,6 @@ limitación y trabajo futuro**: `mircea2026supporting` (los participantes son t�
 articulation ability"* los efectos podrían variar) y `alabsi2026empirical` (evaluadores todos técnicos, que *"may
 not fully represent the perspectives of non-technical stakeholders"*).
 
-Las cautelas de citado para la memoria final están registradas en `NOTAS_MEMORIA.md`.
 
 ### 4.8. Qué dimensión del ciclo altera cada categoría (objetivo B)
 
@@ -297,7 +292,7 @@ Lecturas que se desprenden:
 sustituye al emisor.
 - **La temporalidad la alteran 4.1 y 4.4** por vías opuestas: sustituir a quien da el feedback, o adelantar el
 momento en que hay algo que mirar. Solo la segunda mantiene al stakeholder real en el circuito.
-- **4.5 queda sin marcas**: no hay evidencia de esa operación con IA todavía (ver la fila 4.5).
+- **4.5 queda sin marcas**: no hay evidencia de esa operación con IA todavía.
 - **Ninguna categoría altera las cuatro dimensiones**: el estado del arte sostiene desplazamientos parciales, no
 un cambio integral del ciclo.
 
@@ -309,7 +304,7 @@ lo que permite ordenar las categorías por **cuánto** desplazan al humano, no p
 
 ![Cuatro escenarios de uso de IAG en el desarrollo de software (S1–S4)](../sprint%2015/diagramas/escenarios_s1_s4.png)
 
-Figura **propia** a partir de las Tablas 1 y 2 del paper; editable en `sprint 15/diagramas/escenarios_s1_s4.drawio`.
+Figura **propia** a partir de las Tablas 1 y 2 del paper.
 
 
 | Escenario                                            | En una línea                                                            | Dónde caen las categorías                                                                                                                                                   |
@@ -352,14 +347,13 @@ andamiajes cerrarían esa brecha.
 - **La calidad del feedback que el stakeholder logra emitir.** Las cuatro barreras de Sharma et al. (4.7) están
 formuladas para agentes conversacionales, no para el ciclo cliente↔equipo de desarrollo. Trasladarlas es trabajo
 abierto.
-- **El tramo técnico** (4.6), si se decide dejarlo fuera del marco.
 
 ### 6.3. Lo que queda fuera de alcance por decisión, no por vacío
 
 - **Feedback indirecto por telemetría / ML** (analítica de uso, auto-PRs, detección de fricción). Hay productos y
 literatura, pero el foco de esta tesis es la interacción con un representante que prueba y opina de forma verbal
-(ver *Definiciones*). Vale registrar la observación del tutor: ese feedback **igual termina entrando al equipo
-como feedback normal**, y su incorporación depende de otros stakeholders (quién paga, factibilidad).
+(ver *Definiciones*). Observación del tutor: ese feedback **igual termina entrando al equipo como feedback
+normal**, y su incorporación depende de otros stakeholders (quién paga, factibilidad).
 - **Minería de reviews de app stores con LLM.** El subcampo más poblado de todos los relevados (~15 trabajos), pero
 opera sobre feedback ya emitido (ver la matriz de 4.7). Se menciona solo **como contraste**.
 - **Elicitación inicial y prototipado.** Quedan fuera del objeto, pero **no** de la sección 4: son la literatura
@@ -367,8 +361,6 @@ adyacente que enmarca el hueco.
 
 ### 6.4. Limitaciones de este relevamiento
 
-- La revisión complementaria de 4.7 se hizo sobre arXiv y Semantic Scholar; ACM DL, SpringerLink e IEEE Xplore se
-cubrieron de forma indirecta, vía los DOI recuperados desde ahí.
 - La lectura de **`lindenberg2025business`** (4.5) se basa solo en su abstract; el texto completo no está
 disponible.
 - Parte de la evidencia de mercado (productos) **no es académica** y se etiqueta como tal.
@@ -383,19 +375,14 @@ stakeholders such as regulators, who certify the acceptability of the system"*
 [`sommerville2016software`, cap. 4, introducción]. La definición es amplia; esta tesis se acota a **un
 representante del negocio que prueba el producto y opina de forma verbal**. El feedback indirecto (telemetría,
 ML, auto-PRs) queda fuera de alcance. El recorte es nuestro, no de Sommerville.
-- **Analista funcional.** Rol clásico de validación de reglas de negocio. No se formaliza por ahora; queda para
-decidir si es un rol propio o se absorbe en el Product Owner.
+- **Analista funcional.** Rol clásico de validación de reglas de negocio; queda por decidir si es un rol propio o
+se absorbe en el Product Owner.
 
 ---
 
-## Qué falta
+## Para decidir
 
-
-| #   | Falta                             | Por qué / cómo se destraba                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | **Decisiones de Victoria/Daniel** | (a) el tramo técnico de 4.6: el objetivo A lo nombra y hoy el marco no lo cubre; nota: Perry et al. (2023) y Vaithilingam et al. (2022), referencias clave del proyecto sobre esa dimensión, no están citadas en el marco. (b) La sec. 3.2 quedó como párrafos más el BPMN del v2; confirmar con Daniel si el diagrama se queda (puede leerse como que Scrum vuelve a ser la base). (c) Si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC. |
-| 2   | **Redacción final**               | Una pasada de estilo después del feedback de Daniel sobre esta versión.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| 3   | **To-do de largo plazo**          | (a) La lectura de `lindenberg2025business` en 4.5 se basa en su abstract; si el PDF aparece alguna vez, verificarla. (b) Lo demás que recién importa al redactar la memoria está en `NOTAS_MEMORIA.md`.                                                                                                                                                                                                                                                                                                                                                                                |
-
-
-**Meta v3:** versión escrita y prolija para decidir por dónde encarar la experimentación / PoC.
+- Si el tramo técnico (4.6) entra como categoría propia. El objetivo A lo nombra; sus referencias serían Perry et
+  al. (2023) y Vaithilingam et al. (2022).
+- Si el BPMN del v2 se queda en la sec. 3.2.
+- Si el *"firewall" de feedback* (sprint 11) vuelve como línea de la PoC.
