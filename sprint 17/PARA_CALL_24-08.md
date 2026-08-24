@@ -27,7 +27,9 @@
 El foco, antes versus ahora:
 
 - **Antes (cuando se clasificó todo, sprints 5 a 10):** buscábamos el ciclo completo, "cómo cambia la IAG el feedback entre negocio y equipo". Lo que tocaba una sola pieza quedaba rojo.
-- **Ahora (marco v3):** lo que la tesis estudia son dos puntos: **4.5**, validar lo construido contra reglas y procesos de negocio, y **4.7**, la instancia de aceptación (el stakeholder usa el software y dice si es lo que pidió). Son los dos que están vacíos y donde apunta la PoC.
+- **Ahora (marco v3):** lo que la tesis estudia son dos puntos, los dos vacíos y donde apunta la PoC:
+  - **4.5**: validar lo construido contra reglas y procesos de negocio.
+  - **4.7**: la instancia de aceptación (el stakeholder usa el software y dice si es lo que pidió).
 - **4.1 a 4.4 son el contexto**: las piezas del ciclo que la IA ya cubre. Los candidatos de abajo pueblan ese contexto; ninguno resuelve el centro de 4.5 ni de 4.7, y eso también es un resultado. Se verificó con una segunda pasada dirigida (vocabulario de reglas de negocio y de aceptación, sin exigir que mencionen IAG): aparecieron solo tres trabajos de frontera, marcados como tales en la tabla.
 
 ⭐ = más peso (empiria o venue fuerte).
