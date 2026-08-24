@@ -211,6 +211,8 @@
 - Recodificación de los descartados contra las categorías nuevas: 1066 filas únicas releídas, ~23 candidatos que caen en las categorías 4.1–4.7 (los azules del sprint 8 incluidos). 4.5 sigue vacía y 4.7 solo junta generación de artefactos: los dos huecos de la tesis resisten. Resumen visual y candidatos en `sprint 17/PARA_CALL_24-08.md`
 - El marco v3 no se modificó: los candidatos se deciden con Daniel
 
-**Pendiente:** call del 24/8 16:00 (decidir qué candidatos entran a la tabla, formulación de la revisión, arranque del Overleaf).
+- Call con Daniel (24 ago, `sprint 17/resumen_call.md`): trazabilidad del corpus validada, la documentación se cierra rápido sin marco formal de revisión, y el foco pasa al prototipo (definirlo es lo riesgoso; la validación puede ser liviana)
+
+**Pendiente (sprint 18):** índice del Overleaf y 3-4 ideas de prototipo para OK de Daniel; leer la tabla de candidatos e incorporar lo que valga. Próxima reunión: lunes 31/8 o jueves 3/9, 15:00.
 
 ---
