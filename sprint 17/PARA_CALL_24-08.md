@@ -32,39 +32,39 @@ El foco, antes versus ahora:
 
 ⭐ = más peso (empiria o venue fuerte).
 
-| Cat. | Paper | Qué dice |
-|---|---|---|
-| 4.1 | ⭐ AI representing personas (ScienceDirect, open access) | Personas conversacionales que representan grupos de usuarios; el PM les consulta features antes de construir. Analiza los desafíos de interacción con agency theory |
-| 4.1 | Stakeholder Simulation with GenAI (Schön et al., [arXiv 2026](https://arxiv.org/abs/2603.12925)) | La IAG impersona al stakeholder para practicar elicitación ágil, ante la dificultad de involucrar usuarios reales. Contexto educativo |
-| 4.2 | ⭐ RECOVER (Voria et al., IEEE TSE 2025, 18 citas) | Genera requisitos a partir de conversaciones con stakeholders. El puente 4.2→4.3, en el mejor venue de la lista. Estaba en Ideas PoC |
-| 4.2 | DevNous (Information and Software Technology 2026) | Multi-agente que convierte conversación no estructurada del equipo en artefactos de gestión |
-| 4.2 | Guidelines for team meetings with GenAI (tesis PUCRS 2025) | Guías para usar IAG en reuniones de equipos de software. Sin peer review |
-| 4.2 | The future of meetings ([Microsoft Research 2019](https://www.microsoft.com/en-us/research/project/the-future-of-meetings/)) | Transcripción, resumen y asistencia en reuniones. Antecedente pre-LLM, solo contexto |
-| 4.3 | ⭐ From online user feedback to requirements (Ferrari et al., REFSQ 2026) | Evalúa LLMs clasificando feedback online masivo de usuarios y generando especificaciones. La operación de Kraftful con evidencia académica |
-| 4.3 | ⭐ App store vs. LLM para feature elicitation (Wei et al., ACM 2024, 20 citas) | Compara minar reviews de usuarios contra LLMs para descubrir features |
-| 4.3 | Quest-RE (Hasso et al., 2024) | Genera las preguntas de exploración de la elicitación |
-| 4.3 | GenAI-Enabled Backlog Grooming ([arXiv 2025](https://arxiv.org/abs/2507.10753)) | Estudio empírico de un asistente que limpia y prioriza el backlog |
-| 4.3 | Requirements Change con GenAI ([ScienceDirect](https://doi.org/10.1016/j.csi.2025.104013), azul del sprint 8) | Prompting para gestionar el cambio de requisitos. Usuario técnico |
-| 4.3 | UCGen ([ACM 2026](https://doi.org/10.1145/3796563.3796606)) | Specs en lenguaje natural → casos de uso. Usuario técnico, mismo límite que Abbasi |
-| 4.3 | Structured Prompt Technique (Nayeem et al., IEEE 2026) | Prompts estructurados para eficiencia en el desarrollo de requisitos |
-| 4.4a | ⭐ Interlinking User Stories and GUI Prototyping (Kolthoff, Kretzer et al., [arXiv 2024](https://arxiv.org/abs/2406.08120)) | User stories → prototipo GUI semiautomático para elicitar y validar. Mismo grupo que Kretzer del corpus |
-| 4.4a | ⭐ GUISpector (Kolthoff, Kretzer et al., [arXiv 2025](https://arxiv.org/abs/2510.04791)) | Agente MLLM que verifica que el prototipo GUI cumpla los requisitos en lenguaje natural. Lo más cercano a 4.5, pero automático y sin negocio |
-| 4.4a | MAxPrototyper (Yuan et al., 2024) | Multi-agentes generando prototipos de UI interactivos |
-| 4.4b | ⭐ From Throw-Away to Takeaway ([ACM 2026](https://doi.org/10.1145/3772318.3790757), azul del sprint 8) | Cómo técnicos y no técnicos usan vibe coding en el ciclo de producto. Survey N=85 + 31 entrevistas: el candidato con más empiria; hoy 4.4b se sostiene solo con la visión de Robinson |
-| 4.4b | Think like an engineer ([arXiv 2025](https://arxiv.org/abs/2507.14969)) | Agente neuro-simbólico para que end-users no técnicos expresen y auto-revisen requisitos ambiguos |
-| 4.4b | Low-code/no-code + chatbot (De Troyer et al., IFIP HCI 2025) | Chatbot que hace accesible construir en low-code/no-code a no expertos |
-| 4.4b | End-User Code Customization ([ACM 2024](https://doi.org/10.1145/3634713.3634732), azul) | IAG para que end-users personalicen código sin saber programar |
-| 4.4b | Will Code Remain a Relevant UI? ([ACM 2023](https://doi.org/10.1145/3622758.3622882)) | Ensayo: si el código sigue siendo la interfaz del end-user programming con IAG. Ancla conceptual |
-| 4.5 | Rethinking Legal Compliance Automation with LLMs (backward, 2ª pasada) | LLMs verificando cumplimiento contra normas legales. Hace la operación de 4.5 (chequear contra reglas) pero sobre normas y requisitos, no sobre software construido con actores de negocio. Frontera |
-| 4.5 | LLMs in Enterprise Modeling (backward, 2ª pasada) | LLMs sobre modelos de empresa y procesos, aguas arriba como Lindenberg. Frontera |
-| 4.6 | PACGBI ([ASE 2024](https://doi.org/10.1145/3691620.3695346), azul) | Backlog item → código automático. Fuera de alcance, solo registro |
-| 4.7 | ⭐ Test scenarios con RAG (Arora et al., [arXiv 2024](https://arxiv.org/abs/2404.12772)) | Deriva escenarios de test desde requisitos, estudio industrial |
-| 4.7 | ⭐ COLDECO (Ferdowsi, Sarkar, Gordon et al., 2023) | Herramienta para que el end-user inspeccione en la planilla el código que generó la IA. La verificación como cuello de botella, alinea con Virk y Fawzy |
-| 4.7 | ⭐ "What it wants me to say" (Liu, Sarkar et al., 2023) | La brecha de abstracción entre cómo el end-user describe lo que quiere y lo que el LLM necesita. Mismo grupo de Microsoft que COLDECO; empalma con Sharma |
-| 4.7 | BDD Acceptance Test Formulation ([arXiv 2024](https://arxiv.org/abs/2403.14965), azul) | Evalúa LLMs generando tests de aceptación Gherkin/BDD |
-| 4.7 | Acceptance criteria generation (Rawson y Reddivari, [IEEE IRI 2025](https://doi.org/10.1109/iri66576.2025.00067)) | Genera criterios de aceptación por user story con ChatGPT |
-| 4.7 | Tesina UNLP: asistencia IA en elicitación y especificación (Panigo y Petkoff Bankoff, 2025, 2ª pasada) | Herramienta IA que asiste al analista funcional generando historias de usuario en formato Gherkin. Genera el artefacto de aceptación; regional y cercana a la PoC |
-| roles | From Backlogs to Bots (Wiley) · The AI Scrum Master ([Springer](https://link.springer.com/chapter/10.1007/978-3-031-99062-9_8)) · All work and no flow (tesis 2025) | PO, dev y Scrum Master redefinidos por la IAG. No van a la tabla; alimentan el objetivo C |
+| Cat. | Categoría | Paper | Qué dice |
+|---|---|---|---|
+| 4.1 | Emite el feedback | ⭐ AI representing personas (ScienceDirect, open access) | Personas conversacionales que representan grupos de usuarios; el PM les consulta features antes de construir. Analiza los desafíos de interacción con agency theory |
+| 4.1 | Emite el feedback | Stakeholder Simulation with GenAI (Schön et al., [arXiv 2026](https://arxiv.org/abs/2603.12925)) | La IAG impersona al stakeholder para practicar elicitación ágil, ante la dificultad de involucrar usuarios reales. Contexto educativo |
+| 4.2 | Captura lo que se dijo | ⭐ RECOVER (Voria et al., IEEE TSE 2025, 18 citas) | Genera requisitos a partir de conversaciones con stakeholders. El puente 4.2→4.3, en el mejor venue de la lista. Estaba en Ideas PoC |
+| 4.2 | Captura lo que se dijo | DevNous (Information and Software Technology 2026) | Multi-agente que convierte conversación no estructurada del equipo en artefactos de gestión |
+| 4.2 | Captura lo que se dijo | Guidelines for team meetings with GenAI (tesis PUCRS 2025) | Guías para usar IAG en reuniones de equipos de software. Sin peer review |
+| 4.2 | Captura lo que se dijo | The future of meetings ([Microsoft Research 2019](https://www.microsoft.com/en-us/research/project/the-future-of-meetings/)) | Transcripción, resumen y asistencia en reuniones. Antecedente pre-LLM, solo contexto |
+| 4.3 | Trabaja el artefacto de requisito | ⭐ From online user feedback to requirements (Ferrari et al., REFSQ 2026) | Evalúa LLMs clasificando feedback online masivo de usuarios y generando especificaciones. La operación de Kraftful con evidencia académica |
+| 4.3 | Trabaja el artefacto de requisito | ⭐ App store vs. LLM para feature elicitation (Wei et al., ACM 2024, 20 citas) | Compara minar reviews de usuarios contra LLMs para descubrir features |
+| 4.3 | Trabaja el artefacto de requisito | Quest-RE (Hasso et al., 2024) | Genera las preguntas de exploración de la elicitación |
+| 4.3 | Trabaja el artefacto de requisito | GenAI-Enabled Backlog Grooming ([arXiv 2025](https://arxiv.org/abs/2507.10753)) | Estudio empírico de un asistente que limpia y prioriza el backlog |
+| 4.3 | Trabaja el artefacto de requisito | Requirements Change con GenAI ([ScienceDirect](https://doi.org/10.1016/j.csi.2025.104013), azul del sprint 8) | Prompting para gestionar el cambio de requisitos. Usuario técnico |
+| 4.3 | Trabaja el artefacto de requisito | UCGen ([ACM 2026](https://doi.org/10.1145/3796563.3796606)) | Specs en lenguaje natural → casos de uso. Usuario técnico, mismo límite que Abbasi |
+| 4.3 | Trabaja el artefacto de requisito | Structured Prompt Technique (Nayeem et al., IEEE 2026) | Prompts estructurados para eficiencia en el desarrollo de requisitos |
+| 4.4a | Construye algo mirable (equipo) | ⭐ Interlinking User Stories and GUI Prototyping (Kolthoff, Kretzer et al., [arXiv 2024](https://arxiv.org/abs/2406.08120)) | User stories → prototipo GUI semiautomático para elicitar y validar. Mismo grupo que Kretzer del corpus |
+| 4.4a | Construye algo mirable (equipo) | ⭐ GUISpector (Kolthoff, Kretzer et al., [arXiv 2025](https://arxiv.org/abs/2510.04791)) | Agente MLLM que verifica que el prototipo GUI cumpla los requisitos en lenguaje natural. Lo más cercano a 4.5, pero automático y sin negocio |
+| 4.4a | Construye algo mirable (equipo) | MAxPrototyper (Yuan et al., 2024) | Multi-agentes generando prototipos de UI interactivos |
+| 4.4b | Construye algo mirable (negocio) | ⭐ From Throw-Away to Takeaway ([ACM 2026](https://doi.org/10.1145/3772318.3790757), azul del sprint 8) | Cómo técnicos y no técnicos usan vibe coding en el ciclo de producto. Survey N=85 + 31 entrevistas: el candidato con más empiria; hoy 4.4b se sostiene solo con la visión de Robinson |
+| 4.4b | Construye algo mirable (negocio) | Think like an engineer ([arXiv 2025](https://arxiv.org/abs/2507.14969)) | Agente neuro-simbólico para que end-users no técnicos expresen y auto-revisen requisitos ambiguos |
+| 4.4b | Construye algo mirable (negocio) | Low-code/no-code + chatbot (De Troyer et al., IFIP HCI 2025) | Chatbot que hace accesible construir en low-code/no-code a no expertos |
+| 4.4b | Construye algo mirable (negocio) | End-User Code Customization ([ACM 2024](https://doi.org/10.1145/3634713.3634732), azul) | IAG para que end-users personalicen código sin saber programar |
+| 4.4b | Construye algo mirable (negocio) | Will Code Remain a Relevant UI? ([ACM 2023](https://doi.org/10.1145/3622758.3622882)) | Ensayo: si el código sigue siendo la interfaz del end-user programming con IAG. Ancla conceptual |
+| 4.5 | Valida contra reglas de negocio | Rethinking Legal Compliance Automation with LLMs (backward, 2ª pasada) | LLMs verificando cumplimiento contra normas legales. Hace la operación de 4.5 (chequear contra reglas) pero sobre normas y requisitos, no sobre software construido con actores de negocio. Frontera |
+| 4.5 | Valida contra reglas de negocio | LLMs in Enterprise Modeling (backward, 2ª pasada) | LLMs sobre modelos de empresa y procesos, aguas arriba como Lindenberg. Frontera |
+| 4.6 | Tramo técnico | PACGBI ([ASE 2024](https://doi.org/10.1145/3691620.3695346), azul) | Backlog item → código automático. Fuera de alcance, solo registro |
+| 4.7 | La aceptación | ⭐ Test scenarios con RAG (Arora et al., [arXiv 2024](https://arxiv.org/abs/2404.12772)) | Deriva escenarios de test desde requisitos, estudio industrial |
+| 4.7 | La aceptación | ⭐ COLDECO (Ferdowsi, Sarkar, Gordon et al., 2023) | Herramienta para que el end-user inspeccione en la planilla el código que generó la IA. La verificación como cuello de botella, alinea con Virk y Fawzy |
+| 4.7 | La aceptación | ⭐ "What it wants me to say" (Liu, Sarkar et al., 2023) | La brecha de abstracción entre cómo el end-user describe lo que quiere y lo que el LLM necesita. Mismo grupo de Microsoft que COLDECO; empalma con Sharma |
+| 4.7 | La aceptación | BDD Acceptance Test Formulation ([arXiv 2024](https://arxiv.org/abs/2403.14965), azul) | Evalúa LLMs generando tests de aceptación Gherkin/BDD |
+| 4.7 | La aceptación | Acceptance criteria generation (Rawson y Reddivari, [IEEE IRI 2025](https://doi.org/10.1109/iri66576.2025.00067)) | Genera criterios de aceptación por user story con ChatGPT |
+| 4.7 | La aceptación | Tesina UNLP: asistencia IA en elicitación y especificación (Panigo y Petkoff Bankoff, 2025, 2ª pasada) | Herramienta IA que asiste al analista funcional generando historias de usuario en formato Gherkin. Genera el artefacto de aceptación; regional y cercana a la PoC |
+| roles | Roles (obj. C) | From Backlogs to Bots (Wiley) · The AI Scrum Master ([Springer](https://link.springer.com/chapter/10.1007/978-3-031-99062-9_8)) · All work and no flow (tesis 2025) | PO, dev y Scrum Master redefinidos por la IAG. No van a la tabla; alimentan el objetivo C |
 
 En el centro de 4.5 y 4.7 no cayó ningún candidato: los tres de la segunda pasada son frontera (hacen la operación en otro dominio o generan el artefacto, sin actores de negocio sobre software construido).
 
