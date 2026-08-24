@@ -21,7 +21,7 @@
 - Volumen: 1066 filas únicas, 389 con vocabulario de feedback más IAG.
 - Criterio: ¿cae en alguna categoría de la tabla? Esto es lo que había y lo que se suma:
 
-![La tabla de categorías después de la recodificación](assets/tablita_recodificacion.svg)
+![La tabla de categorías después de la recodificación](assets/tabla_categorias_recodificacion.svg)
 
 ## Lo que deja la recodificación
 
