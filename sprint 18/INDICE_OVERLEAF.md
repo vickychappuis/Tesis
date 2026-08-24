@@ -4,7 +4,7 @@ Para OK de Daniel. Sale del orden charlado en la call del 11/08 y del marco v3. 
 
 ## 1. Introducción
 
-- Contexto y motivación: la IAG entra al desarrollo de software y toca los ciclos de feedback con el negocio.
+- Contexto y motivación: el desarrollo de software se organiza en un ciclo de vida que depende del feedback del negocio; la tesis estudia cómo se reconfiguran esos ciclos al incorporar IAG.
 - Objetivo general (queda igual). Objetivos específicos ajustados: sin entrevistas; la PoC no tiene por qué atacar un hueco. *(reescritura del documento de proyecto original)*
 - Estructura del documento.
 
