@@ -4,15 +4,22 @@
 
 ![Origen de los 18 papers del marco](assets/origen_papers_marco.svg)
 
-Se validó cada paper citado en el marco: los 18 aparecen en alguna planilla o documento del proceso, ninguno salió de la nada. Hay un solo caso especial: Geyer, Torun y Busany habían aparecido en las búsquedas originales y los descartamos en el filtrado, pero después volvieron a aparecer en la búsqueda de literatura gris y hoy se citan. Eso confirma que el protocolo formal con sus criterios no fue el que produjo los artículos que usamos, que es la razón para presentar el proceso como revisión bibliográfica y no como SLR. El detalle paper por paper está en `CHEQUEO_CORPUS.md`.
+- Se validó cada paper citado en el marco: los 18 aparecen en alguna planilla o documento del proceso. Ninguno salió de la nada.
+- Caso especial: Geyer, Torun y Busany aparecieron en las búsquedas originales, los descartamos en el filtrado, y reaparecieron en la búsqueda de literatura gris. Hoy se citan.
+- Conclusión: el protocolo formal no fue el que produjo los artículos que usamos. Por eso el proceso se presenta como revisión bibliográfica y no como SLR.
+- Detalle paper por paper en `CHEQUEO_CORPUS.md`.
 
-## Qué se pedía
+## Qué se pedía (call anterior)
 
-De la call anterior quedaron dos tareas: validar el origen de cada referencia de la tabla (hecho, gráfico de arriba) y recodificar los descartados de las primeras fases contra las categorías nuevas, para dejar la tablita lo más completa posible antes de decidir la PoC.
+- Validar el origen de cada referencia de la tabla. Hecho: gráfico de arriba.
+- Recodificar los descartados de las primeras fases contra las categorías nuevas. Hecho: gráfico de abajo.
+- Objetivo de las dos: dejar la tablita lo más completa posible antes de decidir la PoC.
 
 ## La recodificación, en una imagen
 
-Se releyeron los descartados de todas las planillas (sprints 6, 8, 9 y 10: 1066 filas únicas, 389 con vocabulario de feedback más IAG). Esto es lo que había y lo que se suma:
+- Se releyeron los descartados de todas las planillas (sprints 6, 8, 9 y 10).
+- Volumen: 1066 filas únicas, 389 con vocabulario de feedback más IAG.
+- Criterio: ¿cae en alguna categoría de la tablita? Esto es lo que había y lo que se suma:
 
 ![La tablita después de la recodificación](assets/tablita_recodificacion.svg)
 
