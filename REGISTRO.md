@@ -200,6 +200,17 @@
 - Resultado: `sprint 16/MARCO_PROCESO_FEEDBACK_v3.md`, resumen ejecutivo con las 6 secciones de esa narrativa, figuras literales de Sommerville y el BPMN del v2. Asignaciones de la sec. 4 verificadas contra los PDF; en lo relevado no aparecen estudios de la validación del stakeholder sobre software construido, que es el hueco de la tesis
 - Referencias nuevas verificadas (Virk, Fawzy, Sharma) sumadas a `REFERENCIAS.xlsx`; cautelas de citado para la memoria en `sprint 16/NOTAS_MEMORIA.md`
 
-**Pendiente:** enviar la v3 a Daniel.
+**Pendiente:** ~~enviar la v3 a Daniel~~ (discutida en la call del 11/8: marco cerrado).
+
+---
+
+## Sprint 17 — 11 ago → 24 ago 2026
+
+- Call con Daniel (11 ago, `sprint 16/resumen_call.md`): marco v3 cerrado, la revisión se presenta como bibliográfica (no SLR), y quedan dos tareas sobre el corpus antes de definir la PoC
+- Chequeo del corpus (`sprint 17/CHEQUEO_CORPUS.md`): las 18 referencias del marco tienen origen documentado; Geyer, Torun y Busany fueron descartadas por el screening y reentraron por gris, el argumento para el encuadre de revisión bibliográfica. Gráfico de origen en `sprint 17/assets/origen_papers_marco.svg`
+- Recodificación de los descartados contra las categorías nuevas: 1066 filas únicas releídas, ~23 candidatos que caen en las categorías 4.1–4.7 (los azules del sprint 8 incluidos). 4.5 sigue vacía y 4.7 solo junta generación de artefactos: los dos huecos de la tesis resisten. Resumen visual y candidatos en `sprint 17/PARA_CALL_24-08.md`
+- El marco v3 no se modificó: los candidatos se deciden con Daniel
+
+**Pendiente:** call del 24/8 16:00 (decidir qué candidatos entran a la tabla, formulación de la revisión, arranque del Overleaf).
 
 ---

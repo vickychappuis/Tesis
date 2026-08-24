@@ -45,8 +45,8 @@
 
 ## Próximos pasos
 
-- [ ] Chequear el corpus: qué referencias de la tabla estaban o no en la lista original por sprint.
-- [ ] Recodificar los artículos descartados del corpus original contra las categorías nuevas.
+- [x] Chequear el corpus: qué referencias de la tabla estaban o no en la lista original por sprint. (`sprint 17/CHEQUEO_CORPUS.md`)
+- [x] Recodificar los artículos descartados del corpus original contra las categorías nuevas. (`sprint 17/PARA_CALL_24-08.md`)
 - [ ] Completar la tablita de categorías y mandársela a Daniel esta semana o la próxima, aunque no haya reunión.
 - [ ] Empezar a volcar background + revisión + resultados al Overleaf.
 
