@@ -4,7 +4,7 @@
 
 ![Origen de los 18 papers del marco](assets/origen_papers_marco.svg)
 
-Todo lo citado tiene origen documentado. Los tres que el screening había descartado (Geyer, Torun, Busany) reentraron por gris: el caso que anticipaste, y el argumento para presentar la revisión como bibliográfica con criterio de corte. Detalle fila por fila en `CHEQUEO_CORPUS.md`.
+Se validó cada paper citado en el marco: los 18 aparecen en alguna planilla o documento del proceso, ninguno salió de la nada. Hay un solo caso especial: Geyer, Torun y Busany habían aparecido en las búsquedas originales y los descartamos en el filtrado, pero después volvieron a aparecer en la búsqueda de literatura gris y hoy se citan. Eso confirma que el protocolo formal con sus criterios no fue el que produjo los artículos que usamos, que es la razón para presentar el proceso como revisión bibliográfica y no como SLR. El detalle paper por paper está en `CHEQUEO_CORPUS.md`.
 
 ## Qué se pedía
 
