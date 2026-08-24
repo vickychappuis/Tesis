@@ -24,11 +24,11 @@
 
 ## Candidatos a sumar, con qué dice cada uno
 
-Reminder de por qué tiene sentido sumar estos:
+El foco, antes versus ahora:
 
-- El marco v3 quedó cerrado con Daniel: organiza lo relevado en categorías según qué operación hace la IA sobre el ciclo de feedback (4.1 a 4.7).
-- Cuando clasificamos las búsquedas, el foco era otro: "cómo cambia la IAG el feedback en general". Con ese criterio, papers que atacan una operación puntual quedaron rojos.
-- Con el foco final (las categorías), esos mismos papers sí aportan. Por eso se reconsideran: cada candidato cae en una categoría concreta.
+- **Antes (cuando se clasificó todo, sprints 5 a 10):** buscábamos el ciclo completo, "cómo cambia la IAG el feedback entre negocio y equipo". Lo que tocaba una sola pieza quedaba rojo.
+- **Ahora (marco v3):** lo que la tesis estudia son dos puntos: **4.5**, validar lo construido contra reglas y procesos de negocio, y **4.7**, la instancia de aceptación (el stakeholder usa el software y dice si es lo que pidió). Son los dos que están vacíos y donde apunta la PoC.
+- **4.1 a 4.4 son el contexto**: las piezas del ciclo que la IA ya cubre. Los candidatos de abajo pueblan ese contexto; ninguno resuelve 4.5 ni 4.7, y eso también es un resultado.
 
 ⭐ = más peso (empiria o venue fuerte).
 
