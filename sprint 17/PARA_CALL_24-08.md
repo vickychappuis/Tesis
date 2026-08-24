@@ -36,7 +36,7 @@
 
 Para el procesamiento a dos: por categoría, lo que el marco ya cita y cada candidato con autores, venue, link, por qué cae y con qué cautela. Los ⭐ son los de más peso (empiria o venue fuerte).
 
-## 4.1 Emite el feedback: impersonación de stakeholders
+### 4.1 Emite el feedback: impersonación de stakeholders
 
 En el marco: Pirozzi 2024, Damian 2025 (REConnect) y productos. Categoría declarada sin respaldo del corpus formal.
 
