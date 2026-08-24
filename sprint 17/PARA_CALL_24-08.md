@@ -28,7 +28,7 @@ El foco, antes versus ahora:
 
 - **Antes (cuando se clasificó todo, sprints 5 a 10):** buscábamos el ciclo completo, "cómo cambia la IAG el feedback entre negocio y equipo". Lo que tocaba una sola pieza quedaba rojo.
 - **Ahora (marco v3):** lo que la tesis estudia son dos puntos: **4.5**, validar lo construido contra reglas y procesos de negocio, y **4.7**, la instancia de aceptación (el stakeholder usa el software y dice si es lo que pidió). Son los dos que están vacíos y donde apunta la PoC.
-- **4.1 a 4.4 son el contexto**: las piezas del ciclo que la IA ya cubre. Los candidatos de abajo pueblan ese contexto; ninguno resuelve 4.5 ni 4.7, y eso también es un resultado.
+- **4.1 a 4.4 son el contexto**: las piezas del ciclo que la IA ya cubre. Los candidatos de abajo pueblan ese contexto; ninguno resuelve el centro de 4.5 ni de 4.7, y eso también es un resultado. Se verificó con una segunda pasada dirigida (vocabulario de reglas de negocio y de aceptación, sin exigir que mencionen IAG): aparecieron solo tres trabajos de frontera, marcados como tales en la tabla.
 
 ⭐ = más peso (empiria o venue fuerte).
 
@@ -55,15 +55,18 @@ El foco, antes versus ahora:
 | 4.4b | Low-code/no-code + chatbot (De Troyer et al., IFIP HCI 2025) | Chatbot que hace accesible construir en low-code/no-code a no expertos |
 | 4.4b | End-User Code Customization ([ACM 2024](https://doi.org/10.1145/3634713.3634732), azul) | IAG para que end-users personalicen código sin saber programar |
 | 4.4b | Will Code Remain a Relevant UI? ([ACM 2023](https://doi.org/10.1145/3622758.3622882)) | Ensayo: si el código sigue siendo la interfaz del end-user programming con IAG. Ancla conceptual |
+| 4.5 | Rethinking Legal Compliance Automation with LLMs (backward, 2ª pasada) | LLMs verificando cumplimiento contra normas legales. Hace la operación de 4.5 (chequear contra reglas) pero sobre normas y requisitos, no sobre software construido con actores de negocio. Frontera |
+| 4.5 | LLMs in Enterprise Modeling (backward, 2ª pasada) | LLMs sobre modelos de empresa y procesos, aguas arriba como Lindenberg. Frontera |
 | 4.6 | PACGBI ([ASE 2024](https://doi.org/10.1145/3691620.3695346), azul) | Backlog item → código automático. Fuera de alcance, solo registro |
 | 4.7 | ⭐ Test scenarios con RAG (Arora et al., [arXiv 2024](https://arxiv.org/abs/2404.12772)) | Deriva escenarios de test desde requisitos, estudio industrial |
 | 4.7 | ⭐ COLDECO (Ferdowsi, Sarkar, Gordon et al., 2023) | Herramienta para que el end-user inspeccione en la planilla el código que generó la IA. La verificación como cuello de botella, alinea con Virk y Fawzy |
 | 4.7 | ⭐ "What it wants me to say" (Liu, Sarkar et al., 2023) | La brecha de abstracción entre cómo el end-user describe lo que quiere y lo que el LLM necesita. Mismo grupo de Microsoft que COLDECO; empalma con Sharma |
 | 4.7 | BDD Acceptance Test Formulation ([arXiv 2024](https://arxiv.org/abs/2403.14965), azul) | Evalúa LLMs generando tests de aceptación Gherkin/BDD |
 | 4.7 | Acceptance criteria generation (Rawson y Reddivari, [IEEE IRI 2025](https://doi.org/10.1109/iri66576.2025.00067)) | Genera criterios de aceptación por user story con ChatGPT |
+| 4.7 | Tesina UNLP: asistencia IA en elicitación y especificación (Panigo y Petkoff Bankoff, 2025, 2ª pasada) | Herramienta IA que asiste al analista funcional generando historias de usuario en formato Gherkin. Genera el artefacto de aceptación; regional y cercana a la PoC |
 | roles | From Backlogs to Bots (Wiley) · The AI Scrum Master ([Springer](https://link.springer.com/chapter/10.1007/978-3-031-99062-9_8)) · All work and no flow (tesis 2025) | PO, dev y Scrum Master redefinidos por la IAG. No van a la tabla; alimentan el objetivo C |
 
-En 4.5 no cayó ningún candidato.
+En el centro de 4.5 y 4.7 no cayó ningún candidato: los tres de la segunda pasada son frontera (hacen la operación en otro dominio o generan el artefacto, sin actores de negocio sobre software construido).
 
 ## Temas abiertos para hoy
 
