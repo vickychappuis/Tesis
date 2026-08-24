@@ -10,12 +10,13 @@ Para OK de Daniel. Sale del orden charlado en la call del 11/08 y del marco v3. 
 
 ## 2. Background
 
-Solo lo que ya existe, sin procesamiento propio. Visual y corto: figura más un párrafo por tema, sin explicar cada etapa en detalle.
+Solo lo que ya existe, sin procesamiento propio. Visual y corto: figura más un párrafo por tema, sin explicar cada etapa en detalle. El orden es el de la call: ciclo de vida → estado actual → qué está cambiando la IA.
 
-- 2.1. El proceso de desarrollo de software: las cuatro etapas de Sommerville. *(marco v3, sección 1; la tabla pasa a párrafo más figura)*
+- 2.1. El ciclo de vida del software: las cuatro etapas de Sommerville. *(marco v3, sección 1; la tabla pasa a párrafo más figura)*
 - 2.2. Verificación y validación: el modelo en V. Las dos puntas son el feedback del stakeholder. *(marco v3, sección 2)*
 - 2.3. Ciclos de feedback: definición de trabajo. *(marco v3, Definiciones)*
-- 2.4. Cómo ocurre hoy: el ejemplo de Scrum sin IA. *(marco v3, sección 3)*
+- 2.4. El estado actual: cómo se da el feedback hoy, con Scrum como ejemplo, sin IA. *(marco v3, sección 3)*
+- 2.5. La IAG: qué es y qué está cambiando en el desarrollo de software. Presentación breve; el detalle de qué cambia en el feedback es el capítulo 4. *(a escribir; hoy no está en el marco)*
 
 ## 3. Revisión bibliográfica
 
