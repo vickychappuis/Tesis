@@ -2,7 +2,7 @@
 
 Para cada referencia citada en la sección 4 (y la 5) del marco: si estaba o no en las listas originales del relevamiento, dónde apareció y con qué clasificación. Fuentes: planillas de los sprints 5, 6, 8, 9, 10 y 11, `REFERENCIAS.xlsx` y `sprint 15/FUENTES_MARCO.md`.
 
-La columna **¿Salió en las búsquedas?** se refiere a los resultados de las búsquedas de los sprints 5 a 10 (las 5 bases, el snowballing y la gris). Valores: **sí** (la búsqueda la encontró y quedó) · **sí, pero descartada; reentró** (la búsqueda la encontró, el filtrado la dejó afuera y volvió por otra búsqueda) · **no** (ninguna búsqueda la encontró; entró por una vía documentada aparte, como el tutor o la exploración temprana). Estar en `REFERENCIAS.xlsx` no cuenta como búsqueda: ese archivo es el compilado de salida.
+La columna **¿Salió en las búsquedas?** se refiere a los resultados de las búsquedas de los sprints 5 a 10 (las 5 bases, el snowballing y la gris). Valores: **sí** (la búsqueda la encontró y quedó) · **sí, la descartamos y después reentró** (la búsqueda la encontró, el filtrado la marcó roja, y una búsqueda posterior la volvió a traer) · **no** (ninguna búsqueda la encontró; entró por una vía documentada aparte, como el tutor o la exploración temprana). Estar en `REFERENCIAS.xlsx` no cuenta como búsqueda: ese archivo es el compilado de salida.
 
 ![Origen de los 18 papers del marco](assets/origen_papers_marco.svg)
 
@@ -17,9 +17,9 @@ La columna **¿Salió en las búsquedas?** se refiere a los resultados de las b�
 | Lindenberg 2025 (`lindenberg2025business`) | 4.5 | corpus | sí | Springer, verde por título y por abstract → corpus final (sprint 8, lote 1) |
 | Mircea 2026 (`mircea2026supporting`) | 4.3 | corpus | sí | Forward snowballing (sprint 8/9), aprobado verde → lote 2 |
 | Alabsi 2026 (`alabsi2026empirical`) | 4.4a | gris | sí | Forward snowballing (sprint 8/9), verde → lote 2. Estaba en la lista: la etiqueta [gris] refleja el tipo (preprint de Research Square), no el origen |
-| Geyer 2025 (`geyer2025epics`) | 4.3 | gris | **sí, pero descartada; reentró** | ACM: amarillo por título (sprint 6) → **rojo por abstract** (sprint 6, también en la columna Daniel); rojo además en el forward snowballing. Reincorporada por literatura gris (sprint 10, lote 3) |
-| Torun 2025 (`torun2025bugtracking`) | 4.3 | gris | **sí, pero descartada; reentró** | ACM: **rojo por título** (sprint 6, no llegó a abstract). Reincorporada por literatura gris (sprint 10, lote 3) |
-| Busany 2024 (`busany2024bi`) | 4.4a | gris | **sí, pero descartada; reentró** | **Rojo en el backward snowballing** (sprint 9: "consulta datos existentes con lenguaje natural, no desarrollo"). Reincorporada por literatura gris (sprint 10, lote 3) |
+| Geyer 2025 (`geyer2025epics`) | 4.3 | gris | **sí, la descartamos y después reentró** | ACM: amarillo por título (sprint 6) → **rojo por abstract** (sprint 6, también en la columna Daniel); rojo además en el forward snowballing. Reincorporada por literatura gris (sprint 10, lote 3) |
+| Torun 2025 (`torun2025bugtracking`) | 4.3 | gris | **sí, la descartamos y después reentró** | ACM: **rojo por título** (sprint 6, no llegó a abstract). Reincorporada por literatura gris (sprint 10, lote 3) |
+| Busany 2024 (`busany2024bi`) | 4.4a | gris | **sí, la descartamos y después reentró** | **Rojo en el backward snowballing** (sprint 9: "consulta datos existentes con lenguaje natural, no desarrollo"). Reincorporada por literatura gris (sprint 10, lote 3) |
 | Damian 2025 (`damian2025reconnect`) | 4.1 | gris | sí | Literatura gris (sprint 10, arXiv) → lote 3. Reapareció en las búsquedas del sprint 11; en la pasada estricta quedó fuera de foco (la GenAI no media el feedback) pero se mantuvo verde como gris |
 | Prensa profesional (CIOs / vibe coding) | 4.4b | gris | sí | Literatura gris (sprint 10, cio.com, lote 3, fila 18 de `REFERENCIAS.xlsx`) |
 | Pirozzi 2024 | 4.1 | gris | no | Exploración temprana (sprints 2-3), antes de la búsqueda sistemática; no salió en ninguna búsqueda formal. Documentada en `FUENTES_MARCO.md` (sprint 15) |
