@@ -13,22 +13,22 @@
 
 - Validar el origen de cada referencia de la tabla. Hecho: gráfico de arriba.
 - Recodificar los descartados de las primeras fases contra las categorías nuevas. Hecho: gráfico de abajo.
-- Objetivo de las dos: dejar la tablita lo más completa posible antes de decidir la PoC.
+- Objetivo de las dos: dejar la tabla de categorías lo más completa posible antes de decidir la PoC.
 
 ## La recodificación, en una imagen
 
 - Se releyeron los descartados de todas las planillas (sprints 6, 8, 9 y 10).
 - Volumen: 1066 filas únicas, 389 con vocabulario de feedback más IAG.
-- Criterio: ¿cae en alguna categoría de la tablita? Esto es lo que había y lo que se suma:
+- Criterio: ¿cae en alguna categoría de la tabla? Esto es lo que había y lo que se suma:
 
-![La tablita después de la recodificación](assets/tablita_recodificacion.svg)
+![La tabla de categorías después de la recodificación](assets/tablita_recodificacion.svg)
 
 ## Lo que deja la recodificación
 
-- Los azules del sprint 8 (apartados "para después") eran el lugar correcto: 4 de los 8 caen directo en la tablita, incluido el mejor hallazgo, *From Throw-Away to Takeaway* (no técnicos con vibe coding, con empiria) para 4.4b.
+- Los azules del sprint 8 (apartados "para después") eran el lugar correcto: 4 de los 8 caen directo en la tabla de categorías, incluido el mejor hallazgo, *From Throw-Away to Takeaway* (no técnicos con vibe coding, con empiria) para 4.4b.
 - 4.1 gana su primera evidencia académica formal (*AI personas*, amarillo de ScienceDirect): hoy esa categoría estaba declarada sin respaldo del corpus.
 - **4.5 sigue vacía también entre los descartados** y todo lo de aceptación que apareció genera el artefacto o automatiza, nada sobre la validación del stakeholder. Los dos huecos de la tesis resisten la recodificación.
-- Los verdes sin usar que son surveys (Vasudevan, Cheng, Fischer y Lang) van a related work, no a la tablita. El "verde de Google" era el propio paper de Geyer.
+- Los verdes sin usar que son surveys (Vasudevan, Cheng, Fischer y Lang) van a related work, no a la tabla de categorías. El "verde de Google" era el propio paper de Geyer.
 
 ## Temas abiertos para hoy
 
