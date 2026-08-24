@@ -4,6 +4,8 @@ Para cada referencia citada en la sección 4 (y la 5) del marco: si estaba o no 
 
 **Veredictos posibles:** ✅ estaba en el corpus/verdes · ⚠️ apareció en el relevamiento y quedó afuera por el corte · ➕ nunca apareció en las búsquedas (entró por otra vía documentada).
 
+![Origen de los 18 papers del marco](assets/origen_papers_marco.svg)
+
 ## Papers
 
 | Referencia | Sec. | Etiqueta | Veredicto | Detalle |
