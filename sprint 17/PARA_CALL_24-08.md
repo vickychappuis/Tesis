@@ -24,6 +24,12 @@
 
 ## Candidatos a sumar, con qué dice cada uno
 
+Reminder de por qué tiene sentido sumar estos:
+
+- El marco v3 quedó cerrado con Daniel: organiza lo relevado en categorías según qué operación hace la IA sobre el ciclo de feedback (4.1 a 4.7).
+- Cuando clasificamos las búsquedas, el foco era otro: "cómo cambia la IAG el feedback en general". Con ese criterio, papers que atacan una operación puntual quedaron rojos.
+- Con el foco final (las categorías), esos mismos papers sí aportan. Por eso se reconsideran: cada candidato cae en una categoría concreta.
+
 ⭐ = más peso (empiria o venue fuerte).
 
 | Cat. | Paper | Qué dice |
@@ -62,10 +68,6 @@ En 4.5 no cayó ningún candidato.
 ## Temas abiertos para hoy
 
 - Cómo formular la sección de revisión en el documento final (quedó en "vamos viendo").
-- Alabsi figura [gris] pero es lote 2 del mapeo; definir si la etiqueta indica origen o tipo.
-- Pirozzi falta en `REFERENCIAS.xlsx`; sumarla al unificar el bib.
-- Busany se cita en 4.4a con la cautela de su descarte del sprint 9.
-- Objetivos: "efectos percibidos" se transforma o cae (sin entrevistas); se resuelve al reescribir la introducción.
 
 ## Anexo
 
