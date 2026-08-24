@@ -19,7 +19,9 @@
 
 - Se releyeron los descartados de todas las planillas (sprints 6, 8, 9 y 10).
 - Volumen: 1066 filas únicas, 389 con vocabulario de feedback más IAG.
-- Criterio: ¿cae en alguna categoría de la tabla? Esto es lo que había y lo que se suma:
+- Criterio: ¿cae en alguna categoría de la tabla con el foco nuevo?
+- En el gráfico: la línea gris es lo que el marco ya cita; la línea verde son los descartados que se proponen sumar.
+- El marco v3 no se modificó. Los verdes son candidatos a discutir hoy; se decide en conjunto cuáles entran.
 
 ![La tabla de categorías después de la recodificación](assets/tabla_categorias_recodificacion.svg)
 
