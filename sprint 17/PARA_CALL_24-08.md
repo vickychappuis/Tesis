@@ -30,7 +30,8 @@ El foco, antes versus ahora:
 - **Ahora (marco v3):** lo que la tesis estudia son dos puntos, los dos vacíos y donde apunta la PoC:
   - **4.5**: validar lo construido contra reglas y procesos de negocio.
   - **4.7**: la instancia de aceptación (el stakeholder usa el software y dice si es lo que pidió).
-- **4.1 a 4.4 son el contexto**: las piezas del ciclo que la IA ya cubre. Los candidatos de abajo pueblan ese contexto; ninguno resuelve el centro de 4.5 ni de 4.7, y eso también es un resultado. Se verificó con una segunda pasada dirigida (vocabulario de reglas de negocio y de aceptación, sin exigir que mencionen IAG): aparecieron solo tres trabajos de frontera, marcados como tales en la tabla.
+- **4.1 a 4.4 son el contexto**: las piezas del ciclo que la IA ya cubre. Ahí cae la mayoría de los candidatos.
+- **En 4.5 y 4.7 sí hay candidatos, pero de frontera**: hacen la operación en otro dominio (compliance legal, modelos de empresa) o generan el artefacto de aceptación. El stakeholder validando software construido sigue sin trabajos.
 
 ⭐ = más peso (empiria o venue fuerte).
 
@@ -68,7 +69,6 @@ El foco, antes versus ahora:
 | 4.7 | La aceptación | Tesina UNLP: asistencia IA en elicitación y especificación (Panigo y Petkoff Bankoff, 2025, 2ª pasada) | Herramienta IA que asiste al analista funcional generando historias de usuario en formato Gherkin. Genera el artefacto de aceptación; regional y cercana a la PoC |
 | roles | Roles (obj. C) | From Backlogs to Bots (Wiley) · The AI Scrum Master ([Springer](https://link.springer.com/chapter/10.1007/978-3-031-99062-9_8)) · All work and no flow (tesis 2025) | PO, dev y Scrum Master redefinidos por la IAG. No van a la tabla; alimentan el objetivo C |
 
-En el centro de 4.5 y 4.7 no cayó ningún candidato: los tres de la segunda pasada son frontera (hacen la operación en otro dominio o generan el artefacto, sin actores de negocio sobre software construido).
 
 ## Temas abiertos para hoy
 
