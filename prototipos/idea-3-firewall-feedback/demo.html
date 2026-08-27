@@ -1,0 +1,362 @@
+<meta charset="utf-8">
+<title>Firewall de feedback - demo</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 720px; overflow: hidden; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #f4f6f9;
+    color: #1c2733;
+    position: relative;
+  }
+  header {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    background: #ffffff;
+    border-bottom: 1px solid #e3e8ee;
+  }
+  header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+  header .sub { font-size: 13px; color: #5b6b7b; }
+  .stage {
+    display: grid;
+    grid-template-columns: 380px 1fr 380px;
+    gap: 20px;
+    padding: 20px 32px;
+    height: 656px;
+  }
+  .col {
+    background: #ffffff;
+    border: 1px solid #e3e8ee;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .col h2 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #5b6b7b;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eef1f5;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .col h2 .dot { width: 8px; height: 8px; border-radius: 50%; }
+  #cliente h2 .dot { background: #8a94a6; }
+  #agente h2 .dot { background: #6d5ef0; }
+  #equipo h2 .dot { background: #1f9d63; }
+  .list { display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+
+  /* Mensajes crudos del cliente */
+  .raw {
+    background: #f7f8fa;
+    border: 1px solid #e6eaef;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 13.5px;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(-14px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+  .raw.show { opacity: 1; transform: translateY(0); }
+  .raw .meta { font-size: 11px; color: #8a94a6; margin-bottom: 4px; }
+  .raw.dim { opacity: 0.38; transition: opacity 0.6s ease; }
+  .raw.picked { border-color: #6d5ef0; box-shadow: 0 0 0 2px rgba(109,94,240,0.15); }
+
+  /* Panel del agente */
+  #agente { background: #f9f8ff; border-color: #ddd7f8; }
+  .agent-idle {
+    font-size: 13px;
+    color: #8a86b8;
+    text-align: center;
+    padding: 20px 10px;
+  }
+  .verdict {
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.45;
+    background: #ffffff;
+    border: 1px solid #e3ddfb;
+    opacity: 0;
+    transform: scale(0.96);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .verdict.show { opacity: 1; transform: scale(1); }
+  .verdict .quote {
+    font-size: 12px;
+    color: #6b7686;
+    font-style: italic;
+    margin-bottom: 8px;
+    border-left: 3px solid #d9d3f7;
+    padding-left: 8px;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 999px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .tag.bug { background: #fdeaea; color: #c0392b; }
+  .tag.alcance { background: #fff3dc; color: #b07a10; }
+  .tag.cubierto { background: #e8f0fe; color: #2b5fb8; }
+  .tag.ruido { background: #eef1f5; color: #6b7686; }
+  .verdict .just { color: #3d4a59; }
+  .verdict .dest { margin-top: 8px; font-size: 12px; font-weight: 600; }
+  .verdict .dest.pasa { color: #1f9d63; }
+  .verdict .dest.nopasa { color: #8a94a6; }
+  .thinking {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: #6d5ef0;
+    padding: 4px 2px;
+  }
+  .thinking.on { display: flex; }
+  .spinner {
+    width: 14px; height: 14px;
+    border: 2px solid #d9d3f7;
+    border-top-color: #6d5ef0;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Bandeja del equipo */
+  .ticket {
+    border: 1px solid #d6e8de;
+    border-left: 4px solid #1f9d63;
+    border-radius: 10px;
+    padding: 11px 13px;
+    font-size: 13px;
+    line-height: 1.45;
+    background: #fbfffd;
+    opacity: 0;
+    transform: translateX(16px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+  .ticket.show { opacity: 1; transform: translateX(0); }
+  .ticket .head { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+  .ticket .title { font-weight: 700; font-size: 13.5px; }
+  .prio {
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .prio.alta { background: #fdeaea; color: #c0392b; }
+  .prio.media { background: #fff3dc; color: #b07a10; }
+  .ticket .body { color: #3d4a59; }
+  .ticket .trace { margin-top: 6px; font-size: 11px; color: #8a94a6; }
+  .empty-team { font-size: 13px; color: #9aa6b3; text-align: center; padding: 20px 10px; }
+  .counter {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid #eef1f5;
+    font-size: 12px;
+    color: #5b6b7b;
+  }
+
+  /* Tarjeta de cierre */
+  #cierre {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 26, 40, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+  }
+  #cierre.show { opacity: 1; }
+  #cierre .card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 44px 52px;
+    max-width: 720px;
+    text-align: center;
+  }
+  #cierre .card h3 { font-size: 24px; margin-bottom: 16px; letter-spacing: -0.01em; }
+  #cierre .card p { font-size: 17px; line-height: 1.55; color: #3d4a59; }
+  #cierre .card .obj { margin-top: 18px; font-size: 14px; color: #6d5ef0; font-weight: 700; }
+</style>
+
+<header>
+  <h1>Firewall de feedback</h1>
+  <div class="sub">El feedback crudo del cliente pasa por un agente IAG antes de llegar al equipo</div>
+</header>
+
+<div class="stage">
+  <div class="col" id="cliente">
+    <h2><span class="dot"></span>Cliente &middot; feedback crudo</h2>
+    <div class="list" id="lista-cliente"></div>
+  </div>
+
+  <div class="col" id="agente">
+    <h2><span class="dot"></span>Agente IAG &middot; clasifica contra lo acordado</h2>
+    <div class="thinking" id="thinking"><span class="spinner"></span><span id="thinking-text">Analizando...</span></div>
+    <div class="list" id="lista-agente">
+      <div class="agent-idle" id="idle">Esperando feedback del cliente...</div>
+    </div>
+  </div>
+
+  <div class="col" id="equipo">
+    <h2><span class="dot"></span>Equipo &middot; solo &iacute;tems accionables</h2>
+    <div class="list" id="lista-equipo">
+      <div class="empty-team" id="empty-team">Bandeja vac&iacute;a</div>
+    </div>
+    <div class="counter" id="counter">0 &iacute;tems recibidos &middot; 0 filtrados</div>
+  </div>
+</div>
+
+<div id="cierre">
+  <div class="card">
+    <h3>Qu&eacute; ataca de la tesis</h3>
+    <p>La <strong>granularidad</strong> y la <strong>temporalidad</strong> del ciclo de feedback: el equipo recibe menos &iacute;tems, m&aacute;s estructurados y trazados a la conversaci&oacute;n original, en el momento en que son accionables.</p>
+    <div class="obj">Objetivo B de la tesis</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var raws = [
+    { id: 'r1', meta: 'Chat &middot; 09:12 &middot; Laura (Operaciones)',
+      text: 'Hola, la pantalla de reportes se ve rara, no s&eacute;, algo cambi&oacute;.' },
+    { id: 'r2', meta: 'Mail &middot; 09:40 &middot; Marcos (Comercial)',
+      text: 'El descuento del 10% se est&aacute; aplicando a clientes nuevos. Hab&iacute;amos quedado en que era solo para clientes con m&aacute;s de un a&ntilde;o.' },
+    { id: 'r3', meta: 'Nota de reuni&oacute;n &middot; 10:05',
+      text: 'Piden poder exportar los reportes mensuales a Excel.' },
+    { id: 'r4', meta: 'Chat &middot; 10:22 &middot; Laura (Operaciones)',
+      text: 'El login ahora pide doble factor, &iquest;eso est&aacute; bien? Me parece que antes no lo ped&iacute;a.' },
+    { id: 'r5', meta: 'Chat &middot; 10:41 &middot; Marcos (Comercial)',
+      text: 'Sigue mal lo del descuento a los clientes nuevos, urgente!!' }
+  ];
+
+  var verdicts = [
+    { raw: 'r1', tag: 'ruido', tagText: 'Ruido / falta contexto',
+      quote: '"la pantalla de reportes se ve rara..."',
+      just: 'Sin pasos ni dato concreto. Se pide aclaraci&oacute;n al cliente autom&aacute;ticamente.',
+      dest: 'No pasa al equipo', pasa: false },
+    { raw: 'r2', tag: 'bug', tagText: 'Bug de regla de negocio',
+      quote: '"el descuento del 10% se aplica a clientes nuevos..."',
+      just: 'Contradice la regla acordada RD-04: descuento solo para antig&uuml;edad mayor a un a&ntilde;o.',
+      dest: 'Pasa al equipo &middot; prioridad alta', pasa: true,
+      ticket: { title: 'Descuento 10% aplicado a clientes nuevos', prio: 'alta', prioText: 'Alta',
+        body: 'Regla RD-04 incumplida: el descuento corresponde solo a clientes con m&aacute;s de un a&ntilde;o.',
+        trace: 'Fuente: mail de Marcos 09:40 &middot; regla RD-04 del acta 12/05' } },
+    { raw: 'r3', tag: 'alcance', tagText: 'Cambio de alcance',
+      quote: '"exportar los reportes mensuales a Excel"',
+      just: 'No est&aacute; en el alcance acordado. Se registra como pedido nuevo para priorizar con el cliente.',
+      dest: 'Pasa al equipo &middot; prioridad media', pasa: true,
+      ticket: { title: 'Pedido nuevo: exportar reportes a Excel', prio: 'media', prioText: 'Media',
+        body: 'Fuera del alcance actual. Requiere estimaci&oacute;n y acuerdo antes de implementar.',
+        trace: 'Fuente: nota de reuni&oacute;n 10:05 &middot; no figura en el alcance v3' } },
+    { raw: 'r4', tag: 'cubierto', tagText: 'Ya cubierto',
+      quote: '"el login ahora pide doble factor..."',
+      just: 'Comportamiento definido en el acta del 12/05 (seguridad). Se responde al cliente con la referencia.',
+      dest: 'No pasa al equipo', pasa: false },
+    { raw: 'r5', tag: 'ruido', tagText: 'Duplicado',
+      quote: '"sigue mal lo del descuento a los clientes nuevos"',
+      just: 'Duplica el bug ya reportado del descuento. Se agrega como traza al &iacute;tem existente.',
+      dest: 'No genera &iacute;tem nuevo', pasa: false }
+  ];
+
+  var recibidos = 0, filtrados = 0;
+
+  function el(html) {
+    var d = document.createElement('div');
+    d.innerHTML = html;
+    return d.firstElementChild;
+  }
+  function showRaw(i) {
+    var r = raws[i];
+    var node = el('<div class="raw" id="' + r.id + '"><div class="meta">' + r.meta + '</div>' + r.text + '</div>');
+    document.getElementById('lista-cliente').appendChild(node);
+    requestAnimationFrame(function () { requestAnimationFrame(function () { node.classList.add('show'); }); });
+  }
+  function startThinking(i) {
+    document.getElementById('idle').style.display = 'none';
+    document.getElementById('thinking').classList.add('on');
+    var msg = document.getElementById(verdicts[i].raw);
+    if (msg) msg.classList.add('picked');
+  }
+  function showVerdict(i) {
+    var v = verdicts[i];
+    document.getElementById('thinking').classList.remove('on');
+    var lista = document.getElementById('lista-agente');
+    while (lista.children.length >= 3) lista.removeChild(lista.firstElementChild);
+    var node = el('<div class="verdict"><div class="quote">' + v.quote + '</div>' +
+      '<span class="tag ' + v.tag + '">' + v.tagText + '</span>' +
+      '<div class="just">' + v.just + '</div>' +
+      '<div class="dest ' + (v.pasa ? 'pasa' : 'nopasa') + '">' + (v.pasa ? '&rarr; ' : '&#10005; ') + v.dest + '</div></div>');
+    lista.appendChild(node);
+    requestAnimationFrame(function () { requestAnimationFrame(function () { node.classList.add('show'); }); });
+    var msg = document.getElementById(v.raw);
+    if (msg) { msg.classList.remove('picked'); if (!v.pasa) msg.classList.add('dim'); }
+    if (v.pasa) { recibidos++; } else { filtrados++; }
+    document.getElementById('counter').innerHTML = recibidos + ' &iacute;tems recibidos &middot; ' + filtrados + ' filtrados';
+  }
+  function showTicket(i) {
+    var t = verdicts[i].ticket;
+    var empty = document.getElementById('empty-team');
+    if (empty) empty.style.display = 'none';
+    var node = el('<div class="ticket"><div class="head"><span class="title">' + t.title + '</span>' +
+      '<span class="prio ' + t.prio + '">' + t.prioText + '</span></div>' +
+      '<div class="body">' + t.body + '</div>' +
+      '<div class="trace">' + t.trace + '</div></div>');
+    document.getElementById('lista-equipo').appendChild(node);
+    requestAnimationFrame(function () { requestAnimationFrame(function () { node.classList.add('show'); }); });
+  }
+  function addTrace() {
+    var tickets = document.querySelectorAll('.ticket .trace');
+    if (tickets.length) tickets[0].innerHTML += ' &middot; +1 reporte duplicado (chat 10:41)';
+  }
+  function closeCard() {
+    document.getElementById('cierre').classList.add('show');
+  }
+
+  var steps = [
+    [1000, function () { showRaw(0); }],
+    [2200, function () { startThinking(0); }],
+    [4200, function () { showVerdict(0); }],
+
+    [6500, function () { showRaw(1); }],
+    [7700, function () { startThinking(1); }],
+    [10200, function () { showVerdict(1); }],
+    [11200, function () { showTicket(1); }],
+
+    [14000, function () { showRaw(2); }],
+    [15200, function () { startThinking(2); }],
+    [17700, function () { showVerdict(2); }],
+    [18700, function () { showTicket(2); }],
+
+    [21500, function () { showRaw(3); }],
+    [22700, function () { startThinking(3); }],
+    [25200, function () { showVerdict(3); }],
+
+    [27500, function () { showRaw(4); }],
+    [28700, function () { startThinking(4); }],
+    [31200, function () { showVerdict(4); }],
+    [32200, function () { addTrace(); }],
+
+    [36000, closeCard]
+  ];
+  steps.forEach(function (s) { setTimeout(s[1], s[0]); });
+})();
+</script>

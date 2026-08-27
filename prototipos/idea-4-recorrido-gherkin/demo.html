@@ -1,0 +1,403 @@
+<meta charset="utf-8">
+<title>Del recorrido a Gherkin</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 720px; overflow: hidden; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    background: #eef1f5; color: #1f2733;
+    display: flex; flex-direction: column;
+  }
+  header {
+    height: 52px; flex: 0 0 52px; background: #16202e; color: #fff;
+    display: flex; align-items: center; padding: 0 24px; gap: 14px;
+  }
+  header .dot { width: 10px; height: 10px; border-radius: 50%; background: #e5484d; }
+  header .dot.rec { animation: blink 1.2s infinite; }
+  @keyframes blink { 50% { opacity: .25; } }
+  header h1 { font-size: 16px; font-weight: 600; letter-spacing: .2px; }
+  header span.sub { font-size: 13px; color: #9fb0c3; }
+
+  main { flex: 1; display: flex; min-height: 0; }
+
+  /* ---------- Left: app + subtitles ---------- */
+  #left { flex: 0 0 56%; display: flex; flex-direction: column; padding: 18px 14px 14px 20px; min-width: 0; }
+  #app {
+    flex: 1; background: #fff; border-radius: 10px; border: 1px solid #d7dee7;
+    box-shadow: 0 2px 10px rgba(22,32,46,.07); overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  #app .appbar {
+    height: 42px; background: #f6f8fa; border-bottom: 1px solid #e3e8ee;
+    display: flex; align-items: center; gap: 8px; padding: 0 14px;
+    font-size: 13px; font-weight: 600; color: #3a4657;
+  }
+  #app .appbar .win { display: flex; gap: 6px; }
+  #app .appbar .win i { width: 10px; height: 10px; border-radius: 50%; display: block; }
+  #app .appbar .win i:nth-child(1) { background: #ff5f57; }
+  #app .appbar .win i:nth-child(2) { background: #febc2e; }
+  #app .appbar .win i:nth-child(3) { background: #28c840; }
+  #app .appbar .name { margin-left: 8px; }
+  #app .body { flex: 1; padding: 18px 20px; position: relative; }
+
+  .card {
+    border: 1px solid #e3e8ee; border-radius: 8px; padding: 14px 16px; margin-bottom: 14px;
+    transition: box-shadow .4s, border-color .4s;
+  }
+  .card.focus { border-color: #4c7dd0; box-shadow: 0 0 0 3px rgba(76,125,208,.18); }
+  .card h3 { font-size: 15px; margin-bottom: 4px; }
+  .card .meta { font-size: 12.5px; color: #66788c; display: flex; gap: 14px; margin-top: 6px; }
+  .badge {
+    display: inline-block; font-size: 11.5px; font-weight: 700; padding: 2px 9px;
+    border-radius: 20px; vertical-align: 2px; margin-left: 8px;
+  }
+  .badge.moroso { background: #fdecec; color: #c62f35; border: 1px solid #f5c6c8; }
+
+  .btn {
+    display: inline-block; font-size: 13px; font-weight: 600; padding: 8px 16px;
+    border-radius: 6px; background: #2f6fdb; color: #fff; cursor: default;
+    transition: transform .15s, box-shadow .3s;
+  }
+  .btn.pressed { transform: scale(.96); box-shadow: 0 0 0 4px rgba(47,111,219,.25); }
+
+  #factura { opacity: 0; transform: translateY(8px); transition: opacity .5s, transform .5s; }
+  #factura.show { opacity: 1; transform: none; }
+  #factura h4 { font-size: 14px; margin-bottom: 10px; color: #3a4657; }
+  .field { font-size: 13px; margin-bottom: 10px; color: #4a5a6d; }
+  .field b { color: #1f2733; }
+  .opts { display: flex; gap: 10px; margin-top: 6px; }
+  .opt {
+    border: 1.5px solid #cfd8e3; border-radius: 6px; padding: 8px 18px;
+    font-size: 13px; font-weight: 600; color: #4a5a6d; background: #fff;
+    transition: all .35s;
+  }
+  .opt.sel { border-color: #2f6fdb; color: #2f6fdb; background: #eef4fd; }
+  .opt.warn { border-color: #e5484d; color: #c62f35; background: #fdecec; }
+
+  .cursor-dot {
+    position: absolute; width: 18px; height: 18px; border-radius: 50%;
+    background: rgba(47,111,219,.35); border: 2px solid #2f6fdb;
+    pointer-events: none; opacity: 0; transition: all .7s ease; z-index: 5;
+  }
+  .cursor-dot.show { opacity: 1; }
+
+  /* subtitles */
+  #subs {
+    flex: 0 0 96px; margin-top: 12px; display: flex; align-items: center; justify-content: center;
+  }
+  #subbox {
+    max-width: 96%; background: rgba(22,32,46,.92); color: #f2f5f9; border-radius: 10px;
+    padding: 12px 20px; font-size: 16.5px; line-height: 1.45; text-align: center;
+    opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s;
+  }
+  #subbox.show { opacity: 1; transform: none; }
+  #subbox .who { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 3px; }
+  #subbox .who.st { color: #7fd0a2; }
+  #subbox .who.ag { color: #8ab4f8; }
+  #subbox .who.nar { color: #c3ceda; }
+
+  /* ---------- Right: agent panel ---------- */
+  #right { flex: 1; padding: 18px 20px 14px 6px; min-width: 0; }
+  #agent {
+    height: 100%; background: #101826; border-radius: 10px; color: #dbe4ef;
+    display: flex; flex-direction: column; overflow: hidden;
+    border: 1px solid #223146; box-shadow: 0 2px 10px rgba(22,32,46,.12);
+  }
+  #agent .head {
+    height: 42px; flex: 0 0 42px; display: flex; align-items: center; gap: 10px;
+    padding: 0 16px; border-bottom: 1px solid #223146; font-size: 13px; font-weight: 600;
+  }
+  #agent .head .ai {
+    width: 22px; height: 22px; border-radius: 6px; background: linear-gradient(135deg,#4c7dd0,#7a5fd0);
+    display: flex; align-items: center; justify-content: center; font-size: 12px; color: #fff;
+  }
+  #agent .head .st { margin-left: auto; font-size: 11px; color: #7f96b0; font-weight: 500; }
+  #agent .head .st i {
+    display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+    background: #38c172; margin-right: 5px; animation: blink 1.6s infinite;
+  }
+  #flow { flex: 1; overflow: hidden; padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; }
+
+  .chip {
+    align-self: flex-start; font-size: 12px; color: #9db4d0; background: #182437;
+    border: 1px solid #27405e; border-radius: 20px; padding: 4px 12px;
+    opacity: 0; transform: translateY(6px); transition: all .4s;
+  }
+  .chip.show { opacity: 1; transform: none; }
+  .chip q { font-style: italic; color: #c6d6e8; quotes: "\201C" "\201D"; }
+
+  .gherkin {
+    background: #0a1120; border: 1px solid #24344c; border-radius: 8px;
+    font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 12.5px; line-height: 1.65;
+    padding: 10px 14px; white-space: pre-wrap; position: relative;
+    opacity: 0; transition: opacity .4s; min-height: 20px;
+  }
+  .gherkin.show { opacity: 1; }
+  .gherkin .kw { color: #6cb2ff; font-weight: 700; }
+  .gherkin .esc { color: #ffd479; font-weight: 600; }
+  .gherkin .str { color: #97e6a9; }
+  .gherkin .val {
+    position: absolute; top: 8px; right: 10px; font-family: inherit;
+    font-size: 10.5px; font-weight: 700; color: #38c172; border: 1px solid #2b6a48;
+    background: #10281c; border-radius: 20px; padding: 2px 9px;
+    opacity: 0; transform: scale(.8); transition: all .4s;
+  }
+  .gherkin .val.show { opacity: 1; transform: none; }
+
+  .reread {
+    background: #1a2c45; border: 1px solid #2c4a71; border-radius: 10px;
+    padding: 11px 14px; font-size: 13.5px; line-height: 1.5; color: #e3ecf7;
+    opacity: 0; transform: translateY(6px); transition: all .45s;
+  }
+  .reread.show { opacity: 1; transform: none; }
+  .reread .lbl { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: #8ab4f8; margin-bottom: 4px; }
+  .reread.ok { background: #12301f; border-color: #2b6a48; }
+  .reread.ok .lbl { color: #7fd0a2; }
+
+  /* handoff view */
+  #handoff {
+    position: absolute; inset: 0; background: #101826; padding: 20px 18px;
+    display: flex; flex-direction: column; gap: 12px;
+    opacity: 0; transform: translateY(12px); transition: all .6s; z-index: 3;
+    pointer-events: none;
+  }
+  #handoff.show { opacity: 1; transform: none; }
+  #handoff h2 { font-size: 15px; color: #fff; }
+  #handoff p.s { font-size: 12.5px; color: #93a9c2; margin-top: -6px; }
+  .test {
+    display: flex; align-items: center; gap: 12px; background: #17233a;
+    border: 1px solid #27405e; border-radius: 8px; padding: 11px 14px;
+    opacity: 0; transform: translateX(-10px); transition: all .45s;
+  }
+  .test.show { opacity: 1; transform: none; }
+  .test .ck {
+    width: 24px; height: 24px; flex: 0 0 24px; border-radius: 50%;
+    background: #10281c; border: 1.5px solid #38c172; color: #38c172;
+    display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;
+  }
+  .test .tx { font-size: 13px; line-height: 1.35; }
+  .test .tx small { display: block; font-size: 11px; color: #7f96b0; margin-top: 2px; }
+
+  .agentwrap { position: relative; flex: 1; display: flex; flex-direction: column; min-height: 0; }
+
+  /* closing card */
+  #closing {
+    position: fixed; inset: 0; background: rgba(14,20,30,.94); z-index: 50;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity .8s; pointer-events: none;
+  }
+  #closing.show { opacity: 1; }
+  #closing .box { max-width: 780px; text-align: center; padding: 0 40px; }
+  #closing .kicker { font-size: 14px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: #8ab4f8; margin-bottom: 18px; }
+  #closing h2 { font-size: 34px; line-height: 1.3; color: #fff; font-weight: 700; margin-bottom: 22px; }
+  #closing h2 em { font-style: normal; color: #7fd0a2; }
+  #closing p { font-size: 17px; line-height: 1.6; color: #b9c7d8; }
+</style>
+
+<header>
+  <span class="dot rec"></span>
+  <h1>Del recorrido a Gherkin</h1>
+  <span class="sub">Sesión de validación con el stakeholder · prototipo (mock)</span>
+</header>
+
+<main>
+  <section id="left">
+    <div id="app">
+      <div class="appbar">
+        <span class="win"><i></i><i></i><i></i></span>
+        <span class="name">FacturAr · Sistema de facturación (construido)</span>
+      </div>
+      <div class="body">
+        <div class="card" id="cliCard">
+          <h3>Comercial Andina S.A. <span class="badge moroso">MOROSO</span></h3>
+          <div class="meta">
+            <span>CUIT 30-71234567-8</span>
+            <span>Deuda vencida: $ 184.500</span>
+            <span>Última factura: 12/07/2026</span>
+          </div>
+        </div>
+        <div class="btn" id="btnNueva">Nueva factura</div>
+        <div class="card" id="factura" style="margin-top:14px">
+          <h4>Nueva factura · Comercial Andina S.A.</h4>
+          <div class="field">Concepto: <b>Servicio de mantenimiento mensual</b></div>
+          <div class="field">Importe: <b>$ 96.000</b></div>
+          <div class="field">Forma de pago:
+            <div class="opts">
+              <span class="opt" id="optContado">Contado</span>
+              <span class="opt" id="optCredito">Crédito (30 días)</span>
+            </div>
+          </div>
+        </div>
+        <div class="cursor-dot" id="cur"></div>
+      </div>
+    </div>
+    <div id="subs"><div id="subbox"><span class="who st" id="subwho">Stakeholder</span><span id="subtxt"></span></div></div>
+  </section>
+
+  <section id="right">
+    <div id="agent">
+      <div class="head">
+        <span class="ai">IA</span>
+        Agente de aceptación
+        <span class="st"><i></i>escuchando la sesión</span>
+      </div>
+      <div class="agentwrap">
+        <div id="flow">
+          <div class="chip" id="chip1">Comentario capturado: <q>si está moroso, no me tendría que dejar facturar a crédito</q></div>
+          <div class="gherkin" id="gk1"><span class="val" id="val1">✓ Validado por el cliente</span><span id="gk1t"></span></div>
+          <div class="chip" id="chip2">Comentario capturado: <q>al contado sí tendría que poder, aunque esté moroso</q></div>
+          <div class="gherkin" id="gk2"><span class="val" id="val2">✓ Validado por el cliente</span><span id="gk2t"></span></div>
+          <div class="reread" id="reread">
+            <span class="lbl">El agente relee en lenguaje de negocio</span>
+            Entendí dos reglas: a un cliente moroso no se le puede facturar a crédito,
+            pero sí al contado aunque tenga deuda. ¿Refleja lo que esperás del sistema?
+          </div>
+          <div class="reread ok" id="confirm">
+            <span class="lbl">Confirmación del stakeholder</span>
+            “Sí, es exactamente eso.” → Escenarios marcados como criterios de aceptación validados.
+          </div>
+        </div>
+        <div id="handoff">
+          <h2>Entrega al equipo de desarrollo</h2>
+          <p class="s">Tests de aceptación ejecutables, ya validados por el cliente en la sesión.</p>
+          <div class="test" id="t1">
+            <span class="ck">✓</span>
+            <span class="tx">Cliente moroso no puede facturar a crédito
+              <small>Gherkin ejecutable · validado por el stakeholder</small></span>
+          </div>
+          <div class="test" id="t2">
+            <span class="ck">✓</span>
+            <span class="tx">Cliente moroso puede facturar al contado
+              <small>Gherkin ejecutable · validado por el stakeholder</small></span>
+          </div>
+          <div class="test" id="t3">
+            <span class="ck">✓</span>
+            <span class="tx">Rechazo con motivo visible “cliente moroso”
+              <small>Gherkin ejecutable · validado por el stakeholder</small></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="closing">
+  <div class="box">
+    <div class="kicker">Qué ataca de la tesis</div>
+    <h2>La <em>instancia de aceptación</em>,<br>con el stakeholder validando los criterios</h2>
+    <p>El cliente usa el software y comenta lo que espera. El agente IAG convierte esos comentarios
+    en escenarios Gherkin, los relee en lenguaje de negocio y el stakeholder los confirma.
+    El equipo recibe tests de aceptación ejecutables, validados por quien pidió el sistema.</p>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+
+function sub(who, cls, text) {
+  const box = $('subbox');
+  box.classList.remove('show');
+  setTimeout(() => {
+    $('subwho').textContent = who;
+    $('subwho').className = 'who ' + cls;
+    $('subtxt').textContent = text;
+    box.classList.add('show');
+  }, 300);
+}
+
+function moveCursor(el) {
+  const body = document.querySelector('#app .body').getBoundingClientRect();
+  const r = el.getBoundingClientRect();
+  const cur = $('cur');
+  cur.style.left = (r.left - body.left + r.width / 2 - 9) + 'px';
+  cur.style.top  = (r.top - body.top + r.height / 2 - 9) + 'px';
+  cur.classList.add('show');
+}
+
+const KW = ['Given','When','Then','And'];
+function fmt(line) {
+  let html = line
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/"([^"]*)"/g, '<span class="str">"$1"</span>');
+  for (const k of KW) {
+    html = html.replace(new RegExp('^(\\s*)' + k + ' '), '$1<span class="kw">' + k + '</span> ');
+  }
+  html = html.replace(/^Escenario:/, '<span class="esc">Escenario:</span>');
+  return html;
+}
+
+function typeGherkin(boxId, txtId, lines, done) {
+  $(boxId).classList.add('show');
+  const target = $(txtId);
+  let li = 0, ci = 0, out = [];
+  (function tick() {
+    if (li >= lines.length) { done && done(); return; }
+    ci++;
+    if (ci > lines[li].length) { out[li] = fmt(lines[li]); li++; ci = 0; }
+    else { out[li] = fmt(lines[li].slice(0, ci)); }
+    target.innerHTML = out.join('\n');
+    setTimeout(tick, 26);
+  })();
+}
+
+const esc1 = [
+  'Escenario: Cliente moroso no puede facturar a crédito',
+  '  Given un cliente con facturas vencidas impagas',
+  '  When intento emitir una factura con pago a crédito',
+  '  Then el sistema rechaza la operación',
+  '  And muestra el motivo "cliente moroso"'
+];
+const esc2 = [
+  'Escenario: Cliente moroso puede facturar al contado',
+  '  Given un cliente con facturas vencidas impagas',
+  '  When emito una factura con pago al contado',
+  '  Then el sistema emite la factura normalmente'
+];
+
+const T = [];
+function at(sec, fn) { T.push(setTimeout(fn, sec * 1000)); }
+
+// ---- guion (~42 s) ----
+at(0.4, () => sub('Sesión de validación', 'nar',
+  'El stakeholder usa el sistema construido y comenta en voz alta lo que espera.'));
+
+at(3.2, () => { $('cliCard').classList.add('focus'); moveCursor($('cliCard'));
+  sub('Stakeholder', 'st', 'Acá está Comercial Andina, que figura como cliente moroso.'); });
+
+at(6.2, () => { moveCursor($('btnNueva')); });
+at(6.9, () => { $('btnNueva').classList.add('pressed'); });
+at(7.2, () => { $('btnNueva').classList.remove('pressed'); $('factura').classList.add('show');
+  $('cliCard').classList.remove('focus'); });
+at(7.6, () => { moveCursor($('optCredito')); $('optCredito').classList.add('warn');
+  sub('Stakeholder', 'st',
+  'Si el cliente está moroso, esto no me tendría que dejar facturar a crédito.'); });
+
+at(8.4, () => { $('chip1').classList.add('show'); });
+at(9.2, () => typeGherkin('gk1', 'gk1t', esc1));
+
+at(15.6, () => { moveCursor($('optContado')); $('optContado').classList.add('sel');
+  sub('Stakeholder', 'st',
+  'En cambio al contado sí tendría que poder facturarle, aunque esté moroso.'); });
+at(16.6, () => { $('chip2').classList.add('show'); });
+at(17.4, () => typeGherkin('gk2', 'gk2t', esc2));
+
+at(23.2, () => { $('reread').classList.add('show');
+  sub('Agente IAG', 'ag',
+  'Entendí dos reglas: moroso no puede facturar a crédito, pero sí al contado. ¿Refleja lo que esperás?'); });
+
+at(28.4, () => { $('confirm').classList.add('show');
+  sub('Stakeholder', 'st', 'Sí, es exactamente eso.'); });
+at(29.4, () => { $('val1').classList.add('show'); $('val2').classList.add('show'); });
+
+at(32.2, () => { $('handoff').classList.add('show'); $('cur').classList.remove('show');
+  sub('Resultado', 'nar',
+  'El equipo recibe tests de aceptación ejecutables, validados por el cliente en la sesión.'); });
+at(32.9, () => $('t1').classList.add('show'));
+at(33.5, () => $('t2').classList.add('show'));
+at(34.1, () => $('t3').classList.add('show'));
+
+at(37.5, () => { $('closing').classList.add('show'); $('subbox').classList.remove('show'); });
+</script>
