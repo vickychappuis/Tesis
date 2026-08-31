@@ -9,11 +9,10 @@
 - La generación de código es instrumental: el objeto de estudio es el ciclo de feedback.
 - La validación de cualquier prototipo puede ser liviana: 5 a 20 usuarios con formulario, o corridas automáticas comparando salidas.
 
-## Las cuatro ideas
+## Las tres ideas
 
 | Idea | Qué ataca de la tesis | Cómo se validaría |
 |---|---|---|
-| [Agente de aceptación guiada](idea-1-aceptacion-guiada/) | Instancia de aceptación: el agente guía al stakeholder mientras usa el software, propone qué probar por criterio y registra veredictos para el equipo | Proyecto ficticio, 5 a 15 usuarios de negocio, formulario al cierre |
 | [Validador contra reglas de negocio](idea-2-validador-reglas/) | Validar lo construido contra reglas y procesos de negocio, categoría vacía en la literatura | Corridas automáticas sobre aplicaciones de ejemplo con violaciones plantadas |
 | [Firewall de feedback](idea-3-firewall-feedback/) | Objetivo B: granularidad y temporalidad del ciclo; el equipo recibe solo ítems accionables priorizados | Corridas sobre issues históricos de repositorios reales |
 | [Del recorrido a Gherkin](idea-4-recorrido-gherkin/) | Instancia de aceptación: los comentarios del stakeholder se convierten en escenarios Gherkin que él mismo confirma | Sesiones con usuarios o comparación contra escenarios redactados por un analista |
