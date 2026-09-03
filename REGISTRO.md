@@ -213,6 +213,19 @@
 
 - Call con Daniel (24 ago, `sprint 17/resumen_call.md`): trazabilidad del corpus validada, la documentación se cierra rápido sin marco formal de revisión, y el foco pasa al prototipo (definirlo es lo riesgoso; la validación puede ser liviana)
 
-**Pendiente (sprint 18):** índice del Overleaf y 3-4 ideas de prototipo para OK de Daniel; leer la tabla de candidatos e incorporar lo que valga. Próxima reunión: lunes 31/8 o jueves 3/9, 15:00.
+**Pendiente (sprint 18):** ~~índice del Overleaf y 3-4 ideas de prototipo para OK de Daniel~~ (hechos, ver sprint 18); leer la tabla de candidatos e incorporar lo que valga. Próxima reunión: lunes 31/8 o jueves 3/9, 15:00.
+
+---
+
+## Sprint 18 — 25 ago → 7 sep 2026
+
+- Índice propuesto para el Overleaf (`sprint 18/INDICE_OVERLEAF.md`), con el orden que pidió Daniel en la call del 11/8: la introducción arranca por el ciclo de vida y el feedback, el background va todo sin IA, y la presentación de la IAG abre el capítulo de resultados
+- Ideas de prototipo con demo en video, una carpeta por idea en `prototipos/`. La idea 1 (aceptación guiada) se descartó por solaparse con la 4; quedan tres
+- Criterio de descarte que ordena las ideas: el actor de negocio tiene que quedar afectado por el prototipo, algo tiene que volver hacia él y cambiar lo que hace o lo que entiende. El test rápido es la validación propuesta: si el prototipo se puede evaluar entero sin usuarios de negocio, el negocio no es el sujeto del estudio. Por ese criterio se reformularon la 2 y la 3
+- Idea 2 (`prototipos/idea-2-reglas-contra-sistema/`): invertido el objeto de validación. Ya no valida el sistema para mandarle el ítem al equipo. Confronta las reglas contra el sistema construido y le devuelve al dueño de la regla las excepciones que el sistema codifica y nadie enunció; la regla del negocio se corrige en la sesión y el ítem para el equipo queda como subproducto. Ataca los objetivos C y D
+- Idea 3 (`prototipos/idea-3-feedback-contestado/`): el firewall pasa a ser feedback contestado. La respuesta vuelve al cliente en el momento, como contrapregunta, juicio de alcance o bug de regla, en vez de filtrarse a sus espaldas. El agente sugiere el alcance y no lo decide: si el cliente insiste el ítem pasa marcado como discrepancia, y esa escalada es un dato. Se mantiene la priorización, ahora del lado del negocio. Ataca los objetivos B, C y E
+- Idea 4 (`prototipos/idea-4-recorrido-gherkin/`): sin cambios, ya cumplía el criterio. Ataca la instancia de aceptación y el objetivo F
+
+**Pendiente:** OK de Daniel sobre el índice y elección de la idea de prototipo; leer la tabla de candidatos del sprint 17 e incorporar lo que valga.
 
 ---
