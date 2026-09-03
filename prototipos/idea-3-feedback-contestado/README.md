@@ -2,16 +2,17 @@
 
 ![Demo del feedback contestado](demo.gif)
 
-Video completo en `demo.webm` (48 s). Mock auto-animado en `demo.html` (abrir en un navegador a 1280x720).
+Video completo en `demo.webm` (56 s). Mock auto-animado en `demo.html` (abrir en un navegador a 1280x720).
 
 ## Qué es
 
 - El cliente manda su feedback por el canal de siempre: chat, mail, nota de reunión.
-- El agente IAG le contesta al cliente en el momento, en vez de rutear el pedido al equipo dos semanas después. Tres tipos de respuesta:
+- El agente IAG le contesta al cliente en el momento, en vez de rutear el pedido al equipo dos semanas después. Cuatro tipos de respuesta:
+  - **Pedido válido**: está completo y dentro de lo acordado. El agente lo confirma y pasa al equipo sin fricción. No toda respuesta es una objeción, y este es el caso que mantiene el canal usable.
   - **Contrapregunta**: el pedido está incompleto y el agente pregunta ahí mismo lo que hoy preguntaría un desarrollador tres días más tarde. El ítem llega completo porque lo completó el cliente.
   - **Juicio de alcance**: "esto ya está cubierto por lo acordado en X", o "esto queda fuera del alcance v3". El cliente retira, reformula o insiste antes de que el pedido entre a la cola del equipo.
   - **Bug de regla de negocio**: contradice una regla acordada y pasa al equipo con la traza a la conversación original.
-- El agente sugiere el juicio de alcance, no lo decide. Si el cliente insiste, el ítem pasa igual y queda marcado como discrepancia de alcance. Esa escalada es un dato del estudio, no una falla.
+- El agente sugiere el juicio de alcance, no lo decide, y puede equivocarse. Si el cliente insiste, el ítem pasa igual y queda marcado como discrepancia de alcance. Esa escalada es un dato del estudio: puede estar mostrando que el cliente pide de más, o que lo acordado quedó incompleto y el pedido era válido desde el principio. El prototipo no resuelve cuál de las dos es, la deja visible para que la negocien.
 - La priorización queda del lado del negocio: el cliente ordena los ítems que sí pasaron, con los duplicados ya agrupados por el agente.
 
 ## Qué punto de la tesis ataca

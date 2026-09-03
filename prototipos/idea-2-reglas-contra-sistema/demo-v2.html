@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Las reglas del negocio contra el sistema real · v2, la reunión escuchada</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 720px; overflow: hidden; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f2f4f8;
+    color: #1c2733;
+    display: flex; flex-direction: column;
+  }
+  header {
+    height: 62px; flex-shrink: 0;
+    background: #ffffff;
+    border-bottom: 1px solid #e1e6ec;
+    display: flex; align-items: center; gap: 14px;
+    padding: 0 32px;
+  }
+  .logo {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: #1f5eff; color: #fff;
+    font-weight: 700; font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  header h1 { font-size: 19px; font-weight: 650; }
+  header .v { font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase;
+    background: #ece4fd; color: #5b2bc4; padding: 3px 9px; border-radius: 999px; }
+  header .sub { font-size: 13px; color: #6b7887; margin-left: auto; }
+
+  main {
+    flex: 1; min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr 570px;
+    gap: 20px;
+    padding: 18px 32px;
+  }
+  .panel {
+    background: #fff; border: 1px solid #e1e6ec; border-radius: 12px;
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .panel-head {
+    padding: 12px 18px; border-bottom: 1px solid #eef1f5;
+    font-size: 12px; font-weight: 650; letter-spacing: 0.4px;
+    text-transform: uppercase; color: #6b7887;
+    display: flex; align-items: center; gap: 9px; flex-shrink: 0;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot.blue { background: #1f5eff; }
+  .dot.violet { background: #7a3ff2; }
+
+  /* ---- Microfono en vivo ---- */
+  .mic { margin-left: auto; display: flex; align-items: center; gap: 7px; text-transform: none; letter-spacing: 0; font-weight: 600; font-size: 11.5px; color: #c22f2f; opacity: 0; transition: opacity 0.5s; }
+  .mic.on { opacity: 1; }
+  .mic .rec { width: 8px; height: 8px; border-radius: 50%; background: #c22f2f; animation: pulse 1.4s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+  .mic .bars { display: flex; align-items: flex-end; gap: 2px; height: 13px; }
+  .mic .bars i { width: 2.5px; background: #c22f2f; border-radius: 1px; animation: wave 0.9s ease-in-out infinite; }
+  .mic .bars i:nth-child(1) { height: 5px; animation-delay: 0s; }
+  .mic .bars i:nth-child(2) { height: 11px; animation-delay: 0.15s; }
+  .mic .bars i:nth-child(3) { height: 7px; animation-delay: 0.3s; }
+  .mic .bars i:nth-child(4) { height: 13px; animation-delay: 0.45s; }
+  @keyframes wave { 0%,100% { transform: scaleY(0.4); } 50% { transform: scaleY(1); } }
+  .mic.off .rec, .mic.off .bars { display: none; }
+  .mic.off { color: #8592a0; opacity: 1; }
+
+  /* ---- Transcripcion ---- */
+  .transcript {
+    flex: 1; overflow-y: auto; scrollbar-width: none;
+    padding: 16px 18px; display: flex; flex-direction: column; gap: 13px;
+  }
+  .transcript::-webkit-scrollbar { display: none; }
+  .turn { display: flex; gap: 11px; opacity: 0; transition: opacity 0.35s; }
+  .turn.show { opacity: 1; }
+  .turn.past { opacity: 0.42; }
+  .av {
+    width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11.5px; font-weight: 700; color: #fff;
+  }
+  .av.l { background: #2b7fb8; }
+  .av.m { background: #b8722b; }
+  .turn .who { font-size: 11px; color: #8592a0; margin-bottom: 3px; font-weight: 600; }
+  .turn .said { font-size: 15.5px; line-height: 1.5; color: #24303c; }
+  .turn .said .w { opacity: 0; transition: opacity 0.12s; }
+  .turn .said .w.on { opacity: 1; }
+  .turn.flagged .said { background: #fff9ec; box-shadow: 0 0 0 4px #fff9ec; border-radius: 3px; }
+
+  /* ---- Panel del agente ---- */
+  #agente { background: #fdfcff; border-color: #e6e0f8; }
+  .cards {
+    flex: 1; overflow-y: auto; scrollbar-width: none;
+    padding: 16px; display: flex; flex-direction: column; gap: 11px;
+  }
+  .cards::-webkit-scrollbar { display: none; }
+  .idle { color: #a49dc4; font-size: 14.5px; text-align: center; padding: 26px 30px; line-height: 1.6; }
+  .card {
+    border-radius: 10px; padding: 12px 14px;
+    font-size: 13.5px; line-height: 1.5;
+    background: #fff; border: 1px solid #e6e0f8;
+    opacity: 0; transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .card.show { opacity: 1; transform: none; }
+  .card .top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+  .kind {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 999px;
+  }
+  .kind.capta { background: #eef1f5; color: #5b6b7b; }
+  .kind.entre { background: #fdeaea; color: #c22f2f; }
+  .kind.sist { background: #fff3dc; color: #9a7413; }
+  .kind.corr { background: #ece4fd; color: #5b2bc4; }
+  .kind.err { background: #fdeaea; color: #c22f2f; }
+  .lat { font-size: 10.5px; color: #a0a9b4; margin-left: auto; font-family: "SF Mono", Menlo, monospace; }
+  .card b { font-weight: 700; }
+  .card .rule {
+    margin-top: 7px; padding: 8px 11px;
+    background: #f7f9fc; border-left: 3px solid #cfd7e0; border-radius: 5px;
+    font-size: 13px; color: #3d4a58;
+  }
+  .card.violet { border-color: #cfc0f5; background: #fbf9ff; }
+  .card.violet .rule { background: #f4f0ff; border-left-color: #7a3ff2; color: #3b2578; font-weight: 550; }
+  .card.amber { border-color: #ecd9a4; background: #fffdf5; }
+  .card.red { border-color: #eec3c3; background: #fffafa; }
+  .card .q { margin-top: 6px; font-style: italic; color: #4a3c12; }
+  .card .ans { margin-top: 7px; padding-top: 7px; border-top: 1px solid #f0e6c8; font-size: 12.5px; font-weight: 650; color: #c22f2f; }
+
+  .acta {
+    display: none; margin: 0 16px 16px;
+    border-radius: 10px; background: #f4f0ff; border: 1px solid #d9ccf8;
+    padding: 12px 14px; font-size: 13px; line-height: 1.55; color: #3b2578;
+    flex-shrink: 0;
+  }
+  .acta.show { display: block; animation: rise 0.5s ease-out; }
+  .acta b { font-weight: 700; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* ---- Narracion ---- */
+  .caption {
+    height: 50px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: #46535f; padding: 0 40px; text-align: center;
+  }
+  .caption span { opacity: 0; transition: opacity 0.5s; }
+  .caption span.visible { opacity: 1; }
+
+  /* ---- Cierre ---- */
+  #closing {
+    position: fixed; inset: 0; background: #12203a; color: #fff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 22px; opacity: 0; pointer-events: none; transition: opacity 0.9s;
+    padding: 0 120px; text-align: center;
+  }
+  #closing.visible { opacity: 1; }
+  #closing .kicker { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: #7ea2ff; font-weight: 700; }
+  #closing h2 { font-size: 32px; line-height: 1.35; font-weight: 700; max-width: 940px; }
+  #closing p { font-size: 18px; color: #b8c4d8; line-height: 1.6; max-width: 880px; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">RN</div>
+    <h1>Las reglas del negocio contra el sistema real</h1>
+    <span class="v">v2 &middot; la reunión escuchada</span>
+    <div class="sub">Prototipo exploratorio &middot; la regla no se escribe, se dice</div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="panel-head">
+        <span class="dot blue"></span>Reunión de negocio &middot; transcripción en vivo
+        <span class="mic" id="mic"><span class="rec"></span>Escuchando<span class="bars"><i></i><i></i><i></i><i></i></span></span>
+      </div>
+      <div class="transcript" id="tr"></div>
+    </section>
+
+    <section class="panel" id="agente">
+      <div class="panel-head"><span class="dot violet"></span>Agente IAG &middot; devuelve durante la reunión</div>
+      <div class="cards" id="cards">
+        <div class="idle" id="idle">El agente escucha la reunión.<br>Capta cada regla que se dice y la confronta con lo que ya se dijo y con el sistema construido.</div>
+      </div>
+      <div class="acta" id="acta">
+        <b>Acta confrontada, al terminar la reunión.</b><br>
+        2 reglas captadas &middot; 1 corregida en la sala &middot; 1 error del sistema detectado &middot; devolución promedio: 6 s desde que se dijo.
+      </div>
+    </section>
+  </main>
+
+  <div class="caption"><span id="cap"></span></div>
+
+  <div id="closing">
+    <div class="kicker">Segunda versión de la idea 2</div>
+    <h2>El agente no espera al acta. Devuelve mientras el negocio habla.</h2>
+    <p>Nadie se sienta a escribir sus reglas de negocio: las dice en una reunión, de costado y mezcladas con otra cosa. Acá el choque aparece en la frase siguiente, y no solo contra el sistema construido: también entre dos personas del negocio que creían estar diciendo la misma regla.</p>
+  </div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var tr = $("tr"), cards = $("cards");
+
+  function at(ms, fn) { setTimeout(fn, ms); }
+
+  function caption(text, ms) {
+    at(ms, function () {
+      var cap = $("cap");
+      cap.classList.remove("visible");
+      setTimeout(function () { cap.textContent = text; cap.classList.add("visible"); }, 250);
+    });
+  }
+
+  function down(el) { el.scrollTo({ top: el.scrollHeight, behavior: "smooth" }); }
+
+  // Turno hablado, con las palabras apareciendo como en una transcripcion en vivo
+  function turno(id, who, av, text, startMs, wordMs) {
+    at(startMs, function () {
+      var node = document.createElement("div");
+      node.className = "turn";
+      node.id = id;
+      var words = text.split(" ").map(function (w) { return '<span class="w">' + w + '</span>'; }).join(" ");
+      node.innerHTML = '<div class="av ' + av + '">' + av.toUpperCase() + '</div>' +
+        '<div><div class="who">' + who + '</div><div class="said">' + words + '</div></div>';
+      tr.appendChild(node);
+      node.classList.add("show");
+      var spans = node.querySelectorAll(".w");
+      for (var i = 0; i < spans.length; i++) {
+        (function (s, k) { at(k * wordMs, function () { s.classList.add("on"); if (k % 4 === 0) down(tr); }); })(spans[i], i);
+      }
+      at(spans.length * wordMs + 60, function () { down(tr); });
+    });
+  }
+
+  function fade(id, ms) { at(ms, function () { $(id).classList.add("past"); }); }
+  function flag(id, ms) { at(ms, function () { $(id).classList.add("flagged"); }); }
+
+  function card(opts, ms) {
+    at(ms, function () {
+      if ($("idle")) $("idle").remove();
+      var node = document.createElement("div");
+      node.className = "card" + (opts.tone ? " " + opts.tone : "");
+      node.innerHTML =
+        '<div class="top"><span class="kind ' + opts.kind + '">' + opts.kindText + '</span>' +
+        '<span class="lat">' + opts.lat + '</span></div>' +
+        opts.body +
+        (opts.rule ? '<div class="rule">' + opts.rule + '</div>' : '') +
+        (opts.q ? '<div class="q">' + opts.q + '</div>' : '') +
+        (opts.ans ? '<div class="ans" style="display:none">' + opts.ans + '</div>' : '');
+      node.id = opts.id;
+      cards.appendChild(node);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { node.classList.add("show"); down(cards); });
+      });
+    });
+  }
+
+  function answer(id, ms) {
+    at(ms, function () {
+      var a = document.querySelector("#" + id + " .ans");
+      if (a) { a.style.display = "block"; down(cards); }
+    });
+  }
+
+  // ---------- Guion temporizado (~44 s) ----------
+
+  at(700, function () { $("mic").classList.add("on"); });
+  caption("Una reunión de negocio cualquiera. El agente escucha, nadie escribe nada.", 500);
+
+  // --- Regla 1, dicha por Laura ---
+  turno("t1", "Laura &middot; Operaciones", "l",
+    "Bueno, arranquemos por las notas de crédito. Para mí toda nota de crédito tiene que pasar por un supervisor, sin excepción.",
+    1200, 105);
+
+  card({ id: "c1", kind: "capta", kindText: "Regla captada", lat: "a 4 s de lo dicho",
+    body: "De lo que dijo Laura:",
+    rule: "Toda nota de crédito requiere aprobación de un supervisor, sin excepción." }, 4400);
+  caption("Capta las reglas mientras se dicen, sin pedirle al negocio que las escriba.", 4900);
+
+  // --- Marcos la contradice ---
+  turno("t2", "Marcos &middot; Comercial", "m",
+    "Pará, en devolución parcial con reintegro la aprueba el cajero de la sucursal. Lo hacemos así desde siempre.",
+    7000, 105);
+
+  flag("t2", 9300);
+  card({ id: "c2", kind: "entre", kindText: "Choque entre participantes", tone: "red", lat: "a 3 s de lo dicho",
+    body: "Laura dijo <b>sin excepción</b> hace 45 segundos. Marcos está describiendo una excepción que usan siempre. <b>No están diciendo la misma regla.</b>" }, 9900);
+  caption("El primer choque no es con el sistema. Es entre dos personas del negocio, en la misma reunión.", 10300);
+
+  turno("t3", "Laura &middot; Operaciones", "l", "¿En serio? Yo eso no lo sabía.", 13400, 105);
+
+  // --- Y el sistema ya lo hace asi ---
+  card({ id: "c3", kind: "sist", kindText: "Contrastado con el sistema", tone: "amber", lat: "a 6 s de lo dicho",
+    body: "Revisé el sistema construido: <b>emite notas de crédito sin aprobación de supervisor</b> en devolución parcial con reintegro. La versión de Marcos es la que está implementada." }, 15600);
+  caption("Y confronta las dos versiones contra el sistema que ya está construido.", 16100);
+
+  turno("t4", "Laura &middot; Operaciones", "l",
+    "Ah, mirá. Bueno, entonces la regla queda con la excepción del cajero.", 19000, 105);
+
+  card({ id: "c4", kind: "corr", kindText: "Regla corregida en la sala", tone: "violet", lat: "a 3 s de lo dicho",
+    body: "Laura corrige su propia regla:",
+    rule: "Toda nota de crédito requiere aprobación de un supervisor, salvo en devolución parcial con reintegro, donde alcanza con el cajero." }, 22000);
+  caption("La regla se corrige en la reunión, no en producción tres meses después.", 22500);
+
+  fade("t1", 24500); fade("t2", 24500); fade("t3", 24500);
+
+  // --- Regla 2, choque con el sistema ---
+  turno("t5", "Marcos &middot; Comercial", "m",
+    "Otra cosa: los descuentos arriba del 15% los tiene que autorizar el gerente comercial.",
+    25600, 105);
+
+  card({ id: "c5", kind: "capta", kindText: "Regla captada", lat: "a 2 s de lo dicho",
+    body: "De lo que dijo Marcos:",
+    rule: "Los descuentos mayores al 15% requieren autorización del gerente comercial." }, 28200);
+
+  flag("t5", 29800);
+  card({ id: "c6", kind: "sist", kindText: "Choque con el sistema", tone: "amber", lat: "a 5 s de lo dicho",
+    body: "El sistema <b>aplica descuentos del 22% sin autorización del gerente</b> en renovaciones de contrato anual.",
+    q: "¿Es un error del sistema, o una excepción real que la regla no contempla?",
+    ans: "→ Marcos, en la reunión: es un error. Sale como ítem para el equipo." }, 30200);
+  caption("Cada regla dicha se confronta contra el sistema, en el momento en que se dice.", 30700);
+
+  turno("t6", "Marcos &middot; Comercial", "m", "No, eso está mal. Eso hay que arreglarlo.", 33600, 105);
+  answer("c6", 35600);
+  caption("Lo que el negocio marca como error sale al equipo, como subproducto de la reunión.", 36000);
+
+  // --- Cierre de la reunion ---
+  at(38600, function () {
+    var m = $("mic");
+    m.classList.add("off");
+    m.innerHTML = "Reunión terminada";
+  });
+  at(38800, function () { $("acta").classList.add("show"); });
+  at(39300, function () { down(cards); });
+  at(40200, function () { down(cards); });
+  caption("El acta sale de la reunión ya confrontada contra el sistema.", 39000);
+
+  at(42600, function () { $("closing").classList.add("visible"); });
+})();
+</script>
+</body>
+</html>

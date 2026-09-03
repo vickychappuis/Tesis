@@ -102,10 +102,11 @@
     text-transform: uppercase; letter-spacing: 0.4px;
     margin-bottom: 5px;
   }
+  .tag.valido { background: #e2f6e9; color: #147a3d; }
   .tag.pregunta { background: #e8f0fe; color: #2b5fb8; }
   .tag.alcance { background: #fff3dc; color: #b07a10; }
   .tag.bug { background: #fdeaea; color: #c0392b; }
-  .tag.cubierto { background: #eaf6ee; color: #1f7a49; }
+  .tag.cubierto { background: #eceef2; color: #55617a; }
   .outcome {
     align-self: center;
     font-size: 11.5px; font-weight: 700;
@@ -206,6 +207,7 @@
   @keyframes pop { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: none; } }
   .prio.alta { background: #fdeaea; color: #c0392b; }
   .prio.media { background: #fff3dc; color: #b07a10; }
+  .prio.baja { background: #eceef2; color: #55617a; }
   .counter {
     margin-top: auto;
     padding: 11px 14px;
@@ -391,64 +393,77 @@
 
   caption("El cliente manda su feedback por el canal de siempre.", 400);
 
-  // 1. Pedido incompleto -> contrapregunta
+  // 1. Pedido valido -> pasa sin friccion
+  cliente("Mail &middot; 08:55 &middot; Marcos (Comercial)",
+    "En el listado de clientes necesito poder filtrar por vendedor asignado.", 1000);
+  pensando(2200, 3600);
+  hit("ref-alc", 3600);
+  agente("valido", "Pedido válido",
+    "Está completo y entra en el alcance <b>ALC-v3</b>. Lo mando al equipo tal cual.", 3600);
+  ticket("t0", "Filtro por vendedor asignado en el listado de clientes",
+    "Dentro del alcance ALC-v3. No requiere aclaración.",
+    "Fuente: mail de Marcos 08:55", null, 4900);
+  caption("No toda respuesta es una objeción. Si el pedido está completo y en alcance, pasa y listo.", 4400);
+
+  // 2. Pedido incompleto -> contrapregunta
   cliente("Chat &middot; 09:12 &middot; Laura (Operaciones)",
-    "Che, la pantalla de reportes se ve rara. Algo cambió.", 1200);
-  pensando(2600, 4200);
+    "Che, la pantalla de reportes se ve rara. Algo cambió.", 8200);
+  pensando(9600, 11200);
   agente("pregunta", "Contrapregunta",
-    "¿Qué reporte y qué esperabas ver ahí? Si me decís desde cuándo lo notás, lo mando completo al equipo.", 4200);
-  caption("El agente pregunta en el momento lo que hoy preguntaría un desarrollador tres días después.", 4800);
+    "¿Qué reporte y qué esperabas ver ahí? Si me decís desde cuándo lo notás, lo mando completo al equipo.", 11200);
+  caption("Si está incompleto, pregunta en el momento lo que hoy preguntaría un desarrollador tres días después.", 11800);
 
   cliente("Chat &middot; 09:13 &middot; Laura (Operaciones)",
-    "El de ventas mensual. La columna de descuentos me da vacía desde ayer a la tarde.", 7400);
-  outcome("El cliente completó su propio pedido", "reform", 9000);
-  pensando(9400, 10800);
-  hit("ref-rd04", 10800);
+    "El de ventas mensual. La columna de descuentos me da vacía desde ayer a la tarde.", 14400);
+  outcome("El cliente completó su propio pedido", "reform", 16000);
+  pensando(16400, 17800);
+  hit("ref-rd04", 17800);
   agente("bug", "Bug de regla de negocio",
-    "Contradice la regla <b>RD-04</b>. Lo mando al equipo con la traza a esta conversación.", 10800);
+    "Contradice la regla <b>RD-04</b>. Lo mando al equipo con la traza a esta conversación.", 17800);
   ticket("t1", "Columna de descuentos vacía en el reporte mensual de ventas",
     "Incumple RD-04. Se detecta desde el 09/09 a la tarde.",
-    "Fuente: chat de Laura 09:12 y 09:13 &middot; regla RD-04", null, 12200);
-  caption("El ítem llega completo al equipo porque lo completó el cliente, no porque el agente lo adivinó.", 12600);
+    "Fuente: chat de Laura 09:12 y 09:13 &middot; regla RD-04", null, 19200);
+  caption("El ítem llega completo al equipo porque lo completó el cliente, no porque el agente lo adivinó.", 19600);
 
-  // 2. Fuera de alcance -> el cliente insiste
+  // 3. Fuera de alcance -> el cliente insiste
   cliente("Mail &middot; 09:40 &middot; Marcos (Comercial)",
-    "Necesito poder exportar los reportes mensuales a Excel.", 16000);
-  pensando(17400, 18800);
-  hit("ref-alc", 18800);
+    "Necesito poder exportar los reportes mensuales a Excel.", 23000);
+  pensando(24400, 25800);
+  hit("ref-alc", 25800);
   agente("alcance", "Fuera de alcance &middot; sugerido",
-    "Eso no figura en el alcance <b>ALC-v3</b>. Implica estimación y acuerdo con el equipo. ¿Lo dejo como pedido nuevo o lo retirás?", 18800);
-  caption("El agente sugiere el juicio de alcance. No lo decide.", 19400);
+    "Eso no figura en el alcance <b>ALC-v3</b>. Implica estimación y acuerdo con el equipo. ¿Lo dejo como pedido nuevo o lo retirás?", 25800);
+  caption("El agente sugiere el juicio de alcance. No lo decide, y puede equivocarse.", 26400);
 
   cliente("Mail &middot; 09:44 &middot; Marcos (Comercial)",
-    "Dejalo como pedido nuevo. Lo necesito para el cierre de mes.", 22600);
-  outcome("El cliente insiste", "insiste", 24200);
+    "Dejalo como pedido nuevo. Lo necesito para el cierre de mes.", 29600);
+  outcome("El cliente insiste", "insiste", 31200);
   ticket("t2", "Pedido nuevo: exportar reportes mensuales a Excel",
     "Fuera del alcance ALC-v3. Requiere estimación y acuerdo antes de implementar.",
-    "Fuente: mail de Marcos 09:40 y 09:44", "Discrepancia de alcance", 25400);
-  caption("Si el cliente insiste, el ítem pasa igual y queda marcado. Esa escalada es un dato del estudio.", 25800);
+    "Fuente: mail de Marcos 09:40 y 09:44", "Discrepancia de alcance", 32400);
+  caption("Si insiste, el ítem pasa igual y queda marcado. Puede pedir de más, o puede ser que lo acordado quedó corto.", 32800);
 
-  // 3. Ya cubierto -> el cliente retira
+  // 4. Ya cubierto -> el cliente retira
   cliente("Chat &middot; 10:05 &middot; Laura (Operaciones)",
-    "Otra cosa: el login ahora pide doble factor. ¿Eso está bien?", 29000);
-  pensando(30200, 31600);
-  hit("ref-seg02", 31600);
+    "Otra cosa: el login ahora pide doble factor. ¿Eso está bien?", 36200);
+  pensando(37400, 38800);
+  hit("ref-seg02", 38800);
   agente("cubierto", "Ya cubierto",
-    "Sí, quedó definido en <b>SEG-02</b>, acta del 12/05. ¿Querés que lo revisemos igual?", 31600);
+    "Sí, quedó definido en <b>SEG-02</b>, acta del 12/05. ¿Querés que lo revisemos igual?", 38800);
 
   cliente("Chat &middot; 10:06 &middot; Laura (Operaciones)",
-    "Ah, no sabía. No, está bien así entonces.", 34600);
-  outcome("El cliente retira el pedido", "retira", 36200);
-  at(36400, function () { retirados++; updateCounter(); });
-  caption("El cliente aprende dónde está el borde del alcance y retira. Ese pedido nunca llega al equipo.", 36600);
+    "Ah, no sabía. No, está bien así entonces.", 41800);
+  outcome("El cliente retira el pedido", "retira", 43400);
+  at(43600, function () { retirados++; updateCounter(); });
+  caption("El cliente aprende dónde está el borde del alcance y retira. Ese pedido nunca llega al equipo.", 43800);
 
-  // 4. Priorizacion del lado del negocio
-  prio("t1", "alta", "Alta", 40200);
-  prio("t2", "media", "Media", 41000);
-  at(41200, function () { updateCounter("Prioridad puesta por el negocio &middot; respuesta promedio: 9 s"); });
-  caption("Lo que sí pasa lo prioriza el negocio, no la cola del equipo.", 40600);
+  // 5. Priorizacion del lado del negocio
+  caption("Lo que sí pasa lo prioriza el negocio, no la cola del equipo.", 47400);
+  prio("t1", "alta", "Alta", 47800);
+  prio("t0", "media", "Media", 48600);
+  prio("t2", "baja", "Baja", 49400);
+  at(49600, function () { updateCounter("Prioridad puesta por el negocio &middot; respuesta promedio: 9 s"); });
 
-  at(44200, function () { $("closing").classList.add("visible"); });
+  at(52600, function () { $("closing").classList.add("visible"); });
 })();
 </script>
 </body>

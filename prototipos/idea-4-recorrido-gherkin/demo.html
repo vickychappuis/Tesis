@@ -1,403 +1,567 @@
-<meta charset="utf-8">
-<title>Del recorrido a Gherkin</title>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Del recorrido a Gherkin ejecutado</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 1280px; height: 720px; overflow: hidden; }
   body {
-    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-    background: #eef1f5; color: #1f2733;
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #eef1f6; color: #1c2733;
     display: flex; flex-direction: column;
   }
   header {
-    height: 52px; flex: 0 0 52px; background: #16202e; color: #fff;
-    display: flex; align-items: center; padding: 0 24px; gap: 14px;
+    height: 58px; flex-shrink: 0;
+    background: #fff; border-bottom: 1px solid #dfe4ea;
+    display: flex; align-items: center; gap: 12px; padding: 0 28px;
   }
-  header .dot { width: 10px; height: 10px; border-radius: 50%; background: #e5484d; }
-  header .dot.rec { animation: blink 1.2s infinite; }
-  @keyframes blink { 50% { opacity: .25; } }
-  header h1 { font-size: 16px; font-weight: 600; letter-spacing: .2px; }
-  header span.sub { font-size: 13px; color: #9fb0c3; }
+  header .rec { width: 9px; height: 9px; border-radius: 50%; background: #c0392b; animation: pulse 1.5s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+  header h1 { font-size: 18.5px; font-weight: 650; }
+  header .sub { font-size: 12.5px; color: #6b7887; margin-left: auto; }
 
-  main { flex: 1; display: flex; min-height: 0; }
+  main {
+    flex: 1; min-height: 0;
+    display: grid; grid-template-columns: 548px 1fr; gap: 18px;
+    padding: 16px 28px;
+  }
 
-  /* ---------- Left: app + subtitles ---------- */
-  #left { flex: 0 0 56%; display: flex; flex-direction: column; padding: 18px 14px 14px 20px; min-width: 0; }
+  /* ================= APP CONSTRUIDA ================= */
+  #left { display: flex; flex-direction: column; gap: 12px; min-height: 0; }
   #app {
-    flex: 1; background: #fff; border-radius: 10px; border: 1px solid #d7dee7;
-    box-shadow: 0 2px 10px rgba(22,32,46,.07); overflow: hidden;
-    display: flex; flex-direction: column;
-  }
-  #app .appbar {
-    height: 42px; background: #f6f8fa; border-bottom: 1px solid #e3e8ee;
-    display: flex; align-items: center; gap: 8px; padding: 0 14px;
-    font-size: 13px; font-weight: 600; color: #3a4657;
-  }
-  #app .appbar .win { display: flex; gap: 6px; }
-  #app .appbar .win i { width: 10px; height: 10px; border-radius: 50%; display: block; }
-  #app .appbar .win i:nth-child(1) { background: #ff5f57; }
-  #app .appbar .win i:nth-child(2) { background: #febc2e; }
-  #app .appbar .win i:nth-child(3) { background: #28c840; }
-  #app .appbar .name { margin-left: 8px; }
-  #app .body { flex: 1; padding: 18px 20px; position: relative; }
-
-  .card {
-    border: 1px solid #e3e8ee; border-radius: 8px; padding: 14px 16px; margin-bottom: 14px;
-    transition: box-shadow .4s, border-color .4s;
-  }
-  .card.focus { border-color: #4c7dd0; box-shadow: 0 0 0 3px rgba(76,125,208,.18); }
-  .card h3 { font-size: 15px; margin-bottom: 4px; }
-  .card .meta { font-size: 12.5px; color: #66788c; display: flex; gap: 14px; margin-top: 6px; }
-  .badge {
-    display: inline-block; font-size: 11.5px; font-weight: 700; padding: 2px 9px;
-    border-radius: 20px; vertical-align: 2px; margin-left: 8px;
-  }
-  .badge.moroso { background: #fdecec; color: #c62f35; border: 1px solid #f5c6c8; }
-
-  .btn {
-    display: inline-block; font-size: 13px; font-weight: 600; padding: 8px 16px;
-    border-radius: 6px; background: #2f6fdb; color: #fff; cursor: default;
-    transition: transform .15s, box-shadow .3s;
-  }
-  .btn.pressed { transform: scale(.96); box-shadow: 0 0 0 4px rgba(47,111,219,.25); }
-
-  #factura { opacity: 0; transform: translateY(8px); transition: opacity .5s, transform .5s; }
-  #factura.show { opacity: 1; transform: none; }
-  #factura h4 { font-size: 14px; margin-bottom: 10px; color: #3a4657; }
-  .field { font-size: 13px; margin-bottom: 10px; color: #4a5a6d; }
-  .field b { color: #1f2733; }
-  .opts { display: flex; gap: 10px; margin-top: 6px; }
-  .opt {
-    border: 1.5px solid #cfd8e3; border-radius: 6px; padding: 8px 18px;
-    font-size: 13px; font-weight: 600; color: #4a5a6d; background: #fff;
-    transition: all .35s;
-  }
-  .opt.sel { border-color: #2f6fdb; color: #2f6fdb; background: #eef4fd; }
-  .opt.warn { border-color: #e5484d; color: #c62f35; background: #fdecec; }
-
-  .cursor-dot {
-    position: absolute; width: 18px; height: 18px; border-radius: 50%;
-    background: rgba(47,111,219,.35); border: 2px solid #2f6fdb;
-    pointer-events: none; opacity: 0; transition: all .7s ease; z-index: 5;
-  }
-  .cursor-dot.show { opacity: 1; }
-
-  /* subtitles */
-  #subs {
-    flex: 0 0 96px; margin-top: 12px; display: flex; align-items: center; justify-content: center;
-  }
-  #subbox {
-    max-width: 96%; background: rgba(22,32,46,.92); color: #f2f5f9; border-radius: 10px;
-    padding: 12px 20px; font-size: 16.5px; line-height: 1.45; text-align: center;
-    opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s;
-  }
-  #subbox.show { opacity: 1; transform: none; }
-  #subbox .who { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase; margin-bottom: 3px; }
-  #subbox .who.st { color: #7fd0a2; }
-  #subbox .who.ag { color: #8ab4f8; }
-  #subbox .who.nar { color: #c3ceda; }
-
-  /* ---------- Right: agent panel ---------- */
-  #right { flex: 1; padding: 18px 20px 14px 6px; min-width: 0; }
-  #agent {
-    height: 100%; background: #101826; border-radius: 10px; color: #dbe4ef;
+    flex: 1; min-height: 0;
+    background: #fff; border: 1px solid #dfe4ea; border-radius: 11px;
     display: flex; flex-direction: column; overflow: hidden;
-    border: 1px solid #223146; box-shadow: 0 2px 10px rgba(22,32,46,.12);
+    position: relative;
   }
-  #agent .head {
-    height: 42px; flex: 0 0 42px; display: flex; align-items: center; gap: 10px;
-    padding: 0 16px; border-bottom: 1px solid #223146; font-size: 13px; font-weight: 600;
+  .appbar {
+    height: 34px; flex-shrink: 0;
+    background: #f5f7fa; border-bottom: 1px solid #e6eaef;
+    display: flex; align-items: center; gap: 10px; padding: 0 12px;
   }
-  #agent .head .ai {
-    width: 22px; height: 22px; border-radius: 6px; background: linear-gradient(135deg,#4c7dd0,#7a5fd0);
-    display: flex; align-items: center; justify-content: center; font-size: 12px; color: #fff;
+  .win { display: flex; gap: 5px; }
+  .win i { width: 9px; height: 9px; border-radius: 50%; background: #dfe4ea; }
+  .win i:nth-child(1) { background: #f2635f; }
+  .win i:nth-child(2) { background: #f5be4f; }
+  .win i:nth-child(3) { background: #61c554; }
+  .appbar .name { font-size: 11.5px; color: #6b7887; font-weight: 600; }
+  .appbar .driven {
+    margin-left: auto; font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+    text-transform: uppercase; color: #5b2bc4; background: #ece4fd;
+    padding: 3px 8px; border-radius: 999px; opacity: 0; transition: opacity 0.4s;
   }
-  #agent .head .st { margin-left: auto; font-size: 11px; color: #7f96b0; font-weight: 500; }
-  #agent .head .st i {
-    display: inline-block; width: 7px; height: 7px; border-radius: 50%;
-    background: #38c172; margin-right: 5px; animation: blink 1.6s infinite;
+  .appbar .driven.on { opacity: 1; }
+  .appbody { flex: 1; padding: 16px; position: relative; overflow: hidden; }
+
+  .acard {
+    border: 1px solid #e3e8ee; border-radius: 9px; padding: 12px 14px; background: #fff;
+    transition: box-shadow 0.35s, border-color 0.35s;
   }
-  #flow { flex: 1; overflow: hidden; padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; }
+  .acard.focus { border-color: #1f5eff; box-shadow: 0 0 0 3px rgba(31,94,255,0.12); }
+  .acard h3 { font-size: 15px; font-weight: 650; display: flex; align-items: center; gap: 9px; }
+  .badge {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 2px 8px; border-radius: 999px; background: #fdeaea; color: #c0392b;
+  }
+  .acard .meta { margin-top: 7px; display: flex; flex-wrap: wrap; gap: 12px; font-size: 11.5px; color: #7b8798; }
+  .abtn {
+    display: inline-block; margin-top: 12px;
+    background: #1f5eff; color: #fff; border-radius: 7px;
+    padding: 8px 15px; font-size: 13px; font-weight: 600;
+    transition: transform 0.12s, background 0.2s;
+  }
+  .abtn.pressed { transform: scale(0.96); background: #1747c4; }
+  #factura { margin-top: 12px; display: none; }
+  #factura.show { display: block; animation: rise 0.4s ease-out; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  #factura h4 { font-size: 13.5px; font-weight: 650; margin-bottom: 8px; }
+  .field { font-size: 12.5px; color: #4a5764; margin-bottom: 6px; }
+  .field b { color: #1c2733; font-weight: 650; }
+  .opts { display: flex; gap: 9px; margin-top: 6px; }
+  .opt {
+    border: 1px solid #dfe4ea; border-radius: 7px; padding: 6px 13px;
+    font-size: 12.5px; font-weight: 600; color: #4a5764; background: #fff;
+    transition: all 0.3s;
+  }
+  .opt.sel { border-color: #1f5eff; background: #eef3ff; color: #1747c4; }
+  .opt.warn { border-color: #e0a0a0; background: #fff5f5; color: #c0392b; }
+
+  .result {
+    display: none; margin-top: 12px;
+    border-radius: 8px; padding: 10px 13px; font-size: 12.5px; line-height: 1.45; font-weight: 600;
+  }
+  .result.show { display: block; animation: rise 0.35s ease-out; }
+  .result.emit { background: #f0faf3; border: 1px solid #bfe4cc; color: #147a3d; }
+  .result.suv { background: #fff9ec; border: 1px solid #ecd9a4; color: #9a7413; }
+  .result small { display: block; font-weight: 500; color: #6b7887; margin-top: 3px; font-size: 11.5px; }
+
+  .cursor {
+    position: absolute; width: 17px; height: 17px; border-radius: 50%;
+    background: rgba(31,94,255,0.22); border: 2px solid #1f5eff;
+    opacity: 0; transition: opacity 0.3s, left 0.55s cubic-bezier(.4,0,.2,1), top 0.55s cubic-bezier(.4,0,.2,1);
+    pointer-events: none; z-index: 5;
+  }
+  .cursor.show { opacity: 1; }
+
+  /* Subtitulos */
+  #subs { flex-shrink: 0; height: 74px; display: flex; align-items: center; }
+  #subbox {
+    width: 100%; background: #1c2733; color: #fff;
+    border-radius: 9px; padding: 11px 15px;
+    font-size: 14px; line-height: 1.45;
+    opacity: 0; transition: opacity 0.35s;
+  }
+  #subbox.show { opacity: 1; }
+  #subwho {
+    display: block; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.7px; text-transform: uppercase; margin-bottom: 3px;
+  }
+  #subwho.st { color: #7fd6a0; }
+  #subwho.nar { color: #8fa5c4; }
+
+  /* ================= AGENTE ================= */
+  #agent {
+    background: #10182b; border-radius: 11px;
+    display: flex; flex-direction: column; overflow: hidden;
+    color: #e6edf7;
+  }
+  .ahead {
+    height: 42px; flex-shrink: 0; display: flex; align-items: center; gap: 10px;
+    padding: 0 16px; border-bottom: 1px solid #1e2a44; font-size: 13px; font-weight: 650;
+  }
+  .ai {
+    width: 24px; height: 24px; border-radius: 6px; background: #3b5bdb;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10.5px; font-weight: 700; color: #fff;
+  }
+  .ahead .live { margin-left: auto; font-size: 11px; font-weight: 500; color: #7fd6a0; display: flex; align-items: center; gap: 6px; }
+  .ahead .live i { width: 7px; height: 7px; border-radius: 50%; background: #7fd6a0; animation: pulse 1.5s ease-in-out infinite; }
+
+  .feed {
+    flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none;
+    padding: 14px 16px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .feed::-webkit-scrollbar { display: none; }
+
+  .it { opacity: 0; transform: translateY(9px); transition: opacity 0.4s, transform 0.4s; }
+  .it.show { opacity: 1; transform: none; }
 
   .chip {
-    align-self: flex-start; font-size: 12px; color: #9db4d0; background: #182437;
-    border: 1px solid #27405e; border-radius: 20px; padding: 4px 12px;
-    opacity: 0; transform: translateY(6px); transition: all .4s;
+    background: #182339; border: 1px solid #24314e; border-radius: 8px;
+    padding: 8px 12px; font-size: 12px; color: #a8b8d4;
   }
-  .chip.show { opacity: 1; transform: none; }
-  .chip q { font-style: italic; color: #c6d6e8; quotes: "\201C" "\201D"; }
+  .chip q { color: #e6edf7; font-style: italic; }
 
-  .gherkin {
-    background: #0a1120; border: 1px solid #24344c; border-radius: 8px;
-    font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 12.5px; line-height: 1.65;
-    padding: 10px 14px; white-space: pre-wrap; position: relative;
-    opacity: 0; transition: opacity .4s; min-height: 20px;
+  .gk {
+    background: #0a1120; border: 1px solid #24314e; border-radius: 8px;
+    padding: 12px 14px;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12.5px; line-height: 1.75; white-space: pre-wrap;
   }
-  .gherkin.show { opacity: 1; }
-  .gherkin .kw { color: #6cb2ff; font-weight: 700; }
-  .gherkin .esc { color: #ffd479; font-weight: 600; }
-  .gherkin .str { color: #97e6a9; }
-  .gherkin .val {
-    position: absolute; top: 8px; right: 10px; font-family: inherit;
-    font-size: 10.5px; font-weight: 700; color: #38c172; border: 1px solid #2b6a48;
-    background: #10281c; border-radius: 20px; padding: 2px 9px;
-    opacity: 0; transform: scale(.8); transition: all .4s;
-  }
-  .gherkin .val.show { opacity: 1; transform: none; }
+  .kw { color: #7aa2ff; font-weight: 700; }
+  .esc { color: #7fd6a0; font-weight: 700; }
+  .str { color: #ffd479; }
+  .gk .added { background: rgba(122,162,255,0.14); border-radius: 3px; }
 
-  .reread {
-    background: #1a2c45; border: 1px solid #2c4a71; border-radius: 10px;
-    padding: 11px 14px; font-size: 13.5px; line-height: 1.5; color: #e3ecf7;
-    opacity: 0; transform: translateY(6px); transition: all .45s;
+  .run {
+    background: #182339; border: 1px solid #24314e; border-radius: 8px;
+    padding: 11px 13px; font-size: 12.5px;
   }
-  .reread.show { opacity: 1; transform: none; }
-  .reread .lbl { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase; color: #8ab4f8; margin-bottom: 4px; }
-  .reread.ok { background: #12301f; border-color: #2b6a48; }
-  .reread.ok .lbl { color: #7fd0a2; }
+  .run .rh {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase;
+    color: #8fa5c4; margin-bottom: 8px;
+  }
+  .run .rh .sp {
+    width: 12px; height: 12px; border: 2px solid #24314e; border-top-color: #7aa2ff;
+    border-radius: 50%; animation: spin 0.7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .run.done .rh .sp { display: none; }
+  .step {
+    display: none; align-items: flex-start; gap: 8px;
+    font-family: "SF Mono", Menlo, monospace; font-size: 11.5px; line-height: 1.55;
+    color: #a8b8d4; padding: 2px 0;
+  }
+  .step.show { display: flex; animation: rise 0.25s ease-out; }
+  .step .m { width: 13px; flex-shrink: 0; font-weight: 700; text-align: center; }
+  .step.ok .m { color: #4ade80; }
+  .step.ok .m::after { content: "✓"; }
+  .step.bad .m { color: #f87171; }
+  .step.bad .m::after { content: "✗"; }
+  .step.bad { color: #f8b4b4; }
+  .step .why { display: block; color: #f87171; font-size: 11px; margin-top: 2px; }
+  .verdict {
+    display: none; margin-top: 9px; padding-top: 9px; border-top: 1px solid #24314e;
+    font-size: 12px; font-weight: 700;
+  }
+  .verdict.show { display: block; }
+  .verdict.fail { color: #f87171; }
+  .verdict.pass { color: #4ade80; }
 
-  /* handoff view */
-  #handoff {
-    position: absolute; inset: 0; background: #101826; padding: 20px 18px;
-    display: flex; flex-direction: column; gap: 12px;
-    opacity: 0; transform: translateY(12px); transition: all .6s; z-index: 3;
-    pointer-events: none;
+  .ask {
+    background: #1a2438; border: 1px solid #3b5bdb; border-radius: 8px;
+    padding: 11px 13px; font-size: 12.5px; line-height: 1.55; color: #dce6f7;
   }
-  #handoff.show { opacity: 1; transform: none; }
-  #handoff h2 { font-size: 15px; color: #fff; }
-  #handoff p.s { font-size: 12.5px; color: #93a9c2; margin-top: -6px; }
-  .test {
-    display: flex; align-items: center; gap: 12px; background: #17233a;
-    border: 1px solid #27405e; border-radius: 8px; padding: 11px 14px;
-    opacity: 0; transform: translateX(-10px); transition: all .45s;
+  .ask .lbl { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.6px;
+    text-transform: uppercase; color: #7aa2ff; margin-bottom: 5px; }
+  .ans {
+    background: #16261d; border: 1px solid #2c5a3c; border-radius: 8px;
+    padding: 10px 13px; font-size: 12.5px; line-height: 1.5; color: #cfeadb;
   }
-  .test.show { opacity: 1; transform: none; }
-  .test .ck {
-    width: 24px; height: 24px; flex: 0 0 24px; border-radius: 50%;
-    background: #10281c; border: 1.5px solid #38c172; color: #38c172;
-    display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;
-  }
-  .test .tx { font-size: 13px; line-height: 1.35; }
-  .test .tx small { display: block; font-size: 11px; color: #7f96b0; margin-top: 2px; }
+  .ans .lbl { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.6px;
+    text-transform: uppercase; color: #7fd6a0; margin-bottom: 4px; }
 
-  .agentwrap { position: relative; flex: 1; display: flex; flex-direction: column; min-height: 0; }
+  .ticket {
+    background: #2a1418; border: 1px solid #6b2b32; border-radius: 8px;
+    padding: 11px 13px; font-size: 12.5px; line-height: 1.5; color: #f3d3d6;
+  }
+  .ticket .lbl { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.6px;
+    text-transform: uppercase; color: #f87171; margin-bottom: 4px; }
+  .ticket .att { margin-top: 6px; font-size: 11px; color: #c99; font-family: "SF Mono", Menlo, monospace; }
 
-  /* closing card */
+  .noticket {
+    background: #16261d; border: 1px dashed #2c5a3c; border-radius: 8px;
+    padding: 10px 13px; font-size: 12.5px; line-height: 1.5; color: #a8ceb8;
+  }
+
+  .summary {
+    flex-shrink: 0; margin: 0 16px 14px;
+    background: #182339; border: 1px solid #3b5bdb; border-radius: 9px;
+    padding: 12px 14px; font-size: 12.5px; line-height: 1.6; color: #dce6f7;
+    display: none;
+  }
+  .summary.show { display: block; animation: rise 0.5s ease-out; }
+  .summary b { color: #fff; }
+
+  /* ================= Cierre ================= */
   #closing {
-    position: fixed; inset: 0; background: rgba(14,20,30,.94); z-index: 50;
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0; transition: opacity .8s; pointer-events: none;
+    position: fixed; inset: 0; background: #0a1120; color: #fff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 22px; opacity: 0; pointer-events: none; transition: opacity 0.9s;
+    padding: 0 120px; text-align: center;
   }
   #closing.show { opacity: 1; }
-  #closing .box { max-width: 780px; text-align: center; padding: 0 40px; }
-  #closing .kicker { font-size: 14px; font-weight: 700; letter-spacing: 2.5px;
-    text-transform: uppercase; color: #8ab4f8; margin-bottom: 18px; }
-  #closing h2 { font-size: 34px; line-height: 1.3; color: #fff; font-weight: 700; margin-bottom: 22px; }
-  #closing h2 em { font-style: normal; color: #7fd0a2; }
-  #closing p { font-size: 17px; line-height: 1.6; color: #b9c7d8; }
+  #closing .kicker { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: #7aa2ff; font-weight: 700; }
+  #closing h2 { font-size: 33px; line-height: 1.35; font-weight: 700; max-width: 920px; }
+  #closing p { font-size: 18px; color: #a8b8d4; line-height: 1.6; max-width: 880px; }
 </style>
+</head>
+<body>
+  <header>
+    <span class="rec"></span>
+    <h1>Del recorrido a Gherkin ejecutado</h1>
+    <span class="sub">Sesión de validación con el stakeholder &middot; prototipo (mock)</span>
+  </header>
 
-<header>
-  <span class="dot rec"></span>
-  <h1>Del recorrido a Gherkin</h1>
-  <span class="sub">Sesión de validación con el stakeholder · prototipo (mock)</span>
-</header>
-
-<main>
-  <section id="left">
-    <div id="app">
-      <div class="appbar">
-        <span class="win"><i></i><i></i><i></i></span>
-        <span class="name">FacturAr · Sistema de facturación (construido)</span>
-      </div>
-      <div class="body">
-        <div class="card" id="cliCard">
-          <h3>Comercial Andina S.A. <span class="badge moroso">MOROSO</span></h3>
-          <div class="meta">
-            <span>CUIT 30-71234567-8</span>
-            <span>Deuda vencida: $ 184.500</span>
-            <span>Última factura: 12/07/2026</span>
-          </div>
+  <main>
+    <section id="left">
+      <div id="app">
+        <div class="appbar">
+          <span class="win"><i></i><i></i><i></i></span>
+          <span class="name">FacturAr &middot; Sistema de facturación (construido)</span>
+          <span class="driven" id="driven">El agente maneja la app</span>
         </div>
-        <div class="btn" id="btnNueva">Nueva factura</div>
-        <div class="card" id="factura" style="margin-top:14px">
-          <h4>Nueva factura · Comercial Andina S.A.</h4>
-          <div class="field">Concepto: <b>Servicio de mantenimiento mensual</b></div>
-          <div class="field">Importe: <b>$ 96.000</b></div>
-          <div class="field">Forma de pago:
-            <div class="opts">
-              <span class="opt" id="optContado">Contado</span>
-              <span class="opt" id="optCredito">Crédito (30 días)</span>
+        <div class="appbody">
+          <div class="acard" id="cliCard">
+            <h3>Comercial Andina S.A. <span class="badge">MOROSO</span></h3>
+            <div class="meta">
+              <span>CUIT 30-71234567-8</span>
+              <span>Deuda vencida: $ 184.500</span>
+              <span>Última factura: 12/07/2026</span>
             </div>
           </div>
+          <span class="abtn" id="btnNueva">Nueva factura</span>
+          <div class="acard" id="factura">
+            <h4>Nueva factura &middot; Comercial Andina S.A.</h4>
+            <div class="field">Concepto: <b>Servicio de mantenimiento mensual</b></div>
+            <div class="field">Importe: <b>$ 96.000</b></div>
+            <div class="field">Forma de pago:
+              <div class="opts">
+                <span class="opt" id="optContado">Contado</span>
+                <span class="opt" id="optCredito">Crédito (30 días)</span>
+              </div>
+            </div>
+            <div class="result" id="res"></div>
+          </div>
+          <div class="cursor" id="cur"></div>
         </div>
-        <div class="cursor-dot" id="cur"></div>
       </div>
-    </div>
-    <div id="subs"><div id="subbox"><span class="who st" id="subwho">Stakeholder</span><span id="subtxt"></span></div></div>
-  </section>
+      <div id="subs"><div id="subbox"><span id="subwho" class="st">Stakeholder</span><span id="subtxt"></span></div></div>
+    </section>
 
-  <section id="right">
-    <div id="agent">
-      <div class="head">
-        <span class="ai">IA</span>
-        Agente de aceptación
-        <span class="st"><i></i>escuchando la sesión</span>
+    <section id="agent">
+      <div class="ahead">
+        <span class="ai">IA</span>Agente de aceptación
+        <span class="live"><i></i>escuchando la sesión</span>
       </div>
-      <div class="agentwrap">
-        <div id="flow">
-          <div class="chip" id="chip1">Comentario capturado: <q>si está moroso, no me tendría que dejar facturar a crédito</q></div>
-          <div class="gherkin" id="gk1"><span class="val" id="val1">✓ Validado por el cliente</span><span id="gk1t"></span></div>
-          <div class="chip" id="chip2">Comentario capturado: <q>al contado sí tendría que poder, aunque esté moroso</q></div>
-          <div class="gherkin" id="gk2"><span class="val" id="val2">✓ Validado por el cliente</span><span id="gk2t"></span></div>
-          <div class="reread" id="reread">
-            <span class="lbl">El agente relee en lenguaje de negocio</span>
-            Entendí dos reglas: a un cliente moroso no se le puede facturar a crédito,
-            pero sí al contado aunque tenga deuda. ¿Refleja lo que esperás del sistema?
-          </div>
-          <div class="reread ok" id="confirm">
-            <span class="lbl">Confirmación del stakeholder</span>
-            “Sí, es exactamente eso.” → Escenarios marcados como criterios de aceptación validados.
-          </div>
-        </div>
-        <div id="handoff">
-          <h2>Entrega al equipo de desarrollo</h2>
-          <p class="s">Tests de aceptación ejecutables, ya validados por el cliente en la sesión.</p>
-          <div class="test" id="t1">
-            <span class="ck">✓</span>
-            <span class="tx">Cliente moroso no puede facturar a crédito
-              <small>Gherkin ejecutable · validado por el stakeholder</small></span>
-          </div>
-          <div class="test" id="t2">
-            <span class="ck">✓</span>
-            <span class="tx">Cliente moroso puede facturar al contado
-              <small>Gherkin ejecutable · validado por el stakeholder</small></span>
-          </div>
-          <div class="test" id="t3">
-            <span class="ck">✓</span>
-            <span class="tx">Rechazo con motivo visible “cliente moroso”
-              <small>Gherkin ejecutable · validado por el stakeholder</small></span>
-          </div>
-        </div>
+      <div class="feed" id="feed"></div>
+      <div class="summary" id="summary">
+        <b>Cierre de la sesión.</b><br>
+        2 escenarios ejecutables, escritos por el stakeholder sin saber que los escribía &middot;
+        1 error del sistema confirmado y enviado a desarrollo &middot;
+        1 expectativa incompleta refinada en la sala, sin generar ticket.
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
-<div id="closing">
-  <div class="box">
+  <div id="closing">
     <div class="kicker">Qué ataca de la tesis</div>
-    <h2>La <em>instancia de aceptación</em>,<br>con el stakeholder validando los criterios</h2>
-    <p>El cliente usa el software y comenta lo que espera. El agente IAG convierte esos comentarios
-    en escenarios Gherkin, los relee en lenguaje de negocio y el stakeholder los confirma.
-    El equipo recibe tests de aceptación ejecutables, validados por quien pidió el sistema.</p>
+    <h2>El stakeholder no valida un texto. Valida la ejecución contra el sistema.</h2>
+    <p>Su comentario se vuelve un escenario Gherkin que corre solo contra el software construido. Cuando falla, el agente vuelve a preguntarle a él, no al equipo: a veces el sistema está mal y sale un ticket con el test que hoy falla adjunto, y a veces la expectativa estaba incompleta y se refina en la sala.</p>
   </div>
-</div>
 
 <script>
-const $ = id => document.getElementById(id);
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var feed = $("feed");
 
-function sub(who, cls, text) {
-  const box = $('subbox');
-  box.classList.remove('show');
-  setTimeout(() => {
-    $('subwho').textContent = who;
-    $('subwho').className = 'who ' + cls;
-    $('subtxt').textContent = text;
-    box.classList.add('show');
-  }, 300);
-}
+  function at(sec, fn) { setTimeout(fn, sec * 1000); }
+  function down() { feed.scrollTo({ top: feed.scrollHeight, behavior: "smooth" }); }
 
-function moveCursor(el) {
-  const body = document.querySelector('#app .body').getBoundingClientRect();
-  const r = el.getBoundingClientRect();
-  const cur = $('cur');
-  cur.style.left = (r.left - body.left + r.width / 2 - 9) + 'px';
-  cur.style.top  = (r.top - body.top + r.height / 2 - 9) + 'px';
-  cur.classList.add('show');
-}
-
-const KW = ['Given','When','Then','And'];
-function fmt(line) {
-  let html = line
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-    .replace(/"([^"]*)"/g, '<span class="str">"$1"</span>');
-  for (const k of KW) {
-    html = html.replace(new RegExp('^(\\s*)' + k + ' '), '$1<span class="kw">' + k + '</span> ');
+  function sub(who, cls, text) {
+    var box = $("subbox");
+    box.classList.remove("show");
+    setTimeout(function () {
+      $("subwho").textContent = who;
+      $("subwho").className = cls;
+      $("subtxt").textContent = text;
+      box.classList.add("show");
+    }, 260);
   }
-  html = html.replace(/^Escenario:/, '<span class="esc">Escenario:</span>');
-  return html;
-}
 
-function typeGherkin(boxId, txtId, lines, done) {
-  $(boxId).classList.add('show');
-  const target = $(txtId);
-  let li = 0, ci = 0, out = [];
-  (function tick() {
-    if (li >= lines.length) { done && done(); return; }
-    ci++;
-    if (ci > lines[li].length) { out[li] = fmt(lines[li]); li++; ci = 0; }
-    else { out[li] = fmt(lines[li].slice(0, ci)); }
-    target.innerHTML = out.join('\n');
-    setTimeout(tick, 26);
-  })();
-}
+  function cursor(el) {
+    var body = document.querySelector(".appbody").getBoundingClientRect();
+    var r = el.getBoundingClientRect();
+    var c = $("cur");
+    c.style.left = (r.left - body.left + r.width / 2 - 8) + "px";
+    c.style.top = (r.top - body.top + r.height / 2 - 8) + "px";
+    c.classList.add("show");
+  }
 
-const esc1 = [
-  'Escenario: Cliente moroso no puede facturar a crédito',
-  '  Given un cliente con facturas vencidas impagas',
-  '  When intento emitir una factura con pago a crédito',
-  '  Then el sistema rechaza la operación',
-  '  And muestra el motivo "cliente moroso"'
-];
-const esc2 = [
-  'Escenario: Cliente moroso puede facturar al contado',
-  '  Given un cliente con facturas vencidas impagas',
-  '  When emito una factura con pago al contado',
-  '  Then el sistema emite la factura normalmente'
-];
+  function push(cls, html, id) {
+    var n = document.createElement("div");
+    n.className = "it " + cls;
+    if (id) n.id = id;
+    n.innerHTML = html;
+    feed.appendChild(n);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { n.classList.add("show"); down(); });
+    });
+    return n;
+  }
 
-const T = [];
-function at(sec, fn) { T.push(setTimeout(fn, sec * 1000)); }
+  // ---- Gherkin con resaltado ----
+  var KW = ["Given", "When", "Then", "And"];
+  function fmt(line) {
+    var h = line.replace(/&/g, "&amp;").replace(/</g, "&lt;")
+      .replace(/"([^"]*)"/g, '<span class="str">"$1"</span>');
+    for (var i = 0; i < KW.length; i++) {
+      h = h.replace(new RegExp("^(\\s*)" + KW[i] + " "), '$1<span class="kw">' + KW[i] + "</span> ");
+    }
+    return h.replace(/^Escenario:/, '<span class="esc">Escenario:</span>');
+  }
 
-// ---- guion (~42 s) ----
-at(0.4, () => sub('Sesión de validación', 'nar',
-  'El stakeholder usa el sistema construido y comenta en voz alta lo que espera.'));
+  function typeGherkin(id, lines, charMs, done) {
+    var el = $(id);
+    var li = 0, ci = 0, out = [];
+    (function tick() {
+      if (li >= lines.length) { if (done) done(); return; }
+      ci++;
+      if (ci > lines[li].length) { out[li] = fmt(lines[li]); li++; ci = 0; }
+      else { out[li] = fmt(lines[li].slice(0, ci)); }
+      el.innerHTML = out.join("\n");
+      down();
+      setTimeout(tick, charMs);
+    })();
+  }
 
-at(3.2, () => { $('cliCard').classList.add('focus'); moveCursor($('cliCard'));
-  sub('Stakeholder', 'st', 'Acá está Comercial Andina, que figura como cliente moroso.'); });
+  // ---- Corrida de un escenario ----
+  function runner(id, steps) {
+    var rows = steps.map(function (s, i) {
+      return '<div class="step" id="' + id + '-s' + i + '"><span class="m"></span><span>' + s.t +
+        (s.why ? '<span class="why">' + s.why + "</span>" : "") + "</span></div>";
+    }).join("");
+    return '<div class="rh"><span class="sp"></span><span id="' + id + '-lbl">Ejecutando contra el sistema construido…</span></div>' +
+      rows + '<div class="verdict" id="' + id + '-v"></div>';
+  }
 
-at(6.2, () => { moveCursor($('btnNueva')); });
-at(6.9, () => { $('btnNueva').classList.add('pressed'); });
-at(7.2, () => { $('btnNueva').classList.remove('pressed'); $('factura').classList.add('show');
-  $('cliCard').classList.remove('focus'); });
-at(7.6, () => { moveCursor($('optCredito')); $('optCredito').classList.add('warn');
-  sub('Stakeholder', 'st',
-  'Si el cliente está moroso, esto no me tendría que dejar facturar a crédito.'); });
+  function step(id, i, cls, ms) {
+    at(ms, function () {
+      var el = $(id + "-s" + i);
+      el.classList.add("show", cls);
+      down();
+    });
+  }
 
-at(8.4, () => { $('chip1').classList.add('show'); });
-at(9.2, () => typeGherkin('gk1', 'gk1t', esc1));
+  function verdict(id, cls, text, label, ms) {
+    at(ms, function () {
+      $(id).classList.add("done");
+      $(id + "-lbl").textContent = label;
+      var v = $(id + "-v");
+      v.className = "verdict show " + cls;
+      v.textContent = text;
+      down();
+    });
+  }
 
-at(15.6, () => { moveCursor($('optContado')); $('optContado').classList.add('sel');
-  sub('Stakeholder', 'st',
-  'En cambio al contado sí tendría que poder facturarle, aunque esté moroso.'); });
-at(16.6, () => { $('chip2').classList.add('show'); });
-at(17.4, () => typeGherkin('gk2', 'gk2t', esc2));
+  // =================== GUION (~58 s) ===================
 
-at(23.2, () => { $('reread').classList.add('show');
-  sub('Agente IAG', 'ag',
-  'Entendí dos reglas: moroso no puede facturar a crédito, pero sí al contado. ¿Refleja lo que esperás?'); });
+  at(0.4, function () { sub("Sesión de validación", "nar", "El stakeholder usa el sistema construido y comenta en voz alta lo que espera."); });
 
-at(28.4, () => { $('confirm').classList.add('show');
-  sub('Stakeholder', 'st', 'Sí, es exactamente eso.'); });
-at(29.4, () => { $('val1').classList.add('show'); $('val2').classList.add('show'); });
+  at(2.6, function () {
+    $("cliCard").classList.add("focus"); cursor($("cliCard"));
+    sub("Stakeholder", "st", "Acá está Comercial Andina, que figura como cliente moroso.");
+  });
 
-at(32.2, () => { $('handoff').classList.add('show'); $('cur').classList.remove('show');
-  sub('Resultado', 'nar',
-  'El equipo recibe tests de aceptación ejecutables, validados por el cliente en la sesión.'); });
-at(32.9, () => $('t1').classList.add('show'));
-at(33.5, () => $('t2').classList.add('show'));
-at(34.1, () => $('t3').classList.add('show'));
+  at(5.0, function () { cursor($("btnNueva")); });
+  at(5.7, function () { $("btnNueva").classList.add("pressed"); });
+  at(6.0, function () {
+    $("btnNueva").classList.remove("pressed");
+    $("factura").classList.add("show");
+    $("cliCard").classList.remove("focus");
+  });
 
-at(37.5, () => { $('closing').classList.add('show'); $('subbox').classList.remove('show'); });
+  // ---------- Escenario 1 ----------
+  at(6.6, function () {
+    cursor($("optCredito")); $("optCredito").classList.add("warn");
+    sub("Stakeholder", "st", "Si el cliente está moroso, esto no me tendría que dejar facturar a crédito.");
+  });
+  at(7.6, function () { push("chip", 'Comentario capturado: <q>si está moroso, no me tendría que dejar facturar a crédito</q>'); });
+  at(8.4, function () {
+    push("gk", "", "gk1");
+    typeGherkin("gk1", [
+      "Escenario: Cliente moroso no puede facturar a crédito",
+      "  Given un cliente con facturas vencidas impagas",
+      "  When intento emitir una factura con pago a crédito",
+      "  Then el sistema rechaza la operación",
+      '  And muestra el motivo "cliente moroso"'
+    ], 22);
+  });
+
+  at(13.4, function () { sub("Sesión de validación", "nar", "El escenario no queda escrito para después. Corre solo, contra el sistema."); });
+  at(14.2, function () {
+    push("run", runner("r1", [
+      { t: "Given un cliente con facturas vencidas impagas" },
+      { t: "When intento emitir una factura con pago a crédito" },
+      { t: "Then el sistema rechaza la operación", why: "El sistema emitió la factura A-0412. No hubo rechazo." }
+    ]), "r1");
+    $("driven").classList.add("on");
+  });
+
+  step("r1", 0, "ok", 15.0);
+  at(15.6, function () { cursor($("optCredito")); $("optCredito").classList.add("sel"); });
+  step("r1", 1, "ok", 16.4);
+  at(17.2, function () {
+    $("res").className = "result emit show";
+    $("res").innerHTML = "Factura A-0412 emitida a crédito.<small>El sistema no bloqueó la operación.</small>";
+  });
+  step("r1", 2, "bad", 17.8);
+  verdict("r1", "fail", "El escenario falla. La expectativa del stakeholder no se cumple.", "Corrida terminada · 1 de 3 pasos falló", 18.4);
+  at(18.6, function () { $("driven").classList.remove("on"); });
+  at(19.0, function () { sub("Sesión de validación", "nar", "El test falla. Ahí arranca la conversación, y es con el stakeholder."); });
+
+  at(20.4, function () {
+    push("ask", '<span class="lbl">El agente le pregunta al stakeholder</span>' +
+      'Corrí tu expectativa contra el sistema: emitió igual la factura a crédito, sin rechazo ni motivo. ' +
+      '¿El sistema está mal, o hay algún caso en que sí se permite?');
+  });
+  at(23.4, function () { sub("Stakeholder", "st", "No, eso está mal. Con deuda vencida no se factura a crédito, punto."); });
+  at(24.6, function () {
+    push("ans", '<span class="lbl">Responde el stakeholder</span>' +
+      '"No, eso está mal. Con deuda vencida no se factura a crédito, punto."');
+  });
+  at(26.2, function () {
+    push("ticket", '<span class="lbl">Ticket para desarrollo</span>' +
+      'El sistema permite facturar a crédito a clientes con deuda vencida. Confirmado como error por el stakeholder en la sesión.' +
+      '<div class="att">Adjunto: escenario Gherkin ejecutable, hoy en rojo.</div>');
+  });
+  at(26.8, function () { sub("Sesión de validación", "nar", "Confirmado por él, sale como ticket con el test que hoy falla adjunto."); });
+
+  // ---------- Escenario 2 ----------
+  at(30.0, function () {
+    $("res").className = "result"; $("optCredito").className = "opt";
+    cursor($("optContado"));
+    sub("Stakeholder", "st", "En cambio al contado sí tendría que poder facturarle, aunque tenga deuda.");
+  });
+  at(31.0, function () { push("chip", 'Comentario capturado: <q>al contado sí tendría que poder, aunque tenga deuda</q>'); });
+  at(31.8, function () {
+    push("gk", "", "gk2");
+    typeGherkin("gk2", [
+      "Escenario: Cliente moroso puede facturar al contado",
+      "  Given un cliente con facturas vencidas impagas",
+      "  When emito una factura con pago al contado",
+      "  Then el sistema emite la factura normalmente"
+    ], 22);
+  });
+
+  at(35.8, function () {
+    push("run", runner("r2", [
+      { t: "Given un cliente con facturas vencidas impagas" },
+      { t: "When emito una factura con pago al contado" },
+      { t: "Then el sistema emite la factura normalmente", why: "La emitió, pero antes pidió confirmación de un supervisor." }
+    ]), "r2");
+    $("driven").classList.add("on");
+  });
+  step("r2", 0, "ok", 36.6);
+  at(37.2, function () { $("optContado").classList.add("sel"); });
+  step("r2", 1, "ok", 38.0);
+  at(38.6, function () {
+    $("res").className = "result suv show";
+    $("res").innerHTML = "Factura emitida al contado, con confirmación de supervisor.<small>El sistema pidió un paso extra antes de emitir.</small>";
+  });
+  step("r2", 2, "bad", 39.2);
+  verdict("r2", "fail", "El escenario también falla, pero por un paso de más, no por uno de menos.", "Corrida terminada · 1 de 3 pasos falló", 39.8);
+  at(40.0, function () { $("driven").classList.remove("on"); });
+
+  at(41.0, function () {
+    push("ask", '<span class="lbl">El agente le pregunta al stakeholder</span>' +
+      'Este también falla, pero distinto: la emite, y antes pide confirmación de un supervisor. ' +
+      '¿Eso está mal, o es un paso que esperabas y no me contaste?');
+  });
+  at(43.8, function () { sub("Stakeholder", "st", "Ah, no. Eso está bien, me lo olvidé: con deuda vencida el supervisor confirma."); });
+  at(45.0, function () {
+    push("ans", '<span class="lbl">Responde el stakeholder</span>' +
+      '"Eso está bien, me lo olvidé. Con deuda vencida el supervisor tiene que confirmar."');
+  });
+
+  at(46.6, function () {
+    sub("Sesión de validación", "nar", "El agente refina el escenario con lo que faltaba y lo vuelve a correr.");
+    $("gk2").innerHTML = [
+      fmt("Escenario: Cliente moroso puede facturar al contado"),
+      fmt("  Given un cliente con facturas vencidas impagas"),
+      fmt("  When emito una factura con pago al contado"),
+      '<span class="added">' + fmt("  Then el sistema pide confirmación de un supervisor") + "</span>",
+      '<span class="added">' + fmt("  And luego emite la factura") + "</span>"
+    ].join("\n");
+    down();
+  });
+
+  at(47.8, function () {
+    push("run", runner("r3", [
+      { t: "Given un cliente con facturas vencidas impagas" },
+      { t: "When emito una factura con pago al contado" },
+      { t: "Then el sistema pide confirmación de un supervisor" },
+      { t: "And luego emite la factura" }
+    ]), "r3");
+  });
+  step("r3", 0, "ok", 48.4);
+  step("r3", 1, "ok", 48.9);
+  step("r3", 2, "ok", 49.4);
+  step("r3", 3, "ok", 49.9);
+  verdict("r3", "pass", "El escenario pasa. No había error del sistema: la expectativa estaba incompleta.", "Corrida terminada · 4 de 4 pasos en verde", 50.5);
+
+  at(51.0, function () {
+    push("noticket", "Acá no sale ningún ticket. Lo que se corrigió fue la expectativa del stakeholder, no el sistema.");
+  });
+  at(51.4, function () { sub("Sesión de validación", "nar", "No todo lo que falla es un error del sistema. Esa distinción la hace el negocio."); });
+
+  at(54.0, function () { $("summary").classList.add("show"); $("cur").classList.remove("show"); });
+  at(54.4, function () { sub("Resultado", "nar", "El equipo recibe tests ejecutables validados, y un ticket que ya viene con su test en rojo."); });
+
+  at(57.6, function () { $("closing").classList.add("show"); $("subbox").classList.remove("show"); });
+})();
 </script>
+</body>
+</html>
