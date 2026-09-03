@@ -8,7 +8,7 @@
         <mxCell id="title" value="Cuatro escenarios de uso de IAG en el desarrollo de software (S1–S4)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=15;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="40" y="10" width="900" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="subtitle" value="Figura propia elaborada a partir de Sauvola et al. (2024), Tablas 1 y 2 — &lt;i&gt;Future of software development with generative AI&lt;/i&gt;, Automated Software Engineering 31(26). Columnas A–D: quién ocupa cada función según el modelo del paper (H = humano, IA = inteligencia artificial, T = herramienta)." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;fontStyle=2" vertex="1" parent="1">
+        <mxCell id="subtitle" value="Figura propia elaborada a partir de Sauvola et al. (2024), Tablas 1 y 2: &lt;i&gt;Future of software development with generative AI&lt;/i&gt;, Automated Software Engineering 31(26). Columnas A–D: quién ocupa cada función según el modelo del paper (H = humano, IA = inteligencia artificial, T = herramienta)." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;fontStyle=2" vertex="1" parent="1">
           <mxGeometry x="40" y="38" width="1320" height="34" as="geometry" />
         </mxCell>
 
@@ -28,17 +28,17 @@
         <mxCell id="hD" value="D&lt;br&gt;entrega y mant." style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="900" y="82" width="90" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="hAreas" value="Dónde caen las categorías de la sec. 4 del marco" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontStyle=1" vertex="1" parent="1">
+        <mxCell id="hAreas" value="Dónde caen las categorías identificadas" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="1010" y="86" width="350" height="24" as="geometry" />
         </mxCell>
 
         <!-- Flecha de gradacion -->
-        <mxCell id="grad" value="creciente suplantación de roles humanos por IA" style="shape=singleArrow;direction=south;whiteSpace=wrap;html=1;arrowWidth=0.4;arrowSize=0.08;fillColor=#F5F5F5;strokeColor=#999999;fontSize=10;horizontal=0;" vertex="1" parent="1">
+        <mxCell id="grad" value="creciente asunción de roles humanos por la IA" style="shape=singleArrow;direction=south;whiteSpace=wrap;html=1;arrowWidth=0.4;arrowSize=0.08;fillColor=#F5F5F5;strokeColor=#999999;fontSize=10;horizontal=0;" vertex="1" parent="1">
           <mxGeometry x="40" y="120" width="50" height="500" as="geometry" />
         </mxCell>
 
         <!-- S1 -->
-        <mxCell id="s1" value="&lt;b&gt;S1 — Traditional Software Development Operations&lt;/b&gt;&lt;br&gt;Los humanos ocupan todos los roles; las herramientas y entornos aportan la automatización. Gestionan el proceso, diseñan, implementan, prueban, entregan y mantienen." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=top;spacing=8;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s1" value="&lt;b&gt;S1: Traditional Software Development Operations&lt;/b&gt;&lt;br&gt;Los humanos ocupan todos los roles; las herramientas y entornos aportan la automatización. Gestionan el proceso, diseñan, implementan, prueban, entregan y mantienen." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=top;spacing=8;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="100" y="120" width="500" height="110" as="geometry" />
         </mxCell>
         <mxCell id="s1a" value="H" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=11;fontStyle=1" vertex="1" parent="1">
@@ -53,12 +53,12 @@
         <mxCell id="s1d" value="H" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=11;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="900" y="150" width="90" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s1n" value="Es el proceso de &lt;b&gt;hoy&lt;/b&gt;, la línea de base descrita en la sec. 3 del marco." style="text;html=1;whiteSpace=wrap;strokeColor=#CCCCCC;fillColor=#FAFAFA;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s1n" value="Es el proceso de &lt;b&gt;hoy&lt;/b&gt;, la línea de base descrita en el Capítulo 2." style="text;html=1;whiteSpace=wrap;strokeColor=#CCCCCC;fillColor=#FAFAFA;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="1010" y="120" width="350" height="110" as="geometry" />
         </mxCell>
 
         <!-- S2 -->
-        <mxCell id="s2" value="&lt;b&gt;S2 — AI in loop&lt;/b&gt;&lt;br&gt;Los humanos dominan a la IA, pero la IA empieza a gestionar áreas de trabajo más grandes y complejas: automatiza partes de tareas manuales y repetitivas (generación de código, documentación, testing, despliegue) y asiste en diseño, troubleshooting y toma de decisiones." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=top;spacing=8;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s2" value="&lt;b&gt;S2: AI in loop&lt;/b&gt;&lt;br&gt;Los humanos dominan a la IA, pero la IA empieza a gestionar áreas de trabajo más grandes y complejas: automatiza partes de tareas manuales y repetitivas (generación de código, documentación, testing, despliegue) y asiste en diseño, troubleshooting y toma de decisiones." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=top;spacing=8;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="100" y="245" width="500" height="110" as="geometry" />
         </mxCell>
         <mxCell id="s2a" value="H" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=11;fontStyle=1" vertex="1" parent="1">
@@ -73,12 +73,12 @@
         <mxCell id="s2d" value="H o IA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="900" y="275" width="90" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s2n" value="&lt;b&gt;La mayor parte del estado del arte:&lt;/b&gt; 4.2 (asistentes de reunión), 4.3 (la IA trabaja el artefacto de requisito) y la rama (a) de 4.4, donde el equipo opera la herramienta. Asistencia con supervisión humana." style="text;html=1;whiteSpace=wrap;strokeColor=#D6B656;fillColor=#FFF9E6;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s2n" value="&lt;b&gt;La mayor parte del estado del arte:&lt;/b&gt; la IA captura lo que se dijo (asistentes de reunión), trabaja el artefacto de requisito, y la variante (a) de la materialización temprana, donde el equipo opera la herramienta. Asistencia con supervisión humana." style="text;html=1;whiteSpace=wrap;strokeColor=#D6B656;fillColor=#FFF9E6;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="1010" y="245" width="350" height="110" as="geometry" />
         </mxCell>
 
         <!-- S3 -->
-        <mxCell id="s3" value="&lt;b&gt;S3 — AI assumes role(s)&lt;/b&gt;&lt;br&gt;La IA empieza a &lt;i&gt;asumir roles&lt;/i&gt; seleccionados (gestión del proceso, diseño, implementación, testing, entrega, mantenimiento). Los humanos se enfocan en las tareas más complejas y controlan toda la operación." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=top;spacing=8;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s3" value="&lt;b&gt;S3: AI assumes role(s)&lt;/b&gt;&lt;br&gt;La IA empieza a &lt;i&gt;asumir roles&lt;/i&gt; seleccionados (gestión del proceso, diseño, implementación, testing, entrega, mantenimiento). Los humanos se enfocan en las tareas más complejas y controlan toda la operación." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=top;spacing=8;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="100" y="370" width="500" height="110" as="geometry" />
         </mxCell>
         <mxCell id="s3a" value="H o IA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=10;" vertex="1" parent="1">
@@ -93,12 +93,12 @@
         <mxCell id="s3d" value="IA o H" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="900" y="400" width="90" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s3n" value="&lt;b&gt;Dos puntos:&lt;/b&gt; la &lt;b&gt;impersonación de stakeholders&lt;/b&gt; (4.1), donde la IA &lt;i&gt;asume&lt;/i&gt; el rol de quien emite el feedback; y la rama (b) de &lt;b&gt;4.4&lt;/b&gt;, donde el actor de negocio construye y el developer queda como compuerta." style="text;html=1;whiteSpace=wrap;strokeColor=#B85450;fillColor=#FDF3F2;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s3n" value="&lt;b&gt;Dos puntos:&lt;/b&gt; la &lt;b&gt;suplantación de stakeholders&lt;/b&gt;, donde la IA &lt;i&gt;asume&lt;/i&gt; el rol de quien emite el feedback; y la variante (b) de la &lt;b&gt;materialización temprana&lt;/b&gt;, operada directamente por el usuario de negocio, sin intermediario técnico." style="text;html=1;whiteSpace=wrap;strokeColor=#B85450;fillColor=#FDF3F2;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="1010" y="370" width="350" height="110" as="geometry" />
         </mxCell>
 
         <!-- S4 -->
-        <mxCell id="s4" value="&lt;b&gt;S4 — Human-in-the-loop&lt;/b&gt;&lt;br&gt;La IA gestiona las operaciones de desarrollo en varios roles. Los humanos supervisan y controlan, pero su rol se enfoca en la vigilancia: control operativo, resolución de problemas, aseguramiento de calidad y seguridad." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=top;spacing=8;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s4" value="&lt;b&gt;S4: Human-in-the-loop&lt;/b&gt;&lt;br&gt;La IA gestiona las operaciones de desarrollo en varios roles. Los humanos supervisan y controlan, pero su rol se enfoca en la vigilancia: control operativo, resolución de problemas, aseguramiento de calidad y seguridad." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=top;spacing=8;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="100" y="495" width="500" height="110" as="geometry" />
         </mxCell>
         <mxCell id="s4a" value="IA ↑ H" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=10;" vertex="1" parent="1">
@@ -113,12 +113,12 @@
         <mxCell id="s4d" value="IA ↑ H" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="900" y="525" width="90" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s4n" value="&lt;b&gt;Ninguna categoría llega.&lt;/b&gt; El candidato sería el tramo técnico autónomo (4.6), y el pivote de Tusk y Sweep sugiere que ese modo todavía no cierra." style="text;html=1;whiteSpace=wrap;strokeColor=#B85450;fillColor=#FDF3F2;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="s4n" value="&lt;b&gt;Ninguna categoría llega.&lt;/b&gt; El candidato sería el tramo técnico autónomo; la reorientación de Tusk y Sweep sugiere que ese modo aún no resulta viable." style="text;html=1;whiteSpace=wrap;strokeColor=#B85450;fillColor=#FDF3F2;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="1010" y="495" width="350" height="110" as="geometry" />
         </mxCell>
 
         <!-- Leyenda de la escala de color -->
-        <mxCell id="legendTitle" value="&lt;b&gt;Escala de color — quién lidera el rol:&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="legendTitle" value="&lt;b&gt;Escala de color: quién lidera el rol&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="100" y="622" width="210" height="34" as="geometry" />
         </mxCell>
         <mxCell id="lgGreen" value="H" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=10;fontStyle=1" vertex="1" parent="1">
