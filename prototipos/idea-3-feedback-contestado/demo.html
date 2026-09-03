@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Feedback contestado en el momento</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 720px; overflow: hidden; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #f2f4f8;
+    color: #1c2733;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    height: 62px;
+    background: #ffffff;
+    border-bottom: 1px solid #e1e6ec;
+    display: flex; align-items: center; gap: 14px;
+    padding: 0 32px;
+    flex-shrink: 0;
+  }
+  .logo {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: #6d5ef0; color: #fff;
+    font-weight: 700; font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  header h1 { font-size: 19px; font-weight: 650; }
+  header .sub { font-size: 13px; color: #6b7887; margin-left: auto; }
+
+  main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 540px 296px 1fr;
+    gap: 18px;
+    padding: 18px 32px;
+    min-height: 0;
+  }
+  .col {
+    background: #ffffff;
+    border: 1px solid #e1e6ec;
+    border-radius: 12px;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .col h2 {
+    font-size: 11.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    color: #6b7887;
+    padding: 12px 16px;
+    border-bottom: 1px solid #eef1f5;
+    display: flex; align-items: center; gap: 8px;
+    flex-shrink: 0;
+  }
+  .col h2 .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  #canal h2 .dot { background: #6d5ef0; }
+  #acordado h2 .dot { background: #2b5fb8; }
+  #equipo h2 .dot { background: #1f9d63; }
+
+  /* ---- Canal de feedback ---- */
+  .chat {
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: none;
+    padding: 14px 16px;
+    display: flex; flex-direction: column; gap: 11px;
+  }
+  .chat::-webkit-scrollbar { display: none; }
+  .msg {
+    max-width: 84%;
+    border-radius: 12px;
+    padding: 9px 12px;
+    font-size: 13.5px;
+    line-height: 1.45;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .msg.show { opacity: 1; transform: translateY(0); }
+  .msg .meta { font-size: 10.5px; color: #8a94a6; margin-bottom: 4px; }
+  .msg.cli {
+    align-self: flex-start;
+    background: #f4f6f9;
+    border: 1px solid #e3e8ee;
+    border-bottom-left-radius: 4px;
+  }
+  .msg.ag {
+    align-self: flex-end;
+    background: #f6f4ff;
+    border: 1px solid #ddd7f8;
+    border-bottom-right-radius: 4px;
+    color: #2c2350;
+  }
+  .msg.ag .meta { color: #8a86b8; }
+  .msg.faded { opacity: 0.4; }
+  .tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    padding: 2px 8px; border-radius: 999px;
+    text-transform: uppercase; letter-spacing: 0.4px;
+    margin-bottom: 5px;
+  }
+  .tag.pregunta { background: #e8f0fe; color: #2b5fb8; }
+  .tag.alcance { background: #fff3dc; color: #b07a10; }
+  .tag.bug { background: #fdeaea; color: #c0392b; }
+  .tag.cubierto { background: #eaf6ee; color: #1f7a49; }
+  .outcome {
+    align-self: center;
+    font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.3px;
+    color: #6b7887;
+    background: #eef1f5;
+    border-radius: 999px;
+    padding: 4px 13px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .outcome.show { opacity: 1; }
+  .outcome.reform { background: #e8f0fe; color: #2b5fb8; }
+  .outcome.insiste { background: #fff3dc; color: #b07a10; }
+  .outcome.retira { background: #eaf6ee; color: #1f7a49; }
+
+  .typing {
+    align-self: flex-end;
+    display: none; align-items: center; gap: 8px;
+    font-size: 12px; color: #6d5ef0;
+    padding: 4px 6px;
+  }
+  .typing.on { display: flex; }
+  .spinner {
+    width: 13px; height: 13px;
+    border: 2px solid #ddd7f8; border-top-color: #6d5ef0;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ---- Lo acordado ---- */
+  .refs { padding: 14px 14px; display: flex; flex-direction: column; gap: 10px; }
+  .ref {
+    border: 1px solid #e3e8ee;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 12.5px;
+    line-height: 1.45;
+    color: #4a5764;
+    background: #fbfcfd;
+    transition: border-color 0.35s, background 0.35s, box-shadow 0.35s;
+  }
+  .ref .code {
+    display: block;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px;
+    color: #8a94a6; margin-bottom: 4px;
+    font-family: "SF Mono", Menlo, monospace;
+  }
+  .ref.hit {
+    border-color: #2b5fb8;
+    background: #f2f7ff;
+    box-shadow: 0 0 0 3px rgba(43, 95, 184, 0.10);
+  }
+  .ref.hit .code { color: #2b5fb8; }
+  .refs .note {
+    margin-top: auto;
+    font-size: 11.5px;
+    color: #8a94a6;
+    line-height: 1.5;
+    border-top: 1px solid #eef1f5;
+    padding-top: 10px;
+  }
+
+  /* ---- Bandeja del equipo ---- */
+  .tray { padding: 14px; display: flex; flex-direction: column; gap: 11px; flex: 1; min-height: 0; }
+  .empty { font-size: 13px; color: #9aa6b3; text-align: center; padding: 24px 10px; }
+  .ticket {
+    border: 1px solid #d6e8de;
+    border-left: 4px solid #1f9d63;
+    border-radius: 10px;
+    padding: 11px 13px;
+    font-size: 12.5px;
+    line-height: 1.45;
+    background: #fbfffd;
+    opacity: 0;
+    transform: translateX(14px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+  .ticket.show { opacity: 1; transform: translateX(0); }
+  .ticket .title { font-weight: 700; font-size: 13px; display: block; margin-bottom: 4px; }
+  .ticket .body { color: #4a5764; }
+  .ticket .trace { margin-top: 6px; font-size: 10.5px; color: #8a94a6; }
+  .ticket .flag {
+    display: inline-block; margin-top: 6px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px;
+    background: #fff3dc; color: #b07a10;
+    padding: 2px 8px; border-radius: 999px;
+  }
+  .prio {
+    display: none;
+    float: right;
+    font-size: 10px; font-weight: 700;
+    padding: 2px 8px; border-radius: 999px;
+    text-transform: uppercase; letter-spacing: 0.4px;
+  }
+  .prio.show { display: inline-block; animation: pop 0.4s ease-out; }
+  @keyframes pop { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: none; } }
+  .prio.alta { background: #fdeaea; color: #c0392b; }
+  .prio.media { background: #fff3dc; color: #b07a10; }
+  .counter {
+    margin-top: auto;
+    padding: 11px 14px;
+    border-top: 1px solid #eef1f5;
+    font-size: 11.5px;
+    color: #5b6b7b;
+    line-height: 1.6;
+    flex-shrink: 0;
+  }
+
+  /* ---- Narracion ---- */
+  .caption {
+    height: 50px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: #46535f;
+    padding: 0 40px; text-align: center;
+  }
+  .caption span { opacity: 0; transition: opacity 0.5s; }
+  .caption span.visible { opacity: 1; }
+
+  /* ---- Cierre ---- */
+  #closing {
+    position: fixed; inset: 0;
+    background: #1b1440;
+    color: #fff;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 22px;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.9s;
+    padding: 0 120px; text-align: center;
+  }
+  #closing.visible { opacity: 1; }
+  #closing .kicker {
+    font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
+    color: #a99bff; font-weight: 700;
+  }
+  #closing h2 { font-size: 32px; line-height: 1.35; font-weight: 700; max-width: 920px; }
+  #closing p { font-size: 18px; color: #c3bde0; line-height: 1.6; max-width: 880px; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">FC</div>
+    <h1>Feedback contestado en el momento</h1>
+    <div class="sub">Prototipo exploratorio &middot; la respuesta vuelve al cliente, no al equipo</div>
+  </header>
+
+  <main>
+    <section class="col" id="canal">
+      <h2><span class="dot"></span>Canal de feedback &middot; cliente y agente IAG</h2>
+      <div class="chat" id="chat">
+        <div class="typing" id="typing"><span class="spinner"></span>El agente está respondiendo…</div>
+      </div>
+    </section>
+
+    <section class="col" id="acordado">
+      <h2><span class="dot"></span>Lo acordado</h2>
+      <div class="refs">
+        <div class="ref" id="ref-alc"><span class="code">ALC-v3</span>Alcance acordado en el acta del 12/05.</div>
+        <div class="ref" id="ref-rd04"><span class="code">RD-04</span>El reporte mensual de ventas muestra la columna de descuentos aplicados.</div>
+        <div class="ref" id="ref-seg02"><span class="code">SEG-02</span>El login exige doble factor de autenticación.</div>
+        <div class="note">El agente apoya cada respuesta en lo que ya se acordó, y muestra la referencia al cliente.</div>
+      </div>
+    </section>
+
+    <section class="col" id="equipo">
+      <h2><span class="dot"></span>Equipo &middot; lo prioriza el negocio</h2>
+      <div class="tray" id="tray">
+        <div class="empty" id="empty">Bandeja vacía</div>
+      </div>
+      <div class="counter" id="counter">0 ítems &middot; 0 retirados por el cliente</div>
+    </section>
+  </main>
+
+  <div class="caption"><span id="cap"></span></div>
+
+  <div id="closing">
+    <div class="kicker">Qué ataca de la tesis</div>
+    <h2>El cliente recibe en el momento el juicio que hoy se hace a sus espaldas.</h2>
+    <p>Reformula, retira o insiste antes de que el pedido entre a la cola del equipo. Lo que llega, llega completo porque lo completó el cliente, y priorizado por el negocio. Objetivos B, C y E.</p>
+  </div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var chat = $("chat");
+  var typing = $("typing");
+  var pasan = 0, retirados = 0;
+
+  function at(ms, fn) { setTimeout(fn, ms); }
+
+  function caption(text, ms) {
+    at(ms, function () {
+      var cap = $("cap");
+      cap.classList.remove("visible");
+      setTimeout(function () { cap.textContent = text; cap.classList.add("visible"); }, 250);
+    });
+  }
+
+  function scrollDown() {
+    chat.scrollTo({ top: chat.scrollHeight, behavior: "smooth" });
+  }
+
+  function add(html, cls, ms) {
+    at(ms, function () {
+      var node = document.createElement("div");
+      node.className = cls;
+      node.innerHTML = html;
+      chat.insertBefore(node, typing);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { node.classList.add("show"); scrollDown(); });
+      });
+    });
+  }
+
+  function cliente(meta, text, ms) {
+    add('<div class="meta">' + meta + '</div>' + text, "msg cli", ms);
+  }
+
+  function agente(tag, tagText, text, ms) {
+    add('<div class="meta">Agente IAG &middot; al instante</div>' +
+        '<span class="tag ' + tag + '">' + tagText + '</span><br>' + text, "msg ag", ms);
+  }
+
+  function pensando(from, to) {
+    at(from, function () { typing.classList.add("on"); scrollDown(); });
+    at(to, function () { typing.classList.remove("on"); });
+  }
+
+  function outcome(text, cls, ms) {
+    at(ms, function () {
+      var node = document.createElement("div");
+      node.className = "outcome " + cls;
+      node.textContent = text;
+      chat.insertBefore(node, typing);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { node.classList.add("show"); scrollDown(); });
+      });
+    });
+  }
+
+  function hit(id, ms) {
+    at(ms, function () { $(id).classList.add("hit"); });
+    at(ms + 3200, function () { $(id).classList.remove("hit"); });
+  }
+
+  function ticket(id, title, body, trace, flag, ms) {
+    at(ms, function () {
+      $("empty").style.display = "none";
+      var node = document.createElement("div");
+      node.className = "ticket";
+      node.id = id;
+      node.innerHTML = '<span class="prio" id="' + id + '-prio"></span>' +
+        '<span class="title">' + title + '</span>' +
+        '<div class="body">' + body + '</div>' +
+        (flag ? '<span class="flag">' + flag + '</span>' : '') +
+        '<div class="trace">' + trace + '</div>';
+      $("tray").appendChild(node);
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { node.classList.add("show"); });
+      });
+      pasan++;
+      updateCounter();
+    });
+  }
+
+  function prio(id, cls, text, ms) {
+    at(ms, function () {
+      var p = $(id + "-prio");
+      p.className = "prio " + cls + " show";
+      p.textContent = text;
+    });
+  }
+
+  function updateCounter(extra) {
+    $("counter").innerHTML = pasan + " ítems que pasaron &middot; " + retirados +
+      (retirados === 1 ? " retirado" : " retirados") + " por el cliente" +
+      (extra ? "<br>" + extra : "");
+  }
+
+  // ---------- Guion temporizado (~44 s) ----------
+
+  caption("El cliente manda su feedback por el canal de siempre.", 400);
+
+  // 1. Pedido incompleto -> contrapregunta
+  cliente("Chat &middot; 09:12 &middot; Laura (Operaciones)",
+    "Che, la pantalla de reportes se ve rara. Algo cambió.", 1200);
+  pensando(2600, 4200);
+  agente("pregunta", "Contrapregunta",
+    "¿Qué reporte y qué esperabas ver ahí? Si me decís desde cuándo lo notás, lo mando completo al equipo.", 4200);
+  caption("El agente pregunta en el momento lo que hoy preguntaría un desarrollador tres días después.", 4800);
+
+  cliente("Chat &middot; 09:13 &middot; Laura (Operaciones)",
+    "El de ventas mensual. La columna de descuentos me da vacía desde ayer a la tarde.", 7400);
+  outcome("El cliente completó su propio pedido", "reform", 9000);
+  pensando(9400, 10800);
+  hit("ref-rd04", 10800);
+  agente("bug", "Bug de regla de negocio",
+    "Contradice la regla <b>RD-04</b>. Lo mando al equipo con la traza a esta conversación.", 10800);
+  ticket("t1", "Columna de descuentos vacía en el reporte mensual de ventas",
+    "Incumple RD-04. Se detecta desde el 09/09 a la tarde.",
+    "Fuente: chat de Laura 09:12 y 09:13 &middot; regla RD-04", null, 12200);
+  caption("El ítem llega completo al equipo porque lo completó el cliente, no porque el agente lo adivinó.", 12600);
+
+  // 2. Fuera de alcance -> el cliente insiste
+  cliente("Mail &middot; 09:40 &middot; Marcos (Comercial)",
+    "Necesito poder exportar los reportes mensuales a Excel.", 16000);
+  pensando(17400, 18800);
+  hit("ref-alc", 18800);
+  agente("alcance", "Fuera de alcance &middot; sugerido",
+    "Eso no figura en el alcance <b>ALC-v3</b>. Implica estimación y acuerdo con el equipo. ¿Lo dejo como pedido nuevo o lo retirás?", 18800);
+  caption("El agente sugiere el juicio de alcance. No lo decide.", 19400);
+
+  cliente("Mail &middot; 09:44 &middot; Marcos (Comercial)",
+    "Dejalo como pedido nuevo. Lo necesito para el cierre de mes.", 22600);
+  outcome("El cliente insiste", "insiste", 24200);
+  ticket("t2", "Pedido nuevo: exportar reportes mensuales a Excel",
+    "Fuera del alcance ALC-v3. Requiere estimación y acuerdo antes de implementar.",
+    "Fuente: mail de Marcos 09:40 y 09:44", "Discrepancia de alcance", 25400);
+  caption("Si el cliente insiste, el ítem pasa igual y queda marcado. Esa escalada es un dato del estudio.", 25800);
+
+  // 3. Ya cubierto -> el cliente retira
+  cliente("Chat &middot; 10:05 &middot; Laura (Operaciones)",
+    "Otra cosa: el login ahora pide doble factor. ¿Eso está bien?", 29000);
+  pensando(30200, 31600);
+  hit("ref-seg02", 31600);
+  agente("cubierto", "Ya cubierto",
+    "Sí, quedó definido en <b>SEG-02</b>, acta del 12/05. ¿Querés que lo revisemos igual?", 31600);
+
+  cliente("Chat &middot; 10:06 &middot; Laura (Operaciones)",
+    "Ah, no sabía. No, está bien así entonces.", 34600);
+  outcome("El cliente retira el pedido", "retira", 36200);
+  at(36400, function () { retirados++; updateCounter(); });
+  caption("El cliente aprende dónde está el borde del alcance y retira. Ese pedido nunca llega al equipo.", 36600);
+
+  // 4. Priorizacion del lado del negocio
+  prio("t1", "alta", "Alta", 40200);
+  prio("t2", "media", "Media", 41000);
+  at(41200, function () { updateCounter("Prioridad puesta por el negocio &middot; respuesta promedio: 9 s"); });
+  caption("Lo que sí pasa lo prioriza el negocio, no la cola del equipo.", 40600);
+
+  at(44200, function () { $("closing").classList.add("visible"); });
+})();
+</script>
+</body>
+</html>

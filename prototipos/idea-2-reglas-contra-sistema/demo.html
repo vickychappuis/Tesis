@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Las reglas del negocio contra el sistema real</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 720px; overflow: hidden; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f2f4f8;
+    color: #1c2733;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    height: 62px;
+    background: #ffffff;
+    border-bottom: 1px solid #e1e6ec;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+  .logo {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: #1f5eff;
+    color: #fff; font-weight: 700; font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  header h1 { font-size: 19px; font-weight: 650; }
+  header .sub { font-size: 13px; color: #6b7887; margin-left: auto; }
+  main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 500px 1fr;
+    gap: 20px;
+    padding: 18px 32px 20px;
+    min-height: 0;
+  }
+  .panel {
+    background: #ffffff;
+    border: 1px solid #e1e6ec;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .panel-head {
+    padding: 12px 18px;
+    border-bottom: 1px solid #eef1f5;
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #6b7887;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot.blue { background: #1f5eff; }
+  .dot.violet { background: #7a3ff2; }
+  .panel-body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 11px; overflow: hidden; }
+
+  /* ---- Reglas del negocio ---- */
+  .rule {
+    border: 1px solid #dfe5ec;
+    border-radius: 10px;
+    padding: 11px 13px;
+    font-size: 15px;
+    line-height: 1.45;
+    background: #fafbfd;
+    display: none;
+    position: relative;
+    transition: border-color 0.4s, background 0.4s;
+  }
+  .rule.visible { display: block; }
+  .rule .tag {
+    font-size: 10.5px; font-weight: 700; color: #8592a0;
+    letter-spacing: 0.5px; display: block; margin-bottom: 4px;
+  }
+  .rule .txt::after {
+    content: "";
+    display: inline-block;
+    width: 2px; height: 15px;
+    background: #1f5eff;
+    margin-left: 2px;
+    vertical-align: -2px;
+    animation: blink 0.8s step-end infinite;
+  }
+  .rule.done .txt::after { display: none; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .rule .status {
+    position: absolute; top: 9px; right: 11px;
+    font-size: 11px; font-weight: 700;
+    padding: 3px 9px; border-radius: 20px;
+    display: none;
+  }
+  .rule.ok .status { display: inline-block; background: #e2f6e9; color: #147a3d; }
+  .rule.fixed .status { display: inline-block; background: #ece4fd; color: #5b2bc4; }
+  .rule.bug .status { display: inline-block; background: #fdeaea; color: #c22f2f; }
+  .rule.ok { border-color: #bfe4cc; }
+  .rule.fixed { border-color: #cfc0f5; background: #fbf9ff; }
+  .rule.bug { border-color: #eec3c3; background: #fffafa; }
+  .rule .txt.struck { text-decoration: line-through; color: #a3adb8; }
+  .rule .newtxt {
+    display: none;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #d9cdf7;
+    color: #3b2578;
+    font-weight: 550;
+  }
+  .rule .newtxt.visible { display: block; animation: rise 0.5s ease-out; }
+  .rule .newtxt .lbl {
+    display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px;
+    color: #7a3ff2; text-transform: uppercase; margin-bottom: 3px;
+  }
+
+  .btn {
+    margin-top: auto;
+    align-self: flex-start;
+    background: #1f5eff;
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    padding: 11px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.4s, transform 0.15s, background 0.2s;
+  }
+  .btn.visible { opacity: 1; }
+  .btn.pressed { background: #1747c4; transform: scale(0.97); }
+  .btn.gone { display: none; }
+
+  .summary {
+    display: none;
+    margin-top: auto;
+    border-radius: 10px;
+    background: #f4f0ff;
+    border: 1px solid #d9ccf8;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #3b2578;
+  }
+  .summary.visible { display: block; animation: rise 0.5s ease-out; }
+  .summary b { font-weight: 700; }
+
+  /* ---- Agente ---- */
+  .agent-idle {
+    color: #97a2af; font-size: 15px;
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 0 40px; line-height: 1.6;
+  }
+  .check-line {
+    display: none;
+    align-items: center; gap: 10px;
+    font-size: 14px;
+    color: #3d4a58;
+    padding: 6px 4px;
+    font-family: "SF Mono", "Menlo", monospace;
+  }
+  .check-line.visible { display: flex; }
+  .check-line.gone { display: none; }
+  .spinner {
+    width: 15px; height: 15px;
+    border: 2px solid #d4dbe4;
+    border-top-color: #1f5eff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .check-line.done .spinner { display: none; }
+  .check-line .tick { display: none; color: #147a3d; font-weight: 700; flex-shrink: 0; width: 15px; text-align: center; }
+  .check-line.done .tick { display: inline; }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  .card {
+    display: none;
+    border-radius: 10px;
+    padding: 12px 15px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .card.visible { display: block; animation: rise 0.4s ease-out; }
+  .card .ct { font-weight: 700; margin-bottom: 3px; font-size: 13.5px; }
+  .card.ok { background: #f0faf3; border: 1px solid #bfe4cc; }
+  .card.ok .ct { color: #147a3d; }
+  .card.ask { background: #fffdf5; border: 1px solid #ecd9a4; }
+  .card.ask .ct { color: #9a7413; }
+  .card b { font-weight: 700; }
+  .card .q {
+    margin-top: 7px;
+    font-style: italic;
+    color: #4a3c12;
+  }
+  .card.answered .q { display: none; }
+  .choices { display: none; gap: 9px; margin-top: 11px; flex-wrap: wrap; }
+  .choices.visible { display: flex; }
+  .choices button {
+    border-radius: 8px; padding: 8px 15px; font-size: 13px; font-weight: 600;
+    border: 1px solid #d4dbe4; background: #fff; color: #3d4a58;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .choices .violet { background: #7a3ff2; border-color: #7a3ff2; color: #fff; }
+  .choices .violet.pressed { background: #5b2bc4; transform: scale(0.97); }
+  .choices .red { background: #c22f2f; border-color: #c22f2f; color: #fff; }
+  .choices .red.pressed { background: #9c2222; transform: scale(0.97); }
+
+  .resolved {
+    display: none;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 650;
+    padding-top: 9px;
+    border-top: 1px solid #eee3c4;
+  }
+  .resolved.visible { display: block; animation: rise 0.35s ease-out; }
+  .resolved.violet { color: #5b2bc4; }
+  .resolved.red { color: #c22f2f; }
+
+  .byproduct {
+    display: none;
+    margin-top: auto;
+    border: 1px dashed #cfd7e0;
+    background: #f7f9fb;
+    border-radius: 10px;
+    padding: 11px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #4a5764;
+  }
+  .byproduct.visible { display: block; animation: rise 0.4s ease-out; }
+  .byproduct .bh {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px;
+    color: #8592a0; text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* ---- Narracion ---- */
+  .caption {
+    height: 50px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    color: #46535f;
+    padding: 0 40px;
+    text-align: center;
+  }
+  .caption span { opacity: 0; transition: opacity 0.5s; }
+  .caption span.visible { opacity: 1; }
+
+  /* ---- Cierre ---- */
+  #closing {
+    position: fixed; inset: 0;
+    background: #12203a;
+    color: #fff;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 22px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.9s;
+    padding: 0 120px;
+    text-align: center;
+  }
+  #closing.visible { opacity: 1; }
+  #closing .kicker {
+    font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
+    color: #7ea2ff; font-weight: 700;
+  }
+  #closing h2 { font-size: 33px; line-height: 1.35; font-weight: 700; max-width: 900px; }
+  #closing p { font-size: 18px; color: #b8c4d8; line-height: 1.6; max-width: 860px; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">RN</div>
+    <h1>Las reglas del negocio contra el sistema real</h1>
+    <div class="sub">Prototipo exploratorio &middot; el dueño de la regla revisa su propia regla</div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="panel-head"><span class="dot blue"></span>Actor de negocio &middot; sus reglas</div>
+      <div class="panel-body">
+        <div class="rule" id="r1">
+          <span class="tag">REGLA 1</span>
+          <span class="txt"></span>
+          <span class="status"></span>
+        </div>
+        <div class="rule" id="r2">
+          <span class="tag">REGLA 2</span>
+          <span class="txt"></span>
+          <span class="status"></span>
+          <div class="newtxt" id="r2new">
+            <span class="lbl">Corregida por el negocio</span>
+            Toda nota de crédito requiere aprobación de un supervisor, salvo en devolución parcial con reintegro, donde alcanza con el cajero.
+          </div>
+        </div>
+        <div class="rule" id="r3">
+          <span class="tag">REGLA 3</span>
+          <span class="txt"></span>
+          <span class="status"></span>
+        </div>
+        <button class="btn" id="verifyBtn">Confrontar con el sistema</button>
+        <div class="summary" id="summary">
+          <b>3 reglas revisadas por su dueño.</b><br>
+          1 coincide con el sistema &middot; 1 corregida con una excepción que no estaba enunciada &middot; 1 error del sistema detectado.
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><span class="dot violet"></span>Agente IAG &middot; confronta las reglas con el sistema construido</div>
+      <div class="panel-body" id="agentBody">
+        <div class="agent-idle" id="agentIdle">El agente espera las reglas.<br>Va a confrontarlas contra el comportamiento del sistema y sus pruebas.</div>
+        <div class="check-line" id="c1"><span class="spinner"></span><span class="tick">&#10003;</span>Leyendo flujos de facturación, crédito y descuentos…</div>
+        <div class="check-line" id="c2"><span class="spinner"></span><span class="tick">&#10003;</span>Ejecutando escenarios de prueba sobre el sistema…</div>
+        <div class="check-line" id="c3"><span class="spinner"></span><span class="tick">&#10003;</span>Contrastando el comportamiento real con las 3 reglas…</div>
+        <div class="check-line done" id="cdone"><span class="spinner"></span><span class="tick">&#10003;</span>3 reglas contrastadas &middot; 1 coincide &middot; 2 choques</div>
+
+        <div class="card ok" id="res1">
+          <div class="ct">Regla 1 &middot; coincide con el sistema</div>
+          Probé facturar a crédito con clientes morosos: el sistema lo rechaza en todos los casos.
+        </div>
+
+        <div class="card ask" id="q1">
+          <div class="ct">Regla 2 &middot; choque</div>
+          El sistema <b>emite notas de crédito sin aprobación de supervisor</b> en el flujo de devolución parcial con reintegro. Lo aprueba el cajero de la sucursal.
+          <div class="q">¿Es un error del sistema, o una excepción real que la regla no contempla?</div>
+          <div class="choices" id="ch1">
+            <button class="violet" id="b1a">Es una excepción, corrijo mi regla</button>
+            <button>Es un error del sistema</button>
+          </div>
+          <div class="resolved violet" id="rs1">&rarr; El negocio corrigió su propia regla. La excepción queda enunciada por primera vez.</div>
+        </div>
+
+        <div class="card ask" id="q2">
+          <div class="ct">Regla 3 &middot; choque</div>
+          El sistema <b>aplica descuentos del 22% sin autorización del gerente comercial</b> en renovaciones de contrato anual.
+          <div class="q">¿Es un error del sistema, o una excepción real que la regla no contempla?</div>
+          <div class="choices" id="ch2">
+            <button>Es una excepción, corrijo mi regla</button>
+            <button class="red" id="b2b">Es un error del sistema</button>
+          </div>
+          <div class="resolved red" id="rs2">&rarr; El negocio confirma que la regla está bien y el sistema está mal.</div>
+        </div>
+
+        <div class="byproduct" id="byproduct">
+          <div class="bh">Subproducto para el equipo de desarrollo</div>
+          Exigir autorización del gerente comercial en renovaciones anuales con descuento mayor al 15%.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="caption"><span id="cap"></span></div>
+
+  <div id="closing">
+    <div class="kicker">Qué ataca de la tesis</div>
+    <h2>El dueño de la regla se va de la sesión con su propia regla corregida.</h2>
+    <p>Validar lo construido contra reglas y procesos de negocio es la categoría sin trabajos en la literatura. Acá lo que se revisa es la regla, quien la revisa es el negocio, y el ítem para el equipo de desarrollo es apenas un subproducto.</p>
+  </div>
+
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+
+  function typeRule(id, text, startMs, charMs) {
+    const rule = $(id);
+    const txt = rule.querySelector(".txt");
+    setTimeout(() => rule.classList.add("visible"), startMs);
+    for (let i = 0; i < text.length; i++) {
+      setTimeout(() => { txt.textContent = text.slice(0, i + 1); }, startMs + 150 + i * charMs);
+    }
+    setTimeout(() => rule.classList.add("done"), startMs + 150 + text.length * charMs + 100);
+  }
+
+  function caption(text, atMs) {
+    setTimeout(() => {
+      const cap = $("cap");
+      cap.classList.remove("visible");
+      setTimeout(() => { cap.textContent = text; cap.classList.add("visible"); }, 250);
+    }, atMs);
+  }
+
+  function setRuleStatus(id, cls, label, atMs) {
+    setTimeout(() => {
+      const rule = $(id);
+      rule.classList.add(cls);
+      rule.querySelector(".status").textContent = label;
+    }, atMs);
+  }
+
+  function at(ms, fn) { setTimeout(fn, ms); }
+
+  // ---- Guion temporizado (~48 s) ----
+
+  caption("El actor de negocio escribe sus reglas, tal como las diría en una reunión.", 400);
+
+  typeRule("r1", "Un cliente moroso no puede facturar a crédito.", 1200, 40);
+  typeRule("r2", "Toda nota de crédito requiere aprobación de un supervisor.", 4000, 40);
+  typeRule("r3", "Los descuentos mayores al 15% requieren autorización del gerente comercial.", 7300, 40);
+
+  at(11300, () => $("verifyBtn").classList.add("visible"));
+  caption("El agente confronta esas reglas contra el sistema que ya está construido.", 11800);
+  at(13400, () => $("verifyBtn").classList.add("pressed"));
+  at(13900, () => { $("agentIdle").style.display = "none"; $("verifyBtn").classList.add("gone"); });
+
+  [["c1", 14000, 16500], ["c2", 16700, 19600], ["c3", 19800, 22100]].forEach(([id, start, done]) => {
+    at(start, () => $(id).classList.add("visible"));
+    at(done, () => $(id).classList.add("done"));
+  });
+  caption("Inspecciona el comportamiento del sistema y sus pruebas, sin que el negocio lea código.", 15400);
+
+  at(22800, () => {
+    ["c1", "c2", "c3"].forEach((id) => $(id).classList.add("gone"));
+    $("cdone").classList.add("visible");
+  });
+  at(22900, () => $("res1").classList.add("visible"));
+  setRuleStatus("r1", "ok", "Coincide", 22900);
+
+  caption("El sistema construido codifica excepciones reales que nadie enuncia en una reunión.", 24000);
+
+  at(26000, () => $("q1").classList.add("visible"));
+  caption("Cada choque vuelve al negocio como pregunta, no al equipo como ticket.", 26600);
+  at(29200, () => $("ch1").classList.add("visible"));
+  caption("El dueño de la regla decide: corrige su regla o marca el error del sistema.", 29600);
+  at(32000, () => $("b1a").classList.add("pressed"));
+  at(32600, () => {
+    $("ch1").classList.remove("visible");
+    $("q1").classList.add("answered");
+    $("rs1").classList.add("visible");
+    $("r2new").classList.add("visible");
+    $("r2").querySelector(".txt").classList.add("struck");
+  });
+  setRuleStatus("r2", "fixed", "Corregida", 32600);
+  caption("La regla del negocio cambia. Esa excepción hoy aparece meses después, en producción.", 33200);
+
+  at(36200, () => $("q2").classList.add("visible"));
+  at(38600, () => $("ch2").classList.add("visible"));
+  at(40600, () => $("b2b").classList.add("pressed"));
+  at(41200, () => {
+    $("ch2").classList.remove("visible");
+    $("q2").classList.add("answered");
+    $("rs2").classList.add("visible");
+    $("cdone").classList.add("gone");
+  });
+  setRuleStatus("r3", "bug", "Error del sistema", 41200);
+  at(42000, () => $("byproduct").classList.add("visible"));
+  caption("Solo lo que el negocio marca como error del sistema sale hacia el equipo.", 42200);
+
+  at(44600, () => $("summary").classList.add("visible"));
+  caption("El negocio termina la sesión con su conjunto de reglas revisado.", 45000);
+
+  at(48000, () => $("closing").classList.add("visible"));
+})();
+</script>
+</body>
+</html>
