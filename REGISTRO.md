@@ -2,7 +2,7 @@
 
 > Flujo de trabajo sprint por sprint. Los nombres de archivo corresponden a los del repositorio.
 > Referencias: `sprint 12/REFERENCIAS.*` (corpus del mapeo) y `sprint 15/FUENTES_MARCO.*` (anclajes del marco);
-> se unifican en un solo `.bib` al arrancar la redacción.
+> unificadas en `biblio.bib` del proyecto Overleaf al arrancar la redacción (sprint 18).
 
 ---
 
@@ -225,6 +225,8 @@
 - Idea 2 (`prototipos/idea-2-reglas-contra-sistema/`): invertido el objeto de validación. Ya no valida el sistema para mandarle el ítem al equipo. Confronta las reglas contra el sistema construido y le devuelve al dueño de la regla las excepciones que el sistema codifica y nadie enunció; la regla del negocio se corrige en la sesión y el ítem para el equipo queda como subproducto. Ataca los objetivos C y D
 - Idea 3 (`prototipos/idea-3-feedback-contestado/`): el firewall pasa a ser feedback contestado. La respuesta vuelve al cliente en el momento, como contrapregunta, juicio de alcance o bug de regla, en vez de filtrarse a sus espaldas. El agente sugiere el alcance y no lo decide: si el cliente insiste el ítem pasa marcado como discrepancia, y esa escalada es un dato. Se mantiene la priorización, ahora del lado del negocio. Ataca los objetivos B, C y E
 - Idea 4 (`prototipos/idea-4-recorrido-gherkin/`): sin cambios, ya cumplía el criterio. Ataca la instancia de aceptación y el objetivo F
+- Arrancó la redacción en el Overleaf (proyecto sincronizado por git, clon local en `~/orca/workspaces/Tesis/overleaf`): volcado inicial de introducción, background, revisión y resultados según el índice propuesto, esqueleto de la PoC, bibliografía unificada en `biblio.bib` y figuras con la terminología de la tesis
+- Dos rondas de revisión sobre ese volcado: consistencia entre capítulos, terminología unificada, precisión de citas y correcciones de LaTeX y bibliografía
 
 **Pendiente:** OK de Daniel sobre el índice y elección de la idea de prototipo; leer la tabla de candidatos del sprint 17 e incorporar lo que valga.
 
