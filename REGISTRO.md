@@ -227,7 +227,8 @@
 - Idea 4 (`prototipos/idea-4-recorrido-gherkin/`): sin cambios, ya cumplía el criterio. Ataca la instancia de aceptación y el objetivo F
 - Arrancó la redacción en el Overleaf (proyecto sincronizado por git, clon local en `~/orca/workspaces/Tesis/overleaf`): volcado inicial de introducción, background, revisión y resultados según el índice propuesto, esqueleto de la PoC, bibliografía unificada en `biblio.bib` y figuras con la terminología de la tesis
 - Dos rondas de revisión sobre ese volcado: consistencia entre capítulos, terminología unificada, precisión de citas y correcciones de LaTeX y bibliografía
+- Call con Daniel (3 set, `sprint 18/resumen_call.md`): índice aprobado con una fusión (revisión y resultados quedan en un solo capítulo, con protocolo y resultados de la búsqueda como subsecciones) y prototipo elegido: el asistente de sesiones de feedback que chequea consistencia contra las reglas y requisitos del proyecto (línea de las ideas 2 y 3). La idea 4 queda afuera por preferencia y tiempo, no por inviabilidad
 
-**Pendiente:** OK de Daniel sobre el índice y elección de la idea de prototipo; leer la tabla de candidatos del sprint 17 e incorporar lo que valga.
+**Pendiente (sprint 19):** cerrar la segunda versión del capítulo de revisión con la fusión pedida y mandarla a Daniel; bajar a tierra el prototipo (qué preguntas responde, cómo se captura la sesión, contra qué se verifica); revisar la conferencia de RE y lenguajes para expresar reglas; leer la tabla de candidatos del sprint 17 e incorporar lo que valga. Próxima reunión: semana del 14/9, se coordina por Teams.
 
 ---
