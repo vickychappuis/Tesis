@@ -232,3 +232,11 @@
 **Pendiente (sprint 19):** cerrar la segunda versión del capítulo de revisión con la fusión pedida y mandarla a Daniel; bajar a tierra el prototipo (qué preguntas responde, cómo se captura la sesión, contra qué se verifica); revisar la conferencia de RE y lenguajes para expresar reglas; leer la tabla de candidatos del sprint 17 e incorporar lo que valga. Próxima reunión: semana del 14/9, se coordina por Teams.
 
 ---
+
+## Sprint 19 — 4 sep → semana del 14 sep 2026
+
+- Fusión de los capítulos de revisión y resultados en el Overleaf, según la call del 3/9: un solo capítulo "El feedback mediado por IAG" que abre con la presentación de la IAG, sigue con la revisión bibliográfica como sección (proceso de búsqueda y conjunto resultante como subsecciones) y continúa con categorías, dimensiones, escenarios y aspectos a profundizar. Referencias cruzadas y estructura del documento actualizadas
+
+**Pendiente para cerrar la v2 de la revisión:** tabla con los trabajos del corpus en el documento, explicitar los criterios de aceptación y rechazo del filtrado, y resolver el comentario abierto del conteo (la nota de vibe coding sin entrada en la bibliografía). Después se le manda a Daniel.
+
+---
