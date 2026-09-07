@@ -239,6 +239,9 @@
 - Cierre de la v2 de la revisión con datos reconstruidos desde este repo (sprints 5, 10, 12, 13 y 17): criterios de aceptación y rechazo explicitados en el proceso de búsqueda, tabla de los 18 trabajos del marco con año, origen y tipo de evidencia, y entrada bibliográfica de la nota de vibe coding (Violino, CIO, 26-may-2026, URL verificada), citada en la categoría de materialización; el comentario abierto del conteo quedó resuelto con 18 trabajos y 12 citados
 - Las seis cifras de la sección de revisión (1750 revisados, 19 relevantes, corpus inicial de 10, ~500 y ~160 de snowballing, 1066 recodificados) se verificaron contra la documentación de proceso: todas confirmadas
 
-**Pendiente:** compilar en Overleaf para confirmar la tabla nueva; mandar la v2 a Daniel.
+- Ronda de 5 revisores sobre la v2 (consistencia interna, entre capítulos, fidelidad al proceso, LaTeX/bibliografía, tabla del corpus fila por fila). Correcciones aplicadas: el encuadre de la revisión ya no niega que hubo criterios (hubo criterios y lineamientos, no protocolo cerrado), los límites declaran las cargas parciales (ScienceDirect 192/313, Wiley 100/136, Web of Science sin acceso, gris ~150 por fuente), un comentario dentro de una entrada del bib que mutilaba la referencia de Lang y Fischer, la brecha 19 relevantes vs 12 citados explicitada, la tensión entre el bullet de andamiajes y Sharma resuelta, tablas ajustadas al ancho de página y precisiones menores (tope temporal marzo 2026, dimensión de efectos, nombre completo de la categoría de materialización)
+- Quedan sin tocar, por depender de decisiones con Daniel: los candidatos de la recodificación que darían primera evidencia académica a la categoría de suplantación (hoy declarada sin respaldo del corpus) y los esqueletos de PoC y conclusiones
+
+**Pendiente:** compilar en Overleaf para confirmar tablas y bibliografía; mandar la v2 a Daniel.
 
 ---
