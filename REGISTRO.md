@@ -236,7 +236,9 @@
 ## Sprint 19 — 4 sep → semana del 14 sep 2026
 
 - Fusión de los capítulos de revisión y resultados en el Overleaf, según la call del 3/9: un solo capítulo "El feedback mediado por IAG" que abre con la presentación de la IAG, sigue con la revisión bibliográfica como sección (proceso de búsqueda y conjunto resultante como subsecciones) y continúa con categorías, dimensiones, escenarios y aspectos a profundizar. Referencias cruzadas y estructura del documento actualizadas
+- Cierre de la v2 de la revisión con datos reconstruidos desde este repo (sprints 5, 10, 12, 13 y 17): criterios de aceptación y rechazo explicitados en el proceso de búsqueda, tabla de los 18 trabajos del marco con año, origen y tipo de evidencia, y entrada bibliográfica de la nota de vibe coding (Violino, CIO, 26-may-2026, URL verificada), citada en la categoría de materialización; el comentario abierto del conteo quedó resuelto con 18 trabajos y 12 citados
+- Las seis cifras de la sección de revisión (1750 revisados, 19 relevantes, corpus inicial de 10, ~500 y ~160 de snowballing, 1066 recodificados) se verificaron contra la documentación de proceso: todas confirmadas
 
-**Pendiente para cerrar la v2 de la revisión:** tabla con los trabajos del corpus en el documento, explicitar los criterios de aceptación y rechazo del filtrado, y resolver el comentario abierto del conteo (la nota de vibe coding sin entrada en la bibliografía). Después se le manda a Daniel.
+**Pendiente:** compilar en Overleaf para confirmar la tabla nueva; mandar la v2 a Daniel.
 
 ---
