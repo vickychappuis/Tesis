@@ -1,0 +1,101 @@
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.vacio {
+  color: #97a2af;
+  font-size: 14px;
+  text-align: center;
+  padding: 26px 20px;
+  line-height: 1.6;
+}
+
+.entrada {
+  border: 1px solid #dfe5ec;
+  border-radius: 10px;
+  padding: 11px 13px;
+  font-size: 15px;
+  line-height: 1.45;
+  background: #fafbfd;
+  position: relative;
+}
+
+.entradaCorregida {
+  border-color: #cfc0f5;
+  background: #fbf9ff;
+}
+
+.quien {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #8592a0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+  padding-right: 80px;
+}
+
+.texto {
+  display: block;
+}
+
+.tachado {
+  text-decoration: line-through;
+  color: #a3adb8;
+}
+
+.chip {
+  position: absolute;
+  top: 9px;
+  right: 11px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+.chipVerde {
+  background: #e2f6e9;
+  color: var(--verde);
+}
+
+.chipVioleta {
+  background: #ece4fd;
+  color: var(--violeta-oscuro);
+}
+
+.chipAzul {
+  background: #e7efff;
+  color: var(--azul-oscuro);
+}
+
+.chipGris {
+  background: var(--gris-fondo);
+  color: var(--gris);
+}
+
+.chipRojo {
+  background: #fdecec;
+  color: var(--rojo);
+}
+
+.correccion {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed #d9cdf7;
+  color: #3b2578;
+  font-weight: 550;
+}
+
+.correccionEtiqueta {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--violeta);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}

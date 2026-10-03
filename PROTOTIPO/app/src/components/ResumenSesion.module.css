@@ -1,0 +1,55 @@
+.resumen {
+  margin-top: auto;
+  border-radius: 10px;
+  background: #f4f0ff;
+  border: 1px solid #d9ccf8;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #3b2578;
+}
+
+.resumen b {
+  font-weight: 700;
+}
+
+.acciones {
+  display: flex;
+  gap: 9px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.exportar,
+.nueva {
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.exportar {
+  border: 1px solid var(--violeta);
+  background: var(--violeta);
+  color: #fff;
+}
+
+.exportar:hover:not(:disabled) {
+  background: var(--violeta-oscuro);
+}
+
+.exportar:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.nueva {
+  border: 1px solid #d9ccf8;
+  background: #fff;
+  color: var(--violeta-oscuro);
+}
+
+.nueva:hover {
+  background: #ece4fd;
+}

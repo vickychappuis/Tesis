@@ -1,0 +1,70 @@
+.formulario {
+  border-top: 1px solid var(--borde-suave);
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.etiqueta {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #8592a0;
+}
+
+.quien,
+.enunciado {
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  padding: 8px 11px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--texto);
+  background: #fafbfd;
+}
+
+.quien:focus,
+.enunciado:focus {
+  outline: 2px solid var(--azul);
+  outline-offset: -1px;
+  background: #fff;
+}
+
+.enunciado {
+  resize: vertical;
+  min-height: 64px;
+}
+
+.pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ayuda {
+  font-size: 11.5px;
+  color: #97a2af;
+}
+
+.enviar {
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid var(--azul);
+  background: var(--azul);
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.enviar:hover:not(:disabled) {
+  background: var(--azul-oscuro);
+}
+
+.enviar:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

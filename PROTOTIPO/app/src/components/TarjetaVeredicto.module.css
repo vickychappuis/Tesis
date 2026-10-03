@@ -1,0 +1,253 @@
+.verificando {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #3d4a58;
+  padding: 6px 4px;
+  font-family: var(--mono);
+}
+
+.spinner {
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--gris-borde);
+  border-top-color: var(--azul);
+  border-radius: 50%;
+  animation: girar 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 14px;
+  line-height: 1.5;
+  background: var(--rojo-fondo);
+  border: 1px solid var(--rojo-borde);
+}
+
+.errorTitulo {
+  font-weight: 700;
+  margin-bottom: 3px;
+  font-size: 13.5px;
+  color: var(--rojo);
+}
+
+.tarjeta {
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 14px;
+  line-height: 1.5;
+  animation: subir 0.4s ease-out;
+}
+
+@keyframes subir {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.titulo {
+  font-weight: 700;
+  margin-bottom: 3px;
+  font-size: 13.5px;
+}
+
+.choca {
+  background: var(--rojo-fondo);
+  border: 1px solid var(--rojo-borde);
+}
+
+.choca .titulo {
+  color: var(--rojo);
+}
+
+.coincide {
+  background: var(--verde-fondo);
+  border: 1px solid var(--verde-borde);
+}
+
+.coincide .titulo {
+  color: var(--verde);
+}
+
+.noContemplado {
+  background: var(--amarillo-fondo);
+  border: 1px solid var(--amarillo-borde);
+}
+
+.noContemplado .titulo {
+  color: var(--amarillo);
+}
+
+.noAccionable {
+  background: #f7f8fa;
+  border: 1px solid var(--gris-borde);
+}
+
+.noAccionable .titulo {
+  color: var(--gris);
+}
+
+.cuerpo {
+  color: var(--texto);
+}
+
+.citas {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cita {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.citaArchivo {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  background: var(--gris-fondo);
+  border-radius: 4px;
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+
+.citaFragmento {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #3d4a58;
+}
+
+.citaNoVerificada {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--rojo);
+  background: #fdecec;
+  border-radius: 20px;
+  padding: 2px 9px;
+}
+
+.pregunta {
+  margin-top: 7px;
+  font-style: italic;
+  color: #4a3c12;
+}
+
+.choca .pregunta {
+  color: #6e2222;
+}
+
+.prioridad {
+  display: inline-block;
+  margin-top: 7px;
+  font-size: 11.5px;
+  font-weight: 700;
+  background: var(--gris-fondo);
+  color: var(--gris);
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+
+.acciones {
+  display: flex;
+  gap: 9px;
+  margin-top: 11px;
+  flex-wrap: wrap;
+}
+
+.acciones button {
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid var(--gris-borde);
+  background: #fff;
+  color: #3d4a58;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.acciones button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.botonVioleta {
+  background: var(--violeta) !important;
+  border-color: var(--violeta) !important;
+  color: #fff !important;
+}
+
+.botonVioleta:hover:not(:disabled) {
+  background: var(--violeta-oscuro) !important;
+}
+
+.botonAzul {
+  background: var(--azul) !important;
+  border-color: var(--azul) !important;
+  color: #fff !important;
+}
+
+.botonAzul:hover:not(:disabled) {
+  background: var(--azul-oscuro) !important;
+}
+
+.botonNeutro:hover:not(:disabled) {
+  background: var(--gris-fondo);
+}
+
+.edicion {
+  margin-top: 11px;
+}
+
+.textareaCorreccion {
+  width: 100%;
+  border: 1px solid #cfc0f5;
+  border-radius: 8px;
+  padding: 8px 11px;
+  font-size: 14px;
+  line-height: 1.45;
+  background: #fbf9ff;
+  resize: vertical;
+}
+
+.textareaCorreccion:focus {
+  outline: 2px solid var(--violeta);
+  outline-offset: -1px;
+}
+
+.resolucion {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 650;
+  padding-top: 9px;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  animation: subir 0.35s ease-out;
+}
+
+.resolucionVioleta {
+  color: var(--violeta-oscuro);
+}
+
+.resolucionAzul {
+  color: var(--azul-oscuro);
+}
+
+.resolucionGris {
+  color: var(--gris);
+}

@@ -20,8 +20,10 @@ Proyecto inventado: una biblioteca universitaria y su sistema de préstamos (la 
 
 ## Stack y convenciones
 
-- Next.js con TypeScript en `app/`, ruta de API que llama a la API de Claude (`claude-sonnet-5`).
-- La API key va en `app/.env.local` (`ANTHROPIC_API_KEY`), nunca al repo.
+- Next.js con TypeScript en `app/`, ruta de API `POST /api/veredicto` que llama a la API de OpenAI (Responses API con salida estructurada; schema zod en `app/src/lib/veredicto.ts` como fuente única).
+- La API key va en `app/.env.local` (`OPENAI_API_KEY`; modelo en `OPENAI_MODEL`, default `gpt-4o-mini`), nunca al repo.
+- Los cuatro veredictos: choca / coincide / no_contemplado / no_accionable. El servidor verifica cada cita contra los archivos reales y la marca `verificada`; la UI señala las citas no encontradas.
+- Set de evaluación en `../evaluacion/` (12 casos + runner `run.mjs` contra la API local); correrlo tras cualquier cambio de prompt o schema.
 - UI en español, con los términos de la demo (`demo/demo.html`): choca / coincide / no contemplado, aceptar / corregir.
 - Commits en español, minúscula, formato `prototipo: descripción`. Sin trailers de co-autoría. Push directo a main.
 - La demo de `demo/` es la referencia visual de lo que se construye; si el diseño cambia, regenerarla para que no quede desactualizada.

@@ -262,5 +262,7 @@
 - Demo del asistente grabada en el formato de las otras ideas, en `PROTOTIPO/demo/` (mock auto-animado + webm + gif)
 - Dominio del proyecto inventado elegido: biblioteca universitaria y su sistema de préstamos. Documentación sintética en `PROTOTIPO/documentacion/`, con una contradicción plantada (excepción de material de referencia solo en el acta del 12/5) y un hueco plantado (reservas sin vencimiento)
 - Reorganización: las ideas del sprint 18 pasan de `prototipos/` a `sprint 18/ideas prototipos/`; el prototipo que se construye vive en `PROTOTIPO/` en la raíz (demo, documentación y próximamente la app), con README y CLAUDE.md propios
+- v1 de la app implementada con tres subagentes en paralelo (backend, evaluación, UI) sobre un plan aprobado: Next.js en `PROTOTIPO/app/`, ruta `POST /api/veredicto` contra la API de OpenAI con salida estructurada (schema zod, cuatro veredictos: choca / coincide / no contemplado / no accionable), verificación de citas en el servidor contra los archivos reales, panel de sesión fiel a la demo con corrección en sesión y tickets con compuerta humana, export del registro a markdown, y set de evaluación de 12 casos con runner (`evaluacion/`). Build y typecheck pasan; smoke test de la ruta ok (error tipado sin API key)
+- Pendiente inmediato: pegar la key de OpenAI en `app/.env.local`, correr la evaluación 2 o 3 veces y ajustar el prompt si hace falta
 
 ---

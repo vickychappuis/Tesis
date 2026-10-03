@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "quien": "Silvia · Directora",
+    "enunciado": "El material de referencia no sale de la biblioteca, nunca.",
+    "tipo_esperado": "choca",
+    "tipos_alternativos": [],
+    "pregunta_obligatoria": true,
+    "debe_citar": ["actas/2026-05-12.md"],
+    "nota": "Trampa 1: el acta matiza al requisito y se reporta igual."
+  },
+  {
+    "id": 2,
+    "quien": "Silvia · Directora",
+    "enunciado": "Hoy, si no retirás el libro reservado en un par de días, pasa al siguiente de la cola, ¿no?",
+    "tipo_esperado": "choca",
+    "tipos_alternativos": [],
+    "pregunta_obligatoria": true,
+    "debe_citar": ["requisitos/reservas.md"],
+    "nota": "Trampa 2: afirma como vigente algo que lo documentado no dice (queda apartado sin plazo)."
+  },
+  {
+    "id": 3,
+    "quien": "Silvia · Directora",
+    "enunciado": "Los estudiantes se llevan hasta tres libros por dos semanas.",
+    "tipo_esperado": "coincide",
+    "tipos_alternativos": [],
+    "pregunta_obligatoria": false,
+    "debe_citar": ["requisitos/prestamos.md"],
+    "nota": "Coincidencia directa con el requisito de préstamos para estudiantes."
+  },
+  {
+    "id": 4,
+    "quien": "Marcos · Bibliotecario",
+    "enunciado": "Los docentes se llevan libros por 30 días, eso ya lo hacemos así.",
+    "tipo_esperado": "coincide",
+    "tipos_alternativos": [],
+    "pregunta_obligatoria": false,
+    "debe_citar": ["requisitos/prestamos.md"],
+    "nota": "Coincidencia directa, enunciada por otro actor del negocio."
+  },
+  {
+    "id": 5,
+    "quien": "Silvia · Directora",
+    "enunciado": "Cuando devuelven un libro reservado, le avisan al primero de la cola.",
+    "tipo_esperado": "coincide",
+    "tipos_alternativos": [],
+    "pregunta_obligatoria": false,
+    "debe_citar": ["requisitos/reservas.md"],
+    "nota": "Coincidencia directa con el aviso al primero de la cola."
+  },
+  {
+    "id": 6,
+    "quien": "Silvia · Directora",
+    "enunciado": "Quiero que las reservas se venzan solas si no retiran el libro en 48 horas.",
+    "tipo_esperado": "no_contemplado",
+    "tipos_alternativos": [],
+    "pregunta_obligatoria": false,
+    "debe_citar": ["requisitos/reservas.md"],
+    "nota": "Par de control del 2: pedido a futuro vs afirmación del presente."
+  },
+  {
+    "id": 7,
+    "quien": "Silvia · Directora",
+    "enunciado": "Estaría bueno que el sistema mande un recordatorio por correo dos días antes del vencimiento del préstamo.",
+    "tipo_esperado": "no_contemplado",
+    "tipos_alternativos": [],
+    "pregunta_obligatoria": false,
+    "debe_citar": ["requisitos/prestamos.md"],
+    "nota": "Pedido nuevo sobre préstamos, no documentado."
+  },
+  {
+    "id": 8,
+    "quien": "Silvia · Directora",
+    "enunciado": "Me gustaría ver un ranking de los libros más pedidos del mes.",
+    "tipo_esperado": "no_contemplado",
+    "tipos_alternativos": [],
+    "pregunta_obligatoria": false,
+    "debe_citar": [],
+    "nota": "Pedido nuevo sin anclaje en la documentación existente."
+  },
+  {
+    "id": 9,
+    "quien": "Silvia · Directora",
+    "enunciado": "¡Qué bueno verlos! Gracias por venir con todo preparado.",
+    "tipo_esperado": "no_accionable",
+    "tipos_alternativos": [],
+    "pregunta_obligatoria": false,
+    "debe_citar": [],
+    "nota": "Cortesía pura, sin contenido confrontable."
+  },
+  {
+    "id": 10,
+    "quien": "Silvia · Directora",
+    "enunciado": "El viernes pasado hubo un lío en el mostrador con una devolución, estuvimos media hora.",
+    "tipo_esperado": "no_accionable",
+    "tipos_alternativos": [],
+    "pregunta_obligatoria": false,
+    "debe_citar": [],
+    "nota": "Trampa de sobre-clasificación: menciona devolución pero no enuncia nada confrontable."
+  },
+  {
+    "id": 11,
+    "quien": "Silvia · Directora",
+    "enunciado": "Las renovaciones tienen que ser más simples.",
+    "tipo_esperado": "no_contemplado",
+    "tipos_alternativos": ["choca"],
+    "pregunta_obligatoria": true,
+    "debe_citar": [],
+    "nota": "Ambiguo: lo no negociable es la pregunta."
+  },
+  {
+    "id": 12,
+    "quien": "Silvia · Directora",
+    "enunciado": "Los estudiantes se llevan tres libros por 14 días y pueden renovar todas las veces que quieran.",
+    "tipo_esperado": "choca",
+    "tipos_alternativos": [],
+    "pregunta_obligatoria": true,
+    "debe_citar": ["requisitos/prestamos.md"],
+    "nota": "Frase mixta: gana el choque."
+  }
+]
