@@ -26,4 +26,4 @@ Video completo en `demo.webm` (52 s). Mock auto-animado en `demo.html`.
 - La directora enuncia una regla que contradice una excepción registrada en un acta, y corrige su enunciado en la sesión.
 - El bibliotecario dice algo que coincide con los requisitos y se confirma al instante.
 - Un pedido nuevo (vencimiento automático de reservas) se encuadra como no contemplado, se prioriza y sale como ticket aceptado por el cliente.
-- La documentación sintética de este proyecto inventado está en `prototipo/documentacion/`.
+- La documentación sintética de este proyecto inventado está en `../documentacion/`.

@@ -259,7 +259,8 @@
 - Foco único: arrancar la implementación del prototipo, el asistente de sesiones de feedback (definición en el capítulo de PoC del Overleaf; encuadre acordado: reglas y requisitos del proyecto consultados vía RAG, capa de interfaz sobre la documentación, prueba con documentación anonimizada de un proyecto real)
 - Dos matices sobre el encuadre, para llevar a Daniel: el mecanismo de consulta de la documentación queda a criterio (RAG, LLMWiki u otro), y las conclusiones de cada sesión quedan documentadas en forma estructurada como insumo para actualizar la documentación después, aunque el prototipo no la mantiene
 - Descartado tras evaluarlo: agregar la prueba en vivo contra el sistema con Playwright. Convierte el prototipo en verificación automática (de la que el marco se diferencia), es evaluable sin usuarios de negocio (rompe el criterio rector) y cambia el encuadre acordado. Queda como extensión a proponer
-- Demo del asistente grabada en el formato de las otras ideas, en `prototipos/asistente-sesiones/` (mock auto-animado + webm + gif)
-- Dominio del proyecto inventado elegido: biblioteca universitaria y su sistema de préstamos. Documentación sintética en `prototipo/documentacion/`, con una contradicción plantada (excepción de material de referencia solo en el acta del 12/5) y un hueco plantado (reservas sin vencimiento)
+- Demo del asistente grabada en el formato de las otras ideas, en `PROTOTIPO/demo/` (mock auto-animado + webm + gif)
+- Dominio del proyecto inventado elegido: biblioteca universitaria y su sistema de préstamos. Documentación sintética en `PROTOTIPO/documentacion/`, con una contradicción plantada (excepción de material de referencia solo en el acta del 12/5) y un hueco plantado (reservas sin vencimiento)
+- Reorganización: las ideas del sprint 18 pasan de `prototipos/` a `sprint 18/ideas prototipos/`; el prototipo que se construye vive en `PROTOTIPO/` en la raíz (demo, documentación y próximamente la app), con README y CLAUDE.md propios
 
 ---
