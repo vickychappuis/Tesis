@@ -250,4 +250,12 @@
 
 **Pendiente:** compilar en Overleaf para confirmar todo; mandar la v2 a Daniel y coordinar por Teams la reunión de la semana del 14/9. Restos de plantilla a completar a mano: dedicatoria y agradecimientos, anexos vacíos, año de portada (2026) vs fecha de declaración (1-3-2027).
 
+**Cierre:** con Daniel se acordó pasar a la implementación del prototipo (ver sprint 20). Los puntos "para decidir con Daniel" de este sprint siguen abiertos y se retoman cuando se vuelva al documento.
+
+---
+
+## Sprint 20 — 3 oct → jueves 8 oct 2026
+
+- Foco único: arrancar la implementación del prototipo, el asistente de sesiones de feedback (definición en el capítulo de PoC del Overleaf; encuadre acordado: reglas y requisitos del proyecto consultados vía RAG, capa de interfaz sobre la documentación, prueba con documentación anonimizada de un proyecto real)
+
 ---
