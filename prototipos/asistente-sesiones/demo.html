@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Asistente de sesiones de feedback</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 720px; overflow: hidden; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f2f4f8;
+    color: #1c2733;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    height: 62px;
+    background: #ffffff;
+    border-bottom: 1px solid #e1e6ec;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+  .logo {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: #1f5eff;
+    color: #fff; font-weight: 700; font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  header h1 { font-size: 19px; font-weight: 650; }
+  header .sub { font-size: 13px; color: #6b7887; margin-left: auto; }
+  main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 500px 1fr;
+    gap: 20px;
+    padding: 18px 32px 20px;
+    min-height: 0;
+  }
+  .panel {
+    background: #ffffff;
+    border: 1px solid #e1e6ec;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .panel-head {
+    padding: 12px 18px;
+    border-bottom: 1px solid #eef1f5;
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #6b7887;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot.violet { background: #7a3ff2; }
+  .dot.rec { background: #d23b3b; animation: pulse 1.4s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: 0.35; } }
+  .panel-head .mic { margin-left: auto; font-size: 11px; color: #d23b3b; font-weight: 700; letter-spacing: 0.5px; }
+  .panel-body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 11px; overflow: hidden; }
+
+  /* ---- Transcripcion ---- */
+  .utt {
+    border: 1px solid #dfe5ec;
+    border-radius: 10px;
+    padding: 11px 13px;
+    font-size: 15px;
+    line-height: 1.45;
+    background: #fafbfd;
+    display: none;
+    position: relative;
+    transition: border-color 0.4s, background 0.4s;
+  }
+  .utt.visible { display: block; }
+  .utt .tag {
+    font-size: 10.5px; font-weight: 700; color: #8592a0;
+    letter-spacing: 0.5px; display: block; margin-bottom: 4px;
+  }
+  .utt .txt::after {
+    content: "";
+    display: inline-block;
+    width: 2px; height: 15px;
+    background: #1f5eff;
+    margin-left: 2px;
+    vertical-align: -2px;
+    animation: blink 0.8s step-end infinite;
+  }
+  .utt.done .txt::after { display: none; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .utt .status {
+    position: absolute; top: 9px; right: 11px;
+    font-size: 11px; font-weight: 700;
+    padding: 3px 9px; border-radius: 20px;
+    display: none;
+  }
+  .utt.ok .status { display: inline-block; background: #e2f6e9; color: #147a3d; }
+  .utt.fixed .status { display: inline-block; background: #ece4fd; color: #5b2bc4; }
+  .utt.new .status { display: inline-block; background: #e7efff; color: #1747c4; }
+  .utt.ok { border-color: #bfe4cc; }
+  .utt.fixed { border-color: #cfc0f5; background: #fbf9ff; }
+  .utt.new { border-color: #b9cdf2; background: #fafcff; }
+  .utt .newtxt {
+    display: none;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #d9cdf7;
+    color: #3b2578;
+    font-weight: 550;
+  }
+  .utt .newtxt.visible { display: block; animation: rise 0.5s ease-out; }
+  .utt .newtxt .lbl {
+    display: block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px;
+    color: #7a3ff2; text-transform: uppercase; margin-bottom: 3px;
+  }
+  .utt .txt.struck { text-decoration: line-through; color: #a3adb8; }
+
+  .summary {
+    display: none;
+    margin-top: auto;
+    border-radius: 10px;
+    background: #f4f0ff;
+    border: 1px solid #d9ccf8;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #3b2578;
+  }
+  .summary.visible { display: block; animation: rise 0.5s ease-out; }
+  .summary b { font-weight: 700; }
+
+  /* ---- Asistente ---- */
+  .agent-idle {
+    color: #97a2af; font-size: 15px;
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 0 40px; line-height: 1.6;
+  }
+  .agent-idle.gone { display: none; }
+  .check-line {
+    display: none;
+    align-items: center; gap: 10px;
+    font-size: 14px;
+    color: #3d4a58;
+    padding: 6px 4px;
+    font-family: "SF Mono", "Menlo", monospace;
+  }
+  .check-line.visible { display: flex; }
+  .check-line.gone { display: none; }
+  .spinner {
+    width: 15px; height: 15px;
+    border: 2px solid #d4dbe4;
+    border-top-color: #1f5eff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .check-line.done .spinner { display: none; }
+  .check-line .tick { display: none; color: #147a3d; font-weight: 700; flex-shrink: 0; width: 15px; text-align: center; }
+  .check-line.done .tick { display: inline; }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  .card {
+    display: none;
+    border-radius: 10px;
+    padding: 12px 15px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .card.visible { display: block; animation: rise 0.4s ease-out; }
+  .card.gone { display: none; }
+  .card .ct { font-weight: 700; margin-bottom: 3px; font-size: 13.5px; }
+  .card.ok { background: #f0faf3; border: 1px solid #bfe4cc; }
+  .card.ok .ct { color: #147a3d; }
+  .card.clash { background: #fffafa; border: 1px solid #eec3c3; }
+  .card.clash .ct { color: #c22f2f; }
+  .card.newreq { background: #fffdf5; border: 1px solid #ecd9a4; }
+  .card.newreq .ct { color: #9a7413; }
+  .card b { font-weight: 700; }
+  .card .cite {
+    font-family: "SF Mono", "Menlo", monospace;
+    font-size: 11.5px;
+    background: #f0f2f6;
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+  .card .q { margin-top: 7px; font-style: italic; color: #4a3c12; }
+  .card.clash .q { color: #6e2222; }
+  .card.answered .q { display: none; }
+  .card .prio {
+    display: inline-block; margin-top: 7px;
+    font-size: 11.5px; font-weight: 700;
+    background: #f0f2f6; color: #4a5764;
+    border-radius: 20px; padding: 3px 10px;
+  }
+  .choices { display: none; gap: 9px; margin-top: 11px; flex-wrap: wrap; }
+  .choices.visible { display: flex; }
+  .choices button {
+    border-radius: 8px; padding: 8px 15px; font-size: 13px; font-weight: 600;
+    border: 1px solid #d4dbe4; background: #fff; color: #3d4a58;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .choices .violet { background: #7a3ff2; border-color: #7a3ff2; color: #fff; }
+  .choices .violet.pressed { background: #5b2bc4; transform: scale(0.97); }
+  .choices .blue { background: #1f5eff; border-color: #1f5eff; color: #fff; }
+  .choices .blue.pressed { background: #1747c4; transform: scale(0.97); }
+
+  .resolved {
+    display: none;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 650;
+    padding-top: 9px;
+    border-top: 1px solid #eedddd;
+  }
+  .resolved.visible { display: block; animation: rise 0.35s ease-out; }
+  .resolved.violet { color: #5b2bc4; }
+  .resolved.blue { color: #1747c4; }
+
+  .byproduct {
+    display: none;
+    margin-top: auto;
+    border: 1px dashed #cfd7e0;
+    background: #f7f9fb;
+    border-radius: 10px;
+    padding: 11px 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #4a5764;
+  }
+  .byproduct.visible { display: block; animation: rise 0.4s ease-out; }
+  .byproduct .bh {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px;
+    color: #8592a0; text-transform: uppercase; margin-bottom: 4px;
+  }
+
+  /* ---- Narracion ---- */
+  .caption {
+    height: 50px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    color: #46535f;
+    padding: 0 40px;
+    text-align: center;
+  }
+  .caption span { opacity: 0; transition: opacity 0.5s; }
+  .caption span.visible { opacity: 1; }
+
+  /* ---- Cierre ---- */
+  #closing {
+    position: fixed; inset: 0;
+    background: #12203a;
+    color: #fff;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 22px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.9s;
+    padding: 0 120px;
+    text-align: center;
+  }
+  #closing.visible { opacity: 1; }
+  #closing .kicker {
+    font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
+    color: #7ea2ff; font-weight: 700;
+  }
+  #closing h2 { font-size: 33px; line-height: 1.35; font-weight: 700; max-width: 900px; }
+  #closing p { font-size: 18px; color: #b8c4d8; line-height: 1.6; max-width: 860px; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">SF</div>
+    <h1>Asistente de sesiones de feedback</h1>
+    <div class="sub">Prototipo exploratorio &middot; la devolución vuelve al cliente en la sesión</div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="panel-head"><span class="dot rec"></span>Sesión de feedback &middot; transcripción en vivo<span class="mic">&#9679; ESCUCHANDO</span></div>
+      <div class="panel-body">
+        <div class="utt" id="u1">
+          <span class="tag">SILVIA &middot; DIRECTORA DE LA BIBLIOTECA</span>
+          <span class="txt"></span>
+          <span class="status"></span>
+          <div class="newtxt" id="u1new">
+            <span class="lbl">Corregido por el cliente en la sesión</span>
+            El material de referencia no sale de la biblioteca, salvo docentes: pueden retirarlo el viernes y devolverlo el lunes.
+          </div>
+        </div>
+        <div class="utt" id="u2">
+          <span class="tag">MARCOS &middot; BIBLIOTECARIO</span>
+          <span class="txt"></span>
+          <span class="status"></span>
+        </div>
+        <div class="utt" id="u3">
+          <span class="tag">SILVIA &middot; DIRECTORA DE LA BIBLIOTECA</span>
+          <span class="txt"></span>
+          <span class="status"></span>
+        </div>
+        <div class="summary" id="summary">
+          <b>3 intervenciones contestadas en la sesión.</b><br>
+          1 corregida con la cita del acta &middot; 1 confirmada al instante &middot; 1 pedido nuevo aceptado como ticket.<br>
+          El registro estructurado queda listo para actualizar la documentación.
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><span class="dot violet"></span>Asistente IAG &middot; confronta con la documentación del proyecto</div>
+      <div class="panel-body">
+        <div class="agent-idle" id="agentIdle">El asistente escucha la sesión.<br>Tiene cargados los requisitos, las reglas de negocio y las actas del proyecto.</div>
+
+        <div class="check-line" id="c1"><span class="spinner"></span><span class="tick">&#10003;</span>Regla detectada &middot; buscando en requisitos y actas…</div>
+
+        <div class="card clash" id="k1">
+          <div class="ct">Choca con lo acordado</div>
+          "El material de referencia no sale nunca" contradice el acta del 12/5: <b>los docentes pueden retirarlo el viernes y devolverlo el lunes</b>. <span class="cite">actas/2026-05-12.md</span>
+          <div class="q">Silvia, ¿la excepción del acta sigue valiendo, o la regla vuelve a ser sin excepción?</div>
+          <div class="choices" id="ch1">
+            <button class="violet" id="b1a">Sigue valiendo, corrijo lo que dije</button>
+            <button>No, ahora es sin excepción</button>
+          </div>
+          <div class="resolved violet" id="rs1">&rarr; El cliente corrigió su enunciado en la sesión. La excepción quedó confirmada.</div>
+        </div>
+
+        <div class="card ok" id="k2">
+          <div class="ct">Coincide con lo acordado</div>
+          Es exactamente el plazo definido en los requisitos de préstamos. Nada para ajustar. <span class="cite">requisitos/prestamos.md</span>
+        </div>
+
+        <div class="check-line" id="c2"><span class="spinner"></span><span class="tick">&#10003;</span>Pedido detectado &middot; buscando en requisitos de reservas…</div>
+
+        <div class="card newreq" id="k3">
+          <div class="ct">No está contemplado &middot; pedido nuevo</div>
+          Ningún requisito define vencimiento automático de reservas. No choca con ninguna regla vigente. <span class="cite">requisitos/reservas.md</span>
+          <span class="prio">Prioridad sugerida: media &middot; después del módulo de renovaciones</span>
+          <div class="choices" id="ch3">
+            <button class="blue" id="b3a">Aceptar como ticket</button>
+            <button>Descartar</button>
+          </div>
+          <div class="resolved blue" id="rs3">&rarr; Aceptado por el cliente. Sale como ítem de alto nivel, sin desgranar.</div>
+        </div>
+
+        <div class="byproduct" id="byproduct">
+          <div class="bh">Subproducto para el equipo de desarrollo</div>
+          Ticket de alto nivel: vencimiento automático de las reservas no retiradas a las 48 horas &middot; prioridad media.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="caption"><span id="cap"></span></div>
+
+  <div id="closing">
+    <div class="kicker">Qué ataca de la tesis</div>
+    <h2>La devolución que hoy tarda días llegó en la misma frase, fundamentada.</h2>
+    <p>El chequeo de consistencia que hoy hace el analista queda mediado por la IAG, el cliente interactúa directo con la herramienta y cada choque con lo acordado se detecta en la propia sesión. Objetivos 2, 3, 4 y 6 de la tesis.</p>
+  </div>
+
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+
+  function typeUtt(id, text, startMs, charMs) {
+    const utt = $(id);
+    const txt = utt.querySelector(".txt");
+    setTimeout(() => utt.classList.add("visible"), startMs);
+    for (let i = 0; i < text.length; i++) {
+      setTimeout(() => { txt.textContent = text.slice(0, i + 1); }, startMs + 150 + i * charMs);
+    }
+    setTimeout(() => utt.classList.add("done"), startMs + 150 + text.length * charMs + 100);
+  }
+
+  function caption(text, atMs) {
+    setTimeout(() => {
+      const cap = $("cap");
+      cap.classList.remove("visible");
+      setTimeout(() => { cap.textContent = text; cap.classList.add("visible"); }, 250);
+    }, atMs);
+  }
+
+  function setStatus(id, cls, label, atMs) {
+    setTimeout(() => {
+      const utt = $(id);
+      utt.classList.add(cls);
+      utt.querySelector(".status").textContent = label;
+    }, atMs);
+  }
+
+  function at(ms, fn) { setTimeout(fn, ms); }
+
+  // ---- Guion temporizado (~50 s) ----
+
+  caption("Una sesión de feedback como cualquier otra. El asistente escucha, con la documentación del proyecto cargada.", 400);
+
+  typeUtt("u1", "El material de referencia no sale de la biblioteca, nunca.", 1600, 42);
+
+  at(4600, () => { $("agentIdle").classList.add("gone"); $("c1").classList.add("visible"); });
+  caption("Detecta la regla enunciada y la busca en los requisitos y las actas. Nadie escribió nada.", 5000);
+  at(6900, () => $("c1").classList.add("done"));
+
+  at(7300, () => $("k1").classList.add("visible"));
+  caption("La devolución vuelve a Silvia en la misma frase, con la cita exacta de lo acordado.", 8000);
+  at(11000, () => $("ch1").classList.add("visible"));
+  caption("El cliente decide. Hoy este choque aparece días después, cuando alguien revisa el acta.", 11500);
+  at(14200, () => $("b1a").classList.add("pressed"));
+  at(14800, () => {
+    $("ch1").classList.remove("visible");
+    $("k1").classList.add("answered");
+    $("rs1").classList.add("visible");
+    $("u1new").classList.add("visible");
+    $("u1").querySelector(".txt").classList.add("struck");
+  });
+  setStatus("u1", "fixed", "Corregida", 14800);
+  caption("Lo dicho se corrige en la sesión. El acta sale de la reunión ya confrontada.", 15400);
+
+  typeUtt("u2", "Los docentes se llevan libros por 30 días, eso ya lo hacemos así.", 18600, 38);
+  at(21900, () => { $("c1").classList.add("gone"); $("k2").classList.add("visible"); });
+  setStatus("u2", "ok", "Coincide", 21900);
+  caption("Lo que coincide se confirma al instante. Nadie lo anota para verificar después.", 22400);
+
+  typeUtt("u3", "Y quiero que las reservas se venzan solas si no retiran el libro en 48 horas.", 25600, 34);
+  at(28500, () => $("c2").classList.add("visible"));
+  at(30300, () => $("c2").classList.add("done"));
+  at(30700, () => { $("c2").classList.add("gone"); $("k3").classList.add("visible"); });
+  caption("Lo nuevo no se construye solo: se encuadra contra lo que existe y se prioriza.", 31200);
+  at(33700, () => $("ch3").classList.add("visible"));
+  at(36200, () => $("b3a").classList.add("pressed"));
+  at(36800, () => {
+    $("ch3").classList.remove("visible");
+    $("k3").classList.add("answered");
+    $("rs3").classList.add("visible");
+  });
+  setStatus("u3", "new", "Ticket", 36800);
+  at(37600, () => $("byproduct").classList.add("visible"));
+  caption("El ticket de alto nivel es el subproducto, no el objetivo. Siempre lo acepta un humano.", 38000);
+
+  at(41200, () => $("summary").classList.add("visible"));
+  caption("La sesión termina con todo contestado. Nada quedó esperando al final del sprint.", 41600);
+
+  at(45200, () => $("closing").classList.add("visible"));
+})();
+</script>
+</body>
+</html>
