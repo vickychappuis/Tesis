@@ -266,5 +266,6 @@
 - Evaluación corrida con la key real. Con `gpt-4o-mini`: 10-11/12 con varianza entre corridas justo en los casos finos (la trampa del acta y el ambiguo que exige pregunta); dos refuerzos de prompt mejoraron pero no estabilizaron. Con `gpt-5-mini`: 12/12 estable en dos corridas, con todas las citas verificables y todos los invariantes. Queda `gpt-5-mini` como modelo. La diferencia entre modelos sobre los mismos casos es en sí un dato para el capítulo de la PoC
 - Cero citas inventadas en todas las corridas con ambos modelos: la verificación de citas del servidor (fragmento literal contra el archivo) no encontró ninguna alucinación
 - Preparada la publicación: gate de clave compartida (proxy de Next 16 + cookie firmada con HMAC, pantalla `/acceso`, API bloqueada con 401 sin cookie; solo se activa si `APP_PASSWORD` y `AUTH_SECRET` están definidas) y empaquetado de la documentación en el build (`prebuild` la copia adentro de `app/`). Probado de punta a punta en local. Destino: Vercel en un subdominio de vickychappuis.dev, sin Supabase (la app no tiene base de datos)
+- Publicado: proyecto `prototipo-tesis` en Vercel con las cuatro variables en producción, deploy andando con el gate activo (la URL redirige a `/acceso` sin cookie). Dominio `prototipo.vickychappuis.dev` agregado al proyecto; falta el CNAME en Namecheap para que resuelva
 
 ---
