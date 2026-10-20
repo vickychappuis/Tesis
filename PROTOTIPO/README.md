@@ -28,6 +28,10 @@ npm run dev                  # http://localhost:3000
 
 Con el server levantado, la evaluación: `node ../evaluacion/run.mjs`.
 
+## Publicación
+
+Deploy en Vercel con la app como raíz del proyecto (`PROTOTIPO/app`). El `prebuild` copia `../documentacion` adentro de `app/` para que viaje en el bundle. Acceso protegido con clave compartida: variables `APP_PASSWORD` y `AUTH_SECRET` en Vercel (si faltan, la app queda abierta, como en desarrollo local); la pantalla de acceso está en `/acceso` y la API devuelve 401 sin la cookie. Dominio: subdominio de vickychappuis.dev.
+
 ## Estado
 
 Sprint 20 (hasta el jueves 8/10/2026). Paso 1 implementado: entrada escrita, veredictos con cita verificada, corrección en sesión, tickets con compuerta humana y export del registro. Pendiente: corrida de la evaluación con API key real y ajuste de prompt. Paso 2 (micrófono y transcripción en vivo): próximo.

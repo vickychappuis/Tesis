@@ -1,4 +1,5 @@
 // Solo servidor: usa el filesystem, no puede importarse desde componentes de cliente.
+import { existsSync } from "fs";
 import { promises as fs } from "fs";
 import path from "path";
 
@@ -16,7 +17,12 @@ export class ErrorDocumentacion extends Error {
 }
 
 function directorioDocumentacion(): string {
-  return process.env.DOCS_DIR ?? path.resolve(process.cwd(), "../documentacion");
+  if (process.env.DOCS_DIR) return process.env.DOCS_DIR;
+  // En el deploy la documentacion se copia adentro de app/ (prebuild); en
+  // desarrollo local vive en el directorio padre.
+  const local = path.resolve(process.cwd(), "documentacion");
+  if (existsSync(local)) return local;
+  return path.resolve(process.cwd(), "../documentacion");
 }
 
 async function listarMarkdown(dir: string, base: string): Promise<DocumentoCargado[]> {

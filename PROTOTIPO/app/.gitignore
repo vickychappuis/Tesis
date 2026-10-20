@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# copia generada por scripts/copiar-docs.mjs para el deploy
+documentacion/
