@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useDictado } from "./useDictado";
 import styles from "./FormularioEnunciado.module.css";
 
 const CLAVE_QUIEN = "sesion-feedback-quien";
@@ -17,6 +18,8 @@ export default function FormularioEnunciado({ onEnviar }: Props) {
   useEffect(() => {
     try {
       const guardado = window.localStorage.getItem(CLAVE_QUIEN);
+      // Hidratacion desde storage: una sola vez al montar, el cascadeo es acotado.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       if (guardado) setQuien(guardado);
     } catch {
       // sin storage disponible
@@ -31,6 +34,13 @@ export default function FormularioEnunciado({ onEnviar }: Props) {
       // sin storage disponible
     }
   };
+
+  const { soportado, escuchando, interim, error, alternar } = useDictado({
+    onEnunciado: (texto) => {
+      if (quien.trim() === "") return;
+      onEnviar(quien.trim(), texto);
+    },
+  });
 
   const puedeEnviar = quien.trim() !== "" && enunciado.trim() !== "";
 
@@ -70,16 +80,46 @@ export default function FormularioEnunciado({ onEnviar }: Props) {
         placeholder="Escribí el enunciado tal como se dijo en la sesión"
         rows={3}
       />
+      {escuchando && (
+        <div className={styles.escuchandoBarra}>
+          <span className={styles.puntoRojo} />
+          {interim !== "" ? (
+            <span className={styles.interim}>{interim}</span>
+          ) : (
+            <span className={styles.interimVacio}>
+              Escuchando… cada frase se envía como enunciado de {quien.trim() || "la sesión"}
+            </span>
+          )}
+        </div>
+      )}
+      {error && <p className={styles.errorMic}>{error}</p>}
       <div className={styles.pie}>
         <span className={styles.ayuda}>Cmd/Ctrl + Enter envía</span>
-        <button
-          type="button"
-          className={styles.enviar}
-          disabled={!puedeEnviar}
-          onClick={enviar}
-        >
-          Enviar
-        </button>
+        <div className={styles.acciones}>
+          {soportado && (
+            <button
+              type="button"
+              className={`${styles.mic} ${escuchando ? styles.micActivo : ""}`}
+              onClick={alternar}
+              disabled={quien.trim() === ""}
+              title={
+                escuchando
+                  ? "Detener el dictado"
+                  : "Escuchar la sesión por micrófono"
+              }
+            >
+              {escuchando ? "■ Detener" : "🎙 Escuchar"}
+            </button>
+          )}
+          <button
+            type="button"
+            className={styles.enviar}
+            disabled={!puedeEnviar}
+            onClick={enviar}
+          >
+            Enviar
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -34,4 +34,4 @@ Deploy en Vercel con la app como raíz del proyecto (`PROTOTIPO/app`). El `prebu
 
 ## Estado
 
-Sprint 20 (hasta el jueves 8/10/2026). Paso 1 implementado: entrada escrita, veredictos con cita verificada, corrección en sesión, tickets con compuerta humana y export del registro. Pendiente: corrida de la evaluación con API key real y ajuste de prompt. Paso 2 (micrófono y transcripción en vivo): próximo.
+Paso 1 completo: entrada escrita, veredictos con cita verificada, corrección en sesión, tickets con compuerta humana y export del registro. Evaluación 12/12 estable con `gpt-5-mini`. Paso 2 completo: dictado con la Web Speech API del navegador (botón Escuchar; cada frase final del reconocimiento se envía como enunciado de quien esté seleccionado; requiere Chrome, Edge o Safari). Publicado en https://prototipo.vickychappuis.dev con clave compartida.

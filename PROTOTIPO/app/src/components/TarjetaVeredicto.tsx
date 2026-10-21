@@ -86,7 +86,7 @@ export default function TarjetaVeredicto({
             <div key={i} className={styles.cita}>
               <span className={styles.citaArchivo}>{cita.archivo}</span>
               <span className={styles.citaFragmento}>
-                "{cita.fragmento_textual}"
+                &ldquo;{cita.fragmento_textual}&rdquo;
               </span>
               {!cita.verificada && (
                 <span className={styles.citaNoVerificada}>
