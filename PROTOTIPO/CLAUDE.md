@@ -16,7 +16,7 @@ Cada enunciado del cliente se clasifica contra la documentación: **choca con lo
 
 ## Dominio de prueba
 
-Proyecto inventado: una biblioteca universitaria y su sistema de préstamos (la directora es el cliente). La documentación vive en `documentacion/` y es la única fuente de verdad del asistente. Tiene trampas plantadas a propósito: no "arreglarlas". Mantener el dominio en términos cotidianos, sin jerga técnica ni bancaria. El mecanismo de consulta queda a criterio (por ahora la documentación entra entera en el contexto del modelo).
+Proyecto inventado: una biblioteca universitaria y su sistema de préstamos (la directora es el cliente). La documentación vive en `documentacion/` y es la única fuente de verdad del asistente. Tiene trampas plantadas a propósito: no "arreglarlas". Mantener el dominio en términos cotidianos, sin jerga técnica ni bancaria. El mecanismo de consulta es el bibliotecario (ver Stack): el modelo pide los documentos bajo demanda.
 
 ## Stack y convenciones
 
@@ -27,5 +27,6 @@ Proyecto inventado: una biblioteca universitaria y su sistema de préstamos (la 
 - La documentación tiene 7 tipos (requisitos, actas, reglas, tickets, politicas, alcance, glosario) y un `INDICE.md` con una línea por documento: si se agrega o cambia un documento, actualizar el índice en el mismo cambio.
 - Evaluación en `../evaluacion/`: `run.mjs` (15 casos de veredicto, cubre las 4 trampas) y `run-extractor.mjs` (6 transcripciones). Correr ambos tras cualquier cambio de prompt, schema o documentación.
 - UI en español, con los términos de la demo (`demo/demo.html`): choca / coincide / no contemplado, aceptar / corregir.
+- Identidad visual: ficha de biblioteca (papel y tinta, veredictos como sellos, Archivo + IBM Plex Mono vía next/font). Los tokens viven en `app/src/app/globals.css`; un solo acento de acción (azul de sello) y los colores semánticos solo para veredictos.
 - Commits en español, minúscula, formato `prototipo: descripción`. Sin trailers de co-autoría. Push directo a main.
 - La demo de `demo/` es la referencia visual de lo que se construye; si el diseño cambia, regenerarla para que no quede desactualizada.

@@ -276,3 +276,10 @@
 - Evaluación tras el rediseño: veredictos 15/15 en tres de cuatro corridas (los casos nuevos de las trampas 3 y 4 pasan; la varianza queda en los dos casos finos y en alguna cita reformulada que el verificador atrapa y marca, como debe); extractor 6/6. Ajustes de prompt que salieron de la regresión: el cruce contra el alcance antes de confirmar un "coincide", y la regla de vigencia (coincidir con el documento más reciente es coincide; el choque es contra lo vigente). El caso 7 se actualizó porque la biblioteca nueva ya contempla lo que pedía
 
 ---
+
+## Sprint 21 — semana del 20 oct 2026
+
+- Rediseño visual de la app a pedido de la estudiante, para despegarla de la estética genérica de app generada: identidad propia de ficha de biblioteca (papel y tinta, filetes finos, veredictos como sellos en mayúsculas con borde de tinta, citas y rutas en monoespaciada). Tipografías Archivo e IBM Plex Mono vía next/font, un solo acento de acción (azul de sello); desaparecen el violeta, el azul brillante y las tarjetas pastel. Tokens en `app/src/app/globals.css`; la demo de `PROTOTIPO/demo/` se restilizó y regrabó (webm + gif) para seguir siendo la referencia visual. Desplegado en producción y verificado con un veredicto real de punta a punta
+- Bug encontrado al verificar el rediseño y corregido: la persistencia en localStorage guardaba el estado inicial vacío antes de rehidratar la sesión, y con StrictMode en desarrollo borraba la sesión guardada al recargar; el estado inicial ya no se persiste
+
+---
