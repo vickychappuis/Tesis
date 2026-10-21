@@ -267,5 +267,6 @@
 - Cero citas inventadas en todas las corridas con ambos modelos: la verificación de citas del servidor (fragmento literal contra el archivo) no encontró ninguna alucinación
 - Preparada la publicación: gate de clave compartida (proxy de Next 16 + cookie firmada con HMAC, pantalla `/acceso`, API bloqueada con 401 sin cookie; solo se activa si `APP_PASSWORD` y `AUTH_SECRET` están definidas) y empaquetado de la documentación en el build (`prebuild` la copia adentro de `app/`). Probado de punta a punta en local. Destino: Vercel en un subdominio de vickychappuis.dev, sin Supabase (la app no tiene base de datos)
 - Publicado: proyecto `prototipo-tesis` en Vercel con las cuatro variables en producción, deploy andando con el gate activo (la URL redirige a `/acceso` sin cookie). Dominio `prototipo.vickychappuis.dev` agregado al proyecto; falta el CNAME en Namecheap para que resuelva
+- Dominio en vivo: CNAME agregado en Namecheap (vía navegador), verificación de Vercel ok y certificado emitido a mano con `vercel certs issue` (no se disparó solo). `https://prototipo.vickychappuis.dev` responde: redirige a `/acceso` sin cookie y la API devuelve 401. Clave compartida para el acceso generada y fuera del repo
 
 ---
