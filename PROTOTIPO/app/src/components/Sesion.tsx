@@ -13,6 +13,7 @@ import FormularioEnunciado from "./FormularioEnunciado";
 import PanelSesion from "./PanelSesion";
 import ResumenSesion from "./ResumenSesion";
 import TarjetaVeredicto from "./TarjetaVeredicto";
+import Tutorial from "./Tutorial";
 import styles from "./Sesion.module.css";
 
 const CLAVE_STORAGE = "sesion-feedback-v1";
@@ -229,7 +230,7 @@ export default function Sesion() {
 
   return (
     <main className={styles.principal}>
-      <section className={styles.panel}>
+      <section className={styles.panel} data-tutorial="registro">
         <div className={styles.panelHead}>
           <span className={`${styles.dot} ${styles.dotRojo}`} />
           Sesión de feedback · registro en vivo
@@ -241,7 +242,7 @@ export default function Sesion() {
         </div>
       </section>
 
-      <section className={styles.panel}>
+      <section className={styles.panel} data-tutorial="asistente">
         <div className={styles.panelHead}>
           <span className={`${styles.dot} ${styles.dotAzul}`} />
           Asistente IAG · confronta con la documentación del proyecto
@@ -272,6 +273,8 @@ export default function Sesion() {
           )}
         </div>
       </section>
+
+      <Tutorial />
     </main>
   );
 }

@@ -23,7 +23,7 @@ export default function ResumenSesion({ data, onNuevaSesion }: Props) {
   ).length;
 
   return (
-    <div className={styles.resumen}>
+    <div className={styles.resumen} data-tutorial="resumen">
       <b>
         {total} {total === 1 ? "intervención" : "intervenciones"} en la sesión.
       </b>

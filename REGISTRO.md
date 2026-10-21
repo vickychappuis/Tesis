@@ -282,4 +282,7 @@
 - Rediseño visual de la app a pedido de la estudiante, para despegarla de la estética genérica de app generada: identidad propia de ficha de biblioteca (papel y tinta, filetes finos, veredictos como sellos en mayúsculas con borde de tinta, citas y rutas en monoespaciada). Tipografías Archivo e IBM Plex Mono vía next/font, un solo acento de acción (azul de sello); desaparecen el violeta, el azul brillante y las tarjetas pastel. Tokens en `app/src/app/globals.css`; la demo de `PROTOTIPO/demo/` se restilizó y regrabó (webm + gif) para seguir siendo la referencia visual. Desplegado en producción y verificado con un veredicto real de punta a punta
 - Bug encontrado al verificar el rediseño y corregido: la persistencia en localStorage guardaba el estado inicial vacío antes de rehidratar la sesión, y con StrictMode en desarrollo borraba la sesión guardada al recargar; el estado inicial ya no se persiste
 
+- Tutorial de primera visita en la app: tour salteable de 6 pasos que recorre el registro, el formulario, el micrófono, los veredictos y el cierre, con un botón "?" flotante para volver a verlo. Se abre solo la primera vez (marca en localStorage) y resalta cada zona de la pantalla
+- Arreglado el origen de los mails de error de Vercel: el proyecto quedó conectado al repo de GitHub y cada push compilaba desde la raíz (sin app Next) y fallaba. Se fijó el root directory en PROTOTIPO/app; ahora cada push a main redeploya solo y el deploy por CLI deja de ser necesario
+
 ---

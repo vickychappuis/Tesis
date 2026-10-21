@@ -34,4 +34,4 @@ Deploy en Vercel con la app como raíz del proyecto (`PROTOTIPO/app`). El `prebu
 
 ## Estado
 
-Paso 1 completo: entrada escrita, veredictos con cita verificada, corrección en sesión, tickets con compuerta humana y export del registro. Evaluación 12/12 estable con `gpt-5-mini`. Paso 2 completo: dictado con la Web Speech API del navegador (botón Escuchar; cada frase final del reconocimiento se envía como enunciado de quien esté seleccionado; requiere Chrome, Edge o Safari). Publicado en https://prototipo.vickychappuis.dev con clave compartida.
+Paso 1 completo: entrada escrita, veredictos con cita verificada, corrección en sesión, tickets con compuerta humana y export del registro. Evaluación 12/12 estable con `gpt-5-mini`. Paso 2 completo: dictado con la Web Speech API del navegador (botón Escuchar; cada frase final del reconocimiento se envía como enunciado de quien esté seleccionado; requiere Chrome, Edge o Safari). Publicado en https://prototipo.vickychappuis.dev con clave compartida; el proyecto de Vercel está conectado al repo (root directory `PROTOTIPO/app`), cada push a main redeploya solo. Tutorial de primera visita salteable con botón "?" para repetirlo.

@@ -163,7 +163,7 @@ export default function FormularioEnunciado({ onEnviar }: Props) {
   const mostrarBarra = escuchando || (buffer.trim() !== "" && avisoExtractor !== null);
 
   return (
-    <div className={styles.formulario}>
+    <div className={styles.formulario} data-tutorial="formulario">
       <label className={styles.etiqueta} htmlFor="quien">
         Quién habla
       </label>
@@ -219,6 +219,7 @@ export default function FormularioEnunciado({ onEnviar }: Props) {
             <button
               type="button"
               className={`${styles.mic} ${escuchando ? styles.micActivo : ""}`}
+              data-tutorial="mic"
               onClick={alternar}
               disabled={quien.trim() === ""}
               title={
