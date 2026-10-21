@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Entrada, TipoVeredicto } from "@/lib/tipos";
+import VisorDocumento from "./VisorDocumento";
 import styles from "./TarjetaVeredicto.module.css";
 
 interface Props {
@@ -28,6 +29,10 @@ export default function TarjetaVeredicto({
 }: Props) {
   const [editando, setEditando] = useState(false);
   const [textoCorregido, setTextoCorregido] = useState(entrada.texto);
+  const [docAbierto, setDocAbierto] = useState<{
+    ruta: string;
+    fragmento: string | null;
+  } | null>(null);
 
   if (entrada.estado === "verificando") {
     return (
@@ -89,7 +94,19 @@ export default function TarjetaVeredicto({
         <div className={styles.citas}>
           {veredicto.citas.map((cita, i) => (
             <div key={i} className={styles.cita}>
-              <span className={styles.citaArchivo}>{cita.archivo}</span>
+              <button
+                type="button"
+                className={styles.citaArchivo}
+                title="Abrir el documento con la cita resaltada"
+                onClick={() =>
+                  setDocAbierto({
+                    ruta: cita.archivo,
+                    fragmento: cita.verificada ? cita.fragmento_textual : null,
+                  })
+                }
+              >
+                {cita.archivo}
+              </button>
               <span className={styles.citaFragmento}>
                 &ldquo;{cita.fragmento_textual}&rdquo;
               </span>
@@ -107,9 +124,15 @@ export default function TarjetaVeredicto({
         <div className={styles.fuentes}>
           Consultó:
           {fuentes.map((fuente) => (
-            <span key={fuente} className={styles.fuente}>
+            <button
+              key={fuente}
+              type="button"
+              className={styles.fuente}
+              title="Abrir el documento"
+              onClick={() => setDocAbierto({ ruta: fuente, fragmento: null })}
+            >
               {fuente}
-            </span>
+            </button>
           ))}
         </div>
       )}
@@ -221,6 +244,14 @@ export default function TarjetaVeredicto({
         <div className={`${styles.resolucion} ${styles.resolucionVista}`}>
           → Marcado como visto en la sesión.
         </div>
+      )}
+
+      {docAbierto && (
+        <VisorDocumento
+          ruta={docAbierto.ruta}
+          fragmento={docAbierto.fragmento}
+          onCerrar={() => setDocAbierto(null)}
+        />
       )}
     </div>
   );

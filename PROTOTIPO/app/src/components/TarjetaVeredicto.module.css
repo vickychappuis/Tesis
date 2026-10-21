@@ -169,10 +169,18 @@
   font-family: var(--mono);
   font-size: 11px;
   color: var(--tinta-suave);
+  background: var(--carta);
   border: 1px solid var(--linea);
   border-radius: 3px;
   padding: 0 5px;
   white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.citaArchivo:hover {
+  color: var(--azul);
+  border-color: var(--azul);
 }
 
 .citaFragmento {
@@ -212,6 +220,13 @@
   border-radius: 3px;
   padding: 0 5px;
   white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.fuente:hover {
+  color: var(--azul);
+  border-color: var(--azul);
 }
 
 .pregunta {

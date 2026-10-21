@@ -285,4 +285,6 @@
 - Tutorial de primera visita en la app: tour salteable de 6 pasos que recorre el registro, el formulario, el micrófono, los veredictos y el cierre, con un botón "?" flotante para volver a verlo. Se abre solo la primera vez (marca en localStorage) y resalta cada zona de la pantalla
 - Arreglado el origen de los mails de error de Vercel: el proyecto quedó conectado al repo de GitHub y cada push compilaba desde la raíz (sin app Next) y fallaba. Se fijó el root directory en PROTOTIPO/app; ahora cada push a main redeploya solo y el deploy por CLI deja de ser necesario
 
+- Visor de documentos: los chips de citas y fuentes de cada tarjeta abren el documento en un modal, tal cual está escrito, con el fragmento citado resaltado (nueva ruta GET /api/documento con el mismo saneo de rutas del bibliotecario). Sin storage: los markdown viajan en el bundle del deploy; el storage externo queda para cuando haya documentos reales en otros formatos o actualización sin redeploy
+
 ---

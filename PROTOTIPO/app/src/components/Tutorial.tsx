@@ -39,7 +39,7 @@ const PASOS: Paso[] = [
     objetivo: "asistente",
     titulo: "Los veredictos",
     texto:
-      "Un sello por enunciado: CHOCA (contradice lo acordado, con la cita), COINCIDE (lo confirma) o NO CONTEMPLADO (pedido nuevo). “Consultó” muestra qué documentos abrió.",
+      "Un sello por enunciado: CHOCA (contradice lo acordado, con la cita), COINCIDE (lo confirma) o NO CONTEMPLADO (pedido nuevo). Tocá un documento citado para leerlo.",
   },
   {
     objetivo: "resumen",

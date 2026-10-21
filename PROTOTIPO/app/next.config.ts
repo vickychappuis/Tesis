@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   // explicitamente en el bundle del deploy (se copian con scripts/copiar-docs.mjs).
   outputFileTracingIncludes: {
     "/api/veredicto": ["./documentacion/**/*"],
+    "/api/documento": ["./documentacion/**/*"],
   },
 };
 
