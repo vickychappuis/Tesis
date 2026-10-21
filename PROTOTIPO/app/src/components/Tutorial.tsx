@@ -16,37 +16,36 @@ const PASOS: Paso[] = [
     objetivo: null,
     titulo: "Qué es esto",
     texto:
-      "Este asistente acompaña la sesión de feedback: escucha lo que dice el cliente y lo confronta al instante contra la documentación del proyecto (requisitos, reglas, actas). La devolución vuelve en la misma reunión, no días después.",
+      "El asistente escucha lo que dice el cliente en la sesión y lo confronta al instante contra la documentación del proyecto.",
   },
   {
     objetivo: "registro",
     titulo: "El registro de la sesión",
-    texto:
-      "Acá queda todo lo que se dijo: quién habló, qué dijo y en qué terminó cada punto (corregido, confirmado, ticket).",
+    texto: "Quién habló, qué dijo y en qué terminó cada punto.",
   },
   {
     objetivo: "formulario",
     titulo: "Anotar lo que se dice",
     texto:
-      "Escribís quién habla y el enunciado tal como se dijo, y lo enviás con el botón o con Cmd/Ctrl + Enter. Cada enunciado va directo al asistente.",
+      "Escribís quién habla y qué dijo, y lo enviás (también con Cmd/Ctrl + Enter).",
   },
   {
     objetivo: "mic",
     titulo: "…o dejarlo escuchar",
     texto:
-      "Con Escuchar, el micrófono transcribe la reunión en vivo y el asistente corta la transcripción en enunciados por su cuenta. La charla que no es feedback se descarta.",
+      "El micrófono transcribe la reunión y el asistente la corta en enunciados solo. La charla se descarta.",
   },
   {
     objetivo: "asistente",
     titulo: "Los veredictos",
     texto:
-      "Por cada enunciado, un sello: CHOCA (contradice lo acordado, con la cita exacta del documento), COINCIDE (lo confirma) o NO CONTEMPLADO (pedido nuevo, con prioridad sugerida). La línea “Consultó” muestra qué documentos abrió para decidir.",
+      "Un sello por enunciado: CHOCA (contradice lo acordado, con la cita), COINCIDE (lo confirma) o NO CONTEMPLADO (pedido nuevo). “Consultó” muestra qué documentos abrió.",
   },
   {
     objetivo: "resumen",
     titulo: "El cierre",
     texto:
-      "El resumen lleva la cuenta de la sesión y “Exportar registro” la descarga en un archivo, el insumo para actualizar la documentación después. Los tickets siempre los acepta una persona.",
+      "“Exportar registro” descarga la sesión, el insumo para actualizar la documentación. Los tickets los acepta siempre una persona.",
   },
 ];
 
