@@ -6,7 +6,9 @@
     "tipo_esperado": "choca",
     "tipos_alternativos": [],
     "pregunta_obligatoria": true,
-    "debe_citar": ["actas/2026-05-12.md"],
+    "debe_citar": [
+      "actas/2026-05-12.md"
+    ],
     "nota": "Trampa 1: el acta matiza al requisito y se reporta igual."
   },
   {
@@ -16,7 +18,9 @@
     "tipo_esperado": "choca",
     "tipos_alternativos": [],
     "pregunta_obligatoria": true,
-    "debe_citar": ["requisitos/reservas.md"],
+    "debe_citar": [
+      "requisitos/reservas.md"
+    ],
     "nota": "Trampa 2: afirma como vigente algo que lo documentado no dice (queda apartado sin plazo)."
   },
   {
@@ -26,7 +30,9 @@
     "tipo_esperado": "coincide",
     "tipos_alternativos": [],
     "pregunta_obligatoria": false,
-    "debe_citar": ["requisitos/prestamos.md"],
+    "debe_citar": [
+      "requisitos/prestamos.md"
+    ],
     "nota": "Coincidencia directa con el requisito de préstamos para estudiantes."
   },
   {
@@ -36,7 +42,9 @@
     "tipo_esperado": "coincide",
     "tipos_alternativos": [],
     "pregunta_obligatoria": false,
-    "debe_citar": ["requisitos/prestamos.md"],
+    "debe_citar": [
+      "requisitos/prestamos.md"
+    ],
     "nota": "Coincidencia directa, enunciada por otro actor del negocio."
   },
   {
@@ -46,7 +54,9 @@
     "tipo_esperado": "coincide",
     "tipos_alternativos": [],
     "pregunta_obligatoria": false,
-    "debe_citar": ["requisitos/reservas.md"],
+    "debe_citar": [
+      "requisitos/reservas.md"
+    ],
     "nota": "Coincidencia directa con el aviso al primero de la cola."
   },
   {
@@ -56,18 +66,20 @@
     "tipo_esperado": "no_contemplado",
     "tipos_alternativos": [],
     "pregunta_obligatoria": false,
-    "debe_citar": ["requisitos/reservas.md"],
+    "debe_citar": [
+      "requisitos/reservas.md"
+    ],
     "nota": "Par de control del 2: pedido a futuro vs afirmación del presente."
   },
   {
     "id": 7,
     "quien": "Silvia · Directora",
     "enunciado": "Estaría bueno que el sistema mande un recordatorio por correo dos días antes del vencimiento del préstamo.",
-    "tipo_esperado": "no_contemplado",
+    "tipo_esperado": "coincide",
     "tipos_alternativos": [],
     "pregunta_obligatoria": false,
-    "debe_citar": ["requisitos/prestamos.md"],
-    "nota": "Pedido nuevo sobre préstamos, no documentado."
+    "debe_citar": [],
+    "nota": "Quedo contemplado tras la ampliacion de la biblioteca: el acta del 2/6 y el ticket BIB-047 definen el aviso 2 dias antes. Puede citar cualquiera de los dos."
   },
   {
     "id": 8,
@@ -104,7 +116,9 @@
     "quien": "Silvia · Directora",
     "enunciado": "Las renovaciones tienen que ser más simples.",
     "tipo_esperado": "no_contemplado",
-    "tipos_alternativos": ["choca"],
+    "tipos_alternativos": [
+      "choca"
+    ],
     "pregunta_obligatoria": true,
     "debe_citar": [],
     "nota": "Ambiguo: lo no negociable es la pregunta."
@@ -116,7 +130,47 @@
     "tipo_esperado": "choca",
     "tipos_alternativos": [],
     "pregunta_obligatoria": true,
-    "debe_citar": ["requisitos/prestamos.md"],
+    "debe_citar": [
+      "requisitos/prestamos.md"
+    ],
     "nota": "Frase mixta: gana el choque."
+  },
+  {
+    "id": 13,
+    "quien": "Silvia · Directora",
+    "enunciado": "La renovación del préstamo es por única vez, eso quedó así.",
+    "tipo_esperado": "choca",
+    "tipos_alternativos": [],
+    "pregunta_obligatoria": true,
+    "debe_citar": [
+      "actas/2026-06-02.md"
+    ],
+    "nota": "Trampa de obsolescencia: el glosario viejo dice una sola vez, el acta del 2/6 subió el tope a 3."
+  },
+  {
+    "id": 14,
+    "quien": "Silvia · Directora",
+    "enunciado": "Quiero que la multa se les cobre automáticamente al vencer el plazo de pago.",
+    "tipo_esperado": "choca",
+    "tipos_alternativos": [
+      "no_contemplado"
+    ],
+    "pregunta_obligatoria": true,
+    "debe_citar": [
+      "alcance/anexo-1-alcance-funcional.md"
+    ],
+    "nota": "Trampa de alcance: la regla existe escrita en reglas/multas.md, pero el anexo de alcance la excluye de esta etapa."
+  },
+  {
+    "id": 15,
+    "quien": "Silvia · Directora",
+    "enunciado": "Los socios ahora pueden renovar hasta tres veces si no hay reservas.",
+    "tipo_esperado": "coincide",
+    "tipos_alternativos": [],
+    "pregunta_obligatoria": false,
+    "debe_citar": [
+      "actas/2026-06-02.md"
+    ],
+    "nota": "Coincide con el acta más reciente: el bibliotecario tiene que llegar al acta del 2/6, no quedarse en el glosario."
   }
 ]

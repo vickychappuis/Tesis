@@ -1,11 +1,11 @@
 "use client";
 
 // Dictado con la Web Speech API del navegador (Chrome, Edge, Safari).
-// Cada resultado final del reconocedor se trata como un enunciado de la
-// sesion: la segmentacion por pausas del habla es el corte entre enunciados.
-import { useEffect, useRef, useState } from "react";
-
-const LARGO_MINIMO = 12;
+// Los resultados finales del reconocedor se acumulan en un buffer de
+// transcripcion corrida: los cortes por pausa del habla son arbitrarios,
+// asi que la segmentacion en enunciados la decide la etapa extractora
+// (/api/extraer), no este hook. El hook no llama a ninguna API.
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface AlternativaVoz {
   transcript: string;
@@ -49,23 +49,19 @@ function obtenerConstructor(): ConstructorReconocedor | null {
   return window.SpeechRecognition ?? window.webkitSpeechRecognition ?? null;
 }
 
-interface Opciones {
-  onEnunciado: (texto: string) => void;
+function juntar(a: string, b: string): string {
+  return [a, b].filter((parte) => parte !== "").join(" ");
 }
 
-export function useDictado({ onEnunciado }: Opciones) {
+export function useDictado() {
   const [soportado, setSoportado] = useState(false);
   const [escuchando, setEscuchando] = useState(false);
   const [interim, setInterim] = useState("");
+  const [buffer, setBuffer] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   const reconocedorRef = useRef<ReconocedorVoz | null>(null);
   const activoRef = useRef(false);
-  const onEnunciadoRef = useRef(onEnunciado);
-
-  useEffect(() => {
-    onEnunciadoRef.current = onEnunciado;
-  });
 
   useEffect(() => {
     // Deteccion de soporte una sola vez al montar; el cascadeo es acotado.
@@ -77,6 +73,7 @@ export function useDictado({ onEnunciado }: Opciones) {
     };
   }, []);
 
+  // Detener no vacia el buffer: lo remanente lo procesa la extraccion final.
   const detener = () => {
     activoRef.current = false;
     setEscuchando(false);
@@ -101,7 +98,8 @@ export function useDictado({ onEnunciado }: Opciones) {
         const resultado = evento.results[i];
         const texto = resultado[0].transcript.trim();
         if (resultado.isFinal) {
-          if (texto.length >= LARGO_MINIMO) onEnunciadoRef.current(texto);
+          // Sin umbral de largo: el extractor decide que sirve y que no.
+          if (texto !== "") setBuffer((previo) => juntar(previo, texto));
         } else {
           parcial = `${parcial} ${texto}`.trim();
         }
@@ -148,5 +146,17 @@ export function useDictado({ onEnunciado }: Opciones) {
     else empezar();
   };
 
-  return { soportado, escuchando, interim, error, alternar };
+  // Reemplaza la parte del buffer que se mando a extraer por el resto que
+  // devolvio el extractor, preservando lo que se acumulo mientras la request
+  // estaba en vuelo (los finales solo se agregan al final, asi que lo enviado
+  // es siempre un prefijo del buffer actual).
+  const consumirBuffer = useCallback((enviado: string, resto: string) => {
+    setBuffer((previo) => {
+      // Caso inesperado: lo enviado ya no es prefijo del buffer. Se deja como esta.
+      if (!previo.startsWith(enviado)) return previo;
+      return juntar(resto.trim(), previo.slice(enviado.length).trim());
+    });
+  }, []);
+
+  return { soportado, escuchando, interim, buffer, error, alternar, consumirBuffer };
 }

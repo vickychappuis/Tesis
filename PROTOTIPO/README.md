@@ -13,9 +13,9 @@ En `demo/`: mock auto-animado de 52 segundos de cómo luce una sesión (`demo.ht
 ## Estructura
 
 - `demo/`: el mock animado de la idea.
-- `documentacion/`: la documentación del proyecto inventado (una biblioteca universitaria y su sistema de préstamos) que el asistente usa como fuente de conocimiento. Tiene una contradicción plantada (la excepción de material de referencia vive solo en el acta del 12/5) y un hueco plantado (las reservas no tienen vencimiento). Se reemplaza por la documentación anonimizada de un proyecto real cuando esté disponible.
-- `app/`: la aplicación Next.js. Panel de sesión de dos paneles como la demo, ruta `POST /api/veredicto` que confronta cada enunciado contra `documentacion/` vía la API de OpenAI con salida estructurada, verificación de citas en el servidor, export del registro de sesión a markdown.
-- `evaluacion/`: 12 casos de prueba con veredicto esperado y un runner (`node evaluacion/run.mjs`) que evalúa el sistema de punta a punta contra la API local.
+- `documentacion/`: la documentación del proyecto inventado (una biblioteca universitaria y su sistema de préstamos), organizada en 7 tipos como en una empresa real (requisitos, actas, reglas, tickets, politicas, alcance, glosario) con un `INDICE.md` de una línea por documento. Tiene 4 trampas plantadas: la excepción que vive solo en un acta, las reservas sin vencimiento, el glosario obsoleto frente a un acta posterior, y una regla escrita que el anexo de alcance excluye. Se reemplaza por la documentación anonimizada de un proyecto real cuando esté disponible.
+- `app/`: la aplicación Next.js. Panel de sesión de dos paneles, dictado por micrófono con extractor de enunciados (la transcripción corrida se segmenta con un llamado al modelo, no por pausas), y el **bibliotecario**: el modelo consulta la documentación bajo demanda con herramientas sobre el índice, en vez de recibirla entera; la tarjeta muestra qué documentos consultó y el servidor verifica cada cita contra los archivos reales.
+- `evaluacion/`: 15 casos de veredicto (`node evaluacion/run.mjs`) y 6 transcripciones para el extractor (`node evaluacion/run-extractor.mjs`), de punta a punta contra la API local.
 
 ## Cómo correr
 

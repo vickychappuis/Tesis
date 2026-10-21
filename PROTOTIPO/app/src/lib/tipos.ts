@@ -24,11 +24,25 @@ export interface Veredicto {
   citas: Cita[];
   pregunta_al_cliente: string | null;
   prioridad: Prioridad | null;
+  // Agregado por el servidor (no viene del modelo): rutas de los documentos que
+  // el modelo abrio de verdad con leer_documento, unicas y en orden de lectura.
+  fuentes_consultadas: string[];
 }
 
 export interface VeredictoRequest {
   quien: string;
   enunciado: string;
+}
+
+// Etapa extractora: segmenta la transcripcion corrida del dictado en enunciados.
+export interface ExtraccionRequest {
+  quien: string;
+  buffer: string;
+}
+
+export interface Extraccion {
+  enunciados: string[];
+  resto: string;
 }
 
 export type CodigoError = "config" | "auth" | "timeout" | "malformada" | "desconocido";

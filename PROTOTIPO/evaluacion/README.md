@@ -25,6 +25,12 @@ Sale con código 0 si todo pasó y 1 si algo falló.
 - **invariantes**: `choca` trae pregunta al cliente, `no_contemplado` trae prioridad (y solo ese tipo la trae), `no_accionable` no trae citas, y los casos con `pregunta_obligatoria` traen pregunta.
 - **debe_citar**: las citas incluyen al menos los archivos listados en el caso.
 
+## Banco del extractor en vivo
+
+`extractor-casos.json` tiene 6 transcripciones crudas de dictado (muletillas, requisitos partidos, pedidos encadenados) con los enunciados que el segmentador de `/api/extraer` debería devolver.
+Se corre con `node run-extractor.mjs`, con las mismas opciones `--base` y `--solo` y el mismo prerequisito del dev server local.
+El matching es laxo: cada enunciado esperado se da por cubierto si alguna salida contiene todas sus palabras clave (`debe_contener`), y `resto_no_vacio` chequea si tiene que quedar cola acumulándose.
+
 ## Nota sobre la varianza
 
 Conviene correr el set 2 o 3 veces: el veredicto lo produce un modelo generativo y la varianza entre corridas es, en sí misma, un dato del prototipo.

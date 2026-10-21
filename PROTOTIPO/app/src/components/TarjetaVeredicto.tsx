@@ -67,6 +67,8 @@ export default function TarjetaVeredicto({
   };
 
   const pendiente = entrada.estado === "respondido";
+  // Sesiones guardadas antes del modo bibliotecario no traen fuentes_consultadas.
+  const fuentes = veredicto.fuentes_consultadas ?? [];
 
   const guardarCorreccion = () => {
     const texto = textoCorregido.trim();
@@ -94,6 +96,17 @@ export default function TarjetaVeredicto({
                 </span>
               )}
             </div>
+          ))}
+        </div>
+      )}
+
+      {fuentes.length > 0 && (
+        <div className={styles.fuentes}>
+          Consultó:
+          {fuentes.map((fuente) => (
+            <span key={fuente} className={styles.fuente}>
+              {fuente}
+            </span>
           ))}
         </div>
       )}

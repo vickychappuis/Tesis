@@ -1,10 +1,18 @@
 import { z } from "zod";
 
-// Rutas exactas de los documentos del proyecto. El modelo solo puede citar estas.
+// Rutas exactas de los documentos del proyecto (las mismas del INDICE.md).
+// El modelo solo puede citar estas.
 export const ARCHIVOS_DOCUMENTACION = [
   "requisitos/prestamos.md",
   "requisitos/reservas.md",
   "actas/2026-05-12.md",
+  "actas/2026-06-02.md",
+  "reglas/multas.md",
+  "tickets/BIB-031-renovacion-web.md",
+  "tickets/BIB-047-notificaciones-vencimiento.md",
+  "politicas/reglamento-prestamos.md",
+  "alcance/anexo-1-alcance-funcional.md",
+  "glosario/glosario.md",
 ] as const;
 
 // Veredicto tal como lo devuelve el modelo (sin "verificada", que la agrega el servidor).

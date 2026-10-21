@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "nombre": "requisito partido en dos frases por una pausa",
+    "quien": "Silvia · Directora",
+    "buffer": "a ver lo de los préstamos. el préstamo de un libro tiene que durar quince días como mucho",
+    "debe_contener": [["préstamo", "quince días"]],
+    "resto_no_vacio": false
+  },
+  {
+    "id": 2,
+    "nombre": "dos pedidos encadenados sin pausa",
+    "quien": "Silvia · Directora",
+    "buffer": "las reservas se tienen que vencer a los dos días y quiero que los profesores puedan llevarse hasta diez libros a la vez",
+    "debe_contener": [["reservas", "dos días"], ["profesores", "diez libros"]],
+    "resto_no_vacio": false
+  },
+  {
+    "id": 3,
+    "nombre": "charla pura, nada confrontable",
+    "quien": "Silvia · Directora",
+    "buffer": "hola qué tal cómo andan che qué frío hace hoy vine caminando desde el otro edificio y me vengo congelando",
+    "debe_contener": [],
+    "resto_no_vacio": false
+  },
+  {
+    "id": 4,
+    "nombre": "mezcla de charla y una regla",
+    "quien": "Silvia · Directora",
+    "buffer": "bueno gracias por venir eh el otro día me acordaba de la biblioteca vieja bueno a lo que iba si alguien devuelve tarde queda suspendido un día por cada día de atraso",
+    "debe_contener": [["devuelve tarde", "suspendido", "día de atraso"]],
+    "resto_no_vacio": false
+  },
+  {
+    "id": 5,
+    "nombre": "termina a mitad de un pedido",
+    "quien": "Silvia · Directora",
+    "buffer": "los estudiantes de posgrado tienen que poder renovar el préstamo dos veces y aparte quiero que cuando un libro vuelve",
+    "debe_contener": [["posgrado", "renovar", "dos veces"]],
+    "resto_no_vacio": true
+  },
+  {
+    "id": 6,
+    "nombre": "muletillas, regla partida y cierre colgado",
+    "quien": "Silvia · Directora",
+    "buffer": "eh bueno este lo de las reservas. cuando vuelve un libro reservado el primero de la lista tiene tres días para pasar a retirarlo. ah y otra cosa que me olvidaba lo de los",
+    "debe_contener": [["primero", "lista", "tres días", "retirar"]],
+    "resto_no_vacio": true
+  }
+]

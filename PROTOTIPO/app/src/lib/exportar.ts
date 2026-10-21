@@ -30,6 +30,11 @@ function bloqueEntrada(entrada: Entrada): string {
       `  - Veredicto (${entrada.veredicto.tipo}): ${entrada.veredicto.justificacion}`
     );
     lineas.push(citasEnMarkdown(entrada));
+    // Sesiones guardadas antes del modo bibliotecario no traen fuentes_consultadas.
+    const fuentes = entrada.veredicto.fuentes_consultadas ?? [];
+    if (fuentes.length > 0) {
+      lineas.push(`  - Fuentes: ${fuentes.map((f) => `\`${f}\``).join(" · ")}`);
+    }
   }
   return lineas.join("\n");
 }
