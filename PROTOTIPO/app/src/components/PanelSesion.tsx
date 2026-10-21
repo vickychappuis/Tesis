@@ -13,20 +13,20 @@ function chipDeEstado(entrada: Entrada): {
 } | null {
   switch (entrada.estado) {
     case "verificando":
-      return { texto: "Verificando…", clase: styles.chipGris };
+      return { texto: "Verificando…", clase: styles.chipNeutro };
     case "error":
-      return { texto: "Error", clase: styles.chipRojo };
+      return { texto: "Error", clase: styles.chipError };
     case "corregida":
-      return { texto: "Corregida", clase: styles.chipVioleta };
+      return { texto: "Corregida", clase: styles.chipCorregida };
     case "ticket":
-      return { texto: "Ticket", clase: styles.chipAzul };
+      return { texto: "Ticket", clase: styles.chipTicket };
     case "vista":
       return entrada.veredicto?.tipo === "coincide"
-        ? { texto: "Coincide", clase: styles.chipVerde }
-        : { texto: "Vista", clase: styles.chipGris };
+        ? { texto: "Coincide", clase: styles.chipCoincide }
+        : { texto: "Vista", clase: styles.chipNeutro };
     case "respondido":
       return entrada.veredicto?.tipo === "coincide"
-        ? { texto: "Coincide", clase: styles.chipVerde }
+        ? { texto: "Coincide", clase: styles.chipCoincide }
         : null;
     default:
       return null;

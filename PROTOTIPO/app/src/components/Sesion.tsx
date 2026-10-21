@@ -173,6 +173,10 @@ export default function Sesion() {
   // Persistir en cada cambio (después de la rehidratación inicial).
   useEffect(() => {
     if (!hidratado.current) return;
+    // El estado inicial nunca se persiste: en el primer render posterior al
+    // montaje todavía no corrió el dispatch de rehidratación, y guardarlo
+    // pisaría la sesión almacenada (con StrictMode la borra de verdad).
+    if (data === estadoInicial) return;
     try {
       window.localStorage.setItem(CLAVE_STORAGE, JSON.stringify(data));
     } catch {
@@ -239,7 +243,7 @@ export default function Sesion() {
 
       <section className={styles.panel}>
         <div className={styles.panelHead}>
-          <span className={`${styles.dot} ${styles.dotVioleta}`} />
+          <span className={`${styles.dot} ${styles.dotAzul}`} />
           Asistente IAG · confronta con la documentación del proyecto
         </div>
         <div className={styles.panelBody}>

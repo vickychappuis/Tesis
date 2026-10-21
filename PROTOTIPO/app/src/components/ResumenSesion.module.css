@@ -1,28 +1,28 @@
+/* Cierre de acta: tally en mono sobre papel, separado por regla fina. */
 .resumen {
   margin-top: auto;
-  border-radius: 10px;
-  background: #f4f0ff;
-  border: 1px solid #d9ccf8;
-  padding: 12px 14px;
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: #3b2578;
+  border-top: 1px solid var(--linea);
+  padding-top: 11px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--tinta-suave);
 }
 
 .resumen b {
-  font-weight: 700;
+  font-weight: 650;
+  color: var(--tinta);
 }
 
 .acciones {
   display: flex;
-  gap: 9px;
+  gap: 8px;
   margin-top: 10px;
   flex-wrap: wrap;
 }
 
 .exportar,
 .nueva {
-  border-radius: 8px;
+  border-radius: 3px;
   padding: 7px 14px;
   font-size: 12.5px;
   font-weight: 600;
@@ -30,13 +30,13 @@
 }
 
 .exportar {
-  border: 1px solid var(--violeta);
-  background: var(--violeta);
+  border: 1px solid var(--azul);
+  background: var(--azul);
   color: #fff;
 }
 
 .exportar:hover:not(:disabled) {
-  background: var(--violeta-oscuro);
+  background: var(--azul-oscuro);
 }
 
 .exportar:disabled {
@@ -45,11 +45,11 @@
 }
 
 .nueva {
-  border: 1px solid #d9ccf8;
-  background: #fff;
-  color: var(--violeta-oscuro);
+  border: 1px solid var(--gris-borde);
+  background: var(--carta);
+  color: var(--tinta);
 }
 
 .nueva:hover {
-  background: #ece4fd;
+  background: var(--gris-fondo);
 }

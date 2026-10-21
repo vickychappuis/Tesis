@@ -1,11 +1,11 @@
 .lista {
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 10px;
 }
 
 .vacio {
-  color: #97a2af;
+  color: var(--tinta-tenue);
   font-size: 14px;
   text-align: center;
   padding: 26px 20px;
@@ -13,29 +13,29 @@
 }
 
 .entrada {
-  border: 1px solid #dfe5ec;
-  border-radius: 10px;
-  padding: 11px 13px;
-  font-size: 15px;
-  line-height: 1.45;
-  background: #fafbfd;
+  border: 1px solid var(--linea-suave);
+  border-radius: 3px;
+  padding: 10px 13px 11px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  background: var(--carta-suave);
   position: relative;
 }
 
 .entradaCorregida {
-  border-color: #cfc0f5;
-  background: #fbf9ff;
+  border-color: var(--verde-borde);
 }
 
 .quien {
-  font-size: 10.5px;
-  font-weight: 700;
-  color: #8592a0;
-  letter-spacing: 0.5px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--tinta-tenue);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   display: block;
   margin-bottom: 4px;
-  padding-right: 80px;
+  padding-right: 90px;
 }
 
 .texto {
@@ -44,58 +44,59 @@
 
 .tachado {
   text-decoration: line-through;
-  color: #a3adb8;
+  color: var(--tinta-tenue);
 }
 
 .chip {
   position: absolute;
   top: 9px;
   right: 11px;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 3px 9px;
-  border-radius: 20px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 7px 1px;
+  border-radius: 3px;
+  border: 1px solid currentColor;
 }
 
-.chipVerde {
-  background: #e2f6e9;
+.chipCoincide,
+.chipCorregida {
   color: var(--verde);
+  background: var(--verde-fondo);
 }
 
-.chipVioleta {
-  background: #ece4fd;
-  color: var(--violeta-oscuro);
+.chipTicket {
+  color: var(--azul);
+  background: var(--azul-fondo);
 }
 
-.chipAzul {
-  background: #e7efff;
-  color: var(--azul-oscuro);
-}
-
-.chipGris {
-  background: var(--gris-fondo);
+.chipNeutro {
   color: var(--gris);
+  background: var(--gris-fondo);
 }
 
-.chipRojo {
-  background: #fdecec;
+.chipError {
   color: var(--rojo);
+  background: var(--rojo-fondo);
 }
 
 .correccion {
   margin-top: 8px;
   padding-top: 8px;
-  border-top: 1px dashed #d9cdf7;
-  color: #3b2578;
+  border-top: 1px dashed var(--verde-borde);
+  color: var(--verde);
   font-weight: 550;
 }
 
 .correccionEtiqueta {
   display: block;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: var(--violeta);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--verde);
   text-transform: uppercase;
   margin-bottom: 3px;
 }

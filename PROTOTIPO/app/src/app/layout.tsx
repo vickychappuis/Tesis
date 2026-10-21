@@ -1,5 +1,17 @@
 import type { Metadata } from "next";
+import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  variable: "--fuente-ui",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--fuente-mono",
+});
 
 export const metadata: Metadata = {
   title: "Asistente de sesiones de feedback",
@@ -9,14 +21,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es">
+    <html lang="es" className={`${archivo.variable} ${plexMono.variable}`}>
       <body>
         <header className="encabezado">
-          <div className="logo">SF</div>
+          <span className="marca">PoC</span>
           <h1>Asistente de sesiones de feedback</h1>
           <div className="subtitulo">
-            Prototipo exploratorio · la devolución vuelve al cliente en la
-            sesión
+            La devolución vuelve al cliente en la sesión
           </div>
         </header>
         {children}

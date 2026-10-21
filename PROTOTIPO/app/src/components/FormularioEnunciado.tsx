@@ -227,7 +227,7 @@ export default function FormularioEnunciado({ onEnviar }: Props) {
                   : "Escuchar la sesión por micrófono"
               }
             >
-              {escuchando ? "■ Detener" : "🎙 Escuchar"}
+              {escuchando ? "■ Detener" : "● Escuchar"}
             </button>
           )}
           <button

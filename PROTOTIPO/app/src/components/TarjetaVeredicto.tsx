@@ -12,11 +12,11 @@ interface Props {
   onReintentar: (id: string) => void;
 }
 
-const TITULOS: Record<TipoVeredicto, string> = {
-  choca: "Choca con lo acordado",
-  coincide: "Coincide con lo acordado",
-  no_contemplado: "No está contemplado · pedido nuevo",
-  no_accionable: "No accionable",
+const TITULOS: Record<TipoVeredicto, { sello: string; detalle: string }> = {
+  choca: { sello: "Choca", detalle: "con lo acordado" },
+  coincide: { sello: "Coincide", detalle: "con lo acordado" },
+  no_contemplado: { sello: "No contemplado", detalle: "pedido nuevo" },
+  no_accionable: { sello: "No accionable", detalle: "charla de la sesión" },
 };
 
 export default function TarjetaVeredicto({
@@ -79,7 +79,10 @@ export default function TarjetaVeredicto({
 
   return (
     <div className={`${styles.tarjeta} ${clasePorTipo[veredicto.tipo]}`}>
-      <div className={styles.titulo}>{TITULOS[veredicto.tipo]}</div>
+      <div className={styles.cabecera}>
+        <span className={styles.sello}>{TITULOS[veredicto.tipo].sello}</span>
+        <span className={styles.detalle}>{TITULOS[veredicto.tipo].detalle}</span>
+      </div>
       <div className={styles.cuerpo}>{veredicto.justificacion}</div>
 
       {veredicto.citas.length > 0 && (
@@ -126,7 +129,7 @@ export default function TarjetaVeredicto({
         <div className={styles.acciones}>
           <button
             type="button"
-            className={styles.botonVioleta}
+            className={styles.botonPrimario}
             onClick={() => {
               setTextoCorregido(entrada.texto);
               setEditando(true);
@@ -156,7 +159,7 @@ export default function TarjetaVeredicto({
           <div className={styles.acciones}>
             <button
               type="button"
-              className={styles.botonVioleta}
+              className={styles.botonPrimario}
               disabled={textoCorregido.trim() === ""}
               onClick={guardarCorreccion}
             >
@@ -189,7 +192,7 @@ export default function TarjetaVeredicto({
         <div className={styles.acciones}>
           <button
             type="button"
-            className={styles.botonAzul}
+            className={styles.botonPrimario}
             onClick={() => onAceptarTicket(entrada.id)}
           >
             Aceptar como ticket
@@ -205,17 +208,17 @@ export default function TarjetaVeredicto({
       )}
 
       {entrada.estado === "corregida" && (
-        <div className={`${styles.resolucion} ${styles.resolucionVioleta}`}>
+        <div className={`${styles.resolucion} ${styles.resolucionCorregida}`}>
           → El cliente corrigió su enunciado en la sesión.
         </div>
       )}
       {entrada.estado === "ticket" && (
-        <div className={`${styles.resolucion} ${styles.resolucionAzul}`}>
+        <div className={`${styles.resolucion} ${styles.resolucionTicket}`}>
           → Aceptado por el cliente como ticket de alto nivel.
         </div>
       )}
       {entrada.estado === "vista" && (
-        <div className={`${styles.resolucion} ${styles.resolucionGris}`}>
+        <div className={`${styles.resolucion} ${styles.resolucionVista}`}>
           → Marcado como visto en la sesión.
         </div>
       )}

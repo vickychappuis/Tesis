@@ -7,9 +7,9 @@
 }
 
 .caja {
-  background: #ffffff;
-  border: 1px solid #e1e6ec;
-  border-radius: 12px;
+  background: var(--carta);
+  border: 1px solid var(--linea);
+  border-radius: 4px;
   padding: 28px;
   width: 100%;
   max-width: 380px;
@@ -19,42 +19,49 @@
 }
 
 .titulo {
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 650;
+  letter-spacing: -0.01em;
 }
 
 .sub {
   font-size: 13.5px;
-  color: #6b7887;
-  line-height: 1.5;
+  color: var(--tinta-suave);
+  line-height: 1.55;
 }
 
 .input {
-  border: 1px solid #d4dbe4;
-  border-radius: 9px;
+  border: 1px solid var(--linea);
+  border-radius: 3px;
   padding: 10px 12px;
   font-size: 15px;
+  background: var(--carta-suave);
 }
 
 .input:focus {
-  outline: 2px solid #1f5eff;
-  outline-offset: 1px;
+  outline: 2px solid var(--azul);
+  outline-offset: -1px;
+  background: #fff;
 }
 
 .error {
   font-size: 13px;
-  color: #c22f2f;
+  color: var(--rojo);
 }
 
 .boton {
-  background: #1f5eff;
+  background: var(--azul);
   color: #fff;
-  border: none;
-  border-radius: 9px;
-  padding: 11px 22px;
-  font-size: 15px;
+  border: 1px solid var(--azul);
+  border-radius: 3px;
+  padding: 10px 22px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.boton:hover:not(:disabled) {
+  background: var(--azul-oscuro);
 }
 
 .boton:disabled {
