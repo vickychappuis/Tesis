@@ -1,64 +1,8 @@
-.verificando {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--mono);
-  font-size: 12.5px;
-  color: var(--tinta-suave);
-  padding: 6px 4px;
-}
-
-.spinner {
-  width: 14px;
-  height: 14px;
-  border: 2px solid var(--linea);
-  border-top-color: var(--azul);
-  border-radius: 50%;
-  animation: girar 0.7s linear infinite;
-  flex-shrink: 0;
-}
-
-@keyframes girar {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .spinner {
-    animation: none;
-  }
-
-  .tarjeta,
-  .resolucion {
-    animation: none;
-  }
-}
-
-.error {
-  background: var(--carta);
-  border: 1px solid var(--rojo-borde);
-  border-radius: 4px;
-  padding: 12px 15px;
-  font-size: 14px;
-  line-height: 1.55;
-}
-
-.errorTitulo {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--rojo);
-  margin-bottom: 5px;
-}
-
 .tarjeta {
   background: var(--carta);
   border: 1px solid var(--linea);
   border-radius: 4px;
-  padding: 13px 15px 14px;
+  padding: 11px 14px 12px;
   font-size: 14px;
   line-height: 1.55;
   animation: subir 0.35s ease-out;
@@ -75,34 +19,59 @@
   }
 }
 
-.cabecera {
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta,
+  .resolucion {
+    animation: none;
+  }
+
+  .spinner {
+    animation: none;
+  }
+}
+
+.choca {
+  border-color: var(--rojo-borde);
+}
+
+.coincide {
+  border-color: var(--verde-borde);
+}
+
+.noContemplado {
+  border-color: var(--amarillo-borde);
+}
+
+.cab {
   display: flex;
   align-items: baseline;
   gap: 9px;
-  flex-wrap: wrap;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
+}
+
+.quien {
+  flex: 1;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tinta-tenue);
 }
 
 /* El veredicto es un sello: mono, mayúsculas, borde de tinta. */
 .sello {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 3px 8px 2px;
+  padding: 2px 7px 1px;
   border: 1.5px solid currentColor;
   border-radius: 3px;
   white-space: nowrap;
-}
-
-.detalle {
-  font-size: 12.5px;
-  color: var(--tinta-suave);
-}
-
-.choca {
-  border-color: var(--rojo-borde);
+  color: var(--gris);
+  background: var(--gris-fondo);
 }
 
 .choca .sello {
@@ -110,17 +79,9 @@
   background: var(--rojo-fondo);
 }
 
-.coincide {
-  border-color: var(--verde-borde);
-}
-
 .coincide .sello {
   color: var(--verde);
   background: var(--verde-fondo);
-}
-
-.noContemplado {
-  border-color: var(--amarillo-borde);
 }
 
 .noContemplado .sello {
@@ -128,111 +89,143 @@
   background: var(--amarillo-fondo);
 }
 
-.noAccionable .sello {
-  color: var(--gris);
-  background: var(--gris-fondo);
+.selloError {
+  color: var(--rojo) !important;
+  background: var(--rojo-fondo) !important;
 }
 
-.cuerpo {
-  color: var(--tinta);
-}
-
-.citas {
-  margin-top: 9px;
-  padding-left: 11px;
-  border-left: 2px solid var(--linea);
+.verificando {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 7px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--tinta-suave);
 }
 
-.choca .citas {
-  border-left-color: var(--rojo-borde);
+.spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--linea);
+  border-top-color: var(--azul);
+  border-radius: 50%;
+  animation: girar 0.7s linear infinite;
+  flex-shrink: 0;
 }
 
-.coincide .citas {
-  border-left-color: var(--verde-borde);
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.noContemplado .citas {
-  border-left-color: var(--amarillo-borde);
+.texto {
+  font-size: 14.5px;
 }
 
-.cita {
+.tachado {
+  text-decoration: line-through;
+  color: var(--tinta-tenue);
+}
+
+.correccion {
+  margin-top: 7px;
+  padding-top: 7px;
+  border-top: 1px dashed var(--verde-borde);
+  color: var(--verde);
+  font-weight: 550;
+}
+
+.correccionEtiqueta {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--verde);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.mensajeError {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--rojo);
+}
+
+.justi {
+  margin-top: 7px;
+  font-size: 13px;
+  color: var(--tinta-suave);
+}
+
+.chips {
+  margin-top: 7px;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: 6px;
 }
 
-.citaArchivo {
+.citaGrupo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.chipDoc,
+.chipFuente {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 10.5px;
   color: var(--tinta-suave);
   background: var(--carta);
   border: 1px solid var(--linea);
   border-radius: 3px;
-  padding: 0 5px;
+  padding: 1px 6px;
   white-space: nowrap;
   cursor: pointer;
   transition: color 0.15s, border-color 0.15s;
 }
 
-.citaArchivo:hover {
-  color: var(--azul);
-  border-color: var(--azul);
+.chipFuente {
+  font-size: 10px;
+  background: var(--carta-suave);
+  border-color: var(--linea-suave);
 }
 
-.citaFragmento {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: #49432f;
+.chipDoc:hover,
+.chipFuente:hover {
+  color: var(--azul);
+  border-color: var(--azul);
 }
 
 .citaNoVerificada {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--rojo);
   border: 1px dashed var(--rojo-borde);
   border-radius: 3px;
-  padding: 1px 6px;
+  padding: 1px 5px;
 }
 
 .fuentes {
-  margin-top: 8px;
+  margin-top: 7px;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   gap: 5px;
-  font-size: 11.5px;
+  font-size: 11px;
   color: var(--tinta-tenue);
 }
 
-.fuente {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  color: var(--tinta-suave);
-  background: var(--carta-suave);
-  border: 1px solid var(--linea-suave);
-  border-radius: 3px;
-  padding: 0 5px;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: color 0.15s, border-color 0.15s;
-}
-
-.fuente:hover {
-  color: var(--azul);
-  border-color: var(--azul);
-}
-
 .pregunta {
-  margin-top: 8px;
+  margin-top: 7px;
   font-style: italic;
   color: var(--tinta-suave);
+  font-size: 13px;
 }
 
 .choca .pregunta {
@@ -241,9 +234,9 @@
 
 .prioridad {
   display: inline-block;
-  margin-top: 8px;
+  margin-top: 7px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 10.5px;
   color: var(--gris);
   border: 1px solid var(--gris-borde);
   border-radius: 3px;
@@ -253,14 +246,14 @@
 .acciones {
   display: flex;
   gap: 8px;
-  margin-top: 11px;
+  margin-top: 9px;
   flex-wrap: wrap;
 }
 
 .acciones button {
   border-radius: 3px;
-  padding: 7px 14px;
-  font-size: 13px;
+  padding: 6px 12px;
+  font-size: 12.5px;
   font-weight: 600;
   border: 1px solid var(--gris-borde);
   background: var(--carta);
@@ -288,7 +281,7 @@
 }
 
 .edicion {
-  margin-top: 11px;
+  margin-top: 9px;
 }
 
 .textareaCorreccion {
@@ -309,16 +302,12 @@
 }
 
 .resolucion {
-  margin-top: 10px;
-  font-size: 13px;
+  margin-top: 9px;
+  font-size: 12.5px;
   font-weight: 600;
-  padding-top: 9px;
+  padding-top: 8px;
   border-top: 1px solid var(--linea-suave);
   animation: subir 0.35s ease-out;
-}
-
-.resolucionCorregida {
-  color: var(--verde);
 }
 
 .resolucionTicket {

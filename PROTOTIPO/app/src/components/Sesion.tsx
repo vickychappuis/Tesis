@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useReducer, useRef } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import type {
   CodigoError,
   Entrada,
@@ -10,10 +10,10 @@ import type {
   VeredictoRequest,
 } from "@/lib/tipos";
 import FormularioEnunciado from "./FormularioEnunciado";
-import PanelSesion from "./PanelSesion";
 import ResumenSesion from "./ResumenSesion";
 import TarjetaVeredicto from "./TarjetaVeredicto";
 import Tutorial from "./Tutorial";
+import VisorDocumento from "./VisorDocumento";
 import styles from "./Sesion.module.css";
 
 const CLAVE_STORAGE = "sesion-feedback-v1";
@@ -140,9 +140,42 @@ async function pedirVeredicto(
   return (await respuesta.json()) as Veredicto;
 }
 
+interface DocAbierto {
+  ruta: string;
+  fragmento: string | null;
+}
+
 export default function Sesion() {
   const [data, dispatch] = useReducer(reducer, estadoInicial);
   const hidratado = useRef(false);
+  const finStreamRef = useRef<HTMLDivElement>(null);
+
+  // La sesión en vivo crece hacia abajo: cada entrada nueva queda a la vista.
+  useEffect(() => {
+    finStreamRef.current?.scrollIntoView({ block: "end" });
+  }, [data.entradas.length]);
+
+  // Documentos abiertos en el panel derecho (pestañas) y cuál se está viendo.
+  const [docs, setDocs] = useState<DocAbierto[]>([]);
+  const [docActivo, setDocActivo] = useState<string | null>(null);
+
+  const abrirDoc = (ruta: string, fragmento: string | null) => {
+    setDocs((previos) => {
+      const existe = previos.some((d) => d.ruta === ruta);
+      if (existe)
+        return previos.map((d) => (d.ruta === ruta ? { ...d, fragmento } : d));
+      return [...previos, { ruta, fragmento }];
+    });
+    setDocActivo(ruta);
+  };
+
+  const cerrarDoc = (ruta: string) => {
+    const quedan = docs.filter((d) => d.ruta !== ruta);
+    setDocs(quedan);
+    if (docActivo === ruta) {
+      setDocActivo(quedan.length > 0 ? quedan[quedan.length - 1].ruta : null);
+    }
+  };
 
   // Rehidratar desde localStorage al montar.
   useEffect(() => {
@@ -230,30 +263,14 @@ export default function Sesion() {
 
   return (
     <main className={styles.principal}>
-      <section className={styles.panel} data-tutorial="registro">
-        <div className={styles.panelHead}>
-          <span className={`${styles.dot} ${styles.dotRojo}`} />
-          Sesión de feedback · registro en vivo
-        </div>
-        <div className={styles.panelBody}>
-          <PanelSesion entradas={data.entradas} />
-          <ResumenSesion data={data} onNuevaSesion={nuevaSesion} />
-          <FormularioEnunciado onEnviar={agregar} />
-        </div>
-      </section>
-
-      <section className={styles.panel} data-tutorial="asistente">
-        <div className={styles.panelHead}>
-          <span className={`${styles.dot} ${styles.dotAzul}`} />
-          Asistente IAG · confronta con la documentación del proyecto
-        </div>
-        <div className={styles.panelBody}>
+      <section className={styles.sesion}>
+        <div className={styles.stream} data-tutorial="sesion">
           {data.entradas.length === 0 ? (
             <div className={styles.vacio}>
               El asistente espera la sesión.
               <br />
-              Tiene cargados los requisitos, las reglas de negocio y las actas
-              del proyecto.
+              Tiene cargada la documentación del proyecto: cada cosa que se
+              diga se confronta contra ella.
             </div>
           ) : (
             data.entradas.map((entrada) => (
@@ -268,11 +285,61 @@ export default function Sesion() {
                 }
                 onMarcarVista={(id) => dispatch({ tipo: "marcar_vista", id })}
                 onReintentar={reintentar}
+                onAbrirDoc={abrirDoc}
               />
             ))
           )}
+          <div ref={finStreamRef} />
+        </div>
+        <div className={styles.pie}>
+          <ResumenSesion data={data} onNuevaSesion={nuevaSesion} />
+          <FormularioEnunciado onEnviar={agregar} />
         </div>
       </section>
+
+      <aside className={styles.documentos} data-tutorial="documentos">
+        {docs.length > 0 && (
+          <div className={styles.tabs}>
+            {docs.map((doc) => (
+              <span
+                key={doc.ruta}
+                className={`${styles.tab} ${doc.ruta === docActivo ? styles.tabActiva : ""}`}
+              >
+                <button
+                  type="button"
+                  className={styles.tabNombre}
+                  onClick={() => setDocActivo(doc.ruta)}
+                >
+                  {doc.ruta}
+                </button>
+                <button
+                  type="button"
+                  className={styles.tabCerrar}
+                  aria-label={`Cerrar ${doc.ruta}`}
+                  onClick={() => cerrarDoc(doc.ruta)}
+                >
+                  ×
+                </button>
+              </span>
+            ))}
+          </div>
+        )}
+        <div className={styles.docCuerpo}>
+          {docActivo ? (
+            <VisorDocumento
+              ruta={docActivo}
+              fragmento={docs.find((d) => d.ruta === docActivo)?.fragmento ?? null}
+            />
+          ) : (
+            <div className={styles.docVacio}>
+              Los documentos del proyecto se abren acá.
+              <br />
+              Tocá un documento citado en un veredicto y vas a verlo con la
+              cita subrayada.
+            </div>
+          )}
+        </div>
+      </aside>
 
       <Tutorial />
     </main>

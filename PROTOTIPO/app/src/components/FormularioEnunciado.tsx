@@ -164,34 +164,6 @@ export default function FormularioEnunciado({ onEnviar }: Props) {
 
   return (
     <div className={styles.formulario} data-tutorial="formulario">
-      <label className={styles.etiqueta} htmlFor="quien">
-        Quién habla
-      </label>
-      <input
-        id="quien"
-        className={styles.quien}
-        type="text"
-        value={quien}
-        onChange={(e) => cambiarQuien(e.target.value)}
-        placeholder="Nombre · rol"
-      />
-      <label className={styles.etiqueta} htmlFor="enunciado">
-        Qué dijo
-      </label>
-      <textarea
-        id="enunciado"
-        className={styles.enunciado}
-        value={enunciado}
-        onChange={(e) => setEnunciado(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
-            e.preventDefault();
-            enviar();
-          }
-        }}
-        placeholder="Escribí el enunciado tal como se dijo en la sesión"
-        rows={3}
-      />
       {mostrarBarra && (
         <div className={styles.escuchandoBarra}>
           {escuchando && <span className={styles.puntoRojo} />}
@@ -212,34 +184,55 @@ export default function FormularioEnunciado({ onEnviar }: Props) {
       )}
       {avisoExtractor && <p className={styles.avisoExtractor}>{avisoExtractor}</p>}
       {error && <p className={styles.errorMic}>{error}</p>}
-      <div className={styles.pie}>
-        <span className={styles.ayuda}>Cmd/Ctrl + Enter envía</span>
-        <div className={styles.acciones}>
-          {soportado && (
-            <button
-              type="button"
-              className={`${styles.mic} ${escuchando ? styles.micActivo : ""}`}
-              data-tutorial="mic"
-              onClick={alternar}
-              disabled={quien.trim() === ""}
-              title={
-                escuchando
-                  ? "Detener el dictado"
-                  : "Escuchar la sesión por micrófono"
-              }
-            >
-              {escuchando ? "■ Detener" : "● Escuchar"}
-            </button>
-          )}
+      <div className={styles.fila}>
+        <input
+          id="quien"
+          className={styles.quien}
+          type="text"
+          value={quien}
+          onChange={(e) => cambiarQuien(e.target.value)}
+          placeholder="Quién habla"
+          aria-label="Quién habla"
+        />
+        <textarea
+          id="enunciado"
+          className={styles.enunciado}
+          value={enunciado}
+          onChange={(e) => setEnunciado(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
+              e.preventDefault();
+              enviar();
+            }
+          }}
+          placeholder="Escribí un enunciado (Cmd/Ctrl + Enter envía)"
+          aria-label="Qué dijo"
+          rows={1}
+        />
+        {soportado && (
           <button
             type="button"
-            className={styles.enviar}
-            disabled={!puedeEnviar}
-            onClick={enviar}
+            className={`${styles.mic} ${escuchando ? styles.micActivo : ""}`}
+            data-tutorial="mic"
+            onClick={alternar}
+            disabled={quien.trim() === ""}
+            title={
+              escuchando
+                ? "Detener el dictado"
+                : "Escuchar la sesión por micrófono"
+            }
           >
-            Enviar
+            {escuchando ? "■ Detener" : "● Escuchar"}
           </button>
-        </div>
+        )}
+        <button
+          type="button"
+          className={styles.enviar}
+          disabled={!puedeEnviar}
+          onClick={enviar}
+        >
+          Enviar
+        </button>
       </div>
     </div>
   );

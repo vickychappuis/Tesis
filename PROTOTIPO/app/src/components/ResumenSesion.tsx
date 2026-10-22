@@ -24,12 +24,13 @@ export default function ResumenSesion({ data, onNuevaSesion }: Props) {
 
   return (
     <div className={styles.resumen} data-tutorial="resumen">
-      <b>
-        {total} {total === 1 ? "intervención" : "intervenciones"} en la sesión.
-      </b>
-      <br />
-      {corregidas} corregidas · {confirmadas} confirmadas · {tickets} tickets ·{" "}
-      {vistas} vistas
+      <span>
+        <b>
+          {total} {total === 1 ? "intervención" : "intervenciones"}
+        </b>{" "}
+        · {corregidas} corregidas · {confirmadas} confirmadas · {tickets}{" "}
+        tickets · {vistas} vistas
+      </span>
       <div className={styles.acciones}>
         <button
           type="button"

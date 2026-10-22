@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import type { Entrada, TipoVeredicto } from "@/lib/tipos";
-import VisorDocumento from "./VisorDocumento";
 import styles from "./TarjetaVeredicto.module.css";
 
 interface Props {
@@ -11,13 +10,14 @@ interface Props {
   onAceptarTicket: (id: string) => void;
   onMarcarVista: (id: string) => void;
   onReintentar: (id: string) => void;
+  onAbrirDoc: (ruta: string, fragmento: string | null) => void;
 }
 
-const TITULOS: Record<TipoVeredicto, { sello: string; detalle: string }> = {
-  choca: { sello: "Choca", detalle: "con lo acordado" },
-  coincide: { sello: "Coincide", detalle: "con lo acordado" },
-  no_contemplado: { sello: "No contemplado", detalle: "pedido nuevo" },
-  no_accionable: { sello: "No accionable", detalle: "charla de la sesión" },
+const SELLOS: Record<TipoVeredicto, { texto: string; clase: string }> = {
+  choca: { texto: "Choca", clase: "choca" },
+  coincide: { texto: "Coincide", clase: "coincide" },
+  no_contemplado: { texto: "No contemplado", clase: "noContemplado" },
+  no_accionable: { texto: "No accionable", clase: "noAccionable" },
 };
 
 export default function TarjetaVeredicto({
@@ -26,54 +26,18 @@ export default function TarjetaVeredicto({
   onAceptarTicket,
   onMarcarVista,
   onReintentar,
+  onAbrirDoc,
 }: Props) {
   const [editando, setEditando] = useState(false);
   const [textoCorregido, setTextoCorregido] = useState(entrada.texto);
-  const [docAbierto, setDocAbierto] = useState<{
-    ruta: string;
-    fragmento: string | null;
-  } | null>(null);
-
-  if (entrada.estado === "verificando") {
-    return (
-      <div className={styles.verificando}>
-        <span className={styles.spinner} />
-        Enunciado de {entrada.quien} · buscando en la documentación…
-      </div>
-    );
-  }
-
-  if (entrada.estado === "error") {
-    return (
-      <div className={styles.error}>
-        <div className={styles.errorTitulo}>No se pudo verificar</div>
-        {entrada.mensajeError ?? "Error desconocido."}
-        <div className={styles.acciones}>
-          <button
-            type="button"
-            className={styles.botonNeutro}
-            onClick={() => onReintentar(entrada.id)}
-          >
-            Reintentar
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   const veredicto = entrada.veredicto;
-  if (!veredicto) return null;
-
-  const clasePorTipo: Record<TipoVeredicto, string> = {
-    choca: styles.choca,
-    coincide: styles.coincide,
-    no_contemplado: styles.noContemplado,
-    no_accionable: styles.noAccionable,
-  };
-
+  const sello = veredicto ? SELLOS[veredicto.tipo] : null;
+  const claseTipo = sello ? styles[sello.clase] : "";
   const pendiente = entrada.estado === "respondido";
+  const corregida = entrada.estado === "corregida";
   // Sesiones guardadas antes del modo bibliotecario no traen fuentes_consultadas.
-  const fuentes = veredicto.fuentes_consultadas ?? [];
+  const fuentes = veredicto?.fuentes_consultadas ?? [];
 
   const guardarCorreccion = () => {
     const texto = textoCorregido.trim();
@@ -83,175 +47,204 @@ export default function TarjetaVeredicto({
   };
 
   return (
-    <div className={`${styles.tarjeta} ${clasePorTipo[veredicto.tipo]}`}>
-      <div className={styles.cabecera}>
-        <span className={styles.sello}>{TITULOS[veredicto.tipo].sello}</span>
-        <span className={styles.detalle}>{TITULOS[veredicto.tipo].detalle}</span>
+    <div className={`${styles.tarjeta} ${claseTipo}`}>
+      <div className={styles.cab}>
+        <span className={styles.quien}>{entrada.quien}</span>
+        {entrada.estado === "verificando" && (
+          <span className={styles.verificando}>
+            <span className={styles.spinner} />
+            buscando en la documentación…
+          </span>
+        )}
+        {entrada.estado === "error" && (
+          <span className={`${styles.sello} ${styles.selloError}`}>Error</span>
+        )}
+        {sello && <span className={styles.sello}>{sello.texto}</span>}
       </div>
-      <div className={styles.cuerpo}>{veredicto.justificacion}</div>
 
-      {veredicto.citas.length > 0 && (
-        <div className={styles.citas}>
-          {veredicto.citas.map((cita, i) => (
-            <div key={i} className={styles.cita}>
-              <button
-                type="button"
-                className={styles.citaArchivo}
-                title="Abrir el documento con la cita resaltada"
-                onClick={() =>
-                  setDocAbierto({
-                    ruta: cita.archivo,
-                    fragmento: cita.verificada ? cita.fragmento_textual : null,
-                  })
-                }
-              >
-                {cita.archivo}
-              </button>
-              <span className={styles.citaFragmento}>
-                &ldquo;{cita.fragmento_textual}&rdquo;
-              </span>
-              {!cita.verificada && (
-                <span className={styles.citaNoVerificada}>
-                  cita no encontrada literal en el documento
-                </span>
-              )}
-            </div>
-          ))}
+      <div className={`${styles.texto} ${corregida ? styles.tachado : ""}`}>
+        {entrada.texto}
+      </div>
+      {corregida && entrada.textoCorregido && (
+        <div className={styles.correccion}>
+          <span className={styles.correccionEtiqueta}>
+            Corregido por el cliente en la sesión
+          </span>
+          {entrada.textoCorregido}
         </div>
       )}
 
-      {fuentes.length > 0 && (
-        <div className={styles.fuentes}>
-          Consultó:
-          {fuentes.map((fuente) => (
-            <button
-              key={fuente}
-              type="button"
-              className={styles.fuente}
-              title="Abrir el documento"
-              onClick={() => setDocAbierto({ ruta: fuente, fragmento: null })}
-            >
-              {fuente}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {pendiente && veredicto.pregunta_al_cliente && (
-        <div className={styles.pregunta}>{veredicto.pregunta_al_cliente}</div>
-      )}
-
-      {veredicto.prioridad && (
-        <span className={styles.prioridad}>
-          Prioridad sugerida: {veredicto.prioridad.nivel} ·{" "}
-          {veredicto.prioridad.razon}
-        </span>
-      )}
-
-      {pendiente && veredicto.tipo === "choca" && !editando && (
-        <div className={styles.acciones}>
-          <button
-            type="button"
-            className={styles.botonPrimario}
-            onClick={() => {
-              setTextoCorregido(entrada.texto);
-              setEditando(true);
-            }}
-          >
-            Corregir enunciado
-          </button>
-          <button
-            type="button"
-            className={styles.botonNeutro}
-            onClick={() => onMarcarVista(entrada.id)}
-          >
-            Marcar visto
-          </button>
-        </div>
-      )}
-
-      {pendiente && veredicto.tipo === "choca" && editando && (
-        <div className={styles.edicion}>
-          <textarea
-            className={styles.textareaCorreccion}
-            value={textoCorregido}
-            onChange={(e) => setTextoCorregido(e.target.value)}
-            rows={3}
-            autoFocus
-          />
+      {entrada.estado === "error" && (
+        <>
+          <div className={styles.mensajeError}>
+            {entrada.mensajeError ?? "Error desconocido."}
+          </div>
           <div className={styles.acciones}>
             <button
               type="button"
-              className={styles.botonPrimario}
-              disabled={textoCorregido.trim() === ""}
-              onClick={guardarCorreccion}
-            >
-              Guardar corrección
-            </button>
-            <button
-              type="button"
               className={styles.botonNeutro}
-              onClick={() => setEditando(false)}
+              onClick={() => onReintentar(entrada.id)}
             >
-              Cancelar
+              Reintentar
             </button>
           </div>
-        </div>
+        </>
       )}
 
-      {pendiente && veredicto.tipo === "coincide" && (
-        <div className={styles.acciones}>
-          <button
-            type="button"
-            className={styles.botonNeutro}
-            onClick={() => onMarcarVista(entrada.id)}
-          >
-            Marcar visto
-          </button>
-        </div>
-      )}
+      {veredicto && (
+        <>
+          <div className={styles.justi}>
+            <span>{veredicto.justificacion}</span>
+          </div>
 
-      {pendiente && veredicto.tipo === "no_contemplado" && (
-        <div className={styles.acciones}>
-          <button
-            type="button"
-            className={styles.botonPrimario}
-            onClick={() => onAceptarTicket(entrada.id)}
-          >
-            Aceptar como ticket
-          </button>
-          <button
-            type="button"
-            className={styles.botonNeutro}
-            onClick={() => onMarcarVista(entrada.id)}
-          >
-            Marcar visto
-          </button>
-        </div>
-      )}
+          {veredicto.citas.length > 0 && (
+            <div className={styles.chips}>
+              {veredicto.citas.map((cita, i) => (
+                <span key={i} className={styles.citaGrupo}>
+                  <button
+                    type="button"
+                    className={styles.chipDoc}
+                    title="Abrir el documento con la cita subrayada"
+                    onClick={() =>
+                      onAbrirDoc(
+                        cita.archivo,
+                        cita.verificada ? cita.fragmento_textual : null
+                      )
+                    }
+                  >
+                    {cita.archivo}
+                  </button>
+                  {!cita.verificada && (
+                    <span className={styles.citaNoVerificada}>
+                      cita no encontrada literal
+                    </span>
+                  )}
+                </span>
+              ))}
+            </div>
+          )}
 
-      {entrada.estado === "corregida" && (
-        <div className={`${styles.resolucion} ${styles.resolucionCorregida}`}>
-          → El cliente corrigió su enunciado en la sesión.
-        </div>
-      )}
-      {entrada.estado === "ticket" && (
-        <div className={`${styles.resolucion} ${styles.resolucionTicket}`}>
-          → Aceptado por el cliente como ticket de alto nivel.
-        </div>
-      )}
-      {entrada.estado === "vista" && (
-        <div className={`${styles.resolucion} ${styles.resolucionVista}`}>
-          → Marcado como visto en la sesión.
-        </div>
-      )}
+          {fuentes.length > 0 && (
+            <div className={styles.fuentes}>
+              Consultó:
+              {fuentes.map((fuente) => (
+                <button
+                  key={fuente}
+                  type="button"
+                  className={styles.chipFuente}
+                  title="Abrir el documento"
+                  onClick={() => onAbrirDoc(fuente, null)}
+                >
+                  {fuente}
+                </button>
+              ))}
+            </div>
+          )}
 
-      {docAbierto && (
-        <VisorDocumento
-          ruta={docAbierto.ruta}
-          fragmento={docAbierto.fragmento}
-          onCerrar={() => setDocAbierto(null)}
-        />
+          {pendiente && veredicto.pregunta_al_cliente && (
+            <div className={styles.pregunta}>{veredicto.pregunta_al_cliente}</div>
+          )}
+
+          {veredicto.prioridad && (
+            <span className={styles.prioridad}>
+              Prioridad sugerida: {veredicto.prioridad.nivel} ·{" "}
+              {veredicto.prioridad.razon}
+            </span>
+          )}
+
+          {pendiente && veredicto.tipo === "choca" && !editando && (
+            <div className={styles.acciones}>
+              <button
+                type="button"
+                className={styles.botonPrimario}
+                onClick={() => {
+                  setTextoCorregido(entrada.texto);
+                  setEditando(true);
+                }}
+              >
+                Corregir enunciado
+              </button>
+              <button
+                type="button"
+                className={styles.botonNeutro}
+                onClick={() => onMarcarVista(entrada.id)}
+              >
+                Marcar visto
+              </button>
+            </div>
+          )}
+
+          {pendiente && veredicto.tipo === "choca" && editando && (
+            <div className={styles.edicion}>
+              <textarea
+                className={styles.textareaCorreccion}
+                value={textoCorregido}
+                onChange={(e) => setTextoCorregido(e.target.value)}
+                rows={3}
+                autoFocus
+              />
+              <div className={styles.acciones}>
+                <button
+                  type="button"
+                  className={styles.botonPrimario}
+                  disabled={textoCorregido.trim() === ""}
+                  onClick={guardarCorreccion}
+                >
+                  Guardar corrección
+                </button>
+                <button
+                  type="button"
+                  className={styles.botonNeutro}
+                  onClick={() => setEditando(false)}
+                >
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          )}
+
+          {pendiente && veredicto.tipo === "coincide" && (
+            <div className={styles.acciones}>
+              <button
+                type="button"
+                className={styles.botonNeutro}
+                onClick={() => onMarcarVista(entrada.id)}
+              >
+                Marcar visto
+              </button>
+            </div>
+          )}
+
+          {pendiente && veredicto.tipo === "no_contemplado" && (
+            <div className={styles.acciones}>
+              <button
+                type="button"
+                className={styles.botonPrimario}
+                onClick={() => onAceptarTicket(entrada.id)}
+              >
+                Aceptar como ticket
+              </button>
+              <button
+                type="button"
+                className={styles.botonNeutro}
+                onClick={() => onMarcarVista(entrada.id)}
+              >
+                Marcar visto
+              </button>
+            </div>
+          )}
+
+          {entrada.estado === "ticket" && (
+            <div className={`${styles.resolucion} ${styles.resolucionTicket}`}>
+              → Aceptado por el cliente como ticket de alto nivel.
+            </div>
+          )}
+          {entrada.estado === "vista" && (
+            <div className={`${styles.resolucion} ${styles.resolucionVista}`}>
+              → Marcado como visto en la sesión.
+            </div>
+          )}
+        </>
       )}
     </div>
   );

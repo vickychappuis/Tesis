@@ -19,9 +19,10 @@ const PASOS: Paso[] = [
       "El asistente escucha lo que dice el cliente en la sesión y lo confronta al instante contra la documentación del proyecto.",
   },
   {
-    objetivo: "registro",
-    titulo: "El registro de la sesión",
-    texto: "Quién habló, qué dijo y en qué terminó cada punto.",
+    objetivo: "sesion",
+    titulo: "La sesión",
+    texto:
+      "Cada cosa que se dice entra acá con su sello: CHOCA (contradice lo acordado), COINCIDE (lo confirma) o NO CONTEMPLADO (pedido nuevo).",
   },
   {
     objetivo: "formulario",
@@ -36,10 +37,10 @@ const PASOS: Paso[] = [
       "El micrófono transcribe la reunión y el asistente la corta en enunciados solo. La charla se descarta.",
   },
   {
-    objetivo: "asistente",
-    titulo: "Los veredictos",
+    objetivo: "documentos",
+    titulo: "Los documentos",
     texto:
-      "Un sello por enunciado: CHOCA (contradice lo acordado, con la cita), COINCIDE (lo confirma) o NO CONTEMPLADO (pedido nuevo). Tocá un documento citado para leerlo.",
+      "Tocá un documento citado y se abre acá, como una hoja, con lo que contradice subrayado.",
   },
   {
     objetivo: "resumen",

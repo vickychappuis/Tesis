@@ -287,4 +287,5 @@
 
 - Visor de documentos: los chips de citas y fuentes de cada tarjeta abren el documento en un modal, tal cual está escrito, con el fragmento citado resaltado (nueva ruta GET /api/documento con el mismo saneo de rutas del bibliotecario). Sin storage: los markdown viajan en el bundle del deploy; el storage externo queda para cuando haya documentos reales en otros formatos o actualización sin redeploy
 
+- Rediseño del layout a partir de 4 mockups presentados a la estudiante (eligió el partido 50/50): la conversación de feedback a la izquierda, con cada intervención y su veredicto en una sola tarjeta y el composer con micrófono al pie, y el panel de documentos a la derecha con pestañas. Los documentos dejaron de verse como markdown crudo: se renderizan como hoja (fondo blanco, títulos, listas) con la cita subrayada sobre marca
 ---
