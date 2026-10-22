@@ -24,11 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="es" className={`${archivo.variable} ${plexMono.variable}`}>
       <body>
         <header className="encabezado">
-          <span className="marca">PoC</span>
           <h1>Asistente de sesiones de feedback</h1>
-          <div className="subtitulo">
-            La devolución vuelve al cliente en la sesión
-          </div>
         </header>
         {children}
       </body>
