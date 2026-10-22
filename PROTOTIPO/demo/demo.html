@@ -35,6 +35,7 @@
     --gris-borde: #cec8b8;
     --ui: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
     --mono: "IBM Plex Mono", "SF Mono", Menlo, monospace;
+    --serif: Georgia, "Times New Roman", serif;
   }
   html, body { width: 1280px; height: 720px; overflow: hidden; }
   body {
@@ -45,13 +46,13 @@
     flex-direction: column;
   }
   header {
-    height: 62px;
+    height: 54px;
     background: var(--carta);
     border-bottom: 2px solid var(--tinta);
     box-shadow: 0 5px 0 -4px var(--linea);
     display: flex;
     align-items: center;
-    padding: 0 32px;
+    padding: 0 28px;
     gap: 13px;
     flex-shrink: 0;
   }
@@ -67,147 +68,108 @@
     padding: 3px 7px 2px;
     flex-shrink: 0;
   }
-  header h1 { font-size: 17px; font-weight: 650; letter-spacing: -0.01em; }
+  header h1 { font-size: 16.5px; font-weight: 650; letter-spacing: -0.01em; }
   header .sub {
     font-family: var(--mono);
-    font-size: 10.5px;
-    letter-spacing: 0.08em;
+    font-size: 10px;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--tinta-tenue);
     margin-left: auto;
-    text-align: right;
   }
+
+  /* ---- Pantalla partida 50/50 ---- */
   main {
     flex: 1;
     display: grid;
-    grid-template-columns: 500px 1fr;
-    gap: 20px;
-    padding: 18px 32px 20px;
+    grid-template-columns: 1fr 1fr;
     min-height: 0;
   }
-  .panel {
+
+  /* ================= IZQUIERDA: la sesion ================= */
+  .sesion {
     background: var(--carta);
-    border: 1px solid var(--linea);
-    border-radius: 4px;
+    border-right: 1px solid var(--linea);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    min-height: 0;
+    padding: 14px 16px 12px;
+    gap: 10px;
   }
-  .panel-head {
-    padding: 11px 16px 10px;
-    background: var(--carta-suave);
-    border-bottom: 1px solid var(--linea);
-    font-family: var(--mono);
-    font-size: 10.5px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--tinta-suave);
-    display: flex; align-items: center; gap: 8px;
+  .cards {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    scrollbar-width: none;
   }
-  .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-  .dot.violet { background: var(--azul); }
-  .dot.rec { background: var(--rojo); animation: pulse 1.4s ease-in-out infinite; }
-  @keyframes pulse { 50% { opacity: 0.35; } }
-  .panel-head .mic { margin-left: auto; font-size: 10px; color: var(--rojo); font-weight: 600; letter-spacing: 0.12em; }
-  .panel-body { padding: 16px; flex: 1; display: flex; flex-direction: column; gap: 11px; overflow: hidden; }
+  .cards::-webkit-scrollbar { display: none; }
 
-  /* ---- Transcripcion ---- */
-  .utt {
-    border: 1px solid var(--linea-suave);
-    border-radius: 3px;
-    padding: 11px 13px;
-    font-size: 15px;
-    line-height: 1.45;
-    background: var(--carta-suave);
+  /* Tarjeta de intervencion: combina enunciado + veredicto */
+  .iv {
     display: none;
-    position: relative;
-    transition: border-color 0.4s, background 0.4s;
+    background: #fff;
+    border: 1px solid var(--linea);
+    border-radius: 4px;
+    padding: 10px 13px 11px;
+    flex-shrink: 0;
+    transition: border-color 0.4s;
   }
-  .utt.visible { display: block; }
-  .utt .tag {
+  .iv.visible { display: block; animation: rise 0.4s ease-out; }
+  .iv.clash { border-color: var(--rojo-borde); }
+  .iv.ok { border-color: var(--verde-borde); }
+  .iv.newreq { border-color: var(--amarillo-borde); }
+
+  .iv .head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; min-height: 18px; }
+  .iv .tag {
     font-family: var(--mono);
     font-size: 10px; font-weight: 500; color: var(--tinta-tenue);
     letter-spacing: 0.08em; text-transform: uppercase;
-    display: block; margin-bottom: 5px;
   }
-  .utt .txt::after {
+  .iv .sello {
+    display: none;
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border: 1.5px solid currentColor;
+    border-radius: 3px;
+    padding: 2px 7px 1px;
+  }
+  .iv.verdict .sello { display: inline-block; animation: rise 0.35s ease-out; }
+  .iv.clash .sello { color: var(--rojo); background: var(--rojo-fondo); }
+  .iv.ok .sello { color: var(--verde); background: var(--verde-fondo); }
+  .iv.newreq .sello { color: var(--amarillo); background: var(--amarillo-fondo); }
+
+  .iv .txt { font-size: 14.5px; line-height: 1.45; }
+  .iv .txt::after {
     content: "";
     display: inline-block;
-    width: 2px; height: 15px;
+    width: 2px; height: 14px;
     background: var(--azul);
     margin-left: 2px;
     vertical-align: -2px;
     animation: blink 0.8s step-end infinite;
   }
-  .utt.done .txt::after { display: none; }
+  .iv.done .txt::after { display: none; }
   @keyframes blink { 50% { opacity: 0; } }
-  .utt .status {
-    position: absolute; top: 9px; right: 11px;
-    font-family: var(--mono);
-    font-size: 9.5px; font-weight: 600;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 2px 7px 1px;
-    border: 1px solid currentColor;
-    border-radius: 3px;
-    display: none;
-  }
-  .utt.ok .status { display: inline-block; background: var(--verde-fondo); color: var(--verde); }
-  .utt.fixed .status { display: inline-block; background: var(--verde-fondo); color: var(--verde); }
-  .utt.new .status { display: inline-block; background: var(--azul-fondo); color: var(--azul); }
-  .utt.ok { border-color: var(--verde-borde); }
-  .utt.fixed { border-color: var(--verde-borde); }
-  .utt.new { border-color: var(--linea); }
-  .utt .newtxt {
-    display: none;
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 1px dashed var(--verde-borde);
-    color: var(--verde);
-    font-weight: 500;
-  }
-  .utt .newtxt.visible { display: block; animation: rise 0.5s ease-out; }
-  .utt .newtxt .lbl {
-    display: block;
-    font-family: var(--mono);
-    font-size: 9.5px; font-weight: 600; letter-spacing: 0.1em;
-    color: var(--verde); text-transform: uppercase; margin-bottom: 4px;
-  }
-  .utt .txt.struck { text-decoration: line-through; color: var(--tinta-tenue); }
+  .iv .txt.struck { text-decoration: line-through; color: var(--tinta-tenue); }
 
-  .summary {
+  /* Estado "buscando" dentro de la tarjeta */
+  .checking {
     display: none;
-    margin-top: auto;
-    border-radius: 3px;
-    background: var(--gris-fondo);
-    border: 1px solid var(--gris-borde);
-    padding: 12px 14px;
-    font-size: 13.5px;
-    line-height: 1.5;
-    color: var(--gris);
-  }
-  .summary.visible { display: block; animation: rise 0.5s ease-out; }
-  .summary b { font-weight: 650; color: var(--tinta); }
-
-  /* ---- Asistente ---- */
-  .agent-idle {
-    color: var(--tinta-tenue); font-size: 15px;
-    flex: 1; display: flex; align-items: center; justify-content: center;
-    text-align: center; padding: 0 40px; line-height: 1.6;
-  }
-  .agent-idle.gone { display: none; }
-  .check-line {
-    display: none;
-    align-items: center; gap: 10px;
-    font-size: 12.5px;
+    align-items: center; gap: 9px;
+    font-family: var(--mono);
+    font-size: 11px;
     color: var(--tinta-suave);
-    padding: 6px 4px;
-    font-family: var(--mono);
+    margin-top: 8px;
   }
-  .check-line.visible { display: flex; }
-  .check-line.gone { display: none; }
+  .checking.visible { display: flex; }
+  .checking.gone { display: none; }
   .spinner {
-    width: 15px; height: 15px;
+    width: 13px; height: 13px;
     border: 2px solid var(--linea);
     border-top-color: var(--azul);
     border-radius: 50%;
@@ -215,116 +177,244 @@
     flex-shrink: 0;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
-  .check-line.done .spinner { display: none; }
-  .check-line .tick { display: none; color: var(--verde); font-weight: 600; flex-shrink: 0; width: 15px; text-align: center; }
-  .check-line.done .tick { display: inline; }
+  .checking.done .spinner { display: none; }
+  .checking .tick { display: none; color: var(--verde); font-weight: 600; flex-shrink: 0; width: 13px; text-align: center; }
+  .checking.done .tick { display: inline; }
 
-  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-
-  .card {
-    display: none;
-    background: var(--carta);
-    border: 1px solid var(--linea);
-    border-radius: 4px;
-    padding: 12px 15px;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  .card.visible { display: block; animation: rise 0.4s ease-out; }
-  .card.gone { display: none; }
-  .card .ct { display: flex; align-items: baseline; gap: 8px; margin-bottom: 7px; }
-  .card .sello {
+  /* Cuerpo del veredicto */
+  .iv .body { display: none; }
+  .iv.verdict .body { display: block; animation: rise 0.4s ease-out; }
+  .iv .just { font-size: 13px; line-height: 1.5; color: var(--tinta-suave); margin-top: 6px; }
+  .iv .just b { font-weight: 650; color: var(--tinta); }
+  .docrow { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; align-items: center; }
+  .docchip {
     font-family: var(--mono);
-    font-size: 10.5px; font-weight: 600;
-    letter-spacing: 0.13em; text-transform: uppercase;
-    border: 1.5px solid currentColor;
-    border-radius: 3px;
-    padding: 2px 7px 1px;
-  }
-  .card .det { font-size: 12.5px; color: var(--tinta-suave); }
-  .card.ok { border-color: var(--verde-borde); }
-  .card.ok .sello { color: var(--verde); background: var(--verde-fondo); }
-  .card.clash { border-color: var(--rojo-borde); }
-  .card.clash .sello { color: var(--rojo); background: var(--rojo-fondo); }
-  .card.newreq { border-color: var(--amarillo-borde); }
-  .card.newreq .sello { color: var(--amarillo); background: var(--amarillo-fondo); }
-  .card b { font-weight: 650; }
-  .card .cite {
-    font-family: var(--mono);
-    font-size: 11px;
+    font-size: 10.5px;
     color: var(--tinta-suave);
     background: var(--carta-suave);
     border: 1px solid var(--linea);
     border-radius: 3px;
-    padding: 1px 6px;
-    white-space: nowrap;
+    padding: 2px 7px 1px;
+    cursor: pointer;
+    transition: border-color 0.25s, color 0.25s, background 0.25s;
   }
-  .card .q { margin-top: 8px; padding-left: 11px; color: var(--tinta); }
-  .card.clash .q { border-left: 2px solid var(--rojo-borde); }
-  .card.ok .q { border-left: 2px solid var(--verde-borde); }
-  .card.newreq .q { border-left: 2px solid var(--amarillo-borde); }
-  .card.answered .q { display: none; }
-  .card .prio {
+  .docchip.hot { border-color: var(--azul); color: var(--azul); background: var(--azul-fondo); }
+  .consulto { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; margin-top: 6px; font-size: 11px; color: var(--tinta-tenue); }
+  .consulto .mini {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    color: var(--tinta-tenue);
+    background: var(--carta-suave);
+    border: 1px solid var(--linea-suave);
+    border-radius: 3px;
+    padding: 1px 6px;
+  }
+  .iv .prio {
     display: inline-block; margin-top: 8px;
     font-family: var(--mono);
-    font-size: 10.5px; font-weight: 500;
+    font-size: 10px; font-weight: 500;
     color: var(--tinta-suave);
     background: var(--carta-suave);
     border: 1px solid var(--linea);
     border-radius: 3px; padding: 2px 8px 1px;
   }
-  .choices { display: none; gap: 9px; margin-top: 11px; flex-wrap: wrap; }
+  .iv .q {
+    display: none;
+    margin-top: 9px;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--rojo);
+  }
+  .iv .q.visible { display: block; animation: rise 0.35s ease-out; }
+  .iv.answered .q { display: none; }
+
+  .choices { display: none; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
   .choices.visible { display: flex; }
+  .iv.answered .choices { display: none; }
   .choices button {
     font-family: var(--ui);
-    border-radius: 3px; padding: 8px 15px; font-size: 13px; font-weight: 600;
+    border-radius: 3px; padding: 7px 14px; font-size: 12.5px; font-weight: 600;
     border: 1px solid var(--gris-borde); background: var(--carta); color: var(--tinta);
     transition: background 0.2s, transform 0.15s;
   }
-  .choices .violet { background: var(--azul); border-color: var(--azul); color: #fff; }
-  .choices .violet.pressed { background: var(--azul-oscuro); transform: scale(0.97); }
   .choices .blue { background: var(--azul); border-color: var(--azul); color: #fff; }
   .choices .blue.pressed { background: var(--azul-oscuro); transform: scale(0.97); }
 
+  /* Correccion del cliente */
+  .fixedblock {
+    display: none;
+    margin-top: 9px;
+    border: 1.5px dashed var(--verde-borde);
+    background: var(--verde-fondo);
+    border-radius: 3px;
+    padding: 8px 11px;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--verde);
+    font-weight: 500;
+  }
+  .fixedblock.visible { display: block; animation: rise 0.45s ease-out; }
+  .fixedblock .lbl {
+    display: block;
+    font-family: var(--mono);
+    font-size: 9.5px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
   .resolved {
     display: none;
-    margin-top: 10px;
-    font-size: 13px;
+    margin-top: 9px;
+    font-size: 12.5px;
     font-weight: 600;
-    padding-top: 9px;
+    padding-top: 8px;
     border-top: 1px solid var(--linea-suave);
   }
   .resolved.visible { display: block; animation: rise 0.35s ease-out; }
-  .resolved.violet { color: var(--verde); }
+  .resolved.green { color: var(--verde); }
   .resolved.blue { color: var(--azul); }
 
-  .byproduct {
-    display: none;
-    margin-top: auto;
-    border: 1px dashed var(--gris-borde);
-    background: var(--carta-suave);
-    border-radius: 3px;
-    padding: 11px 14px;
-    font-size: 13px;
-    line-height: 1.5;
-    color: var(--gris);
+  /* Resumen compacto al pie */
+  .sumline {
+    flex-shrink: 0;
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12.5px;
+    color: var(--tinta-suave);
+    padding: 7px 2px 0;
+    border-top: 1px solid var(--linea-suave);
   }
-  .byproduct.visible { display: block; animation: rise 0.4s ease-out; }
-  .byproduct .bh {
+  .sumline b { font-weight: 650; color: var(--tinta); }
+  .sumline .acts { margin-left: auto; display: flex; gap: 7px; }
+  .sumline button {
+    font-family: var(--ui);
+    border-radius: 3px; padding: 5px 11px; font-size: 11.5px; font-weight: 600;
+    border: 1px solid var(--gris-borde); background: var(--carta); color: var(--tinta);
+  }
+  .sumline .blue { background: var(--azul); border-color: var(--azul); color: #fff; }
+
+  /* Composer */
+  .composer { flex-shrink: 0; display: flex; flex-direction: column; gap: 6px; }
+  .listenbar {
+    display: none;
+    align-items: center; gap: 8px;
     font-family: var(--mono);
-    font-size: 9.5px; font-weight: 600; letter-spacing: 0.1em;
-    color: var(--tinta-tenue); text-transform: uppercase; margin-bottom: 5px;
+    font-size: 9.5px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--rojo);
+    background: var(--rojo-fondo);
+    border: 1px solid var(--rojo-borde);
+    border-radius: 3px;
+    padding: 4px 10px 3px;
+  }
+  .listenbar.visible { display: flex; }
+  .listenbar .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--rojo); animation: pulse 1.4s ease-in-out infinite; }
+  @keyframes pulse { 50% { opacity: 0.35; } }
+  .crow { display: flex; gap: 7px; }
+  .field {
+    border: 1px solid var(--linea);
+    border-radius: 3px;
+    background: var(--carta-suave);
+    padding: 8px 11px;
+    font-size: 12.5px;
+    display: flex; align-items: center;
+    white-space: nowrap; overflow: hidden;
+  }
+  .field.quien { font-family: var(--mono); font-size: 11px; width: 148px; flex-shrink: 0; color: var(--tinta-suave); }
+  .field.enun { flex: 1; color: var(--tinta-tenue); }
+  .crow button {
+    font-family: var(--ui);
+    border-radius: 3px; padding: 8px 13px; font-size: 12.5px; font-weight: 600;
+    border: 1px solid var(--gris-borde); background: var(--carta); color: var(--tinta);
+    flex-shrink: 0;
+  }
+  .crow .rec-dot { color: var(--rojo); margin-right: 4px; }
+  .crow .send { background: var(--azul); border-color: var(--azul); color: #fff; opacity: 0.55; }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* ================= DERECHA: documentos ================= */
+  .docpanel {
+    background: var(--carta-suave);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .tabs { flex-shrink: 0; display: flex; gap: 6px; padding: 12px 20px 0; min-height: 36px; }
+  .tab {
+    display: none;
+    align-items: center; gap: 7px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--azul);
+    background: #fff;
+    border: 1.5px solid var(--azul);
+    border-radius: 3px;
+    padding: 4px 9px 3px;
+  }
+  .tab.visible { display: flex; animation: rise 0.35s ease-out; }
+  .tab .x { color: var(--tinta-tenue); font-size: 12px; }
+  .docempty {
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    color: var(--tinta-tenue);
+    font-size: 14.5px;
+    line-height: 1.6;
+    padding: 0 60px;
+  }
+  .docempty.gone { display: none; }
+  .sheetwrap {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 14px 24px 22px;
+    display: none;
+    scrollbar-width: none;
+  }
+  .sheetwrap::-webkit-scrollbar { display: none; }
+  .sheetwrap.visible { display: block; }
+  .sheet {
+    background: #fff;
+    border: 1px solid var(--linea-suave);
+    box-shadow: 0 3px 14px rgba(38, 34, 27, 0.09);
+    padding: 28px 34px 30px;
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.65;
+    animation: rise 0.55s ease-out;
+  }
+  .sheet .path {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tinta-tenue);
+    margin-bottom: 18px;
+  }
+  .sheet h2 { font-size: 22px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .sheet p { margin-bottom: 10px; }
+  .sheet ul { padding-left: 22px; }
+  .sheet li { margin: 7px 0; }
+  .hl {
+    background: #fdf3c0;
+    border-bottom: 2.5px solid var(--rojo);
+    padding: 1px 2px;
+  }
+  .hl.pulse { animation: hlpulse 1.6s ease-out 2; }
+  @keyframes hlpulse {
+    0% { box-shadow: 0 0 0 0 rgba(163, 48, 40, 0.35); }
+    70% { box-shadow: 0 0 0 9px rgba(163, 48, 40, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(163, 48, 40, 0); }
   }
 
   /* ---- Narracion ---- */
   .caption {
-    height: 50px;
+    height: 46px;
     flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
-    font-size: 16px;
+    font-size: 15.5px;
     color: var(--tinta-suave);
     padding: 0 40px;
     text-align: center;
+    background: var(--papel);
   }
   .caption span { opacity: 0; transition: opacity 0.5s; }
   .caption span.visible { opacity: 1; }
@@ -360,79 +450,106 @@
   <header>
     <div class="marca">PoC</div>
     <h1>Asistente de sesiones de feedback</h1>
-    <div class="sub">Prototipo exploratorio &middot; la devolución vuelve al cliente en la sesión</div>
+    <div class="sub">La devolución vuelve al cliente en la sesión</div>
   </header>
 
   <main>
-    <section class="panel">
-      <div class="panel-head"><span class="dot rec"></span>Sesión de feedback &middot; transcripción en vivo<span class="mic">&#9679; ESCUCHANDO</span></div>
-      <div class="panel-body">
-        <div class="utt" id="u1">
-          <span class="tag">SILVIA &middot; DIRECTORA DE LA BIBLIOTECA</span>
-          <span class="txt"></span>
-          <span class="status"></span>
-          <div class="newtxt" id="u1new">
-            <span class="lbl">Corregido por el cliente en la sesión</span>
-            El material de referencia no sale de la biblioteca, salvo docentes: pueden retirarlo el viernes y devolverlo el lunes.
+    <!-- ============ IZQUIERDA: la sesion ============ -->
+    <section class="sesion">
+      <div class="cards" id="cards">
+
+        <div class="iv" id="u1">
+          <div class="head">
+            <span class="tag">SILVIA &middot; DIRECTORA DE LA BIBLIOTECA</span>
+            <span class="sello">Choca</span>
+          </div>
+          <div class="txt"></div>
+          <div class="checking" id="c1"><span class="spinner"></span><span class="tick">&#10003;</span>Regla detectada &middot; buscando en requisitos y actas…</div>
+          <div class="body">
+            <div class="just">"El material de referencia no sale nunca" contradice el acta del 12/5: <b>los docentes pueden retirarlo el viernes y devolverlo el lunes</b>.</div>
+            <div class="docrow"><span class="docchip" id="chip1">actas/2026-05-12.md</span></div>
+            <div class="consulto">Consultó: <span class="mini">INDICE.md</span><span class="mini">actas/2026-05-12.md</span><span class="mini">requisitos/prestamos.md</span></div>
+            <div class="q" id="q1">Silvia, ¿la excepción del acta sigue valiendo, o la regla vuelve a ser sin excepción?</div>
+            <div class="choices" id="ch1">
+              <button class="blue" id="b1a">Sigue valiendo, corrijo lo que dije</button>
+              <button>No, ahora es sin excepción</button>
+            </div>
+            <div class="fixedblock" id="u1new">
+              <span class="lbl">Corregido por el cliente en la sesión</span>
+              El material de referencia no sale de la biblioteca, salvo docentes: pueden retirarlo el viernes y devolverlo el lunes.
+            </div>
+            <div class="resolved green" id="rs1">&rarr; El cliente corrigió su enunciado en la sesión. La excepción quedó confirmada.</div>
           </div>
         </div>
-        <div class="utt" id="u2">
-          <span class="tag">MARCOS &middot; BIBLIOTECARIO</span>
-          <span class="txt"></span>
-          <span class="status"></span>
+
+        <div class="iv" id="u2">
+          <div class="head">
+            <span class="tag">MARCOS &middot; BIBLIOTECARIO</span>
+            <span class="sello">Coincide</span>
+          </div>
+          <div class="txt"></div>
+          <div class="body">
+            <div class="just">Es exactamente el plazo definido en los requisitos de préstamos. Nada para ajustar.</div>
+            <div class="docrow"><span class="docchip">requisitos/prestamos.md</span></div>
+            <div class="consulto">Consultó: <span class="mini">INDICE.md</span><span class="mini">requisitos/prestamos.md</span></div>
+            <div class="resolved green" id="rs2">&rarr; Confirmado al instante en la sesión.</div>
+          </div>
         </div>
-        <div class="utt" id="u3">
-          <span class="tag">SILVIA &middot; DIRECTORA DE LA BIBLIOTECA</span>
-          <span class="txt"></span>
-          <span class="status"></span>
+
+        <div class="iv" id="u3">
+          <div class="head">
+            <span class="tag">SILVIA &middot; DIRECTORA DE LA BIBLIOTECA</span>
+            <span class="sello">No contemplado</span>
+          </div>
+          <div class="txt"></div>
+          <div class="checking" id="c2"><span class="spinner"></span><span class="tick">&#10003;</span>Pedido detectado &middot; buscando en requisitos de reservas…</div>
+          <div class="body">
+            <div class="just">Ningún requisito define vencimiento automático de reservas. No choca con ninguna regla vigente.</div>
+            <div class="docrow"><span class="docchip">requisitos/reservas.md</span></div>
+            <div class="consulto">Consultó: <span class="mini">INDICE.md</span><span class="mini">requisitos/reservas.md</span></div>
+            <span class="prio">Prioridad sugerida: media &middot; después del módulo de renovaciones</span>
+            <div class="choices" id="ch3">
+              <button class="blue" id="b3a">Aceptar como ticket</button>
+              <button>Descartar</button>
+            </div>
+            <div class="resolved blue" id="rs3">&rarr; Aceptado por el cliente como ticket de alto nivel: vencimiento automático a las 48 horas &middot; prioridad media.</div>
+          </div>
         </div>
-        <div class="summary" id="summary">
-          <b>3 intervenciones contestadas en la sesión.</b><br>
-          1 corregida con la cita del acta &middot; 1 confirmada al instante &middot; 1 pedido nuevo aceptado como ticket.<br>
-          El registro estructurado queda listo para actualizar la documentación.
+
+      </div>
+
+      <div class="sumline">
+        <span id="sumtxt"><b>0 intervenciones</b> &middot; 0 corregidas &middot; 0 confirmadas &middot; 0 tickets</span>
+        <span class="acts"><button class="blue">Exportar registro (.md)</button><button>Nueva sesión</button></span>
+      </div>
+
+      <div class="composer">
+        <div class="listenbar" id="listenbar"><span class="dot"></span>Escuchando &middot; transcripción en vivo</div>
+        <div class="crow">
+          <div class="field quien" id="quien">Quién habla</div>
+          <div class="field enun">Escribí un enunciado (Cmd/Ctrl + Enter envía)</div>
+          <button><span class="rec-dot">&#9679;</span>Escuchar</button>
+          <button class="send">Enviar</button>
         </div>
       </div>
     </section>
 
-    <section class="panel">
-      <div class="panel-head"><span class="dot violet"></span>Asistente IAG &middot; confronta con la documentación del proyecto</div>
-      <div class="panel-body">
-        <div class="agent-idle" id="agentIdle">El asistente escucha la sesión.<br>Tiene cargados los requisitos, las reglas de negocio y las actas del proyecto.</div>
-
-        <div class="check-line" id="c1"><span class="spinner"></span><span class="tick">&#10003;</span>Regla detectada &middot; buscando en requisitos y actas…</div>
-
-        <div class="card clash" id="k1">
-          <div class="ct"><span class="sello">Choca</span><span class="det">con lo acordado</span></div>
-          "El material de referencia no sale nunca" contradice el acta del 12/5: <b>los docentes pueden retirarlo el viernes y devolverlo el lunes</b>. <span class="cite">actas/2026-05-12.md</span>
-          <div class="q">Silvia, ¿la excepción del acta sigue valiendo, o la regla vuelve a ser sin excepción?</div>
-          <div class="choices" id="ch1">
-            <button class="violet" id="b1a">Sigue valiendo, corrijo lo que dije</button>
-            <button>No, ahora es sin excepción</button>
-          </div>
-          <div class="resolved violet" id="rs1">&rarr; El cliente corrigió su enunciado en la sesión. La excepción quedó confirmada.</div>
-        </div>
-
-        <div class="card ok" id="k2">
-          <div class="ct"><span class="sello">Coincide</span><span class="det">con lo acordado</span></div>
-          Es exactamente el plazo definido en los requisitos de préstamos. Nada para ajustar. <span class="cite">requisitos/prestamos.md</span>
-        </div>
-
-        <div class="check-line" id="c2"><span class="spinner"></span><span class="tick">&#10003;</span>Pedido detectado &middot; buscando en requisitos de reservas…</div>
-
-        <div class="card newreq" id="k3">
-          <div class="ct"><span class="sello">No contemplado</span><span class="det">pedido nuevo</span></div>
-          Ningún requisito define vencimiento automático de reservas. No choca con ninguna regla vigente. <span class="cite">requisitos/reservas.md</span>
-          <span class="prio">Prioridad sugerida: media &middot; después del módulo de renovaciones</span>
-          <div class="choices" id="ch3">
-            <button class="blue" id="b3a">Aceptar como ticket</button>
-            <button>Descartar</button>
-          </div>
-          <div class="resolved blue" id="rs3">&rarr; Aceptado por el cliente. Sale como ítem de alto nivel, sin desgranar.</div>
-        </div>
-
-        <div class="byproduct" id="byproduct">
-          <div class="bh">Subproducto para el equipo de desarrollo</div>
-          Ticket de alto nivel: vencimiento automático de las reservas no retiradas a las 48 horas &middot; prioridad media.
+    <!-- ============ DERECHA: documentos ============ -->
+    <section class="docpanel">
+      <div class="tabs"><span class="tab" id="tab1">actas/2026-05-12.md <span class="x">&times;</span></span></div>
+      <div class="docempty" id="docempty">Los documentos del proyecto se abren acá cuando el asistente cita un requisito o un acta.</div>
+      <div class="sheetwrap" id="sheetwrap">
+        <div class="sheet">
+          <div class="path">ACTAS/2026-05-12.MD</div>
+          <h2>Acta de reunión: 12 de mayo de 2026</h2>
+          <p>Participan la dirección de la biblioteca (Silvia, Marcos) y el equipo de desarrollo. Se repasa la política del material de referencia.</p>
+          <ul>
+            <li>El material de referencia se consulta en sala y no circula con el préstamo común.</li>
+            <li>Se acuerda una excepción: <span class="hl" id="hl1">los docentes pueden retirar material de referencia los viernes y devolverlo el lunes antes de las 10</span>.</li>
+            <li>Marcos registra los retiros del viernes en una planilla hasta que el sistema lo contemple.</li>
+            <li>Los plazos de préstamo general quedan como están: 14 días para estudiantes, 30 días para docentes.</li>
+            <li>Próxima reunión: definición del módulo de renovaciones.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -450,14 +567,19 @@
 (function () {
   const $ = (id) => document.getElementById(id);
 
+  function scrollCards() {
+    const c = $("cards");
+    c.scrollTop = c.scrollHeight;
+  }
+
   function typeUtt(id, text, startMs, charMs) {
-    const utt = $(id);
-    const txt = utt.querySelector(".txt");
-    setTimeout(() => utt.classList.add("visible"), startMs);
+    const card = $(id);
+    const txt = card.querySelector(".txt");
+    setTimeout(() => { card.classList.add("visible"); scrollCards(); }, startMs);
     for (let i = 0; i < text.length; i++) {
       setTimeout(() => { txt.textContent = text.slice(0, i + 1); }, startMs + 150 + i * charMs);
     }
-    setTimeout(() => utt.classList.add("done"), startMs + 150 + text.length * charMs + 100);
+    setTimeout(() => card.classList.add("done"), startMs + 150 + text.length * charMs + 100);
   }
 
   function caption(text, atMs) {
@@ -468,66 +590,101 @@
     }, atMs);
   }
 
-  function setStatus(id, cls, label, atMs) {
-    setTimeout(() => {
-      const utt = $(id);
-      utt.classList.add(cls);
-      utt.querySelector(".status").textContent = label;
-    }, atMs);
+  function at(ms, fn) { setTimeout(fn, ms); }
+
+  function listen(on, quien, atMs) {
+    at(atMs, () => {
+      $("listenbar").classList.toggle("visible", on);
+      if (quien) $("quien").textContent = quien;
+    });
   }
 
-  function at(ms, fn) { setTimeout(fn, ms); }
+  function summary(n, corr, conf, tick, atMs) {
+    at(atMs, () => {
+      $("sumtxt").innerHTML = "<b>" + n + (n === 1 ? " intervención" : " intervenciones") + "</b> &middot; " +
+        corr + " corregidas &middot; " + conf + " confirmadas &middot; " + tick + " tickets";
+    });
+  }
 
   // ---- Guion temporizado (~50 s) ----
 
   caption("Una sesión de feedback como cualquier otra. El asistente escucha, con la documentación del proyecto cargada.", 400);
 
+  // --- Intervencion 1: CHOCA ---
+  listen(true, "Silvia · Directora", 1200);
   typeUtt("u1", "El material de referencia no sale de la biblioteca, nunca.", 1600, 42);
+  summary(1, 0, 0, 0, 4100);
+  listen(false, null, 4300);
 
-  at(4600, () => { $("agentIdle").classList.add("gone"); $("c1").classList.add("visible"); });
+  at(4600, () => { $("c1").classList.add("visible"); scrollCards(); });
   caption("Detecta la regla enunciada y la busca en los requisitos y las actas. Nadie escribió nada.", 5000);
   at(6900, () => $("c1").classList.add("done"));
 
-  at(7300, () => $("k1").classList.add("visible"));
-  caption("La devolución vuelve a Silvia en la misma frase, con la cita exacta de lo acordado.", 8000);
-  at(11000, () => $("ch1").classList.add("visible"));
-  caption("El cliente decide. Hoy este choque aparece días después, cuando alguien revisa el acta.", 11500);
-  at(14200, () => $("b1a").classList.add("pressed"));
-  at(14800, () => {
-    $("ch1").classList.remove("visible");
-    $("k1").classList.add("answered");
-    $("rs1").classList.add("visible");
+  at(7300, () => {
+    $("c1").classList.add("gone");
+    const u1 = $("u1");
+    u1.classList.add("clash", "verdict");
+    scrollCards();
+  });
+  at(7800, () => $("chip1").classList.add("hot"));
+  at(8200, () => {
+    $("docempty").classList.add("gone");
+    $("tab1").classList.add("visible");
+    $("sheetwrap").classList.add("visible");
+  });
+  at(8800, () => $("hl1").classList.add("pulse"));
+  caption("El acta se abre con la cita exacta subrayada. La devolución vuelve a Silvia en la misma frase.", 8200);
+
+  at(11000, () => { $("q1").classList.add("visible"); scrollCards(); });
+  at(11600, () => { $("ch1").classList.add("visible"); scrollCards(); });
+  caption("El cliente decide. Hoy este choque aparece días después, cuando alguien revisa el acta.", 12000);
+  at(14600, () => $("b1a").classList.add("pressed"));
+  at(15200, () => {
+    const u1 = $("u1");
+    u1.classList.add("answered");
+    u1.querySelector(".txt").classList.add("struck");
     $("u1new").classList.add("visible");
-    $("u1").querySelector(".txt").classList.add("struck");
+    $("rs1").classList.add("visible");
+    scrollCards();
   });
-  setStatus("u1", "fixed", "Corregida", 14800);
-  caption("Lo dicho se corrige en la sesión. El acta sale de la reunión ya confrontada.", 15400);
+  summary(1, 1, 0, 0, 15200);
+  caption("Lo dicho se corrige en la sesión. El acta sale de la reunión ya confrontada.", 15800);
 
-  typeUtt("u2", "Los docentes se llevan libros por 30 días, eso ya lo hacemos así.", 18600, 38);
-  at(21900, () => { $("c1").classList.add("gone"); $("k2").classList.add("visible"); });
-  setStatus("u2", "ok", "Coincide", 21900);
-  caption("Lo que coincide se confirma al instante. Nadie lo anota para verificar después.", 22400);
+  // --- Intervencion 2: COINCIDE ---
+  listen(true, "Marcos · Bibliotecario", 18800);
+  typeUtt("u2", "Los docentes se llevan libros por 30 días, eso ya lo hacemos así.", 19200, 38);
+  listen(false, null, 22000);
+  at(22300, () => { $("u2").classList.add("ok", "verdict"); scrollCards(); });
+  at(23100, () => { $("rs2").classList.add("visible"); scrollCards(); });
+  summary(2, 1, 1, 0, 23100);
+  caption("Lo que coincide se confirma al instante. Nadie lo anota para verificar después.", 22800);
 
-  typeUtt("u3", "Y quiero que las reservas se venzan solas si no retiran el libro en 48 horas.", 25600, 34);
-  at(28500, () => $("c2").classList.add("visible"));
-  at(30300, () => $("c2").classList.add("done"));
-  at(30700, () => { $("c2").classList.add("gone"); $("k3").classList.add("visible"); });
-  caption("Lo nuevo no se construye solo: se encuadra contra lo que existe y se prioriza.", 31200);
-  at(33700, () => $("ch3").classList.add("visible"));
-  at(36200, () => $("b3a").classList.add("pressed"));
-  at(36800, () => {
-    $("ch3").classList.remove("visible");
-    $("k3").classList.add("answered");
+  // --- Intervencion 3: NO CONTEMPLADO ---
+  listen(true, "Silvia · Directora", 25800);
+  typeUtt("u3", "Y quiero que las reservas se venzan solas si no retiran el libro en 48 horas.", 26200, 34);
+  listen(false, null, 29100);
+  at(29300, () => { $("c2").classList.add("visible"); scrollCards(); });
+  at(31100, () => $("c2").classList.add("done"));
+  at(31500, () => {
+    $("c2").classList.add("gone");
+    $("u3").classList.add("newreq", "verdict");
+    scrollCards();
+  });
+  caption("Lo nuevo no se construye solo: se encuadra contra lo que existe y se prioriza.", 32000);
+  at(34500, () => { $("ch3").classList.add("visible"); scrollCards(); });
+  at(37000, () => $("b3a").classList.add("pressed"));
+  at(37600, () => {
+    $("u3").classList.add("answered");
     $("rs3").classList.add("visible");
+    scrollCards();
   });
-  setStatus("u3", "new", "Ticket", 36800);
-  at(37600, () => $("byproduct").classList.add("visible"));
-  caption("El ticket de alto nivel es el subproducto, no el objetivo. Siempre lo acepta un humano.", 38000);
+  summary(3, 1, 1, 1, 37600);
+  caption("El ticket de alto nivel es el subproducto, no el objetivo. Siempre lo acepta un humano.", 38200);
 
-  at(41200, () => $("summary").classList.add("visible"));
-  caption("La sesión termina con todo contestado. Nada quedó esperando al final del sprint.", 41600);
+  // --- Cierre de la sesion ---
+  caption("La sesión termina con todo contestado. Nada quedó esperando al final del sprint.", 42200);
 
-  at(45200, () => $("closing").classList.add("visible"));
+  at(46200, () => $("closing").classList.add("visible"));
 })();
 </script>
 </body>
