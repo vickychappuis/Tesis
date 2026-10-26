@@ -290,3 +290,11 @@
 - Rediseño del layout a partir de 4 mockups presentados a la estudiante (eligió el partido 50/50): la conversación de feedback a la izquierda, con cada intervención y su veredicto en una sola tarjeta y el composer con micrófono al pie, y el panel de documentos a la derecha con pestañas. Los documentos dejaron de verse como markdown crudo: se renderizan como hoja (fondo blanco, títulos, listas) con la cita subrayada sobre marca
 
 ---
+
+## Sprint 22 — 26 oct → jueves 29 oct 2026
+
+- Foco acordado: averiguar si el prototipo podría integrarse a herramientas como Zoom o Google Meet, con propuestas. Resultado en `sprint 22/INTEGRACION_VIDEOLLAMADAS.md`
+- Hallazgo central: el pipeline del prototipo (escucha → extractor → veredicto) solo necesita texto transcripto, así que integrarse es sustituir la fuente del texto. Cinco vías relevadas: modo acompañante (funciona hoy), captura de pestaña con getDisplayMedia, Zoom Apps + RTMS (GA, con costo mensual de Developer Pack), Google Meet (sin vía en vivo: Media API en preview cerrada, solo transcripción post-reunión por REST) y bot participante tipo Recall.ai (cubre Zoom, Meet y Teams, ~USD 0,65/h con 5 h gratis)
+- Propuesta para Daniel: documentar la integración como extensión de la arquitectura; si se quiere demo real en videollamada, la vía bot es la de mejor esfuerzo/resultado. La asimetría entre plataformas (Zoom abrió el tiempo real, Google lo mantiene cerrado) queda como dato para el capítulo de la PoC
+
+---
