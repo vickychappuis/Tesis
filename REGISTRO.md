@@ -306,5 +306,7 @@
 ## Sprint 23 — 30 oct → jueves 5 nov 2026
 
 - Foco acordado (call del 29/10): explorar arquitecturalmente la definición de bots en Zoom, Meet y Teams (qué permiten y qué exigen, adaptarse al más fácil), definir una arquitectura viable, redactar en el Overleaf la subsección de especificación de requisitos y pensar el backend adaptable a la documentación del cliente
+- Chequeo de viabilidad del bot en las tres plataformas (`sprint 23/VIABILIDAD_BOT_PLATAFORMAS.md`), con tres novedades desde el sprint 22: Zoom mejoró (RTMS self-service con 20 créditos gratis: la vía nativa baja a fácil), Meet empeoró (Google discontinuó la Media API el 28/10, se apaga el 15/1/2027: no queda vía oficial en vivo) y Teams abre una vía nueva sin bot de media (Work IQ Real Time Transcripts, GA nov 2026, requiere habilitación del admin del tenant)
+- Para la primera prueba con Recall.ai el ranking es Meet (invitado anónimo con gmail personal, cero configuración), Zoom (sin app propia, pero waiting room y límite de 40 min) y Teams último (lobby anti-bots 2026). Flujo mínimo documentado: un POST con la meeting_url y el webhook por túnel, medio día de trabajo
 
 ---
