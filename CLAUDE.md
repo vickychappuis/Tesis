@@ -8,6 +8,10 @@
 - **Tipo:** Investigacion (Ingenieria en Sistemas)
 - **Duracion estimada:** 12 meses (inicio 1sem 2026)
 
+## Prototipo
+
+El prototipo (app, demo, documentación mock y el bot de reuniones) vive en un repo privado aparte: https://github.com/vickychappuis/prototipo-tesis (antes en `PROTOTIPO/` de este repo, hasta el 30/10/2026). Este repo queda como el registro de la investigación: sprints, marco, decisiones.
+
 ## Resumen
 
 Estudio exploratorio y descriptivo que analiza la reconfiguracion de los ciclos de feedback en las fases de implementacion y validacion de software cuando se incorporan herramientas de inteligencia artificial generativa (IAG). Integra dimensiones tecnicas y de validacion de reglas/flujos de negocio.
