@@ -301,3 +301,7 @@
 - Relevamiento aparte: frameworks de guardado de documentación de proyectos (ISO 29148, Volere, Agile Modeling) con números de adopción de encuestas verificados contra fuente primaria, en `sprint 22/FRAMEWORKS_DOCUMENTACION.md`. Hallazgo útil para la PoC: los artefactos donde el prototipo planta trampas (actas, glosario) son justo los que ningún survey mide
 
 ---
+
+## Sprint 23 — 30 oct → jueves 5 nov 2026
+
+---
