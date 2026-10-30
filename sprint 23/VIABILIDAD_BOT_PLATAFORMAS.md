@@ -2,9 +2,13 @@
 
 Encargo de la call del 29/10: explorar qué implica definir un bot en cada plataforma, qué permiten y qué exigen, y adaptarse a la más fácil. Tres investigaciones en paralelo (Teams nativo, Zoom/Meet nativos, Recall.ai por plataforma), octubre 2026.
 
+## Decisión (30/10)
+
+Bot **propio desde cero**: Playwright entra a la reunión como participante, captura el audio y lo manda a un STT por streaming (Deepgram, crédito gratis); los enunciados entran al pipeline existente. Se descarta depender de Recall.ai por preferencia de independencia, asumiendo 1 a 2 semanas en vez de medio día. Recall queda como referencia de industria; Vexa como fallback si el desde-cero se traba.
+
 ## Resumen
 
-- Para la **primera prueba** (bot vía Recall.ai, cuentas gratuitas): **Meet es la más fácil**, Zoom segunda, Teams última.
+- Para la **primera prueba** (bot gestionado, cuentas gratuitas): **Meet es la más fácil**, Zoom segunda, Teams última. El orden vale igual para el bot propio: es la misma técnica (participante headless).
 - Para la **vía nativa** (bot propio, sin intermediarios): **Zoom es la única fácil** (RTMS se volvió self-service), Teams es difícil pero tiene una salida nueva (Work IQ, GA nov 2026), y Meet directamente no tiene vía oficial en vivo.
 - La arquitectura acordada (bot liviano + servidor propio) se sostiene en las tres plataformas solo con la vía gestionada (Recall). En nativo, cada plataforma impone la suya.
 
@@ -48,12 +52,15 @@ Encargo de la call del 29/10: explorar qué implica definir un bot en cada plata
 - Detalle Zoom: la vía vieja (Meeting SDK bot headless en Linux + raw audio) sigue vigente y sin licencia especial, pero exige C++ y ASR aparte (1 a 2 semanas); RTMS la vuelve innecesaria.
 - Detalle Meet: la REST API post-reunión queda como plan B para un modo "veredictos diferidos" (pide Workspace Business Standard del organizador).
 
-## Propuesta de orden
+## Plan del bot propio
 
-1. **Prueba 1 (ya, medio día): Recall + Meet con gmail personal.** Valida el pipeline completo (webhook → extractor → veredicto) con la fricción mínima. Es la prueba de viabilidad del plan A, no la plataforma final.
-2. **Prueba 2 (mismo código): apuntar el mismo bot a un Zoom de prueba.** Cambia solo la meeting_url; confirma la portabilidad que promete la vía gestionada.
-3. **Teams al final y con verificación previa del tenant** (¿el admin bloquea note-takers externos?). Si el tenant lo permite, el mismo bot sirve; si no, la alternativa nativa es esperar Work IQ (GA nov 2026) o mover las sesiones de validación a Meet/Zoom.
-4. **Para el capítulo de la PoC**: documentar que la vía nativa solo es razonable en Zoom (RTMS), que Microsoft está abriendo el texto en vivo sin bot (Work IQ) y que Google cerró del todo el tiempo real; refuerza el dato de la asimetría del ecosistema del sprint 22.
+1. **Etapa 1: entrar y escuchar en Meet.** Playwright con Chrome headless entra como invitado anónimo a un Meet de gmail personal (el host lo admite), captura el audio de la reunión y lo streamea a Deepgram con token efímero. Cada final del websocket entra al pipeline como hoy entra un resultado de la Web Speech API.
+2. **Etapa 2: devolver a la reunión.** El mismo navegador del bot postea veredictos al chat; la variante cámara-panel se evalúa después (el bot propio puede emitir su cámara con un stream virtual, más trabajo que el Output Media de Recall).
+3. **Etapa 3: Zoom.** El mismo bot contra Zoom web (join por URL como invitado). Si se traba, la vía nativa RTMS sigue siendo el plan sin fricción en Zoom.
+4. **Teams al final y con verificación previa del tenant**: un bot propio entra marcado como "no verificado" por la política 2026 y el admin puede bloquearlo. Alternativas ahí: Work IQ (GA nov 2026) o mover las sesiones a Meet/Zoom.
+5. **Para el capítulo de la PoC**: documentar que la vía nativa solo es razonable en Zoom (RTMS), que Microsoft está abriendo el texto en vivo sin bot (Work IQ) y que Google cerró del todo el tiempo real; refuerza el dato de la asimetría del ecosistema del sprint 22.
+
+Riesgos asumidos con el desde-cero: mantenimiento ante cambios de UI de las plataformas, zona gris de ToS en Meet, y el etiquetado anti-bot en Teams que un vendor registrado mitiga y un bot propio no.
 
 ## Fuentes
 
