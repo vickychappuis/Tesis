@@ -299,9 +299,12 @@
 - Giro de la estudiante sobre la vía bot: pensarlo sin página web, con el bot devolviendo los veredictos adentro de la reunión. Cuatro variantes diseñadas y mockupeadas (`sprint 22/mockups_bot_como_interfaz.html`, también publicado como artifact): el bot que chatea (chat de la reunión, verificado que es texto plano sin formato), el bot que muestra (Output Media de Recall: la cámara o pantalla compartida del bot transmite el panel propio, confirmado en la documentación para las tres plataformas; compartir pantalla depende de los permisos de la reunión, la cámara es el default robusto), el bot que habla (voz solo ante un CHOCA o por invocación) y el secretario silencioso (acta al chat al cerrar). La arquitectura queda server-side y desaparece el puente webhook-frontend; Recall es cañería sin lógica, cada mensaje lo arma el pipeline propio
 - Propuesta para Daniel: plan A bot (Recall.ai) en la variante chat + cámara-panel, plan B captura de pestaña + Deepgram sin terceros; RTMS queda documentada como la vía nativa de Zoom. La asimetría del ecosistema (Zoom abrió el tiempo real pago, Google lo mantiene cerrado, la industria lo resuelve con bots y scraping) queda como dato para el capítulo de la PoC
 - Relevamiento aparte: frameworks de guardado de documentación de proyectos (ISO 29148, Volere, Agile Modeling) con números de adopción de encuestas verificados contra fuente primaria, en `sprint 22/FRAMEWORKS_DOCUMENTACION.md`. Hallazgo útil para la PoC: los artefactos donde el prototipo planta trampas (actas, glosario) son justo los que ningún survey mide
+- Call con Daniel (29 oct, `sprint 22/resumen_call.md`): la herramienta es de validación contra la base de conocimiento del proyecto, sin imponer una forma de documentar (un espacio por tipo de artefacto con descripción de cómo se lee); el relevamiento de frameworks va al Overleaf como subsección en párrafos para mostrar que no hay forma única; separar solución conceptual (soporta todas las formas y plataformas) de la PoC (una forma, un plugin); arquitectura preferida: bot liviano + servidor propio conectado al repositorio de documentación, chequeos en vivo y corrección de documentos a posteriori
 
 ---
 
 ## Sprint 23 — 30 oct → jueves 5 nov 2026
+
+- Foco acordado (call del 29/10): explorar arquitecturalmente la definición de bots en Zoom, Meet y Teams (qué permiten y qué exigen, adaptarse al más fácil), definir una arquitectura viable, redactar en el Overleaf la subsección de especificación de requisitos y pensar el backend adaptable a la documentación del cliente
 
 ---
