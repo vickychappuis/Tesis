@@ -1,0 +1,436 @@
+<title>El bot como interfaz: propuestas</title>
+<style>
+  :root {
+    --paper: #faf8f3;
+    --paper-2: #f1ede4;
+    --ink: #22201b;
+    --ink-soft: #5c5850;
+    --line: #d8d2c4;
+    --accent: #2448c8;
+    --choca: #b3261e;
+    --coincide: #1e6b40;
+    --nocont: #96640a;
+    --noacc: #6b675e;
+    --meet-bg: #202124;
+    --meet-tile: #3c4043;
+    --meet-panel: #2b2c2f;
+    --meet-text: #e8eaed;
+    --meet-dim: #9aa0a6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #19181c;
+      --paper-2: #221f26;
+      --ink: #e9e5dc;
+      --ink-soft: #a8a294;
+      --line: #3a3732;
+      --accent: #7d96ef;
+      --choca: #e8857d;
+      --coincide: #7cc49a;
+      --nocont: #d9a84e;
+      --noacc: #918d83;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #faf8f3; --paper-2: #f1ede4; --ink: #22201b; --ink-soft: #5c5850;
+    --line: #d8d2c4; --accent: #2448c8; --choca: #b3261e; --coincide: #1e6b40;
+    --nocont: #96640a; --noacc: #6b675e;
+  }
+  :root[data-theme="dark"] {
+    --paper: #19181c; --paper-2: #221f26; --ink: #e9e5dc; --ink-soft: #a8a294;
+    --line: #3a3732; --accent: #7d96ef; --choca: #e8857d; --coincide: #7cc49a;
+    --nocont: #d9a84e; --noacc: #918d83;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.55;
+    margin: 0;
+    padding: 2.5rem 1.25rem 4rem;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+
+  .eyebrow {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-soft); margin: 0 0 .6rem;
+  }
+  h1 {
+    font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.12;
+    margin: 0 0 .5rem; letter-spacing: -.01em; text-wrap: balance;
+  }
+  .lede { max-width: 62ch; color: var(--ink-soft); margin: 0 0 2.2rem; font-size: 1.02rem; }
+  .lede strong { color: var(--ink); }
+
+  /* flujo de la idea */
+  .flow {
+    display: flex; flex-wrap: wrap; align-items: stretch; gap: .5rem;
+    margin: 0 0 3rem;
+  }
+  .flow-step {
+    flex: 1 1 150px; border: 1px solid var(--line); background: var(--paper-2);
+    padding: .65rem .8rem; position: relative;
+  }
+  .flow-step b { display: block; font-size: .85rem; }
+  .flow-step span { font-size: .76rem; color: var(--ink-soft); }
+  .flow-step.ours { border-color: var(--accent); border-width: 1.5px; }
+  .flow-arrow { align-self: center; color: var(--ink-soft); font-size: 1rem; flex: 0 0 auto; }
+  .flow-note { font-size: .8rem; color: var(--ink-soft); margin: .6rem 0 0; }
+  .flow-note em { color: var(--accent); font-style: normal; font-weight: 600; }
+
+  section.prop { margin: 0 0 3.4rem; }
+  .prop-head { display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap; margin-bottom: .35rem; }
+  .prop-letter {
+    font-family: ui-monospace, Menlo, monospace; font-weight: 700;
+    color: var(--accent); border: 1.5px solid var(--accent);
+    padding: .05rem .5rem; font-size: .95rem;
+  }
+  h2 { font-size: 1.3rem; margin: 0; letter-spacing: -.005em; }
+  .prop-sub { color: var(--ink-soft); margin: 0 0 1rem; max-width: 68ch; font-size: .95rem; }
+  .prop-sub a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* chips de datos */
+  .chips { display: flex; flex-wrap: wrap; gap: .45rem; margin: .9rem 0 0; }
+  .chip {
+    font-size: .76rem; border: 1px solid var(--line); padding: .22rem .6rem;
+    background: var(--paper-2); color: var(--ink-soft);
+  }
+  .chip b { color: var(--ink); font-weight: 600; }
+
+  /* ===== marco de reunión (siempre oscuro, como Meet) ===== */
+  .screen {
+    background: var(--meet-bg); border-radius: 10px; overflow: hidden;
+    border: 1px solid rgba(0,0,0,.35);
+    box-shadow: 0 12px 30px -18px rgba(0,0,0,.55);
+    color: var(--meet-text);
+    font-size: 13px;
+  }
+  .screen-bar {
+    display: flex; align-items: center; gap: .5rem;
+    padding: .45rem .8rem; background: rgba(255,255,255,.04);
+    color: var(--meet-dim); font-size: .72rem;
+  }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: #5f6368; }
+  .dot.r { background: #bf5650; } .dot.y { background: #c2a04a; } .dot.g { background: #5a9a68; }
+  .screen-title { margin-left: .4rem; }
+  .rec { margin-left: auto; color: #e07b73; font-size: .7rem; letter-spacing: .08em; }
+
+  .meet-body { display: grid; grid-template-columns: 1.6fr 1fr; min-height: 330px; }
+  .meet-body.full { grid-template-columns: 1fr; }
+
+  .grid-area { padding: 12px; display: grid; gap: 10px; grid-template-columns: 1fr 1fr; align-content: start; }
+  .tile {
+    background: var(--meet-tile); border-radius: 8px; aspect-ratio: 16/10;
+    position: relative; display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .avatar {
+    width: 52px; height: 52px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 1.15rem; color: #fff;
+  }
+  .av-1 { background: #7b5ea7; } .av-2 { background: #2f6b5e; } .av-3 { background: #8a5a2f; }
+  .avatar.bot { background: #1a3a8f; border: 2px solid #7d96ef; }
+  .tile-name {
+    position: absolute; left: 8px; bottom: 7px; font-size: .72rem;
+    background: rgba(0,0,0,.45); padding: .12rem .45rem; border-radius: 4px;
+  }
+  .tile.speaking { outline: 2px solid #7d96ef; outline-offset: -2px; }
+
+  /* panel de chat */
+  .chat {
+    background: var(--meet-panel); border-left: 1px solid rgba(255,255,255,.07);
+    display: flex; flex-direction: column;
+  }
+  .chat-h {
+    padding: .6rem .9rem; font-size: .78rem; color: var(--meet-dim);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+  .chat-msgs { padding: .7rem .9rem 1rem; display: flex; flex-direction: column; gap: .75rem; overflow: hidden; }
+  .msg { font-size: .76rem; opacity: 0; transform: translateY(6px); animation: pop .5s ease forwards; }
+  .msg .who { color: var(--meet-dim); font-size: .68rem; display: block; margin-bottom: .15rem; }
+  .msg .who b { color: #aebcf5; font-weight: 600; }
+  .bubble {
+    background: rgba(255,255,255,.055); border-radius: 6px; padding: .45rem .55rem;
+    border-left: 3px solid transparent;
+  }
+  .bubble .cite { color: var(--meet-dim); font-size: .68rem; display: block; margin-top: .25rem; }
+  .m-choca .bubble { border-left-color: #e8857d; }
+  .m-coincide .bubble { border-left-color: #7cc49a; }
+  .m-nocont .bubble { border-left-color: #d9a84e; }
+
+  .stamp {
+    display: inline-block; font-family: ui-monospace, Menlo, monospace;
+    font-size: .62rem; letter-spacing: .1em; font-weight: 700;
+    border: 1.5px solid; padding: .06rem .4rem; margin-bottom: .3rem;
+    transform: rotate(-1.2deg);
+  }
+  .st-choca { color: #e8857d; border-color: #e8857d; }
+  .st-coincide { color: #7cc49a; border-color: #7cc49a; }
+  .st-nocont { color: #d9a84e; border-color: #d9a84e; }
+  .st-noacc { color: #b5b1a8; border-color: #b5b1a8; }
+
+  @keyframes pop { to { opacity: 1; transform: none; } }
+  .d1 { animation-delay: .4s; } .d2 { animation-delay: 1.6s; } .d3 { animation-delay: 2.8s; } .d4 { animation-delay: 4s; }
+
+  /* propuesta B: pantalla compartida = panel papel */
+  .present { display: grid; grid-template-columns: 2.2fr 1fr; gap: 10px; padding: 12px; }
+  .shared {
+    background: var(--meet-tile); border-radius: 8px; padding: 10px; position: relative;
+  }
+  .shared-tag {
+    position: absolute; top: -1px; left: 10px; font-size: .62rem; color: #0d0d0e;
+    background: #7d96ef; padding: .1rem .5rem; border-radius: 0 0 4px 4px; z-index: 2;
+  }
+  .sheet {
+    background: #faf8f3; color: #22201b; border-radius: 4px; height: 100%;
+    padding: .9rem .9rem .7rem; box-sizing: border-box; overflow: hidden;
+  }
+  .sheet-h {
+    font-family: ui-monospace, Menlo, monospace; font-size: .62rem; letter-spacing: .12em;
+    text-transform: uppercase; color: #87816f;
+    border-bottom: 1px solid #d8d2c4; padding-bottom: .35rem; margin-bottom: .55rem;
+    display: flex; justify-content: space-between;
+  }
+  .card {
+    border: 1px solid #d8d2c4; padding: .5rem .6rem .45rem; margin-bottom: .5rem;
+    background: #fff; font-size: .74rem; position: relative;
+  }
+  .card p { margin: 0 0 .25rem; }
+  .card .cite { font-family: ui-monospace, Menlo, monospace; font-size: .64rem; color: #5c5850; }
+  .card .cite mark { background: #f3e4ae; padding: 0 .15rem; }
+  .pstamp {
+    float: right; font-family: ui-monospace, Menlo, monospace; font-size: .6rem;
+    letter-spacing: .1em; font-weight: 700; border: 2px solid; padding: .1rem .4rem;
+    transform: rotate(2deg); margin-left: .5rem;
+  }
+  .p-choca { color: #b3261e; border-color: #b3261e; }
+  .p-coincide { color: #1e6b40; border-color: #1e6b40; }
+  .p-nocont { color: #96640a; border-color: #96640a; }
+  .side-tiles { display: flex; flex-direction: column; gap: 10px; }
+  .side-tiles .tile { aspect-ratio: 16/10; }
+
+  /* propuesta C: bot hablando */
+  .voice-stage { padding: 20px 12px 26px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .bot-big {
+    width: 230px; aspect-ratio: 16/10; background: var(--meet-tile); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; position: relative;
+  }
+  .pulse { position: relative; }
+  .pulse::before, .pulse::after {
+    content: ""; position: absolute; inset: -8px; border-radius: 50%;
+    border: 2px solid #7d96ef; opacity: 0; animation: ring 2.4s ease-out infinite;
+  }
+  .pulse::after { animation-delay: 1.2s; }
+  @keyframes ring { 0% { transform: scale(.8); opacity: .7; } 100% { transform: scale(1.5); opacity: 0; } }
+  .caption-bubble {
+    max-width: 420px; background: rgba(255,255,255,.07); border-radius: 8px;
+    padding: .6rem .8rem; font-size: .8rem; text-align: center;
+    border: 1px solid rgba(125,150,239,.4);
+  }
+  .caption-bubble .who { color: #aebcf5; font-size: .68rem; display: block; margin-bottom: .2rem; }
+  .voice-rules { display: flex; gap: .5rem; flex-wrap: wrap; justify-content: center; }
+  .vrule {
+    font-size: .68rem; color: var(--meet-dim); border: 1px dashed rgba(255,255,255,.25);
+    padding: .2rem .55rem; border-radius: 99px;
+  }
+
+  /* recomendación */
+  .reco {
+    border: 2px solid var(--accent); background: var(--paper-2);
+    padding: 1.2rem 1.4rem; margin-top: .5rem;
+  }
+  .reco h2 { color: var(--accent); font-size: 1.15rem; margin-bottom: .5rem; }
+  .reco p { margin: .3rem 0; max-width: 70ch; font-size: .95rem; }
+  .reco .mono { font-size: .85em; }
+
+  .srcs { margin-top: 2.5rem; font-size: .78rem; color: var(--ink-soft); }
+  .srcs a { color: var(--accent); text-decoration: none; }
+  .srcs a:hover, .srcs a:focus-visible { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  @media (max-width: 720px) {
+    .meet-body { grid-template-columns: 1fr; }
+    .present { grid-template-columns: 1fr; }
+    .side-tiles { flex-direction: row; }
+    .side-tiles .tile { flex: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .msg { animation: none; opacity: 1; transform: none; }
+    .pulse::before, .pulse::after { animation: none; display: none; }
+  }
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Prototipo · Sprint 22 · Propuestas</p>
+  <h1>El bot como interfaz</h1>
+  <p class="lede">El asistente entra a la reunión como un participante más (vía Recall.ai) y devuelve los veredictos <strong>adentro de la llamada</strong>: por chat, por su cámara o por voz. Nadie abre una página, nadie instala nada. Cuatro variantes, de la más simple a la más ambiciosa.</p>
+
+  <div class="flow" role="img" aria-label="Flujo: la reunión alimenta al bot, el bot al pipeline propio, y el pipeline responde hacia la misma reunión">
+    <div class="flow-step"><b>Reunión</b><span>Meet / Zoom / Teams</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>Bot (Recall)</b><span>escucha, transcribe y diariza. No piensa</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step ours"><b>Pipeline propio</b><span>extractor → bibliotecario → veredicto con citas</span></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><b>De vuelta a la reunión</b><span>chat · cámara · voz</span></div>
+  </div>
+
+  <!-- ============ A ============ -->
+  <section class="prop">
+    <div class="prop-head"><span class="prop-letter">A</span><h2>El bot que chatea</h2></div>
+    <p class="prop-sub">Cada veredicto se postea en el chat de la reunión. Ojo: el chat es texto plano, el "color" lo ponen emojis y mayúsculas. Así se ve de verdad:</p>
+
+    <div class="screen">
+      <div class="screen-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="screen-title">Sesión de validación · Sistema de préstamos</span><span class="rec">● REC</span></div>
+      <div class="meet-body">
+        <div class="grid-area">
+          <div class="tile speaking"><span class="avatar av-1">L</span><span class="tile-name">Lucía · Biblioteca</span></div>
+          <div class="tile"><span class="avatar av-2">M</span><span class="tile-name">Martín · Equipo</span></div>
+          <div class="tile"><span class="avatar av-3">V</span><span class="tile-name">Victoria · Analista</span></div>
+          <div class="tile"><span class="avatar bot">⌘</span><span class="tile-name">Asistente de sesión (bot)</span></div>
+        </div>
+        <div class="chat">
+          <div class="chat-h">Mensajes de la llamada</div>
+          <div class="chat-msgs">
+            <div class="msg d1">
+              <span class="who"><b>Asistente de sesión</b> · 10:04</span>
+              <div class="bubble">🟢 COINCIDE · "Los préstamos duran 14 días" · politica_prestamos.md, regla 2.1</div>
+            </div>
+            <div class="msg d2">
+              <span class="who"><b>Asistente de sesión</b> · 10:06</span>
+              <div class="bubble">🔴 CHOCA · "El material de referencia se puede llevar a casa" contradice el acta del 12/5 (referencia solo en sala) · actas/acta_2026-05-12.md</div>
+            </div>
+            <div class="msg d3">
+              <span class="who"><b>Asistente de sesión</b> · 10:09</span>
+              <div class="bubble">🟡 NO CONTEMPLADO · "Las reservas vencen a los 3 días": la documentación no define vencimiento de reservas · reservas.md</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chips">
+      <span class="chip"><b>Esfuerzo:</b> 1 a 2 días, el más corto de todos</span>
+      <span class="chip"><b>Aporta:</b> registro en el historial de la reunión</span>
+      <span class="chip"><b>Límite:</b> texto plano, sin colores ni sellos: emojis y mayúsculas como máximo</span>
+    </div>
+  </section>
+
+  <!-- ============ B ============ -->
+  <section class="prop">
+    <div class="prop-head"><span class="prop-letter">B</span><h2>El bot que muestra</h2></div>
+    <p class="prop-sub">Con <a href="https://docs.recall.ai/docs/stream-media">Output Media</a> la cámara del bot <em>es</em> el panel: acá sí controlamos cada píxel (sellos, colores, citas subrayadas), porque es nuestra página transmitida como video.</p>
+
+    <div class="screen">
+      <div class="screen-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="screen-title">Sesión de validación · el asistente está presentando</span><span class="rec">● REC</span></div>
+      <div class="meet-body full">
+        <div class="present">
+          <div class="shared">
+            <span class="shared-tag">Presentando: Asistente de sesión</span>
+            <div class="sheet">
+              <div class="sheet-h"><span>Registro de la sesión</span><span>12 enunciados · 1 choque</span></div>
+              <div class="card">
+                <span class="pstamp p-coincide">COINCIDE</span>
+                <p>"Los préstamos duran 14 días"</p>
+                <span class="cite">politica_prestamos.md · <mark>el plazo estándar es de 14 días corridos</mark></span>
+              </div>
+              <div class="card">
+                <span class="pstamp p-choca">CHOCA</span>
+                <p>"El material de referencia se puede llevar a casa"</p>
+                <span class="cite">acta_2026-05-12.md · <mark>el material de referencia se consulta únicamente en sala</mark></span>
+              </div>
+              <div class="card">
+                <span class="pstamp p-nocont">NO CONTEMPLADO</span>
+                <p>"Las reservas vencen a los 3 días"</p>
+                <span class="cite">reservas.md · la documentación no define vencimiento</span>
+              </div>
+            </div>
+          </div>
+          <div class="side-tiles">
+            <div class="tile"><span class="avatar av-1">L</span><span class="tile-name">Lucía</span></div>
+            <div class="tile"><span class="avatar av-2">M</span><span class="tile-name">Martín</span></div>
+            <div class="tile"><span class="avatar bot">⌘</span><span class="tile-name">Asistente (bot)</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chips">
+      <span class="chip"><b>Esfuerzo:</b> 3 a 5 días</span>
+      <span class="chip"><b>Aporta:</b> el panel completo, visible para todos, sin que nadie abra nada</span>
+      <span class="chip"><b>Bonus:</b> el bot le manda el audio y la transcripción directo a la página: sin webhook aparte</span>
+      <span class="chip"><b>Límite:</b> ocupa el lugar de una presentación; conviene cámara en vez de pantalla si alguien más presenta</span>
+    </div>
+  </section>
+
+  <!-- ============ C ============ -->
+  <section class="prop">
+    <div class="prop-head"><span class="prop-letter">C</span><h2>El bot que habla</h2></div>
+    <p class="prop-sub"><a href="https://docs.recall.ai/reference/bot_output_audio_create">Output Audio</a>: el bot interviene con voz, pero solo cuando importa. Dos reglas posibles, combinables: habla únicamente ante un CHOCA, o cuando alguien lo invoca por nombre.</p>
+
+    <div class="screen">
+      <div class="screen-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="screen-title">Sesión de validación</span><span class="rec">● REC</span></div>
+      <div class="voice-stage">
+        <div class="bot-big"><span class="avatar bot pulse">⌘</span><span class="tile-name">Asistente de sesión · hablando</span></div>
+        <div class="caption-bubble">
+          <span class="who">Asistente de sesión</span>
+          "Atención: eso choca con el acta del 12 de mayo. El material de referencia se consulta solo en sala."
+        </div>
+        <div class="voice-rules">
+          <span class="vrule">regla 1 · habla solo ante un CHOCA</span>
+          <span class="vrule">regla 2 · o al invocarlo: "asistente, ¿esto choca con algo?"</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="chips">
+      <span class="chip"><b>Esfuerzo:</b> 1 a 2 días extra sobre A o B</span>
+      <span class="chip"><b>Aporta:</b> el choque llega en el momento exacto, sin que nadie mire nada</span>
+      <span class="chip"><b>Límite:</b> interrumpe; hay que calibrar cuándo callar</span>
+    </div>
+  </section>
+
+  <!-- ============ D ============ -->
+  <section class="prop">
+    <div class="prop-head"><span class="prop-letter">D</span><h2>El secretario silencioso</h2></div>
+    <p class="prop-sub">El bot escucha toda la sesión sin intervenir y, al cerrar, postea el acta con los veredictos al chat. Cero interrupción, pero se pierde la validación en vivo, que es el objeto del prototipo. Queda como complemento de cualquiera de las otras, no como propuesta principal.</p>
+
+    <div class="screen">
+      <div class="screen-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="screen-title">Sesión de validación · finalizando</span></div>
+      <div class="meet-body full">
+        <div class="chat" style="border-left:none;">
+          <div class="chat-h">Mensajes de la llamada</div>
+          <div class="chat-msgs">
+            <div class="msg d1">
+              <span class="who"><b>Asistente de sesión</b> · 10:58</span>
+              <div class="bubble">Acta de la sesión: 12 enunciados validados.<br>
+                <span class="stamp st-coincide">8 COINCIDEN</span> <span class="stamp st-choca">1 CHOCA</span> <span class="stamp st-nocont">2 NO CONTEMPLADOS</span> <span class="stamp st-noacc">1 NO ACCIONABLE</span>
+                <span class="cite mono">registro completo: sesion_2026-10-28.md (export)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chips">
+      <span class="chip"><b>Esfuerzo:</b> casi gratis sobre la base (el export ya existe)</span>
+      <span class="chip"><b>Límite:</b> pierde el en vivo</span>
+    </div>
+  </section>
+
+  <!-- ============ recomendación ============ -->
+  <div class="reco">
+    <h2>Recomendación: A + B, con C como capa opcional</h2>
+    <p>El chat deja el <strong>registro puntual</strong> en el historial de la reunión y la cámara del bot muestra el <strong>panel completo</strong> con sellos y citas. La voz se suma después, solo para los CHOCA.</p>
+    <p>La arquitectura queda enteramente server-side: webhook del bot → pipeline de siempre → respuesta a la reunión. Desaparece el problema del puente al navegador. Recall es cañería reemplazable; el cerebro (extractor, bibliotecario, veredictos, verificación de citas) sigue siendo nuestro.</p>
+    <p><strong>Paso cero</strong> (medio día, decide todo): crear un bot por <span class="mono">curl</span> contra una reunión de Teams de prueba y confirmar que el tenant lo deja entrar. <strong>Costo:</strong> las 5 horas gratis de Recall cubren las pruebas; después ~USD 0,65/h.</p>
+    <p>Para la tesis: el stakeholder no adopta ninguna herramienta, los veredictos llegan al espacio donde ya está, y el asistente se vuelve un participante visible de la sesión, exactamente la reconfiguración de roles que la tesis estudia.</p>
+  </div>
+
+  <p class="srcs">Fuentes: <a href="https://docs.recall.ai/docs/stream-media">Output Media (Recall.ai)</a> · <a href="https://docs.recall.ai/reference/bot_output_audio_create">Output Audio</a> · <a href="https://docs.recall.ai/docs/bot-real-time-transcription">transcripción en tiempo real</a> · <a href="https://www.recall.ai/pricing">precios</a>. Las pantallas son mockups con el dominio inventado de la biblioteca universitaria.</p>
+</div>

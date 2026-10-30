@@ -97,9 +97,20 @@ flowchart TD
 - Riesgo principal: Teams. Desde 2026 retiene a los note-takers externos en el lobby por defecto y los admins pueden bloquearlos por política; verificar el tenant (ORT o el del cliente) antes de comprometerse.
 - Veredicto: la mejor relación esfuerzo/resultado para demo real multiplataforma: 2 a 4 días, USD 0 a 4, y es la única vía realista en Teams, donde son las reuniones de la tesis.
 
+## El bot como interfaz (sin página web)
+
+La opción 6 permite ir más lejos: el bot no solo escucha, también puede devolver los veredictos adentro de la reunión. La app web deja de ser necesaria para los participantes; la arquitectura queda server-side (webhook del bot → pipeline → respuesta a la reunión) y desaparece el puente al navegador. Recall es cañería sin lógica propia: cada mensaje lo decide y lo arma nuestro pipeline. Mockups de las cuatro variantes en `mockups_bot_como_interfaz.html` (mismo contenido que el artifact compartido).
+
+- **A. El bot que chatea**: cada veredicto se postea en el chat de la reunión. 1 a 2 días, lo más corto de todo. Límite verificado: el chat es texto plano en las tres plataformas, sin colores ni formato; emojis y mayúsculas como máximo. Queda como registro en el historial de la llamada.
+- **B. El bot que muestra**: con Output Media el bot corre una página nuestra y la transmite como su cámara o como pantalla compartida (confirmado en la documentación para Zoom, Meet, Teams y Webex). El panel ya construido se reusa casi entero y ahí sí hay control total del formato (sellos, citas subrayadas). Bonus: el bot le manda la transcripción directo a esa página, sin webhook aparte. 3 a 5 días. Salvedad: compartir pantalla depende de los permisos de la reunión (quién puede presentar); el modo cámara siempre está disponible para un participante y es el default robusto.
+- **C. El bot que habla**: Output Audio, voz solo ante un CHOCA o al invocarlo por nombre. 1 a 2 días extra sobre A o B. Riesgo: interrumpe, hay que calibrar cuándo callar.
+- **D. El secretario silencioso**: escucha toda la sesión y al cerrar postea el acta con los veredictos al chat (el export ya existe). Pierde el en vivo; complemento, no propuesta principal.
+
+Para la tesis, esta dirección es mejor que la página web: el stakeholder no adopta ninguna herramienta nueva, los veredictos llegan al espacio donde ya está, y el asistente se vuelve un participante visible de la sesión, exactamente la reconfiguración de roles que la tesis estudia.
+
 ## Propuesta concreta
 
-- **Plan A (demo real en videollamada): opción 6, bot con Recall.ai.** 2 a 4 días, las 5 horas gratis cubren las sesiones de prueba, cubre Teams/Zoom/Meet con una sola integración. Primer paso barato: crear un bot por curl contra una reunión de Teams de prueba y ver si el tenant lo deja entrar (medio día, decide todo).
+- **Plan A (demo real en videollamada): opción 6, bot con Recall.ai, en la variante A+B del bot como interfaz.** El chat deja el registro puntual y la cámara del bot muestra el panel completo; la voz (C) se suma después solo para los CHOCA. 2 a 4 días la base, las 5 horas gratis cubren las sesiones de prueba, cubre Teams/Zoom/Meet con una sola integración. Primer paso barato: crear un bot por curl contra una reunión de Teams de prueba y ver si el tenant lo deja entrar, probando en la misma sesión chat, cámara y pantalla compartida (medio día, decide todo).
 - **Plan B (sin terceros): opción 3, captura de pestaña + Deepgram.** USD 0 con el crédito inicial, diarización incluida, todo queda en la app propia. Limita a reuniones en el navegador.
 - **Opción 4 (RTMS) queda documentada como la vía nativa de Zoom** para el capítulo de la PoC, a implementar solo si la validación se hiciera en Zoom con cuenta paga propia.
 - **Sin más código, la PoC ya es demostrable** con las opciones 1 y 2 en sesiones operadas por la estudiante.
@@ -112,6 +123,7 @@ flowchart TD
 - Meet Media API cerrada: https://developers.google.com/workspace/meet/media-api/guides/overview , Add-ons sin acceso a medios: https://discuss.google.dev/t/how-can-a-public-google-meet-add-on-access-real-time-participant-audio-without-a-bot/385365 , transcripts post-reunión: https://developers.google.com/workspace/meet/api/reference/rest/v2/conferenceRecords.transcripts.entries/list
 - Extensiones de captions de Meet (técnica): https://github.com/Manuel02371/gMeetTranscriptCapture
 - Recall.ai: https://www.recall.ai/pricing , transcripción en vivo: https://docs.recall.ai/docs/bot-real-time-transcription , Teams y bots 2026: https://docs.recall.ai/docs/teams-bots-bypass-the-lobby
+- Salidas del bot hacia la reunión: Output Media (cámara o pantalla compartida): https://docs.recall.ai/docs/stream-media , Output Audio (voz): https://docs.recall.ai/reference/bot_output_audio_create
 - Alternativas de bot: https://www.meetingbaas.com/en/pricing , https://skribby.io/pricing , https://github.com/Vexa-ai/vexa
 - Captura de pestaña: https://chromestatus.com/feature/5178378197139456 , Web Speech sobre MediaStreamTrack: https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/start
 - STT streaming: https://developers.deepgram.com/reference/speech-to-text/listen-streaming , https://www.assemblyai.com/pricing , https://developers.openai.com/api/docs/pricing
