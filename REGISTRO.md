@@ -310,5 +310,6 @@
 - Para la primera prueba con Recall.ai el ranking es Meet (invitado anónimo con gmail personal, cero configuración), Zoom (sin app propia, pero waiting room y límite de 40 min) y Teams último (lobby anti-bots 2026). Flujo mínimo documentado: un POST con la meeting_url y el webhook por túnel, medio día de trabajo
 - Decisión: el bot se implementa propio desde cero (Playwright entra como participante + STT por streaming), descartando la dependencia de Recall.ai y asumiendo 1 a 2 semanas. Plan en etapas en el mismo doc: entrar y escuchar en Meet, devolver al chat, Zoom, y Teams al final verificando el tenant (un bot propio entra marcado como no verificado)
 - El prototipo se movió a un repo privado propio (https://github.com/vickychappuis/prototipo-tesis): app, demo, documentación mock y el bot por venir, con el CLAUDE.md del repo nuevo linkeando a este para el contexto. Este repo (público) queda solo como registro de la investigación. Vercel reconectado al repo nuevo con root `app`, mismo dominio
+- Video explicativo del conector del bot en `sprint 23/conector-bot.mp4` (1:43, seis escenas narradas): sin API ni SDK de las plataformas, el bot es un navegador automatizado que entra como participante, intercepta el audio de la página, lo transcribe con Deepgram (la única API) y devuelve veredictos por chat y cámara
 
 ---
