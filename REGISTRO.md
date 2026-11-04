@@ -275,6 +275,8 @@
 - Prototipo movido a un repo propio (https://github.com/vickychappuis/prototipo-tesis)
 - Bot implementado (`bot/` en ese repo): entra al Meet, transcribe con Deepgram y usa los endpoints existentes
 - Probado en reuniones reales: salieron los cuatro veredictos y el veredicto vuelve al chat
+- Decisiones por voz, probadas en una reunión real: se guardan en una sesión del core, marcan la web y se confirman en el chat
+- Panel del veredicto en la cámara del bot, legible al fijarlo en Meet
 
 **Pendiente:** backend adaptable a la documentación del cliente. La subsección de requisitos del Overleaf pasa al sprint 24.
 

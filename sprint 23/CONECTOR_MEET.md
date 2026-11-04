@@ -46,6 +46,7 @@ Playwright es la biblioteca con la que ese script abre Chrome y lo maneja por c�
 | `deepgram.ts` | Pasa el audio a texto |
 | `pipeline.ts` | Manda el texto al core |
 | `chat.ts` | Escribe el veredicto en el chat |
+| `camara.ts` | Muestra el veredicto en la cámara del bot |
 
 ## Cómo funciona una frase
 
@@ -65,8 +66,13 @@ sequenceDiagram
     K->>B: enunciados completos
     B->>K: /api/veredicto
     K->>B: veredicto con citas
-    B->>M: mensajes en el chat
+    B->>M: chat y panel en la cámara
     M->>P: lee el veredicto
+    P->>M: dice qué decide
+    M->>B: audio
+    B->>K: /api/sesiones/.../interpretar
+    K->>B: decisión anotada
+    B->>M: confirmación en el chat
 ```
 
 ## Cómo resolvimos Meet
@@ -78,7 +84,10 @@ sequenceDiagram
 | Hay que oír la reunión | Se toman las pistas de audio que la página ya recibe (`RTCPeerConnection`) |
 | El bot no debe hacer ruido | Micrófono y cámara falsos, silenciosos y apagados |
 | Hay que pasar audio a texto | Deepgram por streaming, en español, con voces numeradas |
-| El chat admite unos 500 caracteres | Dos mensajes: sello y justificación; cita y pregunta |
+| El chat admite unos 500 caracteres | Un mensaje corto: número, sello, frase citada, motivo, pregunta y link |
+| El veredicto tiene que verse grande | El panel reemplaza la cámara del bot, y se fija en Meet |
+| Meet recorta el video a los costados | El panel deja márgenes laterales amplios |
+| Las decisiones se dicen hablando | El core interpreta la frase, la guarda, marca la web y el chat lo confirma |
 | No toda frase merece respuesta | Lo no accionable no se postea |
 
 ## Límites
@@ -91,4 +100,5 @@ sequenceDiagram
 
 - Dos personas hablando
 - Una reunión creada por otra persona
-- Los dos mensajes en una reunión real
+- Que la cámara prenda siempre: prendió en 2 de 4 entradas
+- La sesión en producción: por ahora se guarda en un archivo local
