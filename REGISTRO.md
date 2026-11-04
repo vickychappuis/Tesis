@@ -219,99 +219,62 @@
 
 ## Sprint 18 — 25 ago → 7 sep 2026
 
-- Índice propuesto para el Overleaf (`sprint 18/INDICE_OVERLEAF.md`), con el orden que pidió Daniel en la call del 11/8: la introducción arranca por el ciclo de vida y el feedback, el background va todo sin IA, y la presentación de la IAG abre el capítulo de resultados
-- Ideas de prototipo con demo en video, una carpeta por idea en `prototipos/`. La idea 1 (aceptación guiada) se descartó por solaparse con la 4; quedan tres
-- Criterio de descarte que ordena las ideas: el actor de negocio tiene que quedar afectado por el prototipo, algo tiene que volver hacia él y cambiar lo que hace o lo que entiende. El test rápido es la validación propuesta: si el prototipo se puede evaluar entero sin usuarios de negocio, el negocio no es el sujeto del estudio. Por ese criterio se reformularon la 2 y la 3
-- Idea 2 (`prototipos/idea-2-reglas-contra-sistema/`): invertido el objeto de validación. Ya no valida el sistema para mandarle el ítem al equipo. Confronta las reglas contra el sistema construido y le devuelve al dueño de la regla las excepciones que el sistema codifica y nadie enunció; la regla del negocio se corrige en la sesión y el ítem para el equipo queda como subproducto. Ataca los objetivos C y D
-- Idea 3 (`prototipos/idea-3-feedback-contestado/`): el firewall pasa a ser feedback contestado. La respuesta vuelve al cliente en el momento, como contrapregunta, juicio de alcance o bug de regla, en vez de filtrarse a sus espaldas. El agente sugiere el alcance y no lo decide: si el cliente insiste el ítem pasa marcado como discrepancia, y esa escalada es un dato. Se mantiene la priorización, ahora del lado del negocio. Ataca los objetivos B, C y E
-- Idea 4 (`prototipos/idea-4-recorrido-gherkin/`): sin cambios, ya cumplía el criterio. Ataca la instancia de aceptación y el objetivo F
-- Arrancó la redacción en el Overleaf (proyecto sincronizado por git, clon local en `~/studies/overleaf-tesis`): volcado inicial de introducción, background, revisión y resultados según el índice propuesto, esqueleto de la PoC, bibliografía unificada en `biblio.bib` y figuras con la terminología de la tesis
-- Dos rondas de revisión sobre ese volcado: consistencia entre capítulos, terminología unificada, precisión de citas y correcciones de LaTeX y bibliografía
-- Call con Daniel (3 set, `sprint 18/resumen_call.md`): índice aprobado con una fusión (revisión y resultados quedan en un solo capítulo, con protocolo y resultados de la búsqueda como subsecciones) y prototipo elegido: el asistente de sesiones de feedback que chequea consistencia contra las reglas y requisitos del proyecto (línea de las ideas 2 y 3). La idea 4 queda afuera por preferencia y tiempo, no por inviabilidad
-
-**Pendiente (sprint 19):** cerrar la segunda versión del capítulo de revisión con la fusión pedida y mandarla a Daniel; bajar a tierra el prototipo (qué preguntas responde, cómo se captura la sesión, contra qué se verifica); revisar la conferencia de RE y lenguajes para expresar reglas; leer la tabla de candidatos del sprint 17 e incorporar lo que valga. Próxima reunión: semana del 14/9, se coordina por Teams.
+- Índice del Overleaf (`sprint 18/INDICE_OVERLEAF.md`) aprobado, con revisión y resultados en un solo capítulo
+- Primera versión en el Overleaf de introducción, background, revisión y resultados
+- Tres ideas de prototipo evaluadas con un criterio: el actor de negocio tiene que quedar afectado
+- Call con Daniel (3 set, `sprint 18/resumen_call.md`): prototipo elegido, el asistente de sesiones de feedback que chequea contra las reglas y requisitos del proyecto
 
 ---
 
 ## Sprint 19 — 4 sep → semana del 14 sep 2026
 
-- Fusión de los capítulos de revisión y resultados en el Overleaf, según la call del 3/9: un solo capítulo "El feedback mediado por IAG" que abre con la presentación de la IAG, sigue con la revisión bibliográfica como sección (proceso de búsqueda y conjunto resultante como subsecciones) y continúa con categorías, dimensiones, escenarios y aspectos a profundizar. Referencias cruzadas y estructura del documento actualizadas
-- Cierre de la v2 de la revisión con datos reconstruidos desde este repo (sprints 5, 10, 12, 13 y 17): criterios de aceptación y rechazo explicitados en el proceso de búsqueda, tabla de los 18 trabajos del marco con año, origen y tipo de evidencia, y entrada bibliográfica de la nota de vibe coding (Violino, CIO, 26-may-2026, URL verificada), citada en la categoría de materialización; el comentario abierto del conteo quedó resuelto con 18 trabajos y 12 citados
-- Las seis cifras de la sección de revisión (1750 revisados, 19 relevantes, corpus inicial de 10, ~500 y ~160 de snowballing, 1066 recodificados) se verificaron contra la documentación de proceso: todas confirmadas
+- Capítulo único "El feedback mediado por IAG" en el Overleaf
+- V2 de la revisión cerrada, con sus cifras verificadas contra la documentación de proceso
+- Definición de la PoC y borrador del abstract escritos
+- Con Daniel se acordó pasar a la implementación del prototipo
 
-- Ronda de 5 revisores sobre la v2 (consistencia interna, entre capítulos, fidelidad al proceso, LaTeX/bibliografía, tabla del corpus fila por fila). Correcciones aplicadas: el encuadre de la revisión ya no niega que hubo criterios (hubo criterios y lineamientos, no protocolo cerrado), los límites declaran las cargas parciales (ScienceDirect 192/313, Wiley 100/136, Web of Science sin acceso, gris ~150 por fuente), un comentario dentro de una entrada del bib que mutilaba la referencia de Lang y Fischer, la brecha 19 relevantes vs 12 citados explicitada, la tensión entre el bullet de andamiajes y Sharma resuelta, tablas ajustadas al ancho de página y precisiones menores (tope temporal marzo 2026, dimensión de efectos, nombre completo de la categoría de materialización)
-- Quedan sin tocar, por depender de decisiones con Daniel: los candidatos de la recodificación que darían primera evidencia académica a la categoría de suplantación (hoy declarada sin respaldo del corpus) y los esqueletos de PoC y conclusiones
+**Para decidir con Daniel:** candidatos para la categoría de suplantación; PM Agent en materialización; lugar de los lineamientos preliminares; validación de la PoC.
 
-- Ronda de 3 redactores sobre los comentarios abiertos: referencia fundacional de IAG (GPT-4 Technical Report, verificada contra arXiv), sección de definición de la PoC escrita desde lo acordado el 3/9 (con las cuatro barreras de Sharma trasladadas al diseño), y borrador del abstract. Implementación y validación de la PoC quedan como comentarios con lo realmente pendiente
-- Ronda de 11 chequeadores de olvidos contra el repo. Corregido: la pregunta de investigación y las cinco subpreguntas del sprint 2 ahora abren la sección de objetivos, la delimitación de alcance del sprint 11 quedó explícita (fuera: prototipado inicial, requisitos iniciales, UX temprano, mantenimiento), el objetivo 6 recuperó "orientado a usuarios no técnicos", la introducción ya no ata la PoC al hueco de la literatura, la objeción de Lang y Fischer quedó respondida de frente, Lindenberg declara que se relevó por el resumen publicado, Tusk/Sweep sin el "sin compuerta humana" no documentado, el bullet de Fawzy respeta su cautela, palabras clave completadas y fecha de la declaración sin llaves
-- Verificado sin hallazgos: background contra el índice y el marco, figuras (checksums al día, fuentes en captions), decisiones de 20 calls (16 cumplidas), 15 de 17 cautelas de citado, estructura completa contra el índice acordado
-
-**Para decidir con Daniel:** candidatos de la recodificación para la categoría de suplantación (hoy "sin respaldo del corpus" con dos candidatos identificados); PM Agent clasificado en materialización cuando produce especificaciones y tickets (categoría del artefacto); los "lineamientos preliminares" del proyecto sin lugar declarado; validación de la PoC (la opción de corridas automáticas tensiona el criterio del stakeholder afectado).
-
-**Pendiente:** compilar en Overleaf para confirmar todo; mandar la v2 a Daniel y coordinar por Teams la reunión de la semana del 14/9. Restos de plantilla a completar a mano: dedicatoria y agradecimientos, anexos vacíos, año de portada (2026) vs fecha de declaración (1-3-2027).
-
-**Cierre:** con Daniel se acordó pasar a la implementación del prototipo (ver sprint 20). Los puntos "para decidir con Daniel" de este sprint siguen abiertos y se retoman cuando se vuelva al documento.
+**Pendiente:** dedicatoria, agradecimientos, anexos y fechas de portada y declaración.
 
 ---
 
 ## Sprint 20 — 3 oct → jueves 8 oct 2026
 
-- Foco único: arrancar la implementación del prototipo, el asistente de sesiones de feedback (definición en el capítulo de PoC del Overleaf; encuadre acordado: reglas y requisitos del proyecto consultados vía RAG, capa de interfaz sobre la documentación, prueba con documentación anonimizada de un proyecto real)
-- Dos matices sobre el encuadre, para llevar a Daniel: el mecanismo de consulta de la documentación queda a criterio (RAG, LLMWiki u otro), y las conclusiones de cada sesión quedan documentadas en forma estructurada como insumo para actualizar la documentación después, aunque el prototipo no la mantiene
-- Descartado tras evaluarlo: agregar la prueba en vivo contra el sistema con Playwright. Convierte el prototipo en verificación automática (de la que el marco se diferencia), es evaluable sin usuarios de negocio (rompe el criterio rector) y cambia el encuadre acordado. Queda como extensión a proponer
-- Demo del asistente grabada en el formato de las otras ideas, en `PROTOTIPO/demo/` (mock auto-animado + webm + gif)
-- Dominio del proyecto inventado elegido: biblioteca universitaria y su sistema de préstamos. Documentación sintética en `PROTOTIPO/documentacion/`, con una contradicción plantada (excepción de material de referencia solo en el acta del 12/5) y un hueco plantado (reservas sin vencimiento)
-- Reorganización: las ideas del sprint 18 pasan de `prototipos/` a `sprint 18/ideas prototipos/`; el prototipo que se construye vive en `PROTOTIPO/` en la raíz (demo, documentación y próximamente la app), con README y CLAUDE.md propios
-- v1 de la app implementada con tres subagentes en paralelo (backend, evaluación, UI) sobre un plan aprobado: Next.js en `PROTOTIPO/app/`, ruta `POST /api/veredicto` contra la API de OpenAI con salida estructurada (schema zod, cuatro veredictos: choca / coincide / no contemplado / no accionable), verificación de citas en el servidor contra los archivos reales, panel de sesión fiel a la demo con corrección en sesión y tickets con compuerta humana, export del registro a markdown, y set de evaluación de 12 casos con runner (`evaluacion/`). Build y typecheck pasan; smoke test de la ruta ok (error tipado sin API key)
-- Evaluación corrida con la key real. Con `gpt-4o-mini`: 10-11/12 con varianza entre corridas justo en los casos finos (la trampa del acta y el ambiguo que exige pregunta); dos refuerzos de prompt mejoraron pero no estabilizaron. Con `gpt-5-mini`: 12/12 estable en dos corridas, con todas las citas verificables y todos los invariantes. Queda `gpt-5-mini` como modelo. La diferencia entre modelos sobre los mismos casos es en sí un dato para el capítulo de la PoC
-- Cero citas inventadas en todas las corridas con ambos modelos: la verificación de citas del servidor (fragmento literal contra el archivo) no encontró ninguna alucinación
-- Preparada la publicación: gate de clave compartida (proxy de Next 16 + cookie firmada con HMAC, pantalla `/acceso`, API bloqueada con 401 sin cookie; solo se activa si `APP_PASSWORD` y `AUTH_SECRET` están definidas) y empaquetado de la documentación en el build (`prebuild` la copia adentro de `app/`). Probado de punta a punta en local. Destino: Vercel en un subdominio de vickychappuis.dev, sin Supabase (la app no tiene base de datos)
-- Publicado: proyecto `prototipo-tesis` en Vercel con las cuatro variables en producción, deploy andando con el gate activo (la URL redirige a `/acceso` sin cookie). Dominio `prototipo.vickychappuis.dev` agregado al proyecto; falta el CNAME en Namecheap para que resuelva
-- Dominio en vivo: CNAME agregado en Namecheap (vía navegador), verificación de Vercel ok y certificado emitido a mano con `vercel certs issue` (no se disparó solo). `https://prototipo.vickychappuis.dev` responde: redirige a `/acceso` sin cookie y la API devuelve 401. Clave compartida para el acceso generada y fuera del repo
-- Paso 2 implementado y publicado: la reunión escuchada. Dictado con la Web Speech API del navegador (es-AR, continuo), cada resultado final del reconocedor se trata como un enunciado y entra al mismo pipeline del paso 1; la segmentación por pausas del habla es el corte entre enunciados y los descartes cortos se filtran. Transcripción parcial visible mientras escucha. Clave de acceso cambiada a la elegida por la estudiante; las sesiones con la clave vieja quedaron invalidadas solas
-- Rediseño por dos observaciones de la estudiante: el corte por pausas era crudo, e inyectar toda la documentación no escala. Tres cambios, cada uno con su subagente:
-- (1) Taxonomía documental investigada contra la práctica real (encuestas de RE, uso de Jira/Confluence): 7 tipos (requisitos, actas, reglas, tickets con criterios adentro, politicas, alcance, glosario). La biblioteca mock pasó de 3 a 10 documentos con `INDICE.md`, y de 2 a 4 trampas: se sumaron el glosario obsoleto frente a un acta posterior y la regla escrita que el anexo de alcance excluye (las dos reproducen fallas documentadas de la práctica)
-- (2) El bibliotecario: el modelo ya no recibe la documentación entera; recibe el índice y las herramientas listar_documentos / leer_documento, y decide qué abrir (tool use, tope de 6 iteraciones). La tarjeta muestra "Consultó: ..." con las lecturas reales registradas por el servidor, y las citas de documentos no consultados se marcan no verificadas
-- (3) El extractor en vivo: el dictado acumula un buffer de transcripción corrida y un llamado barato al modelo lo segmenta en enunciados completos, cola incompleta y charla descartada. Resuelve el requisito partido en dos frases y los dos pedidos encadenados sin pausa; banco propio de 6 transcripciones guionadas
-- Evaluación tras el rediseño: veredictos 15/15 en tres de cuatro corridas (los casos nuevos de las trampas 3 y 4 pasan; la varianza queda en los dos casos finos y en alguna cita reformulada que el verificador atrapa y marca, como debe); extractor 6/6. Ajustes de prompt que salieron de la regresión: el cruce contra el alcance antes de confirmar un "coincide", y la regla de vigencia (coincidir con el documento más reciente es coincide; el choque es contra lo vigente). El caso 7 se actualizó porque la biblioteca nueva ya contempla lo que pedía
+- Documentación de prueba: una biblioteca universitaria, con 10 documentos de 7 tipos y 4 trampas plantadas
+- App publicada en https://prototipo.vickychappuis.dev: clasifica cada enunciado en cuatro veredictos y verifica las citas contra los documentos
+- El modelo consulta solo los documentos que necesita, a partir de un índice
+- Escucha en vivo: el dictado se corta en enunciados completos antes de evaluarse
+- Evaluación: veredictos 15/15 en tres de cuatro corridas, extractor 6/6, con `gpt-5-mini`
+- Decisión: la prueba en vivo contra el sistema queda afuera
 
 ---
 
 ## Sprint 21 — semana del 20 oct 2026
 
-- Rediseño visual de la app a pedido de la estudiante, para despegarla de la estética genérica de app generada: identidad propia de ficha de biblioteca (papel y tinta, filetes finos, veredictos como sellos en mayúsculas con borde de tinta, citas y rutas en monoespaciada). Tipografías Archivo e IBM Plex Mono vía next/font, un solo acento de acción (azul de sello); desaparecen el violeta, el azul brillante y las tarjetas pastel. Tokens en `app/src/app/globals.css`; la demo de `PROTOTIPO/demo/` se restilizó y regrabó (webm + gif) para seguir siendo la referencia visual. Desplegado en producción y verificado con un veredicto real de punta a punta
-- Bug encontrado al verificar el rediseño y corregido: la persistencia en localStorage guardaba el estado inicial vacío antes de rehidratar la sesión, y con StrictMode en desarrollo borraba la sesión guardada al recargar; el estado inicial ya no se persiste
-
-- Tutorial de primera visita en la app: tour salteable de 6 pasos que recorre el registro, el formulario, el micrófono, los veredictos y el cierre, con un botón "?" flotante para volver a verlo. Se abre solo la primera vez (marca en localStorage) y resalta cada zona de la pantalla
-- Arreglado el origen de los mails de error de Vercel: el proyecto quedó conectado al repo de GitHub y cada push compilaba desde la raíz (sin app Next) y fallaba. Se fijó el root directory en PROTOTIPO/app; ahora cada push a main redeploya solo y el deploy por CLI deja de ser necesario
-
-- Visor de documentos: los chips de citas y fuentes de cada tarjeta abren el documento en un modal, tal cual está escrito, con el fragmento citado subrayado (nueva ruta GET /api/documento con el mismo saneo de rutas del bibliotecario). Sin storage: los markdown viajan en el bundle del deploy; el storage externo queda para cuando haya documentos reales en otros formatos o actualización sin redeploy
-
-- Rediseño del layout a partir de 4 mockups presentados a la estudiante (eligió el partido 50/50): la conversación de feedback a la izquierda, con cada intervención y su veredicto en una sola tarjeta y el composer con micrófono al pie, y el panel de documentos a la derecha con pestañas. Los documentos dejaron de verse como markdown crudo: se renderizan como hoja (fondo blanco, títulos, listas) con la cita subrayada sobre marca
+- Identidad visual propia de ficha de biblioteca
+- Layout partido: la sesión a la izquierda y los documentos a la derecha
+- Visor de documentos con la cita subrayada
+- Tutorial de primera visita
 
 ---
 
 ## Sprint 22 — 26 oct → jueves 29 oct 2026
 
-- Foco acordado: averiguar si el prototipo podría integrarse a herramientas como Zoom o Google Meet, con propuestas. Resultado en `sprint 22/INTEGRACION_VIDEOLLAMADAS.md` (relevamiento inicial ampliado después con cuatro análisis en paralelo: Zoom, Meet, bots y captura local)
-- Hallazgo central: el pipeline del prototipo (escucha → extractor → veredicto) solo necesita texto transcripto, así que integrarse es sustituir la fuente del texto. Seis vías relevadas y comparadas con diagramas: modo acompañante (funciona hoy), audio virtual (BlackHole/VB-Cable, cero código), captura de pestaña + STT por API (Deepgram/AssemblyAI, USD 0 con créditos gratis y diarización incluida), Zoom Apps + RTMS (la única vía oficial en tiempo real, pero exige cuenta paga, Developer Pack y un servidor websocket fuera de Vercel), extensión Chrome que lee los captions de Meet (la única vía en vivo que queda en Meet: Media API cerrada y Add-ons sin acceso a medios) y bot participante (Recall.ai, 2 a 4 días, USD 0 a 4 con free tiers, única vía realista en Teams)
-- El costo resultó irrelevante en todas las vías (menos de USD 25 por 10 horas de prueba); lo que decide es la fricción administrativa de cada plataforma y dónde son las reuniones. Riesgo nuevo detectado: desde 2026 Teams retiene a los bots externos en el lobby por defecto y los admins pueden bloquearlos; verificar el tenant antes de comprometerse
-- Giro de la estudiante sobre la vía bot: pensarlo sin página web, con el bot devolviendo los veredictos adentro de la reunión. Cuatro variantes diseñadas y mockupeadas (`sprint 22/mockups_bot_como_interfaz.html`, también publicado como artifact): el bot que chatea (chat de la reunión, verificado que es texto plano sin formato), el bot que muestra (Output Media de Recall: la cámara o pantalla compartida del bot transmite el panel propio, confirmado en la documentación para las tres plataformas; compartir pantalla depende de los permisos de la reunión, la cámara es el default robusto), el bot que habla (voz solo ante un CHOCA o por invocación) y el secretario silencioso (acta al chat al cerrar). La arquitectura queda server-side y desaparece el puente webhook-frontend; Recall es cañería sin lógica, cada mensaje lo arma el pipeline propio
-- Propuesta para Daniel: plan A bot (Recall.ai) en la variante chat + cámara-panel, plan B captura de pestaña + Deepgram sin terceros; RTMS queda documentada como la vía nativa de Zoom. La asimetría del ecosistema (Zoom abrió el tiempo real pago, Google lo mantiene cerrado, la industria lo resuelve con bots y scraping) queda como dato para el capítulo de la PoC
-- Relevamiento aparte: frameworks de guardado de documentación de proyectos (ISO 29148, Volere, Agile Modeling) con números de adopción de encuestas verificados contra fuente primaria, en `sprint 22/FRAMEWORKS_DOCUMENTACION.md`. Hallazgo útil para la PoC: los artefactos donde el prototipo planta trampas (actas, glosario) son justo los que ningún survey mide
-- Call con Daniel (29 oct, `sprint 22/resumen_call.md`): la herramienta es de validación contra la base de conocimiento del proyecto, sin imponer una forma de documentar (un espacio por tipo de artefacto con descripción de cómo se lee); el relevamiento de frameworks va al Overleaf como subsección en párrafos para mostrar que no hay forma única; separar solución conceptual (soporta todas las formas y plataformas) de la PoC (una forma, un plugin); arquitectura preferida: bot liviano + servidor propio conectado al repositorio de documentación, chequeos en vivo y corrección de documentos a posteriori
+- Integración con videollamadas (`sprint 22/INTEGRACION_VIDEOLLAMADAS.md`): el pipeline solo necesita texto, así que integrarse es cambiar la fuente; seis vías comparadas
+- Cuatro variantes del bot como interfaz dentro de la reunión (`sprint 22/mockups_bot_como_interfaz.html`)
+- Relevamiento de frameworks de documentación (`sprint 22/FRAMEWORKS_DOCUMENTACION.md`)
+- Call con Daniel (29 oct, `sprint 22/resumen_call.md`): validar contra la base de conocimiento sin imponer una forma de documentar, separar la solución conceptual de la PoC, y bot liviano con servidor propio
 
 ---
 
 ## Sprint 23 — 30 oct → jueves 5 nov 2026
 
-- Foco acordado (call del 29/10): explorar los bots en Zoom, Meet y Teams, definir una arquitectura viable, redactar en el Overleaf la subsección de especificación de requisitos y pensar el backend adaptable a la documentación del cliente
-- Viabilidad del bot en las tres plataformas (`sprint 23/VIABILIDAD_BOT_PLATAFORMAS.md`): Zoom tiene una vía oficial fácil (RTMS), Teams abre una nueva (Work IQ) y Meet se queda sin vía oficial en vivo porque Google discontinuó la Media API
-- Decisión: bot propio desde cero, sin depender de Recall.ai, y un solo proveedor: Google Meet
-- El prototipo se movió a un repo privado propio (https://github.com/vickychappuis/prototipo-tesis), con Vercel reconectado y el mismo dominio; este repo queda como registro de la investigación
-- Video explicativo del conector en `sprint 23/conector-bot.mp4`
-- Bot implementado en `bot/` del repo del prototipo: entra al Meet con una cuenta de Google, captura el audio de la reunión, lo transcribe con Deepgram y manda el texto a los endpoints existentes
-- Probado en reuniones reales: los cuatro veredictos salieron de viva voz, con citas verificadas, y el veredicto vuelve al chat de la reunión
+- Viabilidad del bot en Zoom, Meet y Teams (`sprint 23/VIABILIDAD_BOT_PLATAFORMAS.md`)
+- Decisión: bot propio, solo para Google Meet
+- Prototipo movido a un repo propio (https://github.com/vickychappuis/prototipo-tesis)
+- Bot implementado (`bot/` en ese repo): entra al Meet, transcribe con Deepgram y usa los endpoints existentes
+- Probado en reuniones reales: salieron los cuatro veredictos y el veredicto vuelve al chat
 
 **Pendiente:** backend adaptable a la documentación del cliente. La subsección de requisitos del Overleaf pasa al sprint 24.
 
