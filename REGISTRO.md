@@ -270,10 +270,10 @@
 
 ## Sprint 23 — 30 oct → jueves 5 nov 2026
 
-- Viabilidad del bot en Zoom, Meet y Teams (`sprint 23/VIABILIDAD_BOT_PLATAFORMAS.md`)
+- Viabilidad del bot en Zoom, Meet y Teams, y diagrama del conector (`sprint 23/CONECTOR_MEET.md`)
 - Decisión: bot propio, solo para Google Meet
 - Prototipo movido a un repo propio (https://github.com/vickychappuis/prototipo-tesis)
-- Bot implementado (`bot/` en ese repo, diagrama en `sprint 23/CONECTOR_MEET.md`): entra al Meet, transcribe con Deepgram y usa los endpoints existentes
+- Bot implementado (`bot/` en ese repo): entra al Meet, transcribe con Deepgram y usa los endpoints existentes
 - Probado en reuniones reales: salieron los cuatro veredictos y el veredicto vuelve al chat
 
 **Pendiente:** backend adaptable a la documentación del cliente. La subsección de requisitos del Overleaf pasa al sprint 24.
