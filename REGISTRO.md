@@ -277,7 +277,14 @@
 - Probado en reuniones reales: salieron los cuatro veredictos y el veredicto vuelve al chat
 - Decisiones por voz, probadas en una reunión real: se guardan en una sesión del core, marcan la web y se confirman en el chat
 - Panel del veredicto en la cámara del bot, legible al fijarlo en Meet
+- Call con Daniel (5 nov, `sprint 23/resumen_call.md`): viabilidad técnica resuelta; primero documentar requisitos y diseño de la herramienta ideal, después profundizar la PoC y por último evaluar con reuniones simuladas y una encuesta breve
 
 **Pendiente:** backend adaptable a la documentación del cliente. La subsección de requisitos del Overleaf pasa al sprint 24.
+
+---
+
+## Sprint 24 — 6 nov → semana del 9 nov 2026
+
+- Foco acordado (call del 5/11): armar en el Overleaf la sección de requisitos funcionales y no funcionales de la herramienta ideal y la sección de diseño (arquitecturas del bot y backend); después volver a la PoC
 
 ---
