@@ -286,6 +286,10 @@
 ## Sprint 24 — 6 nov → semana del 9 nov 2026
 
 - Foco acordado (call del 5/11): armar en el Overleaf la sección de requisitos funcionales y no funcionales de la herramienta ideal y la sección de diseño (arquitecturas del bot y backend); después volver a la PoC
-- Borrador en el Overleaf, capítulo de la PoC: requisitos (30 funcionales y 14 no funcionales, con su alcance) y diseño (arquitectura general, integración con la videollamada, core y base de conocimiento)
+- Borrador del capítulo de la PoC: requisitos (23 funcionales y 12 no funcionales, con su alcance) y diseño (arquitectura general, integración con la videollamada, core y base de conocimiento)
+- Revisión de vocabulario y fuentes: registro universitario, términos en español y datos de plataformas contrastados con su documentación oficial
+- Enviado a Daniel para revisión (`sprint 24/borrador_requisitos_diseno.pdf`, `sprint 24/requisitos_diseno.html`)
+
+**Pendiente:** subir la versión revisada al Overleaf, que sigue con el borrador anterior (30 funcionales y 14 no funcionales).
 
 ---
