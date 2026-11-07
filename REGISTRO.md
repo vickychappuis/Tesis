@@ -289,6 +289,7 @@
 - Borrador del capítulo de la PoC: requisitos (23 funcionales y 12 no funcionales, con su alcance) y diseño (arquitectura general, integración con la videollamada, core y base de conocimiento)
 - Revisión de vocabulario y fuentes: registro universitario, términos en español y datos de plataformas contrastados con su documentación oficial
 - Enviado a Daniel para revisión (`sprint 24/borrador_requisitos_diseno.pdf`, `sprint 24/requisitos_diseno.html`)
+- Relevamiento de búsqueda agéntica (`sprint 24/BUSQUEDA_BIBLIOTECARIO.md`): 57 fuentes y siete propuestas; recomienda mantener el agente que navega y cita de los originales, sin RAG, grafos ni wiki como fuente
 
 **Pendiente:** subir la versión revisada al Overleaf, que sigue con el borrador anterior (30 funcionales y 14 no funcionales).
 
