@@ -290,7 +290,7 @@
 - Revisión de vocabulario y fuentes: registro universitario, términos en español y datos de plataformas contrastados con su documentación oficial
 - Enviado a Daniel para revisión (`sprint 24/borrador_requisitos_diseno.pdf`, `sprint 24/requisitos_diseno.html`)
 - Relevamiento de búsqueda agéntica (`sprint 24/BUSQUEDA_BIBLIOTECARIO.md`): 57 fuentes y siete propuestas; recomienda mantener el agente que navega y cita de los originales, sin RAG, grafos ni wiki como fuente
-
-**Pendiente:** subir la versión revisada al Overleaf, que sigue con el borrador anterior (30 funcionales y 14 no funcionales).
+- Daniel lo aprobó (9/11) y pidió integrarlo al Overleaf: subido
+- Siguiente: profundizar el prototipo o la búsqueda de documentos del agente; el alcance de la PoC se valida en la próxima call
 
 ---
