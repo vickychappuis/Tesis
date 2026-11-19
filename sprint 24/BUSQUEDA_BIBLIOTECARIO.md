@@ -1,5 +1,7 @@
 # Búsqueda del bibliotecario: relevamiento y propuestas
 
+> **Reemplazado** por `REVISION_BUSQUEDA.md` (19/11/2026), que corrige varias cifras de este documento.
+
 **Fecha:** 06/11/2026 · **Versión navegable:** https://claude.ai/artifact/2nJJCZWgM4YbWMHTv2EUCY
 
 Recomendación: mantener al agente que navega y cita de los originales, sin pasar a RAG, grafos ni responder desde una wiki. Ninguna fuente evalúa esta tarea: lo que sigue se apoya en dominios parecidos. Revisar las cifras contra el original antes de citarlas en la tesis.

@@ -292,5 +292,6 @@
 - Relevamiento de búsqueda agéntica (`sprint 24/BUSQUEDA_BIBLIOTECARIO.md`): 57 fuentes y siete propuestas; recomienda mantener el agente que navega y cita de los originales, sin RAG, grafos ni wiki como fuente
 - Daniel lo aprobó (9/11) y pidió integrarlo al Overleaf: subido
 - Siguiente: profundizar el prototipo o la búsqueda de documentos del agente; el alcance de la PoC se valida en la próxima call
+- Revisión rápida de búsqueda para la reunión (`sprint 24/PROTOCOLO_BUSQUEDA.md`, `sprint 24/REVISION_BUSQUEDA.md`): protocolo con auditoría por kappa, unas 1.000 fuentes incluidas; dos arquitecturas candidatas a implementar y comparar
 
 ---

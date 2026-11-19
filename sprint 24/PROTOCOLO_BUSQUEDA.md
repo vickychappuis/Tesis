@@ -100,6 +100,42 @@ Donde no haya evidencia, se dice «sin evidencia» y no se infiere. El resultado
 - Área que cambia rápido: buena parte de la evidencia son preprints.
 - Ningún estudio esperado evalúa exactamente esta tarea; la evidencia viene de dominios parecidos (QA sobre documentos, verificación de hechos, trazabilidad de requisitos).
 
+## 12. Enmienda 1 (18/11/2026), tras la primera auditoría
+
+La auditoría del filtro por título y resumen dio desacuerdos por encima del 10% en tres pasos (63% en las cadenas generales, 25% en dos pasos de literatura gris). La causa principal: I1, tal como estaba escrito, abarca casi todo trabajo de RAG, y cada revisor lo acotó a su manera. Se precisan los criterios así, y los pasos con desacuerdo se repiten leyendo el resumen de cada registro:
+
+- **I1, cadenas generales (A AND B).** Además de proponer o evaluar una técnica, el estudio la compara contra otra configuración de almacenamiento, indexación o recuperación, o mide su demora o su costo. Una aplicación de dominio que usa un RAG estándar sin comparar configuraciones no cumple I1. Quedan fuera las técnicas de servicio del modelo (caché KV, hardware, decodificación) y la seguridad (ataques y defensas).
+- **I1, cadenas de PI3 (A AND B AND C).** El estudio trata la exigencia de su cadena: contradicción o excepción entre documentos, vigencia o versiones, ausencia o abstención, cita o atribución, demora, o trazabilidad. Los conflictos entre un documento y la memoria del modelo no cuentan como contradicción entre documentos.
+- **I2.** Lo que trabaja solo sobre código no cumple I2. Se lista aparte como práctica cercana, sin peso de evidencia, porque la discusión entre búsqueda agéntica y RAG se origina en esas herramientas.
+- **I3, literatura gris.** Una implementación entra si documenta una variante de la técnica o reporta su uso; una copia sin aporte, no. Los surveys y tutoriales sin evaluación propia no cumplen I3.
+- **E2.** Excluye solo cuando el resultado depende de la escala web. Si lo que se toma del estudio es el método (de evaluación, de verificación o de citas) y es aplicable a un corpus chico, no se excluye.
+- **E3.** Antes de aplicarlo se busca otra versión: arXiv, el sitio del autor, el repositorio institucional o Semantic Scholar. Una página que falla se reintenta. Se registra cada intento.
+- **Registros agrupados.** Prohibidos: un registro por resultado.
+- **Motivos.** Pueden asignarse con reglas de palabras clave solo si la decisión se tomó leyendo el título y el resumen del registro.
+
+## 13. Enmienda 2 (18/11/2026), tras la auditoría de las cadenas de PI3
+
+La auditoría de las cadenas de contradicción y vigencia dio 11% de desacuerdo por título y resumen y 30% por texto completo. El primer revisor leyó «contradicción entre documentos» de forma más estrecha que el segundo. Se precisa:
+
+- **Contradicción.** Cuenta el conflicto entre fuentes recuperadas, aunque vengan de bases distintas (corpus curado, web). No cuenta el conflicto entre un documento y la memoria del modelo, ni entre una afirmación aislada y un corpus que no se contradice.
+- **Vigencia.** Cuentan los sistemas que guardan hechos extraídos de texto con su validez en el tiempo (grafos temporales, memorias con invalidación), aunque el texto de origen sean conversaciones: I2 se cumple si la unidad de origen es texto.
+- **Seguridad.** En las cadenas de PI3, un benchmark de seguridad entra si mide el conflicto entre documentos recuperados; la exclusión de seguridad de la Enmienda 1 rige solo para las cadenas generales.
+- **Benchmarks de PI3.** Un benchmark que evalúa cómo el modelo maneja ausencia, conflicto o citas sobre evidencia recuperada cumple I1 en su cadena, aunque no proponga una técnica de recuperación.
+- **Grafos y datos derivados.** Un grafo o una tabla construidos desde documentos de texto cumplen I2.
+- **E1.** Excluye solo si no hay un componente de recuperación o de decisión separable. Si la técnica requiere entrenar, entra y se registra ese costo.
+- **Registros sin resumen.** Se decide por título y se marca; en el filtro por título y resumen, ante la duda, entra.
+- **Lectura obligatoria.** En el filtro por título y resumen se lee el resumen de cada registro, no solo el de los candidatos marcados por título.
+
+## 14. Enmienda 3 (18/11/2026), resolución de desacuerdos
+
+Con muestras chicas, un solo desacuerdo pasa el 10% (1 de 8 es 12,5%), y repetir el paso entero no converge. Se cambia la regla de la sección 7:
+
+- **Desacuerdo concentrado.** Si los desacuerdos de un paso se concentran en un mismo criterio, se precisa ese criterio y se vuelven a decidir todos los registros de ese paso decididos por él.
+- **Desacuerdo aislado.** El resto de los desacuerdos lo resuelve un tercer revisor (el agente coordinador) leyendo la fuente, y la resolución se registra con su motivo.
+- **Informe.** Se informa, por paso, el desacuerdo antes de resolver y el kappa de Cohen.
+
+**I3 en literatura gris.** Entra si cumple al menos una de estas condiciones: documenta una variante propia de la técnica (no solo la instala o la resume), reporta mediciones propias aunque sean del mismo autor, o reporta uso en un proyecto u organización identificable. No entran la opinión sin cifras ni el tutorial que repite la técnica sin modificarla. En la literatura gris no se exige la comparación de configuraciones de la Enmienda 1.
+
 ## Referencias del método
 
 - Cartaxo, B., Pinto, G. y Soares, S. (2020). Rapid Reviews in Software Engineering. En *Contemporary Empirical Methods in Software Engineering*, Springer.
