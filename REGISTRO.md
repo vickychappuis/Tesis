@@ -283,7 +283,7 @@
 
 ---
 
-## Sprint 24 — 6 nov → semana del 9 nov 2026
+## Sprint 24 — 6 nov → jueves 19 nov 2026
 
 - Foco acordado (call del 5/11): armar en el Overleaf la sección de requisitos funcionales y no funcionales de la herramienta ideal y la sección de diseño (arquitecturas del bot y backend); después volver a la PoC
 - Borrador del capítulo de la PoC: requisitos (23 funcionales y 12 no funcionales, con su alcance) y diseño (arquitectura general, integración con la videollamada, core y base de conocimiento)
@@ -293,5 +293,14 @@
 - Daniel lo aprobó (9/11) y pidió integrarlo al Overleaf: subido
 - Siguiente: profundizar el prototipo o la búsqueda de documentos del agente; el alcance de la PoC se valida en la próxima call
 - Revisión rápida de búsqueda para la reunión (`sprint 24/PROTOCOLO_BUSQUEDA.md`, `sprint 24/REVISION_BUSQUEDA.md`): 1.007 fuentes incluidas; candidatas a implementar y comparar: RAG híbrido e índice navegado por un agente (vectorless RAG), con una capa ordenada al cargar. Presentación: https://claude.ai/artifact/WNwqWcQxHSnr5WBgw2LtDU
+- Call con Daniel (19 nov, `sprint 25/resumen_call.md`): se implementa una sola candidata de búsqueda, sin compararlas; la PoC suma un acta al final de la reunión; la validación se define en la próxima call
+
+---
+
+## Sprint 25 — 20 nov 2026 →
+
+- Foco acordado (call del 19/11): cerrar la PoC con una candidata de búsqueda implementada y el acta al final de la reunión
+- Fuente posible de documentación real para la validación: memoria organizacional del Proyecto de Ingeniería de Software (Udelar)
+- Trabajo relacionado: agente de reuniones de Anthropic (beta)
 
 ---
