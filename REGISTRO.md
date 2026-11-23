@@ -304,3 +304,4 @@
 - Trabajo relacionado: agente de reuniones de Anthropic (beta)
 
 ---
+- Búsqueda elegida: RAG híbrido (vectores densos y BM25 con fusión RRF, Qdrant local), por la demora en vivo; el bibliotecario queda como fallback. Mismos aciertos en los 15 casos y el veredicto pasa de 10,8 s a unos 6 s (p50)
