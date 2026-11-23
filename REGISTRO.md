@@ -302,6 +302,6 @@
 - Foco acordado (call del 19/11): cerrar la PoC con una candidata de búsqueda implementada y el acta al final de la reunión
 - Fuente posible de documentación real para la validación: memoria organizacional del Proyecto de Ingeniería de Software (Udelar)
 - Trabajo relacionado: agente de reuniones de Anthropic (beta)
+- Búsqueda elegida: RAG híbrido (vectores densos y BM25 con fusión RRF, Qdrant local), por la demora en vivo; el bibliotecario queda como fallback. Mismos aciertos en los 15 casos y el veredicto pasa de 10,8 s a unos 6 s (p50)
 
 ---
-- Búsqueda elegida: RAG híbrido (vectores densos y BM25 con fusión RRF, Qdrant local), por la demora en vivo; el bibliotecario queda como fallback. Mismos aciertos en los 15 casos y el veredicto pasa de 10,8 s a unos 6 s (p50)
