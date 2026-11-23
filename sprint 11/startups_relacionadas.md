@@ -41,6 +41,20 @@ Docs: https://help.clickup.com/hc/en-us/articles/33877442924183-Use-Codegen-AI-a
 
 ---
 
+## Big-cos: agentes que entran a la reunión
+
+*Agregado en el sprint 25 (call del 19/11/2026). Fuentes consultadas el 23/11/2026.*
+
+| Producto | Tramo | Qué hace (verificado) | Qué le falta vs. la tesis | Estado | Link |
+|---|---|---|---|---|---|
+| **Claude Meetings** (Anthropic) | Reunión → notas, tareas y artefactos | Claude entra a la videollamada como participante visible (se lo agrega desde el calendario o con auto-join). Se le habla diciendo "Claude" o por el chat de Meet; responde por escrito en el chat. Durante la llamada arma docs, pizarras y otros artefactos, y consulta las herramientas conectadas de cada persona con su permiso. Al final deja una página con resumen, action items, transcripción y lo creado (no guarda audio), más un mail de recap | Comparte con la tesis: bot propio en Google Meet, transcripción, acta al final. Le falta: confrontar lo que se dice contra lo acordado (no hay veredicto choca / coincide / no contemplado ni citas verificadas contra los documentos); actúa cuando se lo piden, no ante cada enunciado; consulta herramientas a pedido, no una base de conocimiento del proyecto; y **con invitados externos (el cliente) no responde en el chat**, solo toma notas: la devolución queda para el equipo, no vuelve al actor de negocio en la reunión. Tampoco registra decisiones del cliente sobre cada hallazgo | Beta desde 12/11/2026; planes Team y Enterprise (no ZDR, HIPAA ni CMEK); solo Google Meet, otras plataformas anunciadas sin fecha | https://claude.com/resources/articles/claude-meetings · https://support.claude.com/en/articles/18325154-use-claude-meetings |
+
+- **No confirmado:** si interviene sin que se lo pidan (las fuentes oficiales solo muestran respuestas a pedido) o si puede hablar en voz alta (por defecto responde por escrito); idiomas soportados (el artículo de soporte no los menciona); soporte de Microsoft Teams (un vocero se lo dijo a Computerworld el 11/11/2026, https://www.computerworld.com/?p=4247466; el anuncio oficial nombra solo Meet).
+- **Prensa:** VentureBeat, https://venturebeat.com/technology/anthropic-brings-claude-into-google-meet-to-draft-documents-and-whiteboards-during-your-meetings (ojo: dice que por defecto no entra a llamadas con invitados externos; según soporte eso vale para Enterprise, en Team entra por defecto).
+- **Lectura:** confirma que "meter un agente en la llamada" ya es producto de plataforma; el aporte de la tesis no es el bot sino la confrontación en vivo contra la documentación y la devolución al cliente en la misma reunión.
+
+---
+
 ## RFS de YC (lo que dicen querer financiar)
 
 | RFS (período) | Qué propone | Relación / límite | Ref |
