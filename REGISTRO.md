@@ -307,6 +307,7 @@
 - Memoria organizacional del PIS relevada (`sprint 25/MEMORIA_PIS.md`): pública de 1999 a 2017, con requisitos, alcance, glosario y actas con el cliente por iteración; sirve para armar casos de validación, con permiso del equipo docente y anonimizada
 - Trabajo relacionado: Claude Meetings (Anthropic, beta desde el 12/11) agregado a `sprint 11/startups_relacionadas.md`
 - Acta al final de la reunión implementada: resumen, hallazgos con su decisión y transcripción marcada; entra sola a la base de conocimiento y el asistente la usa desde la reunión siguiente
+- Avance del prototipo para mostrar a Daniel (`sprint 25/AVANCE_PROTOTIPO.md`): búsqueda híbrida, acta al final de la reunión y demora de punta a punta
 
 **Siguiente:** revisar la memoria organizacional del Proyecto de Ingeniería de Software para el prototipo. El sprint queda enfocado en el prototipo.
 
