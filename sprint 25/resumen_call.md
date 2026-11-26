@@ -32,5 +32,9 @@
 - [x] Elegir una candidata de búsqueda e implementarla en el backend.
 - [x] Agregar el acta al final de la reunión y definir su formato.
 - [ ] Revisar la memoria organizacional del Proyecto de Ingeniería de Software y ver qué sirve.
-- [x] Agregar el agente de reuniones de Anthropic al trabajo relacionado.
 - [ ] Próxima call: definir la validación.
+
+## Pasa al sprint 26
+
+- [ ] Actualizar la documentación del Overleaf con el feedback de Daniel.
+- [ ] Agregar el agente de reuniones de Anthropic al trabajo relacionado.

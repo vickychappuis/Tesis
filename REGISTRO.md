@@ -308,4 +308,8 @@
 - Trabajo relacionado: Claude Meetings (Anthropic, beta desde el 12/11) agregado a `sprint 11/startups_relacionadas.md`
 - Acta al final de la reunión implementada: resumen, hallazgos con su decisión y transcripción marcada; entra sola a la base de conocimiento y el asistente la usa desde la reunión siguiente
 
+**Siguiente:** revisar la memoria organizacional del Proyecto de Ingeniería de Software para el prototipo. El sprint queda enfocado en el prototipo.
+
+**Pasa al sprint 26:** actualizar la documentación del Overleaf con el feedback de Daniel, incluido Claude Meetings como trabajo relacionado.
+
 ---
