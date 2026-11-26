@@ -29,8 +29,8 @@
 
 ## Próximos pasos (sprint 25)
 
-- [ ] Elegir una candidata de búsqueda e implementarla en el backend.
-- [ ] Agregar el acta al final de la reunión y definir su formato.
+- [x] Elegir una candidata de búsqueda e implementarla en el backend.
+- [x] Agregar el acta al final de la reunión y definir su formato.
 - [ ] Revisar la memoria organizacional del Proyecto de Ingeniería de Software y ver qué sirve.
-- [ ] Agregar el agente de reuniones de Anthropic al trabajo relacionado.
+- [x] Agregar el agente de reuniones de Anthropic al trabajo relacionado.
 - [ ] Próxima call: definir la validación.
