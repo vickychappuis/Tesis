@@ -318,5 +318,7 @@
 - Foco acordado (call del 26/11): presentación del prototipo para el jueves 3/12 y elegir uno o dos proyectos de la memoria organizacional como caso de validación
 - Plan de validación con los ajustes de Daniel (`sprint 26/PLAN_VALIDACION.md`): reunión simulada de unos 15 minutos por persona, 6 a 10 participantes, cuatro casos y encuesta de aceptación (TAM)
 - Pendiente del sprint 25: actualizar la documentación del Overleaf (feedback de Daniel, búsqueda implementada, acta, alcance cubierto por la PoC) y sumar Claude Meetings como trabajo relacionado; sin apuro
+- Overleaf: requisitos y diseño de la PoC al día con el prototipo (búsqueda híbrida, acta de la sesión, alcances de RF7, RF12, RF16, RF20, RF23 y RNF10 reformulado), revisado por 5 chequeadores
+- Prototipo: toda decisión se puede deshacer durante la sesión, también en el uso directo de la web
 
 ---
