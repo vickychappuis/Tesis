@@ -80,13 +80,13 @@ No sirve, o sirve con trabajo:
 
 ## Riesgos
 
-- **Permiso:** el material es accesible sin login, pero no encontré una licencia ni condiciones de uso. Publicarlo no equivale a autorizar reutilizarlo en otra investigación, así que conviene pedir permiso igual.
+- **Permiso:** el material es accesible sin login, pero no encontré una licencia ni condiciones de uso. Publicarlo no equivale a autorizar reutilizarlo en otra investigación, así que conviene pedir permiso igual. Daniel indicó en la call del 26/11 que, por ser público, no hace falta pedirlo.
 - **Privacidad:** los documentos tienen nombres reales de estudiantes, docentes, clientes y empresas (Correo, BPS, Microsoft, Moove-it, entre otros) y detalles de sistemas internos. Para la tesis habría que anonimizar personas y, según lo que diga el curso, también organizaciones; no subir los documentos al repo público de la tesis; y, si se usan con la API de OpenAI, chequear que eso entre en lo autorizado.
 - **Realismo:** un cliente que acepta trabajar con estudiantes no es exactamente un cliente de la industria, y los documentos los escribieron estudiantes evaluados por eso. Sirve igual, pero es una limitación a declarar.
 - **Que el sitio cambie:** es una página vieja sin mantenimiento aparente. Si se elige un caso, conviene guardar una copia local (fuera del repo público) con la fecha de descarga.
 
 ## Recomendación
 
-1. **Pedir permiso al equipo docente actual de PIS** para usar con fines de investigación, anonimizado y sin redistribuirlo, el material de la memoria organizacional (sitio público y sección PISAgile del EVA). En el EVA de 2026 los avisos los firman Leticia Pérez y Diego Vallespir; el GrIS (https://www.fing.edu.uy/inco/grupos/gris/) es el grupo responsable. Daniel sugirió la fuente, así que puede hacer el primer contacto.
+1. **(Descartado el 26/11: Daniel indicó que no hace falta.)** Pedir permiso al equipo docente actual de PIS para usar con fines de investigación, anonimizado y sin redistribuirlo, el material de la memoria organizacional (sitio público y sección PISAgile del EVA). En el EVA de 2026 los avisos los firman Leticia Pérez y Diego Vallespir; el GrIS (https://www.fing.edu.uy/inco/grupos/gris/) es el grupo responsable. Daniel sugirió la fuente, así que puede hacer el primer contacto.
 2. **En el mismo pedido, preguntar por material reciente (2022 a 2026) no publicado**, sobre todo actas de reuniones o sprint reviews con el cliente y backlogs de historias, y si algún cliente o grupo de este año aceptaría una sesión simulada.
 3. **Mientras tanto, armar un caso piloto con lo público:** 2009, grupo 9 (Correo, Invenio) para el estilo MUM, y uno de 2016 o 2017 con Scrum para historias de usuario. Para cada uno: especificación, alcance y glosario de una iteración como base, y 10 a 15 enunciados sacados del acta siguiente, con el veredicto esperado según lo que pasó después. Así se puede mostrar en la próxima call qué tan útil es antes de cerrar la validación.

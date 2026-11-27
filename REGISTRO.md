@@ -297,20 +297,25 @@
 
 ---
 
-## Sprint 25 — 20 nov 2026 →
+## Sprint 25 — 20 nov → jueves 26 nov 2026
 
 - Foco acordado (call del 19/11): cerrar la PoC con una candidata de búsqueda implementada y el acta al final de la reunión
 - Fuente posible de documentación real para la validación: memoria organizacional del Proyecto de Ingeniería de Software (Udelar)
 - Trabajo relacionado: agente de reuniones de Anthropic (beta)
 - Búsqueda elegida: RAG híbrido (vectores densos y BM25 con fusión RRF, Qdrant local), por la demora en vivo; el bibliotecario queda como fallback. Mismos aciertos en los 15 casos y el veredicto pasa de 10,8 s a unos 6 s (p50)
 - Demora medida de punta a punta (sin Deepgram): unos 20 s, repartidos entre interpretar (~4 s), extraer (~4 s), veredicto (~6,7 s) y el texto corto del chat (~5 s)
-- Memoria organizacional del PIS relevada (`sprint 25/MEMORIA_PIS.md`): pública de 1999 a 2017, con requisitos, alcance, glosario y actas con el cliente por iteración; sirve para armar casos de validación, con permiso del equipo docente y anonimizada
+- Memoria organizacional del PIS relevada (`sprint 25/MEMORIA_PIS.md`): pública de 1999 a 2017, con requisitos, alcance, glosario y actas con el cliente por iteración; sirve para armar casos de validación, anonimizada
 - Trabajo relacionado: Claude Meetings (Anthropic, beta desde el 12/11) agregado a `sprint 11/startups_relacionadas.md`
 - Acta al final de la reunión implementada: resumen, hallazgos con su decisión y transcripción marcada; entra sola a la base de conocimiento y el asistente la usa desde la reunión siguiente
 - Avance del prototipo para mostrar a Daniel (`sprint 25/AVANCE_PROTOTIPO.md`): búsqueda híbrida, acta al final de la reunión y demora de punta a punta
+- Prototipo: el proyecto y el cliente se describen en un archivo aparte, así los prompts no dependen del dominio de prueba
+- Call con Daniel (26 nov, `sprint 26/resumen_call.md`): plan de validación aprobado (simulación de uso controlado con invitados y encuesta corta); el material del Proyecto de Ingeniería de Software se puede usar sin pedir permiso
 
-**Siguiente:** revisar la memoria organizacional del Proyecto de Ingeniería de Software para el prototipo. El sprint queda enfocado en el prototipo.
+---
 
-**Pasa al sprint 26:** actualizar la documentación del Overleaf con el feedback de Daniel, incluido Claude Meetings como trabajo relacionado.
+## Sprint 26 — 27 nov 2026 →
+
+- Foco acordado (call del 26/11): presentación del prototipo para el jueves 3/12 y elegir uno o dos proyectos de la memoria organizacional como caso de validación
+- Pendiente del sprint 25: actualizar la documentación del Overleaf (feedback de Daniel, búsqueda implementada, acta, alcance cubierto por la PoC) y sumar Claude Meetings como trabajo relacionado; sin apuro
 
 ---

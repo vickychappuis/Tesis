@@ -31,8 +31,8 @@
 
 - [x] Elegir una candidata de búsqueda e implementarla en el backend.
 - [x] Agregar el acta al final de la reunión y definir su formato.
-- [ ] Revisar la memoria organizacional del Proyecto de Ingeniería de Software y ver qué sirve.
-- [ ] Próxima call: definir la validación.
+- [ ] Revisar la memoria organizacional del Proyecto de Ingeniería de Software y ver qué sirve (sigue en el sprint 26).
+- [x] Próxima call: definir la validación.
 
 ## Pasa al sprint 26
 
