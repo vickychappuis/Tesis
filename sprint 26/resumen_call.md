@@ -32,5 +32,6 @@
 - [ ] Revisar la memoria organizacional del Proyecto de Ingeniería de Software y elegir uno o dos proyectos candidatos.
 - [ ] Marcar en el Overleaf qué requisitos del alcance cubre la PoC y avisarle a Daniel.
 - [ ] Empezar a definir a quién convocar para la validación.
-- [ ] Actualizar la documentación del Overleaf: feedback de Daniel, búsqueda implementada y acta (sin apuro).
+- [x] Actualizar requisitos y diseño en el Overleaf con la búsqueda implementada y el acta (27/11).
+- [ ] Incorporar al Overleaf el feedback de Daniel (sin apuro).
 - [ ] Agregar el agente de reuniones de Anthropic al trabajo relacionado.
