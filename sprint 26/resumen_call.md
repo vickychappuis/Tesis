@@ -5,6 +5,7 @@
 ## Validación
 
 - El plan de validación quedó aprobado: una simulación de uso controlado con invitados y, al final, preguntarles qué les pareció.
+- El plan, con los ajustes de Daniel, está en `sprint 26/PLAN_VALIDACION.md`: reunión simulada de unos 15 minutos por persona, 6 a 10 participantes, cuatro casos y encuesta de aceptación (TAM).
 - Lo que se valida es si la herramienta les resulta útil y fácil de usar, no el funcionamiento del prototipo. Las pruebas del prototipo se hacen igual, por separado.
 - No hace falta consultar a nadie más si este tipo de validación es válido.
 - Participantes: Daniel y yo, algún docente de ingeniería de software que invita Daniel (mirada académica) y compañeros o conocidos que invite yo.
